@@ -13,6 +13,17 @@ import { useSiteI18n } from "@/components/site/site-i18n"
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  "work-items-board-base": () => import("@/components/examples/work-items-components-demo").then(m => m.ItemBoardDemo),
+  "work-item-properties": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemPropertiesDemo),
+  "work-item-row": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemRowDemo),
+  "work-item-card": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemCardDemo),
+  "work-item-list": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemListDemo),
+  "work-item-board": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemBoardDemo),
+  "work-item-table": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemTableDemo),
+  "work-items-toolbar": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemsToolbarDemo),
+  "work-item-detail": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemDetailDemo),
+  "work-items-workspace": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemsWorkspaceDemo),
+
 "agent-run-properties":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunPropertiesDemo),
 "run-stage-summary":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.RunStageSummaryDemo),
 "agent-run-row":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunRowDemo),

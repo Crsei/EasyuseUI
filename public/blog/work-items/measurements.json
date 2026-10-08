@@ -1,0 +1,46 @@
+{
+  "capturedAt": "2026-10-08T11:24:23.196Z",
+  "origin": "http://127.0.0.1:33112",
+  "measurements": [
+    {
+      "count": 50,
+      "loaded": 50,
+      "domCount": 1749,
+      "renderMs": 215.48691999999573,
+      "selectMs": 190.06408800001373,
+      "fieldUpdateMs": 834.1744270000054,
+      "boardMs": 449.1602669999993,
+      "moveMs": 583.9026930000109,
+      "groupMs": 439.6575220000086,
+      "samples": 1,
+      "method": "Playwright action to two animation frames; includes browser automation and fixture latency (120ms); not a service benchmark"
+    },
+    {
+      "count": 200,
+      "loaded": 200,
+      "domCount": 6402,
+      "renderMs": 1031.035699999993,
+      "selectMs": 499.7814939999953,
+      "fieldUpdateMs": 2683.6288369999966,
+      "boardMs": 1766.5444730000017,
+      "moveMs": 1333.5246049999987,
+      "groupMs": 1791.7571279999975,
+      "samples": 1,
+      "method": "Playwright action to two animation frames; includes browser automation and fixture latency (120ms); not a service benchmark"
+    },
+    {
+      "count": 1000,
+      "loaded": 1000,
+      "domCount": 31201,
+      "renderMs": 6279.520814000003,
+      "selectMs": 3494.5063200000004,
+      "fieldUpdateMs": 13156.66313,
+      "boardMs": 9101.599748000008,
+      "moveMs": 7673.601396000013,
+      "groupMs": 20414.016252,
+      "samples": 1,
+      "method": "Playwright action to two animation frames; includes browser automation and fixture latency (120ms); not a service benchmark"
+    }
+  ],
+  "errors": []
+}

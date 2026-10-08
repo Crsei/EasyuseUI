@@ -70,7 +70,7 @@ export default async function ComponentPage({ params }: Props) {
       <CodeBlock
         lang="bash"
         title="Terminal"
-        code={`pnpm dlx shadcn@latest add ${registryUrl}/${slug}.json`}
+        code={`pnpm dlx shadcn@latest add ${registryUrl}/${entry.registryId}.json`}
       />
       <h2 id="usage" className="mt-12 mb-4 text-xl font-semibold">
         <SiteText messageKey="site.usage" />

@@ -16,6 +16,8 @@ export function SiteFrame({
   if (
     pathname === "/workspace/agents" ||
     pathname === "/workspace/agents/" ||
+    pathname === "/workspace/work-items" ||
+    pathname === "/workspace/work-items/" ||
     pathname === "/workspace/canvas" ||
     pathname.startsWith("/workspace/canvas/")
   )

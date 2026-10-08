@@ -1,0 +1,112 @@
+.page {
+  height: 100%;
+  min-height: 0;
+  position: relative;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  font-size: 13px;
+}
+.nav a {
+  padding: 8px;
+  border-radius: 6px;
+}
+.nav a[aria-current] {
+  background: var(--selection);
+}
+.nav a:hover {
+  background: var(--surface-hover);
+}
+.nav a:focus-visible {
+  outline: 2px solid var(--ring);
+}
+.preferences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  font-size: 12px;
+}
+.notes p {
+  flex-basis: 100%;
+  color: var(--muted-foreground);
+}
+.notes select {
+  padding: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 4px;
+  margin-left: 8px;
+}
+.createUnknown {
+  position: absolute;
+  bottom: 40px;
+  right: 16px;
+  background: var(--surface);
+  padding: 12px;
+  border: 1px solid var(--border);
+}
+@media (max-width: 640px) {
+  .nav {
+    padding: 8px;
+    gap: 8px;
+  }
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav svg {
+  flex-shrink: 0;
+}
+@media (max-width: 1023px) {
+  .nav {
+    padding: 8px;
+    gap: 8px;
+  }
+  .nav > span,
+  .nav > strong,
+  .nav a span,
+  .preferences button span {
+    display: none;
+  }
+  .nav a {
+    padding: 8px;
+    width: 32px;
+    height: 32px;
+  }
+  .preferences {
+    gap: 8px;
+  }
+  .preferences button {
+    min-width: 32px;
+    width: 32px;
+    padding: 0;
+  }
+}
+@media (pointer: coarse) {
+  .nav a,
+  .preferences button {
+    min-height: 44px;
+  }
+}
+@media (pointer: coarse) and (max-width: 1023px) {
+  .nav {
+    padding: 0;
+  }
+  .nav a,
+  .preferences button {
+    min-width: 44px;
+    width: 44px;
+  }
+}

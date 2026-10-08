@@ -1,3 +1,4 @@
+import { workItemsSharedViews } from "../content/blog/work-items-shared-views"
 import { agentBoardShowcase } from "../content/blog/agent-board-showcase"
 import { commonComponentsFromCrm } from "../content/blog/common-components-from-crm"
 import { canvasIndexes } from "../content/blog/canvas-indexes"
@@ -10,6 +11,7 @@ import { onDemandDemos } from "../content/blog/on-demand-demos"
 import type { BlogPost, BlogSummary } from "./blog-model"
 
 const posts: BlogPost[] = [
+  workItemsSharedViews,
   agentBoardShowcase,
   commonComponentsFromCrm,
   canvasIndexes,

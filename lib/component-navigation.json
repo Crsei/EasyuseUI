@@ -537,5 +537,75 @@
     "category": "组合模块",
     "docPath": "/docs/item-board/",
     "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-properties",
+    "name": "WorkItemProperties",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-properties/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-row",
+    "name": "WorkItemRow",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-row/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-card",
+    "name": "WorkItemCard",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-card/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-list",
+    "name": "WorkItemList",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-list/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-board",
+    "name": "WorkItemBoard",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-board/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-table",
+    "name": "WorkItemTable",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-table/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-items-toolbar",
+    "name": "WorkItemsToolbar",
+    "category": "组合模块",
+    "docPath": "/docs/work-items-toolbar/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-detail",
+    "name": "WorkItemDetail / WorkItemQuickCreate",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-detail/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-items-workspace",
+    "name": "WorkItemsWorkspace",
+    "category": "组合模块",
+    "docPath": "/docs/work-items-workspace/",
+    "displayCategory": "workspace"
+  },
+  {
+    "slug": "work-items-board-base",
+    "name": "Board",
+    "category": "组合模块",
+    "docPath": "/docs/work-items-board-base/",
+    "displayCategory": "patterns"
   }
 ]

@@ -1995,6 +1995,210 @@
           "target": "components/blocks/item-board.module.css"
         }
       ]
+    },
+    {
+      "name": "work-items-model",
+      "type": "registry:lib",
+      "title": "work-items-model",
+      "registryDependencies": [
+        "runtime-status",
+        "grouped-items-model"
+      ],
+      "files": [
+        {
+          "path": "lib/work-items-model.ts",
+          "type": "registry:lib",
+          "target": "lib/work-items-model.ts"
+        },
+        {
+          "path": "lib/work-items-view.ts",
+          "type": "registry:lib",
+          "target": "lib/work-items-view.ts"
+        }
+      ]
+    },
+    {
+      "name": "work-items-styles",
+      "type": "registry:lib",
+      "title": "work-items-styles",
+      "registryDependencies": [
+        "theme"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-items.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/work-items.module.css"
+        }
+      ]
+    },
+    {
+      "name": "work-item-properties",
+      "type": "registry:block",
+      "title": "WorkItemProperties",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "input",
+        "select",
+        "combobox",
+        "popover",
+        "avatar",
+        "runtime-status-badge",
+        "i18n",
+        "work-items-model",
+        "work-items-styles"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-item-properties.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-item-properties.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-item",
+      "type": "registry:block",
+      "title": "WorkItemRow / WorkItemCard",
+      "registryDependencies": [
+        "theme",
+        "checkbox",
+        "button",
+        "work-item-properties",
+        "work-items-model",
+        "work-items-styles",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-item.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-item.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-items-views",
+      "type": "registry:block",
+      "title": "WorkItemList / WorkItemBoard / WorkItemTable",
+      "registryDependencies": [
+        "theme",
+        "grouped-list",
+        "work-items-board-base",
+        "work-item",
+        "work-item-properties",
+        "work-items-model",
+        "data-table",
+        "i18n",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-items-views.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-items-views.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-items-toolbar",
+      "type": "registry:block",
+      "title": "WorkItemsToolbar",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "input",
+        "checkbox",
+        "segmented",
+        "popover",
+        "filter-toolbar",
+        "work-item-properties",
+        "work-items-model",
+        "work-items-styles",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-items-toolbar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-items-toolbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-item-detail",
+      "type": "registry:block",
+      "title": "WorkItemDetail / WorkItemQuickCreate",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "input",
+        "field",
+        "work-item",
+        "work-item-properties",
+        "work-items-model",
+        "work-items-styles",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-item-detail.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-item-detail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-items-workspace",
+      "type": "registry:block",
+      "title": "WorkItemsWorkspace",
+      "registryDependencies": [
+        "theme",
+        "workspace-shell",
+        "work-items-toolbar",
+        "work-items-views",
+        "work-item-detail",
+        "data-region",
+        "button",
+        "checkbox",
+        "work-items-model",
+        "grouped-items-model",
+        "work-items-styles",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-items-workspace.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-items-workspace.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-items-board-base",
+      "type": "registry:block",
+      "title": "Board",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "popover",
+        "grouped-list",
+        "grouped-items-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-items-board-base.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-items-board-base.tsx"
+        },
+        {
+          "path": "components/blocks/work-items-board-base.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/work-items-board-base.module.css"
+        }
+      ]
     }
   ]
 }

@@ -86,5 +86,16 @@
       "zh-CN": "宿主语义映射与局部私有主题，浮层跟随各自作用域。",
       "en": "Adopting themes gradually in existing products"
     }
+  },
+  {
+    "slug": "work-items-shared-views",
+    "title": {
+      "zh-CN": "Work Items 的 List、Board 与 Table 如何共享组件",
+      "en": "How Work Items List, Board and Table share components"
+    },
+    "summary": {
+      "zh-CN": "用同一份受控快照组合列表、看板和表格；共享字段、选择与详情，并保留拒绝、未知结果和分页的真实边界。",
+      "en": "Compose List, Board and Table from one controlled snapshot, sharing properties, selection and details while preserving rejection, unknown outcomes and pagination boundaries."
+    }
   }
 ]

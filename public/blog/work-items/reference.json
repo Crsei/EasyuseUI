@@ -1,0 +1,55 @@
+{
+  "capturedAt": "2026-10-08T11:27:31.213Z",
+  "repository": "plane",
+  "commit": "1fec307f91003df96351557af32ce87891a3678a",
+  "files": [
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/roots/project-layout-root.tsx",
+      "sha256": "5b90dd1f0ea6974ce98c54206da6cf666e81d252876fa3593bf6d5293e257e4b"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/list/block.tsx",
+      "sha256": "0e42d506b14b66af40aa035d69f4990ff5074e5e347a59162442b059e8e8d952"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/kanban/kanban-group.tsx",
+      "sha256": "acd9946cbcaaf13e2a572af29a25b0ff4662fe4414462c726ba0a835195becc9"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/kanban/blocks-list.tsx",
+      "sha256": "1b09a8e228a66875474ce98da4c267918ade1286040bf5d4fb64ab4c3aa80ab5"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/kanban/block.tsx",
+      "sha256": "91fee9ecb62613ba453ac768a924868b42e8cacce016724d65eae08a05a84cb5"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/properties/all-properties.tsx",
+      "sha256": "0553b476f70f2c114fb157710c6f3bc972a9e211e455b60f13fea16b5b9728e7"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/filters/header/display-filters/group-by.tsx",
+      "sha256": "50c9c8783e497c0eb4a6014bb68314a021f9b02295a28bb748dd40c7536f7422"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/filters/header/display-filters/order-by.tsx",
+      "sha256": "17d6c20b5ccef85d94ee71dfc3bd53d733ad1a765c1254472b4f5cffc5aa8c50"
+    },
+    {
+      "file": "apps/web/core/components/issues/issue-layouts/filters/header/display-filters/display-properties.tsx",
+      "sha256": "a9d9315e29c1224b47365f8403183ed0d042b95d29eef5071e36659b509f864b"
+    }
+  ],
+  "sourceScope": "Information structure, shared properties and display controls only; EasyuseUI independent implementation.",
+  "browser": {
+    "origin": "http://127.0.0.1:3200",
+    "authenticatedWorkItemScreenshots": false,
+    "publicEntryOnly": true
+  },
+  "visualComparison": null,
+  "limitations": [
+    "No authenticated Plane List/Board/Table visual baseline",
+    "No pixel parity claim",
+    "No Plane files modified or Plane services connected"
+  ]
+}

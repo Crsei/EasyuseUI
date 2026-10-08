@@ -1,0 +1,556 @@
+{
+  "sourceSnapshotId": "449f494cdf3ca5834ef01c5b5ef9d446523d7c5e53f1abddf0e4da52886c74d7",
+  "files": [
+    {
+      "file": "app/workspace/work-items/page.tsx",
+      "sha256": "008d2a8169534142ff3d34027647936af36ddecf63f4f5041abeeb3c33bb1b0c"
+    },
+    {
+      "file": "components/blocks/grouped-list.module.css",
+      "sha256": "1f0771c495508e87884dc33f4356a1205834633d3e997cfd82c185711d060756"
+    },
+    {
+      "file": "components/blocks/grouped-list.tsx",
+      "sha256": "60fdac00f30eeb8c0bdb8ad267f7f641aceef24ee991359f151bdc7da585c9b7"
+    },
+    {
+      "file": "components/blocks/work-item-detail.tsx",
+      "sha256": "c0ce2577e91d356c5afc10fcd41f0a31a89a561786f578a85229cb2536abcc07"
+    },
+    {
+      "file": "components/blocks/work-item-properties.tsx",
+      "sha256": "48e8c84defc63c3a08db7f269e5d259aa9de90475fdd58e7d3b771548628ab23"
+    },
+    {
+      "file": "components/blocks/work-item.tsx",
+      "sha256": "cf5a1da8251c407bfa86058a514170f5197ad65b4928f9708ccc5cee9a068b79"
+    },
+    {
+      "file": "components/blocks/work-items-board-base.module.css",
+      "sha256": "5f680db420bda6e8769734891d150d8cf0d2444eac923fe504df01f3d8c1bdf6"
+    },
+    {
+      "file": "components/blocks/work-items-board-base.tsx",
+      "sha256": "37391289abedca394d65715ecfaf6c6d8691be4d22451d0eb4a59cdd3081ae54"
+    },
+    {
+      "file": "components/blocks/work-items-toolbar.tsx",
+      "sha256": "106f55d8ad57143b9a900835501e0ba8edc1dc4d440ae457f137076d282423f6"
+    },
+    {
+      "file": "components/blocks/work-items-views.tsx",
+      "sha256": "953d0548d57b5d42f286c5db0804abd1bf4c0ec5dbf702e222c8f1d05fb2dd8f"
+    },
+    {
+      "file": "components/blocks/work-items-workspace.tsx",
+      "sha256": "ed601ac3d71178b1e6cd2125d5d5e16078ede2987a683327d7b50aff20adc3c4"
+    },
+    {
+      "file": "components/blocks/work-items.module.css",
+      "sha256": "c75222c554a6c51047a501cca8a7dadd2d61252074696a89a7a341992c5bc916"
+    },
+    {
+      "file": "components/examples/work-items-components-demo.tsx",
+      "sha256": "dc31226954df7447a6d192de0ad396300d2df2f499f0b772a652c604478877ff"
+    },
+    {
+      "file": "components/examples/work-items/commands.ts",
+      "sha256": "60f40149ec44ec1141d23661964f561556be58f9b3bf671a4343e1aa1b2e3348"
+    },
+    {
+      "file": "components/examples/work-items/fixtures.ts",
+      "sha256": "7ed0df5f43b2c656a92ae9e98611a17196c47a1dc46469195c2579e0808f79af"
+    },
+    {
+      "file": "components/examples/work-items/scenarios.ts",
+      "sha256": "b13a8784bb35dc877dad81a0630a5dd2f224620cc744be35476dfa4392c24ef5"
+    },
+    {
+      "file": "components/examples/work-items/selectors.ts",
+      "sha256": "41e360ce1fc0f36885f6d1d4b4f6901c123d13eb04759bca2442dab16fa69fbe"
+    },
+    {
+      "file": "components/examples/work-items/use-work-items-url.ts",
+      "sha256": "6d2a93a27cfb59429a01eeaa085b8c152e212fda1ca71f62eb5d5d5518715289"
+    },
+    {
+      "file": "components/examples/work-items/work-items-demo.module.css",
+      "sha256": "43ca17616aab504412ed5988099088762da01f889e6cbb33cc7bbd35fbde5338"
+    },
+    {
+      "file": "components/examples/work-items/work-items-demo.tsx",
+      "sha256": "0456e71773c9e76bb3c781627ae848d8c6d4921f4f762e53d699f42c0270a4e4"
+    },
+    {
+      "file": "lib/grouped-items-model.ts",
+      "sha256": "385442961e0c66560e673d2e9f2ca09d408392f0c239b200b2324dfb29ff4414"
+    },
+    {
+      "file": "lib/work-items-model.ts",
+      "sha256": "03395290d0cbd4c2efd13d90b4768498097f0f5fe2ded95a93d0a885226b498a"
+    },
+    {
+      "file": "lib/work-items-view.ts",
+      "sha256": "cff6d193fdd819ca5dc2e23faf8a03607be88bc66d82cea04ca593d62f01eb5d"
+    },
+    {
+      "file": "scripts/capture-work-items.mjs",
+      "sha256": "6c8309860d853fd60e04741fee58955bcdff4f789532a46741651548944430e1"
+    },
+    {
+      "file": "scripts/work-items-consumer.mjs",
+      "sha256": "174429f6f1dd05ca9b620dbefa9be2d7dcfdb13e33df9e7f477412d11fb8a510"
+    },
+    {
+      "file": "tests/work-items.spec.ts",
+      "sha256": "23b58f2bce7390c5c7f32e0d67143a48cccf56778f4cf64dd9d9015bd4f714f5"
+    }
+  ],
+  "capturedAt": "2026-10-08T11:24:23.196Z",
+  "screenshots": [
+    {
+      "file": "list-1440-light-zh-CN.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1440-light-zh-CN.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1440-light-zh-CN.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-1440-light-en.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1440-light-en.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1440-light-en.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-1440-dark-zh-CN.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1440-dark-zh-CN.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1440-dark-zh-CN.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-1440-dark-en.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1440-dark-en.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1440-dark-en.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-1024-light-zh-CN.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1024-light-zh-CN.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1024-light-zh-CN.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-1024-light-en.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1024-light-en.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1024-light-en.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-1024-dark-zh-CN.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1024-dark-zh-CN.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1024-dark-zh-CN.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-1024-dark-en.png",
+      "layout": "list",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-1024-dark-en.png",
+      "layout": "board",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-1024-dark-en.png",
+      "layout": "table",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-390-light-zh-CN.png",
+      "layout": "list",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-390-light-zh-CN.png",
+      "layout": "board",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-390-light-zh-CN.png",
+      "layout": "table",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-390-light-en.png",
+      "layout": "list",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-390-light-en.png",
+      "layout": "board",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-390-light-en.png",
+      "layout": "table",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-390-dark-zh-CN.png",
+      "layout": "list",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-390-dark-zh-CN.png",
+      "layout": "board",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-390-dark-zh-CN.png",
+      "layout": "table",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "list-390-dark-en.png",
+      "layout": "list",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-390-dark-en.png",
+      "layout": "board",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "table-390-dark-en.png",
+      "layout": "table",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "detail-1440-light-zh-CN.png",
+      "layout": "list",
+      "scenario": "detail",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-partial-1440-light-zh-CN.png",
+      "layout": "board",
+      "scenario": "partial",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-readonly-1440-light-zh-CN.png",
+      "layout": "board",
+      "scenario": "readonly",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    },
+    {
+      "file": "board-unknown-1440-light-zh-CN.png",
+      "layout": "board",
+      "scenario": "unknown",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-08T11:24:23.196Z"
+    }
+  ]
+}

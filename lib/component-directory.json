@@ -691,5 +691,95 @@
     "docPath": "/docs/item-board/",
     "installType": "block",
     "registryId": "item-board"
+  },
+  {
+    "slug": "work-item-properties",
+    "name": "WorkItemProperties",
+    "description": "工作项共享属性与选择器，业务状态独立于运行状态。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-properties/",
+    "installType": "block",
+    "registryId": "work-item-properties"
+  },
+  {
+    "slug": "work-item-row",
+    "name": "WorkItemRow",
+    "description": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-row/",
+    "installType": "block",
+    "registryId": "work-item"
+  },
+  {
+    "slug": "work-item-card",
+    "name": "WorkItemCard",
+    "description": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-card/",
+    "installType": "block",
+    "registryId": "work-item"
+  },
+  {
+    "slug": "work-item-list",
+    "name": "WorkItemList",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-list/",
+    "installType": "block",
+    "registryId": "work-items-views"
+  },
+  {
+    "slug": "work-item-board",
+    "name": "WorkItemBoard",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-board/",
+    "installType": "block",
+    "registryId": "work-items-views"
+  },
+  {
+    "slug": "work-item-table",
+    "name": "WorkItemTable",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-table/",
+    "installType": "block",
+    "registryId": "work-items-views"
+  },
+  {
+    "slug": "work-items-toolbar",
+    "name": "WorkItemsToolbar",
+    "description": "工作项搜索、筛选、布局、排序与显示设置。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-items-toolbar/",
+    "installType": "block",
+    "registryId": "work-items-toolbar"
+  },
+  {
+    "slug": "work-item-detail",
+    "name": "WorkItemDetail / WorkItemQuickCreate",
+    "description": "受控工作项详情及保留失败草稿的快速创建。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-detail/",
+    "installType": "block",
+    "registryId": "work-item-detail"
+  },
+  {
+    "slug": "work-items-workspace",
+    "name": "WorkItemsWorkspace",
+    "description": "组合三种工作项布局与详情，路由和服务由调用方持有。",
+    "displayCategory": "workspace",
+    "docPath": "/docs/work-items-workspace/",
+    "installType": "block",
+    "registryId": "work-items-workspace"
+  },
+  {
+    "slug": "work-items-board-base",
+    "name": "Board",
+    "description": "通用受控看板，指针、触屏与键盘移动共享命令。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-items-board-base/",
+    "installType": "block",
+    "registryId": "work-items-board-base"
   }
 ]

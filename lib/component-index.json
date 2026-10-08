@@ -1857,5 +1857,295 @@
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
+  },
+  {
+    "slug": "work-item-properties",
+    "docPath": "/docs/work-item-properties/",
+    "registryId": "work-item-properties",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "input",
+      "select",
+      "combobox",
+      "popover",
+      "avatar",
+      "runtime-status-badge",
+      "i18n",
+      "work-items-model",
+      "work-items-styles"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemProperties",
+    "category": "组合模块",
+    "description": "工作项共享属性与选择器，业务状态独立于运行状态。",
+    "source": "components/blocks/work-item-properties.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemProperties } from \"@/components/blocks/work-item-properties\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-row",
+    "docPath": "/docs/work-item-row/",
+    "registryId": "work-item",
+    "registryDependencies": [
+      "theme",
+      "checkbox",
+      "button",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemRow",
+    "category": "组合模块",
+    "description": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+    "source": "components/blocks/work-item.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemRow } from \"@/components/blocks/work-item\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-card",
+    "docPath": "/docs/work-item-card/",
+    "registryId": "work-item",
+    "registryDependencies": [
+      "theme",
+      "checkbox",
+      "button",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemCard",
+    "category": "组合模块",
+    "description": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+    "source": "components/blocks/work-item.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemCard } from \"@/components/blocks/work-item\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-list",
+    "docPath": "/docs/work-item-list/",
+    "registryId": "work-items-views",
+    "registryDependencies": [
+      "theme",
+      "grouped-list",
+      "work-items-board-base",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "data-table",
+      "i18n",
+      "button"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemList",
+    "category": "组合模块",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "source": "components/blocks/work-items-views.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemList } from \"@/components/blocks/work-items-views\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-board",
+    "docPath": "/docs/work-item-board/",
+    "registryId": "work-items-views",
+    "registryDependencies": [
+      "theme",
+      "grouped-list",
+      "work-items-board-base",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "data-table",
+      "i18n",
+      "button"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemBoard",
+    "category": "组合模块",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "source": "components/blocks/work-items-views.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemBoard } from \"@/components/blocks/work-items-views\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-table",
+    "docPath": "/docs/work-item-table/",
+    "registryId": "work-items-views",
+    "registryDependencies": [
+      "theme",
+      "grouped-list",
+      "work-items-board-base",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "data-table",
+      "i18n",
+      "button"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemTable",
+    "category": "组合模块",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "source": "components/blocks/work-items-views.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemTable } from \"@/components/blocks/work-items-views\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-items-toolbar",
+    "docPath": "/docs/work-items-toolbar/",
+    "registryId": "work-items-toolbar",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "input",
+      "checkbox",
+      "segmented",
+      "popover",
+      "filter-toolbar",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemsToolbar",
+    "category": "组合模块",
+    "description": "工作项搜索、筛选、布局、排序与显示设置。",
+    "source": "components/blocks/work-items-toolbar.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemsToolbar } from \"@/components/blocks/work-items-toolbar\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-detail",
+    "docPath": "/docs/work-item-detail/",
+    "registryId": "work-item-detail",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "input",
+      "field",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemDetail / WorkItemQuickCreate",
+    "category": "组合模块",
+    "description": "受控工作项详情及保留失败草稿的快速创建。",
+    "source": "components/blocks/work-item-detail.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemDetail } from \"@/components/blocks/work-item-detail\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-items-workspace",
+    "docPath": "/docs/work-items-workspace/",
+    "registryId": "work-items-workspace",
+    "registryDependencies": [
+      "theme",
+      "workspace-shell",
+      "work-items-toolbar",
+      "work-items-views",
+      "work-item-detail",
+      "data-region",
+      "button",
+      "checkbox",
+      "work-items-model",
+      "grouped-items-model",
+      "work-items-styles",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "workspace",
+    "availability": "available",
+    "name": "WorkItemsWorkspace",
+    "category": "组合模块",
+    "description": "组合三种工作项布局与详情，路由和服务由调用方持有。",
+    "source": "components/blocks/work-items-workspace.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { WorkItemsWorkspace } from \"@/components/blocks/work-items-workspace\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-items-board-base",
+    "docPath": "/docs/work-items-board-base/",
+    "registryId": "work-items-board-base",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "popover",
+      "grouped-list",
+      "grouped-items-model",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "Board",
+    "category": "组合模块",
+    "description": "通用受控看板，指针、触屏与键盘移动共享命令。",
+    "source": "components/blocks/work-items-board-base.tsx",
+    "example": "components/examples/work-items-components-demo.tsx",
+    "usage": "import { Board } from \"@/components/blocks/work-items-board-base\"",
+    "widePreview": true,
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
   }
 ]

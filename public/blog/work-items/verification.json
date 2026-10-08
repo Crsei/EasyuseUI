@@ -1,0 +1,72 @@
+{
+  "capturedAt": "2026-10-08T11:30:20.458Z",
+  "sourceSnapshotId": "449f494cdf3ca5834ef01c5b5ef9d446523d7c5e53f1abddf0e4da52886c74d7",
+  "baselineCommit": "d5cea15b421a6302750896a4a07b0dd47610e925",
+  "scope": "Task-only isolated snapshot, local fixtures and independent combined Registry consumer",
+  "checks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "i18n": "passed",
+    "manifest": "passed",
+    "workItemsBrowser": {
+      "passed": 13,
+      "failed": 0
+    },
+    "existingComponentRegression": {
+      "passed": 47,
+      "failed": 0,
+      "files": [
+        "common-components.spec.ts",
+        "workspace.spec.ts",
+        "canvas-workspace.spec.ts",
+        "i18n.spec.ts"
+      ]
+    },
+    "documentationAndBlog": {
+      "passed": 6,
+      "failed": 0,
+      "status": "passed",
+      "scope": "Final production article, image loading, generic Board and installation commands"
+    },
+    "independentInstall": {
+      "status": "passed",
+      "fixture": "easyuse-ui-consumer-DUsQyi",
+      "steps": [
+        "CLI source/dependency installation",
+        "TypeScript",
+        "production build",
+        "List/Board/Table unknown reconciliation",
+        "detail editing",
+        "existing common and Canvas consumer checks",
+        "Independent Agent Board and Work Items Board installation targets coexist"
+      ]
+    },
+    "fullBrowserRegression": {
+      "passed": 224,
+      "failed": 0,
+      "duration": "5.6m",
+      "sourceSnapshotId": "4fba29362b9881bc62174f9532a8607adc7e23c23ab22dab94456043d277099c",
+      "scope": "Separated Board implementation before final route title correction; portable code unchanged afterwards"
+    },
+    "finalFocusedBrowser": {
+      "passed": 19,
+      "failed": 0,
+      "duration": "37.3s",
+      "sourceSnapshotId": "449f494cdf3ca5834ef01c5b5ef9d446523d7c5e53f1abddf0e4da52886c74d7",
+      "command": "pnpm exec playwright test work-items.spec.ts work-items-docs.spec.ts --config playwright.work-items.config.ts"
+    },
+    "blog": "passed"
+  },
+  "screenshots": {
+    "count": 40,
+    "uncaughtPageErrors": []
+  },
+  "limitations": [
+    "Local fixture writes/receipts/Agent states only",
+    "No authenticated Plane visual comparison or real service acceptance",
+    "No manual screen-reader acceptance",
+    "1000 mounted items are slow; no virtualization",
+    "Single-sample performance baseline, no improvement claim"
+  ]
+}
