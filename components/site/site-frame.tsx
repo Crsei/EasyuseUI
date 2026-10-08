@@ -14,6 +14,8 @@ export function SiteFrame({
 }) {
   const pathname = usePathname()
   if (
+    pathname === "/workspace/agents" ||
+    pathname === "/workspace/agents/" ||
     pathname === "/workspace/canvas" ||
     pathname.startsWith("/workspace/canvas/")
   )

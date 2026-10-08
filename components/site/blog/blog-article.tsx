@@ -94,6 +94,16 @@ export function BlogArticle({ post }: { post: BlogPost }) {
                 <p key={index} className="my-4">
                   <BlogText value={block.text} />
                 </p>
+              ) : block.type === "link" ? (
+                <p key={index} className="my-4">
+                  <Link
+                    prefetch={false}
+                    href={block.href}
+                    className="text-primary underline"
+                  >
+                    <BlogText value={block.text} />
+                  </Link>
+                </p>
               ) : block.type === "list" ? (
                 <ul key={index} className="my-4 list-disc space-y-2 pl-5">
                   {block.items.map((item, i) => (

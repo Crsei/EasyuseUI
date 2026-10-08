@@ -529,5 +529,167 @@
     "docPath": "/docs/tool-call/",
     "installType": "block",
     "registryId": "tool-call"
+  },
+  {
+    "slug": "agent-run-properties",
+    "name": "AgentRunProperties",
+    "description": "共享运行身份、模型、耗时与原始状态。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-run-properties/",
+    "installType": "block",
+    "registryId": "agent-run-properties"
+  },
+  {
+    "slug": "run-stage-summary",
+    "name": "RunStageSummary",
+    "description": "来源阶段与有明确分母的步骤计数，不生成假进度。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/run-stage-summary/",
+    "installType": "block",
+    "registryId": "run-stage-summary"
+  },
+  {
+    "slug": "agent-run-row",
+    "name": "AgentRunRow",
+    "description": "紧凑运行行；查看与尾部操作使用兄弟目标。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-run-row/",
+    "installType": "block",
+    "registryId": "agent-run-row"
+  },
+  {
+    "slug": "agent-run-card",
+    "name": "AgentRunCard",
+    "description": "独立运行卡片；缺失计数保留为未知。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-run-card/",
+    "installType": "block",
+    "registryId": "agent-run-card"
+  },
+  {
+    "slug": "agent-run-list",
+    "name": "AgentRunList",
+    "description": "同一运行集合的只读分组列表。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-run-list/",
+    "installType": "block",
+    "registryId": "agent-run-list"
+  },
+  {
+    "slug": "agent-run-board",
+    "name": "AgentRunBoard",
+    "description": "按来源状态派生分列的只读运行看板。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-run-board/",
+    "installType": "block",
+    "registryId": "agent-run-board"
+  },
+  {
+    "slug": "agent-run-inspector",
+    "name": "AgentRunInspector",
+    "description": "完整受控运行详情，组合请求、执行、产物与关联。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-run-inspector/",
+    "installType": "block",
+    "registryId": "agent-run-inspector"
+  },
+  {
+    "slug": "attention-queue",
+    "name": "AttentionQueue",
+    "description": "按关注 ID 去重；请求数与运行数分别表达。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/attention-queue/",
+    "installType": "block",
+    "registryId": "attention-queue"
+  },
+  {
+    "slug": "approval-request-panel",
+    "name": "ApprovalRequestPanel",
+    "description": "工具审批复用 ToolCall；未知结果必须先核对。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/approval-request-panel/",
+    "installType": "block",
+    "registryId": "approval-request-panel"
+  },
+  {
+    "slug": "artifact-list",
+    "name": "ArtifactList",
+    "description": "产物入口、可用状态与独立审阅摘要。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/artifact-list/",
+    "installType": "block",
+    "registryId": "artifact-list"
+  },
+  {
+    "slug": "review-summary",
+    "name": "ReviewSummary",
+    "description": "审阅、业务验收与 PR 状态分别呈现。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/review-summary/",
+    "installType": "block",
+    "registryId": "review-summary"
+  },
+  {
+    "slug": "execution-trace-tree",
+    "name": "ExecutionTraceTree",
+    "description": "可观测父子执行步骤与脱敏工具详情。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/execution-trace-tree/",
+    "installType": "block",
+    "registryId": "execution-trace-tree"
+  },
+  {
+    "slug": "agent-relationship-list",
+    "name": "AgentRelationshipList",
+    "description": "仅展示来源明确的运行关联与交接。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-relationship-list/",
+    "installType": "block",
+    "registryId": "agent-relationship-list"
+  },
+  {
+    "slug": "agent-usage-summary",
+    "name": "AgentUsageSummary",
+    "description": "来源用量去重、覆盖说明与分币种合计。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-usage-summary/",
+    "installType": "block",
+    "registryId": "agent-usage-summary"
+  },
+  {
+    "slug": "agent-board-toolbar",
+    "name": "AgentBoardToolbar",
+    "description": "共享运行筛选与四视图受控切换。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-board-toolbar/",
+    "installType": "block",
+    "registryId": "agent-board-toolbar"
+  },
+  {
+    "slug": "agent-board-workspace",
+    "name": "AgentBoardWorkspace",
+    "description": "受控 Agent 工作台；路由、服务与持久化归调用方。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-board-workspace/",
+    "installType": "block",
+    "registryId": "agent-board-workspace"
+  },
+  {
+    "slug": "grouped-list",
+    "name": "GroupedList",
+    "description": "受控分组列表，保留分组读取状态与未知总数。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/grouped-list/",
+    "installType": "block",
+    "registryId": "grouped-list"
+  },
+  {
+    "slug": "item-board",
+    "name": "Board",
+    "description": "通用受控看板，指针、触屏与键盘移动共享命令。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/item-board/",
+    "installType": "block",
+    "registryId": "item-board"
   }
 ]

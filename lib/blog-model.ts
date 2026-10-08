@@ -43,6 +43,7 @@ export type BlogImage = {
 }
 export type BlogBlock =
   | { type: "paragraph"; text: BlogText }
+  | { type: "link"; href: string; text: BlogText }
   | { type: "heading"; id: string; text: BlogText }
   | { type: "list"; items: BlogText[] }
   | { type: "code"; code: string; language: "tsx" | "bash" | "json" | "css" }

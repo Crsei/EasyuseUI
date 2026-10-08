@@ -1499,6 +1499,502 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "agent-board-model",
+      "type": "registry:lib",
+      "registryDependencies": [
+        "runtime-status"
+      ],
+      "files": [
+        {
+          "path": "lib/agent-board-model.ts",
+          "type": "registry:lib",
+          "target": "lib/agent-board-model.ts"
+        },
+        {
+          "path": "lib/agent-board-view.ts",
+          "type": "registry:lib",
+          "target": "lib/agent-board-view.ts"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-properties",
+      "type": "registry:block",
+      "title": "AgentRunProperties",
+      "description": "共享运行身份、模型、耗时与原始状态。",
+      "registryDependencies": [
+        "theme",
+        "runtime-status-badge",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-run-properties.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-run-properties.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "run-stage-summary",
+      "type": "registry:block",
+      "title": "RunStageSummary",
+      "description": "来源阶段与有明确分母的步骤计数，不生成假进度。",
+      "registryDependencies": [
+        "theme",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/run-stage-summary.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/run-stage-summary.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-row",
+      "type": "registry:block",
+      "title": "AgentRunRow",
+      "description": "紧凑运行行；查看与尾部操作使用兄弟目标。",
+      "registryDependencies": [
+        "theme",
+        "item",
+        "agent-run-properties",
+        "run-stage-summary",
+        "agent-run-card",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-run-row.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-run-row.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-card",
+      "type": "registry:block",
+      "title": "AgentRunCard",
+      "description": "独立运行卡片；缺失计数保留为未知。",
+      "registryDependencies": [
+        "theme",
+        "agent-run-properties",
+        "run-stage-summary",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-run-card.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-run-card.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-list",
+      "type": "registry:block",
+      "title": "AgentRunList",
+      "description": "同一运行集合的只读分组列表。",
+      "registryDependencies": [
+        "theme",
+        "agent-run-row",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-run-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-run-list.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-board",
+      "type": "registry:block",
+      "title": "AgentRunBoard",
+      "description": "按来源状态派生分列的只读运行看板。",
+      "registryDependencies": [
+        "theme",
+        "item-board",
+        "agent-run-card",
+        "agent-run-list",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-run-board.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-run-board.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-inspector",
+      "type": "registry:block",
+      "title": "AgentRunInspector",
+      "description": "完整受控运行详情，组合请求、执行、产物与关联。",
+      "registryDependencies": [
+        "theme",
+        "inspector",
+        "agent-row",
+        "session-row",
+        "run-stage-summary",
+        "approval-request-panel",
+        "artifact-list",
+        "execution-trace-tree",
+        "agent-relationship-list",
+        "activity-timeline",
+        "segmented",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-run-inspector.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-run-inspector.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "attention-queue",
+      "type": "registry:block",
+      "title": "AttentionQueue",
+      "description": "按关注 ID 去重；请求数与运行数分别表达。",
+      "registryDependencies": [
+        "theme",
+        "item",
+        "data-region",
+        "agent-board-model",
+        "redact",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/attention-queue.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/attention-queue.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "approval-request-panel",
+      "type": "registry:block",
+      "title": "ApprovalRequestPanel",
+      "description": "工具审批复用 ToolCall；未知结果必须先核对。",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "tool-call",
+        "agent-board-model",
+        "redact",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/approval-request-panel.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/approval-request-panel.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "artifact-list",
+      "type": "registry:block",
+      "title": "ArtifactList",
+      "description": "产物入口、可用状态与独立审阅摘要。",
+      "registryDependencies": [
+        "theme",
+        "item",
+        "data-region",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/artifact-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/artifact-list.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "review-summary",
+      "type": "registry:block",
+      "title": "ReviewSummary",
+      "description": "审阅、业务验收与 PR 状态分别呈现。",
+      "registryDependencies": [
+        "artifact-list",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/artifact-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/artifact-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "execution-trace-tree",
+      "type": "registry:block",
+      "title": "ExecutionTraceTree",
+      "description": "可观测父子执行步骤与脱敏工具详情。",
+      "registryDependencies": [
+        "theme",
+        "tree",
+        "tool-call",
+        "data-region",
+        "agent-board-model",
+        "redact",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/execution-trace-tree.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/execution-trace-tree.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-relationship-list",
+      "type": "registry:block",
+      "title": "AgentRelationshipList",
+      "description": "仅展示来源明确的运行关联与交接。",
+      "registryDependencies": [
+        "theme",
+        "item",
+        "data-region",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-relationship-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-relationship-list.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-usage-summary",
+      "type": "registry:block",
+      "title": "AgentUsageSummary",
+      "description": "来源用量去重、覆盖说明与分币种合计。",
+      "registryDependencies": [
+        "theme",
+        "metric-summary",
+        "data-table",
+        "agent-board-model",
+        "i18n",
+        "runtime-status-badge"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-usage-summary.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-usage-summary.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-board-toolbar",
+      "type": "registry:block",
+      "title": "AgentBoardToolbar",
+      "description": "共享运行筛选与四视图受控切换。",
+      "registryDependencies": [
+        "theme",
+        "input",
+        "select",
+        "segmented",
+        "filter-toolbar",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-board-toolbar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-board-toolbar.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-board-workspace",
+      "type": "registry:block",
+      "title": "AgentBoardWorkspace",
+      "description": "受控 Agent 工作台；路由、服务与持久化归调用方。",
+      "registryDependencies": [
+        "theme",
+        "workspace-shell",
+        "agent-run-board",
+        "agent-run-list",
+        "attention-queue",
+        "agent-usage-summary",
+        "agent-board-toolbar",
+        "agent-run-inspector",
+        "data-region",
+        "sheet",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-board-workspace.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-board-workspace.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "grouped-items-model",
+      "type": "registry:lib",
+      "title": "grouped-items-model",
+      "registryDependencies": [
+        "runtime-status"
+      ],
+      "files": [
+        {
+          "path": "lib/grouped-items-model.ts",
+          "type": "registry:lib",
+          "target": "lib/grouped-items-model.ts"
+        }
+      ]
+    },
+    {
+      "name": "grouped-list",
+      "type": "registry:block",
+      "title": "GroupedList",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "data-region",
+        "i18n",
+        "grouped-items-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/grouped-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/grouped-list.tsx"
+        },
+        {
+          "path": "components/blocks/grouped-list.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/grouped-list.module.css"
+        }
+      ]
+    },
+    {
+      "name": "item-board",
+      "type": "registry:block",
+      "title": "Board",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "popover",
+        "grouped-list",
+        "grouped-items-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/item-board.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/item-board.tsx"
+        },
+        {
+          "path": "components/blocks/item-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/item-board.module.css"
+        }
+      ]
     }
   ]
 }

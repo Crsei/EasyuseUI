@@ -28,6 +28,7 @@ export default function WorkspacePage() {
           <SiteText messageKey="site.componentUsageAndSource" />
         </Link>
       </div>
+      <Link href="/workspace/agents/" className="mb-4 inline-flex text-sm text-primary">Agent Board / 运行看板</Link>
       <WorkspaceShellDemo />
     </main>
   )

@@ -1,3 +1,4 @@
+import { agentBoardShowcase } from "../content/blog/agent-board-showcase"
 import { commonComponentsFromCrm } from "../content/blog/common-components-from-crm"
 import { canvasIndexes } from "../content/blog/canvas-indexes"
 import { longSessionAnchor } from "../content/blog/long-session-anchor"
@@ -9,6 +10,7 @@ import { onDemandDemos } from "../content/blog/on-demand-demos"
 import type { BlogPost, BlogSummary } from "./blog-model"
 
 const posts: BlogPost[] = [
+  agentBoardShowcase,
   commonComponentsFromCrm,
   canvasIndexes,
   longSessionAnchor,

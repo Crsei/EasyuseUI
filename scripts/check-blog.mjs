@@ -96,6 +96,7 @@ for (const post of posts) {
     assert.ok(
       [
         "paragraph",
+        "link",
         "heading",
         "list",
         "code",
@@ -113,6 +114,14 @@ for (const post of posts) {
       headings.add(block.id)
     }
     if (block.type === "paragraph") text(block.text)
+    if (block.type === "link") {
+      text(block.text)
+      assert.match(block.href, /^\/(?:examples\/[a-z0-9-]+|workspace\/agents)\/$/)
+      assert.ok(
+        fs.existsSync(path.join(root, "app", block.href, "page.tsx")),
+        `Missing example route: ${block.href}`,
+      )
+    }
     if (block.type === "list") block.items.forEach(text)
     if (block.type === "image") image(block.image)
     if (block.type === "comparison") {

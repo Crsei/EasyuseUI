@@ -1,5 +1,16 @@
 [
   {
+    "slug": "agent-board-showcase",
+    "title": {
+      "zh-CN": "Agent 运行看板：从状态到人工介入",
+      "en": "Agent runs: from runtime status to human attention"
+    },
+    "summary": {
+      "zh-CN": "同一组受控运行快照组成 Board、List、Inbox 和 Insights，保留请求核对、审阅与统计边界。",
+      "en": "Shared controlled run snapshots power Board, List, Inbox and Insights with explicit reconciliation, review and usage boundaries."
+    }
+  },
+  {
     "slug": "canvas-indexes",
     "title": {
       "zh-CN": "Canvas 从重复扫描改为索引查询",

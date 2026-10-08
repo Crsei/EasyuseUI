@@ -1,0 +1,69 @@
+{
+  "sourceSnapshotId": "6d9ceae38768996679248d8f082bf76ddc671a0ec1760171b45b57d9a74a3393",
+  "baselineVersion": "07fbbe0eb2cb0c30cfcddf083c546883968614f0",
+  "capturedAt": "2026-10-08T10:55:14.443Z",
+  "environment": {
+    "framework": "Next.js 16.3.8 / React 19 / Webpack",
+    "host": "Linux GLIBC 2.28; SWC WASM fallback",
+    "browser": "Google Chrome via Playwright",
+    "fixture": "local-deterministic-v1",
+    "temporaryStorage": "data disk; short TMPDIR"
+  },
+  "checks": {
+    "lint": {
+      "status": "passed",
+      "command": "pnpm lint"
+    },
+    "typecheck": {
+      "status": "passed",
+      "command": "pnpm typecheck"
+    },
+    "build": {
+      "status": "passed",
+      "command": "pnpm build"
+    },
+    "manifest": {
+      "status": "passed",
+      "command": "pnpm check:manifest"
+    },
+    "i18n": {
+      "status": "passed",
+      "command": "pnpm check:i18n"
+    },
+    "relatedBrowser": {
+      "status": "passed",
+      "passed": 46,
+      "command": "pnpm exec playwright test --config=playwright.agent-board.config.ts tests/agent-board.spec.ts tests/patterns.spec.ts tests/blog.spec.ts tests/registry-snapshot.spec.ts",
+      "scope": "Related regression before final navigation/filter-label polish; final Agent tests rerun below."
+    },
+    "finalAgentBrowser": {
+      "status": "passed",
+      "passed": 20,
+      "command": "pnpm exec playwright test --config=playwright.agent-board.config.ts tests/agent-board.spec.ts tests/agent-board-blog.spec.ts",
+      "scope": "Final source, four views, approval receipts, stale snapshots, drafts, URL/history, mobile/touch, locale/theme, redaction and usage. Approval reconciliation confirms only the request response, never tool completion. The 20 Agent cases passed; the separately added article case initially required an absolute image URL assertion and is checked separately."
+    },
+    "independentInstall": {
+      "status": "passed",
+      "command": "pnpm test:install",
+      "scope": "Fresh consumer installed agent-board-workspace and Registry dependency closure; its production build and browser selection/Sheet/List/Insights/missing-usage checks passed, together with existing common/Canvas consumers."
+    },
+    "screenshots": {
+      "status": "passed",
+      "count": 12,
+      "command": "node scripts/capture-agent-board.mjs",
+      "manifest": "/blog/agent-board/captures.json"
+    },
+    "articleBrowser": {
+      "status": "passed",
+      "passed": 1,
+      "command": "pnpm exec playwright test --config=playwright.agent-board.config.ts tests/agent-board-blog.spec.ts",
+      "scope": "Source snapshot association, all twelve images, evidence downloads, 1440/768/390px overflow, English locale and workspace navigation. Image URLs are compared as absolute resolved URLs."
+    }
+  },
+  "limitations": [
+    "All Agent operations and observations use deterministic local fixtures.",
+    "Real execution, authorization, remote persistence and business acceptance are not validated.",
+    "No before/after performance comparison was measured; no percentage improvement is claimed.",
+    "Prior ENOSPC and long temporary-path browser launch failures were resolved and rerun; failed attempts are not counted as passes."
+  ]
+}

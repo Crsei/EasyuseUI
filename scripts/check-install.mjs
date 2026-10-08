@@ -1,3 +1,4 @@
+import { createAgentBoardConsumer, verifyAgentBoardConsumer } from "./agent-board-consumer.mjs"
 import {
   commonRegistryItems,
   createCommonConsumer,
@@ -226,6 +227,7 @@ export default function Consumer() {
 )
 execFileSync("git", ["init", "--quiet"], { cwd: fixture })
 await createCommonConsumer(fixture)
+await createAgentBoardConsumer(fixture)
 execFileSync("pnpm", ["install", "--ignore-scripts"], {
   cwd: fixture,
   stdio: "inherit",
@@ -262,6 +264,7 @@ try {
         "shadcn",
         "add",
         ...commonRegistryItems.map((name) => `${site}/r/${name}.json`),
+        `${site}/r/agent-board-workspace.json`,
         `${site}/r/task-panel.json`,
         `${site}/r/input.json`,
         `${site}/r/dialog.json`,
@@ -615,6 +618,7 @@ try {
   await page.getByText("执行中", { exact: true }).waitFor()
   process.env.COMMON_CONSUMER_EVIDENCE_DIR = fixture
   await verifyCommonConsumer(page, `http://127.0.0.1:${server.address().port}`)
+  await verifyAgentBoardConsumer(page, `http://127.0.0.1:${server.address().port}`)
   assert.deepEqual(errors, [])
   console.log(
     `PASS: installed Canvas production build, full-height layout and collapsed panels, browser mount, engine CSS, ports, edge, controlled selection, add, connect, undo, authoritative runtime/redaction, unknown save/publication reconciliation, subflow navigation and structured config. Evidence: ${fixture}/canvas-installed.png`,

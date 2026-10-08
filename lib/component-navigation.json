@@ -411,5 +411,131 @@
     "category": "组合模块",
     "docPath": "/docs/tool-call/",
     "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-run-properties",
+    "name": "AgentRunProperties",
+    "category": "组合模块",
+    "docPath": "/docs/agent-run-properties/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "run-stage-summary",
+    "name": "RunStageSummary",
+    "category": "组合模块",
+    "docPath": "/docs/run-stage-summary/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-run-row",
+    "name": "AgentRunRow",
+    "category": "组合模块",
+    "docPath": "/docs/agent-run-row/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-run-card",
+    "name": "AgentRunCard",
+    "category": "组合模块",
+    "docPath": "/docs/agent-run-card/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-run-list",
+    "name": "AgentRunList",
+    "category": "组合模块",
+    "docPath": "/docs/agent-run-list/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-run-board",
+    "name": "AgentRunBoard",
+    "category": "组合模块",
+    "docPath": "/docs/agent-run-board/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-run-inspector",
+    "name": "AgentRunInspector",
+    "category": "组合模块",
+    "docPath": "/docs/agent-run-inspector/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "attention-queue",
+    "name": "AttentionQueue",
+    "category": "组合模块",
+    "docPath": "/docs/attention-queue/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "approval-request-panel",
+    "name": "ApprovalRequestPanel",
+    "category": "组合模块",
+    "docPath": "/docs/approval-request-panel/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "artifact-list",
+    "name": "ArtifactList",
+    "category": "组合模块",
+    "docPath": "/docs/artifact-list/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "review-summary",
+    "name": "ReviewSummary",
+    "category": "组合模块",
+    "docPath": "/docs/review-summary/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "execution-trace-tree",
+    "name": "ExecutionTraceTree",
+    "category": "组合模块",
+    "docPath": "/docs/execution-trace-tree/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-relationship-list",
+    "name": "AgentRelationshipList",
+    "category": "组合模块",
+    "docPath": "/docs/agent-relationship-list/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-usage-summary",
+    "name": "AgentUsageSummary",
+    "category": "组合模块",
+    "docPath": "/docs/agent-usage-summary/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-board-toolbar",
+    "name": "AgentBoardToolbar",
+    "category": "组合模块",
+    "docPath": "/docs/agent-board-toolbar/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-board-workspace",
+    "name": "AgentBoardWorkspace",
+    "category": "组合模块",
+    "docPath": "/docs/agent-board-workspace/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "grouped-list",
+    "name": "GroupedList",
+    "category": "组合模块",
+    "docPath": "/docs/grouped-list/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "item-board",
+    "name": "Board",
+    "category": "组合模块",
+    "docPath": "/docs/item-board/",
+    "displayCategory": "patterns"
   }
 ]
