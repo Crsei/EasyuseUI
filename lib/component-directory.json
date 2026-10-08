@@ -659,7 +659,7 @@
   {
     "slug": "agent-board-toolbar",
     "name": "AgentBoardToolbar",
-    "description": "共享运行筛选与四视图受控切换。",
+    "description": "共享运行筛选与可选依赖视图受控切换。",
     "displayCategory": "patterns",
     "docPath": "/docs/agent-board-toolbar/",
     "installType": "block",
@@ -781,5 +781,32 @@
     "docPath": "/docs/work-items-board-base/",
     "installType": "block",
     "registryId": "work-items-board-base"
+  },
+  {
+    "slug": "agent-dependency-graph",
+    "name": "AgentDependencyGraph",
+    "description": "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-dependency-graph/",
+    "installType": "block",
+    "registryId": "agent-dependency-graph"
+  },
+  {
+    "slug": "agent-usage-history",
+    "name": "AgentUsageHistory",
+    "description": "来源区间历史；运行与币种独立，缺失观测保留断点。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-usage-history/",
+    "installType": "block",
+    "registryId": "agent-usage-history"
+  },
+  {
+    "slug": "agent-run-virtual-list",
+    "name": "AgentRunVirtualList",
+    "description": "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-run-virtual-list/",
+    "installType": "block",
+    "registryId": "agent-run-virtual-list"
   }
 ]

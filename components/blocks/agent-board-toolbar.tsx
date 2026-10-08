@@ -17,6 +17,7 @@ import type {
 import styles from "./agent-board.module.css"
 export type AgentBoardToolbarProps = {
   records: readonly AgentRunSnapshot[]
+  hasDependencies?: boolean
   viewState: AgentBoardViewState
   onViewChange: (view: AgentBoardViewState) => void
 }
@@ -24,6 +25,7 @@ export function AgentBoardToolbar({
   records,
   viewState,
   onViewChange,
+  hasDependencies,
 }: AgentBoardToolbarProps) {
   const { t } = useI18n()
   const fields = [
@@ -79,7 +81,15 @@ export function AgentBoardToolbar({
           })
         }
       >
-        {(["board", "list", "inbox", "insights"] as const).map((view) => (
+        {(
+          [
+            "board",
+            "list",
+            "inbox",
+            "insights",
+            ...(hasDependencies ? ["dependencies" as const] : []),
+          ] as const
+        ).map((view) => (
           <SegmentedItem key={view} value={view}>
             {t(`agentBoard.${view}`)}
           </SegmentedItem>

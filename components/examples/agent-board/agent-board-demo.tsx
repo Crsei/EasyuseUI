@@ -19,6 +19,7 @@ import {
   type ExampleScenario,
 } from "./use-agent-board-example"
 import { createAgentBoardFixtures, fixtureTime } from "./fixtures"
+import { agentDependencies, agentHistory } from "./p2-fixtures"
 export function AgentBoardDemo({ page = false }: { page?: boolean }) {
   const { locale, setLocale } = useI18n()
   const { theme, setTheme } = useTheme()
@@ -101,6 +102,12 @@ export function AgentBoardDemo({ page = false }: { page?: boolean }) {
         <Button variant="secondary" onClick={() => adapter.reset()}>
           {en ? "Reset example" : "恢复初始数据"}
         </Button>
+        <a
+          href="/workspace/agents/scale/"
+          className="text-xs text-primary underline"
+        >
+          {en ? "Large collection example" : "大数据列表示例"}
+        </a>
         <p className="text-xs text-muted-foreground">
           {en
             ? "Local deterministic fixtures; responses and usage are simulated. Events advance only on click."
@@ -141,6 +148,8 @@ export function AgentBoardDemo({ page = false }: { page?: boolean }) {
       records={scenario === "loading" ? [] : fixture.runs}
       attention={fixture.attention}
       usage={fixture.usage}
+      dependencies={agentDependencies}
+      history={agentHistory}
       viewState={viewState}
       selectedRunId={selectedRunId}
       onViewChange={(next) =>

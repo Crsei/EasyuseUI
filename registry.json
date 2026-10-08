@@ -1516,6 +1516,11 @@
           "path": "lib/agent-board-view.ts",
           "type": "registry:lib",
           "target": "lib/agent-board-view.ts"
+        },
+        {
+          "path": "lib/agent-board-p2.ts",
+          "type": "registry:lib",
+          "target": "lib/agent-board-p2.ts"
         }
       ]
     },
@@ -1917,7 +1922,10 @@
         "data-region",
         "sheet",
         "agent-board-model",
-        "i18n"
+        "i18n",
+        "agent-dependency-graph",
+        "agent-usage-history",
+        "agent-run-virtual-list"
       ],
       "files": [
         {
@@ -1929,6 +1937,11 @@
           "path": "components/blocks/agent-board.module.css",
           "type": "registry:file",
           "target": "components/blocks/agent-board.module.css"
+        },
+        {
+          "path": "components/blocks/agent-board-p2.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board-p2.module.css"
         }
       ]
     },
@@ -2197,6 +2210,89 @@
           "path": "components/blocks/work-items-board-base.module.css",
           "type": "registry:file",
           "target": "components/blocks/work-items-board-base.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-dependency-graph",
+      "type": "registry:block",
+      "title": "AgentDependencyGraph",
+      "description": "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
+      "registryDependencies": [
+        "theme",
+        "workflow-canvas",
+        "runtime-status-badge",
+        "data-region",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-dependency-graph.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-dependency-graph.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board-p2.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board-p2.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-usage-history",
+      "type": "registry:block",
+      "title": "AgentUsageHistory",
+      "description": "来源区间历史；运行与币种独立，缺失观测保留断点。",
+      "registryDependencies": [
+        "theme",
+        "segmented",
+        "data-table",
+        "data-region",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-usage-history.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-usage-history.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board-p2.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board-p2.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-run-virtual-list",
+      "type": "registry:block",
+      "title": "AgentRunVirtualList",
+      "description": "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
+      "registryDependencies": [
+        "theme",
+        "agent-run-row",
+        "agent-run-list",
+        "data-region",
+        "agent-board-model",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-run-virtual-list.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-run-virtual-list.tsx"
+        },
+        {
+          "path": "components/blocks/agent-board-p2.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board-p2.module.css"
+        },
+        {
+          "path": "components/blocks/agent-board.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/agent-board.module.css"
         }
       ]
     }

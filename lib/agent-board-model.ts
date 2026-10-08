@@ -133,7 +133,7 @@ export type UsageObservation = {
   inclusion: "exclusive" | "inclusive" | "unknown"
 }
 export type AgentBoardViewState = {
-  view: "board" | "list" | "inbox" | "insights"
+  view: "board" | "list" | "inbox" | "insights" | "dependencies"
   query: string
   agentId: string
   model: string
@@ -158,4 +158,27 @@ export const defaultAgentBoardView: AgentBoardViewState = {
   status: "",
   workItemId: "",
   inboxKind: "",
+}
+
+/** Explicit service-reported dependency. Runtime does not determine whether it is satisfied. */
+export type AgentRunDependency = {
+  dependencyId: string
+  revision: number
+  prerequisiteRunId: string
+  dependentRunId: string
+  label: string
+  state: "blocked" | "satisfied" | "unknown"
+}
+export type AgentUsageMetric = "tokens" | "cost" | "durationMs"
+/** One source-reported interval observation, not a cumulative counter or interpolated sample. */
+export type AgentUsageHistoryPoint = {
+  pointId: string
+  revision: number
+  runId: string
+  timestamp: string
+  intervalStart: string
+  metric: AgentUsageMetric
+  value?: number
+  currency?: string
+  estimated?: boolean
 }

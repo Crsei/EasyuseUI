@@ -105,14 +105,19 @@ export function summarizeUsage(
     timestamps: unique.map((item) => item.timestamp).sort(),
   }
 }
-export function parseAgentBoardQuery(params: URLSearchParams, allowedStatuses: readonly string[] = []): {
+export function parseAgentBoardQuery(
+  params: URLSearchParams,
+  allowedStatuses: readonly string[] = [],
+): {
   viewState: AgentBoardViewState
   selectedRunId: string | null
 } {
   const view = params.get("view")
   return {
     viewState: {
-      view: ["board", "list", "inbox", "insights"].includes(view ?? "")
+      view: ["board", "list", "inbox", "insights", "dependencies"].includes(
+        view ?? "",
+      )
         ? (view as AgentBoardViewState["view"])
         : "board",
       query: params.get("q") ?? "",

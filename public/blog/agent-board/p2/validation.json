@@ -1,0 +1,151 @@
+{
+  "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b",
+  "validatedAt": "2026-10-08T11:57:44.147867+00:00",
+  "baseCommit": "24d1d7b8cab7a02dcb3950c0afb71bf1c2ee0c63",
+  "environment": "Linux GLIBC 2.28; Next 16.3.8 Webpack/SWC WASM; Chrome/Playwright; isolated task snapshot",
+  "checks": {
+    "lint": {
+      "status": "passed"
+    },
+    "typecheck": {
+      "status": "passed"
+    },
+    "webpackBuild": {
+      "status": "passed"
+    },
+    "manifestRegistry": {
+      "status": "passed",
+      "catalogCount": 90,
+      "registryCount": 104
+    },
+    "i18n": {
+      "status": "passed"
+    },
+    "agentRegression": {
+      "status": "passed",
+      "passed": 30,
+      "agent": 20,
+      "extensions": 9,
+      "article": 1
+    },
+    "independentInstall": {
+      "status": "passed",
+      "scope": [
+        "Registry CLI dependency/CSS resolution",
+        "fresh consumer TypeScript and production build",
+        "Agent dependencies and zero history observation",
+        "1000 virtual rows with keyboard End",
+        "existing common/Canvas/Work Items consumer checks"
+      ]
+    },
+    "captures": {
+      "status": "passed",
+      "count": 8
+    },
+    "comparison": {
+      "status": "passed",
+      "samplesPerMode": 3,
+      "mountedRows": {
+        "native": 1000,
+        "virtual": 8
+      },
+      "firstDetailActivations": {
+        "native": 1,
+        "virtual": 1
+      }
+    },
+    "finalBrowser": {
+      "status": "passed",
+      "passed": 31,
+      "agent": 20,
+      "extensions": 9,
+      "articles": 2
+    },
+    "workspaceIntegration": {
+      "status": "passed",
+      "checks": [
+        "lint",
+        "typecheck",
+        "Registry",
+        "Blog",
+        "i18n",
+        "existing 3010 browser: dependencies, virtual list, article"
+      ],
+      "preserved": [
+        "existing dev server and shared build outputs",
+        "parallel CRM and Work Items work"
+      ]
+    }
+  },
+  "logs": [
+    {
+      "file": "lint-final.log",
+      "sha256": "050c69da23536758722729aeda55a8d0fb9d557495ef6d33d70873a3b64a71c1"
+    },
+    {
+      "file": "typecheck-final.log",
+      "sha256": "f91628e5f165d1a2278226b4dc2bc6fd715c2278dbd03723121e79b585b9e6d1"
+    },
+    {
+      "file": "build-code-frozen.log",
+      "sha256": "f9cbb197af9ccc3812ee6ffd03e5a7d82a6d05188102b3a3cc2804fc0b169c32"
+    },
+    {
+      "file": "i18n-merged-code.log",
+      "sha256": "b252b42c01f054b6c533a030c18b0d3d672f65233375851055d0dbb52d4c4b1d"
+    },
+    {
+      "file": "registry-merged.log",
+      "sha256": "f58547a1b6ea7ef6e0838fd1ff39cae469921643b1c59309494e42837c8a092d"
+    },
+    {
+      "file": "browser-merged-code.log",
+      "sha256": "f6656b4a1a7d46705c84e49d98896683ff3bda5ba01753e5a233b0e5800226c9"
+    },
+    {
+      "file": "install-final.log",
+      "sha256": "8d146875006a27cb1138aa9c37969e2904148a506e2053b837c842375ab35b23"
+    },
+    {
+      "file": "capture-final.log",
+      "sha256": "aff792d3696ab9792896972fa1534e88b185fad3c5ae494962b61c1523f87801"
+    },
+    {
+      "file": "browser-final.log",
+      "sha256": "d1991a336fb4b085be5a63a8415d7deb9dc5f3cf44cd36304d4754ceddc7c233"
+    },
+    {
+      "file": "build-delivery.log",
+      "sha256": "ea8e10a9de92881848d3c14bb72dc22ff5ecbfe35f6dfb694b683b7e6e04a6bf"
+    },
+    {
+      "file": "workspace-lint.log",
+      "sha256": "050c69da23536758722729aeda55a8d0fb9d557495ef6d33d70873a3b64a71c1"
+    },
+    {
+      "file": "workspace-typecheck.log",
+      "sha256": "f91628e5f165d1a2278226b4dc2bc6fd715c2278dbd03723121e79b585b9e6d1"
+    },
+    {
+      "file": "workspace-registry.log",
+      "sha256": "f58547a1b6ea7ef6e0838fd1ff39cae469921643b1c59309494e42837c8a092d"
+    },
+    {
+      "file": "workspace-blog.log",
+      "sha256": "e58aaadad4df266fe01ec9308faf6537155dc1ccdd99091a94795c6f2551d510"
+    },
+    {
+      "file": "workspace-i18n.log",
+      "sha256": "caae6f6d4317710810561ae2462b8f1a233d4ad78fa9218eb3ec60cca2571524"
+    },
+    {
+      "file": "workspace-browser.log",
+      "sha256": "27b286ebc673f9f430457711a78cffd036e5b1bfd9d43d71abb1d8cb7c784b41"
+    }
+  ],
+  "limitations": [
+    "All runtime, approval, dependency and history snapshots are deterministic local fixtures.",
+    "No real Agent execution, authorization service, storage or business acceptance was verified.",
+    "Rendering comparison measures mounted DOM rows and one fixed detail path only, not latency, memory or service performance."
+  ]
+}

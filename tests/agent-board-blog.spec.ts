@@ -58,3 +58,81 @@ test("Agent article exposes source-bound captures, reports and the workspace ent
     page.getByRole("textbox", { name: "Search runs", exact: true }),
   ).toBeVisible()
 })
+
+test("P2 article binds comparable rendering samples, eight captures and the large-list entry", async ({
+  page,
+  request,
+}) => {
+  const captures = await (
+    await request.get("/blog/agent-board/p2/captures.json")
+  ).json()
+  const measured = await (
+    await request.get("/blog/agent-board/p2/measurements.json")
+  ).json()
+  const report = await (
+    await request.get("/blog/agent-board/p2/validation.json")
+  ).json()
+  expect(captures.sourceSnapshotId).toMatch(/^[0-9a-f]{64}$/)
+  expect(measured.sourceSnapshotId).toBe(captures.sourceSnapshotId)
+  expect(report.sourceSnapshotId).toBe(captures.sourceSnapshotId)
+  expect(report.checks.agentRegression.passed).toBe(30)
+  expect(report.checks.independentInstall.status).toBe("passed")
+  expect(captures.captures).toHaveLength(8)
+  expect(measured.samples).toHaveLength(6)
+  for (const mode of ["native", "virtual"]) {
+    const samples = measured.samples.filter(
+      (sample: { mode: string }) => sample.mode === mode,
+    )
+    expect(samples).toHaveLength(3)
+    for (const sample of samples) {
+      expect(sample.loadedCount).toBe(1000)
+      expect(sample.viewport).toEqual({ width: 1440, height: 1000 })
+      expect(sample.sourceSnapshotId).toBe(captures.sourceSnapshotId)
+      expect(sample.activations).toBe(1)
+      expect(sample.mountedRows).toBe(
+        mode === "native"
+          ? measured.results.mountedRows.before
+          : measured.results.mountedRows.after,
+      )
+    }
+  }
+  expect(
+    new Set(
+      measured.samples.map((sample: { rowHeight: number }) => sample.rowHeight),
+    ).size,
+  ).toBe(1)
+  expect(measured.results.mountedRows.before).toBe(1000)
+  expect(measured.results.mountedRows.after).toBeLessThan(30)
+  await page.goto("/blog/agent-board-showcase/")
+  await expect(page.locator('[data-demo-mounted="true"]')).toHaveCount(0)
+  const metric = page.getByRole("row").filter({ hasText: "挂载运行行数" })
+  await expect(metric).toContainText("1,000")
+  await expect(metric.getByRole("cell").nth(1)).toHaveText(
+    String(measured.results.mountedRows.after),
+  )
+  await expect(
+    page
+      .getByRole("row")
+      .filter({ hasText: "首条详情打开步骤" })
+      .locator('[data-change="unchanged"]'),
+  ).toBeVisible()
+  for (const capture of captures.captures) {
+    const image = page.locator(`main img[src$="${capture.file}"]`)
+    await image.scrollIntoViewIfNeeded()
+    await expect(image).not.toHaveJSProperty("naturalWidth", 0)
+    expect((await request.get(capture.file)).ok()).toBe(true)
+  }
+  await page.setViewportSize({ width: 390, height: 844 })
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true)
+  await page
+    .getByRole("link", { name: "打开 1,000 条运行的列表对照示例", exact: true })
+    .click()
+  await expect(page).toHaveURL(/\/workspace\/agents\/scale\/$/)
+  await expect(
+    page.getByRole("region", { name: "虚拟运行列表", exact: true }),
+  ).toBeVisible()
+})

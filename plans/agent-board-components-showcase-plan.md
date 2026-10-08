@@ -1,7 +1,7 @@
 # Agent 看板组件与示例展示计划
 
 日期：2026-10-08
-状态：AG0–AG4 已完成本地组件、文档、浏览器及独立安装验证；真实服务接入不在本次范围；实施与证据见 [实施记录](./agent-board-implementation-log.md)。
+状态：AG0–AG4 与 P2 展示扩展、可复现测量均已完成并归档；真实服务接入由消费项目提供；实施与证据见 [实施记录](./agent-board-implementation-log.md)。
 
 建设以运行看板为入口的 Agent 工作台，让用户快速判断谁在执行什么、哪里需要介入、产生了哪些结果，以及结果是否经过审阅。先补齐可复用展示组件，再通过同一组示例数据展示 Board、List、Inbox 和 Insights。
 
@@ -51,7 +51,7 @@ Vibe Kanban 官网在本次访问时已公告转向社区维护；这里只取�
 
 ## 3. 现有组件与待补齐组件
 
-已核对源码中的 AgentRow、SessionRow、RuntimeStatusBadge、ToolCall、ActivityTimeline、Inspector、WorkspaceShell、Tree、DataRegion、DataTable、FilterToolbar、MetricSummary 和 Conversation。通用 Board 仍是 Work Items 计划 W02 的待实施项，不能提前声明已经导出。
+已核对源码中的 AgentRow、SessionRow、RuntimeStatusBadge、ToolCall、ActivityTimeline、Inspector、WorkspaceShell、Tree、DataRegion、DataTable、FilterToolbar、MetricSummary 和 Conversation。W02 的通用 Board 已在 `components/blocks/item-board.tsx` 正式导出；AgentRunBoard 复用该容器，独立安装已验证。
 
 以下新增名称均为拟定契约，实施时先固定 API，再补齐文档、示例与 Registry。
 
@@ -72,7 +72,7 @@ Vibe Kanban 官网在本次访问时已公告转向社区维护；这里只取�
 
 P0 的 A09 只包含类型、名称、来源、链接和审阅状态；代码差异编辑器、文件系统浏览、浏览器远程控制不纳入首版。非工具类审批先提供只读内容和能力受控响应；只有出现真实复用需求才提取通用审批基础组件，避免复制 ToolCall 的提交与未知结果处理。
 
-P2 再评估依赖图、历史趋势和大数据虚拟列表。依赖图可评估复用只读 Canvas 展示，不能为了画关系图引入工作流编辑、调度或 Canvas 专属运行模型。
+P2 已补齐依赖图、历史趋势和大集合虚拟列表，交付与验收见第9节。依赖图复用只读 Canvas 展示，不引入工作流编辑、调度或 Canvas 专属运行模型。
 
 ## 4. 展示与交互契约
 
@@ -160,7 +160,7 @@ AgentRunSnapshot 最少包含 runId、agentId、sessionId（可缺）、workItem
 | AG3 深入展示 | A08、A10、A11、A09扩展、Insights | AG2；明确关系和用量数据 | Trace 可追踪，用量无重复累加，产物审阅可区分 |
 | AG4 文档与证据 | Manifest/Registry、安装验证、Blog 和实施记录 | 各组件阶段完成后持续补齐 | 文档、独立安装和浏览器证据与实现一致 |
 
-W02 未完成时先交付 AG1 的 List/卡片/详情预览，AG2 的 Board 保持未完成，不复制一套临时 Board。P0 验收要求 AG0–AG2 及相应 AG4 证据；完整展示计划另需 AG3。P2 扩展单列后续任务，不阻塞首版。
+W02 的正式通用 Board 已完成；AgentRunBoard 复用其安装项，不复制临时容器。P0 验收要求 AG0–AG2 及相应 AG4 证据；完整展示计划另需 AG3。P2 作为独立扩展交付，验收口径见第9节。
 
 ## 8. 示例场景与验收
 
@@ -184,3 +184,17 @@ W02 未完成时先交付 AG1 的 List/卡片/详情预览，AG2 的 Board 保�
 Blog 展示“参考元素 → 组件映射 → Board/List/Inbox/详情实图 → 状态恢复 → 验收证据”。截图记录主题、语言、尺寸、场景与源码快照；证据标明通过、部分完成或待验证。可量化比较关注项是否首屏可见、定位详情所需步骤、固定尺寸下可见条目数；数值在实际测量后填写，不预先承诺性能提升比例。
 
 示例中的状态推进、审批和用量均为本地模拟数据。组件交互验证、独立安装验证与真实 Agent 服务接入分别记录；本计划不以示例页面通过替代真实执行、权限、持久化或业务验收。
+
+
+## 9. 本轮继续：P2 与展示测量
+
+用户要求继续完成剩余任务后，将原先单列的 P2 展示扩展落实为以下范围。真实执行、权限、传输与持久化仍由消费项目负责；不创建第二套 Agent 服务。
+
+| 编号 | 交付 | 验收 |
+| --- | --- | --- |
+| P2-D | AgentDependencyGraph；明确来源依赖模型；按需加载的只读 Canvas 与可访问列表 | 版本仲裁、缺失/范围外端点、循环提示、运行完成不推断依赖满足、加载失败恢复 |
+| P2-H | AgentUsageHistory；来源区间观测模型；Insights 组合 | 时间及区间可追踪，币种/运行分开，缺失/不连续区间留断点，真实0、语言切换与表格替代 |
+| P2-V | AgentRunVirtualList；大集合工作台适配 | 可变行高、完整已加载口径、键盘焦点导航、Sheet恢复、筛选移除入口后的回退、移动端 |
+| P2-M | 普通/虚拟模式同源测量、截图、Blog及独立安装 | 固定1,000条来源行与视口，记录挂载行数和固定详情流程；不推断未测的速度、内存或服务效果 |
+
+实施记录和证据单独归档，保留首版截图/验证记录，不覆盖旧快照。新组件在 Catalog 与 Registry 登记，并为独立消费项目补充三个扩展的生产构建及浏览器验收。

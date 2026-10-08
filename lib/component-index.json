@@ -1767,7 +1767,7 @@
     "widePreview": true,
     "name": "AgentBoardToolbar",
     "category": "组合模块",
-    "description": "共享运行筛选与四视图受控切换。",
+    "description": "共享运行筛选与可选依赖视图受控切换。",
     "source": "components/blocks/agent-board-toolbar.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentBoardToolbar } from \"@/components/blocks/agent-board-toolbar\"",
@@ -1791,7 +1791,10 @@
       "data-region",
       "sheet",
       "agent-board-model",
-      "i18n"
+      "i18n",
+      "agent-dependency-graph",
+      "agent-usage-history",
+      "agent-run-virtual-list"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -2146,6 +2149,84 @@
     "widePreview": true,
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "agent-dependency-graph",
+    "docPath": "/docs/agent-dependency-graph/",
+    "registryId": "agent-dependency-graph",
+    "registryDependencies": [
+      "theme",
+      "workflow-canvas",
+      "runtime-status-badge",
+      "data-region",
+      "agent-board-model",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "AgentDependencyGraph",
+    "category": "组合模块",
+    "description": "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
+    "source": "components/blocks/agent-dependency-graph.tsx",
+    "example": "components/examples/agent-board/p2-demos.tsx",
+    "usage": "import { AgentDependencyGraph } from \"@/components/blocks/agent-dependency-graph\"",
+    "widePreview": true,
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-usage-history",
+    "docPath": "/docs/agent-usage-history/",
+    "registryId": "agent-usage-history",
+    "registryDependencies": [
+      "theme",
+      "segmented",
+      "data-table",
+      "data-region",
+      "agent-board-model",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "AgentUsageHistory",
+    "category": "组合模块",
+    "description": "来源区间历史；运行与币种独立，缺失观测保留断点。",
+    "source": "components/blocks/agent-usage-history.tsx",
+    "example": "components/examples/agent-board/p2-demos.tsx",
+    "usage": "import { AgentUsageHistory } from \"@/components/blocks/agent-usage-history\"",
+    "widePreview": true,
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-run-virtual-list",
+    "docPath": "/docs/agent-run-virtual-list/",
+    "registryId": "agent-run-virtual-list",
+    "registryDependencies": [
+      "theme",
+      "agent-run-row",
+      "agent-run-list",
+      "data-region",
+      "agent-board-model",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "AgentRunVirtualList",
+    "category": "组合模块",
+    "description": "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
+    "source": "components/blocks/agent-run-virtual-list.tsx",
+    "example": "components/examples/agent-board/p2-demos.tsx",
+    "usage": "import { AgentRunVirtualList } from \"@/components/blocks/agent-run-virtual-list\"",
+    "widePreview": true,
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
   }
 ]

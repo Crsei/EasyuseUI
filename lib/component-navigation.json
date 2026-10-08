@@ -607,5 +607,26 @@
     "category": "组合模块",
     "docPath": "/docs/work-items-board-base/",
     "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-dependency-graph",
+    "name": "AgentDependencyGraph",
+    "category": "组合模块",
+    "docPath": "/docs/agent-dependency-graph/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-usage-history",
+    "name": "AgentUsageHistory",
+    "category": "组合模块",
+    "docPath": "/docs/agent-usage-history/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-run-virtual-list",
+    "name": "AgentRunVirtualList",
+    "category": "组合模块",
+    "docPath": "/docs/agent-run-virtual-list/",
+    "displayCategory": "patterns"
   }
 ]

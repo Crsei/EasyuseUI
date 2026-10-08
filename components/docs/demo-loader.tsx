@@ -13,6 +13,19 @@ import { useSiteI18n } from "@/components/site/site-i18n"
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+"agent-dependency-graph": () =>
+    import("@/components/examples/agent-board/p2-demos").then(
+      (module) => module.AgentDependencyGraphDemo,
+    ),
+"agent-usage-history": () =>
+    import("@/components/examples/agent-board/p2-demos").then(
+      (module) => module.AgentUsageHistoryDemo,
+    ),
+"agent-run-virtual-list": () =>
+    import("@/components/examples/agent-board/p2-demos").then(
+      (module) => module.AgentRunVirtualListDemo,
+    ),
+
   "work-items-board-base": () => import("@/components/examples/work-items-components-demo").then(m => m.ItemBoardDemo),
   "work-item-properties": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemPropertiesDemo),
   "work-item-row": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemRowDemo),

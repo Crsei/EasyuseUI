@@ -1,5 +1,50 @@
 export const componentMessages = {
   "zh-CN": {
+"agentBoardP2.graphLoadReason": "原因尚未确认；可切换视图或重试读取。",
+"agentBoardP2.graphLoadFailed":
+      "依赖视图加载失败；来源运行和筛选已保留，可重试读取。",
+"agentBoard.dependencies": "依赖关系",
+"agentBoardP2.runReference": "来源运行引用",
+"agentBoardP2.prerequisite": "前置运行",
+"agentBoardP2.dependent": "后续运行",
+"agentBoardP2.blocked": "来源确认阻塞",
+"agentBoardP2.satisfied": "来源确认满足",
+"agentBoardP2.unknown": "依赖结果未知",
+"agentBoardP2.dependencyScope":
+      "已显示 {runs} 次运行 · 当前范围 {edges} 条来源依赖",
+"agentBoardP2.readOnlyGraph":
+      "只读关系展示；运行完成不自动满足依赖，图中选择不会调度或执行。",
+"agentBoardP2.missingEndpoints":
+      "{count} 条依赖引用未加载的来源运行；保留 ID，不推断关系。",
+"agentBoardP2.outsideScope":
+      "{count} 条依赖涉及筛选范围外的已加载运行；在下方列表保留上下文。",
+"agentBoardP2.graphLimit":
+      "另有 {count} 次运行未进入画布；缩小筛选范围查看。",
+"agentBoardP2.unsortedDependencies":
+      "存在循环或受其影响的依赖链；保留来源关系，未生成执行顺序。",
+"agentBoardP2.noDependencies": "来源未提供此范围的依赖",
+"agentBoardP2.dependencyAlternative": "来源依赖列表",
+"agentBoardP2.missingRun": "来源运行未加载",
+"agentBoardP2.history": "用量历史",
+"agentBoardP2.historyScope":
+      "已加载 {count} 个来源区间观测 · UTC；按运行与币种分开，缺失或不连续区间保留断点。",
+"agentBoardP2.metric": "历史指标",
+"agentBoardP2.tokens": "Tokens",
+"agentBoardP2.cost": "费用",
+"agentBoardP2.durationMs": "耗时 (ms)",
+"agentBoardP2.noHistory": "来源未提供历史观测",
+"agentBoardP2.chartDescription":
+      "{run} · {count} 个有效区间观测 · {unit}；完整数值见下方表格。",
+"agentBoardP2.noKnownPoints": "本序列没有可绘制的有效观测；缺失值不是零。",
+"agentBoardP2.seriesCoverage": "有效观测 {known}/{total}；不补齐缺失值。",
+"agentBoardP2.historyTable": "来源区间观测明细",
+"agentBoardP2.interval": "来源时间区间",
+"agentBoardP2.value": "观测值",
+"agentBoardP2.source": "来源标记",
+"agentBoardP2.virtualList": "虚拟运行列表",
+"agentBoardP2.virtualHelp":
+      "已加载 {count} 次运行；方向键、Page Up/Down、Home/End 移动焦点，Enter 查看。仅挂载可见行与焦点行，不代表服务分页。",
+
     "workItems.items": "工作项",
     "workItems.loaded": "已加载 {count}",
     "workItems.count": "{loaded} / {total}",
@@ -1205,6 +1250,54 @@ export const componentMessages = {
     "canvas.down": "下",
   },
   en: {
+"agentBoardP2.graphLoadReason":
+      "The cause is unconfirmed. Switch views or retry reading.",
+"agentBoardP2.graphLoadFailed":
+      "Dependency view failed to load; source runs and filters are preserved. Retry reading.",
+"agentBoard.dependencies": "Dependencies",
+"agentBoardP2.runReference": "Source run reference",
+"agentBoardP2.prerequisite": "Prerequisite",
+"agentBoardP2.dependent": "Dependent",
+"agentBoardP2.blocked": "Source reports blocked",
+"agentBoardP2.satisfied": "Source reports satisfied",
+"agentBoardP2.unknown": "Dependency outcome unknown",
+"agentBoardP2.dependencyScope":
+      "{runs} runs displayed · {edges} source dependencies in scope",
+"agentBoardP2.readOnlyGraph":
+      "Read-only relationships. Run completion does not satisfy dependencies; selection never schedules execution.",
+"agentBoardP2.missingEndpoints":
+      "{count} dependencies reference runs absent from the loaded source; IDs are retained.",
+"agentBoardP2.outsideScope":
+      "{count} dependencies include loaded runs outside the filter; the list retains context.",
+"agentBoardP2.graphLimit":
+      "{count} additional runs are outside the canvas limit; narrow the filter to inspect them.",
+"agentBoardP2.unsortedDependencies":
+      "A cycle or affected dependency chain prevents ordering. Source relationships are retained; no execution order is produced.",
+"agentBoardP2.noDependencies": "No dependencies supplied for this scope",
+"agentBoardP2.dependencyAlternative": "Source dependency list",
+"agentBoardP2.missingRun": "Source run not loaded",
+"agentBoardP2.history": "Usage history",
+"agentBoardP2.historyScope":
+      "{count} loaded interval observations · UTC; runs and currencies stay separate, with gaps for missing or noncontiguous intervals.",
+"agentBoardP2.metric": "History metric",
+"agentBoardP2.tokens": "Tokens",
+"agentBoardP2.cost": "Cost",
+"agentBoardP2.durationMs": "Duration (ms)",
+"agentBoardP2.noHistory": "No historical observations supplied",
+"agentBoardP2.chartDescription":
+      "{run} · {count} valid interval observations · {unit}; complete values are in the table.",
+"agentBoardP2.noKnownPoints":
+      "No valid observations to plot in this series; missing values are not zero.",
+"agentBoardP2.seriesCoverage":
+      "Valid observations {known}/{total}; missing values are not filled.",
+"agentBoardP2.historyTable": "Source interval observations",
+"agentBoardP2.interval": "Source interval",
+"agentBoardP2.value": "Observed value",
+"agentBoardP2.source": "Source marker",
+"agentBoardP2.virtualList": "Virtual run list",
+"agentBoardP2.virtualHelp":
+      "{count} runs loaded; arrows, Page Up/Down and Home/End move focus, Enter opens. Only visible and focused rows are mounted; this is not service pagination.",
+
     "workItems.items": "Work items",
     "workItems.loaded": "{count} loaded",
     "workItems.count": "{loaded} / {total}",

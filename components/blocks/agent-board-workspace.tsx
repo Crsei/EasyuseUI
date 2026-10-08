@@ -1,10 +1,21 @@
 "use client"
-import { useRef, useSyncExternalStore, type ReactNode } from "react"
+import {
+  Component,
+  lazy,
+  useState,
+  Suspense,
+  useRef,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react"
 import { WorkspaceShell } from "./workspace-shell"
 import { AgentRunBoard } from "./agent-run-board"
 import { AgentRunList } from "./agent-run-list"
 import { AttentionQueue } from "./attention-queue"
 import { AgentUsageSummary } from "./agent-usage-summary"
+import { AgentUsageHistory } from "./agent-usage-history"
+import { AgentRunVirtualList } from "./agent-run-virtual-list"
+import type { AgentDependencyGraphProps } from "./agent-dependency-graph"
 import { AgentBoardToolbar } from "./agent-board-toolbar"
 import {
   AgentRunInspector,
@@ -25,10 +36,65 @@ import type {
   AgentRunSnapshot,
   AttentionRecord,
   UsageObservation,
+  AgentRunDependency,
+  AgentUsageHistoryPoint,
   AgentBoardConnection,
 } from "@/lib/agent-board-model"
 import type { AgentRunInspectorProps } from "./agent-run-inspector"
 import styles from "./agent-board.module.css"
+import p2Styles from "./agent-board-p2.module.css"
+function makeDependencyView() {
+  return lazy(() =>
+    import("./agent-dependency-graph").then((module) => ({
+      default: module.AgentDependencyGraph,
+    })),
+  )
+}
+class DependencyBoundary extends Component<
+  { children: ReactNode; fallback: ReactNode },
+  { failed: boolean }
+> {
+  state = { failed: false }
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children
+  }
+}
+function DependencyView(props: AgentDependencyGraphProps) {
+  const { t } = useI18n()
+  const [renderer, setRenderer] = useState(() => ({
+    View: makeDependencyView(),
+    attempt: 0,
+  }))
+  const View = renderer.View
+  return (
+    <DependencyBoundary
+      key={renderer.attempt}
+      fallback={
+        <DataRegion
+          state="error"
+          error={{
+            category: "network",
+            message: t("agentBoardP2.graphLoadFailed"),
+            reason: t("agentBoardP2.graphLoadReason"),
+          }}
+          onRetry={() =>
+            setRenderer((before) => ({
+              View: makeDependencyView(),
+              attempt: before.attempt + 1,
+            }))
+          }
+        />
+      }
+    >
+      <Suspense fallback={<DataRegion state="loading" />}>
+        <View {...props} />
+      </Suspense>
+    </DependencyBoundary>
+  )
+}
 function subscribe(callback: () => void) {
   const media = window.matchMedia("(min-width:1280px)")
   media.addEventListener("change", callback)
@@ -38,6 +104,13 @@ export type AgentBoardWorkspaceProps = {
   records: readonly AgentRunSnapshot[]
   attention: readonly AttentionRecord[]
   usage?: readonly UsageObservation[]
+  dependencies?: readonly AgentRunDependency[]
+  history?: readonly AgentUsageHistoryPoint[]
+  listVirtualization?: {
+    enabled?: boolean
+    threshold?: number
+    height?: number
+  }
   viewState: AgentBoardViewState
   selectedRunId: string | null
   detail: AgentRunDetailSnapshot | null
@@ -62,6 +135,9 @@ export function AgentBoardWorkspace({
   records,
   attention,
   usage = [],
+  dependencies,
+  history,
+  listVirtualization,
   viewState,
   selectedRunId,
   detail,
@@ -85,8 +161,18 @@ export function AgentBoardWorkspace({
     () => false,
   )
   const opener = useRef<HTMLElement | null>(null)
+  const main = useRef<HTMLDivElement>(null)
   const visible = filterAgentRuns(records, viewState)
   const runIds = new Set(visible.map((run) => run.runId))
+  const virtualized =
+    listVirtualization?.enabled !== false &&
+    visible.length >=
+      Math.max(
+        1,
+        Number.isFinite(listVirtualization?.threshold)
+          ? listVirtualization!.threshold!
+          : 200,
+      )
   const requests = dedupeAttention(attention).filter(
     (item) => item.operation?.state !== "confirmed",
   )
@@ -94,7 +180,10 @@ export function AgentBoardWorkspace({
   function open(id: string | null) {
     if (id) opener.current = document.activeElement as HTMLElement
     onOpen(id)
-    if (!id) requestAnimationFrame(() => opener.current?.focus())
+    if (!id)
+      requestAnimationFrame(() =>
+        (opener.current?.isConnected ? opener.current : main.current)?.focus(),
+      )
   }
   const selected = selectedRunId
     ? detail?.run.runId === selectedRunId
@@ -144,10 +233,16 @@ export function AgentBoardWorkspace({
           records={records}
           viewState={viewState}
           onViewChange={onViewChange}
+          hasDependencies={dependencies !== undefined}
         />
       }
     >
-      <div className={styles.main}>
+      <div
+        ref={main}
+        className={styles.main}
+        tabIndex={-1}
+        data-agent-workspace-main
+      >
         <div className={styles.connection} role="status">
           <span>
             {t(
@@ -199,13 +294,44 @@ export function AgentBoardWorkspace({
               onOpen={open}
             />
           )}
-          {viewState.view === "list" && (
-            <AgentRunList
-              records={visible}
-              selectedRunId={selectedRunId}
-              onOpen={open}
-            />
-          )}
+          {viewState.view === "list" &&
+            (virtualized ? (
+              <AgentRunVirtualList
+                records={visible}
+                selectedRunId={selectedRunId}
+                onOpen={open}
+                height={listVirtualization?.height}
+              />
+            ) : (
+              <div
+                className={
+                  listVirtualization?.height
+                    ? p2Styles.virtualViewport
+                    : undefined
+                }
+                style={
+                  listVirtualization?.height
+                    ? {
+                        height: Math.max(
+                          240,
+                          Math.min(
+                            900,
+                            Number.isFinite(listVirtualization.height)
+                              ? listVirtualization.height
+                              : 560,
+                          ),
+                        ),
+                      }
+                    : undefined
+                }
+              >
+                <AgentRunList
+                  records={visible}
+                  selectedRunId={selectedRunId}
+                  onOpen={open}
+                />
+              </div>
+            ))}
           {viewState.view === "inbox" && (
             <AttentionQueue
               records={matchingRequests}
@@ -214,12 +340,36 @@ export function AgentBoardWorkspace({
             />
           )}
           {viewState.view === "insights" && (
-            <AgentUsageSummary
-              runs={visible}
-              observations={usage}
-              scopeLabel={scopeLabel}
-            />
+            <>
+              <AgentUsageSummary
+                runs={visible}
+                observations={usage}
+                scopeLabel={scopeLabel}
+              />
+              {history && (
+                <AgentUsageHistory
+                  points={history}
+                  scopeRunIds={[...runIds]}
+                  scopeLabel={scopeLabel}
+                />
+              )}
+            </>
           )}
+          {viewState.view === "dependencies" &&
+            (dependencies ? (
+              <DependencyView
+                records={records}
+                dependencies={dependencies}
+                scopeRunIds={[...runIds]}
+                selectedRunId={selectedRunId}
+                onOpen={open}
+              />
+            ) : (
+              <DataRegion
+                state="empty"
+                emptyTitle={t("agentBoardP2.noDependencies")}
+              />
+            ))}
         </DataRegion>
       </div>
       {!wide && (
@@ -229,7 +379,12 @@ export function AgentBoardWorkspace({
             if (!value) open(null)
           }}
         >
-          <SheetContent size={400} finalFocus={() => opener.current}>
+          <SheetContent
+            size={400}
+            finalFocus={() =>
+              opener.current?.isConnected ? opener.current : main.current
+            }
+          >
             <SheetHeader>
               <SheetTitle>{selected?.run.title ?? "Run"}</SheetTitle>
             </SheetHeader>

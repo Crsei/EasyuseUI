@@ -6,8 +6,8 @@
       "en": "Agent runs: from runtime status to human attention"
     },
     "summary": {
-      "zh-CN": "同一组受控运行快照组成 Board、List、Inbox 和 Insights，保留请求核对、审阅与统计边界。",
-      "en": "Shared controlled run snapshots power Board, List, Inbox and Insights with explicit reconciliation, review and usage boundaries."
+      "zh-CN": "Board、List、Inbox 和 Insights 共享受控快照，扩展只读依赖图、来源用量历史与大集合虚拟列表，并记录同源渲染测量。",
+      "en": "Controlled snapshots power Board, List, Inbox and Insights, extended with read-only dependencies, source usage history and virtual lists with comparable rendering measurements."
     }
   },
   {

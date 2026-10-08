@@ -1,0 +1,104 @@
+{
+  "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b",
+  "capturedAt": "2026-10-08T11:53:19.735Z",
+  "command": "node scripts/capture-agent-board-p2.mjs",
+  "environment": "Chrome via Playwright, static Next.js Webpack export, 1440x1000, zh-CN/light/reduced motion",
+  "fixture": "local-1000-source-runs-v1",
+  "sampleCount": 3,
+  "samples": [
+    {
+      "mode": "native",
+      "sample": 1,
+      "mountedRows": 1000,
+      "rowHeight": 120,
+      "activations": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "loadedCount": 1000,
+      "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b"
+    },
+    {
+      "mode": "native",
+      "sample": 2,
+      "mountedRows": 1000,
+      "rowHeight": 120,
+      "activations": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "loadedCount": 1000,
+      "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b"
+    },
+    {
+      "mode": "native",
+      "sample": 3,
+      "mountedRows": 1000,
+      "rowHeight": 120,
+      "activations": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "loadedCount": 1000,
+      "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b"
+    },
+    {
+      "mode": "virtual",
+      "sample": 1,
+      "mountedRows": 8,
+      "rowHeight": 120,
+      "activations": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "loadedCount": 1000,
+      "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b"
+    },
+    {
+      "mode": "virtual",
+      "sample": 2,
+      "mountedRows": 8,
+      "rowHeight": 120,
+      "activations": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "loadedCount": 1000,
+      "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b"
+    },
+    {
+      "mode": "virtual",
+      "sample": 3,
+      "mountedRows": 8,
+      "rowHeight": 120,
+      "activations": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "loadedCount": 1000,
+      "sourceSnapshotId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b"
+    }
+  ],
+  "contextId": "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b:1000-waiting-source-runs:1440x1000:list-viewport-560:zh-CN:light:reduced-motion",
+  "results": {
+    "mountedRows": {
+      "before": 1000,
+      "after": 8
+    },
+    "openFirstDetailActivations": {
+      "before": 1,
+      "after": 1
+    }
+  },
+  "limitations": [
+    "Before/after compare native and virtual rendering of the same 1000 source snapshots, groups and AgentRunRow component in this snapshot.",
+    "This measures mounted run rows and one fixed activation path, not latency, memory, server performance, real Agent execution or user acceptance.",
+    "All observations and dependencies are deterministic local fixtures."
+  ]
+}

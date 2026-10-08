@@ -1,6 +1,14 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+"site.agentBoardP2.agent-dependency-graph":
+      "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
+"site.agentBoardP2.agent-usage-history":
+      "来源区间历史；运行与币种独立，缺失观测保留断点。",
+"site.agentBoardP2.agent-run-virtual-list":
+      "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
+"site.agentBoardP2.toolbar": "共享运行筛选与可选依赖视图受控切换。",
+
     "site.workItems.simulatedAgent": "模拟 Agent",
     "site.workItems.noProjectItems": "项目尚无工作项",
     "site.workItems.noProjectItemsHint": "使用顶部新建工作项开始；本地数据刷新后重置。",
@@ -2463,6 +2471,15 @@ export const siteMessages = {
       "构图、配置、校验与 JSON 导入导出的本地画布工作台。",
   },
   en: {
+"site.agentBoardP2.agent-dependency-graph":
+      "Source-reported run dependencies in a read-only canvas and accessible list.",
+"site.agentBoardP2.agent-usage-history":
+      "Source interval history; separate runs and currencies with gaps for missing observations.",
+"site.agentBoardP2.agent-run-virtual-list":
+      "Controlled variable-height run list with off-screen focus and explicit loaded scope.",
+"site.agentBoardP2.toolbar":
+      "Shared run filters and an optional controlled dependency view.",
+
     "site.workItems.simulatedAgent": "Simulated agent",
     "site.workItems.noProjectItems": "This project has no work items yet",
     "site.workItems.noProjectItemsHint": "Create a work item to begin. Local data resets on refresh.",

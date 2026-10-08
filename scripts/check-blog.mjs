@@ -116,7 +116,10 @@ for (const post of posts) {
     if (block.type === "paragraph") text(block.text)
     if (block.type === "link") {
       text(block.text)
-      assert.match(block.href, /^\/(?:examples\/[a-z0-9-]+|workspace\/agents)\/$/)
+      assert.match(
+        block.href,
+        /^\/(?:examples\/[a-z0-9-]+|workspace\/agents(?:\/scale)?)\/$/,
+      )
       assert.ok(
         fs.existsSync(path.join(root, "app", block.href, "page.tsx")),
         `Missing example route: ${block.href}`,
