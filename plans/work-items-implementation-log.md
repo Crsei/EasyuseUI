@@ -83,3 +83,47 @@ Plane 参考提交为 `1fec307f91003df96351557af32ce87891a3678a`。`reference.js
 证据在 `public/blog/work-items-enhancements/`：18 次测量、6 张截图、截图索引、核心源码 SHA-256 和验证记录。采集脚本检查 13 个明确列出的文件在采集前后未变；这不是整个 Git 树哈希。图片包括泳道、子项、批量预览/混合回执、保存视图及 390px 深色英文。Blog 追加相同证据、开关对照与服务限制，保留旧版图片及基线的原始来源 ID。
 
 本次交付证明公开源码、确定性本地行为及独立安装。没有新增真实 Plane 登录态视觉对照、生产权限/批量事务/持久化服务或人工读屏验收证据。页面内存 fixture 和保存视图刷新清除；语言切换不改协议值、不触发服务写入。
+
+## W6–W9 日期与五布局补齐
+
+日期：2026-10-09。基线 `1eff84dc67d49f7ed4f4bdc142298f289fee31aa`；此次保留并行 CRM 文件与共享文件中的既有修改，使用任务专用副本完成生产构建和浏览器验证。未重启 3010 开发服务。
+
+| 阶段 | 交付 | 独立边界与行为证据 |
+| --- | --- | --- |
+| W6 | `schedule-date-utils.ts`、`schedule-view-model.ts`、可选 startDate、五布局视图配置、WorkItemDateRangeField | 严格日历日期、闰年/DST/显式时区、含首尾区间、旧记录和保存视图兼容。平移/两端调整/截止日/成对设置/清除分别校验；一个 operationId 与一次原子日期意图，检查 revision/queryKey/权限/previousDates。 |
+| W7 | 通用 Timeline/Axis/Row/Bar 与 WorkItemTimeline | 周/月/季度、今天和展开、共享纵向滚动、固定侧栏与轴头、范围裁切/完整日期、单端与非法历史数据。真实 Pointer Events 平移、独立手柄、Escape；表单替代、手动排序独立、只读及范围分页恢复。 |
+| W8 | 通用 Calendar/Header/Day/Agenda 与 WorkItemCalendar/Entry | 月/周按 dueDate 定位；原生拖放只改截止日，早于 startDate 拒绝。每日分页/错误保留/未知总量、本地更多与远程加载区分、周末任务入口、日期键盘导航和390px当日Agenda。 |
+| W9 | Workspace/URL/保存视图、共享日期草稿与详情、未排期队列、范围控制、文档和 Registry | 五布局共享选择、筛选、对象和回执，分组偏好保留。独立时间锚点、时间线滚动保留；未发送/拒绝草稿跨布局/语言保留，unknown 先对账。新增7项 Catalog/Registry 与非WorkItem发布窗口/便笺示例。 |
+
+日期草稿由 `onDateDraftChange`（字段为 `onDraftChange`，详情 presentation 为 `onScheduleDraftChange`）交给调用方保留，只有 `onScheduleChange` 表达写入。远程范围/日期/未排期快照由调用方授权查询，组件不从一页推断全量总数；`mergeSchedulePage` 按 queryKey、日期/范围去重并丢弃迟到页。原有三布局保持字段兼容；新增 `startDate` 不覆盖已有 `dueDate`。
+
+### 本轮验证
+
+W6–W9 新增 `tests/work-items-schedule.spec.ts` 17 项；核心生产版本四个 Work Items 测试文件共 **46/46 通过**，包含原有29项。范围包括原生指针平移/左右调整、真实Calendar拖放、历史日期修正、跨年裁切、权限与并发版本、分页迟到/去重/失败重试、拒绝/unknown、未发送草稿、手动重排独立、触屏44px目标与粗指针手柄替代、axe、双主题与英文390px工具栏边界。
+
+最终工程、完整回归与独立消费应用结果在 `public/blog/work-items-schedule/verification.json` 中记录。
+
+- `pnpm lint`、`pnpm typecheck`、`pnpm build`、`pnpm check:i18n`、`pnpm check:manifest`、`pnpm check:blog`：全部通过。
+- 最终隔离生产输出完整浏览器回归 **261/261 通过**，包含新增17项、原有Work Items与最终文章证据，以及Agent/common/Workspace/Canvas/语言/Blog等基线；不包含并行尚未交付的CRM页面。
+- `pnpm test:install`：通过。独立消费应用 `easyuse-ui-consumer-OWIlVc` 经CLI安装依赖闭包、类型检查与生产构建，实际操作业务无关Timeline/Calendar、成对日期修改、日历仅改截止日且保留开始日，以及既有Work Items/common/Agent/Canvas消费场景。
+
+开发入口另经只读浏览器复核，Timeline与Calendar可交互，英文390px布局按钮均在可视区。Blog首次导航load等待超过30秒后，按DOM就绪复核通过，文章、Registry与测量文件可访问且无页面错误；未改配置或重启服务。该复核与隔离生产检查分别记录。
+
+### 本轮截图与性能
+
+`scripts/capture-work-items-schedule.mjs` 在独立 Webpack/WASM 生产预览33116采集12张截图，覆盖三档时间刻度、1024px、月/周日历、390px浅色中文/深色英文、未排期、只读、拒绝和unknown。保留 W0–W5 的旧图片与原始来源ID。核心来源快照为 `eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264`，列出23个明确文件并在采集前后检查字节未变，不是整个Git树哈希。
+
+50/200/1000项 × 两种时间布局 × 三轮，共18次观察。下表操作为三次中位数（ms）；DOM及实际挂载实体由浏览器读取。布局与范围分别为往返一次，已加载/总数指完整本地fixture快照。Calendar每日溢出会折叠，所以挂载实体数可以小于已加载数；Timeline保留全部行，二者均不宣称窗口化。
+
+| 已加载 / fixture总数 | 布局 | 实际挂载实体 | DOM节点范围 | 日期修改 | 布局往返 | 范围往返 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 50 / 50 | timeline | 50 | 1264–1264 | 296 | 380 | 357 |
+| 50 / 50 | calendar | 50 | 1079–1081 | 258 | 347 | 247 |
+| 200 / 200 | timeline | 200 | 4249–4249 | 828 | 913 | 922 |
+| 200 / 200 | calendar | 95 | 1664–1665 | 302 | 881 | 314 |
+| 1000 / 1000 | timeline | 1000 | 20211–20211 | 4604 | 4886 | 6116 |
+| 1000 / 1000 | calendar | 295 | 4264–4264 | 712 | 4146 | 694 |
+
+测量包含Playwright操作、两个动画帧、120ms本地模拟写回执与共享主机噪声，不是服务延迟、p95、优化前后比较或生产容量保证。1000项时间线仍有明显延迟，需要消费方结合权威分页限制加载量。完整数据见 [measurements.json](../public/blog/work-items-schedule/measurements.json)。现有Work Items Blog追加五布局说明、截图、实际指标与通用容器演示，保留历史基线。
+
+本轮只证明源码实现、本地确定性行为和独立分发。Plane源码核对保持 `1fec307f91003df96351557af32ce87891a3678a`，没有新增登录态Plane视觉证据、真实日期事务/存储/服务、自动排期或人工读屏验收；这些由消费方另行验收。

@@ -90,12 +90,12 @@
   {
     "slug": "work-items-shared-views",
     "title": {
-      "zh-CN": "Work Items 的 List、Board 与 Table 如何共享组件",
-      "en": "How Work Items List, Board and Table share components"
+      "zh-CN": "Work Items 五种布局如何共享组件",
+      "en": "How five Work Items layouts share components"
     },
     "summary": {
-      "zh-CN": "用同一份受控快照组合列表、看板和表格；共享字段、选择与详情，并保留拒绝、未知结果和分页的真实边界。",
-      "en": "Compose List, Board and Table from one controlled snapshot, sharing properties, selection and details while preserving rejection, unknown outcomes and pagination boundaries."
+      "zh-CN": "同一份受控快照组合 List、Board、Table、Timeline 与 Calendar；共享字段、选择、详情与日期草稿，保留分页、拒绝和未知结果的真实边界。",
+      "en": "Compose List, Board, Table, Timeline and Calendar from one controlled snapshot. Share fields, selection, details and date drafts while retaining pagination, rejection and unknown-result boundaries."
     }
   }
 ]

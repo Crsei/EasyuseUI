@@ -1,12 +1,12 @@
-# Work Items List / Board / Table 示例页面展示计划
+# Work Items 五布局示例页面展示计划
 
-日期：2026-10-08
-状态：S0–S5 已实施并完成本地验收；S5 的增强示例、文章与证据已交付。Plane 登录态视觉对照尚未取得，范围与证据见[实施记录](./work-items-implementation-log.md)。
+日期：2026-10-08；更新：2026-10-09
+状态：S0–S5 与 W9 五布局增量已实施；新增时间布局、文章和独立证据见文末。Plane 登录态视觉对照尚未取得，范围与证据见[实施记录](./work-items-implementation-log.md)。
 组件前置：[Work Items 通用组件建设计划](./work-items-components-plan.md)。
 
 ## 1. 页面目标与范围
 
-新增 `/workspace/work-items/`，用同一组确定性本地工作项展示 List、Board、Table，验证组件在完整工作台中的组合、状态恢复、响应式和无障碍。
+入口 `/workspace/work-items/`，用同一组确定性本地工作项展示 List、Board、Table、Timeline、Calendar，验证组件在完整工作台中的组合、状态恢复、响应式和无障碍。
 
 参考 Plane 的工作项信息架构，视觉遵循 EasyuseUI 的紧凑中性设计，不承诺逐像素复制 Plane。不会修改 Plane 项目、连接其真实工作区或把本地交互当作真实任务服务。
 
@@ -18,9 +18,9 @@
 WorkspaceShell
 ├─ Sidebar：示例项目 / Work Items / 返回文档
 ├─ Header：项目 / Work Items                      新建
-├─ Toolbar：[List | Board | Table] 搜索 筛选 显示
+├─ Toolbar：[List | Board | Table | Timeline | Calendar] 搜索 筛选 显示
 ├─ AppliedFilters：负责人 ×  优先级 ×       清除
-├─ Main：WorkItemList / WorkItemBoard / WorkItemTable
+├─ Main：WorkItemList / WorkItemBoard / WorkItemTable / WorkItemTimeline / WorkItemCalendar
 ├─ Inspector：当前工作项摘要与字段编辑
 └─ 可折叠示例说明：数据来源 / 重置 / 场景切换 / 文档链接
 
@@ -34,8 +34,10 @@ WorkspaceShell
 | List | 按状态分组的紧凑行、组头计数/折叠/新增 | 快速扫描、选择、编辑字段、打开详情 |
 | Board | 按状态分列，320px初始列宽，中性卡片 | 看流程分布、组内新增、移动状态、手动重排 |
 | Table | DataTable，编号/标题/状态/优先级/负责人/标签/日期 | 对齐比较、选择和字段查看/编辑；排序由适配层提供 |
+| Timeline | 固定侧栏、周/月/季度时间轴、44px行与24px日期条 | 平移或调整区间、表单精确修改、安排未排期项、独立手动排序 |
+| Calendar | 月/周日期格与当日Agenda | 按截止日扫描、每日分页、只改截止日、预填新建草稿、安排已有项 |
 
-三种布局只改变展示。当前工作项、筛选、底层数据及已提交字段保持一致。每种布局单独记住滚动位置，切换后明确恢复焦点。
+五种布局共享同一数据源。当前工作项、筛选、底层数据及已提交字段保持一致。每种布局单独记住滚动位置，切换后明确恢复焦点。
 
 ## 3. 路由与视图状态
 
@@ -44,7 +46,9 @@ WorkspaceShell
 ```text
 /workspace/work-items/?layout=list
 /workspace/work-items/?layout=board&group=state
-/workspace/work-items/?layout=table&item=WI-012
+/workspace/work-items/?layout=table&item=wi-012
+/workspace/work-items/?layout=timeline&scale=quarter&timelineDate=2026-10-09
+/workspace/work-items/?layout=calendar&mode=week&calendarDate=2026-10-09
 ```
 
 - 路由适配层持有 layout、group、sort、q、已支持的过滤条件和 item；公共组件不读取 Next 路由。
@@ -141,3 +145,9 @@ WorkspaceShell
 Blog增加“Work Items的List、Board与Table如何共享组件”文章，展示三视图、属性复用、拖动恢复和移动端效果。Plane截图与EasyuseUI截图标明不同设计体系；未知/未测指标显示待测，模拟运行不冒充真实服务证据。
 
 完成标准：配套W0–W4组件可安装，页面S0–S4主流程和失败流程通过，现有Workspace/Canvas/CRM相关组件无回归，文档有真实效果与限制说明。真实Plane接入、生产工作流及服务端保存视图属于后续接入范围。
+
+## W9 时间布局展示增量（已实施）
+
+沿用 `/workspace/work-items/` 和同一份 fixture/操作回执，新增 Timeline 周/月/季度与 Calendar 月/周，展示单端日期、无日期队列、按日分页失败重试、只读、拒绝和unknown保留。URL分别保存两种布局的锚点与参数，旧List/Board/Table与保存视图继续可读。公共容器文档使用发布窗口/便笺等非工作项数据，业务文档展示对应WorkItem适配。
+
+本轮证据独立保存于 `public/blog/work-items-schedule/`，不替换W0–W5历史截图或性能基线。新采集覆盖三档时间刻度、月/周日历、390px Agenda、未排期、只读和保存错误；50/200/1000项分别测日期修改、范围切换与布局切换，明确已加载/总数/DOM与自动化开销。已采集 12 张正式截图与 18 次实际性能观察，来源哈希和工程/分发验证见实施记录与现有 Blog 的 W6–W9 增量。真实Plane服务与人工业务验收另行确认。

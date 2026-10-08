@@ -1,0 +1,71 @@
+{
+  "sourceSnapshotId": "eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264",
+  "capturedAt": "2026-10-08T22:52:54.887Z",
+  "baselineCommit": "1eff84dc67d49f7ed4f4bdc142298f289fee31aa",
+  "checks": {
+    "lint": {
+      "status": "passed",
+      "seconds": 20.5
+    },
+    "typecheck": {
+      "status": "passed",
+      "seconds": 6.0
+    },
+    "build": {
+      "status": "passed",
+      "seconds": 81.3
+    },
+    "i18n": {
+      "status": "passed",
+      "seconds": 1.7
+    },
+    "manifest": {
+      "status": "passed",
+      "seconds": 1.4
+    },
+    "blog": {
+      "status": "passed",
+      "seconds": 1.0
+    }
+  },
+  "coreBrowser": {
+    "passed": 46,
+    "failed": 0,
+    "port": 33115,
+    "files": [
+      "work-items.spec.ts",
+      "work-items-enhancements.spec.ts",
+      "work-items-schedule.spec.ts",
+      "work-items-docs.spec.ts"
+    ],
+    "scope": "Core runtime source before article evidence update; final article and full regression are recorded separately after release verification."
+  },
+  "finalRegression": {
+    "passed": 261,
+    "failed": 0,
+    "seconds": 393.5,
+    "port": 33115,
+    "scope": "All committed-baseline browser suites plus W6\u2013W9, including final article evidence assertions. Parallel uncommitted CRM pages excluded."
+  },
+  "independentInstallation": {
+    "status": "passed",
+    "fixture": "easyuse-ui-consumer-OWIlVc",
+    "seconds": 120.5,
+    "scope": "CLI dependency closure, typecheck, production build and browser actions for standalone Timeline/Calendar, WorkItem date adapters, and existing common/Agent/Canvas/Work Items consumers."
+  },
+  "capture": {
+    "screenshots": 12,
+    "observations": 18,
+    "sourceFiles": 23
+  },
+  "limitations": [
+    "Deterministic local fixtures and simulated receipts; no authenticated Plane or production-service evidence.",
+    "Explicit core source hash, not a full Git tree.",
+    "Shared dev 3010 was preserved; task builds and production checks used isolated snapshots."
+  ],
+  "liveDev": {
+    "port": 3010,
+    "sharedProcessPreserved": true,
+    "scope": "Timeline and Calendar interactions, English 390px layout bounds; final article, Registry and measurement resources verified with DOM readiness and no page errors. Initial Blog load wait exceeded 30s; no restart or configuration change."
+  }
+}

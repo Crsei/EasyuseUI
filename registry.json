@@ -2027,6 +2027,16 @@
           "path": "lib/work-items-view.ts",
           "type": "registry:lib",
           "target": "lib/work-items-view.ts"
+        },
+        {
+          "path": "lib/schedule-date-utils.ts",
+          "type": "registry:lib",
+          "target": "lib/schedule-date-utils.ts"
+        },
+        {
+          "path": "lib/schedule-view-model.ts",
+          "type": "registry:lib",
+          "target": "lib/schedule-view-model.ts"
         }
       ]
     },
@@ -2154,7 +2164,8 @@
         "work-item-properties",
         "work-items-model",
         "work-items-styles",
-        "i18n"
+        "i18n",
+        "work-item-date-range-field"
       ],
       "files": [
         {
@@ -2181,7 +2192,10 @@
         "grouped-items-model",
         "work-items-styles",
         "i18n",
-        "work-items-enhancements"
+        "work-items-enhancements",
+        "work-item-timeline",
+        "work-item-calendar",
+        "schedule-view-controls"
       ],
       "files": [
         {
@@ -2321,6 +2335,166 @@
           "path": "components/blocks/work-items-enhancements.tsx",
           "type": "registry:block",
           "target": "components/blocks/work-items-enhancements.tsx"
+        }
+      ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:block",
+      "title": "Timeline",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "i18n",
+        "work-items-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/timeline.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/timeline.tsx"
+        },
+        {
+          "path": "components/blocks/timeline.module.css",
+          "type": "registry:component",
+          "target": "components/blocks/timeline.module.css"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:block",
+      "title": "Calendar",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "i18n",
+        "work-items-model",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/calendar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/calendar.tsx"
+        },
+        {
+          "path": "components/blocks/calendar.module.css",
+          "type": "registry:component",
+          "target": "components/blocks/calendar.module.css"
+        }
+      ]
+    },
+    {
+      "name": "schedule-view-controls",
+      "type": "registry:block",
+      "title": "ScheduleViewControls",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "i18n",
+        "work-items-model",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/schedule-view-controls.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/schedule-view-controls.tsx"
+        },
+        {
+          "path": "components/blocks/schedule.module.css",
+          "type": "registry:component",
+          "target": "components/blocks/schedule.module.css"
+        }
+      ]
+    },
+    {
+      "name": "work-item-date-range-field",
+      "type": "registry:block",
+      "title": "WorkItemDateRangeField",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "i18n",
+        "work-items-model",
+        "input",
+        "field",
+        "popover",
+        "schedule-view-controls"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-item-date-range-field.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-item-date-range-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-items-schedule",
+      "type": "registry:block",
+      "title": "UnscheduledWorkItems",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "i18n",
+        "work-items-model",
+        "checkbox",
+        "work-item",
+        "work-items-views",
+        "work-item-date-range-field",
+        "schedule-view-controls",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-items-schedule.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-items-schedule.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-item-timeline",
+      "type": "registry:block",
+      "title": "WorkItemTimeline",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "i18n",
+        "work-items-model",
+        "timeline",
+        "work-items-schedule",
+        "work-item-date-range-field",
+        "dialog",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-item-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-item-timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-item-calendar",
+      "type": "registry:block",
+      "title": "WorkItemCalendar",
+      "registryDependencies": [
+        "theme",
+        "button",
+        "i18n",
+        "work-items-model",
+        "calendar",
+        "work-items-schedule"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-item-calendar.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/work-item-calendar.tsx"
         }
       ]
     }

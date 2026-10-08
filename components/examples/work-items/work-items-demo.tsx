@@ -6,6 +6,18 @@ import {
   useState,
   useSyncExternalStore,
 } from "react"
+import {
+  calendarViewport,
+  timelineViewport,
+  normalizeCalendar,
+  normalizeTimeline,
+  workItemDates,
+  validateScheduleChange,
+  scheduleIntersects,
+  type ScheduleChangeIntent,
+  type DateBucketSnapshot,
+} from "@/lib/schedule-view-model"
+import { scheduleDates } from "@/lib/schedule-date-utils"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { ListTodo, ArrowLeft, BookOpen, Languages, Sun } from "lucide-react"
@@ -53,7 +65,10 @@ import { applyOperation, fixtureDelay, type LocalOperation } from "./commands"
 import { scenarios, scenarioCount, type WorkItemsScenario } from "./scenarios"
 import { useWorkItemsUrl } from "./use-work-items-url"
 import type { WorkItemsBoardMove } from "@/components/blocks/work-items-views"
-import { groupWorkItemLanes } from "@/lib/work-items-view"
+import {
+  normalizeWorkItemsView,
+  groupWorkItemLanes,
+} from "@/lib/work-items-view"
 import styles from "./work-items-demo.module.css"
 
 export function WorkItemsDemo() {
@@ -114,6 +129,9 @@ export function WorkItemsDemo() {
     url.view.filters,
     url.view.sort,
     url.view.sortDirection,
+    url.view.layout,
+    url.view.timeline,
+    url.view.calendar,
   ])
   const latest = useRef({ items, queryKey, scenario })
   latest.current = { items, queryKey, scenario }
@@ -167,9 +185,11 @@ export function WorkItemsDemo() {
     ],
   )
   const loadedItems = useMemo(() => {
+    if (url.view.layout === "timeline" || url.view.layout === "calendar")
+      return visible
     const ids = new Set(groups.flatMap((group) => group.itemIds))
     return visible.filter((item) => ids.has(item.id))
-  }, [visible, groups])
+  }, [visible, groups, url.view.layout])
   const readOnlyReason = siteT("site.workItems.demoReadOnly")
   const capabilities: WorkItemCapabilities = useMemo(
     () => ({
@@ -356,7 +376,59 @@ export function WorkItemsDemo() {
       ),
     )
   }
+  function dateDraft(
+    item: WorkItemRecord,
+    dates: ReturnType<typeof workItemDates>,
+  ) {
+    setDrafts((before) => ({
+      ...before,
+      [item.id]: { ...before[item.id], ...dates },
+    }))
+  }
+  function schedule(intent: ScheduleChangeIntent) {
+    const item = latest.current.items.find((row) => row.id === intent.itemId)
+    if (!item) return
+    const problem = validateScheduleChange(intent, {
+      item,
+      queryKey: latest.current.queryKey,
+      capabilities,
+      mutation: mutations[item.id],
+    })
+    if (problem) {
+      setFeedback(siteMessage("site.workItems.demoMoveUnavailable"))
+      return
+    }
+    // One fixture CAS changes both fields. A real caller must submit this intent atomically.
+    setDrafts((before) => ({
+      ...before,
+      [item.id]: { ...before[item.id], ...intent.nextDates },
+    }))
+    void submit(
+      item,
+      {
+        kind: "patch",
+        itemId: item.id,
+        revision: intent.baseRevision,
+        patch: intent.nextDates,
+      },
+      intent.operationId,
+    )
+  }
   function patch(item: WorkItemRecord, patch: WorkItemPatch) {
+    if ("dueDate" in patch || "startDate" in patch) {
+      schedule({
+        itemId: item.id,
+        operationId: crypto.randomUUID(),
+        baseRevision: item.revision,
+        queryKey: latest.current.queryKey,
+        kind: "startDate" in patch ? "setRange" : "setDueDate",
+        previousDates: workItemDates(item),
+        nextDates: { ...workItemDates(item), ...patch } as ReturnType<
+          typeof workItemDates
+        >,
+      })
+      return
+    }
     const authority = latest.current.items.find((row) => row.id === item.id)
     if (
       !authority ||
@@ -436,7 +508,8 @@ export function WorkItemsDemo() {
       priorityId: draft.priorityId,
       assigneeIds: [],
       labelIds: [],
-      dueDate: null,
+      startDate: draft.startDate ?? null,
+      dueDate: draft.dueDate ?? null,
       revision: 1,
     }
     publish([...latest.current.items, item])
@@ -608,9 +681,10 @@ export function WorkItemsDemo() {
       handlers.current.patch(item, patch),
     [],
   )
-  function preset(group?: string, laneKey?: string) {
+  function preset(group?: string, laneKey?: string, dueDate?: string) {
     if (!capabilities.canCreate || isMutationLocked(createMutation)) return
     setCreatePreset({
+      dueDate,
       title: "",
       stateId:
         url.view.subGroupBy === "state" && laneKey
@@ -634,6 +708,14 @@ export function WorkItemsDemo() {
       onPatchItem: stablePatch,
       mutation: mutations[item.id],
       today: fixtureToday,
+      queryKey,
+      onScheduleDraftChange: dateDraft,
+      onScheduleChange: schedule,
+      proposedDates: drafts[item.id]
+        ? ({ ...workItemDates(item), ...drafts[item.id] } as ReturnType<
+            typeof workItemDates
+          >)
+        : undefined,
       agentLabel: siteT("site.workItems.simulatedAgent"),
       href: url.href(item.id),
       onOpen: () => url.openItem(item.id),
@@ -644,11 +726,88 @@ export function WorkItemsDemo() {
     () =>
       loadedItems.map((item) =>
         Object.keys(drafts[item.id] ?? {}).length
-          ? { ...item, ...drafts[item.id] }
+          ? {
+              ...item,
+              ...drafts[item.id],
+              startDate: item.startDate,
+              dueDate: item.dueDate,
+            }
           : item,
       ),
     [loadedItems, drafts],
   )
+  const timelineRange = timelineViewport(normalizeTimeline(url.view.timeline)),
+    calendarRange = calendarViewport(normalizeCalendar(url.view.calendar))
+  const rangeItems = visible.filter((item) =>
+    scheduleIntersects(item, timelineRange),
+  )
+  const rangeToken = `${queryKey}:range`
+  const rangeLoaded =
+    scenario !== "partial" || loadedGroups.includes(rangeToken)
+  const rangeIds = rangeItems
+    .slice(0, rangeLoaded ? rangeItems.length : 8)
+    .map((item) => item.id)
+  const range = {
+    ...timelineRange,
+    queryKey,
+    itemIds: rangeIds,
+    loadedCount: rangeIds.length,
+    totalCount: scenario === "partial" ? null : rangeItems.length,
+    hasMore: !rangeLoaded && rangeItems.length > 8,
+    dataState: pageErrors.includes(rangeToken)
+      ? ("error" as const)
+      : loadingGroups.includes(rangeToken)
+        ? ("loading" as const)
+        : rangeLoaded
+          ? ("success" as const)
+          : ("partial" as const),
+    error: pageErrors.includes(rangeToken) ? pageError : undefined,
+  }
+  const buckets: DateBucketSnapshot[] = scheduleDates(
+    calendarRange.rangeStart,
+    calendarRange.rangeEnd,
+  ).map((date) => {
+    const records = visible.filter((item) => item.dueDate === date),
+      token = `${queryKey}:${date}`,
+      loaded = scenario !== "partial" || loadedGroups.includes(token),
+      ids = records.slice(0, loaded ? records.length : 1).map((item) => item.id)
+    return {
+      date,
+      queryKey,
+      itemIds: ids,
+      loadedCount: ids.length,
+      totalCount: scenario === "partial" ? null : records.length,
+      hasMore: !loaded && records.length > 1,
+      dataState: pageErrors.includes(token)
+        ? "error"
+        : loadingGroups.includes(token)
+          ? "loading"
+          : !loaded && records.length > 1
+            ? "partial"
+            : records.length
+              ? "success"
+              : "empty",
+      error: pageErrors.includes(token) ? pageError : undefined,
+    }
+  })
+  async function loadSchedule(key: string) {
+    const requestKey = latest.current.queryKey,
+      token = `${requestKey}:${key}`,
+      generationToken = generation.current
+    if (loadingGroups.includes(token)) return
+    setLoadingGroups((before) => [...before, token])
+    await fixtureDelay()
+    if (generationToken !== generation.current) return
+    if (requestKey === latest.current.queryKey) {
+      if (!pageErrors.includes(token))
+        setPageErrors((before) => [...before, token])
+      else {
+        setLoadedGroups((before) => [...before, token])
+        setPageErrors((before) => before.filter((value) => value !== token))
+      }
+    }
+    setLoadingGroups((before) => before.filter((value) => value !== token))
+  }
   const active = items.find((item) => item.id === url.activeItemId)
   return (
     <main
@@ -766,7 +925,7 @@ export function WorkItemsDemo() {
           mutation: viewMutation,
           onApply: (saved) => {
             setActiveSavedId(saved.id)
-            url.setView(structuredClone(saved.view))
+            url.setView(normalizeWorkItemsView(structuredClone(saved.view)))
           },
           onSave: storeView,
           onDelete: (saved) =>
@@ -795,6 +954,60 @@ export function WorkItemsDemo() {
         view={url.view}
         onViewChange={url.setView}
         queryKey={queryKey}
+        schedule={{
+          today: fixtureToday,
+          onReorder:
+            scenario !== "readonly" && url.view.sort === "manual"
+              ? (intent) => {
+                  const item = latest.current.items.find(
+                    (row) => row.id === intent.itemId,
+                  )
+                  if (
+                    !item ||
+                    item.revision !== intent.baseRevision ||
+                    intent.queryKey !== latest.current.queryKey ||
+                    locks.current.has(item.id) ||
+                    ![intent.beforeId, intent.afterId].some(
+                      (id) => id && rangeIds.includes(id),
+                    )
+                  )
+                    return
+                  void submit(
+                    item,
+                    {
+                      kind: "reorder",
+                      itemId: item.id,
+                      revision: item.revision,
+                      beforeId: intent.beforeId,
+                      afterId: intent.afterId,
+                    },
+                    intent.operationId,
+                  )
+                }
+              : undefined,
+          onDateDraftChange: dateDraft,
+          onScheduleChange: schedule,
+          range,
+          buckets,
+          onLoadRange: () => loadSchedule("range"),
+          onRetryRange: () => loadSchedule("range"),
+          onLoadDate: (bucket) => loadSchedule(bucket.date),
+          onRetryDate: (bucket) => loadSchedule(bucket.date),
+          onCreateOnDate: capabilities.canCreate
+            ? (date) => preset(undefined, undefined, date)
+            : undefined,
+          proposedDates: Object.fromEntries(
+            Object.entries(drafts).map(([id, patch]) => {
+              const item = items.find((row) => row.id === id)!
+              return [
+                id,
+                { ...workItemDates(item), ...patch } as ReturnType<
+                  typeof workItemDates
+                >,
+              ]
+            }),
+          ),
+        }}
         interaction={{
           selectedIds,
           activeItemId: url.activeItemId,
@@ -809,7 +1022,16 @@ export function WorkItemsDemo() {
           )
         }
         getPresentation={present}
-        activeItem={active ? { ...active, ...drafts[active.id] } : null}
+        activeItem={
+          active
+            ? {
+                ...active,
+                ...drafts[active.id],
+                startDate: active.startDate,
+                dueDate: active.dueDate,
+              }
+            : null
+        }
         onCloseItem={url.closeItem}
         onCreateInGroup={
           capabilities.canCreate && !isMutationLocked(createMutation)

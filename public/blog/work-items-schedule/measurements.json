@@ -1,0 +1,260 @@
+{
+  "sourceSnapshotId": "eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264",
+  "capturedAt": "2026-10-08T22:52:54.887Z",
+  "environment": "Shared GLIBC 2.28 host, Next 16.3.8 Webpack/WASM production preview, Chromium",
+  "method": "3 samples per count and time layout. Date edit includes Playwright, 120ms fixture receipt and two frames. Layout and range measurements are round trips. Complete local fixture, retained DOM; no service latency or SLA claim.",
+  "observations": [
+    {
+      "count": 50,
+      "loadedCount": 50,
+      "totalCount": 50,
+      "layout": "timeline",
+      "sample": 1,
+      "dom": {
+        "elements": 1264,
+        "mounted": 50
+      },
+      "layoutSwitchMs": 379,
+      "dateChangeMs": 322,
+      "viewportRoundTripMs": 388
+    },
+    {
+      "count": 50,
+      "loadedCount": 50,
+      "totalCount": 50,
+      "layout": "timeline",
+      "sample": 2,
+      "dom": {
+        "elements": 1264,
+        "mounted": 50
+      },
+      "layoutSwitchMs": 380,
+      "dateChangeMs": 296,
+      "viewportRoundTripMs": 322
+    },
+    {
+      "count": 50,
+      "loadedCount": 50,
+      "totalCount": 50,
+      "layout": "timeline",
+      "sample": 3,
+      "dom": {
+        "elements": 1264,
+        "mounted": 50
+      },
+      "layoutSwitchMs": 381,
+      "dateChangeMs": 291,
+      "viewportRoundTripMs": 357
+    },
+    {
+      "count": 50,
+      "loadedCount": 50,
+      "totalCount": 50,
+      "layout": "calendar",
+      "sample": 1,
+      "dom": {
+        "elements": 1081,
+        "mounted": 50
+      },
+      "layoutSwitchMs": 347,
+      "dateChangeMs": 258,
+      "viewportRoundTripMs": 231
+    },
+    {
+      "count": 50,
+      "loadedCount": 50,
+      "totalCount": 50,
+      "layout": "calendar",
+      "sample": 2,
+      "dom": {
+        "elements": 1079,
+        "mounted": 50
+      },
+      "layoutSwitchMs": 380,
+      "dateChangeMs": 245,
+      "viewportRoundTripMs": 247
+    },
+    {
+      "count": 50,
+      "loadedCount": 50,
+      "totalCount": 50,
+      "layout": "calendar",
+      "sample": 3,
+      "dom": {
+        "elements": 1080,
+        "mounted": 50
+      },
+      "layoutSwitchMs": 347,
+      "dateChangeMs": 258,
+      "viewportRoundTripMs": 248
+    },
+    {
+      "count": 200,
+      "loadedCount": 200,
+      "totalCount": 200,
+      "layout": "timeline",
+      "sample": 1,
+      "dom": {
+        "elements": 4249,
+        "mounted": 200
+      },
+      "layoutSwitchMs": 964,
+      "dateChangeMs": 813,
+      "viewportRoundTripMs": 922
+    },
+    {
+      "count": 200,
+      "loadedCount": 200,
+      "totalCount": 200,
+      "layout": "timeline",
+      "sample": 2,
+      "dom": {
+        "elements": 4249,
+        "mounted": 200
+      },
+      "layoutSwitchMs": 905,
+      "dateChangeMs": 828,
+      "viewportRoundTripMs": 871
+    },
+    {
+      "count": 200,
+      "loadedCount": 200,
+      "totalCount": 200,
+      "layout": "timeline",
+      "sample": 3,
+      "dom": {
+        "elements": 4249,
+        "mounted": 200
+      },
+      "layoutSwitchMs": 913,
+      "dateChangeMs": 860,
+      "viewportRoundTripMs": 969
+    },
+    {
+      "count": 200,
+      "loadedCount": 200,
+      "totalCount": 200,
+      "layout": "calendar",
+      "sample": 1,
+      "dom": {
+        "elements": 1665,
+        "mounted": 95
+      },
+      "layoutSwitchMs": 881,
+      "dateChangeMs": 269,
+      "viewportRoundTripMs": 298
+    },
+    {
+      "count": 200,
+      "loadedCount": 200,
+      "totalCount": 200,
+      "layout": "calendar",
+      "sample": 2,
+      "dom": {
+        "elements": 1665,
+        "mounted": 95
+      },
+      "layoutSwitchMs": 886,
+      "dateChangeMs": 302,
+      "viewportRoundTripMs": 314
+    },
+    {
+      "count": 200,
+      "loadedCount": 200,
+      "totalCount": 200,
+      "layout": "calendar",
+      "sample": 3,
+      "dom": {
+        "elements": 1664,
+        "mounted": 95
+      },
+      "layoutSwitchMs": 837,
+      "dateChangeMs": 304,
+      "viewportRoundTripMs": 344
+    },
+    {
+      "count": 1000,
+      "loadedCount": 1000,
+      "totalCount": 1000,
+      "layout": "timeline",
+      "sample": 1,
+      "dom": {
+        "elements": 20211,
+        "mounted": 1000
+      },
+      "layoutSwitchMs": 4886,
+      "dateChangeMs": 4544,
+      "viewportRoundTripMs": 6116
+    },
+    {
+      "count": 1000,
+      "loadedCount": 1000,
+      "totalCount": 1000,
+      "layout": "timeline",
+      "sample": 2,
+      "dom": {
+        "elements": 20211,
+        "mounted": 1000
+      },
+      "layoutSwitchMs": 5055,
+      "dateChangeMs": 4604,
+      "viewportRoundTripMs": 6011
+    },
+    {
+      "count": 1000,
+      "loadedCount": 1000,
+      "totalCount": 1000,
+      "layout": "timeline",
+      "sample": 3,
+      "dom": {
+        "elements": 20211,
+        "mounted": 1000
+      },
+      "layoutSwitchMs": 4772,
+      "dateChangeMs": 4981,
+      "viewportRoundTripMs": 6253
+    },
+    {
+      "count": 1000,
+      "loadedCount": 1000,
+      "totalCount": 1000,
+      "layout": "calendar",
+      "sample": 1,
+      "dom": {
+        "elements": 4264,
+        "mounted": 295
+      },
+      "layoutSwitchMs": 4146,
+      "dateChangeMs": 736,
+      "viewportRoundTripMs": 748
+    },
+    {
+      "count": 1000,
+      "loadedCount": 1000,
+      "totalCount": 1000,
+      "layout": "calendar",
+      "sample": 2,
+      "dom": {
+        "elements": 4264,
+        "mounted": 295
+      },
+      "layoutSwitchMs": 4229,
+      "dateChangeMs": 712,
+      "viewportRoundTripMs": 694
+    },
+    {
+      "count": 1000,
+      "loadedCount": 1000,
+      "totalCount": 1000,
+      "layout": "calendar",
+      "sample": 3,
+      "dom": {
+        "elements": 4264,
+        "mounted": 295
+      },
+      "layoutSwitchMs": 4007,
+      "dateChangeMs": 711,
+      "viewportRoundTripMs": 682
+    }
+  ]
+}

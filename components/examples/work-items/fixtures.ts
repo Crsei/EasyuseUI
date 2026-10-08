@@ -1,3 +1,4 @@
+import { addScheduleDays } from "@/lib/schedule-date-utils"
 import type { WorkItemCatalog, WorkItemRecord } from "@/lib/work-items-model"
 export const catalog: WorkItemCatalog = {
   states: [
@@ -60,6 +61,17 @@ export function makeWorkItems(count = 24): WorkItemRecord[] {
       i % 3 === 0 ? ["design", "frontend", "a11y"] : [catalog.labels[i % 4].id],
     dueDate:
       i % 4 === 0 ? null : `2026-10-${String(5 + (i % 20)).padStart(2, "0")}`,
+    startDate:
+      i % 4 === 0
+        ? i % 8 === 4
+          ? "2026-10-09"
+          : null
+        : i % 6 === 2
+          ? null
+          : addScheduleDays(
+              `2026-10-${String(5 + (i % 20)).padStart(2, "0")}`,
+              i % 7 === 0 ? -12 : -3,
+            ),
     parentId: null,
     subItemCount: i % 3 === 0 ? null : i % 3,
     attachmentCount: i % 2,

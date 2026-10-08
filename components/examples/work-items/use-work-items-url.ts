@@ -6,12 +6,14 @@ import {
   type WorkItemProperty,
   type WorkItemsViewState,
 } from "@/lib/work-items-model"
+import { normalizeTimeline, normalizeCalendar } from "@/lib/schedule-view-model"
 import { catalog } from "./fixtures"
 const supportedProperties: WorkItemProperty[] = [
   "state",
   "priority",
   "assignees",
   "labels",
+  "startDate",
   "dueDate",
   "counts",
 ]
@@ -31,7 +33,39 @@ export function decodeWorkItemsUrl(params: URLSearchParams): {
   return {
     view: {
       ...defaultWorkItemsView,
-      layout: layout === "board" || layout === "table" ? layout : "list",
+      layout:
+        layout === "board" ||
+        layout === "table" ||
+        layout === "timeline" ||
+        layout === "calendar"
+          ? layout
+          : "list",
+      timeline: normalizeTimeline({
+        anchorDate:
+          params.get("timelineDate") ??
+          (layout === "timeline"
+            ? (params.get("date") ?? undefined)
+            : undefined),
+        scale: (params.get("scale") ?? undefined) as "week",
+        timeZone: params.get("tz") ?? undefined,
+        weekStartsOn: Number(params.get("weekStart") ?? 1),
+      }),
+      calendar: normalizeCalendar({
+        anchorDate:
+          params.get("calendarDate") ??
+          (layout === "calendar"
+            ? (params.get("date") ?? undefined)
+            : undefined),
+        selectedDate:
+          params.get("selectedDate") ??
+          params.get("calendarDate") ??
+          params.get("date") ??
+          undefined,
+        mode: (params.get("mode") ?? undefined) as "month",
+        showWeekends: params.get("weekends") !== "0",
+        timeZone: params.get("tz") ?? undefined,
+        weekStartsOn: Number(params.get("weekStart") ?? 1),
+      }),
       groupBy: group === "priority" ? "priority" : "state",
       query: params.get("q") ?? "",
       sort:
@@ -88,6 +122,19 @@ export function encodeWorkItemsUrl(
     params.set("lane", view.subGroupBy)
   if (view.showSubItems) params.set("children", "1")
   if (view.deferOffscreen) params.set("defer", "1")
+  const timeline = normalizeTimeline(view.timeline),
+    calendar = normalizeCalendar(view.calendar)
+  params.set("timelineDate", timeline.anchorDate)
+  params.set("calendarDate", calendar.anchorDate)
+  params.set("scale", timeline.scale)
+  params.set("mode", calendar.mode)
+  params.set("selectedDate", calendar.selectedDate)
+  params.set("weekends", calendar.showWeekends ? "1" : "0")
+  const settings = view.layout === "timeline" ? timeline : calendar
+  params.set("tz", settings.timeZone)
+  params.set("weekStart", String(settings.weekStartsOn))
+  if (view.layout === "timeline" || view.layout === "calendar")
+    params.set("date", settings.anchorDate)
   if (item) params.set("item", item.toUpperCase())
   return `/workspace/work-items/?${params}`
 }

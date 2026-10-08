@@ -40,6 +40,7 @@ export function WorkItemsDisplayOptions({
     "priority",
     "assignees",
     "labels",
+    "startDate",
     "dueDate",
     "counts",
   ]
@@ -53,6 +54,9 @@ export function WorkItemsDisplayOptions({
           <label>
             {t("workItems.groupBy")}
             <select
+              disabled={
+                view.layout === "timeline" || view.layout === "calendar"
+              }
               aria-label={t("workItems.groupBy")}
               value={view.groupBy}
               onChange={(e) =>
@@ -233,6 +237,7 @@ export function WorkItemsToolbar({
         search={
           <>
             <Segmented
+              className="max-w-full flex-wrap"
               value={view.layout}
               aria-label={t("workItems.layout")}
               onValueChange={(layout) =>
@@ -242,8 +247,14 @@ export function WorkItemsToolbar({
                 })
               }
             >
-              {(["list", "board", "table"] as const).map((layout) => (
-                <SegmentedItem key={layout} value={layout}>
+              {(
+                ["list", "board", "table", "timeline", "calendar"] as const
+              ).map((layout) => (
+                <SegmentedItem
+                  key={layout}
+                  value={layout}
+                  className="shrink-0 whitespace-nowrap"
+                >
                   {t(`workItems.${layout}`)}
                 </SegmentedItem>
               ))}

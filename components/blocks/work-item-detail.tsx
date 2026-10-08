@@ -1,4 +1,5 @@
 "use client"
+import { WorkItemDateRangeField } from "./work-item-date-range-field"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -73,6 +74,18 @@ function DetailForm({
           </Button>
         )}
       </form>
+      {props.onScheduleChange && (
+        <WorkItemDateRangeField
+          key={`${item.id}:${item.revision}`}
+          item={item}
+          capabilities={capabilities}
+          mutation={mutation}
+          queryKey={props.queryKey ?? ""}
+          onDraftChange={(dates) => props.onScheduleDraftChange?.(item, dates)}
+          onChange={props.onScheduleChange}
+          proposedDates={props.proposedDates}
+        />
+      )}
       <WorkItemProperties
         {...props}
         visibleProperties={[
@@ -80,7 +93,9 @@ function DetailForm({
           "priority",
           "assignees",
           "labels",
-          "dueDate",
+          ...(props.onScheduleChange
+            ? []
+            : (["startDate", "dueDate"] as const)),
           "counts",
         ]}
         layout="detail"
@@ -189,6 +204,11 @@ export function WorkItemQuickCreate({
         onChange={(e) => setDraft({ ...draft, title: e.target.value })}
         disabled={pending || disabled || unknown}
       />
+      {preset.dueDate !== undefined && (
+        <p>
+          {t("workItems.dueDate")}: {preset.dueDate ?? "—"}
+        </p>
+      )}
       <WorkItemStatePicker
         value={draft.stateId}
         options={catalog.states}

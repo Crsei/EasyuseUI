@@ -13,6 +13,14 @@ import { useSiteI18n } from "@/components/site/site-i18n"
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  "timeline": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.TimelineDemo),
+  "calendar": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.CalendarDemo),
+  "schedule-view-controls": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.ScheduleViewControlsDemo),
+  "work-item-date-range-field": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.WorkItemDateRangeFieldDemo),
+  "work-items-schedule": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.UnscheduledWorkItemsDemo),
+  "work-item-timeline": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.WorkItemTimelineDemo),
+  "work-item-calendar": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.WorkItemCalendarDemo),
+
 "agent-dependency-graph": () =>
     import("@/components/examples/agent-board/p2-demos").then(
       (module) => module.AgentDependencyGraphDemo,

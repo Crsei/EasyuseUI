@@ -123,3 +123,41 @@ List/Table 保留泳道偏好但仍是原有布局。没有当前查询的泳道
 50/200/1000 项的同环境开关对照由 `scripts/measure-work-items-enhancements.mjs` 记录已加载/已挂载数量、DOM、选择/字段更新/切布局/移动/分组耗时。结果包含浏览器自动化和本地 120ms 回执开销，不能解释为生产服务延迟或 p95。旧版单次基线仍单独保留，不与新运行的硬件噪声混成改善保证。
 
 每项增强的源码、浏览器和独立安装结果见 [实施记录](plans/work-items-implementation-log.md)。本地示例与分发验证均不证明真实 Plane、生产权限、批量事务或持久化服务接入。
+
+## Timeline / Calendar（W6–W9）
+
+`WorkItemsViewState.layout` 现支持 `list | board | table | timeline | calendar`。旧记录无需 `startDate`，通过 `workItemDates()` 规范为 null；旧保存视图用 `normalizeWorkItemsView()` 补齐时间配置。缺省锚点固定为 `2026-10-09`，消费方应传入自己的初始锚点。协议日期是严格有效的 `YYYY-MM-DD`，采用包含两端的日历日期运算；`todayInTimeZone(timeZone, now)` 明确时区与时钟。历史非法日期保持可见并提示修正。
+
+```tsx
+<WorkItemsWorkspace
+  {...controlledWorkspaceProps}
+  view={view}
+  onViewChange={setView}
+  schedule={{
+    today: projectToday,
+    range: authoritativeTimelineRange,
+    buckets: authoritativeCalendarDays,
+    onScheduleChange: submitAtomicScheduleIntent,
+    onLoadRange, onRetryRange, onLoadDate, onRetryDate,
+    onCreateOnDate: date => openCreateDraft({ dueDate: date }),
+    proposedDates: retainedDateDrafts,
+    onDateDraftChange: retainDateDraft,
+  }}
+/>
+```
+
+`ScheduleChangeIntent` 包含 operationId、itemId、baseRevision、queryKey、kind、previousDates、nextDates。`validateScheduleChange` 校验版本、查询代次、每个变更字段的权限、pending/unknown 锁及日期合法性。Timeline 的 shift 同时移动两端并保持日历天数，resizeStart/resizeEnd 仅改一端；单端记录不虚构工期。Calendar 的 setDueDate 只改截止日，拒绝早于开始日的落点。无变化、Escape 取消和只读不会提交。拖动每次释放最多发一条意图，键盘/触摸通过同一个日期表单提交精确日期。
+
+消费方必须把成对日期写入提交为原子服务命令，并在服务端检查基础版本；两个独立 PATCH 不满足契约。组件不请求服务、不确认成功，也不自动解锁。保留已确认快照、拟提交日期和回执，unknown 先按对象/操作/版本对账；布局切换和 locale 不构成对账。示例使用页面内存中的一次 CAS，刷新清除，不是真实服务证明。
+
+`Timeline` / `TimelineAxis` / `TimelineRow` / `TimelineBar` 与 `Calendar` / `CalendarHeader` / `CalendarDay` / `CalendarAgenda` 是通用容器，业务无关的发布窗口和便笺示例位于对应文档。业务适配使用 `WorkItemTimeline`、`WorkItemCalendar` / `WorkItemCalendarEntry`、`UnscheduledWorkItems`、`WorkItemDateRangeField`、`ScheduleViewControls`，不会建立第二份工作项存储。
+
+Timeline 采用共享垂直滚动、固定侧栏和吸附表头，右侧支持水平滚动、week/month/quarter、今天定位和展开。范围外条两端裁切并保留完整日期名称。日期拖动与可选手动行排序是独立入口；`schedule.onReorder` 仅在手动排序时可用，其服务顺序与权限由调用方定义。布局切换保留时间线滚动位置，刻度改变按日历位置换算。
+
+远程 Timeline 查询必须使用区间相交，包含起点在窗口之前但仍跨入窗口的任务。缺失日期策略由调用方明确；`scheduleIntersects()` 只用于完整本地来源。`ScheduleRangeSnapshot` 和 `DateBucketSnapshot` 携带 queryKey、IDs、loadedCount、可空 totalCount、游标、hasMore、五数据态与错误。组件丢弃不匹配查询/范围的快照；调用方也须丢弃迟到响应，合并分页使用 `mergeSchedulePage()` 去重且检查代次和范围。unknown total 不补零，刷新失败保留同范围已加载数据。
+
+Calendar 按截止日单次归组，显示整周（含相邻月份）、可控周首日、周末显隐、月/周切换与当日 Agenda。周末隐藏后任务仍可从周末 Agenda 进入；无截止日任务在去重的未排期队列中。已加载条目的折叠与远程分页分别有入口。按日期新建只预填草稿，保存才创建；排期已有任务修改原对象。390px 隐藏格内条目，日期选择后进入 Agenda。日期采用 roving tabindex：方向键、Home/End、PageUp/Down；Enter 进入 Agenda，Escape 返回日期；不添加不完整的 ARIA grid。
+
+URL 白名单支持 `layout=timeline&scale=month&date=2026-10-09` 与 `layout=calendar&mode=month&date=2026-10-09`，另存 timelineDate/calendarDate/selectedDate 等独立偏好。切时间布局不应用 groupBy/subGroupBy，返回原布局时恢复。服务查询、真实权限、持久化、依赖调度/关键路径、会议/重复事件均不由这些组件实现。
+
+草稿不等于命令：日期表单通过 `onDateDraftChange(item, dates)`（字段组件为 `onDraftChange`）通知调用方保留输入，通过 `onScheduleChange(intent)` 才提交写入。Inspector 的 presentation 对应 `onScheduleDraftChange`。调用方在 locale、布局、浮层关闭/重开和失败后重新传入 `proposedDates`，确认后按字段清除。可选 `unscheduled` 快照与加载/重试回调提供未排期队列的五态与未知总量；不匹配queryKey的范围/队列不会混入新视口。

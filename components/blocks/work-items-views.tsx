@@ -382,6 +382,7 @@ export function WorkItemTable(
     priority: t("workItems.priority"),
     assignees: t("workItems.assignees"),
     labels: t("workItems.labels"),
+    startDate: t("workItems.startDate"),
     dueDate: t("workItems.dueDate"),
     counts: t("workItems.counts"),
   }

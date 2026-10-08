@@ -1,0 +1,29 @@
+{
+  "id": "eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264",
+  "capturedAt": "2026-10-08T22:52:54.887Z",
+  "files": {
+    "lib/work-items-model.ts": "e2ab2bcae8d4d926fa4d2a7600404fc8806fa44165c6f77ceb712c9e0cb23692",
+    "lib/work-items-view.ts": "d3955096868738603a1980f952012d8c332507813e27d52cba3a0fc1bd53da95",
+    "lib/schedule-date-utils.ts": "a180848adcaefed295e3d63b8133240bd3acab3f04747a7a94a3618d83f68fcb",
+    "lib/schedule-view-model.ts": "ee1a71a464f0cd912353e68944d9e0b59fd4109f27de5b0d283e27553f73ed83",
+    "components/blocks/timeline.tsx": "bb9fb3edaeb9d19944cbb9b5951b72f33f0e400771379ed0caa5aac4b6fa7ac9",
+    "components/blocks/timeline.module.css": "2f34172f96fc79c4b1097fd8a8817a3fd8e3a2e3fcd613bc932778232f1fbef1",
+    "components/blocks/calendar.tsx": "e0d5a3c192832294ed01a248db45db43595c4e810eecc49e6dd00c12ad88d51f",
+    "components/blocks/calendar.module.css": "23c2481e5802705426b6b8e2bf8d4cf2bf5685bd3bc09a89c1db2b2087645472",
+    "components/blocks/schedule-view-controls.tsx": "5a4be1e6e6276bf24b661d96c640e36dd8ad14957bbe714a223fd5d8631be748",
+    "components/blocks/schedule.module.css": "04b925ba8d9257ea78d4d0b259682dd8a19dec4bba4ea2753c015fb4ecb092f7",
+    "components/blocks/work-item-timeline.tsx": "a8cc9af6ee24fc1ee2688352c39621e084a51af7754d9a968e6f490cb10faf98",
+    "components/blocks/work-item-calendar.tsx": "34aa966a658262502a7c85e108583bddcefbf9e82622f96174d11923dadd2c33",
+    "components/blocks/work-item-date-range-field.tsx": "8c8b2dc8ef782ab2a45ece3992c4f0242f816c0297573f085df18b5654ea2f08",
+    "components/blocks/work-items-schedule.tsx": "7f696e7ff3eb5e90b575dfc5aee04341b21fe99a6515da19b963b07d884b1526",
+    "components/blocks/work-items-workspace.tsx": "f4bc46b7796177282ce070719b87cc74133397c8aedac36374bb025d54e0bed8",
+    "components/blocks/work-items-toolbar.tsx": "1022cc9b7ea082f5ca99462c65d18e067a824792a3170628df9577fb3ef992db",
+    "components/blocks/work-item-properties.tsx": "0564c764e0c6666fdf89fb1e2c90faf2a33b1f2d08f2515d52ee5902f72d7dab",
+    "components/blocks/work-item-detail.tsx": "0df8cd546432fbbdee87751f8f4b31f29c02e58545cc267e081d380fb4b83ee0",
+    "components/examples/work-items/work-items-demo.tsx": "d599dd825ecf027802ecc63e674c6953ae40388565c1fcf829d8fad48b6ba584",
+    "components/examples/work-items/use-work-items-url.ts": "0d18a84fe4e0b98a066cdc7ab9fb8422a4a0e221c6c6f8ce8f58a1c15f2c4de7",
+    "components/examples/work-items/fixtures.ts": "4d866ac57f0b83b7f3244f69d1ac669d93a5e3ae9a9db2c935ac1a4a597f867a",
+    "components/examples/work-items/commands.ts": "db0775763c9c14b587526b5504412bb4a5e849fefe695e7508d5a5c59c4ce295",
+    "tests/work-items-schedule.spec.ts": "b6b6ac8bc2bd5963158177957d874a78e1df9a915d0a8fc2eb4c0d6dd5be491e"
+  }
+}

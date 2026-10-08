@@ -3198,17 +3198,7 @@ export const componentManifest: ComponentManifestEntry[] = [
     "slug": "work-item-detail",
     "docPath": "/docs/work-item-detail/",
     "registryId": "work-item-detail",
-    "registryDependencies": [
-      "theme",
-      "button",
-      "input",
-      "field",
-      "work-item",
-      "work-item-properties",
-      "work-items-model",
-      "work-items-styles",
-      "i18n"
-    ],
+    "registryDependencies": ["theme", "button", "input", "field", "work-item", "work-item-properties", "work-items-model", "work-items-styles", "i18n", "work-item-date-range-field"],
     "installType": "block",
     "displayCategory": "patterns",
     "availability": "available",
@@ -3235,21 +3225,7 @@ export const componentManifest: ComponentManifestEntry[] = [
     "slug": "work-items-workspace",
     "docPath": "/docs/work-items-workspace/",
     "registryId": "work-items-workspace",
-    "registryDependencies": [
-      "theme",
-      "workspace-shell",
-      "work-items-toolbar",
-      "work-items-views",
-      "work-items-enhancements",
-      "work-item-detail",
-      "data-region",
-      "button",
-      "checkbox",
-      "work-items-model",
-      "grouped-items-model",
-      "work-items-styles",
-      "i18n"
-    ],
+    "registryDependencies": ["theme", "workspace-shell", "work-items-toolbar", "work-items-views", "work-item-detail", "data-region", "button", "checkbox", "work-items-model", "grouped-items-model", "work-items-styles", "i18n", "work-items-enhancements", "work-item-timeline", "work-item-calendar", "schedule-view-controls"],
     "installType": "block",
     "displayCategory": "workspace",
     "availability": "available",
@@ -3515,4 +3491,313 @@ export const componentManifest: ComponentManifestEntry[] = [
     ],
     "widePreview": true
   },
+{
+  "slug": "timeline",
+  "docPath": "/docs/timeline/",
+  "registryId": "timeline",
+  "registryDependencies": [
+    "theme",
+    "button",
+    "i18n",
+    "work-items-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Timeline",
+  "category": "组合模块",
+  "description": "业务无关的排期行、按日吸附与区间裁切。",
+  "source": "components/blocks/timeline.tsx",
+  "relatedSources": [
+    "components/blocks/timeline.module.css"
+  ],
+  "example": "components/examples/work-items-schedule-demo.tsx",
+  "usage": "import { Timeline } from \"@/components/blocks/timeline\"",
+  "props": [
+    {
+      "name": "items / viewport / scale / today / queryKey",
+      "type": "readonly TimelineRecord[] / ScheduleViewport / TimelineScale / string",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "renderSidebar / onEdit / onDateChange",
+      "type": "(item) => ReactNode / (item) => void / (change: TimelineDateChange) => void",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "selectedIds / activeId / getScrollPosition / onScrollPosition",
+      "type": "readonly string[] / string | null / scroll callbacks",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    }
+  ],
+  "notes": [
+    "本地示例刷新清除；真实服务仍由调用方接入。"
+  ],
+  "widePreview": true
+},
+{
+  "slug": "calendar",
+  "docPath": "/docs/calendar/",
+  "registryId": "calendar",
+  "registryDependencies": [
+    "theme",
+    "button",
+    "i18n",
+    "work-items-model",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Calendar",
+  "category": "组合模块",
+  "description": "受控月、周与当日Agenda，消费权威按日快照。",
+  "source": "components/blocks/calendar.tsx",
+  "relatedSources": [
+    "components/blocks/calendar.module.css"
+  ],
+  "example": "components/examples/work-items-schedule-demo.tsx",
+  "usage": "import { Calendar } from \"@/components/blocks/calendar\"",
+  "props": [
+    {
+      "name": "value / onChange / today",
+      "type": "CalendarSettings / (value: CalendarSettings) => void / string",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "buckets / queryKey / getItem / renderEntry",
+      "type": "readonly DateBucketSnapshot[] / string / (id) => T | undefined / (item, context) => ReactNode",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "onDropItem / onCreate / onLoadMore / onRetry / maxVisible",
+      "type": "caller capability callbacks / number",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    }
+  ],
+  "notes": [
+    "本地示例刷新清除；真实服务仍由调用方接入。"
+  ],
+  "widePreview": true
+},
+{
+  "slug": "schedule-view-controls",
+  "docPath": "/docs/schedule-view-controls/",
+  "registryId": "schedule-view-controls",
+  "registryDependencies": [
+    "theme",
+    "button",
+    "i18n",
+    "work-items-model",
+    "input"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ScheduleViewControls",
+  "category": "组合模块",
+  "description": "受控排期锚点、刻度、每周首日与周末显隐。",
+  "source": "components/blocks/schedule-view-controls.tsx",
+  "relatedSources": [
+    "components/blocks/schedule.module.css"
+  ],
+  "example": "components/examples/work-items-schedule-demo.tsx",
+  "usage": "import { ScheduleViewControls } from \"@/components/blocks/schedule-view-controls\"",
+  "props": [
+    {
+      "name": "kind / value / onChange / today",
+      "type": "timeline | calendar / TimelineSettings | CalendarSettings / controlled callback / string",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    }
+  ],
+  "notes": [
+    "本地示例刷新清除；真实服务仍由调用方接入。"
+  ],
+  "widePreview": true
+},
+{
+  "slug": "work-item-date-range-field",
+  "docPath": "/docs/work-item-date-range-field/",
+  "registryId": "work-item-date-range-field",
+  "registryDependencies": [
+    "theme",
+    "button",
+    "i18n",
+    "work-items-model",
+    "input",
+    "field",
+    "popover",
+    "schedule-view-controls"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkItemDateRangeField",
+  "category": "组合模块",
+  "description": "成对日期意图、字段权限、校验与失败草稿保留。",
+  "source": "components/blocks/work-item-date-range-field.tsx",
+  "relatedSources": [],
+  "example": "components/examples/work-items-schedule-demo.tsx",
+  "usage": "import { WorkItemDateRangeField } from \"@/components/blocks/work-item-date-range-field\"",
+  "props": [
+    {
+      "name": "item / capabilities / mutation / queryKey / dueOnly",
+      "type": "WorkItemRecord / WorkItemCapabilities / MutationState / string / boolean",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "proposedDates / onDraftChange / onChange",
+      "type": "ScheduleDates / (dates) => void / (intent: ScheduleChangeIntent) => void",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    }
+  ],
+  "notes": [
+    "本地示例刷新清除；真实服务仍由调用方接入。"
+  ],
+  "widePreview": true
+},
+{
+  "slug": "work-items-schedule",
+  "docPath": "/docs/work-items-schedule/",
+  "registryId": "work-items-schedule",
+  "registryDependencies": [
+    "theme",
+    "button",
+    "i18n",
+    "work-items-model",
+    "checkbox",
+    "work-item",
+    "work-items-views",
+    "work-item-date-range-field",
+    "schedule-view-controls",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "UnscheduledWorkItems",
+  "category": "组合模块",
+  "description": "去重未排期队列与紧凑工作项日历条目。",
+  "source": "components/blocks/work-items-schedule.tsx",
+  "relatedSources": [],
+  "example": "components/examples/work-items-schedule-demo.tsx",
+  "usage": "import { UnscheduledWorkItems } from \"@/components/blocks/work-items-schedule\"",
+  "props": [
+    {
+      "name": "props / kind",
+      "type": "WorkItemScheduleViewProps / timeline | calendar",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "props.unscheduled / onLoadUnscheduled / onRetryUnscheduled",
+      "type": "authoritative snapshot / read callbacks",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    }
+  ],
+  "notes": [
+    "本地示例刷新清除；真实服务仍由调用方接入。"
+  ],
+  "widePreview": true
+},
+{
+  "slug": "work-item-timeline",
+  "docPath": "/docs/work-item-timeline/",
+  "registryId": "work-item-timeline",
+  "registryDependencies": [
+    "theme",
+    "button",
+    "i18n",
+    "work-items-model",
+    "timeline",
+    "work-items-schedule",
+    "work-item-date-range-field",
+    "dialog",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkItemTimeline",
+  "category": "组合模块",
+  "description": "工作项排期，平移与两端调整使用独立字段能力。",
+  "source": "components/blocks/work-item-timeline.tsx",
+  "relatedSources": [],
+  "example": "components/examples/work-items-schedule-demo.tsx",
+  "usage": "import { WorkItemTimeline } from \"@/components/blocks/work-item-timeline\"",
+  "props": [
+    {
+      "name": "items / getPresentation / interaction / onSelectionChange",
+      "type": "WorkItemsViewProps",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "settings / today / range / queryKey",
+      "type": "TimelineSettings / string / ScheduleRangeSnapshot / string",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "onScheduleChange / onDateDraftChange / proposedDates / onReorder",
+      "type": "atomic intent / draft callback / retained drafts / independent manual-order intent",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "onLoadRange / onRetryRange",
+      "type": "authoritative range callbacks",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    }
+  ],
+  "notes": [
+    "本地示例刷新清除；真实服务仍由调用方接入。"
+  ],
+  "widePreview": true
+},
+{
+  "slug": "work-item-calendar",
+  "docPath": "/docs/work-item-calendar/",
+  "registryId": "work-item-calendar",
+  "registryDependencies": [
+    "theme",
+    "button",
+    "i18n",
+    "work-items-model",
+    "calendar",
+    "work-items-schedule"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkItemCalendar",
+  "category": "组合模块",
+  "description": "仅修改截止日的日历、逐日分页与未排期工作项。",
+  "source": "components/blocks/work-item-calendar.tsx",
+  "relatedSources": [],
+  "example": "components/examples/work-items-schedule-demo.tsx",
+  "usage": "import { WorkItemCalendar } from \"@/components/blocks/work-item-calendar\"",
+  "props": [
+    {
+      "name": "items / getPresentation / interaction / onSelectionChange",
+      "type": "WorkItemsViewProps",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "settings / onSettingsChange / today / buckets / queryKey",
+      "type": "CalendarSettings / controlled callback / string / readonly DateBucketSnapshot[] / string",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "onScheduleChange / onDateDraftChange / proposedDates",
+      "type": "atomic due-date intent / draft callback / retained drafts",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    },
+    {
+      "name": "onLoadDate / onRetryDate / onCreateOnDate",
+      "type": "authoritative daily callbacks / preset-only creation callback",
+      "description": "调用方持有记录、权限、分页、原子写入与结果对账。"
+    }
+  ],
+  "notes": [
+    "本地示例刷新清除；真实服务仍由调用方接入。"
+  ],
+  "widePreview": true
+},
 ]

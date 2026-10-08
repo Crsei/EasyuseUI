@@ -264,3 +264,13 @@ CanvasConfigEditor 已分发，内部包含 ConditionBuilder、扁平对象 Sche
 | Saved Views / 保存视图 | 已有：`WorkItemsSavedViews`，Registry `work-items-enhancements` | 受控配置与版本接口；无默认持久化 |
 
 接口与安装见 [WORK-ITEMS.md](./WORK-ITEMS.md)，不将本地保存视图示例视为真实存储服务。
+
+### 已实现：排期时间线与截止日日历
+
+| 名称 | 语义与真实实现 | 安装/文档 |
+| --- | --- | --- |
+| Timeline / Axis / Row / Bar | 受控排期轴、侧栏、时间条；不同于 Activity 事件历史 | `/docs/timeline/`，`timeline` |
+| Calendar / Header / Day / Agenda | 月/周截止日网格与当日条目；不同于 DatePicker | `/docs/calendar/`，`calendar` |
+| WorkItemTimeline / WorkItemCalendarEntry | 工作项日期意图、字段能力、共享详情与分页 | `work-item-timeline` / `work-item-calendar` |
+| WorkItemDateRangeField | 开始/截止成对校验与精确日期键盘/触摸替代 | `work-item-date-range-field` |
+| ScheduleViewControls / UnscheduledWorkItems | 可控范围/刻度/周末；去重未排期队列 | `schedule-view-controls` / `work-items-schedule` |

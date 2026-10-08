@@ -1,3 +1,7 @@
+import {
+  createScheduleConsumer,
+  verifyScheduleConsumer,
+} from "./schedule-consumer.mjs"
 import { mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import assert from "node:assert/strict"
@@ -6,6 +10,7 @@ export const workItemsRegistryItems = [
   "work-items-board-base",
 ]
 export async function createWorkItemsConsumer(fixture) {
+  await createScheduleConsumer(fixture)
   await mkdir(path.join(fixture, "app/work-items"), { recursive: true })
   await writeFile(
     path.join(fixture, "app/work-items/page.tsx"),
@@ -44,6 +49,7 @@ return <I18nProvider><main style={{height:"100dvh"}}><WorkItemsWorkspace title="
   )
 }
 export async function verifyWorkItemsConsumer(page, origin) {
+  await verifyScheduleConsumer(page, origin)
   await page.goto(`${origin}/work-items/`)
   await page.locator('[data-work-item="one"]').waitFor()
   await page.getByRole("radio", { name: "看板", exact: true }).check()

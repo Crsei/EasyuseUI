@@ -6,6 +6,11 @@ import {
   useState,
   type ReactNode,
 } from "react"
+import { WorkItemTimeline } from "./work-item-timeline"
+import { WorkItemCalendar } from "./work-item-calendar"
+import { ScheduleViewControls } from "./schedule-view-controls"
+import type { WorkItemsScheduleProps } from "./work-items-schedule"
+import { normalizeTimeline, normalizeCalendar } from "@/lib/schedule-view-model"
 import { WorkspaceShell } from "./workspace-shell"
 import { WorkItemsToolbar } from "./work-items-toolbar"
 import {
@@ -53,6 +58,7 @@ export type WorkItemsWorkspaceProps = WorkItemsViewProps & {
   batchActions?: Omit<WorkItemsBatchActionsProps, "selectedIds" | "catalog">
   savedViews?: Omit<WorkItemsSavedViewsProps, "view">
   canMove?: (item: WorkItemRecord, source: string, target: string) => boolean
+  schedule?: Omit<WorkItemsScheduleProps, "queryKey"> & { today: string }
   announcement?: string
 }
 export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
@@ -67,6 +73,7 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
     observer.observe(container.current)
     return () => observer.disconnect()
   }, [])
+  const scheduleScroll = useRef({ top: 0, left: 0 })
   const scroll = useRef<HTMLDivElement>(null)
   const positions = useRef<Record<string, { top: number; left: number }>>({})
   const returnFocus = useRef<string | null>(null)
@@ -123,17 +130,29 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
           .flatMap((g) => g.itemIds)
   const loadedGroupIds = new Set(props.groups.flatMap((group) => group.itemIds))
   const visibleIds =
-    props.view.layout === "table"
-      ? new Set(props.items.map((item) => item.id))
-      : props.view.layout === "list" &&
-          props.view.showSubItems &&
-          props.hierarchy
-        ? hierarchyVisibleIds(
-            groupIds,
-            props.items.filter(item => loadedGroupIds.has(item.id)),
-            props.hierarchy.expandedIds,
+    props.view.layout === "timeline"
+      ? new Set(
+          props.schedule?.range?.queryKey === props.queryKey
+            ? props.schedule.range.itemIds
+            : props.items.map((item) => item.id),
+        )
+      : props.view.layout === "calendar"
+        ? new Set(
+            (props.schedule?.buckets ?? [])
+              .filter((b) => b.queryKey === props.queryKey)
+              .flatMap((b) => b.itemIds),
           )
-        : new Set(groupIds)
+        : props.view.layout === "table"
+          ? new Set(props.items.map((item) => item.id))
+          : props.view.layout === "list" &&
+              props.view.showSubItems &&
+              props.hierarchy
+            ? hierarchyVisibleIds(
+                groupIds,
+                props.items.filter((item) => loadedGroupIds.has(item.id)),
+                props.hierarchy.expandedIds,
+              )
+            : new Set(groupIds)
   const selected = new Set(props.interaction.selectedIds)
   const chosen = [...visibleIds].filter((id) => selected.has(id)).length
   const hidden = props.interaction.selectedIds.filter(
@@ -250,6 +269,33 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
               {t("workItems.flatViewHint")}
             </p>
           )}
+          {(props.view.layout === "timeline" ||
+            props.view.layout === "calendar") && (
+            <>
+              <p className={styles.enhancementHint}>
+                {t("schedule.groupHint")}
+              </p>
+              {props.view.layout === "timeline" ? (
+                <ScheduleViewControls
+                  kind="timeline"
+                  value={normalizeTimeline(props.view.timeline)}
+                  today={props.schedule?.today ?? "2026-10-09"}
+                  onChange={(timeline) =>
+                    changeView({ ...props.view, timeline })
+                  }
+                />
+              ) : (
+                <ScheduleViewControls
+                  kind="calendar"
+                  value={normalizeCalendar(props.view.calendar)}
+                  today={props.schedule?.today ?? "2026-10-09"}
+                  onChange={(calendar) =>
+                    changeView({ ...props.view, calendar })
+                  }
+                />
+              )}
+            </>
+          )}
           <div
             className={styles.scroll}
             ref={scroll}
@@ -279,6 +325,32 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
                   {...props}
                   manualOrder={props.view.sort === "manual"}
                   deferOffscreen={props.view.deferOffscreen}
+                />
+              ) : props.view.layout === "timeline" ? (
+                <WorkItemTimeline
+                  getScrollPosition={() => scheduleScroll.current}
+                  onScrollPosition={(position) => {
+                    scheduleScroll.current = position
+                  }}
+                  {...props}
+                  {...props.schedule}
+                  onReorder={
+                    props.view.sort === "manual"
+                      ? props.schedule?.onReorder
+                      : undefined
+                  }
+                  settings={normalizeTimeline(props.view.timeline)}
+                  today={props.schedule?.today ?? "2026-10-09"}
+                />
+              ) : props.view.layout === "calendar" ? (
+                <WorkItemCalendar
+                  {...props}
+                  {...props.schedule}
+                  settings={normalizeCalendar(props.view.calendar)}
+                  onSettingsChange={(calendar) =>
+                    changeView({ ...props.view, calendar })
+                  }
+                  today={props.schedule?.today ?? "2026-10-09"}
                 />
               ) : (
                 <WorkItemTable

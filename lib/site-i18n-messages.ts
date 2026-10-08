@@ -1,6 +1,16 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.schedule.catalog.0": "业务无关的排期行、按日吸附与区间裁切。",
+    "site.schedule.catalog.1": "受控月、周与当日Agenda，消费权威按日快照。",
+    "site.schedule.catalog.2": "受控排期锚点、刻度、每周首日与周末显隐。",
+    "site.schedule.catalog.3": "成对日期意图、字段权限、校验与失败草稿保留。",
+    "site.schedule.catalog.4": "去重未排期队列与紧凑工作项日历条目。",
+    "site.schedule.catalog.5": "工作项排期，平移与两端调整使用独立字段能力。",
+    "site.schedule.catalog.6": "仅修改截止日的日历、逐日分页与未排期工作项。",
+    "site.schedule.catalog.7": "调用方持有记录、权限、分页、原子写入与结果对账。",
+    "site.schedule.catalog.8": "本地示例刷新清除；真实服务仍由调用方接入。",
+
     "site.workItems.enhancementsDescription": "受控批量字段修改、逐项回执与调用方保存视图接口。",
     "site.workItems.enhancementsProps": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。",
     "site.workItems.enhancementsNotes": "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。",
@@ -2480,6 +2490,16 @@ export const siteMessages = {
       "构图、配置、校验与 JSON 导入导出的本地画布工作台。",
   },
   en: {
+    "site.schedule.catalog.0": "Business-independent scheduling rows, day snapping and clipped ranges.",
+    "site.schedule.catalog.1": "Controlled month, week and daily agenda with authoritative date buckets.",
+    "site.schedule.catalog.2": "Controlled schedule anchors, scales, week starts and weekend visibility.",
+    "site.schedule.catalog.3": "Atomic date intentions with field permissions, validation and retained drafts.",
+    "site.schedule.catalog.4": "Deduplicated unscheduled queue and compact work item calendar entries.",
+    "site.schedule.catalog.5": "Work item scheduling with independent shift and endpoint resize capabilities.",
+    "site.schedule.catalog.6": "Due-date-only calendar changes, daily paging and unscheduled work items.",
+    "site.schedule.catalog.7": "The caller owns records, permissions, paging, atomic writes and reconciliation.",
+    "site.schedule.catalog.8": "Fixture examples reset on refresh. Real services remain caller responsibilities.",
+
     "site.workItems.enhancementsDescription": "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces.",
     "site.workItems.enhancementsProps": "Callers own authoritative snapshots, revisions, permissions, writes and uncertain outcomes. Components do not store business data.",
     "site.workItems.enhancementsNotes": "Batch changes support state and priority; saved views have no default persistence. Consumers integrate live services.",

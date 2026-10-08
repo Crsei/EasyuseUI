@@ -258,6 +258,15 @@ export type WorkItemPropertiesProps = {
   mutation?: MutationState
   today?: string
   agentLabel?: string
+  onScheduleDraftChange?: (
+    item: WorkItemRecord,
+    dates: import("@/lib/schedule-date-utils").ScheduleDates,
+  ) => void
+  queryKey?: string
+  onScheduleChange?: (
+    intent: import("@/lib/schedule-view-model").ScheduleChangeIntent,
+  ) => void
+  proposedDates?: import("@/lib/schedule-date-utils").ScheduleDates
 }
 function WorkItemPropertiesContent({
   item,
@@ -343,6 +352,15 @@ function WorkItemPropertiesContent({
         {!item.labelIds.length && "—"}
       </span>
     ),
+    startDate: editable("startDate") ? (
+      <WorkItemDueDateField
+        value={item.startDate ?? null}
+        label={t("workItems.startDate")}
+        onChange={(startDate) => patch({ startDate })}
+      />
+    ) : (
+      <span className={styles.readValue}>{item.startDate ?? "—"}</span>
+    ),
     dueDate: editable("dueDate") ? (
       <WorkItemDueDateField
         value={item.dueDate}
@@ -373,6 +391,7 @@ function WorkItemPropertiesContent({
     priority: t("workItems.priority"),
     assignees: t("workItems.assignees"),
     labels: t("workItems.labels"),
+    startDate: t("workItems.startDate"),
     dueDate: t("workItems.dueDate"),
     counts: t("workItems.counts"),
   }

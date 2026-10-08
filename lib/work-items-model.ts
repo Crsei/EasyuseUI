@@ -1,7 +1,14 @@
+import { isScheduleDate } from "./schedule-date-utils"
 import type { RuntimeStatus } from "./runtime-status"
 
 export type WorkItemProperty =
-  "state" | "priority" | "assignees" | "labels" | "dueDate" | "counts"
+  | "state"
+  | "priority"
+  | "assignees"
+  | "labels"
+  | "startDate"
+  | "dueDate"
+  | "counts"
 export type WorkItemField =
   | "title"
   | "description"
@@ -9,6 +16,7 @@ export type WorkItemField =
   | "priorityId"
   | "assigneeIds"
   | "labelIds"
+  | "startDate"
   | "dueDate"
 export type WorkItemRecord = {
   id: string
@@ -20,6 +28,7 @@ export type WorkItemRecord = {
   priorityId: string
   assigneeIds: readonly string[]
   labelIds: readonly string[]
+  startDate?: string | null
   dueDate: string | null
   parentId?: string | null
   subItemCount?: number | null
@@ -44,7 +53,9 @@ export type WorkItemsFilters = {
   labels: string[]
 }
 export type WorkItemsViewState = {
-  layout: "list" | "board" | "table"
+  layout: "list" | "board" | "table" | "timeline" | "calendar"
+  timeline?: import("./schedule-view-model").TimelineSettings
+  calendar?: import("./schedule-view-model").CalendarSettings
   query: string
   filters: WorkItemsFilters
   groupBy: "state" | "priority"
@@ -93,6 +104,8 @@ export type MoveIntent = {
   laneKey?: string
 }
 export type WorkItemDraft = {
+  startDate?: string | null
+  dueDate?: string | null
   title: string
   stateId: string
   priorityId: string
@@ -116,7 +129,7 @@ export function isMutationLocked(mutation?: MutationState) {
 }
 /** Calendar dates stay strings. The caller supplies today's date in its intended timezone. */
 export function isOverdue(date: string | null, today?: string) {
-  return !!date && !!today && /^\d{4}-\d{2}-\d{2}$/.test(date) && date < today
+  return !!date && !!today && isScheduleDate(date) && date < today
 }
 
 /** Caller-provided authoritative groups; never infer remote lane totals from a page. */

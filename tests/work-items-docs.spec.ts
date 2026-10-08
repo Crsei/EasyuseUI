@@ -118,7 +118,7 @@ test("Work Items article keeps performance evidence separate and loads its scree
 }) => {
   await page.goto("/blog/work-items-shared-views/")
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Work Items 的 List、Board 与 Table 如何共享组件",
+    "Work Items 五种布局如何共享组件",
   )
   await expect(page.locator("article")).toContainText("1000")
   await expect(page.locator('[data-demo-mounted="true"]')).toHaveCount(0)
@@ -138,6 +138,16 @@ test("Work Items article keeps performance evidence separate and loads its scree
     ),
   ).toEqual([50, 200, 1000])
   await expect(page.locator("article")).toContainText("W5 / S5")
+  await expect(page.locator("article")).toContainText("W6–W9")
+  const dates = await request.get("/blog/work-items-schedule/measurements.json")
+  expect(dates.ok()).toBe(true)
+  const scheduled = await dates.json()
+  expect(scheduled.observations).toHaveLength(18)
+  for (const row of scheduled.observations) {
+    expect(row.loadedCount).toBe(row.count)
+    expect(row.totalCount).toBe(row.count)
+    expect(row.dateChangeMs).toBeGreaterThan(0)
+  }
   const enhanced = await request.get(
     "/blog/work-items-enhancements/measurements.json",
   )

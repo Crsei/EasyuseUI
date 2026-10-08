@@ -7,6 +7,7 @@ import type {
   WorkItemRecord,
   WorkItemsViewState,
 } from "./work-items-model"
+import { normalizeTimeline, normalizeCalendar } from "./schedule-view-model"
 import { isMutationLocked } from "./work-items-model"
 
 /** Optional local helper. Never use a loaded page to infer remote totals. */
@@ -258,4 +259,20 @@ export function hierarchyVisibleIds(
         pending.push(child.id)
   }
   return result
+}
+
+/** Migrate pre-schedule saved configurations without changing their group preferences. */
+export function normalizeWorkItemsView(
+  view: WorkItemsViewState,
+): WorkItemsViewState {
+  return {
+    ...view,
+    layout: ["list", "board", "table", "timeline", "calendar"].includes(
+      view.layout,
+    )
+      ? view.layout
+      : "list",
+    timeline: normalizeTimeline(view.timeline),
+    calendar: normalizeCalendar(view.calendar),
+  }
 }
