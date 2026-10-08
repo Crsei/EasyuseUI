@@ -1,0 +1,4 @@
+interface:
+  display_name: "EasyuseUI · 状态与恢复"
+  short_description: "拆分界面状态与权威来源，处理旧数据、审批和未知结果恢复"
+  default_prompt: "使用 $easyuseui-states 设计当前数据区域的状态、真实能力与恢复路径，并说明使用模式。"

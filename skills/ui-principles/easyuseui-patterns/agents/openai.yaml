@@ -1,0 +1,4 @@
+interface:
+  display_name: "EasyuseUI · 交互模式"
+  short_description: "按用户任务规划工作台信息架构，区分组件复用和独立实现"
+  default_prompt: "使用 $easyuseui-patterns 规划当前页面的信息职责和交互模式，保留目标项目的业务语义。"

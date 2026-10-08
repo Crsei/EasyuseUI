@@ -1,0 +1,55 @@
+.fill {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+.options {
+  flex-shrink: 0;
+  max-height: 30dvh;
+  overflow: auto;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+.options summary {
+  min-height: 32px;
+  align-content: center;
+  cursor: pointer;
+  font-size: 12px;
+}
+.options summary span:last-child {
+  margin-left: 12px;
+  color: var(--text-secondary);
+}
+.options summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+.options[open] > div {
+  padding: 8px 0;
+}
+.notice {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+.serviceOptions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 8px;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border);
+}
+@media (pointer: coarse) {
+  .options summary {
+    min-height: 44px;
+  }
+}

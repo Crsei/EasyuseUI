@@ -1,0 +1,4 @@
+interface:
+  display_name: "EasyuseUI · 视觉词典"
+  short_description: "识别界面术语、形状与语义，区分本库组件复用和独立实现"
+  default_prompt: "使用 $easyuseui-visual-vocabulary 识别这段 UI 描述的语义与组件候选，并说明使用模式。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "EasyuseUI · 组件契约"
+  short_description: "核对组件复用与分发要求，或按目标技术栈实现等价交互契约"
+  default_prompt: "使用 $easyuseui-component-contracts 完成当前组件实现，明确复用模式或独立实现及调用方责任。"

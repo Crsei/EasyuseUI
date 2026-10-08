@@ -1,0 +1,4 @@
+interface:
+  display_name: "EasyuseUI · 基础样式"
+  short_description: "建立紧凑工具界面的视觉基础，区分本库契约与独立实现基线"
+  default_prompt: "使用 $easyuseui-foundations 为当前 UI 确定密度、层级与 token 规则，并说明使用模式。"

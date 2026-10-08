@@ -1,0 +1,55 @@
+import {
+  Ban,
+  Check,
+  Circle,
+  CircleAlert,
+  Clock3,
+  ListOrdered,
+  LoaderCircle,
+  Pause,
+  Play,
+  Sparkles,
+  HelpCircle,
+} from "lucide-react"
+import {
+  isRuntimeStatus,
+  runtimeStatusMeta,
+  type RuntimeStatus,
+} from "@/lib/runtime-status"
+import { cn } from "@/lib/utils"
+const icons = {
+  idle: Circle,
+  queued: ListOrdered,
+  starting: LoaderCircle,
+  running: Play,
+  thinking: Sparkles,
+  waiting: Clock3,
+  paused: Pause,
+  completed: Check,
+  failed: CircleAlert,
+  cancelled: Ban,
+} satisfies Record<RuntimeStatus, typeof Circle>
+export type RuntimeStatusBadgeProps = { status: string; className?: string }
+export function RuntimeStatusBadge({
+  status,
+  className,
+}: RuntimeStatusBadgeProps) {
+  const known = isRuntimeStatus(status)
+  const meta = known
+    ? runtimeStatusMeta[status]
+    : { label: `未知状态 (${status})`, token: "status-waiting" }
+  const Icon = known ? icons[status] : HelpCircle
+  return (
+    <span
+      data-runtime-status={status}
+      className={cn(
+        "inline-flex min-h-5 items-center gap-1 rounded-sm px-1 text-xs leading-4 whitespace-nowrap",
+        className,
+      )}
+      style={{ color: `var(--${meta.token})` }}
+    >
+      <Icon size={12} strokeWidth={1.75} aria-hidden="true" />
+      {meta.label}
+    </span>
+  )
+}

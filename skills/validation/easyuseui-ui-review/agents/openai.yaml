@@ -1,0 +1,4 @@
+interface:
+  display_name: "EasyuseUI · UI 验收"
+  short_description: "按适用设计契约验收界面行为，区分本地展示与真实服务证据"
+  default_prompt: "使用 $easyuseui-ui-review 审查当前 UI，报告具体问题、适用模式和验证证据边界。"

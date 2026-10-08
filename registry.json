@@ -1,0 +1,841 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "easyuse-ui",
+  "homepage": "http://localhost:3010",
+  "items": [
+    {
+      "name": "runtime-status",
+      "type": "registry:lib",
+      "title": "Runtime Status Contract",
+      "files": [
+        {
+          "path": "lib/runtime-status.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "runtime-status-badge",
+      "type": "registry:ui",
+      "title": "RuntimeStatusBadge",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": ["theme", "utils", "runtime-status"],
+      "files": [
+        {
+          "path": "components/ui/runtime-status-badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "registryDependencies": ["theme", "utils"],
+      "files": [
+        {
+          "path": "components/ui/item.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/item.tsx"
+        },
+        {
+          "path": "components/ui/item.module.css",
+          "type": "registry:file",
+          "target": "components/ui/item.module.css"
+        }
+      ]
+    },
+    {
+      "name": "workspace-shell",
+      "type": "registry:block",
+      "title": "WorkspaceShell",
+      "dependencies": ["@base-ui/react@^1.8.0", "lucide-react@^0.577.0"],
+      "registryDependencies": ["theme", "utils", "button"],
+      "files": [
+        {
+          "path": "components/blocks/workspace-shell.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/workspace-shell.tsx"
+        },
+        {
+          "path": "components/blocks/workspace-shell.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/workspace-shell.module.css"
+        }
+      ]
+    },
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "EasyuseUI Theme",
+      "description": "Semantic colors and light/dark theme tokens, generated from styles/theme.css.",
+      "files": []
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": ["clsx@^2.1.1", "tailwind-merge@^3.5.0"],
+      "files": [
+        {
+          "path": "lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "class-variance-authority@^0.7.1"
+      ],
+      "registryDependencies": ["theme", "utils"],
+      "files": [
+        {
+          "path": "components/ui/button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/button-tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "registryDependencies": ["theme", "utils"],
+      "files": [
+        {
+          "path": "components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "dependencies": ["@base-ui/react@^1.8.0"],
+      "registryDependencies": ["theme", "utils"],
+      "files": [
+        {
+          "path": "components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "task-panel",
+      "type": "registry:block",
+      "title": "TaskPanel",
+      "registryDependencies": ["button", "utils", "theme"],
+      "files": [
+        {
+          "path": "components/blocks/task-panel.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/task-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-playground",
+      "type": "registry:block",
+      "title": "ScrollPlayground",
+      "description": "Six native scroll experiments: triggered, linked, parallax, sticky, snap and horizontal.",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": ["theme"],
+      "files": [
+        {
+          "path": "components/blocks/scroll-playground.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/scroll-playground.tsx"
+        },
+        {
+          "path": "components/blocks/scroll-playground.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/scroll-playground.module.css"
+        }
+      ]
+    },
+    {
+      "name": "use-follow-tail",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "lib/use-follow-tail.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "redact",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "lib/redact.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "data-region",
+      "type": "registry:ui",
+      "title": "DataRegion",
+      "description": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": ["button", "theme"],
+      "files": [
+        {
+          "path": "components/ui/data-region.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/data-region.tsx"
+        },
+        {
+          "path": "components/ui/data-region.module.css",
+          "type": "registry:file",
+          "target": "components/ui/data-region.module.css"
+        }
+      ]
+    },
+    {
+      "name": "tree",
+      "type": "registry:ui",
+      "title": "Tree",
+      "description": "完整树键盘模型、Idea → Session → Run 层级与受控节点移动。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "button",
+        "data-region",
+        "runtime-status-badge"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tree.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tree.tsx"
+        },
+        {
+          "path": "components/ui/tree.module.css",
+          "type": "registry:file",
+          "target": "components/ui/tree.module.css"
+        }
+      ]
+    },
+    {
+      "name": "session-row",
+      "type": "registry:block",
+      "title": "SessionRow",
+      "description": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": ["item", "button", "runtime-status-badge"],
+      "files": [
+        {
+          "path": "components/blocks/session-row.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/session-row.tsx"
+        },
+        {
+          "path": "components/blocks/entity-row.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/entity-row.module.css"
+        }
+      ]
+    },
+    {
+      "name": "agent-row",
+      "type": "registry:block",
+      "title": "AgentRow",
+      "description": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": ["item", "button", "runtime-status-badge"],
+      "files": [
+        {
+          "path": "components/blocks/agent-row.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/agent-row.tsx"
+        },
+        {
+          "path": "components/blocks/entity-row.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/entity-row.module.css"
+        }
+      ]
+    },
+    {
+      "name": "activity-timeline",
+      "type": "registry:block",
+      "title": "ActivityTimeline",
+      "description": "Runtime 时间线：平铺事件、详情展开、去重、滚动跟随及新事件提示。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "button",
+        "runtime-status-badge",
+        "data-region",
+        "use-follow-tail"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/activity-timeline.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/activity-timeline.tsx"
+        },
+        {
+          "path": "components/blocks/activity-timeline.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/activity-timeline.module.css"
+        }
+      ]
+    },
+    {
+      "name": "inspector",
+      "type": "registry:block",
+      "title": "Inspector",
+      "description": "当前对象的受控详情，统一 Metadata、缺失字段与复制反馈。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": [
+        "theme",
+        "button",
+        "runtime-status-badge",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/inspector.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/inspector.tsx"
+        },
+        {
+          "path": "components/blocks/inspector.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/inspector.module.css"
+        }
+      ]
+    },
+    {
+      "name": "chat-message",
+      "type": "registry:block",
+      "title": "ChatMessage",
+      "description": "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "button",
+        "data-region",
+        "use-follow-tail"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/chat-message.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/chat-message.tsx"
+        },
+        {
+          "path": "components/blocks/chat-message.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/chat-message.module.css"
+        }
+      ]
+    },
+    {
+      "name": "tool-call",
+      "type": "registry:block",
+      "title": "ToolCall",
+      "description": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": [
+        "theme",
+        "button",
+        "runtime-status-badge",
+        "data-region",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/tool-call.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/tool-call.tsx"
+        },
+        {
+          "path": "components/blocks/tool-call.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/tool-call.module.css"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "registryDependencies": ["theme", "utils"],
+      "files": [
+        {
+          "path": "components/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/badge.tsx"
+        },
+        {
+          "path": "components/ui/badge.module.css",
+          "type": "registry:file",
+          "target": "components/ui/badge.module.css"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "title": "Tag",
+      "registryDependencies": ["badge"],
+      "files": [
+        {
+          "path": "components/ui/tag.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/tag.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "registryDependencies": ["theme", "utils", "button"],
+      "files": [
+        {
+          "path": "components/ui/chip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/chip.tsx"
+        },
+        {
+          "path": "components/ui/chip.module.css",
+          "type": "registry:file",
+          "target": "components/ui/chip.module.css"
+        }
+      ]
+    },
+    {
+      "name": "style-workbench-model",
+      "type": "registry:lib",
+      "files": [
+        {
+          "path": "lib/style-workbench-model.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "style-workbench",
+      "type": "registry:block",
+      "title": "StyleWorkbench",
+      "description": "Local A/B foundation editor with controlled previews, parameter differences and scoped CSS export.",
+      "dependencies": ["lucide-react@^0.577.0"],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "button",
+        "input",
+        "badge",
+        "tag",
+        "chip",
+        "data-region",
+        "style-workbench-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/style-workbench.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/style-workbench.tsx"
+        },
+        {
+          "path": "components/blocks/style-workbench.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/style-workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "canvas-model",
+      "type": "registry:lib",
+      "registryDependencies": [],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "lib/canvas-model.ts",
+          "type": "registry:lib",
+          "target": "lib/canvas-model.ts"
+        },
+        {
+          "path": "lib/canvas-config.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "canvas-port",
+      "type": "registry:ui",
+      "registryDependencies": ["theme", "canvas-model"],
+      "dependencies": ["@xyflow/react@12.12.0"],
+      "files": [
+        {
+          "path": "components/ui/canvas-port.tsx",
+          "type": "registry:component",
+          "target": "components/ui/canvas-port.tsx"
+        },
+        {
+          "path": "components/ui/canvas-node.module.css",
+          "type": "registry:file",
+          "target": "components/ui/canvas-node.module.css"
+        }
+      ]
+    },
+    {
+      "name": "canvas-node",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-port",
+        "runtime-status-badge",
+        "redact"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/ui/canvas-node.tsx",
+          "type": "registry:component",
+          "target": "components/ui/canvas-node.tsx"
+        }
+      ]
+    },
+    {
+      "name": "canvas-edge",
+      "type": "registry:ui",
+      "registryDependencies": ["theme", "redact"],
+      "dependencies": ["@xyflow/react@12.12.0"],
+      "files": [
+        {
+          "path": "components/ui/canvas-edge.tsx",
+          "type": "registry:component",
+          "target": "components/ui/canvas-edge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workflow-canvas",
+      "type": "registry:block",
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "canvas-model",
+        "canvas-node",
+        "canvas-edge",
+        "canvas-validation",
+        "canvas-frame",
+        "canvas-note",
+        "button"
+      ],
+      "dependencies": ["@xyflow/react@12.12.0", "lucide-react"],
+      "files": [
+        {
+          "path": "components/blocks/workflow-canvas.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/workflow-canvas.tsx"
+        },
+        {
+          "path": "components/blocks/workflow-canvas.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/workflow-canvas.module.css"
+        }
+      ]
+    },
+    {
+      "name": "canvas-validation",
+      "type": "registry:lib",
+      "registryDependencies": ["canvas-model", "redact"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "lib/canvas-validation.ts",
+          "type": "registry:lib",
+          "target": "lib/canvas-validation.ts"
+        }
+      ]
+    },
+    {
+      "name": "canvas-editor",
+      "type": "registry:lib",
+      "registryDependencies": ["canvas-model", "canvas-validation"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "lib/canvas-commands.ts",
+          "type": "registry:lib",
+          "target": "lib/canvas-commands.ts"
+        },
+        {
+          "path": "lib/use-canvas-editor.ts",
+          "type": "registry:lib",
+          "target": "lib/use-canvas-editor.ts"
+        }
+      ]
+    },
+    {
+      "name": "canvas-controls",
+      "type": "registry:lib",
+      "registryDependencies": ["theme"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/canvas-controls.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/canvas-controls.module.css"
+        }
+      ]
+    },
+    {
+      "name": "canvas-frame",
+      "type": "registry:block",
+      "registryDependencies": ["canvas-model", "theme", "redact"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/canvas-frame.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-frame.tsx"
+        },
+        {
+          "path": "components/blocks/canvas-annotations.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/canvas-annotations.module.css"
+        }
+      ]
+    },
+    {
+      "name": "canvas-note",
+      "type": "registry:block",
+      "registryDependencies": ["canvas-model", "canvas-frame", "redact"],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/canvas-note.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-note.tsx"
+        }
+      ]
+    },
+    {
+      "name": "node-palette",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-controls",
+        "button",
+        "input",
+        "utils"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/blocks/node-palette.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/node-palette.tsx"
+        }
+      ]
+    },
+    {
+      "name": "variable-picker",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-controls",
+        "canvas-validation",
+        "tree",
+        "input",
+        "button"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/variable-picker.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/variable-picker.tsx"
+        }
+      ]
+    },
+    {
+      "name": "node-inspector",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-controls",
+        "canvas-validation",
+        "variable-picker",
+        "inspector",
+        "input",
+        "button",
+        "dialog",
+        "canvas-config-editor"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/blocks/node-inspector.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/node-inspector.tsx"
+        }
+      ]
+    },
+    {
+      "name": "canvas-workspace",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-controls",
+        "canvas-editor",
+        "canvas-validation",
+        "workspace-shell",
+        "workflow-canvas",
+        "node-palette",
+        "node-inspector",
+        "inspector",
+        "input",
+        "button",
+        "dialog",
+        "data-region",
+        "canvas-execution-panel",
+        "canvas-services",
+        "canvas-service-panel"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "components/blocks/canvas-workspace.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-workspace.tsx"
+        },
+        {
+          "path": "components/blocks/canvas-connection-form.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-connection-form.tsx"
+        }
+      ]
+    },
+    {
+      "name": "canvas-runtime",
+      "type": "registry:lib",
+      "registryDependencies": ["canvas-model", "canvas-validation"],
+      "files": [
+        {
+          "path": "lib/canvas-runtime.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/use-canvas-runtime.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "canvas-execution-panel",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-runtime",
+        "canvas-controls",
+        "button",
+        "runtime-status-badge",
+        "activity-timeline",
+        "tool-call",
+        "inspector",
+        "data-region",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/canvas-execution-panel.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-execution-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "canvas-config-editor",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-controls",
+        "button",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/canvas-config-editor.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-config-editor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "canvas-project-workspace",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-workspace",
+        "canvas-editor",
+        "canvas-validation",
+        "canvas-controls",
+        "button",
+        "dialog",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "lib/canvas-project.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "components/blocks/canvas-project-workspace.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-project-workspace.tsx"
+        }
+      ]
+    },
+    {
+      "name": "canvas-services",
+      "type": "registry:lib",
+      "registryDependencies": ["canvas-model"],
+      "files": [
+        {
+          "path": "lib/canvas-services.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "lib/use-canvas-persistence.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "canvas-service-panel",
+      "type": "registry:block",
+      "registryDependencies": [
+        "canvas-services",
+        "canvas-controls",
+        "button",
+        "dialog",
+        "data-region",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/canvas-service-panel.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/canvas-service-panel.tsx"
+        }
+      ]
+    }
+  ]
+}

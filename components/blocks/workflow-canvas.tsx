@@ -1,0 +1,690 @@
+"use client"
+
+import { memo, useEffect, useMemo, useRef, useState } from "react"
+import {
+  ReactFlow,
+  ReactFlowProvider,
+  Background,
+  MiniMap,
+  Panel,
+  ViewportPortal,
+  useReactFlow,
+  useViewport,
+  useNodesInitialized,
+  type Node,
+  type NodeProps,
+  type Edge,
+  type NodeChange,
+  type NodePositionChange,
+} from "@xyflow/react"
+import "@xyflow/react/dist/style.css"
+import { Hand, MousePointer2, Scan, ZoomIn, ZoomOut } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { CanvasNode } from "@/components/ui/canvas-node"
+import { CanvasEdge } from "@/components/ui/canvas-edge"
+import { CanvasFrame } from "@/components/blocks/canvas-frame"
+import { CanvasNote } from "@/components/blocks/canvas-note"
+import {
+  canvasId,
+  type CanvasCommand,
+  type CanvasDocument,
+  type CanvasNodeRecord,
+  type CanvasNodeDefinition,
+  type CanvasSelection,
+  type CanvasIssue,
+  type CanvasExecutionSnapshot,
+  type CanvasFrameRecord,
+  type CanvasNoteRecord,
+  type CanvasPoint,
+  type CanvasPortDefinition,
+} from "@/lib/canvas-model"
+import { validateCanvasConnection } from "@/lib/canvas-validation"
+import { cn } from "@/lib/utils"
+import styles from "./workflow-canvas.module.css"
+
+type FlowNode = Node<
+  {
+    record: CanvasNodeRecord
+    definition?: CanvasNodeDefinition
+    readOnly: boolean
+    issues: CanvasIssue[]
+    status?: string
+    outcome?: "known" | "unknown"
+    fallbackPorts: CanvasNodeDefinition["ports"]
+  },
+  "canvas"
+>
+type FrameNode = Node<
+  { frame: CanvasFrameRecord; collapsed?: boolean },
+  "frame"
+>
+type NoteNode = Node<{ note: CanvasNoteRecord }, "note">
+type AnyNode = FlowNode | FrameNode | NoteNode
+const FlowNodeView = memo(
+  function FlowNodeView({ data, selected }: NodeProps<FlowNode>) {
+    return <CanvasNode {...data} node={data.record} selected={selected} />
+  },
+  (a, b) => a.data === b.data && a.selected === b.selected,
+)
+function FrameView({ data, selected }: NodeProps<FrameNode>) {
+  return (
+    <CanvasFrame
+      frame={data.frame}
+      selected={selected}
+      collapsed={data.collapsed}
+    />
+  )
+}
+function NoteView({ data, selected }: NodeProps<NoteNode>) {
+  return <CanvasNote note={data.note} selected={selected} />
+}
+const nodeTypes = { canvas: FlowNodeView, frame: FrameView, note: NoteView }
+const edgeTypes = { canvas: CanvasEdge }
+const noIssues: CanvasIssue[] = []
+const noFrames: string[] = []
+export type WorkflowCanvasProps = {
+  document: CanvasDocument
+  definitions: CanvasNodeDefinition[]
+  selection: CanvasSelection
+  onSelectionChange: (selection: CanvasSelection) => void
+  onCommand?: (command: CanvasCommand) => void
+  readOnly?: boolean
+  issues?: CanvasIssue[]
+  execution?: CanvasExecutionSnapshot
+  onContextMenu?: () => void
+  focusRequest?: { id: string; request: number }
+  viewport?: CanvasDocument["viewport"]
+  onViewportChange?: (viewport: NonNullable<CanvasDocument["viewport"]>) => void
+  onOpenNode?: (nodeId: string) => void
+  collapsedFrameIds?: string[]
+  className?: string
+}
+export function WorkflowCanvas(props: WorkflowCanvasProps) {
+  return (
+    <ReactFlowProvider>
+      <CanvasViewport {...props} />
+    </ReactFlowProvider>
+  )
+}
+function CanvasViewport({
+  document,
+  definitions,
+  selection,
+  onSelectionChange,
+  onCommand,
+  readOnly = false,
+  issues = noIssues,
+  execution,
+  onContextMenu,
+  focusRequest,
+  className,
+  collapsedFrameIds = noFrames,
+  viewport,
+  onViewportChange,
+  onOpenNode,
+}: WorkflowCanvasProps) {
+  const locked = readOnly || !onCommand
+  const [pan, setPan] = useState(true)
+  const [positions, setPositions] = useState<{
+    revision: number
+    values: Record<string, CanvasPoint>
+  }>({ revision: -1, values: {} })
+  const [dimensions, setDimensions] = useState<
+    Record<string, { width: number; height: number }>
+  >({})
+  const reconnecting = useRef<string | undefined>(undefined)
+  const flow = useReactFlow()
+  const { zoom } = useViewport()
+  const initialized = useNodesInitialized()
+  useEffect(() => {
+    if (!focusRequest || !initialized) return
+    const node = flow.getNode(focusRequest.id)
+    if (node)
+      flow.setCenter(
+        node.position.x + (node.measured?.width ?? 240) / 2,
+        node.position.y + (node.measured?.height ?? 160) / 2,
+        { zoom: 1, duration: 0 },
+      )
+  }, [flow, focusRequest, initialized])
+  const baseNodes = useMemo<AnyNode[]>(() => {
+    const snapshot =
+      execution?.documentId === document.id &&
+      execution?.documentRevision === document.revision
+        ? execution
+        : undefined
+    return [
+      ...document.frames.map((frame) => ({
+        id: frame.id,
+        type: "frame" as const,
+        position: frame.position,
+        style: {
+          width: frame.width,
+          height: collapsedFrameIds.includes(frame.id) ? 64 : frame.height,
+          zIndex: -1,
+        },
+        data: { frame, collapsed: collapsedFrameIds.includes(frame.id) },
+      })),
+      ...document.nodes.map((record) => ({
+        id: record.id,
+        type: "canvas" as const,
+        position: record.position,
+        ariaLabel: `${record.title} 节点`,
+        hidden:
+          !!record.parentId && collapsedFrameIds.includes(record.parentId),
+        data: {
+          record,
+          definition: definitions.find((d) => d.type === record.type),
+          readOnly: locked,
+          issues: issues.filter((i) => i.nodeId === record.id),
+          status: snapshot?.nodes[record.id]?.status,
+          outcome: snapshot?.nodes[record.id]?.outcome,
+          fallbackPorts: [
+            ...new Map(
+              document.edges
+                .flatMap<CanvasPortDefinition>((edge) =>
+                  edge.source === record.id
+                    ? [
+                        {
+                          id: edge.sourcePort,
+                          label: edge.sourcePort,
+                          direction: "output" as const,
+                          type: "string" as const,
+                        },
+                      ]
+                    : edge.target === record.id
+                      ? [
+                          {
+                            id: edge.targetPort,
+                            label: edge.targetPort,
+                            direction: "input" as const,
+                            type: "string" as const,
+                          },
+                        ]
+                      : [],
+                )
+                .map((port) => [port.id, port]),
+            ).values(),
+          ],
+        },
+      })),
+      ...document.notes.map((note) => ({
+        id: note.id,
+        type: "note" as const,
+        position: note.position,
+        data: { note },
+      })),
+    ]
+  }, [document, definitions, issues, execution, locked, collapsedFrameIds])
+  const nodes = useMemo<AnyNode[]>(
+    () =>
+      baseNodes.map((node) => {
+        const record = document.nodes.find((record) => record.id === node.id)
+        const frame = document.frames.find(
+          (frame) => frame.id === record?.parentId,
+        )
+        const moving =
+          positions.revision === document.revision ? positions.values : {}
+        const parentPosition = frame && moving[frame.id]
+        return {
+          ...node,
+          measured: dimensions[node.id],
+          position:
+            moving[node.id] ??
+            (frame && parentPosition
+              ? {
+                  x: node.position.x + parentPosition.x - frame.position.x,
+                  y: node.position.y + parentPosition.y - frame.position.y,
+                }
+              : node.position),
+          selected:
+            node.type === "frame"
+              ? selection.frameId === node.id
+              : node.type === "note"
+                ? selection.noteId === node.id
+                : selection.nodeIds.includes(node.id),
+        }
+      }),
+    [baseNodes, dimensions, document, positions, selection],
+  )
+  const baseEdges = useMemo<Edge[]>(
+    () =>
+      document.edges.map((edge) => ({
+        id: edge.id,
+        source: edge.source,
+        target: edge.target,
+        sourceHandle: edge.sourcePort,
+        targetHandle: edge.targetPort,
+        label: edge.label,
+        type: "canvas",
+        hidden: document.nodes.some(
+          (node) =>
+            (node.id === edge.source || node.id === edge.target) &&
+            !!node.parentId &&
+            collapsedFrameIds.includes(node.parentId),
+        ),
+        data: {
+          status:
+            execution?.documentId === document.id &&
+            execution?.documentRevision === document.revision
+              ? execution.edges?.[edge.id]?.status
+              : undefined,
+        },
+      })),
+    [document, execution, collapsedFrameIds],
+  )
+  const edges = useMemo(
+    () =>
+      baseEdges.map((edge) => ({
+        ...edge,
+        selected: selection.edgeIds.includes(edge.id),
+      })),
+    [baseEdges, selection.edgeIds],
+  )
+  const guides = useMemo(() => {
+    if (positions.revision !== document.revision) return []
+    const movingIds = new Set(Object.keys(positions.values)),
+      moving = document.nodes.find((node) => movingIds.has(node.id))
+    if (!moving) return []
+    const point = positions.values[moving.id],
+      stationary = document.nodes.filter((node) => !movingIds.has(node.id))
+    const x = stationary.find(
+      (node) => Math.abs(node.position.x - point.x) <= 8,
+    )?.position.x
+    const y = stationary.find(
+      (node) => Math.abs(node.position.y - point.y) <= 8,
+    )?.position.y
+    const minX =
+        Math.min(...document.nodes.map((node) => node.position.x)) - 32,
+      maxX = Math.max(...document.nodes.map((node) => node.position.x)) + 272
+    const minY =
+        Math.min(...document.nodes.map((node) => node.position.y)) - 32,
+      maxY = Math.max(...document.nodes.map((node) => node.position.y)) + 272
+    return [
+      ...(x === undefined
+        ? []
+        : [{ axis: "x", x, y: minY, width: 1, height: maxY - minY }]),
+      ...(y === undefined
+        ? []
+        : [{ axis: "y", x: minX, y, width: maxX - minX, height: 1 }]),
+    ]
+  }, [document, positions])
+  const connectionEdge = (
+    connection: {
+      source: string
+      target: string
+      sourceHandle?: string | null
+      targetHandle?: string | null
+    },
+    id = canvasId("edge"),
+  ) => ({
+    id,
+    source: connection.source,
+    sourcePort: connection.sourceHandle ?? "",
+    target: connection.target,
+    targetPort: connection.targetHandle ?? "",
+  })
+  function select(node: AnyNode, additive = false) {
+    onSelectionChange(
+      node.type === "frame"
+        ? { nodeIds: [], edgeIds: [], frameId: node.id }
+        : node.type === "note"
+          ? { nodeIds: [], edgeIds: [], noteId: node.id }
+          : {
+              nodeIds: additive
+                ? selection.nodeIds.includes(node.id)
+                  ? selection.nodeIds.filter((id) => id !== node.id)
+                  : [...selection.nodeIds, node.id]
+                : [node.id],
+              edgeIds: [],
+            },
+    )
+  }
+  function changes(changes: NodeChange<AnyNode>[]) {
+    const selected = new Set(selection.nodeIds)
+    let changed = false
+    for (const change of changes)
+      if (change.type === "select") {
+        const node = nodes.find((item) => item.id === change.id)
+        if (node?.type === "frame" || node?.type === "note") {
+          if (change.selected) select(node)
+          continue
+        }
+        changed = true
+        if (change.selected) selected.add(change.id)
+        else selected.delete(change.id)
+      }
+    if (changed) onSelectionChange({ nodeIds: [...selected], edgeIds: [] })
+    // Measurements are temporary engine layout, never graph data or undo history.
+    const measured = changes.flatMap((change) =>
+      change.type === "dimensions" && change.dimensions
+        ? [{ id: change.id, value: change.dimensions }]
+        : [],
+    )
+    if (measured.length)
+      setDimensions((current) => {
+        const next = { ...current }
+        let changed = false
+        for (const { id, value } of measured)
+          if (
+            next[id]?.width !== value.width ||
+            next[id]?.height !== value.height
+          ) {
+            next[id] = value
+            changed = true
+          }
+        return changed ? next : current
+      })
+    if (locked) return
+    const moves = changes.filter(
+      (change): change is NodePositionChange =>
+        change.type === "position" && !!change.position,
+    )
+    if (moves.length)
+      setPositions((current) => ({
+        revision: document.revision,
+        values: {
+          ...(current.revision === document.revision ? current.values : {}),
+          ...Object.fromEntries(
+            moves.map((change) => [change.id, change.position!]),
+          ),
+        },
+      }))
+  }
+  function finishDrag(node: AnyNode, moved: AnyNode[]) {
+    if (locked) return
+    if (node.type === "frame")
+      onCommand?.({
+        type: "move-frame",
+        frameId: node.id,
+        position: node.position,
+      })
+    else if (node.type === "note")
+      onCommand?.({
+        type: "move-note",
+        noteId: node.id,
+        position: node.position,
+      })
+    else
+      onCommand?.({
+        type: "move",
+        positions: Object.fromEntries(
+          moved
+            .filter((item) => item.type === "canvas")
+            .map((item) => [item.id, item.position]),
+        ),
+      })
+    setPositions({ revision: -1, values: {} })
+  }
+  return (
+    <div
+      className={cn(styles.canvas, className)}
+      aria-label="流程画布"
+      data-canvas-ready={initialized}
+      onDragOver={(event) => {
+        if (
+          !locked &&
+          event.dataTransfer.types.includes("application/easyuseui-node")
+        ) {
+          event.preventDefault()
+          event.dataTransfer.dropEffect = "copy"
+        }
+      }}
+      onDrop={(event) => {
+        event.preventDefault()
+        if (locked) return
+        const definition = definitions.find(
+          (item) =>
+            item.type ===
+            event.dataTransfer.getData("application/easyuseui-node"),
+        )
+        if (definition)
+          onCommand?.({
+            type: "add",
+            node: {
+              id: canvasId("node"),
+              type: definition.type,
+              title: definition.label,
+              position: flow.screenToFlowPosition({
+                x: event.clientX,
+                y: event.clientY,
+              }),
+              config: structuredClone(definition.defaults),
+            },
+          })
+      }}
+      onKeyDownCapture={(event) => {
+        if (
+          locked ||
+          event.nativeEvent.isComposing ||
+          !(event.target instanceof Element) ||
+          !event.target.closest(".react-flow__node") ||
+          event.target.closest(
+            "input, textarea, select, [contenteditable=true]",
+          )
+        )
+          return
+        if (
+          !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
+            event.key,
+          )
+        )
+          return
+        event.preventDefault()
+        event.stopPropagation()
+        const delta = event.shiftKey ? 32 : 8
+        const offset = {
+          x:
+            event.key === "ArrowLeft"
+              ? -delta
+              : event.key === "ArrowRight"
+                ? delta
+                : 0,
+          y:
+            event.key === "ArrowUp"
+              ? -delta
+              : event.key === "ArrowDown"
+                ? delta
+                : 0,
+        }
+        const focused = (
+          event.target.closest(".react-flow__node") as HTMLElement
+        ).dataset.id
+        const ids = selection.nodeIds.length
+          ? selection.nodeIds
+          : focused
+            ? [focused]
+            : []
+        if (selection.frameId) {
+          const frame = document.frames.find(
+            (item) => item.id === selection.frameId,
+          )!
+          onCommand?.({
+            type: "move-frame",
+            frameId: frame.id,
+            position: {
+              x: frame.position.x + offset.x,
+              y: frame.position.y + offset.y,
+            },
+          })
+        } else if (selection.noteId) {
+          const note = document.notes.find(
+            (item) => item.id === selection.noteId,
+          )!
+          onCommand?.({
+            type: "move-note",
+            noteId: note.id,
+            position: {
+              x: note.position.x + offset.x,
+              y: note.position.y + offset.y,
+            },
+          })
+        } else
+          onCommand?.({
+            type: "move",
+            positions: Object.fromEntries(
+              document.nodes
+                .filter((item) => ids.includes(item.id))
+                .map((item) => [
+                  item.id,
+                  {
+                    x: item.position.x + offset.x,
+                    y: item.position.y + offset.y,
+                  },
+                ]),
+            ),
+          })
+      }}
+    >
+      <ReactFlow
+        onlyRenderVisibleElements={initialized && document.nodes.length > 50}
+        nodes={nodes}
+        edges={edges}
+        nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
+        nodesDraggable={!locked}
+        nodesConnectable={!locked}
+        edgesReconnectable={!locked}
+        deleteKeyCode={null}
+        fitView={!viewport && !document.viewport}
+        defaultViewport={viewport ?? document.viewport}
+        onMoveEnd={(_, viewport) => onViewportChange?.(viewport)}
+        onNodeDoubleClick={(_, node) => onOpenNode?.(node.id)}
+        minZoom={0.25}
+        maxZoom={2}
+        panOnDrag={pan ? true : [1, 2]}
+        selectionOnDrag={!pan}
+        multiSelectionKeyCode="Shift"
+        selectNodesOnDrag={false}
+        onNodesChange={changes}
+        onNodeClick={(event, node) => select(node, event.shiftKey)}
+        onEdgesChange={(changes) => {
+          const selected = new Set(selection.edgeIds)
+          let changed = false
+          for (const change of changes)
+            if (change.type === "select") {
+              changed = true
+              if (change.selected) selected.add(change.id)
+              else selected.delete(change.id)
+            }
+          if (changed)
+            onSelectionChange({ nodeIds: [], edgeIds: [...selected] })
+        }}
+        onNodeDragStop={(_, node, moved) =>
+          finishDrag(node, moved.length ? moved : [node])
+        }
+        onConnect={(connection) => {
+          if (!locked)
+            onCommand?.({ type: "connect", edge: connectionEdge(connection) })
+        }}
+        onReconnectStart={(_, edge) => {
+          reconnecting.current = edge.id
+        }}
+        onReconnectEnd={() => {
+          reconnecting.current = undefined
+        }}
+        onReconnect={(edge, connection) => {
+          if (!locked)
+            onCommand?.({
+              type: "reconnect",
+              edgeId: edge.id,
+              edge: connectionEdge(connection, edge.id),
+            })
+        }}
+        isValidConnection={(connection) =>
+          !locked &&
+          !validateCanvasConnection(
+            document,
+            definitions,
+            connectionEdge(connection),
+            reconnecting.current,
+          )
+        }
+        onEdgeClick={(_, edge) =>
+          onSelectionChange({ nodeIds: [], edgeIds: [edge.id] })
+        }
+        onPaneClick={() => onSelectionChange({ nodeIds: [], edgeIds: [] })}
+        onNodeContextMenu={(event, node) => {
+          event.preventDefault()
+          select(node)
+          onContextMenu?.()
+        }}
+        onEdgeContextMenu={(event, edge) => {
+          event.preventDefault()
+          onSelectionChange({ nodeIds: [], edgeIds: [edge.id] })
+          onContextMenu?.()
+        }}
+        onPaneContextMenu={(event) => {
+          event.preventDefault()
+          onContextMenu?.()
+        }}
+      >
+        <ViewportPortal>
+          {guides.map((guide) => (
+            <div
+              key={guide.axis}
+              aria-hidden="true"
+              data-canvas-guide={guide.axis}
+              className={styles.guide}
+              style={{
+                left: guide.x,
+                top: guide.y,
+                width: guide.width,
+                height: guide.height,
+              }}
+            />
+          ))}
+        </ViewportPortal>
+        <Background color="var(--canvas-grid)" gap={16} size={1} />
+        <Panel position="bottom-left" className={styles.controls}>
+          <Button
+            variant="outline"
+            size="icon"
+            aria-label="缩小画布"
+            onClick={() => flow.zoomOut({ duration: 0 })}
+          >
+            <ZoomOut />
+          </Button>
+          <output aria-label="画布缩放比例">{Math.round(zoom * 100)}%</output>
+          <Button
+            variant="outline"
+            size="icon"
+            aria-label="放大画布"
+            onClick={() => flow.zoomIn({ duration: 0 })}
+          >
+            <ZoomIn />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            aria-label="适应全部节点"
+            onClick={() =>
+              flow.fitBounds(flow.getNodesBounds(flow.getNodes()), {
+                padding: 0.16,
+                duration: 0,
+              })
+            }
+          >
+            <Scan />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            aria-label={pan ? "切换为选择模式" : "切换为平移模式"}
+            aria-pressed={!pan}
+            onClick={() => setPan((value) => !value)}
+          >
+            {pan ? <Hand /> : <MousePointer2 />}
+          </Button>
+        </Panel>
+        <MiniMap
+          pannable
+          zoomable
+          nodeColor="var(--canvas-node-surface)"
+          nodeStrokeColor="var(--canvas-node-border)"
+          maskColor="var(--canvas-minimap-mask)"
+          ariaLabel="流程缩略图"
+        />
+      </ReactFlow>
+    </div>
+  )
+}
