@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "canvas-indexes",
+    "title": {
+      "zh-CN": "Canvas 从重复扫描改为索引查询",
+      "en": "Replacing repeated Canvas scans with indexes"
+    },
+    "summary": {
+      "zh-CN": "一次扫描建立索引，独立更新选择集合；区分纯构图收益与浏览器容量。",
+      "en": "Replacing repeated Canvas scans with indexes"
+    }
+  },
+  {
+    "slug": "common-components-from-crm",
+    "title": {
+      "zh-CN": "从 CRM 页面提炼通用组件",
+      "en": "Extracting reusable components from a CRM page"
+    },
+    "summary": {
+      "zh-CN": "以九列表格为切口，把选择、查看、筛选、表单和浮层拆成可独立安装的通用能力。",
+      "en": "Use a nine-column table to separate selection, activation, filtering, forms and overlays into independently installable capabilities."
+    }
+  },
+  {
+    "slug": "controlled-layout",
+    "title": {
+      "zh-CN": "布局状态交给调用方管理",
+      "en": "Putting workspace layout state under caller control"
+    },
+    "summary": {
+      "zh-CN": "成对受控接口、独立移动端浮层与按工作区保存的示例适配器。",
+      "en": "Putting workspace layout state under caller control"
+    }
+  },
+  {
+    "slug": "long-session-anchor",
+    "title": {
+      "zh-CN": "长会话如何保留阅读位置",
+      "en": "Keeping the reading position in long streams"
+    },
+    "summary": {
+      "zh-CN": "Set 去重、显式修订与稳定 ID 锚点，保留全文和按需屏外布局。",
+      "en": "Keeping the reading position in long streams"
+    }
+  },
+  {
+    "slug": "on-demand-demos",
+    "title": {
+      "zh-CN": "组件目录如何按需加载 Demo",
+      "en": "Loading component demos on demand"
+    },
+    "summary": {
+      "zh-CN": "把组件元数据与交互示例分开，让目录、词典和文章在主动预览前保持轻量。",
+      "en": "Separate metadata from interactive examples so the catalog, dictionary and articles remain lightweight until a preview is requested."
+    }
+  },
+  {
+    "slug": "optimization-roadmap",
+    "title": {
+      "zh-CN": "EasyuseUI 优化路线与验收方法",
+      "en": "The EasyuseUI optimization roadmap and evidence contract"
+    },
+    "summary": {
+      "zh-CN": "从轻量目录到组件分发，逐项记录实施状态、兼容影响与可复核证据。",
+      "en": "Track implementation status, compatibility and reproducible evidence from a lightweight catalog to portable components."
+    }
+  },
+  {
+    "slug": "theme-modes",
+    "title": {
+      "zh-CN": "主题如何渐进接入已有产品",
+      "en": "Adopting themes gradually in existing products"
+    },
+    "summary": {
+      "zh-CN": "宿主语义映射与局部私有主题，浮层跟随各自作用域。",
+      "en": "Adopting themes gradually in existing products"
+    }
+  }
+]

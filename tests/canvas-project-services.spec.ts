@@ -270,7 +270,7 @@ test("service fixture: lost save response, explicit conflict, comment, restore c
       exact: true,
     })
     .click()
-  await page.getByRole("button", { name: "服务接入", exact: true }).click()
+  await page.getByRole("tab", { name: "服务接入", exact: true }).click()
   const services = page.getByRole("region", { name: "服务接入" })
   await services
     .getByLabel("讨论草稿", { exact: true })

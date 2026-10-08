@@ -1,0 +1,1392 @@
+[
+  {
+    "slug": "checkbox",
+    "docPath": "/docs/checkbox/",
+    "registryId": "checkbox",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Checkbox",
+    "category": "基础组件",
+    "description": "原生表单关联的三态复选框，选择与焦点分离。",
+    "source": "components/ui/checkbox.tsx",
+    "example": "components/examples/checkbox-demo.tsx",
+    "usage": "import { Checkbox } from \"@/components/ui/checkbox\"",
+    "notes": [
+      "indeterminate只表达部分选择，不提交第三种业务值。"
+    ]
+  },
+  {
+    "slug": "table",
+    "docPath": "/docs/table/",
+    "registryId": "table",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Table",
+    "category": "基础组件",
+    "description": "原生表格结构，保留表头、单元格、标题和滚动语义。",
+    "source": "components/ui/table.tsx",
+    "example": "components/examples/table-demo.tsx",
+    "usage": "import { Table } from \"@/components/ui/table\"",
+    "notes": [
+      "TableContainer负责横向滚动，Table不拥有数据请求或行选择。"
+    ]
+  },
+  {
+    "slug": "data-table",
+    "docPath": "/docs/data-table/",
+    "registryId": "data-table",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "checkbox",
+      "table",
+      "data-region",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "DataTable",
+    "category": "组合模块",
+    "description": "受控通用表格，勾选、查看与排序请求分别建模。",
+    "source": "components/blocks/data-table.tsx",
+    "example": "components/examples/data-table-demo.tsx",
+    "usage": "import { DataTable } from \"@/components/blocks/data-table\"",
+    "notes": [
+      "全选只修改当前可选行并保留隐藏选择；调用方提供排序后的数据与汇总。"
+    ]
+  },
+  {
+    "slug": "avatar",
+    "docPath": "/docs/avatar/",
+    "registryId": "avatar",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Avatar",
+    "category": "基础组件",
+    "description": "头像图片、姓名缩写与读取失败回退。",
+    "source": "components/ui/avatar.tsx",
+    "example": "components/examples/avatar-demo.tsx",
+    "usage": "import { Avatar } from \"@/components/ui/avatar\"",
+    "notes": [
+      "name提供可访问名称；图片失败后显示缩写，src变化允许重新读取。"
+    ]
+  },
+  {
+    "slug": "segment-bar",
+    "docPath": "/docs/segment-bar/",
+    "registryId": "segment-bar",
+    "registryDependencies": [
+      "theme",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "SegmentBar",
+    "category": "基础组件",
+    "description": "分段量值显示，使用meter语义并明确未知值。",
+    "source": "components/ui/segment-bar.tsx",
+    "example": "components/examples/segment-bar-demo.tsx",
+    "usage": "import { SegmentBar } from \"@/components/ui/segment-bar\"",
+    "notes": [
+      "有限值限制在声明范围，分段数1–50；未知值不补零，不用作任务进度。"
+    ]
+  },
+  {
+    "slug": "sparkline",
+    "docPath": "/docs/sparkline/",
+    "registryId": "sparkline",
+    "registryDependencies": [
+      "theme",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Sparkline",
+    "category": "基础组件",
+    "description": "带文本替代的微型柱状趋势，覆盖空值、缺失和等值。",
+    "source": "components/ui/sparkline.tsx",
+    "example": "components/examples/sparkline-demo.tsx",
+    "usage": "import { Sparkline } from \"@/components/ui/sparkline\"",
+    "notes": [
+      "最多显示最近120个点；缺失值不画柱，零值有基线，负值从零线向下。"
+    ]
+  },
+  {
+    "slug": "dropdown-menu",
+    "docPath": "/docs/dropdown-menu/",
+    "registryId": "dropdown-menu",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "menu"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "DropdownMenu",
+    "category": "基础组件",
+    "description": "复用Menu的动作、复选及单选菜单，支持键盘定位。",
+    "source": "components/ui/dropdown-menu.tsx",
+    "example": "components/examples/dropdown-menu-demo.tsx",
+    "usage": "import { DropdownMenu } from \"@/components/ui/dropdown-menu\"",
+    "notes": [
+      "不创建第二套菜单基础；菜单选项不替代普通表单Select。"
+    ]
+  },
+  {
+    "slug": "sheet",
+    "docPath": "/docs/sheet/",
+    "registryId": "sheet",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "theme-boundary",
+      "button",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Sheet",
+    "category": "基础组件",
+    "description": "左右及底部抽屉，固定首尾、正文滚动与嵌套焦点管理。",
+    "source": "components/ui/sheet.tsx",
+    "example": "components/examples/sheet-demo.tsx",
+    "usage": "import { Sheet } from \"@/components/ui/sheet\"",
+    "notes": [
+      "复用Dialog语义；Portal继承ThemeBoundary，支持指定转场后的焦点目标。"
+    ]
+  },
+  {
+    "slug": "command-palette",
+    "docPath": "/docs/command-palette/",
+    "registryId": "command-palette",
+    "registryDependencies": [
+      "theme",
+      "dialog",
+      "input",
+      "kbd",
+      "controllable-value",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "CommandPalette",
+    "category": "组合模块",
+    "description": "调用方提供结果的命令搜索，支持键盘选择与IME。",
+    "source": "components/blocks/command-palette.tsx",
+    "example": "components/examples/command-palette-demo.tsx",
+    "usage": "import { CommandPalette } from \"@/components/blocks/command-palette\"",
+    "notes": [
+      "默认不注册全局快捷键；可配置scope，忽略编辑器、Canvas及已处理事件；选择不执行内置服务。"
+    ]
+  },
+  {
+    "slug": "kbd",
+    "docPath": "/docs/kbd/",
+    "registryId": "kbd",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Kbd",
+    "category": "基础组件",
+    "description": "语义化快捷键呈现，不注册键盘事件。",
+    "source": "components/ui/kbd.tsx",
+    "example": "components/examples/kbd-demo.tsx",
+    "usage": "import { Kbd } from \"@/components/ui/kbd\"",
+    "notes": [
+      "修饰键符号需要调用方提供适合读屏的名称。"
+    ]
+  },
+  {
+    "slug": "field",
+    "docPath": "/docs/field/",
+    "registryId": "field",
+    "registryDependencies": [
+      "theme"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Field",
+    "category": "基础组件",
+    "description": "统一标签、描述与错误关联，保留调用方输入草稿。",
+    "source": "components/ui/field.tsx",
+    "example": "components/examples/field-demo.tsx",
+    "usage": "import { Field } from \"@/components/ui/field\"",
+    "notes": [
+      "通过render函数传递id、aria-describedby、aria-invalid和required；校验属于调用方。"
+    ]
+  },
+  {
+    "slug": "form-section",
+    "docPath": "/docs/form-section/",
+    "registryId": "form-section",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "FormSection",
+    "category": "组合模块",
+    "description": "使用fieldset和legend组织表单分组。",
+    "source": "components/blocks/form-section.tsx",
+    "example": "components/examples/form-section-demo.tsx",
+    "usage": "import { FormSection } from \"@/components/blocks/form-section\"",
+    "notes": [
+      "不嵌套创建form，不拥有保存或校验逻辑。"
+    ]
+  },
+  {
+    "slug": "slider",
+    "docPath": "/docs/slider/",
+    "registryId": "slider",
+    "registryDependencies": [
+      "theme"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Slider",
+    "category": "基础组件",
+    "description": "受控或非受控数值滑块，连续变化与提交回调分离。",
+    "source": "components/ui/slider.tsx",
+    "example": "components/examples/slider-demo.tsx",
+    "usage": "import { Slider } from \"@/components/ui/slider\"",
+    "notes": [
+      "复用Base UI键盘与触摸行为；无效边界和数值有确定回退，不创建业务持久化。"
+    ]
+  },
+  {
+    "slug": "image-upload",
+    "docPath": "/docs/image-upload/",
+    "registryId": "image-upload",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "utils",
+      "controllable-value",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "ImageUpload",
+    "category": "组合模块",
+    "description": "本地图片选择、拖放、预览、替换与失败恢复。",
+    "source": "components/blocks/image-upload.tsx",
+    "example": "components/examples/image-upload-demo.tsx",
+    "usage": "import { ImageUpload } from \"@/components/blocks/image-upload\"",
+    "notes": [
+      "替换失败保留旧File；迟到读取丢弃，卸载取消读取；上传及远程结果由调用方负责。"
+    ]
+  },
+  {
+    "slug": "filter-toolbar",
+    "docPath": "/docs/filter-toolbar/",
+    "registryId": "filter-toolbar",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "sheet",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "FilterToolbar",
+    "category": "组合模块",
+    "description": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+    "source": "components/blocks/filter-toolbar.tsx",
+    "example": "components/examples/filter-toolbar-demo.tsx",
+    "usage": "import { FilterToolbar } from \"@/components/blocks/filter-toolbar\"",
+    "notes": [
+      "筛选值由调用方持有；切换布局只挂载一组筛选控件，避免重复ID。"
+    ]
+  },
+  {
+    "slug": "metric-summary",
+    "docPath": "/docs/metric-summary/",
+    "registryId": "metric-summary",
+    "registryDependencies": [
+      "theme"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "MetricSummary",
+    "category": "组合模块",
+    "description": "使用名称、值、单位和说明展示调用方计算的指标。",
+    "source": "components/blocks/metric-summary.tsx",
+    "example": "components/examples/metric-summary-demo.tsx",
+    "usage": "import { MetricSummary } from \"@/components/blocks/metric-summary\"",
+    "notes": [
+      "使用dl语义和稳定ID，不从业务记录推导指标，不增加只读hover。"
+    ]
+  },
+  {
+    "slug": "rating-display",
+    "docPath": "/docs/rating-display/",
+    "registryId": "rating-display",
+    "registryDependencies": [
+      "theme",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "RatingDisplay",
+    "category": "基础组件",
+    "description": "只读评分与半星显示，提供完整文本替代。",
+    "source": "components/ui/rating-display.tsx",
+    "example": "components/examples/rating-display-demo.tsx",
+    "usage": "import { RatingDisplay } from \"@/components/ui/rating-display\"",
+    "notes": [
+      "max为1–10，value限制范围并四舍五入到半星；缺失值保持未知。"
+    ]
+  },
+  {
+    "slug": "menu",
+    "docPath": "/docs/menu/",
+    "registryId": "menu",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "theme-boundary"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Menu",
+    "category": "基础组件",
+    "description": "动作菜单，沿用方向键、禁用与 Escape 焦点恢复。",
+    "source": "components/ui/menu.tsx",
+    "example": "components/examples/menu-demo.tsx",
+    "usage": "import { Menu, MenuTrigger, MenuContent, MenuItem } from \"@/components/ui/menu\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "popover",
+    "docPath": "/docs/popover/",
+    "registryId": "popover",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "theme-boundary"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Popover",
+    "category": "基础组件",
+    "description": "带主题继承的辅助信息浮层，不伪造业务反馈。",
+    "source": "components/ui/popover.tsx",
+    "example": "components/examples/popover-demo.tsx",
+    "usage": "import { Popover, PopoverTrigger, PopoverContent, PopoverTitle, PopoverDescription, PopoverClose } from \"@/components/ui/popover\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "select",
+    "docPath": "/docs/select/",
+    "registryId": "select",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "theme-boundary"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Select",
+    "category": "基础组件",
+    "description": "有限选项单选，支持受控值与键盘选择。",
+    "source": "components/ui/select.tsx",
+    "example": "components/examples/select-demo.tsx",
+    "usage": "import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectItemText } from \"@/components/ui/select\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "combobox",
+    "docPath": "/docs/combobox/",
+    "registryId": "combobox",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "theme-boundary"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Combobox",
+    "category": "基础组件",
+    "description": "可输入筛选的选值控件，保留空结果和键盘导航。",
+    "source": "components/ui/combobox.tsx",
+    "example": "components/examples/combobox-demo.tsx",
+    "usage": "import { Combobox, ComboboxInput, ComboboxContent, ComboboxEmpty, ComboboxList, ComboboxItem } from \"@/components/ui/combobox\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "segmented",
+    "docPath": "/docs/segmented/",
+    "registryId": "segmented",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Segmented",
+    "category": "基础组件",
+    "description": "互斥选值分段控件，使用 radio 语义与方向键。",
+    "source": "components/ui/segmented.tsx",
+    "example": "components/examples/segmented-demo.tsx",
+    "usage": "import { Segmented, SegmentedItem } from \"@/components/ui/segmented\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "tabs",
+    "docPath": "/docs/tabs/",
+    "registryId": "tabs",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Tabs",
+    "category": "基础组件",
+    "description": "内容面板切换，选中与焦点分开并支持方向键。",
+    "source": "components/ui/tabs.tsx",
+    "example": "components/examples/tabs-demo.tsx",
+    "usage": "import { Tabs, TabsList, TabsTab, TabsPanel } from \"@/components/ui/tabs\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "theme-boundary",
+    "docPath": "/docs/theme-boundary/",
+    "registryId": "theme-boundary",
+    "registryDependencies": [],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "ThemeBoundary",
+    "category": "基础组件",
+    "description": "兼容宿主或隔离主题的作用域，Portal 继承对应实例的变量。",
+    "source": "components/ui/theme-boundary.tsx",
+    "example": "components/examples/theme-boundary-demo.tsx",
+    "widePreview": true,
+    "usage": "import { ThemeBoundary } from \"@/components/ui/theme-boundary\"\n\n<ThemeBoundary mode=\"scoped\" theme=\"dark\">{children}</ThemeBoundary>",
+    "notes": [
+      "默认安装保持 legacy；host 和 scoped Registry 路径需要显式选择并包裹 ThemeBoundary。"
+    ]
+  },
+  {
+    "slug": "i18n",
+    "docPath": "/docs/i18n/",
+    "registryId": "i18n",
+    "registryDependencies": [],
+    "installType": "lib",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "I18nProvider",
+    "category": "基础组件",
+    "description": "提供简体中文与英文、类型化消息、Intl 格式化和结构化界面反馈。",
+    "source": "lib/i18n-provider.tsx",
+    "example": "components/examples/i18n-demo.tsx",
+    "usage": "import { I18nProvider } from \"@/lib/i18n-provider\"\n\n<I18nProvider defaultLocale=\"en\">{children}</I18nProvider>",
+    "notes": [
+      "未提供 Provider 时默认中文。组件不依赖 Next、路由或浏览器存储。"
+    ]
+  },
+  {
+    "slug": "canvas-service-panel",
+    "docPath": "/docs/canvas-service-panel/",
+    "registryId": "canvas-service-panel",
+    "registryDependencies": [
+      "canvas-services",
+      "canvas-controls",
+      "button",
+      "dialog",
+      "data-region",
+      "redact",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasServicePanel",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "受控服务面板：版本恢复、讨论、临时 Presence、环境、分享和发布回执。",
+    "source": "components/blocks/canvas-service-panel.tsx",
+    "example": "components/examples/canvas-services-demo.tsx",
+    "usage": "<CanvasServicePanel {...sourceSnapshotAndCapabilities} />",
+    "notes": [
+      "保存适配器使用 CAS 与服务回执；unknown 不自动重试，冲突不自动覆盖。"
+    ]
+  },
+  {
+    "slug": "canvas-project-workspace",
+    "docPath": "/docs/canvas-project-workspace/",
+    "registryId": "canvas-project-workspace",
+    "registryDependencies": [
+      "canvas-workspace",
+      "canvas-editor",
+      "canvas-validation",
+      "canvas-controls",
+      "button",
+      "dialog",
+      "redact",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasProjectWorkspace",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "显式边界与递归校验的嵌套流程工作台，保留每个子图的选择、视口和本地历史。",
+    "source": "components/blocks/canvas-project-workspace.tsx",
+    "example": "components/examples/canvas-project-demo.tsx",
+    "usage": "<CanvasProjectWorkspace project={project} definitions={definitions} onChange={setProject} />",
+    "notes": [
+      "同一子流程可复用，禁止递归引用；Loop / Iteration 仅包装有界独立作用域。"
+    ]
+  },
+  {
+    "slug": "canvas-config-editor",
+    "docPath": "/docs/canvas-config-editor/",
+    "registryId": "canvas-config-editor",
+    "registryDependencies": [
+      "canvas-model",
+      "canvas-controls",
+      "button",
+      "input",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasConfigEditor",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "条件、对象 Schema、键值表、表达式和代码的受控编辑器。",
+    "source": "components/blocks/canvas-config-editor.tsx",
+    "example": "components/examples/canvas-project-demo.tsx",
+    "usage": "<CanvasConfigEditor kind=\"condition\" id=\"rules\" label=\"条件\" value={json} onChange={setJson} />",
+    "notes": [
+      "通过 NodeInspector 的字段 kind 使用。高级示例选择 Advanced Config 或 Switch。"
+    ]
+  },
+  {
+    "slug": "canvas-execution-panel",
+    "docPath": "/docs/canvas-execution-panel/",
+    "registryId": "canvas-execution-panel",
+    "registryDependencies": [
+      "canvas-runtime",
+      "canvas-controls",
+      "button",
+      "runtime-status-badge",
+      "activity-timeline",
+      "tool-call",
+      "inspector",
+      "data-region",
+      "redact",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasExecutionPanel",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "受控执行调试：运行、停止请求、审批、脱敏输出和未知结果对账。",
+    "source": "components/blocks/canvas-execution-panel.tsx",
+    "example": "components/examples/canvas-workspace-demo.tsx",
+    "usage": "const runtime = useCanvasRuntime(document, definitions, adapter)\n<CanvasWorkspace {...editor} definitions={definitions} runtime={runtime} />",
+    "notes": [
+      "同条目导出 CanvasRunControls 和 CanvasExecutionInspector。"
+    ]
+  },
+  {
+    "slug": "canvas-workspace",
+    "docPath": "/docs/canvas-workspace/",
+    "registryId": "canvas-workspace",
+    "registryDependencies": [
+      "canvas-model",
+      "canvas-controls",
+      "canvas-editor",
+      "canvas-validation",
+      "workspace-shell",
+      "workflow-canvas",
+      "node-palette",
+      "node-inspector",
+      "inspector",
+      "input",
+      "button",
+      "dialog",
+      "data-region",
+      "canvas-execution-panel",
+      "canvas-services",
+      "canvas-service-panel",
+      "i18n",
+      "menu",
+      "tabs"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasWorkspace",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "可编辑流程工作台：构图、配置、变量、校验、撤销和导入导出。",
+    "source": "components/blocks/canvas-workspace.tsx",
+    "example": "components/examples/canvas-workspace-demo.tsx",
+    "usage": "import { CanvasWorkspace } from \"@/components/blocks/canvas-workspace\"\nimport { useCanvasEditor } from \"@/lib/use-canvas-editor\"\n\nconst editor = useCanvasEditor(initialDocument, definitions)\n<CanvasWorkspace {...editor} definitions={definitions} />",
+    "notes": [
+      "layout=fill 填满有明确高度的父容器，底部默认收起；默认 preview 用于文档演示。底部标签可展开面板，收起保留高度与内容。"
+    ]
+  },
+  {
+    "slug": "node-palette",
+    "docPath": "/docs/node-palette/",
+    "registryId": "node-palette",
+    "registryDependencies": [
+      "canvas-model",
+      "canvas-controls",
+      "button",
+      "input",
+      "utils",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "NodePalette",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "按分类和名称查找节点，支持点击新增与拖放目录。",
+    "source": "components/blocks/node-palette.tsx",
+    "example": "components/examples/canvas-components-demo.tsx",
+    "usage": "import { NodePalette } from \"@/components/blocks/node-palette\"\n\n<NodePalette definitions={definitions} onAdd={addNode} />",
+    "notes": [
+      "Quick Add 与侧栏共享同一目录；新增请求交给调用方命令。"
+    ]
+  },
+  {
+    "slug": "node-inspector",
+    "docPath": "/docs/node-inspector/",
+    "registryId": "node-inspector",
+    "registryDependencies": [
+      "canvas-model",
+      "canvas-controls",
+      "canvas-validation",
+      "variable-picker",
+      "inspector",
+      "input",
+      "button",
+      "dialog",
+      "canvas-config-editor",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "NodeInspector",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "复用 Inspector 的受控节点配置，保留无效草稿并校验后应用。",
+    "source": "components/blocks/node-inspector.tsx",
+    "example": "components/examples/canvas-components-demo.tsx",
+    "usage": "import { NodeInspector } from \"@/components/blocks/node-inspector\"\n\n<NodeInspector document={document} definitions={definitions} nodeId={selectedId} onCommand={onCommand} />",
+    "notes": [
+      "每个对象独立保留草稿，应用前不会写入图文档。"
+    ]
+  },
+  {
+    "slug": "variable-picker",
+    "docPath": "/docs/variable-picker/",
+    "registryId": "variable-picker",
+    "registryDependencies": [
+      "canvas-model",
+      "canvas-controls",
+      "canvas-validation",
+      "tree",
+      "input",
+      "button",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "VariablePicker",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "复用单选 Tree，选择可达上游的兼容输出并生成结构化引用。",
+    "source": "components/blocks/variable-picker.tsx",
+    "example": "components/examples/canvas-components-demo.tsx",
+    "usage": "import { VariablePicker } from \"@/components/blocks/variable-picker\"\n\n<VariablePicker document={document} definitions={definitions} targetId={targetId} expectedType=\"string\" onInsert={setReference} />",
+    "notes": [
+      "nodeId、portId 和 path 关联变量；修改显示名称不影响绑定。"
+    ]
+  },
+  {
+    "slug": "canvas-frame",
+    "docPath": "/docs/canvas-frame/",
+    "registryId": "canvas-frame",
+    "registryDependencies": [
+      "canvas-model",
+      "theme",
+      "redact",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasFrame",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "流程图的视觉分组；移动由命令整体更新成员位置。",
+    "source": "components/blocks/canvas-frame.tsx",
+    "example": "components/examples/canvas-components-demo.tsx",
+    "usage": "import { CanvasFrame } from \"@/components/blocks/canvas-frame\"\n\n<CanvasFrame frame={frame} selected={selected} />",
+    "notes": [
+      "仅视觉组织；删除分组默认解组，保留成员。"
+    ]
+  },
+  {
+    "slug": "canvas-note",
+    "docPath": "/docs/canvas-note/",
+    "registryId": "canvas-note",
+    "registryDependencies": [
+      "canvas-model",
+      "canvas-frame",
+      "redact",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasNote",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "流程说明便笺，独立于执行与讨论线程。",
+    "source": "components/blocks/canvas-note.tsx",
+    "example": "components/examples/canvas-components-demo.tsx",
+    "usage": "import { CanvasNote } from \"@/components/blocks/canvas-note\"\n\n<CanvasNote note={note} selected={selected} />",
+    "notes": [
+      "正文在展示前脱敏，最多4000字符；持久化由消费方负责。"
+    ]
+  },
+  {
+    "slug": "workflow-canvas",
+    "docPath": "/docs/workflow-canvas/",
+    "registryId": "workflow-canvas",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "canvas-model",
+      "canvas-node",
+      "canvas-edge",
+      "canvas-validation",
+      "canvas-frame",
+      "canvas-note",
+      "button",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "WorkflowCanvas",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/blocks/workflow-canvas.tsx",
+    "example": "components/examples/workflow-canvas-demo.tsx",
+    "usage": "import { WorkflowCanvas } from \"@/components/blocks/workflow-canvas\"\n\n<div style={{ height: 400 }}><WorkflowCanvas document={document} definitions={definitions} selection={selection} onSelectionChange={setSelection} onCommand={onCommand} /></div>",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "canvas-node",
+    "docPath": "/docs/canvas-node/",
+    "registryId": "canvas-node",
+    "registryDependencies": [
+      "canvas-model",
+      "canvas-port",
+      "runtime-status-badge",
+      "redact",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasNode",
+    "category": "基础组件",
+    "widePreview": true,
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/ui/canvas-node.tsx",
+    "example": "components/examples/workflow-canvas-demo.tsx",
+    "usage": "import { CanvasNode } from \"@/components/ui/canvas-node\"\n\n// 在 React Flow 的自定义节点渲染器中使用。\n<CanvasNode node={record} definition={definition} selected={selected} readOnly={readOnly} />",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "canvas-port",
+    "docPath": "/docs/canvas-port/",
+    "registryId": "canvas-port",
+    "registryDependencies": [
+      "theme",
+      "canvas-model",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasPort",
+    "category": "基础组件",
+    "widePreview": true,
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/ui/canvas-port.tsx",
+    "example": "components/examples/workflow-canvas-demo.tsx",
+    "usage": "import { CanvasPort } from \"@/components/ui/canvas-port\"\n\n// 在 React Flow 自定义节点上下文中使用。\n<CanvasPort port={portDefinition} readOnly={readOnly} />",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "canvas-edge",
+    "docPath": "/docs/canvas-edge/",
+    "registryId": "canvas-edge",
+    "registryDependencies": [
+      "theme",
+      "redact",
+      "canvas-model"
+    ],
+    "installType": "ui",
+    "displayCategory": "canvas",
+    "availability": "available",
+    "name": "CanvasEdge",
+    "category": "基础组件",
+    "widePreview": true,
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/ui/canvas-edge.tsx",
+    "example": "components/examples/workflow-canvas-demo.tsx",
+    "usage": "import { CanvasEdge } from \"@/components/ui/canvas-edge\"\nimport { ReactFlow } from \"@xyflow/react\"\n\n<ReactFlow edgeTypes={{ canvas: CanvasEdge }} nodes={nodes} edges={edges} />",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "style-workbench",
+    "docPath": "/docs/style-workbench/",
+    "registryId": "style-workbench",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "button",
+      "input",
+      "badge",
+      "tag",
+      "chip",
+      "data-region",
+      "style-workbench-model",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "StyleWorkbench",
+    "category": "组合模块",
+    "widePreview": true,
+    "description": "A/B 样式实验：实时修改圆角、间距、阴影、颜色和字体，比较参数并复制 CSS。",
+    "source": "components/blocks/style-workbench.tsx",
+    "example": "components/examples/style-workbench-demo.tsx",
+    "usage": "import { StyleWorkbench } from \"@/components/blocks/style-workbench\"\n\n<StyleWorkbench initialSection=\"shadow\" />",
+    "notes": [
+      "A 从当前主题与未修改的局部探针读取；B 的修改只影响预览，不改全局 token。"
+    ]
+  },
+  {
+    "slug": "badge",
+    "docPath": "/docs/badge/",
+    "registryId": "badge",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Badge",
+    "category": "基础组件",
+    "description": "只读的信息徽标，支持语义色、小圆角和胶囊外观。",
+    "source": "components/ui/badge.tsx",
+    "example": "components/examples/badge-demo.tsx",
+    "usage": "import { Badge } from \"@/components/ui/badge\"\n\n<Badge tone=\"info\" shape=\"pill\">只读信息</Badge>",
+    "notes": [
+      "只读 span，无点击、焦点或 hover 行为，不承载操作。"
+    ]
+  },
+  {
+    "slug": "tag",
+    "docPath": "/docs/tag/",
+    "registryId": "tag",
+    "registryDependencies": [
+      "badge"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Tag",
+    "category": "基础组件",
+    "description": "胶囊外观的只读分类标签，区分分类与交互值。",
+    "source": "components/ui/tag.tsx",
+    "example": "components/examples/tag-demo.tsx",
+    "usage": "import { Tag } from \"@/components/ui/tag\"\n\n<Tag leading=\"#\">TypeScript</Tag>",
+    "notes": [
+      "固定中性色和胶囊外观，不进入 Tab 顺序，不接受点击行为。"
+    ]
+  },
+  {
+    "slug": "chip",
+    "docPath": "/docs/chip/",
+    "registryId": "chip",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "button",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Chip",
+    "category": "基础组件",
+    "description": "可选择、移除的受控胶囊，主操作与删除是兄弟目标。",
+    "source": "components/ui/chip.tsx",
+    "example": "components/examples/chip-demo.tsx",
+    "usage": "import { Chip } from \"@/components/ui/chip\"\n\n<Chip label=\"TypeScript\" selected={selected}\n  onSelectedChange={setSelected} onRemove={removeValue} />",
+    "notes": [
+      "主操作和移除按钮是兄弟目标，Enter/Space 激活；选中状态通过 aria-pressed 表达。"
+    ]
+  },
+  {
+    "slug": "button",
+    "docPath": "/docs/button/",
+    "registryId": "button",
+    "registryDependencies": [
+      "theme-boundary",
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Button",
+    "category": "基础组件",
+    "description": "清楚地表达操作，给等待一个确定的反馈。",
+    "source": "components/ui/button.tsx",
+    "example": "components/examples/button-demo.tsx",
+    "usage": "import { Button } from \"@/components/ui/button\"\n\n<Button variant=\"default\" loading={saving} onClick={save}>\n  保存更改\n</Button>",
+    "notes": [
+      "继承 Base UI Button 的其他属性，包括 render、onClick 和 ref。"
+    ]
+  },
+  {
+    "slug": "input",
+    "docPath": "/docs/input/",
+    "registryId": "input",
+    "registryDependencies": [
+      "theme",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Input",
+    "category": "基础组件",
+    "description": "从填写到校验，保持简单而清晰。",
+    "source": "components/ui/input.tsx",
+    "example": "components/examples/input-demo.tsx",
+    "usage": "import { Input } from \"@/components/ui/input\"\n\n<label htmlFor=\"project-name\">项目名称</label>\n<Input id=\"project-name\" placeholder=\"我的工作台\" />",
+    "notes": [
+      "继承原生 input 属性和 ref，无额外业务依赖。"
+    ]
+  },
+  {
+    "slug": "dialog",
+    "docPath": "/docs/dialog/",
+    "registryId": "dialog",
+    "registryDependencies": [
+      "theme-boundary",
+      "theme",
+      "utils",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Dialog",
+    "category": "基础组件",
+    "description": "让用户专注于眼前的一件事。",
+    "source": "components/ui/dialog.tsx",
+    "example": "components/examples/dialog-demo.tsx",
+    "usage": "import { Button } from \"@/components/ui/button\"\nimport { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from \"@/components/ui/dialog\"\n\n<Dialog>\n  <DialogTrigger render={<Button />}>打开弹窗</DialogTrigger>\n  <DialogContent>\n    <DialogTitle>项目设置</DialogTitle>\n    <DialogDescription>在这里更新项目信息。</DialogDescription>\n  </DialogContent>\n</Dialog>",
+    "notes": [
+      "用 DialogTitle 和 DialogDescription 命名弹窗和说明用途。"
+    ]
+  },
+  {
+    "slug": "task-panel",
+    "docPath": "/docs/task-panel/",
+    "registryId": "task-panel",
+    "registryDependencies": [
+      "button",
+      "utils",
+      "theme",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "TaskPanel",
+    "category": "组合模块",
+    "description": "把任务的等待、执行、完成和失败，一眼说清。",
+    "source": "components/blocks/task-panel.tsx",
+    "example": "components/examples/task-panel-demo.tsx",
+    "usage": "import { TaskPanel } from \"@/components/blocks/task-panel\"\n\n<TaskPanel\n  title=\"发布进度\"\n  tasks={[\n    { id: \"build\", title: \"构建应用\", status: \"completed\" },\n    { id: \"deploy\", title: \"部署应用\", status: \"failed\" },\n  ]}\n  onRetry={(id) => retryTask(id)}\n/>",
+    "notes": [
+      "空数组显示空状态；进度按已完成数量计算。"
+    ]
+  },
+  {
+    "slug": "scroll-playground",
+    "docPath": "/docs/scroll-playground/",
+    "registryId": "scroll-playground",
+    "registryDependencies": [
+      "theme",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "ScrollPlayground",
+    "category": "组合模块",
+    "description": "六种滚动交互，亲手体验：触发、联动、视差、吸顶、吸附与横向展开。",
+    "source": "components/blocks/scroll-playground.tsx",
+    "example": "components/examples/scroll-playground-demo.tsx",
+    "usage": "import { ScrollPlayground } from \"@/components/blocks/scroll-playground\"\n\n// 展示全部六种交互\n<ScrollPlayground />\n\n// 也可以只展示其中一种\n<ScrollPlayground pattern=\"parallax\" />",
+    "notes": [
+      "每个演示区独立滚动，支持滚轮、触屏以及聚焦后的方向键和 Page Down；右上角按钮可重置体验。"
+    ]
+  },
+  {
+    "slug": "item",
+    "docPath": "/docs/item/",
+    "registryId": "item",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "Item",
+    "category": "基础组件",
+    "description": "统一列表行。交互、选中和运行状态分开表达，尾部操作独立。",
+    "source": "components/ui/item.tsx",
+    "example": "components/examples/item-demo.tsx",
+    "usage": "import { Item } from \"@/components/ui/item\"\n\n<Item title=\"整理组件规范\" description=\"Session · 刚刚更新\" selected={selected} onSelect={() => selectSession()} />",
+    "notes": [
+      "Item不设置listitem角色，由调用方提供ul/li等集合结构。"
+    ]
+  },
+  {
+    "slug": "runtime-status-badge",
+    "docPath": "/docs/runtime-status-badge/",
+    "registryId": "runtime-status-badge",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "runtime-status",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "RuntimeStatusBadge",
+    "category": "基础组件",
+    "description": "Session、Agent、Activity与Tool Call共用的十种运行状态语言。",
+    "source": "components/ui/runtime-status-badge.tsx",
+    "example": "components/examples/runtime-status-badge-demo.tsx",
+    "usage": "import { RuntimeStatusBadge } from \"@/components/ui/runtime-status-badge\"\n\n<RuntimeStatusBadge status=\"running\" />",
+    "notes": [
+      "每个状态同时显示图标与文字，颜色不是唯一信息。"
+    ]
+  },
+  {
+    "slug": "workspace-shell",
+    "docPath": "/docs/workspace-shell/",
+    "registryId": "workspace-shell",
+    "registryDependencies": [
+      "theme-boundary",
+      "theme",
+      "utils",
+      "button",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "workspace",
+    "availability": "available",
+    "widePreview": true,
+    "name": "WorkspaceShell",
+    "category": "组合模块",
+    "description": "紧凑Agent工作台骨架：Sidebar、Main、可调整的Inspector与可选底部面板。",
+    "source": "components/blocks/workspace-shell.tsx",
+    "example": "components/examples/workspace-shell-demo.tsx",
+    "usage": "import { WorkspaceShell } from \"@/components/blocks/workspace-shell\"\n\n<WorkspaceShell title=\"Agent Workspace\" sidebar={<Navigation />} inspector={<ObjectDetails />} inspectorTitle=\"Session\">\n  <SessionList />\n</WorkspaceShell>",
+    "notes": [
+      "完整基础页在/workspace/；窄容器的Inspector改为带焦点约束的抽屉。"
+    ]
+  },
+  {
+    "slug": "data-region",
+    "docPath": "/docs/data-region/",
+    "registryId": "data-region",
+    "registryDependencies": [
+      "button",
+      "theme",
+      "i18n",
+      "runtime-status"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "name": "DataRegion",
+    "category": "基础组件",
+    "description": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
+    "source": "components/ui/data-region.tsx",
+    "example": "components/examples/data-region-demo.tsx",
+    "usage": "<DataRegion state=\"error\" hasContent error={{ category: \"network\", message: \"刷新失败\", reason: \"连接中断\" }} onRetry={reload}>\n  <SessionList />\n</DataRegion>",
+    "notes": [
+      "首次 loading 展示三个同尺寸骨架；已有数据时更新中不替换列表。"
+    ]
+  },
+  {
+    "slug": "tree",
+    "docPath": "/docs/tree/",
+    "registryId": "tree",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "button",
+      "data-region",
+      "runtime-status-badge",
+      "i18n"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "widePreview": true,
+    "name": "Tree",
+    "category": "基础组件",
+    "description": "完整树键盘模型、Idea → Session → Run 层级与受控节点移动。",
+    "source": "components/ui/tree.tsx",
+    "example": "components/examples/tree-demo.tsx",
+    "usage": "<Tree label=\"Sessions\" nodes={nodes} selectedId={selectedId} onSelect={node => setSelectedId(node.id)} defaultExpandedIds={[\"idea\"]} onMove={move => setNodes(current => moveTreeNode(current, move))} />",
+    "notes": [
+      "方向键、Home/End、Enter/Space、前缀定位与单一节点 tab stop。"
+    ]
+  },
+  {
+    "slug": "session-row",
+    "docPath": "/docs/session-row/",
+    "registryId": "session-row",
+    "registryDependencies": [
+      "item",
+      "button",
+      "runtime-status-badge",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "SessionRow",
+    "category": "组合模块",
+    "description": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
+    "source": "components/blocks/session-row.tsx",
+    "example": "components/examples/session-row-demo.tsx",
+    "usage": "<SessionRow session={session} selected={selectedId === session.id} onSelect={() => select(session.id)} action={{ label: \"继续\", onAction: resume }} />",
+    "notes": [
+      "点击行仅选择；尾部操作是独立按钮，不会触发选择。"
+    ]
+  },
+  {
+    "slug": "agent-row",
+    "docPath": "/docs/agent-row/",
+    "registryId": "agent-row",
+    "registryDependencies": [
+      "item",
+      "button",
+      "runtime-status-badge",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "AgentRow",
+    "category": "组合模块",
+    "description": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
+    "source": "components/blocks/agent-row.tsx",
+    "example": "components/examples/agent-row-demo.tsx",
+    "usage": "<AgentRow agent={agent} selected={selectedId === agent.id} onSelect={() => select(agent.id)} />",
+    "notes": [
+      "未配置模型明确提示；idle 不表示离线，断线保留最后已知运行状态。"
+    ]
+  },
+  {
+    "slug": "activity-timeline",
+    "docPath": "/docs/activity-timeline/",
+    "registryId": "activity-timeline",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "button",
+      "runtime-status-badge",
+      "data-region",
+      "use-follow-tail",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "widePreview": true,
+    "name": "ActivityTimeline",
+    "category": "组合模块",
+    "description": "Runtime 时间线：平铺事件、详情展开、去重、滚动跟随及新事件提示。",
+    "source": "components/blocks/activity-timeline.tsx",
+    "example": "components/examples/activity-timeline-demo.tsx",
+    "usage": "<ActivityTimeline events={events} selectedId={selectedId} onSelect={event => inspect(event.id)} data={{ state: \"success\" }} />",
+    "notes": [
+      "按 eventId 去重，保留来源顺序；只在距离底部不超过64px时跟随。"
+    ]
+  },
+  {
+    "slug": "inspector",
+    "docPath": "/docs/inspector/",
+    "registryId": "inspector",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "runtime-status-badge",
+      "data-region",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "Inspector",
+    "category": "组合模块",
+    "description": "当前对象的受控详情，统一 Metadata、缺失字段与复制反馈。",
+    "source": "components/blocks/inspector.tsx",
+    "example": "components/examples/inspector-demo.tsx",
+    "usage": "<WorkspaceShell title=\"Workspace\" sidebar={<Navigation />} inspector={<Inspector object={selectedObject} state=\"success\" />}>\n  <SessionList />\n</WorkspaceShell>",
+    "notes": [
+      "Inspector 是详情内容；停靠、抽屉、resize 与焦点约束由 WorkspaceShell 提供。"
+    ]
+  },
+  {
+    "slug": "chat-message",
+    "docPath": "/docs/chat-message/",
+    "registryId": "chat-message",
+    "registryDependencies": [
+      "theme",
+      "utils",
+      "button",
+      "data-region",
+      "use-follow-tail",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "widePreview": true,
+    "name": "ChatMessage",
+    "category": "组合模块",
+    "description": "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
+    "source": "components/blocks/chat-message.tsx",
+    "example": "components/examples/chat-message-demo.tsx",
+    "usage": "<Conversation messages={messages} workspace={<Files />} composer={<ChatComposer value={draft} onChange={setDraft} onSend={send} />} />",
+    "notes": [
+      "只跟随距底部64px以内的阅读位置；加载旧历史保留锚点，状态边界播报而非每个 token。"
+    ]
+  },
+  {
+    "slug": "tool-call",
+    "docPath": "/docs/tool-call/",
+    "registryId": "tool-call",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "runtime-status-badge",
+      "data-region",
+      "redact",
+      "i18n"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "ToolCall",
+    "category": "组合模块",
+    "description": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
+    "source": "components/blocks/tool-call.tsx",
+    "example": "components/examples/tool-call-demo.tsx",
+    "usage": "<ToolCall call={call} permission={{ scope: \"写入指定文件\", risk: \"覆盖已有内容\", onApprove: approve, onReject: reject }} onReconcile={reconcile} />",
+    "notes": [
+      "参数/输出在展示、复制和导出前按敏感键与常见凭据格式脱敏；业务特殊凭据需调用方预处理。"
+    ]
+  }
+]

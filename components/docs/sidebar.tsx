@@ -2,6 +2,7 @@
 import { useSiteI18n } from "@/components/site/site-i18n"
 
 import Link from "next/link"
+import componentIndex from "@/lib/component-navigation.json"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
@@ -11,49 +12,21 @@ const sections = [
     links: [
       { href: "/docs", label: "介绍" },
       { href: "/dictionary", label: "视觉词典" },
+      { href: "/blog", label: "优化日志" },
       { href: "/style-workbench", label: "样式工作台" },
       { href: "/workspace/canvas", label: "流程画布" },
       { href: "/docs/installation", label: "安装与主题" },
     ],
   },
-  {
-    title: "基础组件",
-    links: [
-      { href: "/docs/i18n", label: "I18nProvider" },
-      { href: "/docs/button", label: "Button" },
-      { href: "/docs/input", label: "Input" },
-      { href: "/docs/badge", label: "Badge" },
-      { href: "/docs/tag", label: "Tag" },
-      { href: "/docs/chip", label: "Chip" },
-      { href: "/docs/dialog", label: "Dialog" },
-      { href: "/docs/item", label: "Item" },
-      { href: "/docs/runtime-status-badge", label: "RuntimeStatusBadge" },
-      { href: "/docs/data-region", label: "DataRegion" },
-      { href: "/docs/tree", label: "Tree" },
-    ],
-  },
-  {
-    title: "组合模块",
-    links: [
-      { href: "/docs/task-panel", label: "TaskPanel" },
-      { href: "/docs/scroll-playground", label: "ScrollPlayground" },
-      { href: "/docs/style-workbench", label: "StyleWorkbench" },
-      { href: "/docs/workspace-shell", label: "WorkspaceShell" },
-      { href: "/docs/workflow-canvas", label: "WorkflowCanvas" },
-      { href: "/docs/canvas-workspace", label: "CanvasWorkspace" },
-      { href: "/docs/node-palette", label: "NodePalette" },
-      { href: "/docs/node-inspector", label: "NodeInspector" },
-      { href: "/docs/variable-picker", label: "VariablePicker" },
-      { href: "/docs/canvas-frame", label: "CanvasFrame" },
-      { href: "/docs/canvas-note", label: "CanvasNote" },
-      { href: "/docs/session-row", label: "SessionRow" },
-      { href: "/docs/agent-row", label: "AgentRow" },
-      { href: "/docs/activity-timeline", label: "ActivityTimeline" },
-      { href: "/docs/inspector", label: "Inspector" },
-      { href: "/docs/chat-message", label: "ChatMessage" },
-      { href: "/docs/tool-call", label: "ToolCall" },
-    ],
-  },
+  ...["基础组件", "组合模块"].map((category) => ({
+    title: category,
+    links: componentIndex
+      .filter((entry) => entry.category === category)
+      .map((entry) => ({
+        href: entry.docPath.replace(/\/$/, ""),
+        label: entry.name,
+      })),
+  })),
 ]
 
 export function Sidebar() {
@@ -76,6 +49,7 @@ export function Sidebar() {
             {section.links.map(({ href, label }) => (
               <li key={href}>
                 <Link
+                  prefetch={false}
                   href={href}
                   aria-current={pathname === href ? "page" : undefined}
                   className={cn(

@@ -19,6 +19,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur-lg">
       <div className="mx-auto flex min-h-18 max-w-6xl flex-wrap items-center gap-x-6 gap-y-3 px-5 py-3 sm:px-8">
         <Link
+          prefetch={false}
           href="/"
           aria-label={t("site.easyuseuiHome")}
           className="flex items-center gap-2.5 font-semibold tracking-tight"
@@ -40,11 +41,13 @@ export function Header() {
             { href: "/style-workbench", label: t("site.styleWorkbench") },
             { href: "/workspace/canvas", label: t("site.workflowCanvas") },
             { href: "/components", label: t("site.components") },
+            { href: "/blog", label: t("site.optimization.blog") },
             { href: "/docs/task-panel", label: t("site.blocks") },
             { href: "/scroll", label: t("site.scrollLab") },
             { href: "/workspace", label: t("site.workspace") },
           ].map(({ href, label }) => (
             <Link
+              prefetch={false}
               key={href}
               href={href}
               aria-current={pathname === href ? "page" : undefined}
@@ -71,6 +74,7 @@ export function Header() {
             <Moon className="dark:hidden" />
           </Button>
           <Link
+            prefetch={false}
             href="/docs/installation"
             className="hidden items-center gap-1 text-sm font-medium sm:flex"
           >

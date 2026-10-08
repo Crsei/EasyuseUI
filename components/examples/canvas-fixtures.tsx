@@ -484,7 +484,7 @@ export function branchCanvasDocument(): CanvasDocument {
     ],
   }
 }
-export function stressCanvasDocument(count: 50 | 200): CanvasDocument {
+export function stressCanvasDocument(count: 50 | 200 | 500 | 1000): CanvasDocument {
   const nodes = Array.from({ length: count }, (_, index) => ({
     ...node(
       `node-${index}`,

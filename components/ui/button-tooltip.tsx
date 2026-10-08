@@ -1,4 +1,5 @@
 "use client"
+import { useThemePortalContainer } from "./theme-boundary"
 
 import type { ReactElement } from "react"
 import { Tooltip } from "@base-ui/react/tooltip"
@@ -11,6 +12,8 @@ export function ButtonTooltip({
   label: string
   children: ReactElement
 }) {
+  const portalContainer = useThemePortalContainer()
+
   return (
     <Tooltip.Root
       onOpenChange={(_open, details) => {
@@ -18,7 +21,7 @@ export function ButtonTooltip({
       }}
     >
       <Tooltip.Trigger render={children} delay={300} />
-      <Tooltip.Portal>
+      <Tooltip.Portal container={portalContainer}>
         <Tooltip.Positioner sideOffset={8} className="z-[70]">
           <Tooltip.Popup
             role="tooltip"

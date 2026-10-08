@@ -4,7 +4,7 @@ import { uiMessage } from "@/lib/i18n-core"
 import { useI18n } from "@/lib/i18n-provider"
 import { localizeStaticData } from "@/lib/i18n-core"
 
-import { useId, useRef, useState, type ReactNode } from "react"
+import { memo, useId, useRef, useState, type ReactNode } from "react"
 import { Bot, Copy, MessageSquare, Square, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DataRegion, type DataRegionProps } from "@/components/ui/data-region"
@@ -38,7 +38,7 @@ const states: Record<MessageState, string> = {
   failed: "发送或执行失败",
   cancelled: "已停止",
 }
-export function ChatMessage({
+export const ChatMessage = memo(function ChatMessage({
   id,
   role,
   author,
@@ -142,9 +142,13 @@ export function ChatMessage({
       </div>
     </article>
   )
-}
+})
 
 export type ConversationProps = {
+  /** Opt in to browser offscreen layout deferral; records remain in the DOM. */
+  deferOffscreen?: boolean
+  /** Advance on every append, history edit, deletion, reorder or state change. */
+  revision?: string | number
   messages: (ChatMessageProps & { after?: ReactNode })[]
   data?: Omit<DataRegionProps, "children" | "hasContent">
   workspace?: ReactNode
@@ -152,7 +156,9 @@ export type ConversationProps = {
   className?: string
 }
 export function Conversation({
+  deferOffscreen = false,
   messages,
+  revision,
   data,
   workspace,
   composer,
@@ -172,9 +178,20 @@ export function Conversation({
     jumpToLatest,
   } = useFollowTail(
     unique.map((message) => message.id),
-    JSON.stringify(
-      unique.map((message) => [message.id, message.content, message.state]),
-    ),
+    revision ??
+      JSON.stringify(
+        unique.map((message) => [
+          message.id,
+          message.role,
+          message.author,
+          message.time,
+          message.content,
+          message.state,
+          message.stage,
+          message.elapsed,
+          message.reason,
+        ]),
+      ),
   )
   return (
     <div className={cn(styles.conversation, className)}>
@@ -244,12 +261,13 @@ export function Conversation({
               {...data}
               hasContent={unique.length > 0}
             >
-              <div className={styles.messages}>
-                {unique.map(({ after, ...message }) => (
-                  <div key={message.id}>
-                    <ChatMessage {...message} />
-                    {after && <div className={styles.after}>{after}</div>}
-                  </div>
+              <div
+                className={styles.messages}
+                data-defer-offscreen={deferOffscreen || undefined}
+                data-follow-tail-list
+              >
+                {unique.map((message) => (
+                  <ConversationRow key={message.id} message={message} />
                 ))}
               </div>
             </DataRegion>
@@ -391,3 +409,17 @@ export function ChatComposer({
     </form>
   )
 }
+
+const ConversationRow = memo(function ConversationRow({
+  message,
+}: {
+  message: ChatMessageProps & { after?: ReactNode }
+}) {
+  const { after, ...props } = message
+  return (
+    <div className={styles.messageEntry} data-follow-tail-id={message.id}>
+      <ChatMessage {...props} />
+      {after && <div className={styles.after}>{after}</div>}
+    </div>
+  )
+})

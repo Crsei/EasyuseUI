@@ -39,8 +39,9 @@ import {
   type CanvasFrameRecord,
   type CanvasNoteRecord,
   type CanvasPoint,
-  type CanvasPortDefinition,
 } from "@/lib/canvas-model"
+import type { CanvasMeasurements } from "@/lib/canvas-layout"
+import { buildCanvasIndexes } from "@/lib/canvas-index"
 import { validateCanvasConnection } from "@/lib/canvas-validation"
 import { cn } from "@/lib/utils"
 import styles from "./workflow-canvas.module.css"
@@ -86,6 +87,7 @@ const nodeTypes = { canvas: FlowNodeView, frame: FrameView, note: NoteView }
 const edgeTypes = { canvas: CanvasEdge }
 const noIssues: CanvasIssue[] = []
 const noFrames: string[] = []
+const noPorts: CanvasNodeDefinition["ports"] = []
 export type WorkflowCanvasProps = {
   document: CanvasDocument
   definitions: CanvasNodeDefinition[]
@@ -101,6 +103,7 @@ export type WorkflowCanvasProps = {
   viewport?: CanvasDocument["viewport"]
   onViewportChange?: (viewport: NonNullable<CanvasDocument["viewport"]>) => void
   onOpenNode?: (nodeId: string) => void
+  onMeasurementsChange?: (measurements: CanvasMeasurements) => void
   collapsedFrameIds?: string[]
   className?: string
 }
@@ -128,6 +131,7 @@ function CanvasViewport({
   viewport,
   onViewportChange,
   onOpenNode,
+  onMeasurementsChange,
 }: WorkflowCanvasProps) {
   const { t } = useI18n()
 
@@ -140,6 +144,9 @@ function CanvasViewport({
   const [dimensions, setDimensions] = useState<
     Record<string, { width: number; height: number }>
   >({})
+  useEffect(() => {
+    onMeasurementsChange?.(dimensions)
+  }, [dimensions, onMeasurementsChange])
   const reconnecting = useRef<string | undefined>(undefined)
   const boxSelecting = useRef(false)
   const ariaLabelConfig = useMemo<Partial<AriaLabelConfig>>(
@@ -187,7 +194,47 @@ function CanvasViewport({
         { zoom: 1, duration: 0 },
       )
   }, [flow, focusRequest, initialized])
+  const indexes = useMemo(
+    () =>
+      buildCanvasIndexes(
+        {
+          nodes: document.nodes,
+          frames: document.frames,
+          edges: document.edges,
+        },
+        definitions,
+        issues,
+      ),
+    [document.nodes, document.frames, document.edges, definitions, issues],
+  )
+  const collapsedIds = useMemo(
+    () => new Set(collapsedFrameIds),
+    [collapsedFrameIds],
+  )
+  const selectedNodeIds = useMemo(
+    () => new Set(selection.nodeIds),
+    [selection.nodeIds],
+  )
+  const selectedEdgeIds = useMemo(
+    () => new Set(selection.edgeIds),
+    [selection.edgeIds],
+  )
+  const dataCache = useRef(new Map<string, FlowNode["data"]>())
   const baseNodes = useMemo<AnyNode[]>(() => {
+    const previousData = dataCache.current
+    const nextData = new Map<string, FlowNode["data"]>()
+    function reuseData(id: string, data: FlowNode["data"]) {
+      const previous = previousData.get(id)
+      const same =
+        previous &&
+        (Object.keys(data) as (keyof typeof data)[]).every(
+          (key) => previous[key] === data[key],
+        )
+      const result = same ? previous : data
+      nextData.set(id, result)
+      return result
+    }
+    dataCache.current = nextData
     const snapshot =
       execution?.documentId === document.id &&
       execution?.documentRevision === document.revision
@@ -200,54 +247,28 @@ function CanvasViewport({
         position: frame.position,
         style: {
           width: frame.width,
-          height: collapsedFrameIds.includes(frame.id) ? 64 : frame.height,
+          height: collapsedIds.has(frame.id) ? 64 : frame.height,
           zIndex: -1,
         },
-        data: { frame, collapsed: collapsedFrameIds.includes(frame.id) },
+        data: { frame, collapsed: collapsedIds.has(frame.id) },
       })),
       ...document.nodes.map((record) => ({
         id: record.id,
         type: "canvas" as const,
         position: record.position,
         ariaLabel: t("common.valueNode", { value0: record.title }),
-        hidden:
-          !!record.parentId && collapsedFrameIds.includes(record.parentId),
-        data: {
+        hidden: !!record.parentId && collapsedIds.has(record.parentId),
+        data: reuseData(record.id, {
           record,
-          definition: definitions.find((d) => d.type === record.type),
+          definition: indexes.definitionByType.get(record.type),
           readOnly: locked,
-          issues: issues.filter((i) => i.nodeId === record.id),
+          issues: indexes.issuesByNodeId.get(record.id) ?? noIssues,
           status: snapshot?.nodes[record.id]?.status,
           executionVisuals,
           outcome: snapshot?.nodes[record.id]?.outcome,
-          fallbackPorts: [
-            ...new Map(
-              document.edges
-                .flatMap<CanvasPortDefinition>((edge) =>
-                  edge.source === record.id
-                    ? [
-                        {
-                          id: edge.sourcePort,
-                          label: edge.sourcePort,
-                          direction: "output" as const,
-                          type: "string" as const,
-                        },
-                      ]
-                    : edge.target === record.id
-                      ? [
-                          {
-                            id: edge.targetPort,
-                            label: edge.targetPort,
-                            direction: "input" as const,
-                            type: "string" as const,
-                          },
-                        ]
-                      : [],
-                )
-                .map((port) => [port.id, port]),
-            ).values(),
-          ],
-        },
+          fallbackPorts:
+            indexes.fallbackPortsByNodeId.get(record.id) ?? noPorts,
+        }),
       })),
       ...document.notes.map((note) => ({
         id: note.id,
@@ -256,23 +277,14 @@ function CanvasViewport({
         data: { note },
       })),
     ]
-  }, [
-    document,
-    definitions,
-    issues,
-    execution,
-    executionVisuals,
-    locked,
-    collapsedFrameIds,
-    t,
-  ])
+  }, [document, indexes, execution, executionVisuals, locked, collapsedIds, t])
   const nodes = useMemo<AnyNode[]>(
     () =>
       baseNodes.map((node) => {
-        const record = document.nodes.find((record) => record.id === node.id)
-        const frame = document.frames.find(
-          (frame) => frame.id === record?.parentId,
-        )
+        const record = indexes.nodeById.get(node.id)
+        const frame = record?.parentId
+          ? indexes.frameById.get(record.parentId)
+          : undefined
         const moving =
           positions.revision === document.revision ? positions.values : {}
         const parentPosition = frame && moving[frame.id]
@@ -292,10 +304,19 @@ function CanvasViewport({
               ? selection.frameId === node.id
               : node.type === "note"
                 ? selection.noteId === node.id
-                : selection.nodeIds.includes(node.id),
+                : selectedNodeIds.has(node.id),
         }
       }),
-    [baseNodes, dimensions, document, positions, selection],
+    [
+      baseNodes,
+      dimensions,
+      document.revision,
+      indexes,
+      positions,
+      selection.frameId,
+      selection.noteId,
+      selectedNodeIds,
+    ],
   )
   const baseEdges = useMemo<Edge[]>(
     () =>
@@ -307,12 +328,10 @@ function CanvasViewport({
         targetHandle: edge.targetPort,
         label: edge.label,
         type: "canvas",
-        hidden: document.nodes.some(
-          (node) =>
-            (node.id === edge.source || node.id === edge.target) &&
-            !!node.parentId &&
-            collapsedFrameIds.includes(node.parentId),
-        ),
+        hidden: [edge.source, edge.target].some((id) => {
+          const parentId = indexes.nodeById.get(id)?.parentId
+          return !!parentId && collapsedIds.has(parentId)
+        }),
         data: {
           executionVisuals,
           status:
@@ -322,15 +341,27 @@ function CanvasViewport({
               : undefined,
         },
       })),
-    [document, execution, executionVisuals, collapsedFrameIds],
+    [
+      document.edges,
+      document.id,
+      document.revision,
+      indexes,
+      execution,
+      executionVisuals,
+      collapsedIds,
+    ],
   )
   const edges = useMemo(
     () =>
       baseEdges.map((edge) => ({
         ...edge,
-        selected: selection.edgeIds.includes(edge.id),
+        selected: selectedEdgeIds.has(edge.id),
       })),
-    [baseEdges, selection.edgeIds],
+    [baseEdges, selectedEdgeIds],
+  )
+  const renderedNodeById = useMemo(
+    () => new Map(nodes.map((node) => [node.id, node])),
+    [nodes],
   )
   const guides = useMemo(() => {
     if (positions.revision !== document.revision) return []
@@ -383,7 +414,7 @@ function CanvasViewport({
           ? { nodeIds: [], edgeIds: [], noteId: node.id }
           : {
               nodeIds: additive
-                ? selection.nodeIds.includes(node.id)
+                ? selectedNodeIds.has(node.id)
                   ? selection.nodeIds.filter((id) => id !== node.id)
                   : [...selection.nodeIds, node.id]
                 : [node.id],
@@ -396,7 +427,7 @@ function CanvasViewport({
     let changed = false
     for (const change of changes)
       if (change.type === "select") {
-        const node = nodes.find((item) => item.id === change.id)
+        const node = renderedNodeById.get(change.id)
         if (node?.type === "frame" || node?.type === "note") {
           if (change.selected) select(node)
           continue
@@ -472,6 +503,15 @@ function CanvasViewport({
       className={cn(styles.canvas, className)}
       aria-label={t("workflowCanvas.workflowCanvas")}
       data-canvas-ready={initialized}
+      data-canvas-editor-context
+      tabIndex={0}
+      onPointerDownCapture={(event) => {
+        if (
+          event.target instanceof Element &&
+          event.target.closest(".react-flow__pane")
+        )
+          event.currentTarget.focus({ preventScroll: true })
+      }}
       onDragOver={(event) => {
         if (
           !locked &&
@@ -484,10 +524,8 @@ function CanvasViewport({
       onDrop={(event) => {
         event.preventDefault()
         if (locked) return
-        const definition = definitions.find(
-          (item) =>
-            item.type ===
-            event.dataTransfer.getData("application/easyuseui-node"),
+        const definition = indexes.definitionByType.get(
+          event.dataTransfer.getData("application/easyuseui-node"),
         )
         if (definition)
           onCommand?.({

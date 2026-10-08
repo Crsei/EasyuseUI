@@ -83,8 +83,8 @@
 | Avatar Chip          | 头像 + 名称的紧凑值                       | 待实现；不等于 AgentRow                                               |
 | Filter Chip          | 一个可开启/关闭的筛选条件                 | 已有 `Chip` 提供受控选择，使用 aria-pressed 表达选中                  |
 | Pill Button          | Button 的胶囊外观，不是新的行为类型       | 没有专用 variant；默认 Button 仍遵循6px圆角                           |
-| Pill Tabs            | Tabs 的胶囊外观                           | 待实现通用组件；不能只用一排按钮就声称支持 Tabs 键盘模型              |
-| Segmented Control    | 一组互斥选项，对应一个设置值或模式        | 待实现；与切换内容面板的 Tabs 区分                                    |
+| Pill Tabs            | Tabs 的胶囊外观                           | 已有 Tabs；可按业务外观调整，保持键盘模型              |
+| Segmented Control    | 一组互斥选项，对应一个设置值或模式        | 已有 Segmented；使用 radio 语义，与 Tabs 区分                                    |
 
 ## 5. Components · 基础组件
 
@@ -97,8 +97,8 @@
 | Radio Group             | 单选组 `◉ ○ ○`               | 可见的互斥值；避免用它切换页面导航                      | 待实现                                                 |
 | Switch / Toggle Switch  | 开关 `●──`                   | 一个有明确开/关含义的设置；说明何时生效                 | 待实现                                                 |
 | Toggle Button           | 可按下/选中的按钮            | 持续的开关状态；用 `aria-pressed` 区分状态              | 基础：现有 Button 可传 `aria-pressed`，无独立 Toggle   |
-| Select                  | 选择器，展示当前值和展开箭头 | 从固定选项选值；不要放成一串动作菜单                    | 待实现通用组件；本地示例存在原生 select                |
-| Combobox / Autocomplete | 可输入或搜索的选择框         | 选项多、可搜索；避免自创不完整的键盘和读屏行为          | 待实现                                                 |
+| Select                  | 选择器，展示当前值和展开箭头 | 从固定选项选值；不要放成一串动作菜单                    | 已有 Select；简单表单仍可使用原生 select                |
+| Combobox / Autocomplete | 可输入或搜索的选择框         | 选项多、可搜索；避免自创不完整的键盘和读屏行为          | 已有组件、示例与独立安装路径                                                 |
 | Card / Tile             | 卡片 / 磁贴，独立内容单元    | 独立摘要或目录预览；Session、Agent、日志不要逐层套 Card | 待实现通用 Card；文档预览中的卡片不等于产品列表规范    |
 | Panel / Section         | 面板 / 分区                  | 持续工作区域，用标题、分隔线组织；不必全部有阴影        | 内嵌：WorkspaceShell、Inspector                        |
 | Accordion / Disclosure  | 可展开标题与内容 `▸ Details` | 渐进披露次要详情；不要把必须处理的问题默认藏起来        | 内嵌：ToolCall 的展开详情；暂无通用 Accordion          |
@@ -111,7 +111,7 @@
 | Sidebar / Side Navigation      | 左侧纵向导航                     | 稳定的产品入口；对象元信息放 Inspector      | 内嵌：`WorkspaceShell`，展开256px / 收起48px |
 | Navbar / Navigation Bar        | 顶部或边缘导航条                 | 产品级入口；避免和当前页面工具栏混为一层    | 内嵌：文档站导航；不是可分发通用 Navbar      |
 | Breadcrumb                     | 面包屑 `Project / Session / Run` | 层级位置与返回上级；不要代替对象状态        | 待实现                                       |
-| Tabs / Tab Panel               | 标签页及其关联内容面板           | 同一上下文内切换内容；跨页面导航用链接      | 内嵌：工作台窄屏内容切换；暂无通用 Tabs      |
+| Tabs / Tab Panel               | 标签页及其关联内容面板           | 同一上下文内切换内容；跨页面导航用链接      | 已有 Tabs；工作台窄屏切换仍保持原兼容接口      |
 | Tree / Tree View               | 层级树 `▸ Project`               | 父子关系、展开/折叠；无层级列表不要强行树化 | 已有 `Tree`，单选、键盘导航、受控移动        |
 | Command Palette / Command Menu | 可搜索的命令面板                 | 快速执行或跳转；重要操作仍应有可发现入口    | 待实现                                       |
 | Toolbar / Command Bar          | 当前内容附近的一排动作           | 当前页面/对象的操作；少用同权重主按钮       | 内嵌：工作台与组件动作区；暂无通用 Toolbar   |
@@ -134,8 +134,8 @@
 | 名称 / 别名                   | 中文与外观线索                    | 适用 / 避免                                            | 项目对应                                                         |
 | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------- |
 | Tooltip                       | 短解释，无需进入其中操作          | 图标含义、补充解释；不承载表单、批准或唯一错误信息     | 内嵌：Button 图标提示；非通用 Tooltip API                        |
-| Popover                       | 锚定触发器的小面板                | 短表单或局部补充内容；避免承载长工作流                 | 待实现                                                           |
-| Dropdown Menu / Menu          | 按触发器展开的动作菜单            | 当前对象命令；选择一个字段值用 Select/Combobox         | 待实现                                                           |
+| Popover                       | 锚定触发器的小面板                | 短表单或局部补充内容；避免承载长工作流                 | 已有组件、示例与独立安装路径                                                           |
+| Dropdown Menu / Menu          | 按触发器展开的动作菜单            | 当前对象命令；选择一个字段值用 Select/Combobox         | 已有组件、示例与独立安装路径                                                           |
 | Context Menu                  | 右键/上下文动作菜单               | 当前对象快捷动作；必须另有键盘、触摸可达入口           | 待实现                                                           |
 | Dialog                        | 对话框，独立标题、内容、动作      | 专注任务、确认；普通元信息无需每次弹框                 | 已有 `Dialog`                                                    |
 | Modal / Modal Dialog          | 模态 / 模态对话框，背景暂不可操作 | 必须处理的聚焦流程；不是独立形状或所有 Dialog 的同义词 | 已有 Dialog 及 WorkspaceShell 移动浮层采用模态交互               |

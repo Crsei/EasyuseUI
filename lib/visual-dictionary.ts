@@ -1,4 +1,4 @@
-import { catalog } from "@/lib/catalog"
+import catalog from "./component-index.json"
 
 export const dictionaryCategories = [
   { id: "foundations", name: "基础", english: "Foundations" },
@@ -413,7 +413,8 @@ const seeds: Seed[] = [
     "选择多个值或独立布尔项。",
     "多选字段。",
     "不代替立即执行的命令。",
-    { aliases: ["勾选框", "多选"] },
+    {
+      componentSlug: "checkbox", aliases: ["勾选框", "多选"] },
   ),
   term(
     "radio-group",
@@ -462,7 +463,7 @@ const seeds: Seed[] = [
     "从固定选项选择一个值。",
     "用于字段选值。",
     "不要装入一串执行命令。",
-    { aliases: ["下拉选择", "下拉框"] },
+    { componentSlug: "select", aliases: ["下拉选择", "下拉框"] },
   ),
   term(
     "combobox",
@@ -473,7 +474,10 @@ const seeds: Seed[] = [
     "通过输入搜索并选择一个值。",
     "选项多或需要补全。",
     "不要自创不完整键盘模型。",
-    { aliases: ["Autocomplete", "自动补全", "搜索选择"] },
+    {
+      componentSlug: "combobox",
+      aliases: ["Autocomplete", "自动补全", "搜索选择"],
+    },
   ),
   term(
     "card",
@@ -576,9 +580,9 @@ const seeds: Seed[] = [
     "tabs",
     "切换同一上下文的内容面板。",
     "工作台窄屏有内容切换模式。",
-    "不代替全局导航；暂无通用组件。",
+    "不代替跨页面导航；导航应使用链接。",
     {
-      availability: "embedded",
+      componentSlug: "tabs",
       relatedSlug: "workspace-shell",
       aliases: ["Tab Panel", "选项卡", "页签", "Pill Tabs", "胶囊导航", "胶囊"],
     },
@@ -592,7 +596,7 @@ const seeds: Seed[] = [
     "在有限互斥选项中修改一个值。",
     "模式或设置值选择。",
     "不要与切换内容面板的 Tabs 混淆。",
-    { aliases: ["分段控件", "胶囊", "多项切换"] },
+    { componentSlug: "segmented", aliases: ["分段控件", "胶囊", "多项切换"] },
   ),
   term(
     "tree",
@@ -614,7 +618,8 @@ const seeds: Seed[] = [
     "可搜索的命令与跳转入口。",
     "提高熟练用户效率。",
     "重要操作仍保留普通入口。",
-    { aliases: ["Command Menu", "命令搜索", "命令框"] },
+    {
+      componentSlug: "command-palette", aliases: ["Command Menu", "命令搜索", "命令框"] },
   ),
   term(
     "toolbar",
@@ -651,7 +656,8 @@ const seeds: Seed[] = [
     "用行列对齐便于比较固定字段。",
     "日志和数值比较。",
     "不要每格都变成卡片。",
-    { aliases: ["数据表", "表头"] },
+    {
+      componentSlug: "data-table", aliases: ["数据表", "表头"] },
   ),
   term(
     "data-grid",
@@ -718,6 +724,7 @@ const seeds: Seed[] = [
     "已有 AgentRow / ChatMessage 内嵌图标。",
     "身份颜色不证明运行成功。",
     {
+      componentSlug: "avatar",
       availability: "embedded",
       relatedSlug: "agent-row",
       aliases: ["Entity Icon", "头像"],
@@ -747,7 +754,7 @@ const seeds: Seed[] = [
     "锚定触发器的小内容面板。",
     "局部短表单与补充信息。",
     "长工作流不要挤在小浮窗里。",
-    { aliases: ["小浮窗", "弹出面板", "浮窗"] },
+    { componentSlug: "popover", aliases: ["小浮窗", "弹出面板", "浮窗"] },
   ),
   term(
     "dropdown-menu",
@@ -758,7 +765,10 @@ const seeds: Seed[] = [
     "展开当前对象可执行的命令。",
     "次要动作集合。",
     "选择字段值用 Select/Combobox。",
-    { aliases: ["Dropdown", "Menu", "下拉菜单", "更多菜单", "小浮窗"] },
+    {
+      componentSlug: "menu",
+      aliases: ["Dropdown", "Menu", "下拉菜单", "更多菜单", "小浮窗"],
+    },
   ),
   term(
     "context-menu",

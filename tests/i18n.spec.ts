@@ -198,11 +198,8 @@ test("cross-tab preference updates an open dialog without losing its JSON draft"
   context,
 }) => {
   await page.goto("/workspace/canvas/")
-  await page
-    .getByRole("button", { name: "JSON", exact: true })
-    .filter({ visible: true })
-    .first()
-    .click()
+  await page.getByRole("button", { name: "更多工具", exact: true }).click()
+  await page.getByRole("menuitem", { name: "JSON", exact: true }).click()
   const dialog = page.getByRole("dialog")
   const draft = dialog.getByRole("textbox", { name: "图文档内容", exact: true })
   await draft.fill("{ invalid 中文 draft")
@@ -390,7 +387,9 @@ test("English language picker works on touch with reduced motion", async ({
     colorScheme: "dark",
   })
   const page = await context.newPage()
-  await page.goto("http://127.0.0.1:3011/dictionary/")
+  await page.goto(
+    new URL("/dictionary/", test.info().project.use.baseURL as string).href,
+  )
   const picker = page.getByRole("combobox", { name: "语言", exact: true })
   expect((await picker.boundingBox())!.height).toBeGreaterThanOrEqual(44)
   await picker.selectOption("en")

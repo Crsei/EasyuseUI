@@ -1,0 +1,47 @@
+{
+  "capturedAt": "2026-10-08T07:58:42.653573+00:00",
+  "sourceSnapshotId": "fd8be976addecb9a1bfabbde99213129fb8b4a4e2fc9f6b8fbd01c8696a2fc6f",
+  "environment": {
+    "browser": "Chrome for Testing 138.0.7204.92",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "os": "Linux",
+    "sharedHost": true
+  },
+  "scope": "Local static production fixtures only. Not a remote CI run, public release or real business service integration.",
+  "checks": [
+    {
+      "suite": "AA axe",
+      "passed": 8,
+      "routes": [
+        "/blog/",
+        "/blog/on-demand-demos/",
+        "/components/",
+        "/workspace/layout/"
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ]
+    },
+    {
+      "suite": "initial JS budgets and no engine responses",
+      "passed": 5,
+      "includesPositiveCanvasDetector": true
+    },
+    {
+      "suite": "Blog",
+      "passed": 6,
+      "covers": [
+        "URL search/back/reload",
+        "draft and unknown 404",
+        "mobile English",
+        "manual mount/unmount",
+        "failed import retry and canceled pending load"
+      ]
+    }
+  ],
+  "failuresRetained": "Initial provisional byte budgets failed before production calibration; interrupted import test initially selected the Next route announcer too. These are documented in the implementation log. Stream experiments have separate reports and are outside this verification scope."
+}

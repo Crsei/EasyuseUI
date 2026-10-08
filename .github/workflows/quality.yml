@@ -1,0 +1,69 @@
+name: Quality
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 24.21.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install-deps chromium
+      - run: sudo apt-get install --yes fonts-dejavu-core
+      - name: Install the fixed visual and behavior browser
+        shell: bash
+        run: |
+          curl --fail --location https://storage.googleapis.com/chrome-for-testing-public/138.0.7204.92/linux64/chrome-linux64.zip --output "$RUNNER_TEMP/chrome.zip"
+          echo "c8bce5bd95f82521ee7c83d9f020104ca0a77ff76cad6d45dbf8e244910f46d1  $RUNNER_TEMP/chrome.zip" | sha256sum --check
+          unzip -q "$RUNNER_TEMP/chrome.zip" -d "$RUNNER_TEMP/browser"
+          mkdir -p "$RUNNER_TEMP/chrome-config" "$RUNNER_TEMP/chrome-cache"
+          echo "XDG_CONFIG_HOME=$RUNNER_TEMP/chrome-config" >> "$GITHUB_ENV"
+          echo "XDG_CACHE_HOME=$RUNNER_TEMP/chrome-cache" >> "$GITHUB_ENV"
+          echo "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=$RUNNER_TEMP/browser/chrome-linux64/chrome" >> "$GITHUB_ENV"
+      - run: pnpm lint && pnpm typecheck && pnpm check:i18n && pnpm check:manifest && pnpm check:blog
+      - run: pnpm build
+      - run: pnpm test --grep-invert @performance
+      - run: pnpm exec playwright test tests/stream-performance.spec.ts tests/canvas-performance.spec.ts --workers=1
+        env:
+          PERF_PROFILE: ci
+      - run: pnpm test:install
+        env:
+          TMPDIR: /tmp
+      - run: pnpm test:install:themes
+        env:
+          TMPDIR: /tmp
+          THEME_REPORT: test-results/theme-install.json
+      - name: Collect independent consumer screenshots
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p test-results/consumers
+          shopt -s nullglob
+          for image in /tmp/easyuse-ui-*/*.png; do
+            folder=$(basename "$(dirname "$image")")
+            mkdir -p "test-results/consumers/$folder"
+            cp "$image" "test-results/consumers/$folder/"
+          done
+      - uses: actions/upload-artifact@v4.6.2
+        if: always()
+        with:
+          name: quality-evidence
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14

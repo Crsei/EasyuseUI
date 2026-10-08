@@ -190,7 +190,7 @@
 }
 @container workspace-shell (min-width: 1024px) {
   .sidebar {
-    width: var(--workspace-sidebar-width);
+    width: var(--sidebar-current-width, var(--workspace-sidebar-width));
   }
   .shell[data-sidebar-collapsed="true"] .sidebar {
     width: var(--workspace-sidebar-collapsed);
@@ -214,5 +214,29 @@
   .drawer,
   .backdrop {
     transition: none;
+  }
+}
+
+.sidebarResize {
+  display: none;
+  flex-shrink: 0;
+  width: 8px;
+  cursor: col-resize;
+  touch-action: none;
+}
+.sidebarResize:hover,
+.sidebarResize:focus-visible {
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+@container workspace-shell (min-width:1024px) {
+  .sidebarResize {
+    display: block;
+  }
+}
+@media (pointer: coarse) {
+  .sidebarResize {
+    width: 44px;
   }
 }

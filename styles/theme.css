@@ -32,8 +32,8 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --font-sans:
-    "Inter", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 :root {
@@ -44,7 +44,7 @@
   --surface-raised: #f0f0f2;
   --surface-pressed: #e4e4e7;
   --text-secondary: #52525b;
-  --text-muted: #71717a;
+  --text-muted: #686872;
   --primary: #4f46e5;
   --primary-foreground: #ffffff;
   --muted: var(--surface-raised);
@@ -119,7 +119,7 @@
   --surface-raised: #151516;
   --surface-pressed: #202022;
   --text-secondary: rgba(255, 255, 255, 0.62);
-  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-muted: rgba(255, 255, 255, 0.48);
   --primary: #a5b4fc;
   --primary-foreground: #18181b;
   --border: rgba(255, 255, 255, 0.08);

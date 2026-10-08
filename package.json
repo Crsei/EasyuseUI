@@ -9,8 +9,8 @@
     "node": ">=22.18.0"
   },
   "scripts": {
-    "dev": "pnpm registry:build && next dev --webpack --port 3010",
-    "build": "pnpm registry:build && next build --webpack",
+    "dev": "pnpm registry:build && pnpm blog:build && next dev --webpack --port 3010",
+    "build": "pnpm registry:build && pnpm blog:build && next build --webpack",
     "preview": "node scripts/preview.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -18,7 +18,14 @@
     "registry:build": "node scripts/build-registry.mjs",
     "test": "playwright test",
     "test:install": "node scripts/check-install.mjs",
-    "check:i18n": "node scripts/check-i18n.mjs"
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "manifest:build": "node scripts/check-manifest.mjs --write",
+    "check:manifest": "node scripts/check-manifest.mjs",
+    "blog:build": "node scripts/check-blog.mjs --write",
+    "check:blog": "node scripts/check-blog.mjs",
+    "check:release": "node scripts/check-blog.mjs --release",
+    "test:install:themes": "node scripts/check-theme-install.mjs",
+    "registry:snapshot": "node scripts/snapshot-registry.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",
@@ -34,6 +41,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
     "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^24",

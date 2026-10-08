@@ -18,6 +18,7 @@ import {
   componentPageTitles,
   pageDescriptionKeys,
 } from "@/lib/site-i18n-metadata"
+import blogIndex from "@/lib/blog-index.json"
 import { siteMessages } from "@/lib/site-i18n-messages"
 
 export const localeStorageKey = "easyuseui-locale"
@@ -54,6 +55,7 @@ function subscribeLocale(listener: () => void) {
 }
 const pageTitles: Record<string, string> = {
   "/components": "组件目录",
+  "/blog": "优化日志",
   "/dictionary": "视觉词典",
   "/docs": "介绍",
   "/docs/installation": "安装与主题",
@@ -97,7 +99,12 @@ export function SiteI18nProvider({ children }: { children: ReactNode }) {
       const key = sourceKeys.get(source)
       return key ? t(key) : source
     }
+    const blog = blogIndex.find((post) => pathname === `/blog/${post.slug}`)
+    const blogTitle = blog
+      ? (blog.title[locale] ?? blog.title["zh-CN"])
+      : undefined
     const title =
+      blogTitle ??
       pageTitles[pathname] ??
       componentPageTitles[pathname] ??
       (pathname.startsWith("/docs/") ? pathname.split("/").at(-1) : undefined)
@@ -111,7 +118,14 @@ export function SiteI18nProvider({ children }: { children: ReactNode }) {
       pageDescriptionKeys["/"]
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute("content", t(descriptionKey))
+      ?.setAttribute(
+        "content",
+        blog
+          ? (blog.summary[locale] ?? blog.summary["zh-CN"])
+          : pathname === "/blog"
+            ? t("site.optimization.blogIntro")
+            : t(descriptionKey),
+      )
   }, [locale, pathname])
   return (
     <I18nProvider locale={locale} onLocaleChange={setLocale}>

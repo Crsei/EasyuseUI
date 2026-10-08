@@ -1,0 +1,86 @@
+{
+  "capturedAt": "2026-10-08T07:08:14.770Z",
+  "browser": "138.0.7204.92",
+  "fontSize": 12,
+  "method": "Computed colors in Chromium from actual theme.css; alpha-composite text over each token surface, then WCAG relative luminance. AA normal text >=4.5:1. This token fixture does not replace page-level audits.",
+  "samples": [
+    {
+      "theme": "light",
+      "surface": "background",
+      "foreground": "rgb(104, 104, 114)",
+      "background": "rgb(250, 250, 250)",
+      "composite": [
+        104,
+        104,
+        114
+      ],
+      "ratio": 5.278319837808999,
+      "passesAA": true
+    },
+    {
+      "theme": "light",
+      "surface": "surface",
+      "foreground": "rgb(104, 104, 114)",
+      "background": "rgb(255, 255, 255)",
+      "composite": [
+        104,
+        104,
+        114
+      ],
+      "ratio": 5.5093266753021535,
+      "passesAA": true
+    },
+    {
+      "theme": "light",
+      "surface": "surface-raised",
+      "foreground": "rgb(104, 104, 114)",
+      "background": "rgb(240, 240, 242)",
+      "composite": [
+        104,
+        104,
+        114
+      ],
+      "ratio": 4.840664745906984,
+      "passesAA": true
+    },
+    {
+      "theme": "dark",
+      "surface": "background",
+      "foreground": "rgba(255, 255, 255, 0.48)",
+      "background": "rgb(10, 10, 10)",
+      "composite": [
+        127.6,
+        127.6,
+        127.6
+      ],
+      "ratio": 4.985442606359074,
+      "passesAA": true
+    },
+    {
+      "theme": "dark",
+      "surface": "surface",
+      "foreground": "rgba(255, 255, 255, 0.48)",
+      "background": "rgb(15, 15, 16)",
+      "composite": [
+        130.2,
+        130.2,
+        130.72
+      ],
+      "ratio": 5.001498221376961,
+      "passesAA": true
+    },
+    {
+      "theme": "dark",
+      "surface": "surface-raised",
+      "foreground": "rgba(255, 255, 255, 0.48)",
+      "background": "rgb(21, 21, 22)",
+      "composite": [
+        133.32,
+        133.32,
+        133.84
+      ],
+      "ratio": 4.969372803856675,
+      "passesAA": true
+    }
+  ]
+}

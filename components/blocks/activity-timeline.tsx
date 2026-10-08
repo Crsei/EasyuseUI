@@ -1,7 +1,7 @@
 "use client"
 import { useI18n } from "@/lib/i18n-provider"
 
-import { useId, useState, type ReactNode } from "react"
+import { memo, useCallback, useId, useState, type ReactNode } from "react"
 import { Activity, ChevronRight } from "lucide-react"
 import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
 import { Button } from "@/components/ui/button"
@@ -23,6 +23,10 @@ export type ActivityEvent = {
   details?: ReactNode
 }
 export type ActivityTimelineProps = {
+  /** Opt-in browser offscreen layout deferral; records remain in the DOM. */
+  deferOffscreen?: boolean
+  /** Advance on every append, history edit, deletion, reorder or state change. */
+  revision?: string | number
   events: ActivityEvent[]
   selectedId?: string
   onSelect?: (event: ActivityEvent) => void
@@ -31,7 +35,9 @@ export type ActivityTimelineProps = {
   className?: string
 }
 export function ActivityTimeline({
+  deferOffscreen = false,
   events,
+  revision,
   selectedId,
   onSelect,
   compact,
@@ -42,6 +48,16 @@ export function ActivityTimeline({
 
   const id = useId()
   const [expanded, setExpanded] = useState<string[]>([])
+  const toggleExpanded = useCallback(
+    (id: string) =>
+      setExpanded((current) =>
+        current.includes(id)
+          ? current.filter((value) => value !== id)
+          : [...current, id],
+      ),
+    [],
+  )
+  const expandedIds = new Set(expanded)
   // Map keeps the first source position and the latest payload for each ID.
   const unique = [...new Map(events.map((event) => [event.id, event])).values()]
   const {
@@ -51,9 +67,20 @@ export function ActivityTimeline({
     jumpToLatest,
   } = useFollowTail(
     unique.map((event) => event.id),
-    JSON.stringify(
-      unique.map((event) => [event.id, event.status, event.duration]),
-    ),
+    revision ??
+      JSON.stringify(
+        unique.map((event) => [
+          event.id,
+          event.time,
+          event.agent,
+          event.type,
+          event.action,
+          event.target,
+          event.status,
+          event.duration,
+          event.tokens,
+        ]),
+      ),
     false,
   )
   return (
@@ -78,101 +105,22 @@ export function ActivityTimeline({
           {...data}
           hasContent={unique.length > 0}
         >
-          <ol className={styles.list}>
-            {unique.map((event) => {
-              const open = expanded.includes(event.id)
-              const toggle = () =>
-                setExpanded((current) =>
-                  open
-                    ? current.filter((value) => value !== event.id)
-                    : [...current, event.id],
-                )
-              const content = (
-                <>
-                  <time className={styles.time}>{event.time}</time>
-                  <span className={styles.agent}>{event.agent ?? "—"}</span>
-                  <span className={styles.action}>
-                    <Activity size={16} aria-hidden="true" />
-                    <span>
-                      <span>{event.action}</span>
-                      <small>
-                        {event.type}
-                        {event.target && ` · ${event.target}`}
-                      </small>
-                    </span>
-                  </span>
-                  <span className={styles.status}>
-                    <RuntimeStatusBadge status={event.status} />
-                  </span>
-                  <span className={styles.duration}>
-                    {event.duration ?? "—"}
-                  </span>
-                  <span className={styles.tokens}>{event.tokens ?? "—"}</span>
-                </>
-              )
-              return (
-                <li
-                  key={event.id}
-                  data-event-id={event.id}
-                  data-selected={selectedId === event.id}
-                >
-                  <div className={styles.row}>
-                    {onSelect ? (
-                      <button
-                        type="button"
-                        className={styles.main}
-                        aria-label={`${event.action} ${event.id}`}
-                        aria-pressed={selectedId === event.id}
-                        onClick={() => onSelect(event)}
-                      >
-                        {content}
-                      </button>
-                    ) : (
-                      <div className={styles.main}>{content}</div>
-                    )}
-                    {event.details !== undefined && (
-                      <Button
-                        className={styles.expand}
-                        variant="ghost"
-                        size="icon-sm"
-                        aria-label={t("common.valueEventValue", {
-                          value0: open ? t("common.hide") : t("common.expand"),
-                          value1: event.action,
-                        })}
-                        aria-expanded={open}
-                        aria-controls={`${id}-${event.id}`}
-                        onClick={toggle}
-                      >
-                        <ChevronRight size={16} data-open={open} />
-                      </Button>
-                    )}
-                  </div>
-                  {open && (
-                    <div id={`${id}-${event.id}`} className={styles.details}>
-                      <dl>
-                        <div>
-                          <dt>Agent</dt>
-                          <dd>{event.agent ?? "—"}</dd>
-                        </div>
-                        <div>
-                          <dt>Target</dt>
-                          <dd>{event.target ?? "—"}</dd>
-                        </div>
-                        <div>
-                          <dt>Duration</dt>
-                          <dd>{event.duration ?? "—"}</dd>
-                        </div>
-                        <div>
-                          <dt>Tokens</dt>
-                          <dd>{event.tokens ?? "—"}</dd>
-                        </div>
-                      </dl>
-                      {event.details}
-                    </div>
-                  )}
-                </li>
-              )
-            })}
+          <ol
+            className={styles.list}
+            data-defer-offscreen={deferOffscreen || undefined}
+            data-follow-tail-list
+          >
+            {unique.map((event) => (
+              <ActivityRow
+                key={event.id}
+                event={event}
+                open={expandedIds.has(event.id)}
+                selected={selectedId === event.id}
+                onSelect={onSelect}
+                onToggle={toggleExpanded}
+                id={id}
+              />
+            ))}
           </ol>
         </DataRegion>
       </div>
@@ -184,3 +132,104 @@ export function ActivityTimeline({
     </div>
   )
 }
+
+const ActivityRow = memo(function ActivityRow({
+  event,
+  open,
+  selected,
+  onSelect,
+  onToggle,
+  id,
+}: {
+  event: ActivityEvent
+  open: boolean
+  selected: boolean
+  onSelect?: ActivityTimelineProps["onSelect"]
+  onToggle: (id: string) => void
+  id: string
+}) {
+  const { t } = useI18n()
+  const content = (
+    <>
+      <time className={styles.time}>{event.time}</time>
+      <span className={styles.agent}>{event.agent ?? "—"}</span>
+      <span className={styles.action}>
+        <Activity size={16} aria-hidden="true" />
+        <span>
+          <span>{event.action}</span>
+          <small>
+            {event.type}
+            {event.target && ` · ${event.target}`}
+          </small>
+        </span>
+      </span>
+      <span className={styles.status}>
+        <RuntimeStatusBadge status={event.status} />
+      </span>
+      <span className={styles.duration}>{event.duration ?? "—"}</span>
+      <span className={styles.tokens}>{event.tokens ?? "—"}</span>
+    </>
+  )
+  return (
+    <li
+      data-event-id={event.id}
+      data-follow-tail-id={event.id}
+      data-selected={selected}
+    >
+      <div className={styles.row}>
+        {onSelect ? (
+          <button
+            type="button"
+            className={styles.main}
+            aria-label={`${event.action} ${event.id}`}
+            aria-pressed={selected}
+            onClick={() => onSelect(event)}
+          >
+            {content}
+          </button>
+        ) : (
+          <div className={styles.main}>{content}</div>
+        )}
+        {event.details !== undefined && (
+          <Button
+            className={styles.expand}
+            variant="ghost"
+            size="icon-sm"
+            aria-label={t("common.valueEventValue", {
+              value0: open ? t("common.hide") : t("common.expand"),
+              value1: event.action,
+            })}
+            aria-expanded={open}
+            aria-controls={`${id}-${event.id}`}
+            onClick={() => onToggle(event.id)}
+          >
+            <ChevronRight size={16} data-open={open} />
+          </Button>
+        )}
+      </div>
+      {open && (
+        <div id={`${id}-${event.id}`} className={styles.details}>
+          <dl>
+            <div>
+              <dt>Agent</dt>
+              <dd>{event.agent ?? "—"}</dd>
+            </div>
+            <div>
+              <dt>Target</dt>
+              <dd>{event.target ?? "—"}</dd>
+            </div>
+            <div>
+              <dt>Duration</dt>
+              <dd>{event.duration ?? "—"}</dd>
+            </div>
+            <div>
+              <dt>Tokens</dt>
+              <dd>{event.tokens ?? "—"}</dd>
+            </div>
+          </dl>
+          {event.details}
+        </div>
+      )}
+    </li>
+  )
+})

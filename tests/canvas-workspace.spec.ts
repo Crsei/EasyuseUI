@@ -144,7 +144,7 @@ test("variable selection is structured, survives rename and reports deleted sour
   await page.getByRole("button", { name: "删除选中对象", exact: true }).click()
   await page.getByRole("button", { name: "关闭弹窗" }).click()
   await expect(page.getByRole("dialog")).toBeHidden()
-  await page.getByRole("button", { name: /^文档校验/ }).click()
+  await page.getByRole("tab", { name: /^文档校验/ }).click()
   await expect(
     page.getByRole("button").filter({ hasText: "变量来源节点已不存在" }),
   ).toBeVisible()
@@ -153,7 +153,8 @@ test("malformed import preserves draft, replacement can undo, export downloads a
   page,
 }) => {
   await page.goto("/workspace/canvas/")
-  await page.getByRole("button", { name: "JSON", exact: true }).click()
+  await page.getByRole("button", { name: "更多工具", exact: true }).click()
+  await page.getByRole("menuitem", { name: "JSON", exact: true }).click()
   const dialog = page.getByRole("dialog")
   const original = JSON.parse(
     await dialog.getByLabel("图文档内容").inputValue(),
@@ -171,7 +172,8 @@ test("malformed import preserves draft, replacement can undo, export downloads a
   await expect(workspace(page)).toHaveAttribute("data-node-count", "0")
   await page.getByRole("button", { name: "撤销编辑", exact: true }).click()
   await expect(workspace(page)).toHaveAttribute("data-node-count", "4")
-  await page.getByRole("button", { name: "JSON", exact: true }).click()
+  await page.getByRole("button", { name: "更多工具", exact: true }).click()
+  await page.getByRole("menuitem", { name: "JSON", exact: true }).click()
   const download = page.waitForEvent("download")
   await page.getByRole("button", { name: "下载 JSON" }).click()
   expect((await download).suggestedFilename()).toBe("agent-workflow.json")
@@ -201,7 +203,8 @@ test("read-only blocks toolbar, configuration, shortcuts and import while refres
   await node.press("Delete")
   await node.press("Control+v")
   await expect(workspace(page)).toHaveAttribute("data-node-count", "4")
-  await page.getByRole("button", { name: "JSON", exact: true }).click()
+  await page.getByRole("button", { name: "更多工具", exact: true }).click()
+  await page.getByRole("menuitem", { name: "JSON", exact: true }).click()
   await expect(
     page.getByRole("button", { name: "校验并替换草稿" }),
   ).toBeDisabled()
@@ -244,7 +247,8 @@ test("keyboard move, batch copy, note, responsive inspector and bottom resize wo
   const node = page.locator('.react-flow__node[data-id="agent"]')
   await node.focus()
   await node.press("ArrowRight")
-  await page.getByRole("button", { name: "JSON", exact: true }).click()
+  await page.getByRole("button", { name: "更多工具", exact: true }).click()
+  await page.getByRole("menuitem", { name: "JSON", exact: true }).click()
   const document = JSON.parse(await page.getByLabel("图文档内容").inputValue())
   expect(
     document.nodes.find((node: { id: string }) => node.id === "agent").position
@@ -371,7 +375,8 @@ test("unknown node import keeps config and existing edges; export failure and le
   page,
 }) => {
   await page.goto("/workspace/canvas/")
-  await page.getByRole("button", { name: "JSON", exact: true }).click()
+  await page.getByRole("button", { name: "更多工具", exact: true }).click()
+  await page.getByRole("menuitem", { name: "JSON", exact: true }).click()
   let dialog = page.getByRole("dialog")
   const document = JSON.parse(
     await dialog.getByLabel("图文档内容").inputValue(),
@@ -386,7 +391,8 @@ test("unknown node import keeps config and existing edges; export failure and le
     "true",
   )
   await expect(page.locator(".react-flow__edge-path")).toHaveCount(3)
-  await page.getByRole("button", { name: "JSON", exact: true }).click()
+  await page.getByRole("button", { name: "更多工具", exact: true }).click()
+  await page.getByRole("menuitem", { name: "JSON", exact: true }).click()
   dialog = page.getByRole("dialog")
   const exported = JSON.parse(
     await dialog.getByLabel("图文档内容").inputValue(),

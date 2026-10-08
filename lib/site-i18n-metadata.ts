@@ -1,40 +1,8 @@
-export const componentPageTitles: Record<string, string> = {
-  "/docs/i18n": "I18nProvider",
-  "/docs/canvas-service-panel": "CanvasServicePanel",
-  "/docs/canvas-project-workspace": "CanvasProjectWorkspace",
-  "/docs/canvas-config-editor": "CanvasConfigEditor",
-  "/docs/canvas-execution-panel": "CanvasExecutionPanel",
-  "/docs/canvas-workspace": "CanvasWorkspace",
-  "/docs/node-palette": "NodePalette",
-  "/docs/node-inspector": "NodeInspector",
-  "/docs/variable-picker": "VariablePicker",
-  "/docs/canvas-frame": "CanvasFrame",
-  "/docs/canvas-note": "CanvasNote",
-  "/docs/workflow-canvas": "WorkflowCanvas",
-  "/docs/canvas-node": "CanvasNode",
-  "/docs/canvas-port": "CanvasPort",
-  "/docs/canvas-edge": "CanvasEdge",
-  "/docs/style-workbench": "StyleWorkbench",
-  "/docs/badge": "Badge",
-  "/docs/tag": "Tag",
-  "/docs/chip": "Chip",
-  "/docs/button": "Button",
-  "/docs/input": "Input",
-  "/docs/dialog": "Dialog",
-  "/docs/task-panel": "TaskPanel",
-  "/docs/scroll-playground": "ScrollPlayground",
-  "/docs/item": "Item",
-  "/docs/runtime-status-badge": "RuntimeStatusBadge",
-  "/docs/workspace-shell": "WorkspaceShell",
-  "/docs/data-region": "DataRegion",
-  "/docs/tree": "Tree",
-  "/docs/session-row": "SessionRow",
-  "/docs/agent-row": "AgentRow",
-  "/docs/activity-timeline": "ActivityTimeline",
-  "/docs/inspector": "Inspector",
-  "/docs/chat-message": "ChatMessage",
-  "/docs/tool-call": "ToolCall"
-}
+import componentIndex from "./component-navigation.json"
+
+export const componentPageTitles: Record<string, string> = Object.fromEntries(
+  componentIndex.map((entry) => [entry.docPath.replace(/\/$/, ""), entry.name]),
+)
 
 export const pageDescriptionKeys = {
   "/": "site.metadata_Description",

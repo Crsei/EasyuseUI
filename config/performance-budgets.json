@@ -1,0 +1,36 @@
+{
+  "profile": "linux-chrome138-production",
+  "calibratedAt": "2026-10-08",
+  "initialJsEstimatedGzipBytes": {
+    "/components/": 380000,
+    "/dictionary/": 400000,
+    "/docs/button/": 360000,
+    "/blog/": 375000,
+    "/blog/on-demand-demos/": 365000
+  },
+  "streams": {
+    "count": 5000,
+    "samples": 30,
+    "appendP95Ms": 100,
+    "ciBaselineP95Ms": null,
+    "relativeRegressionLimit": 1.2
+  },
+  "limitations": "JS budgets are calibrated from the production snapshot, using gzip of response bodies, not transport encoding. Timing only blocks in an isolated CI performance step. CI baseline remains null until a real stable CI run is reviewed; shared host observations cannot fill it. Preserve failed traces and attachments.",
+  "calibration": {
+    "sourceReport": "public/blog/on-demand-demos/2026-10-08/after.json",
+    "observedBytes": {
+      "/components/": 343716,
+      "/dictionary/": 360872,
+      "/docs/button/": 326530,
+      "/blog/": 338554,
+      "/blog/on-demand-demos/": 328153
+    },
+    "change": "Replaced provisional unmeasured 290-320 KB ceilings with observed production values plus approximately 10 percent headroom. First failed measurements and traces are retained in /tmp/easyuseui-opt-visual-loading2-artifacts; public before/candidate reports are immutable evidence."
+  },
+  "canvas": {
+    "cold200OperableMs": 2000,
+    "inspectorP95Ms": 100,
+    "minimumDragFps": 30,
+    "status": "Provisional absolute targets. Stable CI calibration is pending; shared host observations do not certify them."
+  }
+}

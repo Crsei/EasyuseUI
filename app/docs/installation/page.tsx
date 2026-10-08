@@ -58,6 +58,26 @@ export default function InstallationPage() {
         code={`pnpm dlx shadcn@latest add ${registryUrl}/task-panel.json`}
       />
       <h2 className="mt-10 mb-4 text-xl font-semibold">
+        <SiteText messageKey="site.optimization.themeScope" />
+      </h2>
+      <p className="mb-4 text-sm leading-7 text-muted-foreground">
+        <SiteText messageKey="site.optimization.themeInstallNote" />
+      </p>
+      <CodeBlock
+        lang="bash"
+        code={`pnpm dlx shadcn@4.21.2 add ${registryUrl}/host/dialog.json
+# or
+pnpm dlx shadcn@4.21.2 add ${registryUrl}/scoped/dialog.json`}
+      />
+      <CodeBlock
+        code={
+          'import { ThemeBoundary } from "@/components/ui/theme-boundary"\n\n<ThemeBoundary mode="scoped" theme="dark">{children}</ThemeBoundary>'
+        }
+      />
+      <p className="mt-4 text-sm leading-7 text-muted-foreground">
+        <SiteText messageKey="site.optimization.themeModeContract" />
+      </p>
+      <h2 className="mt-10 mb-4 text-xl font-semibold">
         <SiteText messageKey="site.deployYourOwnRegistry" />
       </h2>
       <p className="mb-4 text-sm leading-7 text-muted-foreground">

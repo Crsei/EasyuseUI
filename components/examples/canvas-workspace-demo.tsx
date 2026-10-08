@@ -28,7 +28,7 @@ import {
 export function CanvasWorkspaceDemo({
   stressSize,
   layout = "preview",
-}: { stressSize?: 200; layout?: "preview" | "fill" } = {}) {
+}: { stressSize?: 50 | 200 | 500 | 1000; layout?: "preview" | "fill" } = {}) {
   const { t } = useSiteI18n()
 
   const [fixture] = useState(createCanvasRuntimeFixture)

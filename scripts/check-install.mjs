@@ -1,3 +1,8 @@
+import {
+  commonRegistryItems,
+  createCommonConsumer,
+  verifyCommonConsumer,
+} from "./common-components-consumer.mjs"
 import { execFileSync, spawn } from "node:child_process"
 import { mkdtemp, mkdir, writeFile, readFile } from "node:fs/promises"
 import os from "node:os"
@@ -220,6 +225,7 @@ export default function Consumer() {
 `,
 )
 execFileSync("git", ["init", "--quiet"], { cwd: fixture })
+await createCommonConsumer(fixture)
 execFileSync("pnpm", ["install", "--ignore-scripts"], {
   cwd: fixture,
   stdio: "inherit",
@@ -255,6 +261,7 @@ try {
         "exec",
         "shadcn",
         "add",
+        ...commonRegistryItems.map((name) => `${site}/r/${name}.json`),
         `${site}/r/task-panel.json`,
         `${site}/r/input.json`,
         `${site}/r/dialog.json`,
@@ -278,6 +285,12 @@ try {
           "workflow-canvas",
           "canvas-workspace",
           "canvas-project-workspace",
+          "menu",
+          "popover",
+          "tabs",
+          "segmented",
+          "select",
+          "combobox",
         ].map((name) => `${site}/r/${name}.json`),
         "--cwd",
         fixture,
@@ -549,7 +562,7 @@ try {
     true,
   )
   await page.getByRole("button", { name: "查询保存回执", exact: true }).click()
-  await page.getByRole("button", { name: "服务接入", exact: true }).click()
+  await page.getByRole("tab", { name: "服务接入", exact: true }).click()
   const services = page.getByRole("region", { name: "服务接入" })
   await services
     .getByRole("button", { name: "发布已保存版本", exact: true })
@@ -600,6 +613,8 @@ try {
   await page.getByText("Running", { exact: true }).waitFor()
   await page.getByRole("button", { name: "Switch language" }).click()
   await page.getByText("执行中", { exact: true }).waitFor()
+  process.env.COMMON_CONSUMER_EVIDENCE_DIR = fixture
+  await verifyCommonConsumer(page, `http://127.0.0.1:${server.address().port}`)
   assert.deepEqual(errors, [])
   console.log(
     `PASS: installed Canvas production build, full-height layout and collapsed panels, browser mount, engine CSS, ports, edge, controlled selection, add, connect, undo, authoritative runtime/redaction, unknown save/publication reconciliation, subflow navigation and structured config. Evidence: ${fixture}/canvas-installed.png`,

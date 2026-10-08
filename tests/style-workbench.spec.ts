@@ -226,7 +226,10 @@ test("workbench remains usable on touch, in dark theme and with reduced motion",
     reducedMotion: "reduce",
   })
   const page = await context.newPage()
-  await page.goto("http://127.0.0.1:3011/style-workbench/")
+  await page.goto(
+    new URL("/style-workbench/", test.info().project.use.baseURL as string)
+      .href,
+  )
   await expect(sample(page, "baseline")).toBeVisible()
   await page.getByRole("button", { name: "紧凑平面", exact: true }).tap()
   for (const target of [

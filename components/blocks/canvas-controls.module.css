@@ -353,3 +353,27 @@
     min-height: 44px;
   }
 }
+
+.canvasRegion {
+  position: relative;
+}
+.canvasRegion > .layoutNotice {
+  position: absolute;
+  z-index: 20;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  height: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-floating);
+  font-size: 12px;
+  line-height: 20px;
+}

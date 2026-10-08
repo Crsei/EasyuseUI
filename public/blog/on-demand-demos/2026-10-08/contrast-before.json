@@ -1,0 +1,86 @@
+{
+  "capturedAt": "2026-10-08T07:08:02.218Z",
+  "browser": "138.0.7204.92",
+  "fontSize": 12,
+  "method": "Computed colors in Chromium from actual theme.css; alpha-composite text over each token surface, then WCAG relative luminance. AA normal text >=4.5:1. This token fixture does not replace page-level audits.",
+  "samples": [
+    {
+      "theme": "light",
+      "surface": "background",
+      "foreground": "rgb(113, 113, 122)",
+      "background": "rgb(250, 250, 250)",
+      "composite": [
+        113,
+        113,
+        122
+      ],
+      "ratio": 4.630251574816984,
+      "passesAA": true
+    },
+    {
+      "theme": "light",
+      "surface": "surface",
+      "foreground": "rgb(113, 113, 122)",
+      "background": "rgb(255, 255, 255)",
+      "composite": [
+        113,
+        113,
+        122
+      ],
+      "ratio": 4.832895561154151,
+      "passesAA": true
+    },
+    {
+      "theme": "light",
+      "surface": "surface-raised",
+      "foreground": "rgb(113, 113, 122)",
+      "background": "rgb(240, 240, 242)",
+      "composite": [
+        113,
+        113,
+        122
+      ],
+      "ratio": 4.246331456147716,
+      "passesAA": false
+    },
+    {
+      "theme": "dark",
+      "surface": "background",
+      "foreground": "rgba(255, 255, 255, 0.4)",
+      "background": "rgb(10, 10, 10)",
+      "composite": [
+        108,
+        108,
+        108
+      ],
+      "ratio": 3.770317195158422,
+      "passesAA": false
+    },
+    {
+      "theme": "dark",
+      "surface": "surface",
+      "foreground": "rgba(255, 255, 255, 0.4)",
+      "background": "rgb(15, 15, 16)",
+      "composite": [
+        111,
+        111,
+        111.6
+      ],
+      "ratio": 3.8151451671681684,
+      "passesAA": false
+    },
+    {
+      "theme": "dark",
+      "surface": "surface-raised",
+      "foreground": "rgba(255, 255, 255, 0.4)",
+      "background": "rgb(21, 21, 22)",
+      "composite": [
+        114.6,
+        114.6,
+        115.2
+      ],
+      "ratio": 3.8289577877364156,
+      "passesAA": false
+    }
+  ]
+}

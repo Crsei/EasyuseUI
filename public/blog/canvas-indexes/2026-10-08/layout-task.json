@@ -1,0 +1,9 @@
+{
+  "method": "Automated local UI task from first menu click through cancel, preview, apply, undo and redo; includes automation overhead, not a human usability benchmark",
+  "nodes": 50,
+  "edges": 73,
+  "steps": 8,
+  "durationMs": 1525,
+  "capturedAt": "2026-10-08T08:08:08.392Z",
+  "sourceSnapshotId": "39eeb555e317a868a6e452852f413d5e7441f11b290088cea24bd01314b0996d"
+}

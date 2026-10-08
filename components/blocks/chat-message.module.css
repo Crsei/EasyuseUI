@@ -252,3 +252,6 @@
     min-height: 44px;
   }
 }
+
+/* Opt-in browser deferral retains all text for search/copy and accessibility. */
+.messages[data-defer-offscreen] > .messageEntry { content-visibility: auto; contain-intrinsic-block-size: auto 88px; }

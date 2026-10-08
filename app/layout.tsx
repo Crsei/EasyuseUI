@@ -41,19 +41,22 @@ export default function RootLayout({
                       <SiteText messageKey="site.easyuseuiStartWithUsefulComponents" />
                     </p>
                     <div className="flex flex-wrap gap-5">
-                      <Link href="/docs">
+                      <Link prefetch={false} href="/docs">
                         <SiteText messageKey="site.documentation" />
                       </Link>
-                      <Link href="/components">
+                      <Link prefetch={false} href="/blog">
+                        <SiteText messageKey="site.optimization.blog" />
+                      </Link>
+                      <Link prefetch={false} href="/components">
                         <SiteText messageKey="site.componentCatalog" />
                       </Link>
-                      <Link href="/dictionary">
+                      <Link prefetch={false} href="/dictionary">
                         <SiteText messageKey="site.visualDictionary" />
                       </Link>
-                      <Link href="/style-workbench">
+                      <Link prefetch={false} href="/style-workbench">
                         <SiteText messageKey="site.styleWorkbench" />
                       </Link>
-                      <Link href="/docs/installation">
+                      <Link prefetch={false} href="/docs/installation">
                         <SiteText messageKey="site.installationGuide" />
                       </Link>
                     </div>

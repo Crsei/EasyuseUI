@@ -35,7 +35,7 @@ export default function DocsPage() {
       </h2>
       <div className="grid gap-3 sm:grid-cols-2">
         {catalog.map((entry) => (
-          <Link
+          <Link prefetch={false}
             key={entry.slug}
             href={`/docs/${entry.slug}`}
             className="rounded-xl border p-5 transition-colors hover:bg-muted/40"
@@ -64,7 +64,7 @@ export default function DocsPage() {
           <SiteText messageKey="site.savingCreationAndTaskRetryInExamplesAreLocal" />
         </li>
       </ul>
-      <Link href="/docs/installation" className={`${buttonVariants()} mt-10`}>
+      <Link prefetch={false} href="/docs/installation" className={`${buttonVariants()} mt-10`}>
         <SiteText messageKey="site.installYourFirstComponent" />
         <ArrowRight size={15} />
       </Link>

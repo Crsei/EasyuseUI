@@ -107,7 +107,7 @@ async function select(page: Page, title: string) {
   await closeClockDialog(page)
 }
 async function execution(page: Page) {
-  await page.getByRole("button", { name: "执行调试", exact: true }).click()
+  await page.getByRole("tab", { name: "执行调试", exact: true }).click()
   return page.getByRole("region", { name: "执行调试" })
 }
 test("runtime normal, redaction, version ownership and late run rejection", async ({

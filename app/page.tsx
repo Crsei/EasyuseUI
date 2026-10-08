@@ -30,20 +30,20 @@ export default function HomePage() {
             <SiteText messageKey="site.reactComponentsForEverydayDevelopmentClearStatesConsistentDetails" />
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link
+            <Link prefetch={false}
               href="/docs/installation"
               className={buttonVariants({ size: "lg" })}
             >
               <SiteText messageKey="site.getStarted" />
               <ArrowRight size={16} />
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/components"
               className={buttonVariants({ size: "lg", variant: "outline" })}
             >
               <SiteText messageKey="site.browseComponents" />
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/scroll"
               className="inline-flex items-center gap-1.5 px-2 py-3 text-sm text-muted-foreground hover:text-primary"
             >
@@ -116,7 +116,7 @@ export default function HomePage() {
               <SiteText messageKey="site.smallComponentsEveryDetailConsidered" />
             </h2>
           </div>
-          <Link
+          <Link prefetch={false}
             href="/components"
             className="hidden items-center gap-2 text-sm text-muted-foreground sm:flex"
           >
@@ -152,7 +152,7 @@ export default function HomePage() {
               <div className="flex min-h-56 flex-1 items-center justify-center p-5">
                 {demo}
               </div>
-              <Link
+              <Link prefetch={false}
                 href={href}
                 className="flex items-center justify-between border-t bg-muted/25 p-5"
               >
@@ -183,7 +183,7 @@ export default function HomePage() {
             <Check size={14} className="text-success" />
             <SiteText messageKey="site.forReactProjectsWithShadcnInitialized" />
           </p>
-          <Link
+          <Link prefetch={false}
             href="/docs/installation"
             className={cn(buttonVariants({ variant: "ghost" }), "mt-4 -ml-4")}
           >

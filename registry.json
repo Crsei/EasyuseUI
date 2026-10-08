@@ -18,8 +18,15 @@
       "name": "runtime-status-badge",
       "type": "registry:ui",
       "title": "RuntimeStatusBadge",
-      "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["theme", "utils", "runtime-status", "i18n"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "runtime-status",
+        "i18n"
+      ],
       "files": [
         {
           "path": "components/ui/runtime-status-badge.tsx",
@@ -31,7 +38,11 @@
       "name": "item",
       "type": "registry:ui",
       "title": "Item",
-      "registryDependencies": ["theme", "utils", "i18n"],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "i18n"
+      ],
       "files": [
         {
           "path": "components/ui/item.tsx",
@@ -49,8 +60,17 @@
       "name": "workspace-shell",
       "type": "registry:block",
       "title": "WorkspaceShell",
-      "dependencies": ["@base-ui/react@^1.8.0", "lucide-react@^0.577.0"],
-      "registryDependencies": ["theme", "utils", "button", "i18n"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0",
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "button",
+        "i18n",
+        "theme-boundary"
+      ],
       "files": [
         {
           "path": "components/blocks/workspace-shell.tsx",
@@ -74,7 +94,10 @@
     {
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": ["clsx@^2.1.1", "tailwind-merge@^3.5.0"],
+      "dependencies": [
+        "clsx@^2.1.1",
+        "tailwind-merge@^3.5.0"
+      ],
       "files": [
         {
           "path": "lib/utils.ts",
@@ -90,7 +113,11 @@
         "@base-ui/react@^1.8.0",
         "class-variance-authority@^0.7.1"
       ],
-      "registryDependencies": ["theme", "utils"],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "theme-boundary"
+      ],
       "files": [
         {
           "path": "components/ui/button.tsx",
@@ -106,7 +133,10 @@
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
-      "registryDependencies": ["theme", "utils"],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
       "files": [
         {
           "path": "components/ui/input.tsx",
@@ -118,8 +148,15 @@
       "name": "dialog",
       "type": "registry:ui",
       "title": "Dialog",
-      "dependencies": ["@base-ui/react@^1.8.0"],
-      "registryDependencies": ["theme", "utils", "i18n"],
+      "dependencies": [
+        "@base-ui/react@^1.8.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "i18n",
+        "theme-boundary"
+      ],
       "files": [
         {
           "path": "components/ui/dialog.tsx",
@@ -131,7 +168,12 @@
       "name": "task-panel",
       "type": "registry:block",
       "title": "TaskPanel",
-      "registryDependencies": ["button", "utils", "theme", "i18n"],
+      "registryDependencies": [
+        "button",
+        "utils",
+        "theme",
+        "i18n"
+      ],
       "files": [
         {
           "path": "components/blocks/task-panel.tsx",
@@ -145,8 +187,13 @@
       "type": "registry:block",
       "title": "ScrollPlayground",
       "description": "Six native scroll experiments: triggered, linked, parallax, sticky, snap and horizontal.",
-      "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["theme", "i18n"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "i18n"
+      ],
       "files": [
         {
           "path": "components/blocks/scroll-playground.tsx",
@@ -185,8 +232,15 @@
       "type": "registry:ui",
       "title": "DataRegion",
       "description": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
-      "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["button", "theme", "i18n"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "button",
+        "theme",
+        "i18n",
+        "runtime-status"
+      ],
       "files": [
         {
           "path": "components/ui/data-region.tsx",
@@ -205,7 +259,9 @@
       "type": "registry:ui",
       "title": "Tree",
       "description": "完整树键盘模型、Idea → Session → Run 层级与受控节点移动。",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "utils",
@@ -232,7 +288,9 @@
       "type": "registry:block",
       "title": "SessionRow",
       "description": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "item",
         "button",
@@ -257,7 +315,9 @@
       "type": "registry:block",
       "title": "AgentRow",
       "description": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "item",
         "button",
@@ -282,7 +342,9 @@
       "type": "registry:block",
       "title": "ActivityTimeline",
       "description": "Runtime 时间线：平铺事件、详情展开、去重、滚动跟随及新事件提示。",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "utils",
@@ -310,7 +372,9 @@
       "type": "registry:block",
       "title": "Inspector",
       "description": "当前对象的受控详情，统一 Metadata、缺失字段与复制反馈。",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "button",
@@ -336,7 +400,9 @@
       "type": "registry:block",
       "title": "ChatMessage",
       "description": "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "utils",
@@ -363,7 +429,9 @@
       "type": "registry:block",
       "title": "ToolCall",
       "description": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "button",
@@ -389,7 +457,10 @@
       "name": "badge",
       "type": "registry:ui",
       "title": "Badge",
-      "registryDependencies": ["theme", "utils"],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
       "files": [
         {
           "path": "components/ui/badge.tsx",
@@ -407,7 +478,9 @@
       "name": "tag",
       "type": "registry:ui",
       "title": "Tag",
-      "registryDependencies": ["badge"],
+      "registryDependencies": [
+        "badge"
+      ],
       "files": [
         {
           "path": "components/ui/tag.tsx",
@@ -420,7 +493,12 @@
       "name": "chip",
       "type": "registry:ui",
       "title": "Chip",
-      "registryDependencies": ["theme", "utils", "button", "i18n"],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "button",
+        "i18n"
+      ],
       "files": [
         {
           "path": "components/ui/chip.tsx",
@@ -443,14 +521,18 @@
           "type": "registry:lib"
         }
       ],
-      "registryDependencies": ["i18n"]
+      "registryDependencies": [
+        "i18n"
+      ]
     },
     {
       "name": "style-workbench",
       "type": "registry:block",
       "title": "StyleWorkbench",
       "description": "Local A/B foundation editor with controlled previews, parameter differences and scoped CSS export.",
-      "dependencies": ["lucide-react@^0.577.0"],
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "utils",
@@ -479,7 +561,9 @@
     {
       "name": "canvas-model",
       "type": "registry:lib",
-      "registryDependencies": ["i18n"],
+      "registryDependencies": [
+        "i18n"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -496,8 +580,14 @@
     {
       "name": "canvas-port",
       "type": "registry:ui",
-      "registryDependencies": ["theme", "canvas-model", "i18n"],
-      "dependencies": ["@xyflow/react@12.12.0"],
+      "registryDependencies": [
+        "theme",
+        "canvas-model",
+        "i18n"
+      ],
+      "dependencies": [
+        "@xyflow/react@12.12.0"
+      ],
       "files": [
         {
           "path": "components/ui/canvas-port.tsx",
@@ -521,7 +611,9 @@
         "redact",
         "i18n"
       ],
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "components/ui/canvas-node.tsx",
@@ -533,8 +625,14 @@
     {
       "name": "canvas-edge",
       "type": "registry:ui",
-      "registryDependencies": ["theme", "redact", "canvas-model"],
-      "dependencies": ["@xyflow/react@12.12.0"],
+      "registryDependencies": [
+        "theme",
+        "redact",
+        "canvas-model"
+      ],
+      "dependencies": [
+        "@xyflow/react@12.12.0"
+      ],
       "files": [
         {
           "path": "components/ui/canvas-edge.tsx",
@@ -563,7 +661,10 @@
         "button",
         "i18n"
       ],
-      "dependencies": ["@xyflow/react@12.12.0", "lucide-react"],
+      "dependencies": [
+        "@xyflow/react@12.12.0",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "components/blocks/workflow-canvas.tsx",
@@ -574,13 +675,27 @@
           "path": "components/blocks/workflow-canvas.module.css",
           "type": "registry:file",
           "target": "components/blocks/workflow-canvas.module.css"
+        },
+        {
+          "path": "lib/canvas-index.ts",
+          "type": "registry:lib",
+          "target": "lib/canvas-index.ts"
+        },
+        {
+          "path": "lib/canvas-layout.ts",
+          "type": "registry:lib",
+          "target": "lib/canvas-layout.ts"
         }
       ]
     },
     {
       "name": "canvas-validation",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model", "redact", "i18n"],
+      "registryDependencies": [
+        "canvas-model",
+        "redact",
+        "i18n"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -593,7 +708,11 @@
     {
       "name": "canvas-editor",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model", "canvas-validation", "i18n"],
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-validation",
+        "i18n"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -611,7 +730,9 @@
     {
       "name": "canvas-controls",
       "type": "registry:lib",
-      "registryDependencies": ["theme"],
+      "registryDependencies": [
+        "theme"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -624,7 +745,12 @@
     {
       "name": "canvas-frame",
       "type": "registry:block",
-      "registryDependencies": ["canvas-model", "theme", "redact", "i18n"],
+      "registryDependencies": [
+        "canvas-model",
+        "theme",
+        "redact",
+        "i18n"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -668,7 +794,9 @@
         "utils",
         "i18n"
       ],
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "components/blocks/node-palette.tsx",
@@ -742,9 +870,13 @@
         "canvas-execution-panel",
         "canvas-services",
         "canvas-service-panel",
-        "i18n"
+        "i18n",
+        "menu",
+        "tabs"
       ],
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "components/blocks/canvas-workspace.tsx",
@@ -761,7 +893,11 @@
     {
       "name": "canvas-runtime",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model", "canvas-validation", "i18n"],
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-validation",
+        "i18n"
+      ],
       "files": [
         {
           "path": "lib/canvas-runtime.ts",
@@ -842,7 +978,10 @@
     {
       "name": "canvas-services",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model", "i18n"],
+      "registryDependencies": [
+        "canvas-model",
+        "i18n"
+      ],
       "files": [
         {
           "path": "lib/canvas-services.ts",
@@ -894,6 +1033,470 @@
           "path": "lib/i18n-provider.tsx",
           "type": "registry:lib",
           "target": "lib/i18n-provider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "theme-boundary",
+      "title": "ThemeBoundary",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "components/ui/theme-boundary.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/theme-boundary.tsx"
+        },
+        {
+          "path": "styles/theme-boundary.css",
+          "type": "registry:style",
+          "target": "styles/theme-boundary.css"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "title": "Menu",
+      "dependencies": [
+        "@base-ui/react@1.8.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "theme-boundary"
+      ],
+      "files": [
+        {
+          "path": "components/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "dependencies": [
+        "@base-ui/react@1.8.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "theme-boundary"
+      ],
+      "files": [
+        {
+          "path": "components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "dependencies": [
+        "@base-ui/react@1.8.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "theme-boundary"
+      ],
+      "files": [
+        {
+          "path": "components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "dependencies": [
+        "@base-ui/react@1.8.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "theme-boundary"
+      ],
+      "files": [
+        {
+          "path": "components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segmented",
+      "type": "registry:ui",
+      "title": "Segmented",
+      "dependencies": [
+        "@base-ui/react@1.8.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/segmented.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "dependencies": [
+        "@base-ui/react@1.8.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Form-associated three-state checkbox with distinct selection and focus.",
+      "dependencies": [
+        "@base-ui/react@1.8.0",
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Native table structure preserving headers, cells, caption and scrolling semantics.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:block",
+      "title": "DataTable",
+      "description": "Controlled generic table separating selection, activation and sorting requests.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "button",
+        "checkbox",
+        "table",
+        "data-region",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/data-table.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "components/blocks/data-table.module.css",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Avatar images, initials and image-error fallback.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segment-bar",
+      "type": "registry:ui",
+      "title": "SegmentBar",
+      "description": "Segmented quantity display with meter semantics and explicit unknown values.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ui/segment-bar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:ui",
+      "title": "Sparkline",
+      "description": "Miniature bar trends with text alternatives for empty, missing and equal values.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sparkline.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "DropdownMenu",
+      "description": "Actions, checkbox and radio menus built on Menu with keyboard navigation.",
+      "dependencies": [
+        "@base-ui/react@1.8.0",
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "menu"
+      ],
+      "files": [
+        {
+          "path": "components/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Left, right and bottom sheets with fixed header/footer, scrolling body and nested focus management.",
+      "dependencies": [
+        "@base-ui/react@1.8.0",
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "utils",
+        "theme-boundary",
+        "button",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ui/sheet.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "components/ui/sheet.module.css",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command-palette",
+      "type": "registry:block",
+      "title": "CommandPalette",
+      "description": "Command search with caller-owned results, keyboard selection and IME support.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "dialog",
+        "input",
+        "kbd",
+        "controllable-value",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/command-palette.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "description": "Semantic shortcut display without keyboard registration.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Consistent labels, descriptions and errors while preserving caller drafts.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form-section",
+      "type": "registry:block",
+      "title": "FormSection",
+      "description": "Form sections using fieldset and legend.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/form-section.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Controlled or uncontrolled numeric slider with separate change and commit callbacks.",
+      "dependencies": [
+        "@base-ui/react@1.8.0"
+      ],
+      "registryDependencies": [
+        "theme"
+      ],
+      "files": [
+        {
+          "path": "components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "image-upload",
+      "type": "registry:block",
+      "title": "ImageUpload",
+      "description": "Local image selection, drop, preview, replacement and failure recovery.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "button",
+        "utils",
+        "controllable-value",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/image-upload.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "filter-toolbar",
+      "type": "registry:block",
+      "title": "FilterToolbar",
+      "description": "Filter, sort and count slots with a Sheet for narrow-screen filters.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "button",
+        "sheet",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/filter-toolbar.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "metric-summary",
+      "type": "registry:block",
+      "title": "MetricSummary",
+      "description": "Displays caller-computed metrics with labels, values, units and descriptions.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/metric-summary.tsx",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "rating-display",
+      "type": "registry:ui",
+      "title": "RatingDisplay",
+      "description": "Read-only ratings and half stars with complete text alternatives.",
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "i18n"
+      ],
+      "files": [
+        {
+          "path": "components/ui/rating-display.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "controllable-value",
+      "type": "registry:lib",
+      "title": "Controlled value adapter",
+      "files": [
+        {
+          "path": "lib/use-controllable-value.ts",
+          "type": "registry:lib"
         }
       ]
     }

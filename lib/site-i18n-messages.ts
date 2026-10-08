@@ -1,7 +1,202 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
-    "site.optimization.catalogIntro": "按名称、用途或分类找到组件。轻量预览随页面展示，交互演示仅在主动打开时加载。",
+    "site.commonComponents.budgetError": "请输入有效数值，原始输入已保留。",
+    "site.commonComponents.dataState": "读取状态",
+    "site.commonComponents.success": "读取成功",
+    "site.commonComponents.loading": "初次加载",
+    "site.commonComponents.partial": "部分数据",
+    "site.commonComponents.error": "读取失败",
+    "site.optimization.measurementsContract":
+      "输出临时引擎尺寸；不能写入图文档或撤销历史。",
+    "site.optimization.fixedNodeIdsContract":
+      "自动布局保留这些节点坐标；不增加业务权限或手动编辑锁定。",
+
+    "site.commonContracts.description0":
+      "原生表单关联的三态复选框，选择与焦点分离。",
+    "site.commonContracts.contract0":
+      "indeterminate只表达部分选择，不提交第三种业务值。",
+    "site.commonContracts.description1":
+      "原生表格结构，保留表头、单元格、标题和滚动语义。",
+    "site.commonContracts.contract1":
+      "TableContainer负责横向滚动，Table不拥有数据请求或行选择。",
+    "site.commonContracts.description2":
+      "受控通用表格，勾选、查看与排序请求分别建模。",
+    "site.commonContracts.contract2":
+      "全选只修改当前可选行并保留隐藏选择；调用方提供排序后的数据与汇总。",
+    "site.commonContracts.description3": "头像图片、姓名缩写与读取失败回退。",
+    "site.commonContracts.contract3":
+      "name提供可访问名称；图片失败后显示缩写，src变化允许重新读取。",
+    "site.commonContracts.description4":
+      "分段量值显示，使用meter语义并明确未知值。",
+    "site.commonContracts.contract4":
+      "有限值限制在声明范围，分段数1–50；未知值不补零，不用作任务进度。",
+    "site.commonContracts.description5":
+      "带文本替代的微型柱状趋势，覆盖空值、缺失和等值。",
+    "site.commonContracts.contract5":
+      "最多显示最近120个点；缺失值不画柱，零值有基线，负值从零线向下。",
+    "site.commonContracts.description6":
+      "复用Menu的动作、复选及单选菜单，支持键盘定位。",
+    "site.commonContracts.contract6":
+      "不创建第二套菜单基础；菜单选项不替代普通表单Select。",
+    "site.commonContracts.description7":
+      "左右及底部抽屉，固定首尾、正文滚动与嵌套焦点管理。",
+    "site.commonContracts.contract7":
+      "复用Dialog语义；Portal继承ThemeBoundary，支持指定转场后的焦点目标。",
+    "site.commonContracts.description8":
+      "调用方提供结果的命令搜索，支持键盘选择与IME。",
+    "site.commonContracts.contract8":
+      "默认不注册全局快捷键；可配置scope，忽略编辑器、Canvas及已处理事件；选择不执行内置服务。",
+    "site.commonContracts.description9": "语义化快捷键呈现，不注册键盘事件。",
+    "site.commonContracts.contract9":
+      "修饰键符号需要调用方提供适合读屏的名称。",
+    "site.commonContracts.description10":
+      "统一标签、描述与错误关联，保留调用方输入草稿。",
+    "site.commonContracts.contract10":
+      "通过render函数传递id、aria-describedby、aria-invalid和required；校验属于调用方。",
+    "site.commonContracts.description11": "使用fieldset和legend组织表单分组。",
+    "site.commonContracts.contract11": "不嵌套创建form，不拥有保存或校验逻辑。",
+    "site.commonContracts.description12":
+      "受控或非受控数值滑块，连续变化与提交回调分离。",
+    "site.commonContracts.contract12":
+      "复用Base UI键盘与触摸行为；无效边界和数值有确定回退，不创建业务持久化。",
+    "site.commonContracts.description13":
+      "本地图片选择、拖放、预览、替换与失败恢复。",
+    "site.commonContracts.contract13":
+      "替换失败保留旧File；迟到读取丢弃，卸载取消读取；上传及远程结果由调用方负责。",
+    "site.commonContracts.description14":
+      "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+    "site.commonContracts.contract14":
+      "筛选值由调用方持有；切换布局只挂载一组筛选控件，避免重复ID。",
+    "site.commonContracts.description15":
+      "使用名称、值、单位和说明展示调用方计算的指标。",
+    "site.commonContracts.contract15":
+      "使用dl语义和稳定ID，不从业务记录推导指标，不增加只读hover。",
+    "site.commonContracts.description16":
+      "只读评分与半星显示，提供完整文本替代。",
+    "site.commonContracts.contract16":
+      "max为1–10，value限制范围并四舍五入到半星；缺失值保持未知。",
+    "site.commonComponents.name": "名称",
+    "site.commonComponents.owner": "负责人",
+    "site.commonComponents.workspace": "工作区",
+    "site.commonComponents.tasks": "任务",
+    "site.commonComponents.health": "健康度",
+    "site.commonComponents.trend": "趋势",
+    "site.commonComponents.rating": "评分",
+    "site.commonComponents.updated": "更新时间",
+    "site.commonComponents.actions": "操作",
+    "site.commonComponents.records": "工作节点目录",
+    "site.commonComponents.scope": "范围",
+    "site.commonComponents.all": "全部",
+    "site.commonComponents.available": "可选节点",
+    "site.commonComponents.selected": "已选 {count} 行",
+    "site.commonComponents.active": "当前查看：{name}",
+    "site.commonComponents.none": "未选择",
+    "site.commonComponents.refreshError": "模拟刷新失败",
+    "site.commonComponents.empty": "切换无结果",
+    "site.commonComponents.filter": "筛选名称",
+    "site.commonComponents.readFailure": "目录刷新失败",
+    "site.commonComponents.readReason": "网络不可达，请重试安全读取。",
+    "site.commonComponents.restore": "恢复读取",
+    "site.commonComponents.check": "启用通知",
+    "site.commonComponents.mixed": "部分选择",
+    "site.commonComponents.disabled": "不可用",
+    "site.commonComponents.avatar": "图片与失败回退",
+    "site.commonComponents.meter": "节点健康度",
+    "site.commonComponents.sparkline": "最近任务量",
+    "site.commonComponents.sheet": "打开详情抽屉",
+    "site.commonComponents.details": "节点详情",
+    "site.commonComponents.description": "本地受控示例，不执行远程操作。",
+    "site.commonComponents.draft": "草稿名称",
+    "site.commonComponents.save": "保留草稿并关闭",
+    "site.commonComponents.menu": "显示设置",
+    "site.commonComponents.showTrend": "显示趋势",
+    "site.commonComponents.density": "密度",
+    "site.commonComponents.compact": "紧凑",
+    "site.commonComponents.comfortable": "舒适",
+    "site.commonComponents.commands": "工作区命令",
+    "site.commonComponents.openCommands": "打开命令搜索",
+    "site.commonComponents.navigate": "导航",
+    "site.commonComponents.openWorkers": "打开节点目录",
+    "site.commonComponents.openActivity": "打开活动记录",
+    "site.commonComponents.form": "节点设置",
+    "site.commonComponents.budget": "任务额度",
+    "site.commonComponents.required": "请输入名称，草稿会保留。",
+    "site.commonComponents.validate": "检查输入",
+    "site.commonComponents.slider": "并发限制",
+    "site.commonComponents.committed": "已确认数值：{value}",
+    "site.commonComponents.image": "工作区图片",
+    "site.commonComponents.shortcut": "打开搜索",
+    "site.commonComponents.toolbar": "节点筛选工具栏",
+    "site.commonComponents.metrics": "目录汇总",
+    "site.commonComponents.count": "节点数",
+    "site.commonComponents.units": "项",
+    "site.commonComponents.runs": "完成任务",
+    "site.commonComponents.sidebar": "受控侧栏",
+    "site.commonComponents.width": "侧栏宽度：{value}px",
+    "site.optimization.deferOffscreenContract":
+      "可选延迟屏外布局；保留全部 DOM 文本与浏览器查找，不卸载记录。",
+    "site.optimization.actions": "示例动作",
+    "site.optimization.increment": "增加计数",
+    "site.optimization.unavailable": "暂不可用",
+    "site.optimization.details": "示例详情",
+    "site.optimization.localExample": "仅展示本地交互，不发起服务操作。",
+    "site.optimization.chooseWorkspace": "选择工作区",
+    "site.optimization.findWorkspace": "查找工作区",
+    "site.optimization.displayMode": "显示方式",
+    "site.optimization.listView": "列表",
+    "site.optimization.gridView": "网格",
+    "site.optimization.summaryTab": "概述",
+    "site.optimization.evidenceTab": "验证",
+    "site.optimization.evidenceExample":
+      "此示例只验证切换行为，不代表业务执行结果。",
+    "site.optimization.primitiveValues":
+      "受控或非受控值及变更回调；组件不拥有业务存储。",
+    "site.optimization.primitiveNote":
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。",
+    "site.optimization.menuDescription":
+      "动作菜单，沿用方向键、禁用与 Escape 焦点恢复。",
+    "site.optimization.popoverDescription":
+      "带主题继承的辅助信息浮层，不伪造业务反馈。",
+    "site.optimization.selectDescription":
+      "有限选项单选，支持受控值与键盘选择。",
+    "site.optimization.comboboxDescription":
+      "可输入筛选的选值控件，保留空结果和键盘导航。",
+    "site.optimization.segmentedDescription":
+      "互斥选值分段控件，使用 radio 语义与方向键。",
+    "site.optimization.tabsDescription":
+      "内容面板切换，选中与焦点分开并支持方向键。",
+    "site.optimization.themeDescription":
+      "兼容宿主或隔离主题的作用域，Portal 继承对应实例的变量。",
+    "site.optimization.themeModeContract":
+      "host 映射宿主语义变量；scoped 使用私有 eu token，不修改宿主根变量。",
+    "site.optimization.legacyAliasContract":
+      "仅在旧组件迁移时开启边界内的通用变量别名；新安装使用命名空间样式。",
+    "site.optimization.themeInstallNote":
+      "默认安装保持 legacy；host 和 scoped Registry 路径需要显式选择并包裹 ThemeBoundary。",
+    "site.optimization.themeSourceNote":
+      "主题核心只在 theme.css 维护；分发作用域样式由构建脚本生成。",
+    "site.optimization.openThemeDialog": "打开主题弹窗",
+    "site.optimization.themeScope": "主题作用域",
+    "site.optimization.portalScopeNote": "弹窗继承触发它的主题作用域。",
+    "site.optimization.exampleAction": "示例操作",
+    "site.optimization.layoutContract":
+      "布局支持受控与非受控；桌面停靠和窄屏浮层独立，存储由调用方管理。",
+    "site.optimization.overlayContract":
+      "窄屏浮层状态独立；响应式测量不回写业务偏好。",
+    "site.optimization.revisionContract":
+      "可选变更提示；追加、历史修订、删除、重排与状态变化均需推进，省略时保留兼容检测。",
+    "site.optimization.controlledLayoutDemo": "受控布局示例",
+    "site.optimization.workspaceExample": "示例工作区",
+    "site.optimization.resetLayout": "重置布局",
+    "site.optimization.layoutAdapterNote":
+      "布局偏好由示例适配层按工作区保存；组件本体不读写存储。",
+    "site.optimization.navigationExample": "工作区导航",
+    "site.optimization.inspectorExample": "当前对象详情",
+    "site.optimization.bottomExample": "底部工作区内容",
+    "site.optimization.layoutDraft": "布局示例输入",
+    "site.optimization.catalogIntro":
+      "按名称、用途或分类找到组件。轻量预览随页面展示，交互演示仅在主动打开时加载。",
     "site.optimization.searchComponents": "搜索组件",
     "site.optimization.category": "分类",
     "site.optimization.category.all": "全部",
@@ -17,7 +212,8 @@ export const siteMessages = {
     "site.optimization.preview": "预览",
     "site.optimization.closePreview": "收起预览",
     "site.optimization.blog": "优化日志",
-    "site.optimization.blogIntro": "了解每项优化的问题、方案、前后证据与适用范围。测量与实施状态分别记录。",
+    "site.optimization.blogIntro":
+      "了解每项优化的问题、方案、前后证据与适用范围。测量与实施状态分别记录。",
     "site.optimization.searchPosts": "搜索优化方案",
     "site.optimization.status": "实施状态",
     "site.optimization.status.all": "全部状态",
@@ -37,14 +233,17 @@ export const siteMessages = {
     "site.optimization.published": "发布于",
     "site.optimization.author": "作者",
     "site.optimization.scope": "适用版本 / 源码快照",
-    "site.optimization.originalBody": "正文暂未提供英文译文，以下保留中文原文。",
+    "site.optimization.originalBody":
+      "正文暂未提供英文译文，以下保留中文原文。",
     "site.optimization.contents": "文章目录",
     "site.optimization.currentDemo": "打开当前演示",
-    "site.optimization.currentDemoNote": "此链接打开当前实现，不代表文章中的历史版本。",
+    "site.optimization.currentDemoNote":
+      "此链接打开当前实现，不代表文章中的历史版本。",
     "site.optimization.related": "相关组件与文章",
     "site.optimization.before": "优化前",
     "site.optimization.after": "优化后",
     "site.optimization.pendingEvidence": "待补充证据",
+    "site.optimization.imageUnavailable": "截图暂不可用，请查看下方原始报告。",
     "site.optimization.metric": "指标",
     "site.optimization.target": "目标",
     "site.optimization.change": "变化",
@@ -62,7 +261,8 @@ export const siteMessages = {
     "site.optimization.method": "方法",
     "site.optimization.environment": "环境",
     "site.optimization.sourceSnapshot": "源码快照",
-    "site.optimization.releasePending": "本地验证版本；公开发布待域名与许可证确认。",
+    "site.optimization.releasePending":
+      "本地验证版本；公开发布待域名与许可证确认。",
     "site.canvasExecutionVisualsDescription":
       "校验、当前版本快照、流光/粒子/关闭、视觉暂停与速度、显式定位。",
     "site.playbackControls": "本地演示播放控制",
@@ -1978,7 +2178,7 @@ export const siteMessages = {
     "site.theNarrowWorkspaceEmbedsContentSwitching":
       "工作台窄屏有内容切换模式。",
     "site.notGlobalNavigationNoGenericComponentIsAvailableYet":
-      "不代替全局导航；暂无通用组件。",
+      "不代替跨页面导航；导航应使用链接。",
     "site.changeOneValueAmongAFewMutuallyExclusiveOptions":
       "在有限互斥选项中修改一个值。",
     "site.chooseAModeOrSettingValue": "模式或设置值选择。",
@@ -2201,7 +2401,212 @@ export const siteMessages = {
       "构图、配置、校验与 JSON 导入导出的本地画布工作台。",
   },
   en: {
-    "site.optimization.catalogIntro": "Find components by name, purpose or category. Lightweight previews load with the page; interactive demos load when requested.",
+    "site.commonComponents.budgetError":
+      "Enter a valid number. Your original input is preserved.",
+    "site.commonComponents.dataState": "Read state",
+    "site.commonComponents.success": "Loaded",
+    "site.commonComponents.loading": "Initial loading",
+    "site.commonComponents.partial": "Partial data",
+    "site.commonComponents.error": "Read error",
+    "site.optimization.measurementsContract":
+      "Reports temporary engine sizes; never write them into the graph or undo history.",
+    "site.optimization.fixedNodeIdsContract":
+      "Automatic layout preserves these node positions; this adds no business authority or manual editing lock.",
+
+    "site.commonContracts.description0":
+      "Form-associated three-state checkbox with distinct selection and focus.",
+    "site.commonContracts.contract0":
+      "Indeterminate expresses partial selection, not a third business value.",
+    "site.commonContracts.description1":
+      "Native table structure preserving headers, cells, caption and scrolling semantics.",
+    "site.commonContracts.contract1":
+      "TableContainer owns horizontal scrolling; Table owns neither requests nor selection.",
+    "site.commonContracts.description2":
+      "Controlled generic table separating selection, activation and sorting requests.",
+    "site.commonContracts.contract2":
+      "Select-all changes visible selectable rows and preserves hidden selections; callers provide sorted rows and summaries.",
+    "site.commonContracts.description3":
+      "Avatar images, initials and image-error fallback.",
+    "site.commonContracts.contract3":
+      "Name provides the accessible label; failed images fall back to initials and a new src can retry.",
+    "site.commonContracts.description4":
+      "Segmented quantity display with meter semantics and explicit unknown values.",
+    "site.commonContracts.contract4":
+      "Finite values are clamped to the declared range with 1–50 segments; unknown is not zero or task progress.",
+    "site.commonContracts.description5":
+      "Miniature bar trends with text alternatives for empty, missing and equal values.",
+    "site.commonContracts.contract5":
+      "Displays the latest 120 points; missing values omit bars, zero has a baseline and negatives extend below it.",
+    "site.commonContracts.description6":
+      "Actions, checkbox and radio menus built on Menu with keyboard navigation.",
+    "site.commonContracts.contract6":
+      "Reuses the existing menu foundation; menu options do not replace form Select controls.",
+    "site.commonContracts.description7":
+      "Left, right and bottom sheets with fixed header/footer, scrolling body and nested focus management.",
+    "site.commonContracts.contract7":
+      "Uses Dialog semantics; portals inherit ThemeBoundary and accept an explicit final focus target.",
+    "site.commonContracts.description8":
+      "Command search with caller-owned results, keyboard selection and IME support.",
+    "site.commonContracts.contract8":
+      "No global shortcut by default; optional scope ignores editors, Canvas and handled events. Selection executes no built-in service.",
+    "site.commonContracts.description9":
+      "Semantic shortcut display without keyboard registration.",
+    "site.commonContracts.contract9":
+      "Callers supply a readable label for modifier symbols.",
+    "site.commonContracts.description10":
+      "Consistent labels, descriptions and errors while preserving caller drafts.",
+    "site.commonContracts.contract10":
+      "The render function passes id, aria-describedby, aria-invalid and required; validation belongs to callers.",
+    "site.commonContracts.description11":
+      "Form sections using fieldset and legend.",
+    "site.commonContracts.contract11":
+      "Does not create a nested form or own saving and validation.",
+    "site.commonContracts.description12":
+      "Controlled or uncontrolled numeric slider with separate change and commit callbacks.",
+    "site.commonContracts.contract12":
+      "Reuses Base UI keyboard and touch behavior with deterministic invalid-value fallback and no business persistence.",
+    "site.commonContracts.description13":
+      "Local image selection, drop, preview, replacement and failure recovery.",
+    "site.commonContracts.contract13":
+      "Failed replacement keeps the old File; late reads are discarded and unmount cancels reads. Callers own uploads and remote outcomes.",
+    "site.commonContracts.description14":
+      "Filter, sort and count slots with a Sheet for narrow-screen filters.",
+    "site.commonContracts.contract14":
+      "Callers own filter values; layout changes mount one set of filter controls to avoid duplicate IDs.",
+    "site.commonContracts.description15":
+      "Displays caller-computed metrics with labels, values, units and descriptions.",
+    "site.commonContracts.contract15":
+      "Uses dl semantics and stable IDs without deriving business metrics or adding read-only hover.",
+    "site.commonContracts.description16":
+      "Read-only ratings and half stars with complete text alternatives.",
+    "site.commonContracts.contract16":
+      "Max is 1–10; values are clamped and rounded to half stars. Missing values remain unknown.",
+    "site.commonComponents.name": "Name",
+    "site.commonComponents.owner": "Owner",
+    "site.commonComponents.workspace": "Workspace",
+    "site.commonComponents.tasks": "Tasks",
+    "site.commonComponents.health": "Health",
+    "site.commonComponents.trend": "Trend",
+    "site.commonComponents.rating": "Rating",
+    "site.commonComponents.updated": "Updated",
+    "site.commonComponents.actions": "Actions",
+    "site.commonComponents.records": "Worker directory",
+    "site.commonComponents.scope": "Scope",
+    "site.commonComponents.all": "All",
+    "site.commonComponents.available": "Selectable workers",
+    "site.commonComponents.selected": "{count} rows selected",
+    "site.commonComponents.active": "Viewing: {name}",
+    "site.commonComponents.none": "None",
+    "site.commonComponents.refreshError": "Simulate refresh failure",
+    "site.commonComponents.empty": "Toggle empty results",
+    "site.commonComponents.filter": "Filter names",
+    "site.commonComponents.readFailure": "Directory refresh failed",
+    "site.commonComponents.readReason":
+      "The network is unavailable. Retry the safe read.",
+    "site.commonComponents.restore": "Restore read",
+    "site.commonComponents.check": "Enable notifications",
+    "site.commonComponents.mixed": "Mixed selection",
+    "site.commonComponents.disabled": "Unavailable",
+    "site.commonComponents.avatar": "Images and failure fallback",
+    "site.commonComponents.meter": "Worker health",
+    "site.commonComponents.sparkline": "Recent task counts",
+    "site.commonComponents.sheet": "Open detail sheet",
+    "site.commonComponents.details": "Worker details",
+    "site.commonComponents.description":
+      "Local controlled example. No remote operations are performed.",
+    "site.commonComponents.draft": "Draft name",
+    "site.commonComponents.save": "Keep draft and close",
+    "site.commonComponents.menu": "Display settings",
+    "site.commonComponents.showTrend": "Show trend",
+    "site.commonComponents.density": "Density",
+    "site.commonComponents.compact": "Compact",
+    "site.commonComponents.comfortable": "Comfortable",
+    "site.commonComponents.commands": "Workspace commands",
+    "site.commonComponents.openCommands": "Open command search",
+    "site.commonComponents.navigate": "Navigation",
+    "site.commonComponents.openWorkers": "Open worker directory",
+    "site.commonComponents.openActivity": "Open activity log",
+    "site.commonComponents.form": "Worker settings",
+    "site.commonComponents.budget": "Task budget",
+    "site.commonComponents.required":
+      "Enter a name. Your draft will be preserved.",
+    "site.commonComponents.validate": "Validate input",
+    "site.commonComponents.slider": "Concurrency limit",
+    "site.commonComponents.committed": "Committed value: {value}",
+    "site.commonComponents.image": "Workspace image",
+    "site.commonComponents.shortcut": "Open search",
+    "site.commonComponents.toolbar": "Worker filters",
+    "site.commonComponents.metrics": "Directory summary",
+    "site.commonComponents.count": "Workers",
+    "site.commonComponents.units": "items",
+    "site.commonComponents.runs": "Completed tasks",
+    "site.commonComponents.sidebar": "Controlled sidebar",
+    "site.commonComponents.width": "Sidebar width: {value}px",
+    "site.optimization.deferOffscreenContract":
+      "Optional offscreen layout deferral retains all DOM text and browser find without unmounting records.",
+    "site.optimization.actions": "Example actions",
+    "site.optimization.increment": "Increment count",
+    "site.optimization.unavailable": "Unavailable",
+    "site.optimization.details": "Example details",
+    "site.optimization.localExample":
+      "Local interaction only; no service operation is issued.",
+    "site.optimization.chooseWorkspace": "Choose workspace",
+    "site.optimization.findWorkspace": "Find workspace",
+    "site.optimization.displayMode": "Display mode",
+    "site.optimization.listView": "List",
+    "site.optimization.gridView": "Grid",
+    "site.optimization.summaryTab": "Summary",
+    "site.optimization.evidenceTab": "Evidence",
+    "site.optimization.evidenceExample":
+      "This example verifies switching behavior, with no business execution result.",
+    "site.optimization.primitiveValues":
+      "Controlled or uncontrolled values and change callbacks; callers own persistence.",
+    "site.optimization.primitiveNote":
+      "Navigation, selection and actions retain distinct semantics, with keyboard, touch, Escape and focus recovery.",
+    "site.optimization.menuDescription":
+      "Action menu with arrow keys, disabled items and Escape focus recovery.",
+    "site.optimization.popoverDescription":
+      "Themed supplementary popover with caller-owned business feedback.",
+    "site.optimization.selectDescription":
+      "Finite single selection with controlled values and keyboard selection.",
+    "site.optimization.comboboxDescription":
+      "Searchable selection with empty results and keyboard navigation.",
+    "site.optimization.segmentedDescription":
+      "Exclusive segmented selection with radio semantics and arrow keys.",
+    "site.optimization.tabsDescription":
+      "Content tabs with separate selection and focus plus arrow keys.",
+    "site.optimization.themeDescription":
+      "A boundary for host-compatible or isolated themes; portals inherit their instance variables.",
+    "site.optimization.themeModeContract":
+      "Host mode maps existing host semantic variables. Scoped mode uses private eu tokens without changing host root variables.",
+    "site.optimization.legacyAliasContract":
+      "Enable generic aliases inside the boundary only while migrating legacy components. New installations use namespaced styles.",
+    "site.optimization.themeInstallNote":
+      "Default installation remains legacy. Select host or scoped Registry paths explicitly and wrap components in ThemeBoundary.",
+    "site.optimization.themeSourceNote":
+      "Core theme values remain in theme.css. Build scripts generate the scoped distribution styles.",
+    "site.optimization.openThemeDialog": "Open theme dialog",
+    "site.optimization.themeScope": "Theme scope",
+    "site.optimization.portalScopeNote":
+      "This dialog inherits the theme scope of its trigger.",
+    "site.optimization.exampleAction": "Example action",
+    "site.optimization.layoutContract":
+      "Layout supports controlled and uncontrolled modes. Docked and overlay states are independent; callers own storage.",
+    "site.optimization.overlayContract":
+      "Narrow-screen overlay state is independent. Responsive measurements do not write application preferences.",
+    "site.optimization.revisionContract":
+      "Optional change hint: advance it on append, history edits, deletion, reordering and state changes. Omit it to retain compatible change detection.",
+    "site.optimization.controlledLayoutDemo": "Controlled layout example",
+    "site.optimization.workspaceExample": "Example workspace",
+    "site.optimization.resetLayout": "Reset layout",
+    "site.optimization.layoutAdapterNote":
+      "The example adapter stores layout per workspace; the component does not access storage.",
+    "site.optimization.navigationExample": "Workspace navigation",
+    "site.optimization.inspectorExample": "Selected object details",
+    "site.optimization.bottomExample": "Bottom workspace content",
+    "site.optimization.layoutDraft": "Layout example input",
+    "site.optimization.catalogIntro":
+      "Find components by name, purpose or category. Lightweight previews load with the page; interactive demos load when requested.",
     "site.optimization.searchComponents": "Search components",
     "site.optimization.category": "Category",
     "site.optimization.category.all": "All",
@@ -2213,11 +2618,13 @@ export const siteMessages = {
     "site.optimization.loadDemo": "Load demo",
     "site.optimization.loadingDemo": "Loading demo",
     "site.optimization.closeDemo": "Close demo",
-    "site.optimization.demoError": "The demo could not load. The article and inputs are preserved; try again.",
+    "site.optimization.demoError":
+      "The demo could not load. The article and inputs are preserved; try again.",
     "site.optimization.preview": "Preview",
     "site.optimization.closePreview": "Close preview",
     "site.optimization.blog": "Engineering blog",
-    "site.optimization.blogIntro": "Explore the problem, approach, before and after evidence, and scope of each improvement. Measurement and implementation status are recorded separately.",
+    "site.optimization.blogIntro":
+      "Explore the problem, approach, before and after evidence, and scope of each improvement. Measurement and implementation status are recorded separately.",
     "site.optimization.searchPosts": "Search improvements",
     "site.optimization.status": "Implementation status",
     "site.optimization.status.all": "All statuses",
@@ -2237,20 +2644,25 @@ export const siteMessages = {
     "site.optimization.published": "Published",
     "site.optimization.author": "Author",
     "site.optimization.scope": "Version / source snapshot",
-    "site.optimization.originalBody": "The article has no English translation yet. The original Chinese text is shown below.",
+    "site.optimization.originalBody":
+      "The article has no English translation yet. The original Chinese text is shown below.",
     "site.optimization.contents": "On this page",
     "site.optimization.currentDemo": "Open current demo",
-    "site.optimization.currentDemoNote": "This link opens the current implementation, rather than the historical version in this article.",
+    "site.optimization.currentDemoNote":
+      "This link opens the current implementation, rather than the historical version in this article.",
     "site.optimization.related": "Related components and articles",
     "site.optimization.before": "Before",
     "site.optimization.after": "After",
     "site.optimization.pendingEvidence": "Evidence pending",
+    "site.optimization.imageUnavailable":
+      "Screenshot unavailable. See the original reports below.",
     "site.optimization.metric": "Metric",
     "site.optimization.target": "Target",
     "site.optimization.change": "Change",
     "site.optimization.measured": "Measured",
     "site.optimization.notMeasured": "Not measured",
-    "site.optimization.incompatible": "Incompatible measurement context; no change calculated",
+    "site.optimization.incompatible":
+      "Incompatible measurement context; no change calculated",
     "site.optimization.improved": "Improved",
     "site.optimization.regressed": "Regressed",
     "site.optimization.unchanged": "Unchanged",
@@ -2262,7 +2674,8 @@ export const siteMessages = {
     "site.optimization.method": "Method",
     "site.optimization.environment": "Environment",
     "site.optimization.sourceSnapshot": "Source snapshot",
-    "site.optimization.releasePending": "Locally validated source; public release awaits domain and license decisions.",
+    "site.optimization.releasePending":
+      "Locally validated source; public release awaits domain and license decisions.",
     "site.canvasExecutionVisualsDescription":
       "Validation, current-revision snapshots, flow/particles/off, visual pause and speed, and explicit navigation.",
     "site.playbackControls": "Local demo playback controls",

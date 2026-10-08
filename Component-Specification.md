@@ -43,7 +43,7 @@ Design Rules 规定方向，本文规定组件契约，`styles/theme.css` 是运
 | border-hover   | rgba(0,0,0,.18) | rgba(255,255,255,.14) | 交互边界                           |
 | foreground     | #18181B         | rgba(255,255,255,.92) | 标题与正文                         |
 | text-secondary | #52525B         | rgba(255,255,255,.62) | 次级内容                           |
-| text-muted     | #71717A         | rgba(255,255,255,.40) | 时间、辅助值；不可用于唯一关键状态 |
+| text-muted     | #686872         | rgba(255,255,255,.48) | 时间、辅助值；不可用于唯一关键状态 |
 | primary / ring | #4F46E5         | #A5B4FC               | 主操作、选中、焦点                 |
 | info           | #1D4ED8         | #93C5FD               | 启动 / 执行 / 信息                 |
 | success        | #15803D         | #86EFAC               | 完成                               |
@@ -392,3 +392,26 @@ CanvasProjectWorkspace 对每张子图保持独立选择/视口/历史；显式�
 CanvasConfigEditor 默认32px字段，字段组gap8/padding8/border1，使用既有 theme。condition/schema/key-value 结构化值需校验，超出简化构建器的内容保留原JSON；expression/code 不执行。Frame折叠不改变图，定位成员会展开，批量对齐作为一次命令。
 
 服务保存按CAS和匹配回执确认；unknown和conflict保留草稿并阻止重复写。600ms autosave只提交dirty，不对失败或unknown循环重试。版本恢复明确确认，受控权限、讨论、临时presence、环境和发布由CanvasServicePanel展示。onUncertain必须在调用方保留未知状态。当前真实服务接入经用户选择留待后续，不能将本地fixture标为已集成。
+
+## 追加契约：受控布局、流式修订与基础交互
+
+Canvas 性能与整理补充：索引按实际 nodes/frames/edges/definitions/issues 输入失效，不仅依赖 revision；选择集合独立，不重建端口。节点运行展示复用未变化的 payload；图文档、执行版本与撤销历史继续分离。编辑快捷键仅作用于 `[data-canvas-editor-context]`，普通文本选择、输入、Inspector、日志和浮层保留原快捷键。
+
+`WorkflowCanvas.onMeasurementsChange` 输出临时引擎尺寸，不能写入图文档或撤销历史。`CanvasWorkspace.fixedNodeIds` 是调用方的自动布局约束，不增加业务权限或节点锁定字段。“更多工具”提供当前作用域 DAG 整理、JSON 和帮助；整理使用实际尺寸，缺失尺寸按端口数量估算，保留固定节点和分组边界。计算可取消，结果绑定完整源对象、定义与固定节点输入；旧结果不应用。预览不提交，应用只发出一次 `move` 坐标命令；循环、子流程、无效图和分组空间不足保留原图并说明原因。布局不承诺连线无交叉。既有 500 节点/1000 连线导入与命令限制继续有效；1000 节点压力样例仅探测显示容量。
+
+WorkspaceShell 同时支持 `value/defaultValue/onChange` 配对（具体属性为 `sidebarCollapsed/defaultSidebarCollapsed/onSidebarCollapsedChange`、`inspectorOpen`、`inspectorWidth`、`bottomPanelOpen`、`bottomPanelHeight` 及各自 default/onChange）。受控模式由调用方回传；Inspector 宽度限定 280–360px，底部高度 200–400px。`inspectorOverlayOpen` 是独立的窄屏浮层状态；响应式测量不回写桌面偏好。原 `bottomPanelCollapsed` 接口继续兼容。组件不读取 localStorage；`/workspace/layout/` 展示按 workspace ID 保存、校验和重置偏好的适配器。
+
+Conversation 与 ActivityTimeline 可选 `revision: string | number`。调用方须在追加、历史修订、删除、重排和状态变化时推进；省略时继续检测完整相关字段。输入使用不可变记录；去重保留首次位置和最后 payload。未变化的消息/事件行跳过重复渲染，64px 跟随阈值与补历史锚点继续生效。未默认启用窗口化，浏览器全文查找和复制仍覆盖全部记录。`deferOffscreen` 默认 false，开启后使用浏览器 content-visibility 延迟屏外布局，记录仍保留在 DOM；不支持该 CSS 的浏览器回退完整布局。
+
+Menu 表达动作，Select/Combobox 表达选值，Tabs 表达关联内容面板，Segmented 使用单选 radio 语义。Popover 是补充信息层。基础组件沿用 Base UI 1.8 的受控/非受控接口和焦点行为；正常目标高 32px，粗指针至少 44px；焦点环与选中样式独立，浮层使用 `--shadow-floating`。Tabs 默认方向键只移动焦点，Enter/Space 激活；Select/Combobox 提供键盘选择和 Escape；Menu 禁用动作不可执行。业务结果仅由真实回调提供。
+
+ThemeBoundary 新安装使用 `/r/host/` 或 `/r/scoped/` 的命名空间源码；不要把 canonical legacy 组件与私有变量模式混用。`legacyAliases` 仅用于渐进迁移，并只在 boundary 内声明别名。Portal 必须进入对应 boundary；原 `/r/<item>.json` 保持原行为。主题核心仍由 `styles/theme.css` 生成，不能另维护色表。
+
+
+## 通用表格、浮层与表单契约增量
+
+通用组件补齐遵循 [计划及固定接口](plans/common-components-completion-plan.md)。Checkbox 可视图标16、实际目标32/粗指针44；Table 默认行40，保留 caption、th scope 和横向滚动。选择、当前查看与焦点独立，全选仅改变当前可选行，隐藏选择保留。排序只请求变更，数据和汇总由调用方提供。
+
+Sheet 左/右/底部可配，首尾固定、正文滚动，复用 Dialog 焦点/关闭及 ThemeBoundary；嵌套浮层只由最上层消费 Escape。Field 关联 label/id、description/error IDs，失败保留草稿。CommandPalette 使用 combobox/listbox、方向键与 Home/End/Enter、IME防误选，默认无全局键盘监听。ImageUpload 验证类型/大小、读取与解码后交付本地 File，替换失败保留旧值，卸载或新请求取消旧读取。
+
+只读图元不增加交互hover。SegmentBar有限值限制在范围，未知显示未知；Sparkline最近120点且提供文本替代；RatingDisplay限制1–10星、半星四舍五入。Slider区分连续变化与提交。WorkspaceShell 侧栏默认256、折叠48，局部宽度与边界受控可配，resize默认关闭；按实例持久化属于适配层。

@@ -1,0 +1,533 @@
+[
+  {
+    "slug": "checkbox",
+    "name": "Checkbox",
+    "description": "原生表单关联的三态复选框，选择与焦点分离。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/checkbox/",
+    "installType": "ui",
+    "registryId": "checkbox"
+  },
+  {
+    "slug": "table",
+    "name": "Table",
+    "description": "原生表格结构，保留表头、单元格、标题和滚动语义。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/table/",
+    "installType": "ui",
+    "registryId": "table"
+  },
+  {
+    "slug": "data-table",
+    "name": "DataTable",
+    "description": "受控通用表格，勾选、查看与排序请求分别建模。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/data-table/",
+    "installType": "block",
+    "registryId": "data-table"
+  },
+  {
+    "slug": "avatar",
+    "name": "Avatar",
+    "description": "头像图片、姓名缩写与读取失败回退。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/avatar/",
+    "installType": "ui",
+    "registryId": "avatar"
+  },
+  {
+    "slug": "segment-bar",
+    "name": "SegmentBar",
+    "description": "分段量值显示，使用meter语义并明确未知值。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/segment-bar/",
+    "installType": "ui",
+    "registryId": "segment-bar"
+  },
+  {
+    "slug": "sparkline",
+    "name": "Sparkline",
+    "description": "带文本替代的微型柱状趋势，覆盖空值、缺失和等值。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/sparkline/",
+    "installType": "ui",
+    "registryId": "sparkline"
+  },
+  {
+    "slug": "dropdown-menu",
+    "name": "DropdownMenu",
+    "description": "复用Menu的动作、复选及单选菜单，支持键盘定位。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/dropdown-menu/",
+    "installType": "ui",
+    "registryId": "dropdown-menu"
+  },
+  {
+    "slug": "sheet",
+    "name": "Sheet",
+    "description": "左右及底部抽屉，固定首尾、正文滚动与嵌套焦点管理。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/sheet/",
+    "installType": "ui",
+    "registryId": "sheet"
+  },
+  {
+    "slug": "command-palette",
+    "name": "CommandPalette",
+    "description": "调用方提供结果的命令搜索，支持键盘选择与IME。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/command-palette/",
+    "installType": "block",
+    "registryId": "command-palette"
+  },
+  {
+    "slug": "kbd",
+    "name": "Kbd",
+    "description": "语义化快捷键呈现，不注册键盘事件。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/kbd/",
+    "installType": "ui",
+    "registryId": "kbd"
+  },
+  {
+    "slug": "field",
+    "name": "Field",
+    "description": "统一标签、描述与错误关联，保留调用方输入草稿。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/field/",
+    "installType": "ui",
+    "registryId": "field"
+  },
+  {
+    "slug": "form-section",
+    "name": "FormSection",
+    "description": "使用fieldset和legend组织表单分组。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/form-section/",
+    "installType": "block",
+    "registryId": "form-section"
+  },
+  {
+    "slug": "slider",
+    "name": "Slider",
+    "description": "受控或非受控数值滑块，连续变化与提交回调分离。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/slider/",
+    "installType": "ui",
+    "registryId": "slider"
+  },
+  {
+    "slug": "image-upload",
+    "name": "ImageUpload",
+    "description": "本地图片选择、拖放、预览、替换与失败恢复。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/image-upload/",
+    "installType": "block",
+    "registryId": "image-upload"
+  },
+  {
+    "slug": "filter-toolbar",
+    "name": "FilterToolbar",
+    "description": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/filter-toolbar/",
+    "installType": "block",
+    "registryId": "filter-toolbar"
+  },
+  {
+    "slug": "metric-summary",
+    "name": "MetricSummary",
+    "description": "使用名称、值、单位和说明展示调用方计算的指标。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/metric-summary/",
+    "installType": "block",
+    "registryId": "metric-summary"
+  },
+  {
+    "slug": "rating-display",
+    "name": "RatingDisplay",
+    "description": "只读评分与半星显示，提供完整文本替代。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/rating-display/",
+    "installType": "ui",
+    "registryId": "rating-display"
+  },
+  {
+    "slug": "menu",
+    "name": "Menu",
+    "description": "动作菜单，沿用方向键、禁用与 Escape 焦点恢复。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/menu/",
+    "installType": "ui",
+    "registryId": "menu"
+  },
+  {
+    "slug": "popover",
+    "name": "Popover",
+    "description": "带主题继承的辅助信息浮层，不伪造业务反馈。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/popover/",
+    "installType": "ui",
+    "registryId": "popover"
+  },
+  {
+    "slug": "select",
+    "name": "Select",
+    "description": "有限选项单选，支持受控值与键盘选择。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/select/",
+    "installType": "ui",
+    "registryId": "select"
+  },
+  {
+    "slug": "combobox",
+    "name": "Combobox",
+    "description": "可输入筛选的选值控件，保留空结果和键盘导航。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/combobox/",
+    "installType": "ui",
+    "registryId": "combobox"
+  },
+  {
+    "slug": "segmented",
+    "name": "Segmented",
+    "description": "互斥选值分段控件，使用 radio 语义与方向键。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/segmented/",
+    "installType": "ui",
+    "registryId": "segmented"
+  },
+  {
+    "slug": "tabs",
+    "name": "Tabs",
+    "description": "内容面板切换，选中与焦点分开并支持方向键。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/tabs/",
+    "installType": "ui",
+    "registryId": "tabs"
+  },
+  {
+    "slug": "theme-boundary",
+    "name": "ThemeBoundary",
+    "description": "兼容宿主或隔离主题的作用域，Portal 继承对应实例的变量。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/theme-boundary/",
+    "installType": "ui",
+    "registryId": "theme-boundary"
+  },
+  {
+    "slug": "i18n",
+    "name": "I18nProvider",
+    "description": "提供简体中文与英文、类型化消息、Intl 格式化和结构化界面反馈。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/i18n/",
+    "installType": "lib",
+    "registryId": "i18n"
+  },
+  {
+    "slug": "canvas-service-panel",
+    "name": "CanvasServicePanel",
+    "description": "受控服务面板：版本恢复、讨论、临时 Presence、环境、分享和发布回执。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-service-panel/",
+    "installType": "block",
+    "registryId": "canvas-service-panel"
+  },
+  {
+    "slug": "canvas-project-workspace",
+    "name": "CanvasProjectWorkspace",
+    "description": "显式边界与递归校验的嵌套流程工作台，保留每个子图的选择、视口和本地历史。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-project-workspace/",
+    "installType": "block",
+    "registryId": "canvas-project-workspace"
+  },
+  {
+    "slug": "canvas-config-editor",
+    "name": "CanvasConfigEditor",
+    "description": "条件、对象 Schema、键值表、表达式和代码的受控编辑器。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-config-editor/",
+    "installType": "block",
+    "registryId": "canvas-config-editor"
+  },
+  {
+    "slug": "canvas-execution-panel",
+    "name": "CanvasExecutionPanel",
+    "description": "受控执行调试：运行、停止请求、审批、脱敏输出和未知结果对账。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-execution-panel/",
+    "installType": "block",
+    "registryId": "canvas-execution-panel"
+  },
+  {
+    "slug": "canvas-workspace",
+    "name": "CanvasWorkspace",
+    "description": "可编辑流程工作台：构图、配置、变量、校验、撤销和导入导出。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-workspace/",
+    "installType": "block",
+    "registryId": "canvas-workspace"
+  },
+  {
+    "slug": "node-palette",
+    "name": "NodePalette",
+    "description": "按分类和名称查找节点，支持点击新增与拖放目录。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/node-palette/",
+    "installType": "block",
+    "registryId": "node-palette"
+  },
+  {
+    "slug": "node-inspector",
+    "name": "NodeInspector",
+    "description": "复用 Inspector 的受控节点配置，保留无效草稿并校验后应用。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/node-inspector/",
+    "installType": "block",
+    "registryId": "node-inspector"
+  },
+  {
+    "slug": "variable-picker",
+    "name": "VariablePicker",
+    "description": "复用单选 Tree，选择可达上游的兼容输出并生成结构化引用。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/variable-picker/",
+    "installType": "block",
+    "registryId": "variable-picker"
+  },
+  {
+    "slug": "canvas-frame",
+    "name": "CanvasFrame",
+    "description": "流程图的视觉分组；移动由命令整体更新成员位置。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-frame/",
+    "installType": "block",
+    "registryId": "canvas-frame"
+  },
+  {
+    "slug": "canvas-note",
+    "name": "CanvasNote",
+    "description": "流程说明便笺，独立于执行与讨论线程。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-note/",
+    "installType": "block",
+    "registryId": "canvas-note"
+  },
+  {
+    "slug": "workflow-canvas",
+    "name": "WorkflowCanvas",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/workflow-canvas/",
+    "installType": "block",
+    "registryId": "workflow-canvas"
+  },
+  {
+    "slug": "canvas-node",
+    "name": "CanvasNode",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-node/",
+    "installType": "ui",
+    "registryId": "canvas-node"
+  },
+  {
+    "slug": "canvas-port",
+    "name": "CanvasPort",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-port/",
+    "installType": "ui",
+    "registryId": "canvas-port"
+  },
+  {
+    "slug": "canvas-edge",
+    "name": "CanvasEdge",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "displayCategory": "canvas",
+    "docPath": "/docs/canvas-edge/",
+    "installType": "ui",
+    "registryId": "canvas-edge"
+  },
+  {
+    "slug": "style-workbench",
+    "name": "StyleWorkbench",
+    "description": "A/B 样式实验：实时修改圆角、间距、阴影、颜色和字体，比较参数并复制 CSS。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/style-workbench/",
+    "installType": "block",
+    "registryId": "style-workbench"
+  },
+  {
+    "slug": "badge",
+    "name": "Badge",
+    "description": "只读的信息徽标，支持语义色、小圆角和胶囊外观。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/badge/",
+    "installType": "ui",
+    "registryId": "badge"
+  },
+  {
+    "slug": "tag",
+    "name": "Tag",
+    "description": "胶囊外观的只读分类标签，区分分类与交互值。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/tag/",
+    "installType": "ui",
+    "registryId": "tag"
+  },
+  {
+    "slug": "chip",
+    "name": "Chip",
+    "description": "可选择、移除的受控胶囊，主操作与删除是兄弟目标。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/chip/",
+    "installType": "ui",
+    "registryId": "chip"
+  },
+  {
+    "slug": "button",
+    "name": "Button",
+    "description": "清楚地表达操作，给等待一个确定的反馈。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/button/",
+    "installType": "ui",
+    "registryId": "button"
+  },
+  {
+    "slug": "input",
+    "name": "Input",
+    "description": "从填写到校验，保持简单而清晰。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/input/",
+    "installType": "ui",
+    "registryId": "input"
+  },
+  {
+    "slug": "dialog",
+    "name": "Dialog",
+    "description": "让用户专注于眼前的一件事。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/dialog/",
+    "installType": "ui",
+    "registryId": "dialog"
+  },
+  {
+    "slug": "task-panel",
+    "name": "TaskPanel",
+    "description": "把任务的等待、执行、完成和失败，一眼说清。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/task-panel/",
+    "installType": "block",
+    "registryId": "task-panel"
+  },
+  {
+    "slug": "scroll-playground",
+    "name": "ScrollPlayground",
+    "description": "六种滚动交互，亲手体验：触发、联动、视差、吸顶、吸附与横向展开。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/scroll-playground/",
+    "installType": "block",
+    "registryId": "scroll-playground"
+  },
+  {
+    "slug": "item",
+    "name": "Item",
+    "description": "统一列表行。交互、选中和运行状态分开表达，尾部操作独立。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/item/",
+    "installType": "ui",
+    "registryId": "item"
+  },
+  {
+    "slug": "runtime-status-badge",
+    "name": "RuntimeStatusBadge",
+    "description": "Session、Agent、Activity与Tool Call共用的十种运行状态语言。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/runtime-status-badge/",
+    "installType": "ui",
+    "registryId": "runtime-status-badge"
+  },
+  {
+    "slug": "workspace-shell",
+    "name": "WorkspaceShell",
+    "description": "紧凑Agent工作台骨架：Sidebar、Main、可调整的Inspector与可选底部面板。",
+    "displayCategory": "workspace",
+    "docPath": "/docs/workspace-shell/",
+    "installType": "block",
+    "registryId": "workspace-shell"
+  },
+  {
+    "slug": "data-region",
+    "name": "DataRegion",
+    "description": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/data-region/",
+    "installType": "ui",
+    "registryId": "data-region"
+  },
+  {
+    "slug": "tree",
+    "name": "Tree",
+    "description": "完整树键盘模型、Idea → Session → Run 层级与受控节点移动。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/tree/",
+    "installType": "ui",
+    "registryId": "tree"
+  },
+  {
+    "slug": "session-row",
+    "name": "SessionRow",
+    "description": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/session-row/",
+    "installType": "block",
+    "registryId": "session-row"
+  },
+  {
+    "slug": "agent-row",
+    "name": "AgentRow",
+    "description": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/agent-row/",
+    "installType": "block",
+    "registryId": "agent-row"
+  },
+  {
+    "slug": "activity-timeline",
+    "name": "ActivityTimeline",
+    "description": "Runtime 时间线：平铺事件、详情展开、去重、滚动跟随及新事件提示。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/activity-timeline/",
+    "installType": "block",
+    "registryId": "activity-timeline"
+  },
+  {
+    "slug": "inspector",
+    "name": "Inspector",
+    "description": "当前对象的受控详情，统一 Metadata、缺失字段与复制反馈。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/inspector/",
+    "installType": "block",
+    "registryId": "inspector"
+  },
+  {
+    "slug": "chat-message",
+    "name": "ChatMessage",
+    "description": "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/chat-message/",
+    "installType": "block",
+    "registryId": "chat-message"
+  },
+  {
+    "slug": "tool-call",
+    "name": "ToolCall",
+    "description": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/tool-call/",
+    "installType": "block",
+    "registryId": "tool-call"
+  }
+]

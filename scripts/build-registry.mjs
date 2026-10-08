@@ -1,9 +1,17 @@
 import { readFile, mkdir, writeFile } from "node:fs/promises"
 import { existsSync } from "node:fs"
+import { themeModes } from "./theme-modes.mjs"
+import { execFileSync } from "node:child_process"
 import path from "node:path"
 import { registrySchema, registryItemSchema } from "shadcn/schema"
 
 const root = path.resolve(import.meta.dirname, "..")
+const modes = await themeModes(root)
+execFileSync(
+  process.execPath,
+  [path.join(root, "scripts/check-manifest.mjs"), "--write"],
+  { stdio: "inherit" },
+)
 for (const name of [".env.local", ".env"]) {
   const file = path.join(root, name)
   if (existsSync(file)) process.loadEnvFile(file)
@@ -82,3 +90,34 @@ await writeFile(
   `${JSON.stringify(index, null, 2)}\n`,
 )
 console.log(`EasyuseUI: built ${built.length} registry items at ${site}/r`)
+
+for (const mode of ["host", "scoped"]) {
+  const directory = path.join(output, mode)
+  await mkdir(directory, { recursive: true })
+  for (const result of built) {
+    const portable = {
+      ...result,
+      ...(result.name === "theme"
+        ? {
+            cssVars: { theme: modes.theme },
+            registryDependencies: [`${site}/r/${mode}/theme-boundary.json`],
+          }
+        : {
+            registryDependencies: (result.registryDependencies ?? []).map(
+              (value) => value.replace(`${site}/r/`, `${site}/r/${mode}/`),
+            ),
+          }),
+      files: result.files?.map((file) => ({
+        ...file,
+        content:
+          result.name === "theme-boundary"
+            ? file.content
+            : modes.namespace(file.content ?? ""),
+      })),
+    }
+    await writeFile(
+      path.join(directory, `${result.name}.json`),
+      JSON.stringify(registryItemSchema.parse(portable), null, 2) + "\n",
+    )
+  }
+}

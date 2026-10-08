@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { notFound } from "next/navigation"
 import { CodeBlock } from "@/components/docs/code-block"
+import { DemoLoader } from "@/components/docs/demo-loader"
 import { catalog } from "@/lib/catalog"
 import { registryUrl } from "@/lib/site"
 
@@ -22,7 +23,7 @@ export default async function ComponentPage({ params }: Props) {
   const { slug } = await params
   const entry = catalog.find((item) => item.slug === slug)
   if (!entry) notFound()
-  const { name, category, description, usage, Demo, props, notes } = entry
+  const { name, category, description, usage, props, notes } = entry
   const [source, example, ...related] = await Promise.all(
     [entry.source, entry.example, ...(entry.relatedSources || [])].map((file) =>
       readFile(path.join(process.cwd(), file), "utf8"),
@@ -52,9 +53,17 @@ export default async function ComponentPage({ params }: Props) {
         <div
           className={entry.widePreview ? "w-full min-w-0" : "w-full max-w-md"}
         >
-          <Demo />
+          <DemoLoader key={slug} slug={slug} autoLoad />
         </div>
       </SiteElement>
+      {slug === "workspace-shell" && (
+        <a
+          href="/workspace/layout/"
+          className="mt-4 inline-block text-sm text-primary"
+        >
+          <SiteText messageKey="site.optimization.controlledLayoutDemo" />
+        </a>
+      )}
       <h2 id="installation" className="mt-12 mb-4 text-xl font-semibold">
         <SiteText messageKey="site.installation" />
       </h2>

@@ -93,7 +93,7 @@ test("collapsing panels preserves canvas edits, selection and resized height", a
   await expect(page.locator('[data-canvas-node="agent"]')).toHaveAttribute(
     "data-selected",
   )
-  await page.getByRole("button", { name: "执行调试", exact: true }).click()
+  await page.getByRole("tab", { name: "执行调试", exact: true }).click()
   await expect(
     page.getByRole("region", { name: "执行调试", exact: true }),
   ).toBeVisible()

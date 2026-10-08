@@ -1,4 +1,5 @@
 "use client"
+import { useThemePortalContainer } from "./theme-boundary"
 import { useI18n } from "@/lib/i18n-provider"
 
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
@@ -14,14 +15,15 @@ export function DialogContent({
   ...props
 }: Omit<DialogPrimitive.Popup.Props, "className"> & { className?: string }) {
   const { t } = useI18n()
+  const portalContainer = useThemePortalContainer()
 
   return (
-    <DialogPrimitive.Portal>
-      <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0" />
+    <DialogPrimitive.Portal container={portalContainer}>
+      <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-opacity duration-150 motion-reduce:transition-none data-ending-style:opacity-0 data-starting-style:opacity-0" />
       <DialogPrimitive.Popup
         {...props}
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl border bg-background p-6 shadow-xl outline-none transition-[opacity,scale] duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
+          "fixed top-1/2 left-1/2 z-50 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl border bg-background p-6 shadow-[var(--shadow-floating)] outline-none transition-[opacity,scale] duration-150 motion-reduce:transition-none data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
           className,
         )}
       >

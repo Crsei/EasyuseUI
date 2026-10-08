@@ -27,7 +27,7 @@ test("dictionary searches Chinese aliases, filters availability, and opens real 
   await page.getByLabel("实现情况", { exact: true }).selectOption("available")
   await expect(
     entries.getByRole("button", { name: /查看 Segmented Control/ }),
-  ).toHaveCount(0)
+  ).toBeVisible()
   await entries
     .getByRole("button", { name: "查看 Chip · 可操作胶囊", exact: true })
     .click()
@@ -35,6 +35,7 @@ test("dictionary searches Chinese aliases, filters availability, and opens real 
   await expect(
     detail.getByRole("heading", { name: "Chip", exact: true }),
   ).toBeVisible()
+  await detail.getByRole("button", { name: "加载演示", exact: true }).click()
   await detail.getByRole("button", { name: "仅看活跃", exact: true }).click()
   await expect(
     detail.getByRole("button", { name: "仅看活跃", exact: true }),
@@ -179,7 +180,9 @@ test("dictionary remains usable on touch in dark theme with reduced motion", asy
     colorScheme: "dark",
   })
   const page = await context.newPage()
-  await page.goto("http://127.0.0.1:3011/dictionary/")
+  await page.goto(
+    new URL("/dictionary/", test.info().project.use.baseURL as string).href,
+  )
   await page.getByRole("searchbox", { name: "搜索视觉词典" }).fill("Chip")
   await page
     .getByRole("button", { name: "查看 Chip · 可操作胶囊", exact: true })
@@ -188,6 +191,10 @@ test("dictionary remains usable on touch in dark theme with reduced motion", asy
   await expect(
     detail.getByRole("heading", { name: "Chip", exact: true }),
   ).toBeFocused()
+  await detail.getByRole("button", { name: "加载演示", exact: true }).tap()
+  await expect(
+    detail.getByRole("button", { name: "TypeScript", exact: true }),
+  ).toBeVisible()
   for (const name of ["TypeScript", "移除 TypeScript"]) {
     const target = detail.getByRole("button", { name, exact: true })
     const box = await target.boundingBox()

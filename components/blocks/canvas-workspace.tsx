@@ -52,6 +52,9 @@ import {
 } from "@/components/blocks/node-inspector"
 import { CanvasConnectionForm } from "@/components/blocks/canvas-connection-form"
 import { Inspector } from "@/components/blocks/inspector"
+import { layoutCanvasDAG, type CanvasMeasurements } from "@/lib/canvas-layout"
+import { Menu, MenuTrigger, MenuContent, MenuItem } from "@/components/ui/menu"
+import { Tabs, TabsList, TabsTab, TabsPanel } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DataRegion, type RegionError } from "@/components/ui/data-region"
@@ -106,6 +109,7 @@ export type CanvasWorkspaceProps = {
   viewport?: CanvasDocument["viewport"]
   onViewportChange?: (viewport: NonNullable<CanvasDocument["viewport"]>) => void
   onOpenNode?: (nodeId: string) => void
+  fixedNodeIds?: readonly string[]
 }
 function fingerprint(document: CanvasDocument) {
   return JSON.stringify({ ...document, revision: 0 })
@@ -137,8 +141,89 @@ export function CanvasWorkspace({
   viewport,
   onViewportChange,
   onOpenNode,
+  fixedNodeIds,
 }: CanvasWorkspaceProps) {
   const { t, resolve } = useI18n()
+  const [measurements, setMeasurements] = useState<CanvasMeasurements>({})
+  const layoutController = useRef<AbortController | null>(null)
+  const currentInputs = useRef({ graph, definitions, fixedNodeIds })
+  currentInputs.current = { graph, definitions, fixedNodeIds }
+  const [layoutJob, setLayoutJob] = useState<{
+    source: CanvasDocument
+    definitions: CanvasNodeDefinition[]
+    fixedNodeIds?: readonly string[]
+    state: "pending" | "preview" | "error"
+    positions?: Record<string, { x: number; y: number }>
+    reason?: "cycle" | "subflow" | "invalid" | "groupCapacity"
+  } | null>(null)
+  const activeLayout =
+    layoutJob?.source === graph &&
+    layoutJob.definitions === definitions &&
+    layoutJob.fixedNodeIds === fixedNodeIds
+      ? layoutJob
+      : null
+  const previewGraph = useMemo(
+    () =>
+      activeLayout?.state === "preview"
+        ? {
+            ...graph,
+            nodes: graph.nodes.map((node) => ({
+              ...node,
+              position: activeLayout.positions?.[node.id] ?? node.position,
+            })),
+          }
+        : graph,
+    [graph, activeLayout],
+  )
+  useEffect(
+    () => () => {
+      layoutController.current?.abort()
+    },
+    [graph, definitions, fixedNodeIds],
+  )
+  async function previewLayout() {
+    layoutController.current?.abort()
+    const controller = new AbortController()
+    layoutController.current = controller
+    const inputs = currentInputs.current
+    setLayoutJob({ source: graph, definitions, fixedNodeIds, state: "pending" })
+    try {
+      const result = await layoutCanvasDAG(graph, definitions, {
+        measurements,
+        fixedNodeIds,
+        signal: controller.signal,
+      })
+      const latest = currentInputs.current
+      if (
+        controller.signal.aborted ||
+        latest.graph !== inputs.graph ||
+        latest.definitions !== inputs.definitions ||
+        latest.fixedNodeIds !== inputs.fixedNodeIds
+      )
+        return
+      setLayoutJob({
+        source: graph,
+        definitions,
+        fixedNodeIds,
+        ...(result.ok
+          ? { state: "preview", positions: result.positions }
+          : { state: "error", reason: result.reason }),
+      })
+    } catch {
+      if (!controller.signal.aborted)
+        setLayoutJob({
+          source: graph,
+          definitions,
+          fixedNodeIds,
+          state: "error",
+          reason: "invalid",
+        })
+    }
+  }
+  function cancelLayout() {
+    layoutController.current?.abort()
+    setLayoutJob(null)
+  }
 
   const [collapsed, setCollapsed] = useState<string[]>([])
   const [recent, setRecent] = useState<string[]>([])
@@ -194,9 +279,14 @@ export function CanvasWorkspace({
     () => validateCanvasDocument(graph, definitions),
     [graph, definitions],
   )
+  const graphFingerprint = useMemo(() => fingerprint(graph), [graph])
+  const nodeParents = useMemo(
+    () => new Map(graph.nodes.map((node) => [node.id, node.parentId])),
+    [graph.nodes],
+  )
   const dirty = persistence
     ? persistence.state.status !== "saved"
-    : fingerprint(graph) !== checkpoint
+    : graphFingerprint !== checkpoint
   useEffect(() => {
     onDirtyChange?.(dirty)
   }, [dirty, onDirtyChange])
@@ -461,13 +551,21 @@ export function CanvasWorkspace({
       data-edge-count={graph.edges.length}
       onKeyDown={(event) => {
         if (
+          event.defaultPrevented ||
           event.nativeEvent.isComposing ||
           !(event.target instanceof Element) ||
           event.target.closest(
-            "input, textarea, select, [contenteditable=true], [role=dialog]",
+            "input, textarea, select, [contenteditable], [role=dialog], [role=menu], [role=listbox], [role=tablist]",
           )
         )
           return
+        // Browser text selection and non-canvas regions retain native shortcuts.
+        if (
+          (window.getSelection() && !window.getSelection()!.isCollapsed) ||
+          !event.target.closest("[data-canvas-editor-context]")
+        )
+          return
+        if (activeLayout) return
         const modifier = event.metaKey || event.ctrlKey
         if (modifier && event.key.toLowerCase() === "k") {
           event.preventDefault()
@@ -543,6 +641,7 @@ export function CanvasWorkspace({
           <div className={styles.toolbar}>
             <Button
               size="sm"
+              variant={runtime ? "outline" : "default"}
               disabled={locked}
               onClick={() => setDialog("palette")}
             >
@@ -592,25 +691,38 @@ export function CanvasWorkspace({
             >
               <Search />
             </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
-                setJson(exportCanvasDocument(graph))
-                setFileError("")
-                setDialog("json")
-              }}
-            >
-              JSON
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label={t("canvasWorkspace.keyboardShortcuts")}
-              onClick={() => setDialog("help")}
-            >
-              <Keyboard />
-            </Button>
+            <Menu>
+              <MenuTrigger
+                render={<Button variant="ghost" size="sm" />}
+                aria-label={t("canvasWorkspace.moreTools")}
+              >
+                <MoreHorizontal />
+                {t("canvasWorkspace.moreTools")}
+              </MenuTrigger>
+              <MenuContent>
+                <MenuItem
+                  disabled={locked || !!activeLayout || !graph.nodes.length}
+                  onClick={() => {
+                    void previewLayout()
+                  }}
+                >
+                  {t("canvasWorkspace.arrangeDAG")}
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    setJson(exportCanvasDocument(graph))
+                    setFileError("")
+                    setDialog("json")
+                  }}
+                >
+                  JSON
+                </MenuItem>
+                <MenuItem onClick={() => setDialog("help")}>
+                  <Keyboard />
+                  {t("canvasWorkspace.keyboardShortcuts")}
+                </MenuItem>
+              </MenuContent>
+            </Menu>
             {persistence && (
               <div
                 className={styles.actions}
@@ -779,12 +891,10 @@ export function CanvasWorkspace({
                 <p className={styles.muted}>
                   {t("canvasWorkspace.relatedEdges")}
                   {
-                    graph.edges.filter((edge) =>
-                      graph.nodes.some(
-                        (node) =>
-                          node.parentId === frame.id &&
-                          (node.id === edge.source || node.id === edge.target),
-                      ),
+                    graph.edges.filter(
+                      (edge) =>
+                        nodeParents.get(edge.source) === frame.id ||
+                        nodeParents.get(edge.target) === frame.id,
                     ).length
                   }{" "}
                   {t("canvasWorkspace.originalEndpointsPreserved")}
@@ -811,46 +921,38 @@ export function CanvasWorkspace({
         bottomPanelResizable
         bottomPanelCollapsed={!bottomOpen}
         bottomPanel={
-          <div className={styles.bottom} data-collapsed={!bottomOpen}>
+          <Tabs
+            value={bottomView}
+            onValueChange={(value) => {
+              setBottomView(String(value))
+              setBottomOpen(true)
+            }}
+            className={styles.bottom}
+            data-collapsed={!bottomOpen}
+          >
             <div className={styles.bottomTabs}>
-              <Button
-                size="sm"
-                variant="ghost"
-                aria-pressed={bottomView === "validation"}
-                onClick={() => {
-                  setBottomView("validation")
-                  setBottomOpen(true)
-                }}
+              <TabsList
+                aria-label={t("canvasWorkspace.bottomViews")}
+                className="border-0"
               >
-                {t("canvasWorkspace.documentValidation")}
-                {issues.length > 0 ? ` · ${issues.length}` : ""}
-              </Button>
-              {runtime && (
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  aria-pressed={bottomView === "execution"}
-                  onClick={() => {
-                    setBottomView("execution")
-                    setBottomOpen(true)
-                  }}
-                >
-                  {t("canvasExecutionPanel.executionDebugger")}
-                </Button>
-              )}
-              {services && (
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  aria-pressed={bottomView === "services"}
-                  onClick={() => {
-                    setBottomView("services")
-                    setBottomOpen(true)
-                  }}
-                >
-                  {t("canvasServicePanel.serviceIntegration")}
-                </Button>
-              )}
+                <TabsTab value="validation" onClick={() => setBottomOpen(true)}>
+                  {t("canvasWorkspace.documentValidation")}
+                  {issues.length > 0 ? ` · ${issues.length}` : ""}
+                </TabsTab>
+                {runtime && (
+                  <TabsTab
+                    value="execution"
+                    onClick={() => setBottomOpen(true)}
+                  >
+                    {t("canvasExecutionPanel.executionDebugger")}
+                  </TabsTab>
+                )}
+                {services && (
+                  <TabsTab value="services" onClick={() => setBottomOpen(true)}>
+                    {t("canvasServicePanel.serviceIntegration")}
+                  </TabsTab>
+                )}
+              </TabsList>
               {!bottomOpen && (localFeedback || feedback) && (
                 <span role="status" className={styles.bottomFeedback}>
                   {localFeedback || feedback}
@@ -872,7 +974,8 @@ export function CanvasWorkspace({
                 {bottomOpen ? <ChevronDown /> : <ChevronUp />}
               </Button>
             </div>
-            <div
+            <TabsPanel
+              value={bottomView}
               id={bottomId}
               hidden={!bottomOpen}
               className={styles.bottomBody}
@@ -955,11 +1058,50 @@ export function CanvasWorkspace({
                   )}
                 </>
               )}
-            </div>
-          </div>
+            </TabsPanel>
+          </Tabs>
         }
       >
         <div className={styles.canvasRegion}>
+          {activeLayout && (
+            <div
+              role="status"
+              data-layout-preview={activeLayout.state}
+              className={styles.layoutNotice}
+            >
+              <span>
+                {activeLayout.state === "pending"
+                  ? t("canvasWorkspace.layoutPending")
+                  : activeLayout.state === "preview"
+                    ? t("canvasWorkspace.layoutPreview")
+                    : t(`canvasLayout.${activeLayout.reason ?? "invalid"}`)}
+              </span>
+              {activeLayout.state === "preview" && (
+                <Button
+                  size="sm"
+                  disabled={locked}
+                  onClick={() => {
+                    if (
+                      activeLayout.source === graph &&
+                      activeLayout.positions &&
+                      !locked
+                    )
+                      command({
+                        type: "move",
+                        positions: activeLayout.positions,
+                      })
+                    cancelLayout()
+                  }}
+                >
+                  {t("canvasWorkspace.applyLayout")}
+                </Button>
+              )}
+              <Button variant="outline" size="sm" onClick={cancelLayout}>
+                {t("canvasWorkspace.cancelLayout")}
+              </Button>
+            </div>
+          )}
+
           <DataRegion
             state={
               state === "success" &&
@@ -994,8 +1136,9 @@ export function CanvasWorkspace({
           >
             <div className={styles.canvasSurface}>
               <WorkflowCanvas
-                document={graph}
+                document={previewGraph}
                 definitions={definitions}
+                onMeasurementsChange={setMeasurements}
                 execution={runtime?.state.snapshot}
                 executionVisuals={flowVisuals}
                 collapsedFrameIds={collapsed}
@@ -1005,7 +1148,7 @@ export function CanvasWorkspace({
                 selection={selection}
                 onSelectionChange={onSelectionChange}
                 onCommand={command}
-                readOnly={locked}
+                readOnly={locked || !!activeLayout}
                 issues={issues}
                 focusRequest={locate}
                 onContextMenu={() => setDialog("operations")}

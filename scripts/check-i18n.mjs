@@ -76,7 +76,7 @@ function visit(node, callback) {
   ts.forEachChild(node, (child) => visit(child, callback))
 }
 // Catalog prose is always translated; API identifiers, defaults and code remain source content.
-visit(parse("lib/catalog.ts"), (node) => {
+visit(parse("lib/component-manifest.ts"), (node) => {
   if (!ts.isPropertyAssignment(node)) return
   const name = node.name.getText().replace(/["']/g, "")
   if (!["description", "notes"].includes(name)) return

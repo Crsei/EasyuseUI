@@ -209,3 +209,5 @@ button.main:focus-visible {
     min-height: 44px;
   }
 }
+
+.list[data-defer-offscreen] > li { content-visibility: auto; contain-intrinsic-block-size: auto 56px; }

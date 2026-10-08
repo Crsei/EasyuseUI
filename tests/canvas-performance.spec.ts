@@ -1,7 +1,8 @@
 import { expect, test } from "@playwright/test"
+import budgets from "../config/performance-budgets.json" with { type: "json" }
 import { writeFile } from "node:fs/promises"
 
-test("record warm 50/200-node fixture navigation and inspector update baseline", async ({
+test("@performance record warm 50/200-node fixture navigation and inspector update baseline", async ({
   page,
 }, testInfo) => {
   await page.goto("/workspace/canvas/")
@@ -28,7 +29,10 @@ test("record warm 50/200-node fixture navigation and inspector update baseline",
     await expect(page.locator(".react-flow__edge-path").first()).toBeAttached()
     measurements[`switch${size}Ms`] = Date.now() - start
     const times: number[] = []
-    for (const index of [1, 12, 25, 3, 18, 36, 5, 40, 10, 49]) {
+    for (const index of Array.from(
+      { length: 30 },
+      (_, i) => ((i * 37 + 1) % size) + 1,
+    )) {
       const elapsed = await page.evaluate(async (index) => {
         const button = [
           ...document.querySelectorAll<HTMLButtonElement>("button"),
@@ -66,21 +70,30 @@ test("record warm 50/200-node fixture navigation and inspector update baseline",
     contentType: "application/json",
   })
   await page.screenshot({
-    path: "test-results/canvas-200-nodes.png",
+    path: testInfo.outputPath("canvas-200-nodes.png"),
     fullPage: true,
   })
   // The next test separately measures cold startup and sustained drag FPS.
   console.log(JSON.stringify(measurements))
+  if (process.env.PERF_PROFILE === "ci")
+    expect(measurements.inspector200P95Ms).toBeLessThanOrEqual(
+      budgets.canvas.inspectorP95Ms,
+    )
 })
 
-test("measure cold 200-node readiness and sustained drag frames", async ({
+test("@performance measure cold 200-node readiness and sustained drag frames", async ({
   browser,
 }, testInfo) => {
   const context = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
   })
   const page = await context.newPage()
-  await page.goto("http://127.0.0.1:3011/workspace/canvas/stress/")
+  await page.goto(
+    new URL(
+      "/workspace/canvas/stress/",
+      test.info().project.use.baseURL as string,
+    ).href,
+  )
   await expect(page.locator('[aria-label="流程画布"]')).toHaveAttribute(
     "data-canvas-ready",
     "true",
@@ -95,6 +108,9 @@ test("measure cold 200-node readiness and sustained drag frames", async ({
   const node = page.locator('.react-flow__node[data-id="node-0"]')
   await expect(node).toBeVisible()
   const bounds = (await node.boundingBox())!
+  const revision = await page
+    .locator("[data-canvas-workspace]")
+    .getAttribute("data-revision")
   const x = bounds.x + 80,
     y = bounds.y + 20
   await page.mouse.move(x, y)
@@ -115,6 +131,11 @@ test("measure cold 200-node readiness and sustained drag frames", async ({
   for (let step = 1; step <= 60; step++)
     await page.mouse.move(x + step * 2, y + step / 4)
   await page.mouse.up()
+  await expect(page.locator("[data-canvas-workspace]")).not.toHaveAttribute(
+    "data-revision",
+    revision!,
+  )
+  expect(Math.abs((await node.boundingBox())!.x - bounds.x)).toBeGreaterThan(20)
   const frames = await page.evaluate(() => {
     const record = window as unknown as {
       canvasFrames: number[]
@@ -139,5 +160,13 @@ test("measure cold 200-node readiness and sustained drag frames", async ({
     contentType: "application/json",
   })
   console.log(JSON.stringify(measurement))
+  if (process.env.PERF_PROFILE === "ci") {
+    expect(measurement.cold200OperableMs).toBeLessThanOrEqual(
+      budgets.canvas.cold200OperableMs,
+    )
+    expect(measurement.dragFps).toBeGreaterThanOrEqual(
+      budgets.canvas.minimumDragFps,
+    )
+  }
   await context.close()
 })

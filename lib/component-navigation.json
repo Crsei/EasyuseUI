@@ -1,0 +1,415 @@
+[
+  {
+    "slug": "checkbox",
+    "name": "Checkbox",
+    "category": "基础组件",
+    "docPath": "/docs/checkbox/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "table",
+    "name": "Table",
+    "category": "基础组件",
+    "docPath": "/docs/table/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "data-table",
+    "name": "DataTable",
+    "category": "组合模块",
+    "docPath": "/docs/data-table/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "avatar",
+    "name": "Avatar",
+    "category": "基础组件",
+    "docPath": "/docs/avatar/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "segment-bar",
+    "name": "SegmentBar",
+    "category": "基础组件",
+    "docPath": "/docs/segment-bar/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "sparkline",
+    "name": "Sparkline",
+    "category": "基础组件",
+    "docPath": "/docs/sparkline/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "dropdown-menu",
+    "name": "DropdownMenu",
+    "category": "基础组件",
+    "docPath": "/docs/dropdown-menu/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "sheet",
+    "name": "Sheet",
+    "category": "基础组件",
+    "docPath": "/docs/sheet/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "command-palette",
+    "name": "CommandPalette",
+    "category": "组合模块",
+    "docPath": "/docs/command-palette/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "kbd",
+    "name": "Kbd",
+    "category": "基础组件",
+    "docPath": "/docs/kbd/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "field",
+    "name": "Field",
+    "category": "基础组件",
+    "docPath": "/docs/field/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "form-section",
+    "name": "FormSection",
+    "category": "组合模块",
+    "docPath": "/docs/form-section/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "slider",
+    "name": "Slider",
+    "category": "基础组件",
+    "docPath": "/docs/slider/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "image-upload",
+    "name": "ImageUpload",
+    "category": "组合模块",
+    "docPath": "/docs/image-upload/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "filter-toolbar",
+    "name": "FilterToolbar",
+    "category": "组合模块",
+    "docPath": "/docs/filter-toolbar/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "metric-summary",
+    "name": "MetricSummary",
+    "category": "组合模块",
+    "docPath": "/docs/metric-summary/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "rating-display",
+    "name": "RatingDisplay",
+    "category": "基础组件",
+    "docPath": "/docs/rating-display/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "menu",
+    "name": "Menu",
+    "category": "基础组件",
+    "docPath": "/docs/menu/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "popover",
+    "name": "Popover",
+    "category": "基础组件",
+    "docPath": "/docs/popover/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "select",
+    "name": "Select",
+    "category": "基础组件",
+    "docPath": "/docs/select/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "combobox",
+    "name": "Combobox",
+    "category": "基础组件",
+    "docPath": "/docs/combobox/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "segmented",
+    "name": "Segmented",
+    "category": "基础组件",
+    "docPath": "/docs/segmented/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "tabs",
+    "name": "Tabs",
+    "category": "基础组件",
+    "docPath": "/docs/tabs/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "theme-boundary",
+    "name": "ThemeBoundary",
+    "category": "基础组件",
+    "docPath": "/docs/theme-boundary/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "i18n",
+    "name": "I18nProvider",
+    "category": "基础组件",
+    "docPath": "/docs/i18n/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "canvas-service-panel",
+    "name": "CanvasServicePanel",
+    "category": "组合模块",
+    "docPath": "/docs/canvas-service-panel/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-project-workspace",
+    "name": "CanvasProjectWorkspace",
+    "category": "组合模块",
+    "docPath": "/docs/canvas-project-workspace/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-config-editor",
+    "name": "CanvasConfigEditor",
+    "category": "组合模块",
+    "docPath": "/docs/canvas-config-editor/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-execution-panel",
+    "name": "CanvasExecutionPanel",
+    "category": "组合模块",
+    "docPath": "/docs/canvas-execution-panel/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-workspace",
+    "name": "CanvasWorkspace",
+    "category": "组合模块",
+    "docPath": "/docs/canvas-workspace/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "node-palette",
+    "name": "NodePalette",
+    "category": "组合模块",
+    "docPath": "/docs/node-palette/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "node-inspector",
+    "name": "NodeInspector",
+    "category": "组合模块",
+    "docPath": "/docs/node-inspector/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "variable-picker",
+    "name": "VariablePicker",
+    "category": "组合模块",
+    "docPath": "/docs/variable-picker/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-frame",
+    "name": "CanvasFrame",
+    "category": "组合模块",
+    "docPath": "/docs/canvas-frame/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-note",
+    "name": "CanvasNote",
+    "category": "组合模块",
+    "docPath": "/docs/canvas-note/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "workflow-canvas",
+    "name": "WorkflowCanvas",
+    "category": "组合模块",
+    "docPath": "/docs/workflow-canvas/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-node",
+    "name": "CanvasNode",
+    "category": "基础组件",
+    "docPath": "/docs/canvas-node/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-port",
+    "name": "CanvasPort",
+    "category": "基础组件",
+    "docPath": "/docs/canvas-port/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "canvas-edge",
+    "name": "CanvasEdge",
+    "category": "基础组件",
+    "docPath": "/docs/canvas-edge/",
+    "displayCategory": "canvas"
+  },
+  {
+    "slug": "style-workbench",
+    "name": "StyleWorkbench",
+    "category": "组合模块",
+    "docPath": "/docs/style-workbench/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "badge",
+    "name": "Badge",
+    "category": "基础组件",
+    "docPath": "/docs/badge/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "tag",
+    "name": "Tag",
+    "category": "基础组件",
+    "docPath": "/docs/tag/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "chip",
+    "name": "Chip",
+    "category": "基础组件",
+    "docPath": "/docs/chip/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "button",
+    "name": "Button",
+    "category": "基础组件",
+    "docPath": "/docs/button/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "input",
+    "name": "Input",
+    "category": "基础组件",
+    "docPath": "/docs/input/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "dialog",
+    "name": "Dialog",
+    "category": "基础组件",
+    "docPath": "/docs/dialog/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "task-panel",
+    "name": "TaskPanel",
+    "category": "组合模块",
+    "docPath": "/docs/task-panel/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "scroll-playground",
+    "name": "ScrollPlayground",
+    "category": "组合模块",
+    "docPath": "/docs/scroll-playground/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "item",
+    "name": "Item",
+    "category": "基础组件",
+    "docPath": "/docs/item/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "runtime-status-badge",
+    "name": "RuntimeStatusBadge",
+    "category": "基础组件",
+    "docPath": "/docs/runtime-status-badge/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "workspace-shell",
+    "name": "WorkspaceShell",
+    "category": "组合模块",
+    "docPath": "/docs/workspace-shell/",
+    "displayCategory": "workspace"
+  },
+  {
+    "slug": "data-region",
+    "name": "DataRegion",
+    "category": "基础组件",
+    "docPath": "/docs/data-region/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "tree",
+    "name": "Tree",
+    "category": "基础组件",
+    "docPath": "/docs/tree/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "session-row",
+    "name": "SessionRow",
+    "category": "组合模块",
+    "docPath": "/docs/session-row/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "agent-row",
+    "name": "AgentRow",
+    "category": "组合模块",
+    "docPath": "/docs/agent-row/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "activity-timeline",
+    "name": "ActivityTimeline",
+    "category": "组合模块",
+    "docPath": "/docs/activity-timeline/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "inspector",
+    "name": "Inspector",
+    "category": "组合模块",
+    "docPath": "/docs/inspector/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "chat-message",
+    "name": "ChatMessage",
+    "category": "组合模块",
+    "docPath": "/docs/chat-message/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "tool-call",
+    "name": "ToolCall",
+    "category": "组合模块",
+    "docPath": "/docs/tool-call/",
+    "displayCategory": "patterns"
+  }
+]

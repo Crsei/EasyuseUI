@@ -4,7 +4,8 @@ import { useSiteI18n } from "@/components/site/site-i18n"
 import { useRef, useState } from "react"
 import Link from "next/link"
 import { ArrowUpRight, BookOpen, Search } from "lucide-react"
-import { catalog } from "@/lib/catalog"
+import catalog from "@/lib/component-index.json"
+import { DemoLoader } from "./demo-loader"
 import {
   availabilityLabels,
   dictionaryCategories,
@@ -44,7 +45,7 @@ export function VisualDictionary() {
   const selected =
     filtered.find(({ slug }) => slug === selection) ?? filtered[0]
   const component = catalog.find(({ slug }) => slug === selected?.componentSlug)
-  const Demo = component?.Demo
+  const hasDemo = Boolean(component)
   function reset() {
     setQuery("")
     setCategory("all")
@@ -243,22 +244,22 @@ export function VisualDictionary() {
                 </p>
               ) : null}
               <section
-                aria-label={`${selected.name} ${Demo ? t("site.interactiveDemo") : t("site.appearancePreview")}`}
+                aria-label={`${selected.name} ${hasDemo ? t("site.interactiveDemo") : t("site.appearancePreview")}`}
                 className={styles.livePreview}
               >
-                {Demo ? (
+                {hasDemo ? (
                   <div
                     className={
                       component?.widePreview ? styles.wideDemo : undefined
                     }
                   >
-                    <Demo />
+                    <DemoLoader key={component!.slug} slug={component!.slug} />
                   </div>
                 ) : (
                   <FoundationPreview entry={selected} />
                 )}
               </section>
-              {!Demo && (
+              {!hasDemo && (
                 <p className={styles.caption}>
                   {selected.availability === "planned"
                     ? t("site.appearancePreviewStandaloneComponentNotAvailable")
@@ -286,7 +287,7 @@ export function VisualDictionary() {
               {(selected.category === "foundations" ||
                 selected.category === "shapes" ||
                 selected.category === "effects") && (
-                <Link className={styles.docsLink} href="/style-workbench">
+                <Link prefetch={false} className={styles.docsLink} href="/style-workbench">
                   {t("site.adjustParametersAndCompare")}
                   <ArrowUpRight size={14} aria-hidden="true" />
                 </Link>
@@ -321,7 +322,7 @@ export function VisualDictionary() {
                 </p>
               )}
               {(selected.componentSlug || selected.relatedSlug) && (
-                <Link
+                <Link prefetch={false}
                   className={styles.docsLink}
                   href={`/docs/${selected.componentSlug ?? selected.relatedSlug}`}
                 >

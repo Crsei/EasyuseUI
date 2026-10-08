@@ -22,6 +22,7 @@ import {
   parseCanvasDocument,
 } from "@/lib/canvas-validation"
 import type {
+  CanvasField,
   CanvasCommand,
   CanvasDocument,
   CanvasNodeDefinition,
@@ -241,6 +242,138 @@ export function NodeInspector({
       setDrafts(next)
     }
   }
+  const advanced = (field: CanvasField) =>
+    !field.required && ["json", "code", "schema"].includes(field.kind)
+  const fields = definition.fields ?? []
+  const renderField = (field: CanvasField) => {
+    const id = `${prefix}-${field.key}`
+    const reference = draft.bindings[field.key]
+    const inputProps = {
+      id,
+      disabled: locked || !!reference,
+      value: draft.values[field.key] ?? "",
+      "aria-invalid": !!draft.errors[field.key],
+      "aria-describedby": draft.errors[field.key] ? `${id}-error` : undefined,
+      onChange: (event: { target: { value: string } }) =>
+        update({
+          values: { ...draft.values, [field.key]: event.target.value },
+        }),
+    }
+    return (
+      <div key={field.key} className={styles.field}>
+        <label htmlFor={id}>
+          {resolve(field.labelI18n, field.label)}
+          {field.required ? " *" : ""}
+        </label>
+        {field.catalog ? (
+          <select {...inputProps}>
+            <option value="">
+              {t("nodeInspector.select")}
+              {resolve(field.labelI18n, field.label)}
+            </option>
+            {draft.values[field.key] &&
+              !catalogs?.[field.catalog]?.some(
+                (entry) => entry.id === draft.values[field.key],
+              ) && (
+                <option value={draft.values[field.key]}>
+                  {t("nodeInspector.currentReferenceUnavailable")}
+                </option>
+              )}
+            {catalogs?.[field.catalog]?.map((entry) => (
+              <option
+                key={entry.id}
+                value={entry.id}
+                disabled={!entry.available}
+              >
+                {entry.name}
+                {entry.available ? "" : t("nodeInspector.unavailable")}
+              </option>
+            ))}
+          </select>
+        ) : isCanvasStructuredField(field.kind) ||
+          field.kind === "expression" ||
+          field.kind === "code" ? (
+          <CanvasConfigEditor
+            kind={field.kind}
+            id={id}
+            label={resolve(field.labelI18n, field.label)}
+            value={inputProps.value}
+            disabled={inputProps.disabled}
+            invalid={inputProps["aria-invalid"]}
+            describedBy={inputProps["aria-describedby"]}
+            onChange={(value) => inputProps.onChange({ target: { value } })}
+          />
+        ) : field.kind === "textarea" ? (
+          <textarea
+            {...inputProps}
+            rows={isCanvasStructuredField(field.kind) ? 5 : 3}
+            spellCheck={false}
+          />
+        ) : field.kind === "select" ? (
+          <select {...inputProps}>
+            {field.options?.map((option) => (
+              <option key={option.value} value={option.value}>
+                {resolve(option.labelI18n, option.label)}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <Input
+            {...inputProps}
+            type={field.kind === "number" ? "number" : "text"}
+            step={field.kind === "number" ? "any" : undefined}
+            min={field.min}
+            max={field.max}
+          />
+        )}
+        {reference && (
+          <p className={styles.muted}>
+            {t("nodeInspector.reference")}
+            {document.nodes.find((item) => item.id === reference.nodeId)
+              ?.title ?? t("nodeInspector.sourceDeleted")}{" "}
+            / {reference.portId}
+            {reference.path.length ? `.${reference.path.join(".")}` : ""} ·{" "}
+            {reference.type}
+          </p>
+        )}
+        {draft.errors[field.key] && (
+          <span id={`${id}-error`} className={styles.error}>
+            {resolveUiText(locale, draft.errors[field.key])}
+          </span>
+        )}
+        {field.variableType && (
+          <div className={styles.actions}>
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              disabled={locked}
+              onClick={() => setVariableField(field.key)}
+            >
+              {t("nodeInspector.select")}
+              {resolve(field.labelI18n, field.label)}
+              {t("nodeInspector.variables")}
+            </Button>
+            {reference && (
+              <Button
+                type="button"
+                size="sm"
+                variant="ghost"
+                disabled={locked}
+                onClick={() => {
+                  const bindings = { ...draft.bindings }
+                  delete bindings[field.key]
+                  update({ bindings })
+                }}
+              >
+                {t("nodeInspector.removeBinding")}
+              </Button>
+            )}
+          </div>
+        )}
+      </div>
+    )
+  }
   return (
     <Inspector object={object}>
       <form
@@ -271,141 +404,22 @@ export function NodeInspector({
             </span>
           )}
         </label>
-        {(definition.fields ?? []).map((field) => {
-          const id = `${prefix}-${field.key}`
-          const reference = draft.bindings[field.key]
-          const inputProps = {
-            id,
-            disabled: locked || !!reference,
-            value: draft.values[field.key] ?? "",
-            "aria-invalid": !!draft.errors[field.key],
-            "aria-describedby": draft.errors[field.key]
-              ? `${id}-error`
-              : undefined,
-            onChange: (event: { target: { value: string } }) =>
-              update({
-                values: { ...draft.values, [field.key]: event.target.value },
-              }),
-          }
-          return (
-            <div key={field.key} className={styles.field}>
-              <label htmlFor={id}>
-                {resolve(field.labelI18n, field.label)}
-                {field.required ? " *" : ""}
-              </label>
-              {field.catalog ? (
-                <select {...inputProps}>
-                  <option value="">
-                    {t("nodeInspector.select")}
-                    {resolve(field.labelI18n, field.label)}
-                  </option>
-                  {draft.values[field.key] &&
-                    !catalogs?.[field.catalog]?.some(
-                      (entry) => entry.id === draft.values[field.key],
-                    ) && (
-                      <option value={draft.values[field.key]}>
-                        {t("nodeInspector.currentReferenceUnavailable")}
-                      </option>
-                    )}
-                  {catalogs?.[field.catalog]?.map((entry) => (
-                    <option
-                      key={entry.id}
-                      value={entry.id}
-                      disabled={!entry.available}
-                    >
-                      {entry.name}
-                      {entry.available ? "" : t("nodeInspector.unavailable")}
-                    </option>
-                  ))}
-                </select>
-              ) : isCanvasStructuredField(field.kind) ||
-                field.kind === "expression" ||
-                field.kind === "code" ? (
-                <CanvasConfigEditor
-                  kind={field.kind}
-                  id={id}
-                  label={resolve(field.labelI18n, field.label)}
-                  value={inputProps.value}
-                  disabled={inputProps.disabled}
-                  invalid={inputProps["aria-invalid"]}
-                  describedBy={inputProps["aria-describedby"]}
-                  onChange={(value) =>
-                    inputProps.onChange({ target: { value } })
-                  }
-                />
-              ) : field.kind === "textarea" ? (
-                <textarea
-                  {...inputProps}
-                  rows={isCanvasStructuredField(field.kind) ? 5 : 3}
-                  spellCheck={false}
-                />
-              ) : field.kind === "select" ? (
-                <select {...inputProps}>
-                  {field.options?.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {resolve(option.labelI18n, option.label)}
-                    </option>
-                  ))}
-                </select>
-              ) : (
-                <Input
-                  {...inputProps}
-                  type={field.kind === "number" ? "number" : "text"}
-                  step={field.kind === "number" ? "any" : undefined}
-                  min={field.min}
-                  max={field.max}
-                />
-              )}
-              {reference && (
-                <p className={styles.muted}>
-                  {t("nodeInspector.reference")}
-                  {document.nodes.find((item) => item.id === reference.nodeId)
-                    ?.title ?? t("nodeInspector.sourceDeleted")}{" "}
-                  / {reference.portId}
-                  {reference.path.length
-                    ? `.${reference.path.join(".")}`
-                    : ""}{" "}
-                  · {reference.type}
-                </p>
-              )}
-              {draft.errors[field.key] && (
-                <span id={`${id}-error`} className={styles.error}>
-                  {resolveUiText(locale, draft.errors[field.key])}
-                </span>
-              )}
-              {field.variableType && (
-                <div className={styles.actions}>
-                  <Button
-                    type="button"
-                    size="sm"
-                    variant="outline"
-                    disabled={locked}
-                    onClick={() => setVariableField(field.key)}
-                  >
-                    {t("nodeInspector.select")}
-                    {resolve(field.labelI18n, field.label)}
-                    {t("nodeInspector.variables")}
-                  </Button>
-                  {reference && (
-                    <Button
-                      type="button"
-                      size="sm"
-                      variant="ghost"
-                      disabled={locked}
-                      onClick={() => {
-                        const bindings = { ...draft.bindings }
-                        delete bindings[field.key]
-                        update({ bindings })
-                      }}
-                    >
-                      {t("nodeInspector.removeBinding")}
-                    </Button>
-                  )}
-                </div>
-              )}
+        {fields.filter((field) => !advanced(field)).map(renderField)}
+        {fields.some(advanced) && (
+          <details
+            key={node.id}
+            open={
+              fields.some(
+                (field) => advanced(field) && !!draft.errors[field.key],
+              ) || undefined
+            }
+          >
+            <summary>{t("nodeInspector.advancedConfiguration")}</summary>
+            <div className={styles.form}>
+              {fields.filter(advanced).map(renderField)}
             </div>
-          )
-        })}
+          </details>
+        )}
         {Object.entries(draft.errors)
           .filter(([key]) => key.startsWith("custom"))
           .map(([key, message]) => (

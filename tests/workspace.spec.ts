@@ -269,13 +269,17 @@ test("mobile drawer traps and restores focus, touch targets and narrow layouts f
     const dialog = page.getByRole("dialog", { name: "Session", exact: true })
     await expect(dialog).toBeVisible()
     await expect.poll(async () => (await dialog.boundingBox())!.width).toBe(358)
+    // Base UI redirects focus from its boundary guards asynchronously.
+    const expectFocusInside = () =>
+      expect
+        .poll(() =>
+          dialog.evaluate((element) => element.contains(document.activeElement)),
+        )
+        .toBe(true)
+    await expectFocusInside()
     for (let index = 0; index < 8; index++) {
       await page.keyboard.press("Tab")
-      expect(
-        await dialog.evaluate((element) =>
-          element.contains(document.activeElement),
-        ),
-      ).toBe(true)
+      await expectFocusInside()
     }
     await page.keyboard.press("Escape")
     await expect(dialog).toBeHidden()

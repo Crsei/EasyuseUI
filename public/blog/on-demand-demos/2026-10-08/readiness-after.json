@@ -1,0 +1,113 @@
+{
+  "phase": "after",
+  "capturedAt": "2026-10-08T08:30:19.552Z",
+  "sourceSnapshotId": "7cdc39bbb5bbbd492e7b00688488fb1f7867bf649cbb06cf856a5b31512fa9de",
+  "captureScriptHash": "537b1b25f83333102b32fcd38d2863b5a4f5a744e2bcf67d3d39225ffd22df47",
+  "environment": {
+    "browser": "138.0.7204.92",
+    "node": "v24.21.0",
+    "os": "Linux",
+    "release": "5.4.0-150-generic",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "locale": "zh-CN",
+    "theme": "light",
+    "sharedHost": true
+  },
+  "method": "Three fresh contexts per route. From navigation time origin to a real shared-header theme button click changing the document to dark, followed by two rAF opportunities. Up to 10 attempts with a 250ms observation window account for lost pre-hydration input; retries and click times are retained. Measures one usable shared control, not full-page TTI or compositor paint. Shared host load is uncontrolled.",
+  "samples": [
+    {
+      "route": "/components/",
+      "round": 0,
+      "usableMs": 1205.1999988555908,
+      "attempts": [
+        275.8999996185303,
+        673.1999988555908,
+        994.6000003814697
+      ]
+    },
+    {
+      "route": "/components/",
+      "round": 1,
+      "usableMs": 1376.3000011444092,
+      "attempts": [
+        230,
+        591.3000011444092,
+        892,
+        1231.8000011444092
+      ]
+    },
+    {
+      "route": "/components/",
+      "round": 2,
+      "usableMs": 1149.6000003814697,
+      "attempts": [
+        270.70000076293945,
+        638.5,
+        942.6000003814697
+      ]
+    },
+    {
+      "route": "/dictionary/",
+      "round": 0,
+      "usableMs": 1183.3999996185303,
+      "attempts": [
+        249.10000038146973,
+        656.5,
+        943.3999996185303
+      ]
+    },
+    {
+      "route": "/dictionary/",
+      "round": 1,
+      "usableMs": 1097.6000003814697,
+      "attempts": [
+        242.5,
+        599.6000003814697,
+        902.7999992370605
+      ]
+    },
+    {
+      "route": "/dictionary/",
+      "round": 2,
+      "usableMs": 1129.6000003814697,
+      "attempts": [
+        259.29999923706055,
+        598.2999992370605,
+        909.6999988555908
+      ]
+    },
+    {
+      "route": "/docs/button/",
+      "round": 0,
+      "usableMs": 1043.6000003814697,
+      "attempts": [
+        257.70000076293945,
+        591.5,
+        893.2000007629395
+      ]
+    },
+    {
+      "route": "/docs/button/",
+      "round": 1,
+      "usableMs": 1095.5,
+      "attempts": [
+        203.20000076293945,
+        611.2000007629395,
+        898.1000003814697
+      ]
+    },
+    {
+      "route": "/docs/button/",
+      "round": 2,
+      "usableMs": 1047.6000003814697,
+      "attempts": [
+        245.29999923706055,
+        585.7999992370605,
+        906.1000003814697
+      ]
+    }
+  ]
+}

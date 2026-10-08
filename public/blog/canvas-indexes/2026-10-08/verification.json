@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-10-08T08:08:08.392Z",
+  "sourceSnapshotId": "39eeb555e317a868a6e452852f413d5e7441f11b290088cea24bd01314b0996d",
+  "environment": {
+    "browser": "138.0.7204.92",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "node": "v24.21.0",
+    "sharedHost": true
+  },
+  "command": "pnpm exec playwright test --grep-invert @performance --workers=2",
+  "scope": "Frozen optimization implementation, original 42 Catalog / 54 Registry items; excludes concurrent common-components batch",
+  "result": {
+    "passed": 144,
+    "failed": 0
+  },
+  "coverage": [
+    "Canvas editing/runtime/playback/services",
+    "50-node 73-edge layout preview/cancel/apply/undo/redo and stale result",
+    "Controlled/uncontrolled layout and per-workspace preferences",
+    "Full text search and prepend anchor with 5000 deferred messages",
+    "Menu/Popover/Tabs/Segmented/Select/Combobox",
+    "Eight axe scans; two visual snapshots; lazy-loading network budgets",
+    "zh-CN/en, dark/light, coarse pointer, reduced motion"
+  ],
+  "limitations": [
+    "Local deterministic fixtures; not real provider/business acceptance",
+    "No stable CI timing baseline, remote CI or public deployment",
+    "Native browser find UI and real assistive technology require manual acceptance"
+  ]
+}

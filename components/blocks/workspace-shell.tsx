@@ -1,10 +1,12 @@
 "use client"
+import { useThemePortalContainer } from "@/components/ui/theme-boundary"
 import { useI18n } from "@/lib/i18n-provider"
 
 import { Dialog } from "@base-ui/react/dialog"
 import { PanelLeftClose, PanelLeftOpen, PanelRight, X } from "lucide-react"
 import {
   useEffect,
+  useId,
   useRef,
   useState,
   type CSSProperties,
@@ -14,7 +16,48 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import styles from "./workspace-shell.module.css"
 
+function useLayoutValue<T>(
+  value: T | undefined,
+  initial: T,
+  onChange?: (value: T) => void,
+) {
+  const [internal, setInternal] = useState(initial)
+  const current = value === undefined ? internal : value
+  function change(next: T | ((before: T) => T)) {
+    const resolved =
+      typeof next === "function" ? (next as (before: T) => T)(current) : next
+    if (Object.is(current, resolved)) return
+    if (value === undefined) setInternal(resolved)
+    onChange?.(resolved)
+  }
+  return [current, change] as const
+}
+
 export type WorkspaceShellProps = {
+  sidebarWidth?: number
+  defaultSidebarWidth?: number
+  onSidebarWidthChange?: (width: number) => void
+  sidebarMinWidth?: number
+  sidebarMaxWidth?: number
+  sidebarResizable?: boolean
+  sidebarCollapsed?: boolean
+  defaultSidebarCollapsed?: boolean
+  onSidebarCollapsedChange?: (collapsed: boolean) => void
+  inspectorOpen?: boolean
+  defaultInspectorOpen?: boolean
+  onInspectorOpenChange?: (open: boolean) => void
+  inspectorOverlayOpen?: boolean
+  defaultInspectorOverlayOpen?: boolean
+  onInspectorOverlayOpenChange?: (open: boolean) => void
+  inspectorWidth?: number
+  defaultInspectorWidth?: number
+  onInspectorWidthChange?: (width: number) => void
+  bottomPanelOpen?: boolean
+  defaultBottomPanelOpen?: boolean
+  onBottomPanelOpenChange?: (open: boolean) => void
+  bottomPanelHeight?: number
+  defaultBottomPanelHeight?: number
+  onBottomPanelHeightChange?: (height: number) => void
   title: ReactNode
   sidebar: ReactNode
   children: ReactNode
@@ -38,21 +81,104 @@ export function WorkspaceShell({
   inspectorFooter,
   bottomPanel,
   bottomPanelResizable = false,
-  bottomPanelCollapsed = false,
+  bottomPanelCollapsed,
+  sidebarWidth: controlledSidebarWidth,
+  defaultSidebarWidth = 256,
+  onSidebarWidthChange,
+  sidebarMinWidth = 200,
+  sidebarMaxWidth = 400,
+  sidebarResizable = false,
+  sidebarCollapsed: controlledSidebar,
+  defaultSidebarCollapsed = false,
+  onSidebarCollapsedChange,
+  inspectorOpen: controlledInspector,
+  defaultInspectorOpen = true,
+  onInspectorOpenChange,
+  inspectorOverlayOpen: controlledOverlay,
+  defaultInspectorOverlayOpen = false,
+  onInspectorOverlayOpenChange,
+  inspectorWidth: controlledWidth,
+  defaultInspectorWidth,
+  onInspectorWidthChange,
+  bottomPanelOpen: controlledBottom,
+  defaultBottomPanelOpen = true,
+  onBottomPanelOpenChange,
+  bottomPanelHeight: controlledHeight,
+  defaultBottomPanelHeight = 240,
+  onBottomPanelHeightChange,
   className,
 }: WorkspaceShellProps) {
   const { t } = useI18n()
+  const portalContainer = useThemePortalContainer()
 
+  const sidebarId = useId()
+  const sidebarRef = useRef<HTMLElement>(null)
+  const sidebarDrag = useRef<{ x: number; width: number } | null>(null)
+  const [requestedSidebarWidth, setSidebarWidth] = useLayoutValue(
+    controlledSidebarWidth,
+    defaultSidebarWidth,
+    onSidebarWidthChange,
+  )
+  const sidebarMin = Number.isFinite(sidebarMinWidth)
+    ? Math.max(48, sidebarMinWidth)
+    : 200
+  const sidebarMax = Number.isFinite(sidebarMaxWidth)
+    ? Math.max(sidebarMin, sidebarMaxWidth)
+    : Math.max(sidebarMin, 400)
+  const sidebarWidth = Math.max(
+    sidebarMin,
+    Math.min(
+      sidebarMax,
+      Number.isFinite(requestedSidebarWidth) ? requestedSidebarWidth : 256,
+    ),
+  )
+  function resizeSidebar(width: number) {
+    setSidebarWidth(Math.max(sidebarMin, Math.min(sidebarMax, width)))
+  }
   const ref = useRef<HTMLDivElement>(null)
   const openerRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLElement>(null)
   const drag = useRef<{ x: number; width: number } | null>(null)
   const [wide, setWide] = useState(false)
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
-  const [inspectorCollapsed, setInspectorCollapsed] = useState(false)
-  const [overlayOpen, setOverlayOpen] = useState(false)
-  const [inspectorWidth, setInspectorWidth] = useState<number | null>(null)
-  const [bottomHeight, setBottomHeight] = useState(240)
+  const [sidebarCollapsed, setSidebarCollapsed] = useLayoutValue(
+    controlledSidebar,
+    defaultSidebarCollapsed,
+    onSidebarCollapsedChange,
+  )
+  const [inspectorOpen, setInspectorOpen] = useLayoutValue(
+    controlledInspector,
+    defaultInspectorOpen,
+    onInspectorOpenChange,
+  )
+  const [overlayOpen, setOverlayOpen] = useLayoutValue(
+    controlledOverlay,
+    defaultInspectorOverlayOpen,
+    onInspectorOverlayOpenChange,
+  )
+  const [requestedWidth, setInspectorWidth] = useLayoutValue<number | null>(
+    controlledWidth,
+    defaultInspectorWidth ?? null,
+    onInspectorWidthChange
+      ? (value) => {
+          if (value !== null) onInspectorWidthChange(value)
+        }
+      : undefined,
+  )
+  const [requestedHeight, setBottomHeight] = useLayoutValue(
+    controlledHeight,
+    defaultBottomPanelHeight,
+    onBottomPanelHeightChange,
+  )
+  const [bottomOpen, setBottomOpen] = useLayoutValue(
+    controlledBottom ??
+      (bottomPanelCollapsed === undefined ? undefined : !bottomPanelCollapsed),
+    defaultBottomPanelOpen,
+    onBottomPanelOpenChange,
+  )
+  const bottomHeight = Math.min(
+    400,
+    Math.max(200, Number.isFinite(requestedHeight) ? requestedHeight : 240),
+  )
   const bottomDrag = useRef<{ y: number; height: number } | null>(null)
   const [limits, setLimits] = useState({ min: 300, max: 360, initial: 320 })
 
@@ -61,7 +187,6 @@ export function WorkspaceShell({
     const observer = new ResizeObserver(([entry]) => {
       const isWide = entry.contentRect.width >= 1280
       setWide(isWide)
-      if (isWide) setOverlayOpen(false)
       if (ref.current) {
         const css = getComputedStyle(ref.current)
         setLimits({
@@ -84,11 +209,22 @@ export function WorkspaceShell({
     return () => observer.disconnect()
   }, [])
 
+  const inspectorWidth =
+    requestedWidth === null
+      ? null
+      : Math.min(
+          limits.max,
+          Math.max(
+            limits.min,
+            Number.isFinite(requestedWidth) ? requestedWidth : limits.initial,
+          ),
+        )
+
   function resize(width: number) {
     const { min, max } = limits
     setInspectorWidth(Math.min(max, Math.max(min, width)))
   }
-  const docked = wide && !inspectorCollapsed && inspector !== undefined
+  const docked = wide && inspectorOpen && inspector !== undefined
   const panelBody = <div className={styles.inspectorBody}>{inspector}</div>
   return (
     <div
@@ -96,11 +232,12 @@ export function WorkspaceShell({
       className={cn(styles.shell, className)}
       data-sidebar-collapsed={sidebarCollapsed}
       style={
-        inspectorWidth === null
-          ? undefined
-          : ({
-              "--inspector-current-width": `${inspectorWidth}px`,
-            } as CSSProperties)
+        {
+          ...(inspectorWidth === null
+            ? {}
+            : { "--inspector-current-width": `${inspectorWidth}px` }),
+          "--sidebar-current-width": `${sidebarWidth}px`,
+        } as CSSProperties
       }
     >
       <header className={styles.header}>
@@ -130,9 +267,7 @@ export function WorkspaceShell({
             }
             aria-expanded={wide ? docked : overlayOpen}
             onClick={() =>
-              wide
-                ? setInspectorCollapsed(!inspectorCollapsed)
-                : setOverlayOpen(true)
+              wide ? setInspectorOpen(!inspectorOpen) : setOverlayOpen(true)
             }
           >
             <PanelRight />
@@ -141,11 +276,60 @@ export function WorkspaceShell({
       </header>
       <div className={styles.layout}>
         <aside
+          id={sidebarId}
+          ref={sidebarRef}
           className={styles.sidebar}
           aria-label={t("workspaceShell.workspaceNavigation")}
         >
           {sidebar}
         </aside>
+        {sidebarResizable && !sidebarCollapsed && (
+          <div
+            role="separator"
+            tabIndex={0}
+            className={styles.sidebarResize}
+            aria-label={t("commonComponents.resizeSidebar")}
+            aria-controls={sidebarId}
+            aria-orientation="vertical"
+            aria-valuemin={sidebarMin}
+            aria-valuemax={sidebarMax}
+            aria-valuenow={sidebarWidth}
+            onPointerDown={(event) => {
+              event.currentTarget.focus()
+              event.currentTarget.setPointerCapture(event.pointerId)
+              sidebarDrag.current = {
+                x: event.clientX,
+                width:
+                  sidebarRef.current?.getBoundingClientRect().width ??
+                  sidebarWidth,
+              }
+            }}
+            onPointerMove={(event) => {
+              if (sidebarDrag.current)
+                resizeSidebar(
+                  sidebarDrag.current.width +
+                    event.clientX -
+                    sidebarDrag.current.x,
+                )
+            }}
+            onPointerUp={(event) => {
+              sidebarDrag.current = null
+              event.currentTarget.releasePointerCapture(event.pointerId)
+            }}
+            onPointerCancel={() => {
+              sidebarDrag.current = null
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "ArrowLeft") resizeSidebar(sidebarWidth - 8)
+              else if (event.key === "ArrowRight")
+                resizeSidebar(sidebarWidth + 8)
+              else if (event.key === "Home") resizeSidebar(sidebarMin)
+              else if (event.key === "End") resizeSidebar(sidebarMax)
+              else return
+              event.preventDefault()
+            }}
+          />
+        )}
         <div className={styles.main}>
           {toolbar && <div className={styles.toolbar}>{toolbar}</div>}
           <div className={styles.content}>{children}</div>
@@ -204,7 +388,7 @@ export function WorkspaceShell({
                 size="icon"
                 aria-label={t("workspaceShell.closeInspector")}
                 onClick={() => {
-                  setInspectorCollapsed(true)
+                  setInspectorOpen(false)
                   openerRef.current?.focus()
                 }}
               >
@@ -222,14 +406,14 @@ export function WorkspaceShell({
         <section
           className={styles.bottom}
           aria-label={t("workspaceShell.bottomWorkspacePanel")}
-          data-collapsed={bottomPanelCollapsed}
+          data-collapsed={!bottomOpen}
           style={
-            bottomPanelResizable && !bottomPanelCollapsed
+            bottomPanelResizable && bottomOpen
               ? { height: bottomHeight }
               : undefined
           }
         >
-          {bottomPanelResizable && !bottomPanelCollapsed && (
+          {bottomPanelResizable && bottomOpen && (
             <div
               role="separator"
               tabIndex={0}
@@ -287,11 +471,27 @@ export function WorkspaceShell({
               }}
             />
           )}
-          {bottomPanel}
+          {bottomPanelCollapsed === undefined && (
+            <Button
+              variant="ghost"
+              size="sm"
+              aria-expanded={bottomOpen}
+              onClick={() => setBottomOpen(!bottomOpen)}
+            >
+              {t(
+                bottomOpen
+                  ? "workspaceShell.collapseBottomPanel"
+                  : "workspaceShell.expandBottomPanel",
+              )}
+            </Button>
+          )}
+          {bottomPanelCollapsed !== undefined || bottomOpen
+            ? bottomPanel
+            : null}
         </section>
       )}
       <Dialog.Root open={!wide && overlayOpen} onOpenChange={setOverlayOpen}>
-        <Dialog.Portal>
+        <Dialog.Portal container={portalContainer}>
           <Dialog.Backdrop className={styles.backdrop} />
           <Dialog.Popup className={styles.drawer} finalFocus={openerRef}>
             <div className={styles.inspectorHeader}>
