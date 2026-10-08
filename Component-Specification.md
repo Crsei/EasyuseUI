@@ -415,3 +415,12 @@ ThemeBoundary 新安装使用 `/r/host/` 或 `/r/scoped/` 的命名空间源码�
 Sheet 左/右/底部可配，首尾固定、正文滚动，复用 Dialog 焦点/关闭及 ThemeBoundary；嵌套浮层只由最上层消费 Escape。Field 关联 label/id、description/error IDs，失败保留草稿。CommandPalette 使用 combobox/listbox、方向键与 Home/End/Enter、IME防误选，默认无全局键盘监听。ImageUpload 验证类型/大小、读取与解码后交付本地 File，替换失败保留旧值，卸载或新请求取消旧读取。
 
 只读图元不增加交互hover。SegmentBar有限值限制在范围，未知显示未知；Sparkline最近120点且提供文本替代；RatingDisplay限制1–10星、半星四舍五入。Slider区分连续变化与提交。WorkspaceShell 侧栏默认256、折叠48，局部宽度与边界受控可配，resize默认关闭；按实例持久化属于适配层。
+
+
+## Work Items W5 增强契约
+
+详见 [WORK-ITEMS.md](./WORK-ITEMS.md)。WorkItemBoard 接收调用方权威泳道/分组；泳道内移动附带 laneKey，跨泳道写入不自动推断。WorkItemList 的 hierarchy 受控展开与子项快照独立于勾选；折叠保留隐藏选择，父项不在查询时子项可独立阅读。Table/Board 保持平铺。
+
+WorkItemsBatchActions 只提交状态/优先级 patch 与每项基础版本，确认前展示含隐藏选择的完整范围、未加载/无权限/锁定项。回执逐项显示；拒绝保留原记录和批量目标值，unknown先查询，不建立跨项原子事务。WorkItemsSavedViews 受控保存配置与基础版本，另存/更新/删除均需明确回执；删除有确认，读取失败保留旧视图。名称输入保留失败草稿，unknown由调用方跨重挂载持有。示例保存仅页面内存，刷新清除，真实持久化由消费方实现。
+
+大数据辅助使用分组/层级索引与不可变记录缓存；List/Board 可选 content-visibility 延迟屏外布局与字段编辑器挂载：屏外保留完整只读值，进入可见区或聚焦时启用编辑器，已挂载编辑器保持到条目卸载；焦点行保持可用，实体仍在DOM；Table保留原生渲染。不得把此能力称为窗口化或服务分页。50/200/1000项测量记录实际加载/挂载数量和采样条件。

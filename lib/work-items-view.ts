@@ -47,15 +47,19 @@ export function groupWorkItems(
   queryKey: string,
 ): GroupSnapshot[] {
   const options = view.groupBy === "state" ? catalog.states : catalog.priorities
+  const buckets = new Map<string, string[]>()
+  const seen = new Set<string>()
+  for (const item of items) {
+    if (seen.has(item.id)) continue
+    seen.add(item.id)
+    const key = view.groupBy === "state" ? item.stateId : item.priorityId
+    const bucket = buckets.get(key) ?? []
+    bucket.push(item.id)
+    buckets.set(key, bucket)
+  }
   return options
     .map((option) => {
-      const itemIds = items
-        .filter(
-          (item) =>
-            (view.groupBy === "state" ? item.stateId : item.priorityId) ===
-            option.id,
-        )
-        .map((item) => item.id)
+      const itemIds = buckets.get(option.id) ?? []
       return {
         key: option.id,
         label: option.label,
@@ -166,4 +170,92 @@ export function applyLocalMove(
     moved,
   )
   return next
+}
+
+/** Local complete-fixture helper, not a remote grouping/pagination implementation. */
+export function groupWorkItemLanes(
+  items: readonly WorkItemRecord[],
+  catalog: WorkItemCatalog,
+  view: WorkItemsViewState,
+  queryKey: string,
+): import("./work-items-model").WorkItemsLaneSnapshot[] {
+  const axis = view.subGroupBy
+  if (!axis || axis === "none" || axis === view.groupBy) return []
+  const options = axis === "state" ? catalog.states : catalog.priorities
+  const buckets = new Map<string, WorkItemRecord[]>()
+  for (const item of items) {
+    const key = axis === "state" ? item.stateId : item.priorityId
+    const bucket = buckets.get(key) ?? []
+    bucket.push(item)
+    buckets.set(key, bucket)
+  }
+  return options
+    .map((option) => ({
+      key: option.id,
+      label: option.label,
+      groups: groupWorkItems(
+        buckets.get(option.id) ?? [],
+        catalog,
+        view,
+        queryKey,
+      ),
+    }))
+    .filter(
+      (lane) =>
+        view.showEmptyGroups || lane.groups.some((g) => g.itemIds.length),
+    )
+}
+/** Linear index; malformed cycles/orphans become accessible roots, never infinite recursion. */
+export function indexWorkItemHierarchy(items: readonly WorkItemRecord[]) {
+  const byId = new Map(items.map((item) => [item.id, item]))
+  const parentById = new Map<string, string>()
+  for (const item of byId.values()) {
+    const parent = item.parentId ? byId.get(item.parentId) : undefined
+    if (parent && parent.id !== item.id && parent.projectId === item.projectId)
+      parentById.set(item.id, parent.id)
+  }
+  const visited = new Set<string>()
+  for (const id of byId.keys()) {
+    const path = new Set<string>()
+    let current: string | undefined = id
+    while (current && !visited.has(current)) {
+      if (path.has(current)) {
+        parentById.delete(current)
+        break
+      }
+      path.add(current)
+      current = parentById.get(current)
+    }
+    for (const step of path) visited.add(step)
+  }
+  const childrenById = new Map<string, WorkItemRecord[]>()
+  for (const item of byId.values()) {
+    const parent = parentById.get(item.id)
+    if (!parent) continue
+    const children = childrenById.get(parent) ?? []
+    children.push(item)
+    childrenById.set(parent, children)
+  }
+  return { byId, parentById, childrenById }
+}
+export function hierarchyVisibleIds(
+  rootIds: readonly string[],
+  items: readonly WorkItemRecord[],
+  expandedIds: readonly string[],
+) {
+  const index = indexWorkItemHierarchy(items)
+  const expanded = new Set(expandedIds)
+  const result = new Set<string>()
+  const pending = [...rootIds]
+    .filter((id) => !index.parentById.has(id))
+    .reverse()
+  while (pending.length) {
+    const id = pending.pop()!
+    if (result.has(id)) continue
+    result.add(id)
+    if (expanded.has(id))
+      for (const child of [...(index.childrenById.get(id) ?? [])].reverse())
+        pending.push(child.id)
+  }
+  return result
 }

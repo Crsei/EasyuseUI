@@ -1,0 +1,57 @@
+{
+  "capturedAt": "2026-10-08T15:07:00.394Z",
+  "files": [
+    {
+      "file": "lib/work-items-model.ts",
+      "sha256": "fd4fe81fade48255a20d08b0173d562e2b4a345eb61df4f0fe52643b1ef18f43"
+    },
+    {
+      "file": "lib/work-items-view.ts",
+      "sha256": "c647cbaa747ab2f109972c6c5feb54ced45d50961cfca0731837f0b6e0ef7534"
+    },
+    {
+      "file": "lib/i18n-messages.ts",
+      "sha256": "edd8c72a9ae5c135cd070ab8c1ea9d886c2c7f76ddadd9c635daf2dd30ff336e"
+    },
+    {
+      "file": "components/blocks/work-items-enhancements.tsx",
+      "sha256": "e797aeb582767adbab29510254b129691f5f646d0c95081581db9933674ce37f"
+    },
+    {
+      "file": "components/blocks/work-item-properties.tsx",
+      "sha256": "e6667f801864f7e25c3e74ecc543cc1bc95d745d568f7bd322c7350ee4897efa"
+    },
+    {
+      "file": "components/blocks/work-items-views.tsx",
+      "sha256": "12ffed2513e0ad61d33c1dbd9d9f3c614faf4c1bd07cfc30d0aea2b07eefaa7c"
+    },
+    {
+      "file": "components/blocks/work-items-workspace.tsx",
+      "sha256": "077218501851e06cb3641398fdd1f6a43e4a9342de41179430087c640142b019"
+    },
+    {
+      "file": "components/blocks/work-items-toolbar.tsx",
+      "sha256": "25edf7d5d914a99ce96663a9b790538113bfd2322f98f7f6999f3b9d1668dd3b"
+    },
+    {
+      "file": "components/blocks/work-items.module.css",
+      "sha256": "883182672e6a4b93a3d04cdc762516fcc067f70f83ede8d6f0548f0929dcc5f5"
+    },
+    {
+      "file": "components/examples/work-items/work-items-demo.tsx",
+      "sha256": "a139bdd7933f07150a6a5aab0f5fe4bc0768b1b83bcd38bbb32c092552fd0ae5"
+    },
+    {
+      "file": "components/examples/work-items/use-work-items-url.ts",
+      "sha256": "fbe2399c6a4c256a71475ce08c160156a29449e44addcc32dfcb3b791088b79a"
+    },
+    {
+      "file": "tests/work-items-enhancements.spec.ts",
+      "sha256": "bb96ad1c841ad15ac651598e5c7813d23179ae1c743eb3c23aaf1bf4f25ce48d"
+    },
+    {
+      "file": "scripts/measure-work-items-enhancements.mjs",
+      "sha256": "e5c3e908893f52d01f7107b42f29097a81a30ff8807d4fccab97711a6411e29f"
+    }
+  ]
+}

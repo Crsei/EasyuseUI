@@ -15,6 +15,8 @@ test("every Work Items documentation install command resolves its Registry item"
     "work-items-toolbar": "work-items-toolbar",
     "work-item-detail": "work-item-detail",
     "work-items-workspace": "work-items-workspace",
+    "work-items-batch-actions": "work-items-enhancements",
+    "work-items-saved-views": "work-items-enhancements",
   }
   for (const [slug, registryId] of Object.entries(entries)) {
     const doc = await request.get(`/docs/${slug}/`)
@@ -135,4 +137,22 @@ test("Work Items article keeps performance evidence separate and loads its scree
       (m: { count: number }) => m.count,
     ),
   ).toEqual([50, 200, 1000])
+  await expect(page.locator("article")).toContainText("W5 / S5")
+  const enhanced = await request.get(
+    "/blog/work-items-enhancements/measurements.json",
+  )
+  expect(enhanced.ok()).toBe(true)
+  const report = await enhanced.json()
+  expect(report.errors).toEqual([])
+  expect(report.measurements).toHaveLength(18)
+  for (const row of report.measurements) {
+    expect(row.loaded).toBe(row.count)
+    expect(row.total).toBe(row.count)
+    expect(row.mounted).toBe(row.count)
+  }
+  for (const src of await page
+    .locator('article img[src*="work-items-enhancements"]')
+    .evaluateAll((images) => images.map((img) => img.getAttribute("src")!))) {
+    expect((await request.get(src)).ok()).toBe(true)
+  }
 })

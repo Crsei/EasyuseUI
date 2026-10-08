@@ -13,13 +13,26 @@ export const workItemsSharedViews: BlogPost = {
   originalLocale: "zh-CN",
   hasEnglishBody: true,
   visibility: "published",
-  status: "measuring",
+  status: "verified",
   author: "EasyuseUI",
   publishedAt: "2026-10-08",
   updatedAt: "2026-10-08",
   category: "reuse",
   tags: ["Work Items", "List", "Board", "Table"],
-  optimizationIds: ["W0", "W1", "W2", "W3", "W4", "S0", "S1", "S2", "S3", "S4"],
+  optimizationIds: [
+    "W0",
+    "W1",
+    "W2",
+    "W3",
+    "W4",
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "W5",
+    "S5",
+  ],
   relatedComponents: [
     "grouped-list",
     "work-items-board-base",
@@ -32,12 +45,15 @@ export const workItemsSharedViews: BlogPost = {
     "work-items-toolbar",
     "work-item-detail",
     "work-items-workspace",
+    "work-items-batch-actions",
+    "work-items-saved-views",
   ],
   relatedPosts: ["common-components-from-crm"],
-  baselineVersion: null,
+  baselineVersion:
+    "449f494cdf3ca5834ef01c5b5ef9d446523d7c5e53f1abddf0e4da52886c74d7",
   resultVersion: null,
   sourceSnapshotId:
-    "449f494cdf3ca5834ef01c5b5ef9d446523d7c5e53f1abddf0e4da52886c74d7",
+    "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
   body: [
     {
       type: "heading",
@@ -463,8 +479,327 @@ export const workItemsSharedViews: BlogPost = {
       type: "paragraph",
       text: {
         "zh-CN":
-          "1000 项字段编辑约 13.2 秒，重新分组约 20.4 秒，当前没有窗口化，交互明显迟缓。这是首版的实测限制；消费方应通过权威分页控制已加载数量，大数据优化属于 W5/S5。",
-        en: "At 1000 items, field editing took about 13.2 seconds and regrouping about 20.4 seconds. The implementation has no virtualization and is visibly slow at this size. Consumers should bound loaded records through authoritative pagination; large-data optimization remains W5/S5.",
+          "1000 项字段编辑约 13.2 秒，重新分组约 20.4 秒，当前没有窗口化，交互明显迟缓。这是首版的实测限制；消费方应通过权威分页控制已加载数量，该段保留 W0–W4 的历史基线；本次 W5/S5 的独立测量见下文。",
+        en: "At 1000 items, field editing took about 13.2 seconds and regrouping about 20.4 seconds. The implementation has no virtualization and is visibly slow at this size. Consumers should bound loaded records through authoritative pagination; this paragraph preserves the historical W0–W4 baseline; the independent W5/S5 measurements appear below.",
+      },
+    },
+    {
+      type: "heading",
+      id: "w5-enhancements",
+      text: {
+        "zh-CN": "W5 / S5：泳道、子项与受控增强",
+        en: "W5 / S5: swimlanes, sub-items and controlled enhancements",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        "zh-CN":
+          "看板按第二个单值属性分泳道，移动只作用当前泳道；跨泳道需要另行定义同时修改两个字段的命令。List 按 parentId 展开已加载子项，展开与勾选分开，折叠保留隐藏选择；缺少父项或筛选只命中子项时仍可阅读。Table/Board 保持平铺，切回列表恢复展开偏好。",
+        en: "Board swimlanes use a second single-value property. Moves stay within the current lane; cross-lane changes need a separately defined command for both fields. List expands loaded sub-items by parentId, independently of selection. Collapsing preserves hidden selection; children remain readable without a loaded or matching parent. Table and Board remain flat, and List restores expansion preferences.",
+      },
+    },
+    {
+      type: "image",
+      image: {
+        src: "/blog/work-items-enhancements/swimlanes-1440-zh-CN.png",
+        alt: {
+          "zh-CN": "按优先级分泳道、按状态分列；仍使用公共看板。",
+          en: "Priority swimlanes and state columns reuse the public Board.",
+        },
+        caption: {
+          "zh-CN": "按优先级分泳道、按状态分列；仍使用公共看板。",
+          en: "Priority swimlanes and state columns reuse the public Board.",
+        },
+        sourceSnapshotId:
+          "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+        capturedAt: "2026-10-08T15:07:00.394Z",
+        fixture: "deterministic local W5/S5 fixtures; no live services",
+        viewport: {
+          width: 1440,
+          height: 1000,
+        },
+        theme: "light",
+        locale: "zh-CN",
+      },
+    },
+    {
+      type: "image",
+      image: {
+        src: "/blog/work-items-enhancements/sub-items-1440-zh-CN.png",
+        alt: {
+          "zh-CN": "子项展开、层级勾选与部分加载，已有子项在失败时保留。",
+          en: "Sub-item expansion, independent selection and partial loading retain existing children on failure.",
+        },
+        caption: {
+          "zh-CN": "子项展开、层级勾选与部分加载，已有子项在失败时保留。",
+          en: "Sub-item expansion, independent selection and partial loading retain existing children on failure.",
+        },
+        sourceSnapshotId:
+          "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+        capturedAt: "2026-10-08T15:07:00.394Z",
+        fixture: "deterministic local W5/S5 fixtures; no live services",
+        viewport: {
+          width: 1440,
+          height: 1000,
+        },
+        theme: "light",
+        locale: "zh-CN",
+      },
+    },
+    {
+      type: "image",
+      image: {
+        src: "/blog/work-items-enhancements/batch-preview-1440-zh-CN.png",
+        alt: {
+          "zh-CN": "批量确认前明确可写与跳过范围，包含隐藏选择。",
+          en: "Batch confirmation identifies eligible and skipped entities, including hidden selections.",
+        },
+        caption: {
+          "zh-CN": "批量确认前明确可写与跳过范围，包含隐藏选择。",
+          en: "Batch confirmation identifies eligible and skipped entities, including hidden selections.",
+        },
+        sourceSnapshotId:
+          "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+        capturedAt: "2026-10-08T15:07:00.394Z",
+        fixture: "deterministic local W5/S5 fixtures; no live services",
+        viewport: {
+          width: 1440,
+          height: 1000,
+        },
+        theme: "light",
+        locale: "zh-CN",
+      },
+    },
+    {
+      type: "image",
+      image: {
+        src: "/blog/work-items-enhancements/batch-outcomes-1440-zh-CN.png",
+        alt: {
+          "zh-CN": "逐项成功、拒绝、结果未知及权限不足分开呈现。",
+          en: "Confirmed, rejected, unknown and denied outcomes remain separate.",
+        },
+        caption: {
+          "zh-CN": "逐项成功、拒绝、结果未知及权限不足分开呈现。",
+          en: "Confirmed, rejected, unknown and denied outcomes remain separate.",
+        },
+        sourceSnapshotId:
+          "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+        capturedAt: "2026-10-08T15:07:00.394Z",
+        fixture: "deterministic local W5/S5 fixtures; no live services",
+        viewport: {
+          width: 1440,
+          height: 1000,
+        },
+        theme: "light",
+        locale: "zh-CN",
+      },
+    },
+    {
+      type: "image",
+      image: {
+        src: "/blog/work-items-enhancements/saved-views-1440-zh-CN.png",
+        alt: {
+          "zh-CN": "保存视图只保存配置；此示例仅页面内存，刷新清除。",
+          en: "Saved views contain configuration only; this example uses page memory and resets on refresh.",
+        },
+        caption: {
+          "zh-CN": "保存视图只保存配置；此示例仅页面内存，刷新清除。",
+          en: "Saved views contain configuration only; this example uses page memory and resets on refresh.",
+        },
+        sourceSnapshotId:
+          "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+        capturedAt: "2026-10-08T15:07:00.394Z",
+        fixture: "deterministic local W5/S5 fixtures; no live services",
+        viewport: {
+          width: 1440,
+          height: 1000,
+        },
+        theme: "light",
+        locale: "zh-CN",
+      },
+    },
+    {
+      type: "image",
+      image: {
+        src: "/blog/work-items-enhancements/swimlanes-390-dark-en.png",
+        alt: {
+          "zh-CN": "390px 触屏、深色英文泳道；横向滚动留在看板区域。",
+          en: "390px touch, dark English swimlanes keep horizontal scrolling inside the Board.",
+        },
+        caption: {
+          "zh-CN": "390px 触屏、深色英文泳道；横向滚动留在看板区域。",
+          en: "390px touch, dark English swimlanes keep horizontal scrolling inside the Board.",
+        },
+        sourceSnapshotId:
+          "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+        capturedAt: "2026-10-08T15:07:00.394Z",
+        fixture: "deterministic local W5/S5 fixtures; no live services",
+        viewport: {
+          width: 390,
+          height: 844,
+        },
+        theme: "dark",
+        locale: "en",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        "zh-CN":
+          "WorkItemsBatchActions 仅开放状态/优先级。预览和确认都依据最新能力、每项基础版本及 pending/unknown 锁；逐项回执不保证原子事务。WorkItemsSavedViews 提供另存、应用、更新/重命名、删除和未知结果对账接口。公共组件不持久化数据；示例保存视图只在页面内存中存在。",
+        en: "WorkItemsBatchActions supports state and priority. Preview and confirmation use current capabilities, per-item base revisions and pending/unknown locks; per-item receipts do not imply an atomic transaction. WorkItemsSavedViews provides save-as, apply, update/rename, delete and reconciliation interfaces. Public components do not persist data; demo saved views live only in page memory.",
+      },
+    },
+    {
+      type: "demo",
+      componentSlug: "work-items-batch-actions",
+    },
+    {
+      type: "demo",
+      componentSlug: "work-items-saved-views",
+    },
+    {
+      type: "heading",
+      id: "w5-measurements",
+      text: {
+        "zh-CN": "完整 DOM 的重复测量",
+        en: "Repeated measurements with the full DOM",
+      },
+    },
+    {
+      type: "paragraph",
+      text: {
+        "zh-CN":
+          "分组/层级索引、查询缓存与共享属性缓存减少重复工作。List/Board 可选择延迟屏外布局与编辑器挂载，屏外仍保留可读字段、选择和导航；进入可见区或聚焦后挂载编辑器，并保持到条目卸载。实际 DOM、全文查找和键盘顺序仍保留；Table 保持原生布局，没有窗口化。50/200/1000 项各测三轮，交替开启/关闭屏外布局延迟；两组都使用本次优化后的同一份源码，不能将这个开关对照解释为 W4→W5 的整体性能改善。",
+        en: "Grouping/hierarchy indexes, query caching and shared-property memoization reduce repeated work. List and Board optionally defer offscreen layout and field editors. Offscreen rows keep readable fields, selection and navigation; editors mount on reveal or focus and stay mounted until the item unmounts. Actual DOM, text search and keyboard order remain; Table keeps native layout. There is no virtualization. Each size has three observations per mode, alternating offscreen layout on/off. Both modes use the same optimized source, so the toggle comparison does not measure the overall W4-to-W5 improvement.",
+      },
+    },
+    {
+      type: "metrics",
+      metrics: [
+        {
+          key: "w5-selectMs-200",
+          label: {
+            "zh-CN": "200 项：选择",
+            en: "200 items: Selection",
+          },
+          unit: "ms",
+          direction: "lower",
+          before: 174,
+          after: 245,
+          target: null,
+          statistic: "median of 3 observations per mode",
+          sampleCount: 3,
+          evidenceId: "work-items-enhancements-measurements",
+          beforeContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+          afterContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+        },
+        {
+          key: "w5-fieldUpdateMs-200",
+          label: {
+            "zh-CN": "200 项：字段更新",
+            en: "200 items: Field update",
+          },
+          unit: "ms",
+          direction: "lower",
+          before: 450,
+          after: 417,
+          target: null,
+          statistic: "median of 3 observations per mode",
+          sampleCount: 3,
+          evidenceId: "work-items-enhancements-measurements",
+          beforeContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+          afterContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+        },
+        {
+          key: "w5-groupMs-200",
+          label: {
+            "zh-CN": "200 项：重新分组",
+            en: "200 items: Regroup",
+          },
+          unit: "ms",
+          direction: "lower",
+          before: 2146,
+          after: 965,
+          target: null,
+          statistic: "median of 3 observations per mode",
+          sampleCount: 3,
+          evidenceId: "work-items-enhancements-measurements",
+          beforeContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+          afterContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+        },
+        {
+          key: "w5-selectMs-1000",
+          label: {
+            "zh-CN": "1000 项：选择",
+            en: "1000 items: Selection",
+          },
+          unit: "ms",
+          direction: "lower",
+          before: 1214,
+          after: 1037,
+          target: null,
+          statistic: "median of 3 observations per mode",
+          sampleCount: 3,
+          evidenceId: "work-items-enhancements-measurements",
+          beforeContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+          afterContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+        },
+        {
+          key: "w5-fieldUpdateMs-1000",
+          label: {
+            "zh-CN": "1000 项：字段更新",
+            en: "1000 items: Field update",
+          },
+          unit: "ms",
+          direction: "lower",
+          before: 2772,
+          after: 2133,
+          target: null,
+          statistic: "median of 3 observations per mode",
+          sampleCount: 3,
+          evidenceId: "work-items-enhancements-measurements",
+          beforeContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+          afterContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+        },
+        {
+          key: "w5-groupMs-1000",
+          label: {
+            "zh-CN": "1000 项：重新分组",
+            en: "1000 items: Regroup",
+          },
+          unit: "ms",
+          direction: "lower",
+          before: 22191,
+          after: 6095,
+          target: null,
+          statistic: "median of 3 observations per mode",
+          sampleCount: 3,
+          evidenceId: "work-items-enhancements-measurements",
+          beforeContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+          afterContext:
+            "Same optimized W5 source, production static preview, shared host, Playwright action + two frames, 120ms fixture receipts; before=off, after=on",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      text: {
+        "zh-CN":
+          "开启屏外延迟并非每项操作都会变快：200 项选择由 174ms 增至 245ms，1000 项移动由约 3.8 秒增至 4.0 秒。1000 项重新分组虽由约 22.2 秒降至 6.1 秒，仍有明显延迟；此功能保持可选，消费方仍需结合权威分页控制加载量。",
+        en: "Offscreen deferral does not improve every operation: selection at 200 items rose from 174ms to 245ms, and moving at 1000 items rose from about 3.8 to 4.0 seconds. Regrouping at 1000 items fell from about 22.2 to 6.1 seconds but remains slow. The feature stays optional, and consumers should still bound loaded records with authoritative pagination.",
       },
     },
   ],
@@ -545,6 +880,82 @@ export const workItemsSharedViews: BlogPost = {
         en: "Single shared-host production-preview baseline, not a service SLA or before/after comparison.",
       },
     },
+    {
+      id: "work-items-enhancements-source",
+      type: "source",
+      file: "/blog/work-items-enhancements/source-snapshot.json",
+      capturedAt: "2026-10-08T15:07:00.394Z",
+      sourceSnapshotId:
+        "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+      command:
+        "WORK_ITEMS_ORIGIN=http://127.0.0.1:33113 node scripts/measure-work-items-enhancements.mjs",
+      environment:
+        "Node / Next 16.3.8 / Chrome / Linux GLIBC 2.28 / Webpack + WASM / shared host",
+      method:
+        "Explicit core-file hashes checked before and after capture; not a full Git tree hash.",
+      sampleCount: 13,
+      scope: {
+        "zh-CN": "本地确定性 fixture；不代表真实服务、生产容量或人工读屏验收。",
+        en: "Deterministic local fixtures, not live services, production capacity or manual screen-reader acceptance.",
+      },
+    },
+    {
+      id: "work-items-enhancements-measurements",
+      type: "measurement",
+      file: "/blog/work-items-enhancements/measurements.json",
+      capturedAt: "2026-10-08T15:07:00.394Z",
+      sourceSnapshotId:
+        "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+      command:
+        "WORK_ITEMS_ORIGIN=http://127.0.0.1:33113 node scripts/measure-work-items-enhancements.mjs",
+      environment:
+        "Node / Next 16.3.8 / Chrome / Linux GLIBC 2.28 / Webpack + WASM / shared host",
+      method:
+        "Same-source offscreen-layout toggle; Playwright action to two frames, includes automation and 120ms fixture receipts; native full DOM, no virtualization; shared host, not a service benchmark or p95",
+      sampleCount: 18,
+      scope: {
+        "zh-CN": "本地确定性 fixture；不代表真实服务、生产容量或人工读屏验收。",
+        en: "Deterministic local fixtures, not live services, production capacity or manual screen-reader acceptance.",
+      },
+    },
+    {
+      id: "work-items-enhancements-screenshots",
+      type: "screenshot",
+      file: "/blog/work-items-enhancements/swimlanes-1440-zh-CN.png",
+      capturedAt: "2026-10-08T15:07:00.394Z",
+      sourceSnapshotId:
+        "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+      command:
+        "WORK_ITEMS_ORIGIN=http://127.0.0.1:33113 node scripts/measure-work-items-enhancements.mjs",
+      environment:
+        "Node / Next 16.3.8 / Chrome / Linux GLIBC 2.28 / Webpack + WASM / shared host",
+      method:
+        "Local swimlane, hierarchy, batch and saved-view fixtures; six screenshots, including narrow dark English.",
+      sampleCount: 6,
+      scope: {
+        "zh-CN": "本地确定性 fixture；不代表真实服务、生产容量或人工读屏验收。",
+        en: "Deterministic local fixtures, not live services, production capacity or manual screen-reader acceptance.",
+      },
+    },
+    {
+      id: "work-items-enhancements-tests",
+      type: "test",
+      file: "/blog/work-items-enhancements/verification.json",
+      capturedAt: "2026-10-08T15:24:19.446Z",
+      sourceSnapshotId:
+        "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+      command:
+        "WORK_ITEMS_TEST_PORT=33114 pnpm exec playwright test --config=playwright.work-items.config.ts; pnpm test:install",
+      environment:
+        "Node / Next 16.3.8 / Chrome / Linux GLIBC 2.28 / Webpack + WASM / shared host",
+      method:
+        "Production browser regression and installed consumer validation; scopes and commands are recorded in the JSON.",
+      sampleCount: 244,
+      scope: {
+        "zh-CN": "本地确定性 fixture；不代表真实服务、生产容量或人工读屏验收。",
+        en: "Deterministic local fixtures, not live services, production capacity or manual screen-reader acceptance.",
+      },
+    },
   ],
   limitations: [
     {
@@ -559,8 +970,8 @@ export const workItemsSharedViews: BlogPost = {
     },
     {
       "zh-CN":
-        "1000 项全部挂载且明显迟缓；单次共享主机测量不能代表 p95、优化改善或生产容量。泳道、子项、批量写入、保存视图和大数据优化仍属于后续阶段。",
-      en: "All 1000 items mount and are visibly slow. One shared-host observation does not establish p95, improvement or production capacity. Swimlanes, subitems, batch writes, saved views and large-data optimization remain future work.",
+        "W5/S5 已加入泳道、子项、批量状态/优先级修改、保存视图接口和布局优化。1000 项仍完整挂载；共享主机的三轮中位数不是 p95 或生产容量保证，保存视图仅页面内存。跨泳道命令、生产事务和持久化接入仍由消费方完成。",
+      en: "W5/S5 adds swimlanes, sub-items, batch state/priority changes, saved-view interfaces and layout optimization. All 1000 items still mount. Three shared-host observations are not p95 or a production capacity guarantee. Saved views use page memory; cross-lane commands, production transactions and persistence remain consumer responsibilities.",
     },
   ],
 }

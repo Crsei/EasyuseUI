@@ -9,6 +9,8 @@ export const scenarios = [
   "field-rejected",
   "unknown",
   "agent",
+  "hierarchy",
+  "batch-mixed",
   "50",
   "200",
   "1000",

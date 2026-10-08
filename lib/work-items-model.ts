@@ -52,6 +52,12 @@ export type WorkItemsViewState = {
   sortDirection: "asc" | "desc"
   visibleProperties: WorkItemProperty[]
   showEmptyGroups: boolean
+  /** Optional Board swimlane axis; must differ from groupBy. */
+  subGroupBy?: "none" | "state" | "priority"
+  /** List hierarchy only; Board/Table retain flat entity views. */
+  showSubItems?: boolean
+  /** Keep DOM/search/keyboard order while deferring offscreen layout. */
+  deferOffscreen?: boolean
 }
 export type WorkItemsInteraction = {
   selectedIds: readonly string[]
@@ -84,6 +90,7 @@ export type MoveIntent = {
   queryKey: string
   /** Explicit append is allowed only when the caller supplies this capability. */
   append?: boolean
+  laneKey?: string
 }
 export type WorkItemDraft = {
   title: string
@@ -110,4 +117,41 @@ export function isMutationLocked(mutation?: MutationState) {
 /** Calendar dates stay strings. The caller supplies today's date in its intended timezone. */
 export function isOverdue(date: string | null, today?: string) {
   return !!date && !!today && /^\d{4}-\d{2}-\d{2}$/.test(date) && date < today
+}
+
+/** Caller-provided authoritative groups; never infer remote lane totals from a page. */
+export type WorkItemsLaneSnapshot = {
+  key: string
+  label: string
+  groups: readonly import("./grouped-items-model").GroupSnapshot[]
+}
+export type WorkItemChildrenSnapshot = {
+  totalCount?: number | null
+  hasMore?: boolean
+  state: import("./runtime-status").DataState
+  error?: string
+}
+export type WorkItemsHierarchy = {
+  expandedIds: readonly string[]
+  onExpandedChange: (ids: string[]) => void
+  children?: Readonly<Record<string, WorkItemChildrenSnapshot | undefined>>
+  onLoadMore?: (item: WorkItemRecord) => void
+  onRetry?: (item: WorkItemRecord) => void
+}
+export type WorkItemsBatchIntent = {
+  operationId: string
+  entries: readonly { itemId: string; baseRevision: number }[]
+  patch: Pick<WorkItemPatch, "stateId" | "priorityId">
+}
+export type WorkItemsSavedView = {
+  id: string
+  name: string
+  revision: number
+  view: WorkItemsViewState
+}
+export type WorkItemsSaveViewIntent = {
+  id?: string
+  name: string
+  baseRevision?: number
+  view: WorkItemsViewState
 }

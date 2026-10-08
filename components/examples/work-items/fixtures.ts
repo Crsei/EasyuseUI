@@ -67,3 +67,16 @@ export function makeWorkItems(count = 24): WorkItemRecord[] {
     revision: 1,
   }))
 }
+
+/** Explicit relationships, independent of workflow grouping. Counts refer to direct children. */
+export function makeHierarchyWorkItems() {
+  const rows = makeWorkItems()
+  rows[1].parentId = rows[0].id
+  rows[2].parentId = rows[0].id
+  rows[3].parentId = rows[1].id
+  rows[4].parentId = "not-loaded-parent"
+  return rows.map((item) => ({
+    ...item,
+    subItemCount: rows.filter((child) => child.parentId === item.id).length,
+  }))
+}

@@ -1,7 +1,7 @@
 # Work Items 通用组件与展示模式建设计划
 
 日期：2026-10-08
-状态：首版 W0–W4 已实施并完成本地行为与独立安装验收；W5 待实施。见[实施记录](./work-items-implementation-log.md)。
+状态：W0–W5 已实施；W5 的五项增强分别完成本地行为、独立安装及性能测量验收，真实服务接入由消费方另行验收。见[实施记录](./work-items-implementation-log.md)。
 配套：[Work Items 示例页面展示计划](./work-items-showcase-plan.md)。
 
 ## 1. 目标与现有基础
@@ -114,7 +114,7 @@
 | W2 分组列表与Table | P0，W1 | GroupedList、WorkItemList/Table、Toolbar/DisplayOptions、QuickCreate | 分组/排序/属性切换一致；查看/多选分离；五态可恢复 |
 | W3 Board编辑闭环 | P0，W1/W2 | 通用 Board、WorkItemBoard、列内排序/跨组移动、键盘替代 | 指针/键盘同语义；分页边界、权限、拒绝/unknown均覆盖 |
 | W4 Workspace与分发 | P0，W2/W3 | WorkItemsWorkspace、完整示例、Manifest/Registry/安装回归 | 三布局共享快照与操作；独立安装可用；现有组件无回归 |
-| W5 复杂场景增强 | P1，W4 | 泳道、子项、批量操作、保存视图接口、大数据优化 | 各增强独立验收，未交付不阻碍首版范围说明 |
+| W5 复杂场景增强 | P1，W4；已完成 | 泳道、子项、批量操作、保存视图接口、可选屏外延迟与索引缓存 | 五项独立验收通过；18 次性能观察保留改善与退化，服务及大数据限制见实施记录 |
 
 首版完成定义为 W0–W4。W5 不提前显示可操作占位入口，不将后续能力计入首版验收。通用 Board 另以非 WorkItem 条目演示，证明无业务绑定。
 

@@ -2104,7 +2104,9 @@
         "work-items-model",
         "data-table",
         "i18n",
-        "button"
+        "button",
+        "data-region",
+        "work-items-styles"
       ],
       "files": [
         {
@@ -2178,7 +2180,8 @@
         "work-items-model",
         "grouped-items-model",
         "work-items-styles",
-        "i18n"
+        "i18n",
+        "work-items-enhancements"
       ],
       "files": [
         {
@@ -2293,6 +2296,31 @@
           "path": "components/blocks/agent-board.module.css",
           "type": "registry:file",
           "target": "components/blocks/agent-board.module.css"
+        }
+      ]
+    },
+    {
+      "name": "work-items-enhancements",
+      "type": "registry:block",
+      "title": "WorkItemsBatchActions / WorkItemsSavedViews",
+      "registryDependencies": [
+        "theme",
+        "work-item",
+        "work-item-properties",
+        "work-items-model",
+        "work-items-styles",
+        "i18n",
+        "button",
+        "input",
+        "dialog",
+        "popover",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/work-items-enhancements.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/work-items-enhancements.tsx"
         }
       ]
     }

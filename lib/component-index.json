@@ -1959,7 +1959,9 @@
       "work-items-model",
       "data-table",
       "i18n",
-      "button"
+      "button",
+      "data-region",
+      "work-items-styles"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -1988,7 +1990,9 @@
       "work-items-model",
       "data-table",
       "i18n",
-      "button"
+      "button",
+      "data-region",
+      "work-items-styles"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -2017,7 +2021,9 @@
       "work-items-model",
       "data-table",
       "i18n",
-      "button"
+      "button",
+      "data-region",
+      "work-items-styles"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -2102,6 +2108,7 @@
       "workspace-shell",
       "work-items-toolbar",
       "work-items-views",
+      "work-items-enhancements",
       "work-item-detail",
       "data-region",
       "button",
@@ -2227,6 +2234,68 @@
     "widePreview": true,
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "work-items-batch-actions",
+    "docPath": "/docs/work-items-batch-actions/",
+    "registryId": "work-items-enhancements",
+    "registryDependencies": [
+      "theme",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n",
+      "button",
+      "input",
+      "dialog",
+      "popover",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemsBatchActions",
+    "category": "组合模块",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "source": "components/blocks/work-items-enhancements.tsx",
+    "example": "components/examples/work-items-enhancements-demo.tsx",
+    "usage": "import { WorkItemsBatchActions } from \"@/components/blocks/work-items-enhancements\"",
+    "widePreview": true,
+    "notes": [
+      "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-items-saved-views",
+    "docPath": "/docs/work-items-saved-views/",
+    "registryId": "work-items-enhancements",
+    "registryDependencies": [
+      "theme",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n",
+      "button",
+      "input",
+      "dialog",
+      "popover",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemsSavedViews",
+    "category": "组合模块",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "source": "components/blocks/work-items-enhancements.tsx",
+    "example": "components/examples/work-items-enhancements-demo.tsx",
+    "usage": "import { WorkItemsSavedViews } from \"@/components/blocks/work-items-enhancements\"",
+    "widePreview": true,
+    "notes": [
+      "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
     ]
   }
 ]

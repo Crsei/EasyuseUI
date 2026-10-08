@@ -1,5 +1,5 @@
 "use client"
-import type { ReactNode } from "react"
+import { memo, type ReactNode } from "react"
 import {
   Circle,
   Flag,
@@ -259,7 +259,7 @@ export type WorkItemPropertiesProps = {
   today?: string
   agentLabel?: string
 }
-export function WorkItemProperties({
+function WorkItemPropertiesContent({
   item,
   catalog,
   visibleProperties,
@@ -416,3 +416,18 @@ export function WorkItemProperties({
     </div>
   )
 }
+
+/** Ignore presentation-only callbacks; field edits still use the current onPatchItem. */
+export const WorkItemProperties = memo(
+  WorkItemPropertiesContent,
+  (a, b) =>
+    a.item === b.item &&
+    a.catalog === b.catalog &&
+    a.visibleProperties === b.visibleProperties &&
+    a.layout === b.layout &&
+    a.capabilities === b.capabilities &&
+    a.onPatchItem === b.onPatchItem &&
+    a.mutation === b.mutation &&
+    a.today === b.today &&
+    a.agentLabel === b.agentLabel,
+)

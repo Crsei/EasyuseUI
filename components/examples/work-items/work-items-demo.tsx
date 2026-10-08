@@ -1,5 +1,11 @@
 "use client"
-import { useRef, useState, useSyncExternalStore } from "react"
+import {
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { ListTodo, ArrowLeft, BookOpen, Languages, Sun } from "lucide-react"
@@ -20,6 +26,10 @@ import {
   type WorkItemPatch,
   type WorkItemRecord,
   type WorkItemCapabilities,
+  type WorkItemsBatchIntent,
+  type WorkItemsSavedView,
+  type WorkItemsSaveViewIntent,
+  type CreateResult,
 } from "@/lib/work-items-model"
 import { useI18n } from "@/lib/i18n-provider"
 import {
@@ -27,7 +37,12 @@ import {
   useSiteFeedback,
   siteMessage,
 } from "@/components/site/site-i18n"
-import { catalog, makeWorkItems, fixtureToday } from "./fixtures"
+import {
+  catalog,
+  makeWorkItems,
+  makeHierarchyWorkItems,
+  fixtureToday,
+} from "./fixtures"
 import {
   groupWorkItems,
   selectWorkItems,
@@ -37,7 +52,8 @@ import {
 import { applyOperation, fixtureDelay, type LocalOperation } from "./commands"
 import { scenarios, scenarioCount, type WorkItemsScenario } from "./scenarios"
 import { useWorkItemsUrl } from "./use-work-items-url"
-import type { BoardMove } from "@/lib/grouped-items-model"
+import type { WorkItemsBoardMove } from "@/components/blocks/work-items-views"
+import { groupWorkItemLanes } from "@/lib/work-items-view"
 import styles from "./work-items-demo.module.css"
 
 export function WorkItemsDemo() {
@@ -54,6 +70,16 @@ export function WorkItemsDemo() {
   const [items, setItems] = useState(makeWorkItems)
   const [selectedIds, setSelectedIds] = useState<string[]>([])
   const [collapsed, setCollapsed] = useState<string[]>([])
+  const [expanded, setExpanded] = useState<string[]>([])
+  const [childrenState, setChildrenState] = useState<
+    "partial" | "loading" | "error" | "success"
+  >("partial")
+  const [savedViews, setSavedViews] = useState<WorkItemsSavedView[]>([])
+  const [activeSavedId, setActiveSavedId] = useState<string | null>(null)
+  const [viewMutation, setViewMutation] = useState<MutationState>()
+  const savedAuthority = useRef(savedViews)
+  savedAuthority.current = savedViews
+  const savedOperation = useRef<(() => boolean) | null>(null)
   const [mutations, setMutations] = useState<Record<string, MutationState>>({})
   const [drafts, setDrafts] = useState<Record<string, WorkItemPatch>>({})
   const [createPreset, setCreatePreset] = useState<WorkItemDraft | null>(null)
@@ -69,10 +95,21 @@ export function WorkItemsDemo() {
   const operations = useRef(new Map<string, LocalOperation>())
   const createOperation = useRef<WorkItemDraft | null>(null)
   const locks = useRef(new Set<string>())
-  const visible = selectWorkItems(items, url.view)
+  const matching = useMemo(
+    () => selectWorkItems(items, url.view),
+    [items, url.view],
+  )
+  const visible = useMemo(
+    () =>
+      scenario === "hierarchy" && childrenState !== "success"
+        ? matching.filter((item) => item.id !== "wi-003")
+        : matching,
+    [matching, scenario, childrenState],
+  )
   const queryKey = JSON.stringify([
     generation.current,
     url.view.groupBy,
+    url.view.subGroupBy,
     url.view.query,
     url.view.filters,
     url.view.sort,
@@ -80,43 +117,71 @@ export function WorkItemsDemo() {
   ])
   const latest = useRef({ items, queryKey, scenario })
   latest.current = { items, queryKey, scenario }
-  const fullGroups = groupWorkItems(visible, catalog, url.view, queryKey)
-  const groups = fullGroups.map((group, index) => {
-    if (
-      scenario !== "partial" ||
-      loadedGroups.includes(`${queryKey}:${group.key}`)
-    )
-      return group
-    const itemIds = group.itemIds.slice(0, 2)
-    return {
-      ...group,
-      itemIds,
-      loadedCount: itemIds.length,
-      totalCount: index % 2 ? null : group.totalCount,
-      hasMore: group.itemIds.length > 2,
-      dataState: pageErrors.includes(`${queryKey}:${group.key}`)
-        ? ("error" as const)
-        : loadingGroups.includes(`${queryKey}:${group.key}`)
-          ? ("loading" as const)
-          : group.itemIds.length > 2
-            ? ("partial" as const)
-            : group.dataState,
-      error: pageErrors.includes(`${queryKey}:${group.key}`)
-        ? siteT("site.workItems.demoPageError")
-        : undefined,
-    }
-  })
-  const loadedIds = new Set(groups.flatMap((g) => g.itemIds))
-  const loadedItems = visible.filter((item) => loadedIds.has(item.id))
-  const capabilities: WorkItemCapabilities = {
-    canCreate: scenario !== "readonly",
-    canEditField: () => scenario !== "readonly",
-    canMove: (item) => scenario !== "readonly" && !locks.current.has(item.id),
-    reason:
-      scenario === "readonly"
-        ? siteT("site.workItems.demoReadOnly")
-        : undefined,
-  }
+  const fullGroups = useMemo(
+    () => groupWorkItems(visible, catalog, url.view, queryKey),
+    [visible, url.view, queryKey],
+  )
+  const lanes = useMemo(
+    () =>
+      scenario === "partial"
+        ? []
+        : groupWorkItemLanes(visible, catalog, url.view, queryKey),
+    [visible, url.view, queryKey, scenario],
+  )
+  const pageError = siteT("site.workItems.demoPageError")
+  const groups = useMemo(
+    () =>
+      fullGroups.map((group, index) => {
+        if (
+          scenario !== "partial" ||
+          loadedGroups.includes(`${queryKey}:${group.key}`)
+        )
+          return group
+        const itemIds = group.itemIds.slice(0, 2)
+        return {
+          ...group,
+          itemIds,
+          loadedCount: itemIds.length,
+          totalCount: index % 2 ? null : group.totalCount,
+          hasMore: group.itemIds.length > 2,
+          dataState: pageErrors.includes(`${queryKey}:${group.key}`)
+            ? ("error" as const)
+            : loadingGroups.includes(`${queryKey}:${group.key}`)
+              ? ("loading" as const)
+              : group.itemIds.length > 2
+                ? ("partial" as const)
+                : group.dataState,
+          error: pageErrors.includes(`${queryKey}:${group.key}`)
+            ? pageError
+            : undefined,
+        }
+      }),
+    [
+      fullGroups,
+      scenario,
+      loadedGroups,
+      loadingGroups,
+      pageErrors,
+      queryKey,
+      pageError,
+    ],
+  )
+  const loadedItems = useMemo(() => {
+    const ids = new Set(groups.flatMap((group) => group.itemIds))
+    return visible.filter((item) => ids.has(item.id))
+  }, [visible, groups])
+  const readOnlyReason = siteT("site.workItems.demoReadOnly")
+  const capabilities: WorkItemCapabilities = useMemo(
+    () => ({
+      canCreate: scenario !== "readonly",
+      canEditField: (item) =>
+        scenario !== "readonly" &&
+        !(scenario === "batch-mixed" && item.id === "wi-004"),
+      canMove: (item) => scenario !== "readonly" && !locks.current.has(item.id),
+      reason: scenario === "readonly" ? readOnlyReason : undefined,
+    }),
+    [scenario, readOnlyReason],
+  )
   const context = {
     items,
     groups,
@@ -136,7 +201,10 @@ export function WorkItemsDemo() {
     operations.current.clear()
     createOperation.current = null
     setScenario(next)
-    const rows = makeWorkItems(scenarioCount(next))
+    const rows =
+      next === "hierarchy"
+        ? makeHierarchyWorkItems()
+        : makeWorkItems(scenarioCount(next))
     if (next === "agent") rows[0].agentStatus = "running"
     publish(rows)
     setMutations({})
@@ -148,6 +216,10 @@ export function WorkItemsDemo() {
     setPageErrors([])
     setSelectedIds([])
     setCollapsed([])
+    setExpanded([])
+    setChildrenState("partial")
+    savedOperation.current = null
+    setViewMutation(undefined)
     setFeedback("")
   }
   function remainingFieldErrors(
@@ -169,12 +241,16 @@ export function WorkItemsDemo() {
       return { ...before, [id]: draft }
     })
   }
-  async function submit(item: WorkItemRecord, operation: LocalOperation) {
+  async function submit(
+    item: WorkItemRecord,
+    operation: LocalOperation,
+    operationId?: string,
+  ) {
     if (locks.current.has(item.id) || latest.current.scenario === "readonly")
       return
     const mutation: MutationState = {
       itemId: item.id,
-      operationId: `demo-${++operationCounter.current}`,
+      operationId: operationId ?? `demo-${++operationCounter.current}`,
       baseRevision: item.revision,
       status: "pending",
       fieldErrors: mutations[item.id]?.fieldErrors,
@@ -184,7 +260,7 @@ export function WorkItemsDemo() {
     locks.current.add(item.id)
     operations.current.set(item.id, operation)
     setMutations((before) => ({ ...before, [item.id]: mutation }))
-    if (operation.kind === "patch")
+    if (operation.kind === "patch" && !operationId)
       setDrafts((before) => ({
         ...before,
         [item.id]: { ...before[item.id], ...operation.patch },
@@ -193,6 +269,7 @@ export function WorkItemsDemo() {
     if (currentGeneration !== generation.current) return
     const current = latest.current.items.find((row) => row.id === item.id)
     if (
+      (currentScenario === "batch-mixed" && item.id === "wi-002") ||
       currentScenario === "rejected" ||
       (currentScenario === "field-rejected" &&
         operation.kind === "patch" &&
@@ -226,7 +303,10 @@ export function WorkItemsDemo() {
       }))
       return
     }
-    if (currentScenario === "unknown") {
+    if (
+      currentScenario === "unknown" ||
+      (currentScenario === "batch-mixed" && item.id === "wi-003")
+    ) {
       setMutations((before) => ({
         ...before,
         [item.id]: { ...mutation, status: "unknown" },
@@ -292,7 +372,7 @@ export function WorkItemsDemo() {
       revision: authority.revision,
     })
   }
-  function move(request: BoardMove) {
+  function move(request: WorkItemsBoardMove) {
     const item = latest.current.items.find((row) => row.id === request.itemId)
     if (!item) return
     const intent = {
@@ -300,7 +380,16 @@ export function WorkItemsDemo() {
       baseRevision: request.baseRevision ?? item.revision,
       operationId: `move-${++operationCounter.current}`,
     }
-    if (validateMove(intent, context)) {
+    const lane = request.laneKey
+      ? lanes.find((lane) => lane.key === request.laneKey)
+      : undefined
+    if (
+      (request.laneKey &&
+        (!lane ||
+          !lane.groups.some((group) => group.itemIds.includes(item.id)))) ||
+      (!request.laneKey && url.view.layout === "board" && lanes.length) ||
+      validateMove(intent, { ...context, groups: lane?.groups ?? groups })
+    ) {
       setFeedback(siteMessage("site.workItems.demoMoveUnavailable"))
       return
     }
@@ -401,16 +490,140 @@ export function WorkItemsDemo() {
       setCreatePreset(null)
     }
   }
-  function preset(group?: string) {
+  function batch(intent: WorkItemsBatchIntent) {
+    for (const entry of intent.entries) {
+      const item = latest.current.items.find((item) => item.id === entry.itemId)
+      if (
+        !item ||
+        item.revision !== entry.baseRevision ||
+        !Object.keys(intent.patch).length ||
+        !Object.keys(intent.patch).every(
+          (field) =>
+            (field === "stateId" || field === "priorityId") &&
+            capabilities.canEditField(item, field),
+        )
+      )
+        continue
+      void submit(
+        item,
+        {
+          kind: "patch",
+          itemId: item.id,
+          revision: entry.baseRevision,
+          patch: intent.patch,
+        },
+        `${intent.operationId}:${entry.itemId}`,
+      )
+    }
+  }
+  async function loadChildren() {
+    if (childrenState === "loading" || childrenState === "success") return
+    const token = generation.current
+    const key = queryKey
+    const before = childrenState
+    setChildrenState("loading")
+    await fixtureDelay()
+    if (token !== generation.current) return
+    // Retain the old query's fixture data; do not publish a late child page into a new query.
+    if (key !== latest.current.queryKey) {
+      setChildrenState(before)
+      return
+    }
+    setChildrenState(before === "error" ? "success" : "error")
+  }
+  async function saveView(write: () => boolean): Promise<CreateResult> {
+    if (savedOperation.current || latest.current.scenario === "readonly")
+      return { status: "rejected", error: siteT("site.workItems.demoReadOnly") }
+    const token = generation.current
+    const state = latest.current.scenario
+    savedOperation.current = write
+    setViewMutation({
+      itemId: "saved-view",
+      operationId: `view-${++operationCounter.current}`,
+      baseRevision: 0,
+      status: "pending",
+    })
+    await fixtureDelay()
+    if (token !== generation.current) return { status: "rejected" }
+    if (state === "unknown") {
+      setViewMutation((before) => before && { ...before, status: "unknown" })
+      return { status: "unknown" }
+    }
+    savedOperation.current = null
+    if (state === "rejected" || !write()) {
+      setViewMutation(
+        (before) =>
+          before && {
+            ...before,
+            status: "rejected",
+            error: siteT("site.workItems.viewConflict"),
+          },
+      )
+      return { status: "rejected", error: siteT("site.workItems.viewConflict") }
+    }
+    setViewMutation((before) => before && { ...before, status: "confirmed" })
+    return { status: "confirmed" }
+  }
+  function storeView(intent: WorkItemsSaveViewIntent) {
+    return saveView(() => {
+      const previous = savedAuthority.current.find(
+        (view) => view.id === intent.id,
+      )
+      if (intent.id && (!previous || previous.revision !== intent.baseRevision))
+        return false
+      const saved: WorkItemsSavedView = {
+        id: intent.id ?? `view-${++operationCounter.current}`,
+        name: intent.name,
+        revision: (previous?.revision ?? 0) + 1,
+        view: structuredClone(intent.view),
+      }
+      const next = previous
+        ? savedAuthority.current.map((view) =>
+            view.id === previous.id ? saved : view,
+          )
+        : [...savedAuthority.current, saved]
+      savedAuthority.current = next
+      setSavedViews(next)
+      setActiveSavedId(saved.id)
+      return true
+    })
+  }
+  function reconcileView() {
+    if (viewMutation?.status !== "unknown" || !savedOperation.current) return
+    const confirmed = savedOperation.current()
+    savedOperation.current = null
+    setViewMutation(
+      (before) =>
+        before && {
+          ...before,
+          status: confirmed ? "confirmed" : "rejected",
+          error: confirmed ? undefined : siteT("site.workItems.viewConflict"),
+        },
+    )
+  }
+  const handlers = useRef({ patch })
+  handlers.current = { patch }
+  const stablePatch = useCallback(
+    (item: WorkItemRecord, patch: WorkItemPatch) =>
+      handlers.current.patch(item, patch),
+    [],
+  )
+  function preset(group?: string, laneKey?: string) {
     if (!capabilities.canCreate || isMutationLocked(createMutation)) return
     setCreatePreset({
       title: "",
       stateId:
-        url.view.groupBy === "state" && group ? group : catalog.states[0].id,
+        url.view.subGroupBy === "state" && laneKey
+          ? laneKey
+          : url.view.groupBy === "state" && group
+            ? group
+            : catalog.states[0].id,
       priorityId:
-        url.view.groupBy === "priority" && group
-          ? group
-          : catalog.priorities[2].id,
+        url.view.subGroupBy === "priority" && laneKey
+          ? laneKey
+          : url.view.groupBy === "priority" && group
+            ? group
+            : catalog.priorities[2].id,
     })
   }
   function present(item: WorkItemRecord) {
@@ -418,7 +631,7 @@ export function WorkItemsDemo() {
       catalog,
       visibleProperties: url.view.visibleProperties,
       capabilities,
-      onPatchItem: patch,
+      onPatchItem: stablePatch,
       mutation: mutations[item.id],
       today: fixtureToday,
       agentLabel: siteT("site.workItems.simulatedAgent"),
@@ -427,7 +640,15 @@ export function WorkItemsDemo() {
       onReconcile: () => reconcile(item.id),
     }
   }
-  const displayed = loadedItems.map((item) => ({ ...item, ...drafts[item.id] }))
+  const displayed = useMemo(
+    () =>
+      loadedItems.map((item) =>
+        Object.keys(drafts[item.id] ?? {}).length
+          ? { ...item, ...drafts[item.id] }
+          : item,
+      ),
+    [loadedItems, drafts],
+  )
   const active = items.find((item) => item.id === url.activeItemId)
   return (
     <main
@@ -502,6 +723,75 @@ export function WorkItemsDemo() {
         catalog={catalog}
         items={displayed}
         groups={groups}
+        lanes={lanes}
+        onCreateInLane={
+          capabilities.canCreate && !isMutationLocked(createMutation)
+            ? (lane, group) => preset(group, lane)
+            : undefined
+        }
+        hierarchy={{
+          expandedIds: expanded,
+          onExpandedChange: setExpanded,
+          children:
+            scenario === "hierarchy"
+              ? {
+                  "wi-001": {
+                    state: childrenState,
+                    totalCount: 2,
+                    hasMore: childrenState !== "success",
+                    error:
+                      childrenState === "error"
+                        ? siteT("site.workItems.demoPageError")
+                        : undefined,
+                  },
+                  "wi-002": { state: "success", totalCount: 1 },
+                }
+              : undefined,
+          onLoadMore: scenario === "hierarchy" ? loadChildren : undefined,
+          onRetry: scenario === "hierarchy" ? loadChildren : undefined,
+        }}
+        batchActions={{
+          items,
+          capabilities,
+          mutations,
+          onApply: batch,
+          onReconcile: (ids) => ids.forEach(reconcile),
+        }}
+        savedViews={{
+          views: savedViews,
+          activeId: activeSavedId,
+          canSave: capabilities.canCreate,
+          canDelete: capabilities.canCreate,
+          reason: siteT("site.workItems.enhancementNotice"),
+          mutation: viewMutation,
+          onApply: (saved) => {
+            setActiveSavedId(saved.id)
+            url.setView(structuredClone(saved.view))
+          },
+          onSave: storeView,
+          onDelete: (saved) =>
+            saveView(() => {
+              if (
+                !savedAuthority.current.some(
+                  (view) =>
+                    view.id === saved.id && view.revision === saved.revision,
+                )
+              )
+                return false
+              const next = savedAuthority.current.filter(
+                (view) => view.id !== saved.id,
+              )
+              savedAuthority.current = next
+              setSavedViews(next)
+              setActiveSavedId((id) => (id === saved.id ? null : id))
+              return true
+            }),
+          onUnknown: () =>
+            setViewMutation(
+              (before) => before && { ...before, status: "unknown" },
+            ),
+          onReconcile: reconcileView,
+        }}
         view={url.view}
         onViewChange={url.setView}
         queryKey={queryKey}
@@ -567,6 +857,7 @@ export function WorkItemsDemo() {
         notes={
           <div className={styles.notes}>
             <p>{siteT("site.workItems.demoNotice")}</p>
+            <p>{siteT("site.workItems.enhancementNotice")}</p>
             <label>
               {siteT("site.workItems.demoScenario")}
               <select

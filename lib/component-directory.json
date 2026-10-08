@@ -808,5 +808,23 @@
     "docPath": "/docs/agent-run-virtual-list/",
     "installType": "block",
     "registryId": "agent-run-virtual-list"
+  },
+  {
+    "slug": "work-items-batch-actions",
+    "name": "WorkItemsBatchActions",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-items-batch-actions/",
+    "installType": "block",
+    "registryId": "work-items-enhancements"
+  },
+  {
+    "slug": "work-items-saved-views",
+    "name": "WorkItemsSavedViews",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-items-saved-views/",
+    "installType": "block",
+    "registryId": "work-items-enhancements"
   }
 ]

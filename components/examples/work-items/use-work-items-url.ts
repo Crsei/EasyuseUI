@@ -1,4 +1,5 @@
 "use client"
+import { useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import {
   defaultWorkItemsView,
@@ -53,6 +54,13 @@ export function decodeWorkItemsUrl(params: URLSearchParams): {
           )
         : [...defaultWorkItemsView.visibleProperties],
       showEmptyGroups: params.get("empty") !== "0",
+      subGroupBy:
+        (params.get("lane") === "state" || params.get("lane") === "priority") &&
+        params.get("lane") !== (group === "priority" ? "priority" : "state")
+          ? (params.get("lane") as "state" | "priority")
+          : "none",
+      showSubItems: params.get("children") === "1",
+      deferOffscreen: params.get("defer") === "1",
     },
     item: params.get("item")?.toLocaleLowerCase() ?? null,
   }
@@ -72,13 +80,23 @@ export function encodeWorkItemsUrl(
     for (const id of ids) params.append(key, id)
   params.set("fields", view.visibleProperties.join(","))
   if (!view.showEmptyGroups) params.set("empty", "0")
+  if (
+    view.subGroupBy &&
+    view.subGroupBy !== "none" &&
+    view.subGroupBy !== view.groupBy
+  )
+    params.set("lane", view.subGroupBy)
+  if (view.showSubItems) params.set("children", "1")
+  if (view.deferOffscreen) params.set("defer", "1")
   if (item) params.set("item", item.toUpperCase())
   return `/workspace/work-items/?${params}`
 }
 export function useWorkItemsUrl() {
   const params = useSearchParams()
-  const { view, item } = decodeWorkItemsUrl(
-    new URLSearchParams(params.toString()),
+  const serialized = params.toString()
+  const { view, item } = useMemo(
+    () => decodeWorkItemsUrl(new URLSearchParams(serialized)),
+    [serialized],
   )
   function navigate(
     next: WorkItemsViewState,

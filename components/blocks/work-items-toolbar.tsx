@@ -1,4 +1,5 @@
 "use client"
+import type { ReactNode } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -21,11 +22,18 @@ export type WorkItemsToolbarProps = {
   view: WorkItemsViewState
   onViewChange: (view: WorkItemsViewState) => void
   catalog: WorkItemCatalog
+  enhancements?: {
+    swimlanes?: boolean
+    subItems?: boolean
+    offscreen?: boolean
+  }
+  extensions?: ReactNode
 }
 export function WorkItemsDisplayOptions({
   view,
   onViewChange,
-}: Pick<WorkItemsToolbarProps, "view" | "onViewChange">) {
+  enhancements,
+}: Pick<WorkItemsToolbarProps, "view" | "onViewChange" | "enhancements">) {
   const { t } = useI18n()
   const properties: WorkItemProperty[] = [
     "state",
@@ -51,6 +59,10 @@ export function WorkItemsDisplayOptions({
                 onViewChange({
                   ...view,
                   groupBy: e.target.value as WorkItemsViewState["groupBy"],
+                  subGroupBy:
+                    e.target.value === view.subGroupBy
+                      ? "none"
+                      : view.subGroupBy,
                 })
               }
             >
@@ -58,6 +70,62 @@ export function WorkItemsDisplayOptions({
               <option value="priority">{t("workItems.priority")}</option>
             </select>
           </label>
+          {enhancements && (
+            <>
+              {enhancements.swimlanes && (
+                <>
+                  <label>
+                    {t("workItems.swimlanes")}
+                    <select
+                      aria-label={t("workItems.swimlanes")}
+                      value={view.subGroupBy ?? "none"}
+                      onChange={(e) =>
+                        onViewChange({
+                          ...view,
+                          subGroupBy: e.target
+                            .value as WorkItemsViewState["subGroupBy"],
+                        })
+                      }
+                    >
+                      <option value="none">{t("workItems.noSwimlanes")}</option>
+                      <option value="state" disabled={view.groupBy === "state"}>
+                        {t("workItems.state")}
+                      </option>
+                      <option
+                        value="priority"
+                        disabled={view.groupBy === "priority"}
+                      >
+                        {t("workItems.priority")}
+                      </option>
+                    </select>
+                  </label>
+                  <p className="text-xs">{t("workItems.swimlaneLayoutHint")}</p>
+                </>
+              )}
+              {enhancements.subItems && (
+                <label>
+                  <Checkbox
+                    checked={view.showSubItems ?? false}
+                    onCheckedChange={(showSubItems) =>
+                      onViewChange({ ...view, showSubItems })
+                    }
+                  />
+                  {t("workItems.showSubItems")}
+                </label>
+              )}
+              {enhancements.offscreen && (
+                <label>
+                  <Checkbox
+                    checked={view.deferOffscreen ?? false}
+                    onCheckedChange={(deferOffscreen) =>
+                      onViewChange({ ...view, deferOffscreen })
+                    }
+                  />
+                  {t("workItems.deferOffscreen")}
+                </label>
+              )}
+            </>
+          )}
           <label>
             {t("workItems.sort")}
             <select
@@ -119,6 +187,8 @@ export function WorkItemsToolbar({
   view,
   onViewChange,
   catalog,
+  enhancements,
+  extensions,
 }: WorkItemsToolbarProps) {
   const { t } = useI18n()
   const options = {
@@ -189,7 +259,14 @@ export function WorkItemsToolbar({
         }
         filters={filters}
         actions={
-          <WorkItemsDisplayOptions view={view} onViewChange={onViewChange} />
+          <>
+            <WorkItemsDisplayOptions
+              view={view}
+              onViewChange={onViewChange}
+              enhancements={enhancements}
+            />
+            {extensions}
+          </>
         }
       />
       <div className={styles.chips}>

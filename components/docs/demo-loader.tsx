@@ -35,6 +35,8 @@ export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
   "work-item-table": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemTableDemo),
   "work-items-toolbar": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemsToolbarDemo),
   "work-item-detail": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemDetailDemo),
+  "work-items-batch-actions": () => import("@/components/examples/work-items-enhancements-demo").then(m => m.WorkItemsBatchActionsDemo),
+  "work-items-saved-views": () => import("@/components/examples/work-items-enhancements-demo").then(m => m.WorkItemsSavedViewsDemo),
   "work-items-workspace": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemsWorkspaceDemo),
 
 "agent-run-properties":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunPropertiesDemo),

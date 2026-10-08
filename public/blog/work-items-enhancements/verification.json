@@ -1,0 +1,77 @@
+{
+  "sourceSnapshotId": "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
+  "verifiedAt": "2026-10-08T15:24:19.446876+00:00",
+  "releaseReady": true,
+  "scope": "Explicit 13 core-file hashes, not a full Git tree; deterministic local fixtures and installed source, not production services.",
+  "checks": [
+    {
+      "command": "pnpm lint",
+      "result": "passed",
+      "scope": "Task-only isolated snapshot on 24ebab1a64ad3215b5d69ed5b439e1ec78c94c16; excludes uncommitted CRM work"
+    },
+    {
+      "command": "pnpm typecheck",
+      "result": "passed",
+      "scope": "Task-only isolated snapshot on 24ebab1a64ad3215b5d69ed5b439e1ec78c94c16; excludes uncommitted CRM work"
+    },
+    {
+      "command": "pnpm build (Webpack + WASM fallback)",
+      "result": "passed",
+      "scope": "Task-only isolated snapshot on 24ebab1a64ad3215b5d69ed5b439e1ec78c94c16; excludes uncommitted CRM work"
+    },
+    {
+      "command": "pnpm check:i18n",
+      "result": "passed",
+      "scope": "Task-only isolated snapshot on 24ebab1a64ad3215b5d69ed5b439e1ec78c94c16; excludes uncommitted CRM work"
+    },
+    {
+      "command": "pnpm check:manifest",
+      "result": "passed",
+      "scope": "Task-only isolated snapshot on 24ebab1a64ad3215b5d69ed5b439e1ec78c94c16; excludes uncommitted CRM work"
+    },
+    {
+      "command": "pnpm check:blog",
+      "result": "passed",
+      "scope": "Task-only isolated snapshot on 24ebab1a64ad3215b5d69ed5b439e1ec78c94c16; excludes uncommitted CRM work"
+    },
+    {
+      "command": "WORK_ITEMS_TEST_PORT=33114 pnpm exec playwright test --config=playwright.work-items.config.ts",
+      "result": "passed",
+      "passed": 244,
+      "duration": "6.1m",
+      "scope": "Final production output: all committed-baseline browser suites plus W5 enhancements and updated article/evidence assertions; not an acceptance of uncommitted CRM work"
+    },
+    {
+      "command": "pnpm test:install",
+      "result": "passed",
+      "consumer": "easyuse-ui-consumer-cj1xSf",
+      "scope": "Combined CLI install, typecheck and production build; real browser hierarchy, actual batch priority change into High lane, lane move, save/apply view; original Work Items, common, Agent and Canvas operations"
+    },
+    {
+      "command": "WORK_ITEMS_ORIGIN=http://127.0.0.1:33113 node scripts/measure-work-items-enhancements.mjs",
+      "result": "passed",
+      "observations": 18,
+      "screenshots": 6,
+      "pageErrors": 0,
+      "scope": "Same runtime core hashes as final isolated source; actual loaded/total/mounted counts equal 50/200/1000"
+    }
+  ],
+  "limits": [
+    "Saved views and business records use page memory and reset on refresh.",
+    "Batch writes have per-item receipts, not an atomic transaction.",
+    "Cross-lane dual-field commands, authenticated Plane comparison and live persistence remain consumer integration work.",
+    "No virtualization; 1000 records still mount; shared-host three-sample medians are not p95 or an SLA. Some operations regress when offscreen deferral is enabled."
+  ],
+  "developmentSmoke": {
+    "origin": "http://127.0.0.1:3010",
+    "result": "passed",
+    "httpStatus": 200,
+    "lanes": 4,
+    "items": 24,
+    "savedViewsPopoverOpened": true,
+    "pageErrors": 0,
+    "failedRequests": 0,
+    "badResponses": 0,
+    "scope": "Read-only check of the shared live development UI; no service writes or restart. The first marker-based probe timed out on a false dev SSR marker; the follow-up verified visible controls and the saved-view popover."
+  }
+}

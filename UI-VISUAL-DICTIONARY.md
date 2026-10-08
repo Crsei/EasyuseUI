@@ -253,3 +253,14 @@ Shadow 是「如何画阴影」，Elevation 是「元素在层级中如何相互
 入口 `/workspace/canvas/`，配置与边界见 [Canvas 指南](./CANVAS.md)。在线词典根据 Catalog 标记上述组件为已有；词汇可见不代表存在执行服务。
 
 CanvasConfigEditor 已分发，内部包含 ConditionBuilder、扁平对象 SchemaBuilder、KeyValueEditor 和表达式/代码/JSON文本编辑路径；这些内部名称不代表额外独立导出。真实模型、凭据、保存、协作和发布服务均由消费方提供，本地故障样例不证明业务接入。
+
+## Work Items 增强实现映射
+
+| 术语 | 当前实现 | 边界 |
+| --- | --- | --- |
+| Swimlane / 泳道 | 内嵌：`WorkItemBoard.lanes`，按第二个单值属性分区 | 仅泳道内移动；权威分组/计数由调用方提供 |
+| Sub-items / 子项 | 内嵌：`WorkItemList.hierarchy` | 展开与选择独立，普通列表语义；Table/Board 平铺 |
+| Batch Actions / 批量操作 | 已有：`WorkItemsBatchActions`，Registry `work-items-enhancements` | 状态/优先级；逐项回执，unknown 先查询 |
+| Saved Views / 保存视图 | 已有：`WorkItemsSavedViews`，Registry `work-items-enhancements` | 受控配置与版本接口；无默认持久化 |
+
+接口与安装见 [WORK-ITEMS.md](./WORK-ITEMS.md)，不将本地保存视图示例视为真实存储服务。

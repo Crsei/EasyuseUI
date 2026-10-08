@@ -628,5 +628,19 @@
     "category": "组合模块",
     "docPath": "/docs/agent-run-virtual-list/",
     "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-items-batch-actions",
+    "name": "WorkItemsBatchActions",
+    "category": "组合模块",
+    "docPath": "/docs/work-items-batch-actions/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-items-saved-views",
+    "name": "WorkItemsSavedViews",
+    "category": "组合模块",
+    "docPath": "/docs/work-items-saved-views/",
+    "displayCategory": "patterns"
   }
 ]

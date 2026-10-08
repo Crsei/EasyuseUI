@@ -285,3 +285,74 @@ a.identifier:focus-visible {
   border: 0;
   border-radius: 0;
 }
+
+.laneTitle {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-block: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+.enhancementHint {
+  padding: 4px 12px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.batch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.batch label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.batch select,
+.display select {
+  min-height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--background);
+  padding: 0 4px;
+}
+.batchPreview {
+  max-height: 240px;
+  overflow: auto;
+  padding: 8px;
+  font-size: 13px;
+  list-style: none;
+}
+.savedRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+.savedRow > :first-child {
+  min-width: 0;
+  white-space: normal;
+  height: auto;
+  min-height: 32px;
+}
+.deferred {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 48px;
+}
+.deferred:focus-within,
+.deferredCard:focus-within {
+  content-visibility: visible;
+}
+.deferredCard {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 168px;
+}
+@media (pointer: coarse) {
+  .batch select,
+  .display select {
+    min-height: 44px;
+  }
+}

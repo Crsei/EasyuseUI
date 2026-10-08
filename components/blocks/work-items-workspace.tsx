@@ -13,6 +13,7 @@ import {
   WorkItemBoard,
   WorkItemTable,
   type WorkItemsViewProps,
+  type WorkItemBoardProps,
 } from "./work-items-views"
 import { WorkItemDetail } from "./work-item-detail"
 import { DataRegion, type DataRegionProps } from "@/components/ui/data-region"
@@ -23,7 +24,13 @@ import type {
   WorkItemRecord,
   WorkItemsViewState,
 } from "@/lib/work-items-model"
-import type { BoardMove } from "@/lib/grouped-items-model"
+import { hierarchyVisibleIds } from "@/lib/work-items-view"
+import {
+  WorkItemsBatchActions,
+  WorkItemsSavedViews,
+  type WorkItemsBatchActionsProps,
+  type WorkItemsSavedViewsProps,
+} from "./work-items-enhancements"
 import { useI18n } from "@/lib/i18n-provider"
 import styles from "./work-items.module.css"
 export type WorkItemsWorkspaceProps = WorkItemsViewProps & {
@@ -38,7 +45,13 @@ export type WorkItemsWorkspaceProps = WorkItemsViewProps & {
   activeItem?: WorkItemRecord | null
   onCloseItem: () => void
   data?: Omit<DataRegionProps, "children" | "hasContent">
-  onMove?: (intent: BoardMove) => void
+  onMove?: WorkItemBoardProps["onMove"]
+  lanes?: WorkItemBoardProps["lanes"]
+  onCreateInLane?: WorkItemBoardProps["onCreateInLane"]
+  onLoadMoreInLane?: WorkItemBoardProps["onLoadMoreInLane"]
+  onRetryInLane?: WorkItemBoardProps["onRetryInLane"]
+  batchActions?: Omit<WorkItemsBatchActionsProps, "selectedIds" | "catalog">
+  savedViews?: Omit<WorkItemsSavedViewsProps, "view">
   canMove?: (item: WorkItemRecord, source: string, target: string) => boolean
   announcement?: string
 }
@@ -93,16 +106,36 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
       }
     props.onViewChange(view)
   }
-  const visibleIds = new Set(
-    props.view.layout === "table"
-      ? props.items.map((item) => item.id)
+  const groupIds =
+    props.view.layout === "board" && props.lanes?.length
+      ? props.lanes.flatMap((lane) =>
+          lane.groups
+            .filter(
+              (g) =>
+                !props.interaction.collapsedGroupIds.includes(
+                  `${lane.key}:${g.key}`,
+                ),
+            )
+            .flatMap((g) => g.itemIds),
+        )
       : props.groups
           .filter((g) => !props.interaction.collapsedGroupIds.includes(g.key))
-          .flatMap((g) => g.itemIds),
-  )
-  const chosen = [...visibleIds].filter((id) =>
-    props.interaction.selectedIds.includes(id),
-  ).length
+          .flatMap((g) => g.itemIds)
+  const loadedGroupIds = new Set(props.groups.flatMap((group) => group.itemIds))
+  const visibleIds =
+    props.view.layout === "table"
+      ? new Set(props.items.map((item) => item.id))
+      : props.view.layout === "list" &&
+          props.view.showSubItems &&
+          props.hierarchy
+        ? hierarchyVisibleIds(
+            groupIds,
+            props.items.filter(item => loadedGroupIds.has(item.id)),
+            props.hierarchy.expandedIds,
+          )
+        : new Set(groupIds)
+  const selected = new Set(props.interaction.selectedIds)
+  const chosen = [...visibleIds].filter((id) => selected.has(id)).length
   const hidden = props.interaction.selectedIds.filter(
     (id) => !visibleIds.has(id),
   ).length
@@ -143,6 +176,19 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
               view={props.view}
               onViewChange={changeView}
               catalog={catalog}
+              enhancements={{
+                swimlanes: props.lanes !== undefined,
+                subItems: !!props.hierarchy,
+                offscreen: true,
+              }}
+              extensions={
+                props.savedViews ? (
+                  <WorkItemsSavedViews
+                    {...props.savedViews}
+                    view={props.view}
+                  />
+                ) : undefined
+              }
             />
           )
         }
@@ -184,6 +230,26 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
             )}
             <span role="status">{props.announcement}</span>
           </div>
+          {props.batchActions && (
+            <WorkItemsBatchActions
+              {...props.batchActions}
+              selectedIds={props.interaction.selectedIds}
+              catalog={catalog}
+            />
+          )}
+          {props.view.layout === "board" &&
+            props.view.subGroupBy &&
+            props.view.subGroupBy !== "none" &&
+            !props.lanes?.length && (
+              <p className={styles.enhancementHint}>
+                {t("workItems.lanesUnavailable")}
+              </p>
+            )}
+          {props.view.showSubItems && props.view.layout !== "list" && (
+            <p className={styles.enhancementHint}>
+              {t("workItems.flatViewHint")}
+            </p>
+          )}
           <div
             className={styles.scroll}
             ref={scroll}
@@ -201,11 +267,18 @@ export function WorkItemsWorkspace(props: WorkItemsWorkspaceProps) {
               }
             >
               {props.view.layout === "list" ? (
-                <WorkItemList {...props} />
+                <WorkItemList
+                  {...props}
+                  hierarchy={
+                    props.view.showSubItems ? props.hierarchy : undefined
+                  }
+                  deferOffscreen={props.view.deferOffscreen}
+                />
               ) : props.view.layout === "board" ? (
                 <WorkItemBoard
                   {...props}
                   manualOrder={props.view.sort === "manual"}
+                  deferOffscreen={props.view.deferOffscreen}
                 />
               ) : (
                 <WorkItemTable

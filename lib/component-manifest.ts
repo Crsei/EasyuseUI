@@ -3036,7 +3036,9 @@ export const componentManifest: ComponentManifestEntry[] = [
       "work-items-model",
       "data-table",
       "i18n",
-      "button"
+      "button",
+      "data-region",
+      "work-items-styles"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -3053,6 +3055,11 @@ export const componentManifest: ComponentManifestEntry[] = [
         "name": "items / groups / interaction / getPresentation / onSelectionChange",
         "type": "WorkItemsViewProps",
         "description": "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+      },
+      {
+        "name": "hierarchy / deferOffscreen",
+        "type": "WorkItemsHierarchy / boolean",
+        "description": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。"
       }
     ],
     "notes": [
@@ -3073,7 +3080,9 @@ export const componentManifest: ComponentManifestEntry[] = [
       "work-items-model",
       "data-table",
       "i18n",
-      "button"
+      "button",
+      "data-region",
+      "work-items-styles"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -3090,6 +3099,11 @@ export const componentManifest: ComponentManifestEntry[] = [
         "name": "items / groups / interaction / getPresentation / onSelectionChange",
         "type": "WorkItemsViewProps & Board movement props",
         "description": "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+      },
+      {
+        "name": "lanes / onCreateInLane / onLoadMoreInLane / onRetryInLane / onMove",
+        "type": "WorkItemBoardProps",
+        "description": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。"
       }
     ],
     "notes": [
@@ -3110,7 +3124,9 @@ export const componentManifest: ComponentManifestEntry[] = [
       "work-items-model",
       "data-table",
       "i18n",
-      "button"
+      "button",
+      "data-region",
+      "work-items-styles"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -3166,6 +3182,11 @@ export const componentManifest: ComponentManifestEntry[] = [
         "name": "view / onViewChange / catalog",
         "type": "WorkItemsToolbarProps",
         "description": "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+      },
+      {
+        "name": "enhancements / extensions",
+        "type": "capability flags / ReactNode",
+        "description": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。"
       }
     ],
     "notes": [
@@ -3219,6 +3240,7 @@ export const componentManifest: ComponentManifestEntry[] = [
       "workspace-shell",
       "work-items-toolbar",
       "work-items-views",
+      "work-items-enhancements",
       "work-item-detail",
       "data-region",
       "button",
@@ -3243,6 +3265,11 @@ export const componentManifest: ComponentManifestEntry[] = [
         "name": "view / onViewChange / items / groups / interaction / activeItem / queryKey / onMove / data / notes",
         "type": "WorkItemsWorkspaceProps",
         "description": "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+      },
+      {
+        "name": "hierarchy / lanes / batchActions / savedViews",
+        "type": "optional controlled enhancement props",
+        "description": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。"
       }
     ],
     "notes": [
@@ -3409,5 +3436,83 @@ export const componentManifest: ComponentManifestEntry[] = [
     ],
     notes: ["示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"],
     widePreview: true,
+  },
+  {
+    "slug": "work-items-batch-actions",
+    "docPath": "/docs/work-items-batch-actions/",
+    "registryId": "work-items-enhancements",
+    "registryDependencies": [
+      "theme",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n",
+      "button",
+      "input",
+      "dialog",
+      "popover",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemsBatchActions",
+    "category": "组合模块",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "source": "components/blocks/work-items-enhancements.tsx",
+    "relatedSources": [],
+    "example": "components/examples/work-items-enhancements-demo.tsx",
+    "usage": "import { WorkItemsBatchActions } from \"@/components/blocks/work-items-enhancements\"",
+    "props": [
+      {
+        "name": "items / selectedIds / capabilities / mutations / onApply",
+        "type": "WorkItemsBatchActionsProps",
+        "description": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。"
+      }
+    ],
+    "notes": [
+      "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
+    ],
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-saved-views",
+    "docPath": "/docs/work-items-saved-views/",
+    "registryId": "work-items-enhancements",
+    "registryDependencies": [
+      "theme",
+      "work-item",
+      "work-item-properties",
+      "work-items-model",
+      "work-items-styles",
+      "i18n",
+      "button",
+      "input",
+      "dialog",
+      "popover",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemsSavedViews",
+    "category": "组合模块",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "source": "components/blocks/work-items-enhancements.tsx",
+    "relatedSources": [],
+    "example": "components/examples/work-items-enhancements-demo.tsx",
+    "usage": "import { WorkItemsSavedViews } from \"@/components/blocks/work-items-enhancements\"",
+    "props": [
+      {
+        "name": "views / view / mutation / onApply / onSave / onDelete / onUnknown",
+        "type": "WorkItemsSavedViewsProps",
+        "description": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。"
+      }
+    ],
+    "notes": [
+      "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
+    ],
+    "widePreview": true
   },
 ]

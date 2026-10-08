@@ -1,6 +1,15 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.workItems.enhancementsDescription": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "site.workItems.enhancementsProps": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。",
+    "site.workItems.enhancementsNotes": "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。",
+
+    "site.workItems.enhancementNotice": "泳道、子项与批量操作使用本地快照；保存视图仅保存在当前页面内存，刷新清除。真实权限、回执和存储由接入方提供。",
+    "site.workItems.scenario.hierarchy": "子项与部分加载",
+    "site.workItems.scenario.batch-mixed": "批量部分成功",
+    "site.workItems.viewConflict": "保存视图版本冲突，草稿已保留。",
+
 "site.agentBoardP2.agent-dependency-graph":
       "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
 "site.agentBoardP2.agent-usage-history":
@@ -2471,6 +2480,15 @@ export const siteMessages = {
       "构图、配置、校验与 JSON 导入导出的本地画布工作台。",
   },
   en: {
+    "site.workItems.enhancementsDescription": "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces.",
+    "site.workItems.enhancementsProps": "Callers own authoritative snapshots, revisions, permissions, writes and uncertain outcomes. Components do not store business data.",
+    "site.workItems.enhancementsNotes": "Batch changes support state and priority; saved views have no default persistence. Consumers integrate live services.",
+
+    "site.workItems.enhancementNotice": "Swimlanes, sub-items and batch changes use local snapshots. Saved views live only in page memory and reset on refresh. Consumers supply live authorization, receipts and storage.",
+    "site.workItems.scenario.hierarchy": "Sub-items and partial loading",
+    "site.workItems.scenario.batch-mixed": "Mixed batch outcomes",
+    "site.workItems.viewConflict": "Saved view revision conflict. Draft retained.",
+
 "site.agentBoardP2.agent-dependency-graph":
       "Source-reported run dependencies in a read-only canvas and accessible list.",
 "site.agentBoardP2.agent-usage-history":

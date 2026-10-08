@@ -414,7 +414,9 @@ const seeds: Seed[] = [
     "多选字段。",
     "不代替立即执行的命令。",
     {
-      componentSlug: "checkbox", aliases: ["勾选框", "多选"] },
+      componentSlug: "checkbox",
+      aliases: ["勾选框", "多选"],
+    },
   ),
   term(
     "radio-group",
@@ -619,7 +621,9 @@ const seeds: Seed[] = [
     "提高熟练用户效率。",
     "重要操作仍保留普通入口。",
     {
-      componentSlug: "command-palette", aliases: ["Command Menu", "命令搜索", "命令框"] },
+      componentSlug: "command-palette",
+      aliases: ["Command Menu", "命令搜索", "命令框"],
+    },
   ),
   term(
     "toolbar",
@@ -657,7 +661,9 @@ const seeds: Seed[] = [
     "日志和数值比较。",
     "不要每格都变成卡片。",
     {
-      componentSlug: "data-table", aliases: ["数据表", "表头"] },
+      componentSlug: "data-table",
+      aliases: ["数据表", "表头"],
+    },
   ),
   term(
     "data-grid",
@@ -1239,6 +1245,14 @@ export const dictionaryEntries: DictionaryEntry[] = [
       avoid: "本地示例不等于真实服务执行；请阅读组件契约。",
       aliases: [
         entry.name,
+        ...(entry.slug === "work-item-board" ? ["Swimlane", "泳道"] : []),
+        ...(entry.slug === "work-item-list" ? ["Sub-items", "子项"] : []),
+        ...(entry.slug === "work-items-batch-actions"
+          ? ["Batch Actions", "批量操作"]
+          : []),
+        ...(entry.slug === "work-items-saved-views"
+          ? ["Saved Views", "保存视图"]
+          : []),
         ...(entry.slug === "runtime-status-badge"
           ? ["状态徽标", "运行态", "胶囊状态"]
           : []),
