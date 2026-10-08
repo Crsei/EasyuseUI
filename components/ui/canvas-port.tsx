@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { Handle, Position } from "@xyflow/react"
 import type { CanvasPortDefinition } from "@/lib/canvas-model"
@@ -14,6 +15,8 @@ export function CanvasPort({
   readOnly?: boolean
   unknownType?: boolean
 }) {
+  const { t, resolve } = useI18n()
+
   return (
     <div className={styles.port} data-direction={port.direction}>
       <Handle
@@ -21,10 +24,10 @@ export function CanvasPort({
         type={port.direction === "input" ? "target" : "source"}
         position={port.direction === "input" ? Position.Left : Position.Right}
         isConnectable={!readOnly}
-        aria-label={`${port.label} ${port.direction === "input" ? "输入" : "输出"} ${unknownType ? "类型未定义" : port.type}`}
+        aria-label={`${resolve(port.labelI18n, port.label)} ${port.direction === "input" ? t("common.input") : t("toolCall.output")} ${unknownType ? t("canvasPort.undefinedType") : port.type}`}
       />
-      <span>{port.label}</span>
-      <code>{unknownType ? "类型未定义" : port.type}</code>
+      <span>{resolve(port.labelI18n, port.label)}</span>
+      <code>{unknownType ? t("canvasPort.undefinedType") : port.type}</code>
     </div>
   )
 }

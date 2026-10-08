@@ -1,4 +1,6 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
+
 import { useState } from "react"
 import {
   ActivityTimeline,
@@ -20,6 +22,8 @@ function event(index: number): ActivityEvent {
   }
 }
 export function ActivityTimelineDemo() {
+  const { t } = useSiteI18n()
+
   const [events, setEvents] = useState(() =>
     Array.from({ length: 12 }, (_, index) => event(index)),
   )
@@ -41,7 +45,7 @@ export function ActivityTimelineDemo() {
             )
           }
         >
-          更新事件状态
+          {t("site.updateEventStatus")}
         </Button>
         <Button
           size="sm"
@@ -53,17 +57,17 @@ export function ActivityTimelineDemo() {
             ])
           }
         >
-          追加事件
+          {t("site.appendEvent")}
         </Button>
         <Button
           size="sm"
           variant="ghost"
           onClick={() => setEvents((current) => [...current, current.at(-1)!])}
         >
-          重复事件
+          {t("site.duplicateEvent")}
         </Button>
         <Button size="sm" variant="ghost" onClick={() => setFailed(!failed)}>
-          切换刷新失败
+          {t("site.toggleRefreshFailure")}
         </Button>
       </div>
       <ActivityTimeline
@@ -75,14 +79,14 @@ export function ActivityTimelineDemo() {
           onRetry: () => setFailed(false),
           error: {
             category: "network",
-            message: "刷新事件失败",
-            reason: "本地演示连接不可用。",
+            message: t("site.eventRefreshFailed"),
+            reason: t("site.localDemoConnectionUnavailable"),
           },
           updatedAt: "16:42:08",
         }}
       />
       <p className="mt-3 text-xs text-text-secondary">
-        本地时间线 · 滚离底部后追加事件，查看新事件提示。
+        {t("site.localTimelineScrollAwayFromTheBottomThenAppend")}
       </p>
     </div>
   )

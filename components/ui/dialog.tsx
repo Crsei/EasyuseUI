@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
 import { cn } from "@/lib/utils"
@@ -12,6 +13,8 @@ export function DialogContent({
   children,
   ...props
 }: Omit<DialogPrimitive.Popup.Props, "className"> & { className?: string }) {
+  const { t } = useI18n()
+
   return (
     <DialogPrimitive.Portal>
       <DialogPrimitive.Backdrop className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-opacity duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0" />
@@ -24,7 +27,7 @@ export function DialogContent({
       >
         {children}
         <DialogPrimitive.Close
-          aria-label="关闭弹窗"
+          aria-label={t("dialog.closeDialog")}
           className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground [@media(pointer:coarse)]:size-11"
         >
           <svg

@@ -1,3 +1,10 @@
+import {
+  uiMessage,
+  resolveUiText,
+  defaultLocale,
+  type UiMessage,
+  type UiText,
+} from "@/lib/i18n-core"
 import type {
   CanvasDocument,
   CanvasExecutionSnapshot,
@@ -79,9 +86,13 @@ export type CanvasRuntimeState = {
   documentId: string
   snapshot?: CanvasRunSnapshot
   transport: "connected" | "disconnected"
+  readErrorI18n?: UiMessage
   readError?: string
+  uncertainI18n?: UiMessage
   uncertain?: string
+  pendingI18n?: UiMessage
   pending?: string
+  awaitingI18n?: UiMessage
   awaiting?: string
 }
 export function acceptCanvasRunSnapshot(
@@ -112,7 +123,9 @@ export function acceptCanvasRunSnapshot(
       ...state,
       transport: "connected",
       pending: undefined,
+      pendingI18n: undefined,
       readError: undefined,
+      readErrorI18n: undefined,
     }
   const snapshot =
     !establish && old?.sequence === next.sequence
@@ -130,14 +143,15 @@ export function acceptCanvasRunSnapshot(
         }
   return { documentId: state.documentId, snapshot, transport: "connected" }
 }
-export function canvasRunProblem(
+export function describeCanvasRunProblem(
   document: CanvasDocument,
   definitions: CanvasNodeDefinition[],
   scope: CanvasRunScope,
   nodeId?: string,
   inputs?: CanvasRunRequest["inputs"],
-): string | undefined {
-  if (!document.nodes.length) return "画布没有可运行节点。"
+): UiText | undefined {
+  if (!document.nodes.length)
+    return uiMessage("canvasRuntime.theCanvasHasNoRunnableNodes")
   const issues = validateCanvasDocument(document, definitions)
   const invalid = issues.find(
     (issue) =>
@@ -146,10 +160,10 @@ export function canvasRunProblem(
       issue.code === "config" ||
       (scope === "all" && issue.code === "required-port"),
   )
-  if (invalid) return invalid.message
+  if (invalid) return invalid.messageI18n ?? invalid.message
   if (scope === "all") return undefined
   const node = document.nodes.find((node) => node.id === nodeId)
-  if (!node) return "请先选择一个运行节点。"
+  if (!node) return uiMessage("canvasRuntime.selectANodeToRunFirst")
   const included = new Set([node.id])
   if (scope === "to")
     for (const id of upstreamCanvasNodes(document, node.id)) included.add(id)
@@ -175,7 +189,17 @@ export function canvasRunProblem(
           included.has(edge.source),
       )
       if (!internal && inputs?.[target.id]?.[port.id] === undefined)
-        return `${target.title} / ${port.label} 缺少本次运行的上游输入，请由调用方提供。`
+        return uiMessage("common.valueValueRequiresUpstreamInputForThisRun", {
+          value0: target.title,
+          value1: port.label,
+        })
     }
   }
+}
+
+export function canvasRunProblem(
+  ...args: Parameters<typeof describeCanvasRunProblem>
+) {
+  const value = describeCanvasRunProblem(...args)
+  return value === undefined ? undefined : resolveUiText(defaultLocale, value)
 }

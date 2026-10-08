@@ -1,5 +1,7 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
+import { LocaleSwitcher } from "@/components/site/locale-switcher"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
@@ -8,6 +10,8 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 export function Header() {
+  const { t } = useSiteI18n()
+
   const pathname = usePathname().replace(/\/$/, "") || "/"
   const { resolvedTheme, setTheme } = useTheme()
 
@@ -16,7 +20,7 @@ export function Header() {
       <div className="mx-auto flex min-h-18 max-w-6xl flex-wrap items-center gap-x-6 gap-y-3 px-5 py-3 sm:px-8">
         <Link
           href="/"
-          aria-label="EasyuseUI 首页"
+          aria-label={t("site.easyuseuiHome")}
           className="flex items-center gap-2.5 font-semibold tracking-tight"
         >
           <span className="flex size-8 items-center justify-center rounded-lg bg-primary font-mono text-lg text-primary-foreground">
@@ -27,18 +31,18 @@ export function Header() {
           </span>
         </Link>
         <nav
-          aria-label="主导航"
+          aria-label={t("site.mainNavigation")}
           className="order-3 flex w-full gap-4 overflow-x-auto text-sm whitespace-nowrap sm:order-0 sm:ml-8 sm:w-auto sm:gap-6"
         >
           {[
-            { href: "/docs", label: "文档" },
-            { href: "/dictionary", label: "视觉词典" },
-            { href: "/style-workbench", label: "样式工作台" },
-            { href: "/workspace/canvas", label: "流程画布" },
-            { href: "/components", label: "组件" },
-            { href: "/docs/task-panel", label: "组合模块" },
-            { href: "/scroll", label: "滚动实验室" },
-            { href: "/workspace", label: "工作台" },
+            { href: "/docs", label: t("site.documentation") },
+            { href: "/dictionary", label: t("site.visualDictionary") },
+            { href: "/style-workbench", label: t("site.styleWorkbench") },
+            { href: "/workspace/canvas", label: t("site.workflowCanvas") },
+            { href: "/components", label: t("site.components") },
+            { href: "/docs/task-panel", label: t("site.blocks") },
+            { href: "/scroll", label: t("site.scrollLab") },
+            { href: "/workspace", label: t("site.workspace") },
           ].map(({ href, label }) => (
             <Link
               key={href}
@@ -54,10 +58,11 @@ export function Header() {
           ))}
         </nav>
         <div className="ml-auto flex items-center gap-2">
+          <LocaleSwitcher />
           <Button
             variant="ghost"
             size="icon"
-            aria-label="切换深浅主题"
+            aria-label={t("site.toggleLightAndDarkTheme")}
             onClick={() =>
               setTheme(resolvedTheme === "dark" ? "light" : "dark")
             }
@@ -69,7 +74,7 @@ export function Header() {
             href="/docs/installation"
             className="hidden items-center gap-1 text-sm font-medium sm:flex"
           >
-            开始使用
+            {t("site.getStarted")}
             <ArrowUpRight size={15} />
           </Link>
         </div>

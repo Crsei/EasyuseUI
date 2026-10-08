@@ -1,4 +1,5 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useRef, useState } from "react"
 import Link from "next/link"
@@ -21,6 +22,8 @@ import { DictionaryPreview, FoundationPreview } from "./dictionary-preview"
 import styles from "./dictionary.module.css"
 
 export function VisualDictionary() {
+  const { t, text } = useSiteI18n()
+
   const [query, setQuery] = useState("")
   const [category, setCategory] = useState<DictionaryCategory | "all">("all")
   const [availability, setAvailability] = useState<Availability | "all">("all")
@@ -29,7 +32,10 @@ export function VisualDictionary() {
   const search = useRef<HTMLInputElement>(null)
   const matching = dictionaryEntries.filter(
     (entry) =>
-      matchesDictionaryEntry(entry, query) &&
+      (matchesDictionaryEntry(entry, query) ||
+        text(entry.description)
+          .toLocaleLowerCase()
+          .includes(query.trim().toLocaleLowerCase())) &&
       (availability === "all" || entry.availability === availability),
   )
   const filtered = matching.filter(
@@ -60,20 +66,24 @@ export function VisualDictionary() {
           <p className={styles.eyebrow}>
             <BookOpen size={14} aria-hidden="true" /> UI VOCABULARY
           </p>
-          <h1>视觉词典</h1>
-          <p>从长什么样开始，找到名字和用法。</p>
+          <h1>{t("site.visualDictionary")}</h1>
+          <p>{t("site.startWithItsAppearanceFindItsNameAndPurpose")}</p>
         </div>
         <div className={styles.summary}>
-          <Badge>{dictionaryEntries.length} 个词条</Badge>
-          <Badge>{catalog.length} 个已有组件</Badge>
-          <Badge>9 个分类</Badge>
+          <Badge>
+            {dictionaryEntries.length} {t("site.entries")}
+          </Badge>
+          <Badge>
+            {catalog.length} {t("site.availableComponents")}
+          </Badge>
+          <Badge>{t("site.9Categories")}</Badge>
         </div>
       </header>
       <div className={styles.toolbar}>
         <div className={styles.search}>
           <Search size={16} aria-hidden="true" />
           <label htmlFor="dictionary-search" className="sr-only">
-            搜索视觉词典
+            {t("site.searchVisualDictionary")}
           </label>
           <Input
             ref={search}
@@ -81,40 +91,43 @@ export function VisualDictionary() {
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="试试：胶囊、阴影、小浮窗、Chip…"
+            placeholder={t("site.tryPillShadowFloatingPanelChip")}
           />
         </div>
         <label className={styles.availability}>
-          实现情况
+          {t("site.availability")}
           <select
-            aria-label="实现情况"
+            aria-label={t("site.availability")}
             value={availability}
             onChange={(event) =>
               setAvailability(event.target.value as Availability | "all")
             }
           >
-            <option value="all">全部实现情况</option>
+            <option value="all">{t("site.allAvailabilityStates")}</option>
             {Object.entries(availabilityLabels).map(([value, label]) => (
               <option value={value} key={value}>
-                {label}
+                {text(label)}
               </option>
             ))}
           </select>
         </label>
         {(query || category !== "all" || availability !== "all") && (
           <Button variant="ghost" size="sm" onClick={reset}>
-            清除筛选
+            {t("site.clearFilters")}
           </Button>
         )}
       </div>
       <div className={styles.layout}>
-        <nav className={styles.categories} aria-label="词典分类">
+        <nav
+          className={styles.categories}
+          aria-label={t("site.dictionaryCategories")}
+        >
           <button
             type="button"
             aria-pressed={category === "all"}
             onClick={() => setCategory("all")}
           >
-            <span>全部词条</span>
+            <span>{t("site.allEntries")}</span>
             <span>{matching.length}</span>
           </button>
           {dictionaryCategories.map((item) => (
@@ -125,7 +138,7 @@ export function VisualDictionary() {
               onClick={() => setCategory(item.id)}
             >
               <span>
-                {item.name}
+                {text(item.name)}
                 <small>{item.english}</small>
               </span>
               <span>
@@ -134,24 +147,33 @@ export function VisualDictionary() {
             </button>
           ))}
         </nav>
-        <section className={styles.collection} aria-label="词条列表">
+        <section
+          className={styles.collection}
+          aria-label={t("site.dictionaryEntries")}
+        >
           <div className={styles.collectionHeader}>
             <h2>
               {category === "all"
-                ? "全部词条"
-                : dictionaryCategories.find(({ id }) => id === category)?.name}
+                ? t("site.allEntries")
+                : text(
+                    dictionaryCategories.find(({ id }) => id === category)
+                      ?.name ?? "",
+                  )}
             </h2>
             <p role="status" aria-live="polite">
-              {filtered.length} 个结果{query && ` · “${query}”`}
+              {filtered.length} {t("site.results")}
+              {query && ` · “${query}”`}
             </p>
           </div>
           <DataRegion
             state={filtered.length ? "success" : "empty"}
-            emptyTitle="没有匹配的词条"
-            emptyDescription="试试中文外观描述、英文名，或清除分类和实现情况筛选。"
+            emptyTitle={t("site.noMatchingEntries")}
+            emptyDescription={t(
+              "site.tryAChineseAppearanceDescriptionEnglishNameOrClear",
+            )}
             emptyAction={
               <Button variant="secondary" size="sm" onClick={reset}>
-                清除全部筛选
+                {t("site.clearAllFilters")}
               </Button>
             }
           >
@@ -161,7 +183,10 @@ export function VisualDictionary() {
                   type="button"
                   key={entry.slug}
                   className={styles.entry}
-                  aria-label={`查看 ${entry.name} · ${entry.chinese}`}
+                  aria-label={t("site.viewValueValue", {
+                    value0: entry.name,
+                    value1: entry.chinese,
+                  })}
                   aria-pressed={selected?.slug === entry.slug}
                   aria-controls="dictionary-detail"
                   onClick={() => select(entry.slug)}
@@ -173,7 +198,7 @@ export function VisualDictionary() {
                     className={styles.entryStatus}
                     data-available={entry.availability === "available"}
                   >
-                    {availabilityLabels[entry.availability]}
+                    {text(availabilityLabels[entry.availability])}
                   </span>
                 </button>
               ))}
@@ -184,7 +209,7 @@ export function VisualDictionary() {
           <aside
             id="dictionary-detail"
             className={styles.detail}
-            aria-label="词条详情"
+            aria-label={t("site.entryDetails")}
           >
             <div className={styles.detailHeader}>
               <p>
@@ -205,20 +230,20 @@ export function VisualDictionary() {
                     selected.availability === "available" ? "info" : "neutral"
                   }
                 >
-                  {availabilityLabels[selected.availability]}
+                  {text(availabilityLabels[selected.availability])}
                 </Badge>
               </div>
             </div>
             <div key={selected.slug} className={styles.detailBody}>
-              <p className={styles.description}>{selected.description}</p>
+              <p className={styles.description}>{text(selected.description)}</p>
               {selected.aliases?.length ? (
                 <p className={styles.aliases}>
-                  <span>也叫</span>
+                  <span>{t("site.alsoCalled")}</span>
                   {selected.aliases.join(" · ")}
                 </p>
               ) : null}
               <section
-                aria-label={`${selected.name} ${Demo ? "交互演示" : "外观示意"}`}
+                aria-label={`${selected.name} ${Demo ? t("site.interactiveDemo") : t("site.appearancePreview")}`}
                 className={styles.livePreview}
               >
                 {Demo ? (
@@ -236,35 +261,39 @@ export function VisualDictionary() {
               {!Demo && (
                 <p className={styles.caption}>
                   {selected.availability === "planned"
-                    ? "外观示意 · 尚未提供独立组件"
+                    ? t("site.appearancePreviewStandaloneComponentNotAvailable")
                     : selected.availability === "embedded"
-                      ? "外观示意 · 已有模式不等于同名独立组件"
+                      ? t(
+                          "site.appearancePreviewEmbeddedPatternIsNotAStandaloneComponent",
+                        )
                       : selected.availability === "reference"
-                        ? "视觉参考 · 使用前需符合产品场景"
-                        : "基础样式 · 使用共享主题与规范"}
+                        ? t(
+                            "site.visualReferenceCheckSuitabilityForTheProductContext",
+                          )
+                        : t("site.foundationUseSharedThemeAndConventions")}
                 </p>
               )}
               <dl className={styles.guidance}>
                 <div>
-                  <dt>什么时候用</dt>
-                  <dd>{selected.use}</dd>
+                  <dt>{t("site.whenToUse")}</dt>
+                  <dd>{text(selected.use)}</dd>
                 </div>
                 <div>
-                  <dt>什么时候避免</dt>
-                  <dd>{selected.avoid}</dd>
+                  <dt>{t("site.whenToAvoid")}</dt>
+                  <dd>{text(selected.avoid)}</dd>
                 </div>
               </dl>
               {(selected.category === "foundations" ||
                 selected.category === "shapes" ||
                 selected.category === "effects") && (
                 <Link className={styles.docsLink} href="/style-workbench">
-                  调整参数并对比
+                  {t("site.adjustParametersAndCompare")}
                   <ArrowUpRight size={14} aria-hidden="true" />
                 </Link>
               )}
               {selected.tokens && (
                 <section className={styles.tokens}>
-                  <h3>主题 token</h3>
+                  <h3>{t("site.themeTokens")}</h3>
                   {selected.tokens.map((token) => (
                     <code key={token}>--{token}</code>
                   ))}
@@ -275,8 +304,8 @@ export function VisualDictionary() {
                   <div>
                     <h3>
                       {selected.availability === "reference"
-                        ? "参考 CSS"
-                        : "用法"}
+                        ? t("site.referenceCss")
+                        : t("site.usage2")}
                     </h3>
                     <CopyButton value={selected.code} />
                   </div>
@@ -287,7 +316,8 @@ export function VisualDictionary() {
               )}
               {selected.source && (
                 <p className={styles.source}>
-                  源码 <code>{selected.source}</code>
+                  {t("site.source3")}
+                  <code>{selected.source}</code>
                 </p>
               )}
               {(selected.componentSlug || selected.relatedSlug) && (
@@ -296,8 +326,8 @@ export function VisualDictionary() {
                   href={`/docs/${selected.componentSlug ?? selected.relatedSlug}`}
                 >
                   {selected.componentSlug
-                    ? "打开组件文档与源码"
-                    : "查看相关组件"}
+                    ? t("site.openComponentDocumentationAndSource")
+                    : t("site.viewRelatedComponent")}
                   <ArrowUpRight size={14} aria-hidden="true" />
                 </Link>
               )}

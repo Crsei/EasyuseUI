@@ -102,9 +102,31 @@ const runtime = useCanvasRuntime(editor.document, definitions, adapter)
 
 图修改后保留旧版本执行详情并标记所属版本，当前图不叠加旧状态。停止请求必须等待来源确认 cancelled；回调接受不推断完成。写请求响应丢失会阻止重复写入；启动按 requestId 查询回执，后续按 runId 对账。相同 sequence 的重读不能冒充新的写确认。来源可在 requests[requestId] 提供 submitted/confirmed/rejected 回执；没有操作回执时，停止需等待权威终态，审批需等待同 attempt 的决定已体现。控制器应由消费方保留在面板之外；切换面板不会复位 unknown，整体卸载后的请求恢复仍由消费方负责。
 
-`CanvasExecutionPanel`、`CanvasExecutionInspector` 和 `CanvasRunControls` 由同一 Registry 条目分发。底部 Activity/Logs 复用 ActivityTimeline 的64px跟随规则；Inspector 有 Input/Output/Details/Trace，审批复用 ToolCall。全部执行预览先脱敏，再限制200行/32KiB，复制也只复制脱敏预览；未提供数值显示“—”。不提供虚构完整下载。运行示例明确标记本地 fixture，查询会推进其演示状态，不执行真实模型或工具。
+`CanvasExecutionPanel`、`CanvasExecutionInspector` 和 `CanvasRunControls` 由同一 Registry 条目分发。底部 Activity/Logs 复用 ActivityTimeline 的64px跟随规则；Inspector 有 Input/Output/Details/Trace，审批复用 ToolCall。全部执行预览先脱敏，再限制200行/32KiB，复制也只复制脱敏预览；未提供数值显示“—”。不提供虚构完整下载。运行示例明确标记本地 fixture；查询只读取快照，独立演示时钟推进阶段，不执行真实模型或工具。
 
 Session/Subagent/Human Approval 是调用方节点定义示例。`CanvasField.catalog` 支持 models/tools/credentials，`CanvasCatalogs` 仅含 id/name/available；不可用引用不能应用，不接收凭据明文。导出仍走共享脱敏，凭据引用可能成为脱敏占位，需消费方重新绑定。
+
+## 逐节点播放与运行效果
+
+主工作台点击“运行流程”后自动播放本地演示：节点执行 → 完成 → 连线传递 → 下一个节点执行。示例按运行范围进行稳定拓扑排序并串行呈现，分支不会解释条件或并发执行。来源快照分别提供节点与连线状态，公共组件不推断执行路径。
+
+运行栏的“暂停演示 / 继续演示”冻结或恢复本地时钟和动画；运行 Badge 继续显示最后来源状态。“播放设置”提供暂停后的单步、0.5× / 1× / 2×和流光 / 粒子 / 关闭动画。默认流光、1×、每阶段1000ms；加载页面不自动启动。关闭动画只关闭视觉动效，演示仍会推进。播放速度也不改变真实服务的执行速度。
+
+审批等待、读取失败和未知结果暂停推进，显式批准或安全查询确认后才恢复；停止先显示请求接受，再由 fixture 的独立确认阶段转为 cancelled，演示暂停期间也能确认。隐藏页面不积累补播任务，重新可见后等待完整间隔；修改文档版本停止旧演示时钟，旧快照仍留在调试区。公共组件与真实调用方的运行管理分离。
+
+```tsx
+<CanvasWorkspace
+  {...editor}
+  definitions={definitions}
+  runtime={runtime}
+  executionVisuals={{ edgeEffect: "particles", speed: 1, paused: false }}
+  runtimeToolbar={callerPlaybackControls}
+/>
+```
+
+`CanvasExecutionVisuals` 可用于 CanvasWorkspace、WorkflowCanvas 和 CanvasNode，字段均可省略：edgeEffect 默认 flow，speed 默认1，paused 默认false。通过 CanvasEdge 的 `data.executionVisuals` 可独立配置连线。CanvasWorkspace 自动根据断线、未知结果和非活动运行状态冻结动效；直接使用 WorkflowCanvas 时，由调用方传入暂停 / 新鲜度信息。没有当前版本快照时不显示执行效果。
+
+连线只对自身明确的 running 状态增加SVG装饰路径，保留原有24px命中区域和选择边界；选中、键盘焦点与运行提示独立。系统 reduced-motion 隐藏流光和粒子并关闭节点脉冲，静态状态与操作仍可读。颜色、动画周期和图元宽度来自 styles/theme.css；播放不会修改图配置、选择、视口或 Undo 历史。框选以节点为目标，忽略引擎自动附带的关联边选中事件；连线仍可独立点击或键盘选择。
 
 ## 复杂图、子流程与配置
 

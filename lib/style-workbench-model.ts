@@ -1,3 +1,4 @@
+import { UiError } from "@/lib/i18n-core"
 export const styleSections = [
   { id: "geometry", label: "尺寸与间距" },
   { id: "shadow", label: "阴影" },
@@ -258,7 +259,8 @@ export function parseStyleColor(value: string) {
   const match = value.match(/^rgba?\(([^)]+)\)$/)
   if (!match) throw new Error(`无法识别主题颜色：${value}`)
   const parts = match[1].match(/[\d.]+/g)?.map(Number)
-  if (!parts || parts.length < 3) throw new Error("主题颜色缺少 RGB 值。")
+  if (!parts || parts.length < 3)
+    throw new UiError("styleWorkbenchModel.themeColorIsMissingRgbValues")
   return {
     hex: `#${parts
       .slice(0, 3)
@@ -281,7 +283,9 @@ export function readStyleBaseline(element: HTMLElement): StyleValues {
   const number = (value: string) => {
     const parsed = parseFloat(value)
     if (!Number.isFinite(parsed))
-      throw new Error("无法读取完整的主题尺寸，请确认已安装 EasyuseUI theme。")
+      throw new UiError(
+        "styleWorkbenchModel.couldNotReadCompleteThemeDimensionsConfirmThat",
+      )
     return parsed
   }
   const surface = parseStyleColor(css.backgroundColor)

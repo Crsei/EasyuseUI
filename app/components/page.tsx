@@ -1,3 +1,4 @@
+import { SiteText } from "@/components/site/site-i18n"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { catalog } from "@/lib/catalog"
@@ -14,13 +15,13 @@ export default function ComponentsPage() {
         THE COLLECTION
       </p>
       <h1 className="text-4xl font-semibold tracking-tight">
-        挑一个，开始构建。
+        <SiteText messageKey="site.pickOneAndStartBuilding" />
       </h1>
       <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">
         {catalog.filter((entry) => entry.category === "基础组件").length}{" "}
-        个基础组件与{" "}
+        <SiteText messageKey="site.primitivesAnd" />{" "}
         {catalog.filter((entry) => entry.category === "组合模块").length}{" "}
-        个组合模块。每个组件都有可运行的演示、使用说明和完整源码。
+        <SiteText messageKey="site.composedModulesEachIncludesAWorkingDemoDocumentationAnd" />
       </p>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {catalog.map(({ slug, name, category, description, Demo }) => (
@@ -38,10 +39,12 @@ export default function ComponentsPage() {
               className="flex items-start justify-between gap-4 border-t p-6"
             >
               <div>
-                <p className="mb-2 text-xs text-muted-foreground">{category}</p>
+                <p className="mb-2 text-xs text-muted-foreground">
+                  <SiteText text={category} />
+                </p>
                 <h2 className="text-lg font-semibold">{name}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  {description}
+                  <SiteText text={description} />
                 </p>
               </div>
               <ArrowUpRight size={18} className="mt-1 shrink-0" />

@@ -1,8 +1,11 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useEffect, useState } from "react"
 
 export function ScrollReadingProgress() {
+  const { t } = useSiteI18n()
+
   const [progress, setProgress] = useState(0)
   useEffect(() => {
     let frame = 0
@@ -33,7 +36,7 @@ export function ScrollReadingProgress() {
   return (
     <div
       role="progressbar"
-      aria-label="页面阅读进度"
+      aria-label={t("site.pageReadingProgress")}
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={Math.round(progress * 100)}

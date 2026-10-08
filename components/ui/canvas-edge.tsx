@@ -6,6 +6,8 @@ import {
   getBezierPath,
   type EdgeProps,
 } from "@xyflow/react"
+import type { CanvasExecutionVisuals } from "@/lib/canvas-model"
+import styles from "./canvas-edge.module.css"
 import { redactText } from "@/lib/redact"
 
 /** Rendered through WorkflowCanvas's edgeTypes; no execution is inferred from node status. */
@@ -13,6 +15,9 @@ export function CanvasEdge(props: EdgeProps) {
   const [path, x, y] = getBezierPath(props)
   const status =
     typeof props.data?.status === "string" ? props.data.status : undefined
+  const visuals = props.data?.executionVisuals as
+    CanvasExecutionVisuals | undefined
+  const effect = visuals?.edgeEffect ?? "flow"
   return (
     <>
       <BaseEdge
@@ -34,6 +39,19 @@ export function CanvasEdge(props: EdgeProps) {
           strokeWidth: props.selected ? 2 : 1.5,
         }}
       />
+      {status === "running" && effect !== "none" && (
+        <path
+          d={path}
+          pathLength={100}
+          aria-hidden="true"
+          className={`${styles.effect} ${styles[effect]}`}
+          data-canvas-edge-effect={effect}
+          data-paused={visuals?.paused || undefined}
+          style={{
+            animationDuration: `calc(var(--canvas-execution-duration) / ${visuals?.speed ?? 1})`,
+          }}
+        />
+      )}
       {(props.label || status) && (
         <EdgeLabelRenderer>
           <span

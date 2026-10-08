@@ -1,4 +1,5 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useId, useState } from "react"
 import {
@@ -7,13 +8,15 @@ import {
 } from "@/components/blocks/scroll-playground"
 
 export function ScrollPlaygroundDemo() {
+  const { t } = useSiteI18n()
+
   const id = useId()
   const [pattern, setPattern] = useState<ScrollPattern>("triggered")
   return (
     <div className="w-full space-y-4">
       <div className="flex flex-wrap items-center gap-3">
         <label htmlFor={id} className="text-xs text-muted-foreground">
-          选择滚动效果
+          {t("site.selectScrollEffect")}
         </label>
         <select
           id={id}

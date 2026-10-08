@@ -1,3 +1,9 @@
+import {
+  uiMessage,
+  uiField,
+  uiTextError,
+  type UiMessage,
+} from "@/lib/i18n-core"
 import { canvasId, type CanvasDocument } from "@/lib/canvas-model"
 
 export type CanvasSaveReceipt = {
@@ -28,6 +34,7 @@ export type CanvasSaveState = {
   receipt?: CanvasSaveReceipt
   requestId?: string
   message?: string
+  messageI18n?: UiMessage
   conflictingRevision?: string
 }
 const fingerprint = (document: CanvasDocument) => JSON.stringify(document)
@@ -54,7 +61,9 @@ export function createCanvasPersistence(
   }
   function setDocument(next: CanvasDocument) {
     if (next.id !== state.documentId)
-      throw new Error("存储会话不能切换文档 ID。")
+      throw uiTextError(
+        uiMessage("canvasServices.aPersistenceSessionCannotSwitchDocumentIds"),
+      )
     if (fingerprint(next) === fingerprint(document)) return
     document = next
     emit({
@@ -78,7 +87,12 @@ export function createCanvasPersistence(
         emit({
           ...state,
           status: "unknown",
-          message: "保存回执与请求不匹配；保留草稿并查询回执。",
+          ...uiField(
+            "message",
+            uiMessage(
+              "canvasServices.saveReceiptDoesNotMatchTheRequestPreserve",
+            ),
+          ),
         })
         return
       }
@@ -96,17 +110,27 @@ export function createCanvasPersistence(
         ...state,
         status: "conflict",
         conflictingRevision: result.serverRevision,
-        message: "服务端版本已变化。保留本地草稿，请比较或合并后明确处理冲突。",
+        ...uiField(
+          "message",
+          uiMessage(
+            "canvasServices.theServerRevisionChangedPreserveTheLocalDraft",
+          ),
+        ),
       })
     } else if (result.kind === "unknown")
       emit({
         ...state,
         status: "unknown",
-        message: "保存结果未确认；先查询此 requestId，禁止重复写入。",
+        ...uiField(
+          "message",
+          uiMessage(
+            "canvasServices.saveOutcomeUnknownQueryThisRequestidBeforeAnother",
+          ),
+        ),
       })
     else {
       request = undefined
-      emit({ ...state, status: "error", message: result.message })
+      emit({ ...state, status: "error", ...uiField("message", result.message) })
     }
   }
   async function save() {
@@ -124,7 +148,7 @@ export function createCanvasPersistence(
       ...state,
       status: "saving",
       requestId: submitted.requestId,
-      message: undefined,
+      ...uiField("message", undefined),
     })
     try {
       const result = await adapter.save(submitted)
@@ -134,7 +158,12 @@ export function createCanvasPersistence(
         emit({
           ...state,
           status: "unknown",
-          message: "保存响应丢失，草稿保留。查询回执后再决定下一步。",
+          ...uiField(
+            "message",
+            uiMessage(
+              "canvasServices.saveResponseLostTheDraftIsPreservedQuery",
+            ),
+          ),
         })
     } finally {
       if (token === generation) pending = false
@@ -153,7 +182,10 @@ export function createCanvasPersistence(
         emit({
           ...state,
           status: "unknown",
-          message: "查询保存回执失败，草稿和请求 ID 保留。",
+          ...uiField(
+            "message",
+            uiMessage("canvasServices.saveReceiptQueryFailedDraftAndRequestId"),
+          ),
         })
     } finally {
       if (token === generation) pending = false
@@ -166,7 +198,11 @@ export function createCanvasPersistence(
       next.id !== state.documentId ||
       !serverRevision
     )
-      throw new Error("需要同一文档的明确冲突处理和服务版本。")
+      throw uiTextError(
+        uiMessage(
+          "canvasServices.explicitConflictResolutionAndAServerRevisionFor",
+        ),
+      )
     generation++
     pending = false
     request = undefined
@@ -175,7 +211,10 @@ export function createCanvasPersistence(
       documentId: next.id,
       status: "dirty",
       serverRevision,
-      message: "已采用调用方明确提供的合并草稿；尚未保存。",
+      ...uiField(
+        "message",
+        uiMessage("canvasServices.theCallerSExplicitMergedDraftWasAdopted"),
+      ),
     })
   }
   return {

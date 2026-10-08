@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { MessageSquare } from "lucide-react"
 import { Item } from "@/components/ui/item"
@@ -38,7 +39,9 @@ export function SessionRow({
   onSelect,
   action,
 }: SessionRowProps) {
-  const name = session.title.trim() || "未命名 Session"
+  const { t } = useI18n()
+
+  const name = session.title.trim() || t("sessionRow.unnamedSession")
   const description = [
     session.id,
     session.agent,
@@ -81,7 +84,9 @@ export function SessionRow({
       />
       {action?.disabledReason && (
         <p className={styles.reason}>
-          {action.label}不可用：{action.disabledReason}
+          {action.label}
+          {t("agentRow.unavailable")}
+          {action.disabledReason}
         </p>
       )}
     </div>

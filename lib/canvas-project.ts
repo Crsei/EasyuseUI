@@ -1,3 +1,10 @@
+import {
+  uiMessage,
+  uiTextError,
+  resolveUiText,
+  defaultLocale,
+  type UiText,
+} from "@/lib/i18n-core"
 import type {
   CanvasDocument,
   CanvasNodeDefinition,
@@ -44,20 +51,29 @@ export const canvasBoundaryDefinitions: CanvasNodeDefinition[] = [
     type: "flow-input",
     label: "Flow Input",
     category: "子流程边界",
+    categoryI18n: uiMessage("canvasMetadata.subflowBoundaries"),
     defaults: {},
     ports: [
-      { id: "value", label: "作用域输入", direction: "output", type: "string" },
+      {
+        id: "value",
+        label: "作用域输入",
+        labelI18n: uiMessage("canvasMetadata.scopeInput"),
+        direction: "output",
+        type: "string",
+      },
     ],
   },
   {
     type: "flow-output",
     label: "Flow Output",
     category: "子流程边界",
+    categoryI18n: uiMessage("canvasMetadata.subflowBoundaries"),
     defaults: {},
     ports: [
       {
         id: "value",
         label: "作用域输出",
+        labelI18n: uiMessage("canvasMetadata.scopeOutput"),
         direction: "input",
         type: "string",
         required: true,
@@ -109,6 +125,7 @@ export function canvasProjectDefinitions(
               type: `${kind}:${flow.id}`,
               label: `${kind === "subflow" ? "Subflow" : kind === "loop" ? "Loop" : "Iteration"} · ${flow.title}`,
               category: "子流程与容器",
+              categoryI18n: uiMessage("canvasMetadata.subflowsAndContainers"),
               defaults: (kind === "loop"
                 ? { maxIterations: 10, condition: "由执行器解释终止条件" }
                 : kind === "iteration"
@@ -136,6 +153,9 @@ export function canvasProjectDefinitions(
                       {
                         key: "maxIterations",
                         label: "最大迭代次数",
+                        labelI18n: uiMessage(
+                          "canvasMetadata.maximumIterations",
+                        ),
                         kind: "number" as const,
                         min: 1,
                         max: 1000,
@@ -144,6 +164,9 @@ export function canvasProjectDefinitions(
                       {
                         key: "condition",
                         label: "终止表达式",
+                        labelI18n: uiMessage(
+                          "canvasMetadata.terminationExpression",
+                        ),
                         kind: "expression" as const,
                         required: true,
                       },
@@ -153,6 +176,7 @@ export function canvasProjectDefinitions(
                         {
                           key: "concurrency",
                           label: "并发项数",
+                          labelI18n: uiMessage("canvasMetadata.concurrency"),
                           kind: "number" as const,
                           min: 1,
                           max: 32,
@@ -166,6 +190,18 @@ export function canvasProjectDefinitions(
                   : kind === "loop"
                     ? "状态反馈限于容器 · 有界迭代，不允许图回路"
                     : "仅通过显式输入输出交换数据",
+              summaryI18n:
+                kind === "iteration"
+                  ? uiMessage(
+                      "canvasMetadata.independentScopePerItemResultsBelongToInputIndices",
+                    )
+                  : kind === "loop"
+                    ? uiMessage(
+                        "canvasMetadata.containerScopedStateFeedbackBoundedIterationsNoGraphCycles",
+                      )
+                    : uiMessage(
+                        "canvasMetadata.exchangeDataOnlyThroughExplicitInputsAndOutputs",
+                      ),
             },
           ]
         },
@@ -173,35 +209,45 @@ export function canvasProjectDefinitions(
     ),
   ]
 }
-export function validateCanvasProject(
+export function describeValidateCanvasProject(
   project: CanvasProject,
   base: CanvasNodeDefinition[],
-): string[] {
-  const problems: string[] = []
+): UiText[] {
+  const problems: UiText[] = []
   if (
     project.schemaVersion !== 1 ||
     !project.flows.length ||
     project.flows.length > 20 ||
     !project.flows.some((flow) => flow.id === project.rootId)
   )
-    return ["项目版本、流程数量或入口无效。"]
+    return [
+      uiMessage(
+        "canvasProject.invalidProjectVersionWorkflowCountOrEntryWorkflow",
+      ),
+    ]
   if (
     new Set(project.flows.map((flow) => flow.id)).size !== project.flows.length
   )
-    return ["流程 ID 重复。"]
+    return [uiMessage("canvasProject.duplicateWorkflowId")]
   const definitions = canvasProjectDefinitions(project, base)
   const links = new Map<string, string[]>()
   let count = 0
   for (const flow of project.flows) {
     count += flow.document.nodes.length
     if (flow.document.id !== flow.id)
-      problems.push(`${flow.title}：文档与流程 ID 必须一致。`)
+      problems.push(
+        uiMessage("common.valueDocumentAndWorkflowIdsMustMatch", {
+          value0: flow.title,
+        }),
+      )
     for (const direction of ["inputs", "outputs"] as const) {
       if (
         new Set(flow[direction].map((port) => port.id)).size !==
         flow[direction].length
       )
-        problems.push(`${flow.title}：边界 ID 重复。`)
+        problems.push(
+          uiMessage("common.valueDuplicateBoundaryId", { value0: flow.title }),
+        )
       for (const port of flow[direction]) {
         const node = flow.document.nodes.find((node) => node.id === port.nodeId)
         const definition = definitions.find((def) => def.type === node?.type)
@@ -215,7 +261,12 @@ export function validateCanvasProject(
           endpoint?.type !== port.type ||
           endpoint.direction !== (direction === "inputs" ? "output" : "input")
         )
-          problems.push(`${flow.title} / ${port.label}：边界映射无效。`)
+          problems.push(
+            uiMessage("common.valueValueInvalidBoundaryMapping", {
+              value0: flow.title,
+              value1: port.label,
+            }),
+          )
       }
     }
     links.set(flow.id, [])
@@ -224,18 +275,32 @@ export function validateCanvasProject(
       if (!invocation) continue
       links.get(flow.id)!.push(invocation.flowId)
       if (!definitions.some((def) => def.type === node.type))
-        problems.push(`${node.title}：目标流程不存在或不符合容器输入输出约束。`)
+        problems.push(
+          uiMessage("common.valueTargetWorkflowIsMissingOrViolatesContainer", {
+            value0: node.title,
+          }),
+        )
     }
     for (const issue of validateCanvasDocument(flow.document, definitions))
       if (issue.severity === "error" || issue.code === "unknown-type")
-        problems.push(`${flow.title}：${issue.message}`)
+        problems.push(
+          uiMessage("canvas.problemContext", {
+            context: flow.title,
+            problem: issue.messageI18n ?? issue.message,
+          }),
+        )
   }
-  if (count > canvasLimits.nodes) problems.push("项目节点总数超过 500。")
+  if (count > canvasLimits.nodes)
+    problems.push(uiMessage("canvasProject.theProjectExceeds500Nodes"))
   const visiting = new Set<string>(),
     done = new Set<string>()
   function visit(id: string) {
     if (visiting.has(id)) {
-      problems.push(`禁止递归流程引用：${id}`)
+      problems.push(
+        uiMessage("common.recursiveWorkflowReferenceIsNotAllowedValue", {
+          value0: id,
+        }),
+      )
       return
     }
     if (done.has(id)) return
@@ -245,7 +310,14 @@ export function validateCanvasProject(
     done.add(id)
   }
   for (const flow of project.flows) visit(flow.id)
-  return [...new Set(problems)]
+  return [
+    ...new Map(
+      problems.map((problem) => [
+        resolveUiText(defaultLocale, problem),
+        problem,
+      ]),
+    ).values(),
+  ]
 }
 export function exportCanvasProject(project: CanvasProject) {
   return redact({
@@ -265,7 +337,7 @@ export function parseCanvasProject(
   base: CanvasNodeDefinition[],
 ): CanvasProject {
   if (new TextEncoder().encode(text).length > canvasLimits.bytes)
-    throw new Error("项目文件超过 512KiB。")
+    throw uiTextError(uiMessage("canvasProject.projectFileExceeds512kib"))
   const value: unknown = JSON.parse(text)
   const record = (value: unknown): value is Record<string, unknown> =>
     !!value && typeof value === "object" && !Array.isArray(value)
@@ -279,7 +351,7 @@ export function parseCanvasProject(
     !Array.isArray(value.flows) ||
     value.flows.length > 20
   )
-    throw new Error("项目格式无效。")
+    throw uiTextError(uiMessage("canvasProject.invalidProjectFormat"))
   for (const flow of value.flows) {
     if (
       !record(flow) ||
@@ -293,10 +365,10 @@ export function parseCanvasProject(
       flow.title.length > 200 ||
       !record(flow.document)
     )
-      throw new Error("流程格式无效。")
+      throw uiTextError(uiMessage("canvasProject.invalidWorkflowFormat"))
     for (const direction of ["inputs", "outputs"]) {
       if (!Array.isArray(flow[direction]) || flow[direction].length > 50)
-        throw new Error("流程边界无效。")
+        throw uiTextError(uiMessage("canvasProject.invalidWorkflowBoundary"))
       for (const port of flow[direction])
         if (
           !record(port) ||
@@ -321,7 +393,9 @@ export function parseCanvasProject(
             "model",
           ].includes(String(port.type))
         )
-          throw new Error("边界端口格式无效。")
+          throw uiTextError(
+            uiMessage("canvasProject.invalidBoundaryPortFormat"),
+          )
     }
   }
   const project = value as unknown as CanvasProject
@@ -331,7 +405,14 @@ export function parseCanvasProject(
       JSON.stringify(flow.document),
       definitions,
     )
-  const problems = validateCanvasProject(project, base)
-  if (problems.length) throw new Error(problems[0])
+  const problems = describeValidateCanvasProject(project, base)
+  if (problems.length) throw uiTextError(problems[0])
   return project
+}
+
+export function validateCanvasProject(
+  ...args: Parameters<typeof describeValidateCanvasProject>
+) {
+  const value = describeValidateCanvasProject(...args)
+  return value.map((item) => resolveUiText(defaultLocale, item))
 }

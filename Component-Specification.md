@@ -359,6 +359,10 @@ Canvas 使用受控 `CanvasDocument`（schemaVersion=1、id、revision、nodes�
 
 JSON 导入限制512KiB、500节点、1000连线、各类注释200项，校验版本、ID、端口和引用后整体替换，失败保留原图。导出仅图配置/引用与布局，先脱敏，不包含运行输出和凭据明文。示例标记本地草稿，刷新丢失；无实际执行/发布能力不提供假成功。实施阶段及证据记录见 [Canvas 计划](./plans/canvas-design-system-plan.md)。
 
+Canvas 执行动效：当前版本的来源节点状态与连线状态分别驱动显示；仅 running 连线显示流光或粒子，节点 starting/running/thinking 显示轻量活动强调，选中与焦点保持独立。CanvasExecutionVisuals 提供 flow/particles/none、0.5/1/2视觉速度与 paused；默认flow、1、false。CanvasWorkspace 在断线、未知结果和非活动运行状态冻结动画，直接使用底层组件时由调用方提供新鲜度。reduced-motion关闭位移和脉冲，保留文字/图标。SVG装饰不参与命中或无障碍树，动画不使用逐帧React状态更新。
+
+本地逐节点演示由 examples 适配层提供时钟和完整来源快照；查询只读取，暂停/单步不伪造真实运行暂停，审批与结果确认沿用既有契约。公共组件不自动执行服务或解释分支条件；修改图版本后停止旧演示推进。
+
 ## 14. 实现边界与验收
 
 分层目录：`styles/` Foundation；`components/ui/` Primitive；`components/blocks/` Product Patterns / Workspace Layout；`components/examples/` 演示适配与本地状态；`app/` 页面。可分发组件仅接收数据、事件和能力回调，不导入站点配置、Next.js 路由、账号、认证或网络客户端。演示必须标明本地数据。

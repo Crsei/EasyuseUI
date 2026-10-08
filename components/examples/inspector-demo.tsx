@@ -1,9 +1,13 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
+
 import { useId, useState } from "react"
 import { Inspector } from "@/components/blocks/inspector"
 import { Button } from "@/components/ui/button"
 import type { DataState } from "@/lib/runtime-status"
 export function InspectorDemo() {
+  const { t } = useSiteI18n()
+
   const id = useId()
   const [selected, setSelected] = useState<string | null>("session-one")
   const [state, setState] = useState<DataState>("success")
@@ -19,13 +23,13 @@ export function InspectorDemo() {
             )
           }
         >
-          切换对象
+          {t("site.switchObject")}
         </Button>
         <Button size="sm" variant="ghost" onClick={() => setSelected(null)}>
-          清除选择
+          {t("site.clearSelection")}
         </Button>
         <label className="sr-only" htmlFor={id}>
-          对象数据状态
+          {t("site.objectDataState")}
         </label>
         <select
           id={id}
@@ -45,13 +49,13 @@ export function InspectorDemo() {
                 id: selected,
                 title:
                   selected === "session-one"
-                    ? "Session / 组件实现"
+                    ? t("site.sessionComponentImplementation")
                     : "Agent / Reviewer",
                 kind: selected === "session-one" ? "Session" : "Agent",
                 status: selected === "session-one" ? "running" : "idle",
                 metadata: [
                   { label: "ID", value: selected, copyValue: selected },
-                  { label: "模型", value: "未配置模型" },
+                  { label: t("site.model"), value: "未配置模型" },
                   { label: "Tokens" },
                 ],
               }
@@ -60,8 +64,8 @@ export function InspectorDemo() {
         state={state}
         error={{
           category: "permission",
-          message: "无法读取完整详情",
-          reason: "缺少查看关联日志的权限。",
+          message: t("site.couldNotReadCompleteDetails"),
+          reason: t("site.permissionToViewRelatedLogsIsMissing"),
         }}
         onRetry={() => setState("success")}
       />

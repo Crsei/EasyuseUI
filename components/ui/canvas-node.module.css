@@ -1,4 +1,5 @@
 .node {
+  --canvas-node-active-color: var(--status-info);
   width: var(--canvas-node-width);
   border: 1px solid var(--canvas-node-border);
   border-radius: var(--canvas-node-radius);
@@ -11,6 +12,40 @@
 .node[data-selected] {
   border-color: var(--canvas-selection);
   box-shadow: 0 0 0 1px var(--canvas-selection);
+}
+.node[data-execution-status="thinking"] {
+  --canvas-node-active-color: var(--status-thinking);
+}
+.node[data-execution-active] header {
+  background: color-mix(
+    in srgb,
+    var(--canvas-node-active-color) 8%,
+    var(--canvas-node-surface)
+  );
+}
+.node[data-execution-active] header > span:first-child {
+  color: var(--canvas-node-active-color);
+}
+.node[data-execution-active] {
+  animation: canvas-node-execution var(--canvas-execution-duration) ease-in-out
+    infinite;
+}
+.node[data-execution-paused] {
+  animation-play-state: paused;
+}
+@keyframes canvas-node-execution {
+  50% {
+    background: color-mix(
+      in srgb,
+      var(--canvas-node-active-color) 5%,
+      var(--canvas-node-surface)
+    );
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .node {
+    animation: none !important;
+  }
 }
 .node[data-unknown] {
   border-style: dashed;

@@ -108,6 +108,22 @@ await writeFile(
   path.join(fixture, "postcss.config.mjs"),
   'export default { plugins: { "@tailwindcss/postcss": {} } }\n',
 )
+await mkdir(path.join(fixture, "app/i18n"))
+await writeFile(
+  path.join(fixture, "app/i18n/page.tsx"),
+  `"use client"
+import { useState } from "react"
+import { I18nProvider, useI18n } from "@/lib/i18n-provider"
+import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
+import { DataRegion } from "@/components/ui/data-region"
+function Preview() {
+ const { locale, setLocale, t } = useI18n()
+ const [draft,setDraft]=useState("")
+ return <><button onClick={()=>setLocale(locale === "en" ? "zh-CN" : "en")}>Switch language</button><input aria-label="Draft" value={draft} onChange={event=>setDraft(event.target.value)}/><RuntimeStatusBadge status="running"/><DataRegion state="empty"/><p>{t("i18n.items",{count:2})}</p></>
+}
+export default function Page(){return <I18nProvider><Preview/></I18nProvider>}
+`,
+)
 await mkdir(path.join(fixture, "app/canvas"))
 await writeFile(
   path.join(fixture, "app/canvas/page.tsx"),
@@ -132,13 +148,14 @@ const document: CanvasDocument = { schemaVersion: 1, id: "installed", revision: 
 let snapshot:CanvasRunSnapshot
 const adapter:CanvasRuntimeAdapter={scopes:["all"],run:async request=>{snapshot={documentId:request.document.id,documentRevision:request.document.revision,runId:"installed-run",sequence:1,status:"running",nodes:Object.fromEntries(request.document.nodes.map(node=>[node.id,{status:"running",attemptId:"one"}])),edges:{wire:{status:"running"}},events:[]};return snapshot},query:async()=>{snapshot={...snapshot,sequence:2,status:"completed",nodes:Object.fromEntries(Object.entries(snapshot.nodes).map(([id,node])=>[id,{...node,status:"completed",output:{password:"installed-secret",result:"installed output"}}])),edges:{wire:{status:"completed"}}};return snapshot}}
 export default function InstalledCanvas() {
+ const [visualPaused,setVisualPaused]=useState(false)
  const editor = useCanvasEditor(document, definitions)
  const runtime=useCanvasRuntime(editor.document,definitions,adapter)
  const [session]=useState(()=>createCanvasPersistence(document,"installed-base",{save:async()=>({kind:"unknown"}),querySave:async()=>({kind:"rejected",message:"Fixture confirms no storage write"})}))
  const persistence=useCanvasPersistence(editor.document,session)
  const [operation,setOperation]=useState<CanvasServicePanelProps["operation"]>()
  const services:CanvasServicePanelProps={sourceLabel:"Installed local fixture",snapshot:{documentId:document.id,revision:"one",asOf:0,threads:[],presence:[],permissions:{comment:false,restore:false,share:false,publish:true}},serverRevision:"installed-base",versions:[],environments:[{id:"test",name:"Test",available:true}],environmentId:"test",operation,onCommand:async()=>{throw new Error("Unknown fixture publication")},onUncertain:command=>setOperation({requestId:command.requestId,kind:command.kind,status:"unknown"}),onQueryReceipt:async requestId=>setOperation({requestId,kind:"publish",status:"rejected",message:"Fixture confirms no publication"})}
- return <div style={{height:"100dvh"}}><CanvasWorkspace layout="fill" {...editor} definitions={definitions} runtime={runtime} persistence={persistence} services={services} /></div>
+ return <div style={{height:"100dvh"}}><CanvasWorkspace layout="fill" {...editor} definitions={definitions} runtime={runtime} executionVisuals={{edgeEffect:"particles",speed:2,paused:visualPaused}} runtimeToolbar={<button onClick={()=>setVisualPaused(value=>!value)}>Pause installed visuals</button>} persistence={persistence} services={services} /></div>
 }
 `,
 )
@@ -465,6 +482,34 @@ try {
     fullPage: true,
   })
   await page.getByRole("button", { name: "运行流程", exact: true }).click()
+  const animatedEdge = page.locator('[data-canvas-edge-effect="particles"]')
+  await animatedEdge.waitFor({ state: "attached" })
+  assert.equal(
+    await animatedEdge.evaluate((el) => getComputedStyle(el).animationDuration),
+    "0.6s",
+  )
+  assert.equal(
+    await animatedEdge.evaluate((el) => getComputedStyle(el).pointerEvents),
+    "none",
+  )
+  await page
+    .getByRole("button", { name: "Pause installed visuals", exact: true })
+    .click()
+  await page.waitForFunction(
+    () =>
+      document
+        .querySelector("[data-canvas-edge-effect]")
+        ?.getAttribute("data-paused") !== null,
+  )
+  assert.equal(
+    await animatedEdge.evaluate(
+      (el) => getComputedStyle(el).animationPlayState,
+    ),
+    "paused",
+  )
+  await page
+    .getByRole("button", { name: "Pause installed visuals", exact: true })
+    .click()
   await page.getByRole("button", { name: "查询运行", exact: true }).click()
   await page
     .locator('.react-flow__edge-path[data-execution-status="completed"]')
@@ -544,6 +589,17 @@ try {
     .getByRole("button", { name: "Installed root", exact: true })
     .click()
   await page.locator('[data-inspector-object="child"]').waitFor()
+  await page.goto(`http://127.0.0.1:${server.address().port}/i18n/`)
+  await page.getByLabel("Draft").fill("Business 中文 draft")
+  await page.getByRole("button", { name: "Switch language" }).click()
+  await page.getByText("2 items", { exact: true }).waitFor()
+  assert.equal(
+    await page.getByLabel("Draft").inputValue(),
+    "Business 中文 draft",
+  )
+  await page.getByText("Running", { exact: true }).waitFor()
+  await page.getByRole("button", { name: "Switch language" }).click()
+  await page.getByText("执行中", { exact: true }).waitFor()
   assert.deepEqual(errors, [])
   console.log(
     `PASS: installed Canvas production build, full-height layout and collapsed panels, browser mount, engine CSS, ports, edge, controlled selection, add, connect, undo, authoritative runtime/redaction, unknown save/publication reconciliation, subflow navigation and structured config. Evidence: ${fixture}/canvas-installed.png`,

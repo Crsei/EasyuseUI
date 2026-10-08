@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -27,6 +28,8 @@ export function CanvasConfigEditor({
   invalid,
   describedBy,
 }: CanvasConfigEditorProps) {
+  const { t } = useI18n()
+
   const encode = (value: unknown) => onChange(JSON.stringify(value, null, 2))
   let parsed: CanvasValue = null
   try {
@@ -64,22 +67,30 @@ export function CanvasConfigEditor({
         aria-describedby={describedBy}
         tabIndex={invalid ? -1 : undefined}
       >
-        <legend>{label} · 键值表</legend>
+        <legend>
+          {label} {t("canvasConfigEditor.keyValueTable")}
+        </legend>
         {entries.map(([key, value], index) => (
           <div key={index} className={styles.actions}>
             <label>
-              键 {index + 1}
+              {t("canvasConfigEditor.keyAt", { index: index + 1 })}
               <Input
                 id={index === 0 ? id : undefined}
-                aria-label={`${label} 键 ${index + 1}`}
+                aria-label={t("common.valueKeyValue", {
+                  value0: label,
+                  value1: index + 1,
+                })}
                 value={key}
                 onChange={(event) => write(index, event.target.value, value)}
               />
             </label>
             <label>
-              值 {index + 1}
+              {t("canvasConfigEditor.valueAt", { index: index + 1 })}
               <Input
-                aria-label={`${label} 值 ${index + 1}`}
+                aria-label={t("common.valueValueValue", {
+                  value0: label,
+                  value1: index + 1,
+                })}
                 value={value}
                 onChange={(event) => write(index, key, event.target.value)}
               />
@@ -87,14 +98,17 @@ export function CanvasConfigEditor({
             <Button
               type="button"
               variant="ghost"
-              aria-label={`移除${label}行 ${index + 1}`}
+              aria-label={t("common.removeValueRowValue", {
+                value0: label,
+                value1: index + 1,
+              })}
               onClick={() =>
                 encode(
                   Object.fromEntries(entries.filter((_, i) => i !== index)),
                 )
               }
             >
-              移除
+              {t("canvasConfigEditor.remove")}
             </Button>
           </div>
         ))}
@@ -109,7 +123,7 @@ export function CanvasConfigEditor({
             encode({ ...object, [`key_${index}`]: "" })
           }}
         >
-          添加键值
+          {t("canvasConfigEditor.addKeyValuePair")}
         </Button>
       </fieldset>
     )
@@ -140,25 +154,27 @@ export function CanvasConfigEditor({
         aria-describedby={describedBy}
         tabIndex={invalid ? -1 : undefined}
       >
-        <legend>{label} · 条件构建器</legend>
+        <legend>
+          {label} {t("canvasConfigEditor.conditionBuilder")}
+        </legend>
         <label>
-          匹配方式
+          {t("canvasConfigEditor.match")}
           <select
             id={id}
-            aria-label="匹配方式"
+            aria-label={t("canvasConfigEditor.match")}
             value={object.match}
             onChange={(event) =>
               encode({ ...object, match: event.target.value })
             }
           >
-            <option value="all">全部满足 AND</option>
-            <option value="any">任一满足 OR</option>
+            <option value="all">{t("canvasConfigEditor.matchAllAnd")}</option>
+            <option value="any">{t("canvasConfigEditor.matchAnyOr")}</option>
           </select>
         </label>
         {clauses.map((clause, index) => (
           <div key={index} className={styles.form}>
             <label>
-              字段 {index + 1}
+              {t("canvasConfigEditor.fieldAt", { index: index + 1 })}
               <Input
                 value={String(clause.field ?? "")}
                 onChange={(event) =>
@@ -167,20 +183,20 @@ export function CanvasConfigEditor({
               />
             </label>
             <label>
-              比较 {index + 1}
+              {t("common.comparisonValue", { value0: index + 1 })}
               <select
-                aria-label={`比较 ${index + 1}`}
+                aria-label={t("common.comparisonValue", { value0: index + 1 })}
                 value={String(clause.operator ?? "eq")}
                 onChange={(event) =>
                   update(index, { operator: event.target.value })
                 }
               >
                 {[
-                  ["eq", "等于"],
-                  ["neq", "不等于"],
-                  ["contains", "包含"],
-                  ["gt", "大于"],
-                  ["lt", "小于"],
+                  ["eq", t("canvasConfigEditor.equals")],
+                  ["neq", t("canvasConfigEditor.doesNotEqual")],
+                  ["contains", t("canvasConfigEditor.contains")],
+                  ["gt", t("canvasConfigEditor.greaterThan")],
+                  ["lt", t("canvasConfigEditor.lessThan")],
                 ].map(([value, label]) => (
                   <option value={value} key={value}>
                     {label}
@@ -189,7 +205,7 @@ export function CanvasConfigEditor({
               </select>
             </label>
             <label>
-              比较值 {index + 1}
+              {t("canvasConfigEditor.comparisonValueAt", { index: index + 1 })}
               <Input
                 value={String(clause.value ?? "")}
                 onChange={(event) =>
@@ -208,7 +224,7 @@ export function CanvasConfigEditor({
                 })
               }
             >
-              移除条件 {index + 1}
+              {t("canvasConfigEditor.removeConditionAt", { index: index + 1 })}
             </Button>
           </div>
         ))}
@@ -224,10 +240,14 @@ export function CanvasConfigEditor({
             })
           }
         >
-          添加条件
+          {t("canvasConfigEditor.addCondition")}
         </Button>
         {invalid && (
-          <p className={styles.error}>请补全条件字段，数值比较使用数字。</p>
+          <p className={styles.error}>
+            {t(
+              "canvasConfigEditor.completeTheConditionFieldsNumericComparisonsRequireNumbers",
+            )}
+          </p>
         )}
       </fieldset>
     )
@@ -275,11 +295,13 @@ export function CanvasConfigEditor({
         aria-describedby={describedBy}
         tabIndex={invalid ? -1 : undefined}
       >
-        <legend>{label} · 对象 Schema</legend>
+        <legend>
+          {label} {t("canvasConfigEditor.objectSchema")}
+        </legend>
         {entries.map(([name, schema], index) => (
           <div key={index} className={styles.form}>
             <label>
-              属性 {index + 1}
+              {t("canvasConfigEditor.propertyAt", { index: index + 1 })}
               <Input
                 id={index === 0 ? id : undefined}
                 value={name}
@@ -293,9 +315,11 @@ export function CanvasConfigEditor({
               />
             </label>
             <label>
-              属性类型 {index + 1}
+              {t("common.propertyTypeValue", { value0: index + 1 })}
               <select
-                aria-label={`属性类型 ${index + 1}`}
+                aria-label={t("common.propertyTypeValue", {
+                  value0: index + 1,
+                })}
                 value={(schema as { type: string }).type}
                 onChange={(event) => write(index, name, event.target.value)}
               >
@@ -319,7 +343,7 @@ export function CanvasConfigEditor({
                   })
                 }
               />
-              必填 {index + 1}
+              {t("canvasConfigEditor.requiredAt", { index: index + 1 })}
             </label>
             <Button
               type="button"
@@ -335,7 +359,7 @@ export function CanvasConfigEditor({
                 })
               }
             >
-              移除属性 {index + 1}
+              {t("canvasConfigEditor.removePropertyAt", { index: index + 1 })}
             </Button>
           </div>
         ))}
@@ -356,7 +380,7 @@ export function CanvasConfigEditor({
             })
           }}
         >
-          添加属性
+          {t("canvasConfigEditor.addProperty")}
         </Button>
       </fieldset>
     )
@@ -366,12 +390,12 @@ export function CanvasConfigEditor({
       <textarea {...props} rows={kind === "code" ? 10 : 5} />
       {["key-value", "condition", "schema"].includes(kind) && (
         <p className={styles.muted}>
-          当前内容不能用简化构建器编辑，原始 JSON 保留。修正后可恢复构建器。
+          {t("canvasConfigEditor.thisContentCannotBeEditedInTheSimplified")}
         </p>
       )}
       {["expression", "code"].includes(kind) && (
         <p className={styles.muted}>
-          仅编辑文本；不求值、不执行代码。变量绑定由节点字段另行管理。
+          {t("canvasConfigEditor.textEditingOnlyExpressionsAndCodeAreNot")}
         </p>
       )}
     </div>

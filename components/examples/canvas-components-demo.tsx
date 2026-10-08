@@ -1,4 +1,6 @@
 "use client"
+import { useSiteFeedback, siteMessage } from "@/components/site/site-i18n"
+
 import { useState } from "react"
 import { CanvasFrame } from "@/components/blocks/canvas-frame"
 import { CanvasNote } from "@/components/blocks/canvas-note"
@@ -33,13 +35,18 @@ export function CanvasNoteDemo() {
   )
 }
 export function NodePaletteDemo() {
-  const [feedback, setFeedback] = useState("")
+  const [feedback, setFeedback] = useSiteFeedback("")
   return (
     <div className="max-w-sm">
       <NodePalette
         definitions={canvasDefinitions}
         onAdd={(definition) =>
-          setFeedback(`选中 ${definition.label}；实际新增由调用方命令处理。`)
+          setFeedback(
+            siteMessage(
+              "site.selectedValueTheCallerSCommandPerformsTheActual",
+              { value0: definition.label },
+            ),
+          )
         }
       />
       <p role="status">{feedback}</p>

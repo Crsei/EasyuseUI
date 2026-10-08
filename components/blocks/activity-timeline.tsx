@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useId, useState, type ReactNode } from "react"
 import { Activity, ChevronRight } from "lucide-react"
@@ -37,6 +38,8 @@ export function ActivityTimeline({
   data,
   className,
 }: ActivityTimelineProps) {
+  const { t } = useI18n()
+
   const id = useId()
   const [expanded, setExpanded] = useState<string[]>([])
   // Map keeps the first source position and the latest payload for each ID.
@@ -62,13 +65,15 @@ export function ActivityTimeline({
         ref={scrollRef}
         onScroll={onScroll}
         className={styles.scroll}
-        aria-label="Activity 时间线"
+        aria-label={t("activityTimeline.activityTimeline")}
         tabIndex={0}
       >
         <DataRegion
           state={unique.length ? "success" : "empty"}
-          emptyTitle="当前范围没有事件"
-          emptyDescription="调整时间或筛选范围后查看运行事件。"
+          emptyTitle={t("activityTimeline.noEventsInThisRange")}
+          emptyDescription={t(
+            "activityTimeline.adjustTheTimeRangeOrFiltersToView",
+          )}
           rowHeight={compact ? 40 : 56}
           {...data}
           hasContent={unique.length > 0}
@@ -130,7 +135,10 @@ export function ActivityTimeline({
                         className={styles.expand}
                         variant="ghost"
                         size="icon-sm"
-                        aria-label={`${open ? "收起" : "展开"}事件 ${event.action}`}
+                        aria-label={t("common.valueEventValue", {
+                          value0: open ? t("common.hide") : t("common.expand"),
+                          value1: event.action,
+                        })}
                         aria-expanded={open}
                         aria-controls={`${id}-${event.id}`}
                         onClick={toggle}
@@ -170,7 +178,7 @@ export function ActivityTimeline({
       </div>
       {unread > 0 && (
         <Button size="sm" variant="secondary" onClick={jumpToLatest}>
-          {unread} 条新事件 · 返回最新
+          {unread} {t("activityTimeline.newEventsJumpToLatest")}
         </Button>
       )}
     </div>

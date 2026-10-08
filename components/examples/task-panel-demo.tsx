@@ -1,4 +1,5 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useEffect, useState } from "react"
 import { TaskPanel, type Task } from "@/components/blocks/task-panel"
@@ -25,6 +26,8 @@ const initialTasks: Task[] = [
 ]
 
 export function TaskPanelDemo() {
+  const { t, text } = useSiteI18n()
+
   const [tasks, setTasks] = useState(initialTasks)
   const runningId = tasks.find((task) => task.status === "running")?.id
 
@@ -50,8 +53,12 @@ export function TaskPanelDemo() {
 
   return (
     <TaskPanel
-      title="从想法到好用"
-      tasks={tasks}
+      title={t("site.fromIdeaToUsability")}
+      tasks={tasks.map((task) => ({
+        ...task,
+        title: text(task.title),
+        description: task.description ? text(task.description) : undefined,
+      }))}
       onRetry={(id) =>
         setTasks((current) =>
           current.map((task) =>

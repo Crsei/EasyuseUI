@@ -1,3 +1,4 @@
+import { SiteText } from "@/components/site/site-i18n"
 import { StyleWorkbench } from "@/components/blocks/style-workbench"
 
 export const metadata = {
@@ -16,9 +17,11 @@ export default function StyleWorkbenchPage() {
         <p className="mb-2 text-xs tracking-wider text-primary">
           STYLE WORKBENCH
         </p>
-        <h1 className="text-xl leading-7 font-semibold">样式工作台</h1>
+        <h1 className="text-xl leading-7 font-semibold">
+          <SiteText messageKey="site.styleWorkbench" />
+        </h1>
         <p className="mt-2 text-[13px] leading-5 text-text-secondary">
-          同一份内容，两种样式。调整 B，与基准 A 并排比较。
+          <SiteText messageKey="site.identicalContentTwoStylesAdjustBAndCompareIt" />
         </p>
       </header>
       <StyleWorkbench />

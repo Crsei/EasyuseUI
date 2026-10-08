@@ -1,4 +1,13 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import {
+  uiMessage,
+  builtInMessage,
+  UiError,
+  resolveUiText,
+  type UiText,
+} from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react"
 import { Copy, RotateCcw, ArrowLeftRight } from "lucide-react"
@@ -41,6 +50,8 @@ function NumberControl({
   baseline: number
   onChange: (value: number) => void
 }) {
+  const { t, builtIn } = useI18n()
+
   const id = useId()
   const [draft, setDraft] = useState<string>()
   function commit() {
@@ -51,7 +62,7 @@ function NumberControl({
   return (
     <div className={styles.numberControl}>
       <div>
-        <label htmlFor={`${id}-range`}>{control.label}</label>
+        <label htmlFor={`${id}-range`}>{builtIn(control.label)}</label>
         <span>
           A: {baseline}
           {control.unit}
@@ -71,7 +82,9 @@ function NumberControl({
           }}
         />
         <Input
-          aria-label={`${control.label}数值`}
+          aria-label={t("common.valueValue", {
+            value0: builtIn(control.label),
+          })}
           type="number"
           min={control.min}
           max={control.max}
@@ -108,13 +121,18 @@ function PreviewSample({
   onValueChange: (value: string) => void
   onSelectedChange: (selected: boolean) => void
 }) {
+  const { t } = useI18n()
+
   const id = useId()
   return (
     <section className={styles.previewPane} aria-label={label}>
       <header>
         <span>{label}</span>
         <span>
-          {values.radius}px 圆角 · {values.controlHeight}px 控件
+          {values.radius}
+          {t("styleWorkbench.pxRadius")}
+          {values.controlHeight}
+          {t("styleWorkbench.pxControls")}
         </span>
       </header>
       <div className={styles.stage}>
@@ -131,22 +149,26 @@ function PreviewSample({
           style={styleDeclarations(values) as CSSProperties}
         >
           <div className={styles.sampleHeading}>
-            <span>设计系统检查</span>
-            <Tag>样例</Tag>
+            <span>{t("styleWorkbench.designSystemReview")}</span>
+            <Tag>{t("styleWorkbench.sample")}</Tag>
           </div>
-          <p>用相同内容比较边界、密度和阅读感受。修改参数，观察视觉差距。</p>
+          <p>
+            {t(
+              "styleWorkbench.compareBordersDensityAndReadabilityUsingIdenticalContent",
+            )}
+          </p>
           <div className={styles.sampleRows}>
             <div>
-              <span>基础样式</span>
-              <span>12 项</span>
+              <span>{t("styleWorkbench.foundations")}</span>
+              <span>{t("styleWorkbench.12Items")}</span>
             </div>
             <div>
-              <span>组件规范</span>
-              <span>已整理</span>
+              <span>{t("styleWorkbench.componentSpecification")}</span>
+              <span>{t("styleWorkbench.organized")}</span>
             </div>
           </div>
           <div className={styles.sampleField}>
-            <label htmlFor={id}>示例输入</label>
+            <label htmlFor={id}>{t("styleWorkbench.sampleInput")}</label>
             <Input
               id={id}
               value={value}
@@ -158,10 +180,10 @@ function PreviewSample({
               aria-pressed={selected}
               onClick={() => onSelectedChange(!selected)}
             >
-              示例按钮
+              {t("styleWorkbench.sampleButton")}
             </Button>
             <Chip
-              label="筛选值"
+              label={t("styleWorkbench.filterValue")}
               selected={selected}
               onSelectedChange={onSelectedChange}
             />
@@ -176,14 +198,16 @@ export function StyleWorkbench({
   initialSection = "geometry",
   className,
 }: StyleWorkbenchProps) {
+  const { t, builtIn, locale } = useI18n()
+
   const probe = useRef<HTMLDivElement>(null)
   const [themeBaseline, setThemeBaseline] = useState<StyleValues>()
   const [pinnedBaseline, setPinnedBaseline] = useState<StyleValues>()
   const [edits, setEdits] = useState<Partial<StyleValues>>({})
   const [section, setSection] = useState<StyleSection>(initialSection)
   const [retry, setRetry] = useState(0)
-  const [readError, setReadError] = useState<string>()
-  const [feedback, setFeedback] = useState("")
+  const [readError, setReadError] = useState<UiText>()
+  const [feedback, setFeedback] = useUiFeedback("")
   const [output, setOutput] = useState<"css" | "json">("css")
   const [sampleValue, setSampleValue] = useState("视觉参数实验")
   const [sampleSelected, setSampleSelected] = useState(false)
@@ -214,7 +238,11 @@ export function StyleWorkbench({
           setReadError(undefined)
         } catch (error) {
           setReadError(
-            error instanceof Error ? error.message : "当前主题尚未完整加载。",
+            error instanceof UiError
+              ? error.messageI18n
+              : error instanceof Error
+                ? error.message
+                : uiMessage("styleWorkbench.theCurrentThemeHasNotFullyLoaded"),
           )
         }
       })
@@ -246,10 +274,16 @@ export function StyleWorkbench({
     try {
       await navigator.clipboard.writeText(code)
       setFeedback(
-        output === "css" ? "已复制 B 的 CSS。" : "已复制 A/B 参数 JSON。",
+        output === "css"
+          ? uiMessage("styleWorkbench.bCssCopied")
+          : uiMessage("styleWorkbench.aBParameterJsonCopied"),
       )
     } catch {
-      setFeedback("无法访问剪贴板，请手动选择下面的代码复制。")
+      setFeedback(
+        uiMessage(
+          "styleWorkbench.clipboardUnavailableSelectAndCopyTheCodeBelow",
+        ),
+      )
     }
   }
   return (
@@ -262,13 +296,13 @@ export function StyleWorkbench({
       <DataRegion
         state={readError ? "error" : baseline ? "success" : "loading"}
         hasContent={Boolean(baseline)}
-        loadingLabel="正在读取主题基准"
+        loadingLabel={t("styleWorkbench.readingThemeBaseline")}
         error={
           readError
             ? {
                 category: "validation",
-                message: "无法读取样式基准",
-                reason: readError,
+                message: t("styleWorkbench.couldNotReadStyleBaseline"),
+                reason: resolveUiText(locale, readError),
               }
             : undefined
         }
@@ -279,8 +313,14 @@ export function StyleWorkbench({
             <div className={styles.toolbar}>
               <div>
                 <Badge tone="info">A / B</Badge>
-                <span>{pinnedBaseline ? "A 已固定" : "A 跟随当前主题"}</span>
-                <span>{differences.length} 项差异</span>
+                <span>
+                  {pinnedBaseline
+                    ? t("styleWorkbench.aIsPinned")
+                    : t("styleWorkbench.aFollowsTheCurrentTheme")}
+                </span>
+                <span>
+                  {differences.length} {t("styleWorkbench.differences")}
+                </span>
               </div>
               <div>
                 <Button
@@ -289,10 +329,11 @@ export function StyleWorkbench({
                   onClick={() => {
                     setPinnedBaseline({ ...current })
                     setEdits({})
-                    setFeedback("已将 B 固定为基准 A。")
+                    setFeedback(uiMessage("styleWorkbench.bPinnedAsBaselineA"))
                   }}
                 >
-                  <ArrowLeftRight />B 设为基准 A
+                  <ArrowLeftRight />
+                  {t("styleWorkbench.setBAsBaselineA")}
                 </Button>
                 <Button
                   size="sm"
@@ -300,11 +341,11 @@ export function StyleWorkbench({
                   disabled={!differences.length}
                   onClick={() => {
                     setEdits({})
-                    setFeedback("B 已重置为基准 A。")
+                    setFeedback(uiMessage("styleWorkbench.bResetToBaselineA"))
                   }}
                 >
                   <RotateCcw />
-                  重置 B
+                  {t("styleWorkbench.resetB")}
                 </Button>
                 <Button
                   size="sm"
@@ -312,16 +353,26 @@ export function StyleWorkbench({
                   onClick={() => {
                     setPinnedBaseline(undefined)
                     setEdits({})
-                    setFeedback("已恢复当前项目主题基准。")
+                    setFeedback(
+                      uiMessage(
+                        "styleWorkbench.currentProjectThemeBaselineRestored",
+                      ),
+                    )
                   }}
                 >
-                  恢复项目默认
+                  {t("styleWorkbench.restoreProjectDefaults")}
                 </Button>
               </div>
             </div>
             <div className={styles.body}>
-              <aside className={styles.controls} aria-label="样式参数">
-                <nav className={styles.sectionNav} aria-label="参数分类">
+              <aside
+                className={styles.controls}
+                aria-label={t("styleWorkbench.styleParameters")}
+              >
+                <nav
+                  className={styles.sectionNav}
+                  aria-label={t("styleWorkbench.parameterCategories")}
+                >
                   {styleSections.map((item) => (
                     <button
                       type="button"
@@ -329,13 +380,18 @@ export function StyleWorkbench({
                       aria-pressed={section === item.id}
                       onClick={() => setSection(item.id)}
                     >
-                      {item.label}
+                      {builtIn(item.label)}
                     </button>
                   ))}
                 </nav>
                 <section
                   className={styles.fields}
-                  aria-label={`${styleSections.find((item) => item.id === section)?.label}参数`}
+                  aria-label={t("common.valueParameters", {
+                    value0: builtIn(
+                      styleSections.find((item) => item.id === section)
+                        ?.label ?? "",
+                    ),
+                  })}
                 >
                   {section === "shadow" && (
                     <div className={styles.checks}>
@@ -347,7 +403,7 @@ export function StyleWorkbench({
                             update("shadowEnabled", event.target.checked)
                           }
                         />
-                        启用阴影
+                        {t("styleWorkbench.enableShadow")}
                       </label>
                       <label>
                         <input
@@ -358,7 +414,7 @@ export function StyleWorkbench({
                             update("shadowInset", event.target.checked)
                           }
                         />
-                        内阴影
+                        {t("styleWorkbench.insetShadow")}
                       </label>
                     </div>
                   )}
@@ -377,10 +433,10 @@ export function StyleWorkbench({
                     .filter((control) => control.section === section)
                     .map((control) => (
                       <label key={control.key} className={styles.colorControl}>
-                        <span>{control.label}</span>
+                        <span>{builtIn(control.label)}</span>
                         <Input
                           type="color"
-                          aria-label={control.label}
+                          aria-label={builtIn(control.label)}
                           value={current[control.key]}
                           onChange={(event) =>
                             update(control.key, event.target.value)
@@ -390,8 +446,11 @@ export function StyleWorkbench({
                       </label>
                     ))}
                 </section>
-                <section className={styles.presets} aria-label="样式预设">
-                  <h3>试试预设</h3>
+                <section
+                  className={styles.presets}
+                  aria-label={t("styleWorkbench.stylePresets")}
+                >
+                  <h3>{t("styleWorkbench.tryAPreset")}</h3>
                   <div>
                     {stylePresets.map((preset) => (
                       <Button
@@ -401,20 +460,28 @@ export function StyleWorkbench({
                         onClick={() => {
                           setEdits(preset.values)
                           setSection(preset.section)
-                          setFeedback(`已应用「${preset.name}」到 B。`)
+                          setFeedback(
+                            uiMessage("common.appliedValueToB", {
+                              value0: builtInMessage(preset.name),
+                            }),
+                          )
                         }}
                       >
-                        {preset.name}
+                        {builtIn(preset.name)}
                       </Button>
                     ))}
                   </div>
-                  <p>预设用于局部实验；触屏控件保留至少44px点击区域。</p>
+                  <p>
+                    {t(
+                      "styleWorkbench.presetsAreLocalExperimentsTouchControlsRetainTargets",
+                    )}
+                  </p>
                 </section>
               </aside>
               <div className={styles.results}>
                 <div className={styles.comparison}>
                   <PreviewSample
-                    label="A · 基准"
+                    label={t("styleWorkbench.aBaseline")}
                     values={baseline}
                     value={sampleValue}
                     selected={sampleSelected}
@@ -422,7 +489,7 @@ export function StyleWorkbench({
                     onSelectedChange={setSampleSelected}
                   />
                   <PreviewSample
-                    label="B · 当前调整"
+                    label={t("styleWorkbench.bCurrentChanges")}
                     values={current}
                     value={sampleValue}
                     selected={sampleSelected}
@@ -430,25 +497,33 @@ export function StyleWorkbench({
                     onSelectedChange={setSampleSelected}
                   />
                 </div>
-                <section className={styles.differences} aria-label="参数差异">
+                <section
+                  className={styles.differences}
+                  aria-label={t("styleWorkbench.parameterDifferences")}
+                >
                   <h3>
-                    参数差异 <span>{differences.length} 项</span>
+                    {t("styleWorkbench.parameterDifferences")}
+                    <span>
+                      {differences.length} {t("canvasWorkspace.issues")}
+                    </span>
                   </h3>
                   {differences.length ? (
                     <div className={styles.tableScroll}>
                       <table>
                         <thead>
                           <tr>
-                            <th scope="col">参数</th>
-                            <th scope="col">A · 基准</th>
-                            <th scope="col">B · 当前</th>
-                            <th scope="col">差值</th>
+                            <th scope="col">{t("styleWorkbench.parameter")}</th>
+                            <th scope="col">{t("styleWorkbench.aBaseline")}</th>
+                            <th scope="col">{t("styleWorkbench.bCurrent")}</th>
+                            <th scope="col">
+                              {t("styleWorkbench.difference")}
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
                           {differences.map((item) => (
                             <tr key={item.key}>
-                              <th scope="row">{item.label}</th>
+                              <th scope="row">{builtIn(item.label)}</th>
                               <td>{item.baseline}</td>
                               <td>{item.current}</td>
                               <td>{item.delta}</td>
@@ -458,10 +533,15 @@ export function StyleWorkbench({
                       </table>
                     </div>
                   ) : (
-                    <p>当前 A 与 B 相同。调整左侧参数，观察变化。</p>
+                    <p>
+                      {t("styleWorkbench.aAndBAreIdenticalAdjustParametersOn")}
+                    </p>
                   )}
                 </section>
-                <section className={styles.export} aria-label="导出样式">
+                <section
+                  className={styles.export}
+                  aria-label={t("styleWorkbench.exportStyles")}
+                >
                   <div>
                     <div>
                       <Button
@@ -484,14 +564,16 @@ export function StyleWorkbench({
                           setFeedback("")
                         }}
                       >
-                        参数 JSON
+                        {t("styleWorkbench.parameterJson")}
                       </Button>
                     </div>
                     <Button
                       variant="ghost"
                       size="icon"
                       aria-label={
-                        output === "css" ? "复制 CSS" : "复制参数 JSON"
+                        output === "css"
+                          ? t("styleWorkbench.copyCss")
+                          : t("styleWorkbench.copyParameterJson")
                       }
                       onClick={copy}
                     >
@@ -500,7 +582,11 @@ export function StyleWorkbench({
                   </div>
                   <pre
                     tabIndex={0}
-                    aria-label={output === "css" ? "当前 CSS" : "当前参数 JSON"}
+                    aria-label={
+                      output === "css"
+                        ? t("styleWorkbench.currentCss")
+                        : t("styleWorkbench.currentParameterJson")
+                    }
                   >
                     <code>{code}</code>
                   </pre>

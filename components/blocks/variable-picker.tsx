@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
@@ -29,6 +30,8 @@ export function VariablePicker({
   onInsert,
   readOnly,
 }: VariablePickerProps) {
+  const { t, resolve } = useI18n()
+
   const [query, setQuery] = useState("")
   const [selectedId, setSelectedId] = useState<string>()
   const [path, setPath] = useState("")
@@ -44,7 +47,7 @@ export function VariablePicker({
             (port) =>
               port.direction === "output" &&
               (!expectedType || port.type === expectedType) &&
-              `${node.title} ${port.label} ${port.type}`
+              `${node.title} ${resolve(port.labelI18n, port.label)} ${port.type}`
                 .toLowerCase()
                 .includes(query.trim().toLowerCase()),
           ) ?? []
@@ -61,7 +64,11 @@ export function VariablePicker({
               type: port.type,
               path: [],
             })
-            return { id, label: port.label, metadata: port.type }
+            return {
+              id,
+              label: resolve(port.labelI18n, port.label),
+              metadata: port.type,
+            }
           }),
         },
       ]
@@ -70,35 +77,39 @@ export function VariablePicker({
   return (
     <div className={styles.stack}>
       <Input
-        aria-label="搜索上游变量"
+        aria-label={t("variablePicker.searchUpstreamVariables")}
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        placeholder="搜索来源、端口或类型"
+        placeholder={t("variablePicker.searchSourcePortOrType")}
       />
       {nodes.length ? (
         <Tree
           key={query}
           nodes={nodes}
-          label="可达上游变量"
+          label={t("variablePicker.reachableUpstreamVariables")}
           selectedId={selectedId}
           onSelect={(node) => setSelectedId(node.id)}
           defaultExpandedIds={nodes.map((node) => node.id)}
         />
       ) : (
-        <p className={styles.muted}>没有兼容的上游输出。请先连接来源节点。</p>
+        <p className={styles.muted}>
+          {t("variablePicker.noCompatibleUpstreamOutputsConnectASourceNode")}
+        </p>
       )}
       {selected && (
         <>
           <p className={styles.muted}>
-            来源：
-            {document.nodes.find((node) => node.id === selected.nodeId)?.title}{" "}
+            {t("variablePicker.source")}
+            {
+              document.nodes.find((node) => node.id === selected.nodeId)?.title
+            }{" "}
             / {selected.portId} · {selected.type}
             <br />
             <code>{selected.nodeId}</code>
           </p>
           {["object", "array"].includes(selected.type) && (
             <label className={styles.field}>
-              字段路径（以点分隔，可留空）
+              {t("variablePicker.fieldPathDotSeparatedOptional")}
               <Input
                 value={path}
                 onChange={(event) => setPath(event.target.value)}
@@ -119,7 +130,7 @@ export function VariablePicker({
             })
         }}
       >
-        插入变量引用
+        {t("variablePicker.insertVariableReference")}
       </Button>
     </div>
   )

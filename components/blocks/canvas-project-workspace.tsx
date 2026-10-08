@@ -1,4 +1,7 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { uiMessage, UiError, resolveUiText } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useEffect, useMemo, useState } from "react"
 import { CanvasWorkspace } from "@/components/blocks/canvas-workspace"
@@ -21,7 +24,7 @@ import {
   canvasProjectDefinitions,
   exportCanvasProject,
   parseCanvasProject,
-  validateCanvasProject,
+  describeValidateCanvasProject,
   type CanvasProject,
 } from "@/lib/canvas-project"
 import {
@@ -50,6 +53,8 @@ export function CanvasProjectWorkspace({
   onChange,
   readOnly,
 }: CanvasProjectWorkspaceProps) {
+  const { t, locale } = useI18n()
+
   const [path, setPath] = useState([project.rootId])
   const [views, setViews] = useState<
     Record<
@@ -58,7 +63,7 @@ export function CanvasProjectWorkspace({
     >
   >({})
   const [histories, setHistories] = useState<Record<string, CanvasHistory>>({})
-  const [feedback, setFeedback] = useState("")
+  const [feedback, setFeedback] = useUiFeedback("")
   const [dialog, setDialog] = useState(false),
     [json, setJson] = useState("")
   const [checkpoint, setCheckpoint] = useState(() =>
@@ -71,7 +76,7 @@ export function CanvasProjectWorkspace({
   const flow = project.flows.find((flow) => flow.id === path.at(-1)) ??
     project.flows.find((flow) => flow.id === project.rootId) ?? {
       id: "invalid-project",
-      title: "项目不可用",
+      title: t("canvasProjectWorkspace.projectUnavailable"),
       document: createCanvasDocument("invalid-project"),
       inputs: [],
       outputs: [],
@@ -84,7 +89,7 @@ export function CanvasProjectWorkspace({
       ? savedHistory
       : createCanvasHistory(flow.document)
   const problems = useMemo(
-    () => validateCanvasProject(project, base),
+    () => describeValidateCanvasProject(project, base),
     [project, base],
   )
   const dirty = exportCanvasProject(project) !== checkpoint
@@ -112,7 +117,7 @@ export function CanvasProjectWorkspace({
         item.id === flow.id ? { ...item, document: next.document } : item,
       ),
     }
-    const problems = validateCanvasProject(candidate, base)
+    const problems = describeValidateCanvasProject(candidate, base)
     if (problems.length) {
       setFeedback(problems[0])
       return
@@ -120,13 +125,17 @@ export function CanvasProjectWorkspace({
     setHistories((current) => ({ ...current, [flow.id]: next }))
     saveView({ selection })
     onChange?.(candidate)
-    setFeedback("本地项目草稿已修改，尚未持久化。")
+    setFeedback(
+      uiMessage(
+        "canvasProjectWorkspace.localProjectDraftChangedNotPersistedYet",
+      ),
+    )
   }
   function command(command: CanvasCommand) {
     if (locked) return
     const result = applyCanvasCommand(flow.document, command, definitions)
     if (!result.ok) {
-      setFeedback(result.message)
+      setFeedback(result.messageI18n ?? result.message)
       return
     }
     const selection = [
@@ -148,7 +157,11 @@ export function CanvasProjectWorkspace({
     )
       return
     if (path.includes(invocation.flowId)) {
-      setFeedback("禁止递归进入当前路径中的流程。")
+      setFeedback(
+        uiMessage(
+          "canvasProjectWorkspace.recursiveNavigationIntoAWorkflowOnTheCurrent",
+        ),
+      )
       return
     }
     setPath((current) => [...current, invocation.flowId])
@@ -162,7 +175,10 @@ export function CanvasProjectWorkspace({
       data-canvas-project
       data-active-flow={flow.id}
     >
-      <div className={styles.actions} aria-label="子流程路径">
+      <div
+        className={styles.actions}
+        aria-label={t("canvasProjectWorkspace.subflowPath")}
+      >
         {path.map((id, index) => (
           <Button
             key={`${id}:${index}`}
@@ -182,7 +198,7 @@ export function CanvasProjectWorkspace({
           disabled={!selected || !canvasInvocation(selected.type)}
           onClick={() => selected && openNode(selected.id)}
         >
-          进入子流程
+          {t("canvasProjectWorkspace.openSubflow")}
         </Button>
         <Button
           size="sm"
@@ -192,26 +208,33 @@ export function CanvasProjectWorkspace({
             setDialog(true)
           }}
         >
-          项目 JSON
+          {t("canvasProjectWorkspace.projectJson")}
         </Button>
         <span className={styles.muted}>
-          {dirty ? "项目有未导出修改" : "初始项目或已导出版本"} ·{" "}
-          {project.flows.length} 个流程 · 内存草稿
+          {dirty
+            ? t(
+                "canvasProjectWorkspace.projectHasChangesThatHaveNotBeenExported",
+              )
+            : t("canvasProjectWorkspace.initialProjectOrExportedRevision")}{" "}
+          · {project.flows.length}{" "}
+          {t("canvasProjectWorkspace.workflowsInMemoryDraft")}
         </span>
       </div>
       <p className={styles.muted}>
-        边界：
+        {t("canvasProjectWorkspace.boundary")}
         {flow.inputs.map((port) => `${port.label} (${port.type})`).join("、") ||
-          "无输入"}{" "}
+          t("canvasProjectWorkspace.noInputs")}{" "}
         →{" "}
         {flow.outputs
           .map((port) => `${port.label} (${port.type})`)
-          .join("、") || "无输出"}
-        。跨流程变量只能通过边界传递。
+          .join("、") || t("canvasProjectWorkspace.noOutputs")}
+        {t(
+          "canvasProjectWorkspace.variablesCrossWorkflowBoundariesOnlyThroughExplicitPorts",
+        )}
       </p>
       {problems.length > 0 && (
         <p role="alert" className={styles.error}>
-          {problems.join("\n")}
+          {problems.map((problem) => resolveUiText(locale, problem)).join("\n")}
         </p>
       )}
       <p role="status" className={styles.muted}>
@@ -241,12 +264,14 @@ export function CanvasProjectWorkspace({
       />
       <Dialog open={dialog} onOpenChange={setDialog}>
         <DialogContent className={styles.dialog}>
-          <DialogTitle>项目 JSON</DialogTitle>
+          <DialogTitle>{t("canvasProjectWorkspace.projectJson")}</DialogTitle>
           <DialogDescription>
-            包含全部子流程与边界。导入先校验递归、端点、作用域和大小，失败保留项目。
+            {t(
+              "canvasProjectWorkspace.includesAllSubflowsAndBoundariesImportValidatesRecursion",
+            )}
           </DialogDescription>
           <textarea
-            aria-label="项目 JSON 文本"
+            aria-label={t("canvasProjectWorkspace.projectJsonText")}
             className={styles.output}
             rows={14}
             value={json}
@@ -267,10 +292,14 @@ export function CanvasProjectWorkspace({
                 anchor.click()
                 URL.revokeObjectURL(url)
                 setCheckpoint(text)
-                setFeedback("已发起脱敏项目下载，不代表服务保存成功。")
+                setFeedback(
+                  uiMessage(
+                    "canvasProjectWorkspace.redactedProjectDownloadRequestedThisDoesNotConfirm",
+                  ),
+                )
               }}
             >
-              下载脱敏项目
+              {t("canvasProjectWorkspace.downloadRedactedProject")}
             </Button>
             <Button
               disabled={locked}
@@ -282,15 +311,25 @@ export function CanvasProjectWorkspace({
                   setViews({})
                   setPath([next.rootId])
                   setDialog(false)
-                  setFeedback("项目已载入本地草稿。")
+                  setFeedback(
+                    uiMessage(
+                      "canvasProjectWorkspace.projectLoadedIntoTheLocalDraft",
+                    ),
+                  )
                 } catch (error) {
                   setFeedback(
-                    error instanceof Error ? error.message : "项目导入失败。",
+                    error instanceof UiError
+                      ? error.messageI18n
+                      : error instanceof Error
+                        ? error.message
+                        : uiMessage(
+                            "canvasProjectWorkspace.projectImportFailed",
+                          ),
                   )
                 }
               }}
             >
-              导入项目
+              {t("canvasProjectWorkspace.importProject")}
             </Button>
           </div>
           <p role="status" className={styles.muted}>

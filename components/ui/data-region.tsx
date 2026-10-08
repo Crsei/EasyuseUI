@@ -1,3 +1,7 @@
+"use client"
+import { useI18n } from "@/lib/i18n-provider"
+import { localizeStaticData } from "@/lib/i18n-core"
+import type { UiMessage } from "@/lib/i18n-core"
 import type { ReactNode } from "react"
 import { Inbox } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -6,6 +10,8 @@ import styles from "./data-region.module.css"
 
 export type RegionError = {
   category: ErrorCategory
+  messageI18n?: UiMessage
+  reasonI18n?: UiMessage
   message: string
   reason: string
 }
@@ -41,14 +47,25 @@ export function DataRegion({
   updatedAt,
   error,
   onRetry,
-  emptyTitle = "这里暂时没有内容",
-  emptyDescription = "当前范围没有数据，请调整筛选条件。",
+  emptyTitle: providedEmptyTitle,
+  emptyDescription: providedEmptyDescription,
   emptyAction,
-  partialDescription = "当前为部分数据，缺失字段显示「—」。",
+  partialDescription: providedPartialDescription,
   onLoadMore,
-  loadingLabel = "正在加载",
+  loadingLabel: providedLoadingLabel,
   rowHeight = 56,
 }: DataRegionProps) {
+  const { t, locale, resolve } = useI18n()
+  const emptyTitle = providedEmptyTitle ?? t("workspaceShellDemo.noContentYet")
+  const emptyDescription =
+    providedEmptyDescription ??
+    t("dataRegion.noDataInThisScopeAdjustTheFilters")
+  const partialDescription =
+    providedPartialDescription ??
+    t("dataRegion.partialDataMissingFieldsAppearAs")
+  const loadingLabel = providedLoadingLabel ?? t("dataRegion.loading")
+  const localizedCategories = localizeStaticData(categories, locale)
+
   return (
     <div
       className={styles.region}
@@ -68,25 +85,38 @@ export function DataRegion({
         <>
           {(refreshing || (state === "loading" && hasContent)) && (
             <p role="status" className={styles.notice}>
-              更新中 · 已有内容保留
+              {t("dataRegion.updatingExistingContentPreserved")}
             </p>
           )}
           {state === "error" && (
             <div role="alert" className={styles.error}>
               <div>
                 <p>
-                  {categories[error?.category ?? "request"]}：
-                  {error?.message ?? "无法读取数据"}
+                  {localizedCategories[error?.category ?? "request"]}：
+                  {resolve(
+                    error?.messageI18n,
+                    error?.message ?? t("dataRegion.couldNotReadData"),
+                  )}
                 </p>
                 <p>
-                  {error?.reason ?? "原因尚未确认，请查看详情或重新读取。"}
-                  {hasContent && " 已有内容已保留，可能不是最新数据。"}
+                  {resolve(
+                    error?.reasonI18n,
+                    error?.reason ??
+                      t("dataRegion.theCauseIsUnconfirmedInspectTheDetailsOr"),
+                  )}
+                  {hasContent &&
+                    t("dataRegion.existingContentIsPreservedAndMayBeOut")}
                 </p>
-                {updatedAt && <p>最后更新：{updatedAt}</p>}
+                {updatedAt && (
+                  <p>
+                    {t("dataRegion.lastUpdated")}
+                    {updatedAt}
+                  </p>
+                )}
               </div>
               {onRetry && (
                 <Button size="sm" variant="secondary" onClick={onRetry}>
-                  重试读取
+                  {t("workspaceShellDemo.retryRead")}
                 </Button>
               )}
             </div>
@@ -106,7 +136,7 @@ export function DataRegion({
           )}
           {state === "partial" && onLoadMore && (
             <Button variant="secondary" size="sm" onClick={onLoadMore}>
-              加载更多
+              {t("dataRegion.loadMore")}
             </Button>
           )}
         </>

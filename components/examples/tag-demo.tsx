@@ -1,3 +1,4 @@
+import { SiteText } from "@/components/site/site-i18n"
 import { Tag } from "@/components/ui/tag"
 
 export function TagDemo() {
@@ -6,10 +7,12 @@ export function TagDemo() {
       <div className="flex flex-wrap gap-2">
         <Tag leading="#">Backend</Tag>
         <Tag>TypeScript</Tag>
-        <Tag size="sm">本地示例</Tag>
+        <Tag size="sm">
+          <SiteText messageKey="site.localExample" />
+        </Tag>
       </div>
       <p className="text-xs leading-5 text-text-secondary">
-        Tag 展示分类，不进入 Tab 顺序。筛选或删除使用 Chip。
+        <SiteText messageKey="site.tagDisplaysACategoryAndStaysOutOfThe" />
       </p>
     </div>
   )

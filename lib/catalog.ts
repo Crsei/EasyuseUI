@@ -1,3 +1,4 @@
+import { I18nDemo } from "@/components/examples/i18n-demo"
 import type { ComponentType } from "react"
 import { ButtonDemo } from "@/components/examples/button-demo"
 import { InputDemo } from "@/components/examples/input-demo"
@@ -55,6 +56,37 @@ export type CatalogEntry = {
 }
 
 export const catalog: CatalogEntry[] = [
+  {
+    slug: "i18n",
+    name: "I18nProvider",
+    category: "基础组件",
+    description:
+      "提供简体中文与英文、类型化消息、Intl 格式化和结构化界面反馈。",
+    source: "lib/i18n-provider.tsx",
+    relatedSources: ["lib/i18n-core.ts", "lib/i18n-messages.ts"],
+    example: "components/examples/i18n-demo.tsx",
+    Demo: I18nDemo,
+    usage:
+      'import { I18nProvider } from "@/lib/i18n-provider"\n\n<I18nProvider defaultLocale="en">{children}</I18nProvider>',
+    props: [
+      {
+        name: "locale / defaultLocale",
+        type: '"zh-CN" | "en"',
+        default: '"zh-CN"',
+        description: "支持受控和非受控作用域；语言切换保留子组件状态。",
+      },
+      {
+        name: "onLocaleChange",
+        type: "(locale: Locale) => void",
+        description:
+          "受控模式由调用方更新 locale；存储和 HTML 语言由消费项目管理。",
+      },
+    ],
+    notes: [
+      "未提供 Provider 时默认中文。组件不依赖 Next、路由或浏览器存储。",
+      "业务文本和外部错误原样显示；库自身反馈使用 UiMessage 描述。",
+    ],
+  },
   {
     slug: "canvas-service-panel",
     name: "CanvasServicePanel",
@@ -179,7 +211,7 @@ export const catalog: CatalogEntry[] = [
       'import { CanvasWorkspace } from "@/components/blocks/canvas-workspace"\nimport { useCanvasEditor } from \"@/lib/use-canvas-editor\"\n\nconst editor = useCanvasEditor(initialDocument, definitions)\n<CanvasWorkspace {...editor} definitions={definitions} />',
     props: [
       {
-        name: "document / definitions / selection / onSelectionChange / onCommand",
+        name: "document / definitions / selection / onSelectionChange / onCommand / executionVisuals / runtimeToolbar",
         type: "受控属性；见源码类型",
         description:
           "可编辑流程工作台：构图、配置、变量、校验、撤销和导入导出。",
@@ -346,7 +378,7 @@ export const catalog: CatalogEntry[] = [
       "lib/canvas-model.ts",
       slug === "workflow-canvas"
         ? "components/blocks/workflow-canvas.module.css"
-        : "components/ui/canvas-node.module.css",
+        : slug === "canvas-edge" ? "components/ui/canvas-edge.module.css" : "components/ui/canvas-node.module.css",
     ],
     example: "components/examples/workflow-canvas-demo.tsx",
     Demo: WorkflowCanvasDemo,
@@ -373,9 +405,9 @@ export const catalog: CatalogEntry[] = [
           description: "编辑请求交给调用方；缺少回调自动只读。",
         },
         {
-          name: "issues / execution / focusRequest",
-          type: "CanvasIssue[] / CanvasExecutionSnapshot / { id, request }",
-          description: "校验、当前版本运行快照、显式节点定位请求。",
+          name: "issues / execution / executionVisuals / focusRequest",
+          type: "CanvasIssue[] / CanvasExecutionSnapshot / CanvasExecutionVisuals / { id, request }",
+          description: "校验、当前版本快照、流光/粒子/关闭、视觉暂停与速度、显式定位。",
         },
       ],
       "canvas-node": [
@@ -385,8 +417,8 @@ export const catalog: CatalogEntry[] = [
           description: "节点摘要、端口、选择和操作能力。",
         },
         {
-          name: "status / outcome / issues / fallbackPorts",
-          type: "string / known|unknown / CanvasIssue[] / CanvasPortDefinition[]",
+          name: "status / outcome / executionVisuals / issues / fallbackPorts",
+          type: "string / known|unknown / CanvasExecutionVisuals / CanvasIssue[] / CanvasPortDefinition[]",
           description:
             "独立运行/校验状态；未知定义的端口仅用于保留已有边呈现。",
         },
@@ -400,7 +432,7 @@ export const catalog: CatalogEntry[] = [
       ],
       "canvas-edge": [
         {
-          name: "EdgeProps",
+          name: "EdgeProps / data.executionVisuals",
           type: "@xyflow/react EdgeProps",
           description:
             "引擎提供端点、标签与选择，命令和连接校验由 WorkflowCanvas 处理。",

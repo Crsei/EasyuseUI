@@ -1,10 +1,13 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useRef, useState } from "react"
 import { Chip } from "@/components/ui/chip"
 import { Button } from "@/components/ui/button"
 
 export function ChipDemo() {
+  const { t } = useSiteI18n()
+
   const [selected, setSelected] = useState(false)
   const [languageSelected, setLanguageSelected] = useState(false)
   const [removed, setRemoved] = useState(false)
@@ -13,7 +16,7 @@ export function ChipDemo() {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-2">
         <Chip
-          label="仅看活跃"
+          label={t("site.activeOnly")}
           selected={selected}
           onSelectedChange={setSelected}
         />
@@ -29,13 +32,13 @@ export function ChipDemo() {
           />
         )}
         <Chip
-          label="不可用"
+          label={t("site.unavailable3")}
           disabled
           onSelectedChange={() => {}}
           onRemove={() => {}}
         />
         <Chip
-          label="保存中"
+          label={t("site.saving")}
           busy
           onSelectedChange={() => {}}
           onRemove={() => {}}
@@ -43,11 +46,11 @@ export function ChipDemo() {
       </div>
       <p role="status" className="text-xs leading-5 text-text-secondary">
         {removed
-          ? "已移除 TypeScript。"
+          ? t("site.typescriptRemoved")
           : selected
-            ? "已选择活跃筛选。"
-            : "尚未选择活跃筛选。"}{" "}
-        本地交互示例。
+            ? t("site.activeFilterSelected")
+            : t("site.activeFilterNotSelected")}{" "}
+        {t("site.localInteractionExample")}
       </p>
       <Button
         ref={reset}
@@ -59,7 +62,7 @@ export function ChipDemo() {
           setRemoved(false)
         }}
       >
-        重置示例
+        {t("site.resetExample")}
       </Button>
     </div>
   )

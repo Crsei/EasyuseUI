@@ -1,9 +1,12 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useId, useState } from "react"
 import { Input } from "@/components/ui/input"
 
 export function InputDemo() {
+  const { t } = useSiteI18n()
+
   const id = useId()
   const [name, setName] = useState("")
   const invalid = name.length > 0 && name.trim().length < 2
@@ -11,11 +14,11 @@ export function InputDemo() {
   return (
     <div className="w-full max-w-sm space-y-2">
       <label htmlFor={id} className="text-sm font-medium">
-        项目名称
+        {t("site.projectName")}
       </label>
       <Input
         id={id}
-        placeholder="例如：我的工作台"
+        placeholder={t("site.forExampleMyWorkspace")}
         value={name}
         onChange={(event) => setName(event.target.value)}
         aria-invalid={invalid || undefined}
@@ -26,10 +29,10 @@ export function InputDemo() {
         className={`text-xs ${invalid ? "text-destructive" : "text-muted-foreground"}`}
       >
         {invalid
-          ? "名称至少需要 2 个字符。"
+          ? t("site.theNameNeedsAtLeast2Characters")
           : name
-            ? `即将创建：${name}`
-            : "一个清楚的名字，方便之后找到它。"}
+            ? t("site.aboutToCreateValue", { value0: name })
+            : t("site.aClearNameMakesItEasierToFindLater")}
       </p>
     </div>
   )

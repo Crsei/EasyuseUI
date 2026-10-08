@@ -1,4 +1,12 @@
-import { canvasFieldProblem } from "@/lib/canvas-config"
+import {
+  uiMessage,
+  uiTextFields,
+  uiTextError,
+  resolveUiText,
+  defaultLocale,
+  type UiText,
+} from "@/lib/i18n-core"
+import { describeCanvasFieldProblem } from "@/lib/canvas-config"
 import {
   canvasLimits,
   type CanvasConnectionPolicy,
@@ -29,17 +37,19 @@ export function upstreamCanvasNodes(
   return seen
 }
 
-export function validateCanvasConnection(
+export function describeValidateCanvasConnection(
   document: CanvasDocument,
   definitions: CanvasNodeDefinition[],
   edge: CanvasEdgeRecord,
   ignoreId?: string,
   policy?: CanvasConnectionPolicy,
-): string | undefined {
+): UiText | undefined {
   const source = document.nodes.find((node) => node.id === edge.source)
   const target = document.nodes.find((node) => node.id === edge.target)
-  if (!source || !target) return "连接引用了不存在的节点。"
-  if (source.id === target.id) return "不允许节点连接自身。"
+  if (!source || !target)
+    return uiMessage("canvasValidation.theConnectionReferencesAMissingNode")
+  if (source.id === target.id)
+    return uiMessage("canvasValidation.nodesCannotConnectToThemselves")
   const other = document.edges.filter((item) => item.id !== ignoreId)
   if (
     other.some(
@@ -50,11 +60,13 @@ export function validateCanvasConnection(
         item.targetPort === edge.targetPort,
     )
   )
-    return "相同端口之间已存在连接。"
+    return uiMessage("canvasValidation.thesePortsAreAlreadyConnected")
   if (
     upstreamCanvasNodes({ ...document, edges: other }, source.id).has(target.id)
   )
-    return "此连接会形成回路；当前画布要求 DAG。"
+    return uiMessage(
+      "canvasValidation.thisConnectionWouldCreateACycleTheCanvas",
+    )
   const sourceDefinition = definitions.find((item) => item.type === source.type)
   const targetDefinition = definitions.find((item) => item.type === target.type)
   const output = sourceDefinition?.ports.find(
@@ -64,18 +76,26 @@ export function validateCanvasConnection(
     (port) => port.id === edge.targetPort,
   )
   if ((sourceDefinition && !output) || (targetDefinition && !input))
-    return "连接引用了不存在的端口。"
+    return uiMessage("canvasValidation.theConnectionReferencesAMissingPort")
   if (
     (output && output.direction !== "output") ||
     (input && input.direction !== "input")
   )
-    return "连接方向必须为 output → input。"
-  if (!output || !input) return "未知节点定义，不能编辑其连接。"
+    return uiMessage("canvasValidation.connectionDirectionMustBeOutputInput")
+  if (!output || !input)
+    return uiMessage(
+      "canvasValidation.unknownNodeDefinitionItsConnectionsCannotBeEdited",
+    )
   try {
     if (!(policy ? policy(output, input) : output.type === input.type))
-      return `端口类型不兼容：${output.type} → ${input.type}。`
+      return uiMessage("common.incompatiblePortTypesValueValue", {
+        value0: output.type,
+        value1: input.type,
+      })
   } catch {
-    return "连接策略未能完成校验。"
+    return uiMessage(
+      "canvasValidation.theConnectionPolicyCouldNotCompleteValidation",
+    )
   }
   if (
     output.maxConnections !== undefined &&
@@ -83,61 +103,80 @@ export function validateCanvasConnection(
       (item) => item.source === source.id && item.sourcePort === output.id,
     ).length >= output.maxConnections
   )
-    return "来源端口已达到连接数量上限。"
+    return uiMessage("canvasValidation.theSourcePortReachedItsConnectionLimit")
   if (
     input.maxConnections !== undefined &&
     other.filter(
       (item) => item.target === target.id && item.targetPort === input.id,
     ).length >= input.maxConnections
   )
-    return "目标端口已达到连接数量上限。"
+    return uiMessage("canvasValidation.theTargetPortReachedItsConnectionLimit")
 }
 
-export function validateCanvasVariable(
+export function describeValidateCanvasVariable(
   document: CanvasDocument,
   definitions: CanvasNodeDefinition[],
   target: CanvasNodeRecord,
   field: string,
   reference: CanvasVariable,
-): string | undefined {
+): UiText | undefined {
   const source = document.nodes.find((node) => node.id === reference.nodeId)
-  if (!source) return "变量来源节点已不存在。"
+  if (!source)
+    return uiMessage("canvasValidation.theVariableSourceNodeNoLongerExists")
   const port = definitions
     .find((item) => item.type === source.type)
     ?.ports.find(
       (item) => item.id === reference.portId && item.direction === "output",
     )
-  if (!port) return "变量来源输出端口已不存在或定义未知。"
-  if (port.type !== reference.type) return "变量来源类型已改变，请重新选择。"
+  if (!port)
+    return uiMessage("canvasValidation.theSourceOutputPortIsMissingOrIts")
+  if (port.type !== reference.type)
+    return uiMessage(
+      "canvasValidation.theVariableSourceTypeChangedSelectItAgain",
+    )
   const targetField = definitions
     .find((item) => item.type === target.type)
     ?.fields?.find((item) => item.key === field)
-  if (!targetField?.variableType) return "此配置字段不接受变量。"
+  if (!targetField?.variableType)
+    return uiMessage(
+      "canvasValidation.thisConfigurationFieldDoesNotAcceptVariables",
+    )
   const expected = targetField.variableType
   if (expected && expected !== reference.type)
-    return `字段需要 ${expected}，变量为 ${reference.type}。`
+    return uiMessage("common.theFieldRequiresValueButTheVariableIs", {
+      value0: expected,
+      value1: reference.type,
+    })
   if (!upstreamCanvasNodes(document, target.id).has(source.id))
-    return "变量来源不在当前节点的可达上游。"
+    return uiMessage(
+      "canvasValidation.theVariableSourceIsNotReachableUpstreamOf",
+    )
 }
 
-export function validateCanvasConfig(
+export function describeValidateCanvasConfig(
   node: CanvasNodeRecord,
   definition: CanvasNodeDefinition,
-): Record<string, string> {
-  const errors: Record<string, string> = {}
+): Record<string, UiText> {
+  const errors: Record<string, UiText> = {}
   for (const field of definition.fields ?? []) {
     if (node.bindings?.[field.key]) continue
     const value = node.config[field.key]
     if (value === undefined || value === "" || value === null) {
-      if (field.required) errors[field.key] = `${field.label}不能为空。`
+      if (field.required)
+        errors[field.key] = uiMessage("common.valueCannotBeEmpty", {
+          value0: field.labelI18n ?? field.label,
+        })
       continue
     }
-    const structuredProblem = canvasFieldProblem(
+    const structuredProblem = describeCanvasFieldProblem(
       field.kind,
       node.config[field.key],
     )
     if (structuredProblem)
-      errors[field.key] = `${field.label}：${structuredProblem}`
+      errors[field.key] = uiMessage("canvas.problemContext", {
+        context: field.labelI18n ?? field.label,
+        problem: structuredProblem,
+      })
     if (
       field.kind === "number" &&
       (typeof value !== "number" ||
@@ -145,20 +184,32 @@ export function validateCanvasConfig(
         (field.min !== undefined && value < field.min) ||
         (field.max !== undefined && value > field.max))
     )
-      errors[field.key] =
-        `${field.label}需要有效数字${field.min !== undefined || field.max !== undefined ? `（${field.min ?? "不限"}–${field.max ?? "不限"}）` : ""}。`
+      errors[field.key] = uiMessage("common.valueRequiresAValidNumberValue", {
+        value0: field.labelI18n ?? field.label,
+        value1:
+          field.min !== undefined || field.max !== undefined
+            ? uiMessage("canvas.numberRange", {
+                min: field.min ?? uiMessage("canvas.unbounded"),
+                max: field.max ?? uiMessage("canvas.unbounded"),
+              })
+            : "",
+      })
     if (
       ["text", "textarea", "select", "code", "expression"].includes(
         field.kind,
       ) &&
       typeof value !== "string"
     )
-      errors[field.key] = `${field.label}需要文本。`
+      errors[field.key] = uiMessage("common.valueRequiresText", {
+        value0: field.labelI18n ?? field.label,
+      })
     if (
       field.kind === "select" &&
       !field.options?.some((option) => option.value === value)
     )
-      errors[field.key] = `${field.label}不在可选范围内。`
+      errors[field.key] = uiMessage("common.valueIsOutsideTheAllowedOptions", {
+        value0: field.labelI18n ?? field.label,
+      })
   }
   try {
     for (const [index, message] of (
@@ -166,7 +217,9 @@ export function validateCanvasConfig(
     ).entries())
       errors[`custom-${index}`] = message
   } catch {
-    errors.custom = "节点校验器未能完成校验。"
+    errors.custom = uiMessage(
+      "canvasValidation.theNodeValidatorCouldNotCompleteValidation",
+    )
   }
   return errors
 }
@@ -184,16 +237,23 @@ export function validateCanvasDocument(
         code: "unknown-type",
         severity: "warning",
         nodeId: node.id,
-        message: `${node.title}：未知节点类型 ${node.type}，原数据已保留。`,
+        ...uiTextFields(
+          uiMessage("common.valueUnknownNodeTypeValueOriginalDataPreserved", {
+            value0: node.title,
+            value1: node.type,
+          }),
+        ),
       })
       continue
     }
-    for (const message of Object.values(validateCanvasConfig(node, definition)))
+    for (const message of Object.values(
+      describeValidateCanvasConfig(node, definition),
+    ))
       issues.push({
         code: "config",
         severity: "warning",
         nodeId: node.id,
-        message,
+        ...uiTextFields(message),
       })
     for (const port of definition.ports.filter(
       (item) => item.direction === "input" && item.required,
@@ -208,10 +268,15 @@ export function validateCanvasDocument(
           severity: "warning",
           nodeId: node.id,
           portId: port.id,
-          message: `${node.title}：必填输入「${port.label}」未连接。`,
+          ...uiTextFields(
+            uiMessage("common.valueRequiredInputValueIsNotConnected", {
+              value0: node.title,
+              value1: port.labelI18n ?? port.label,
+            }),
+          ),
         })
     for (const [field, reference] of Object.entries(node.bindings ?? {})) {
-      const message = validateCanvasVariable(
+      const message = describeValidateCanvasVariable(
         document,
         definitions,
         node,
@@ -223,12 +288,17 @@ export function validateCanvasDocument(
           code: "variable",
           severity: "error",
           nodeId: node.id,
-          message: `${node.title} / ${field}：${message}`,
+          ...uiTextFields(
+            uiMessage("canvas.problemContext", {
+              context: `${node.title} / ${field}`,
+              problem: message,
+            }),
+          ),
         })
     }
   }
   for (const edge of document.edges) {
-    const message = validateCanvasConnection(
+    const message = describeValidateCanvasConnection(
       document,
       definitions,
       edge,
@@ -237,35 +307,54 @@ export function validateCanvasDocument(
     )
     if (message)
       issues.push({
-        code: message.startsWith("未知节点") ? "unknown-port" : "connection",
-        severity: message.startsWith("未知节点") ? "warning" : "error",
+        code:
+          typeof message !== "string" &&
+          message.key ===
+            "canvasValidation.unknownNodeDefinitionItsConnectionsCannotBeEdited"
+            ? "unknown-port"
+            : "connection",
+        severity:
+          typeof message !== "string" &&
+          message.key ===
+            "canvasValidation.unknownNodeDefinitionItsConnectionsCannotBeEdited"
+            ? "warning"
+            : "error",
         edgeId: edge.id,
         nodeId: edge.target,
-        message,
+        ...uiTextFields(message),
       })
   }
   return issues
 }
 
-function object(value: unknown, name: string): Record<string, unknown> {
+function object(value: unknown, name: UiText): Record<string, unknown> {
   if (!value || typeof value !== "object" || Array.isArray(value))
-    throw new Error(`${name}必须是对象。`)
+    throw uiTextError(uiMessage("common.valueMustBeAnObject", { value0: name }))
   return value as Record<string, unknown>
 }
-function text(value: unknown, name: string, max = 200): string {
+function text(value: unknown, name: UiText, max = 200): string {
   if (typeof value !== "string" || !value.trim() || value.length > max)
-    throw new Error(`${name}需要非空文本，最多${max}字符。`)
+    throw uiTextError(
+      uiMessage("common.valueRequiresNonemptyTextUpToValueCharacters", {
+        value0: name,
+        value1: max,
+      }),
+    )
   return value
 }
-function id(value: unknown, name: string): string {
+function id(value: unknown, name: UiText): string {
   const result = text(value, name, 128)
   if (!/^[\w][\w-]*$/.test(result))
-    throw new Error(`${name}仅支持字母、数字、下划线和短横线。`)
+    throw uiTextError(
+      uiMessage("common.valueSupportsOnlyLettersNumbersUnderscoresAndHyphens", {
+        value0: name,
+      }),
+    )
   return result
 }
 function number(
   value: unknown,
-  name: string,
+  name: UiText,
   min: number,
   max: number,
 ): number {
@@ -275,27 +364,39 @@ function number(
     value < min ||
     value > max
   )
-    throw new Error(`${name}超出有效范围。`)
+    throw uiTextError(
+      uiMessage("common.valueIsOutsideTheValidRange", { value0: name }),
+    )
   return value
 }
-function point(value: unknown, name: string) {
+function point(value: unknown, name: UiText) {
   const p = object(value, name)
-  number(p.x, `${name}.x`, -1e6, 1e6)
-  number(p.y, `${name}.y`, -1e6, 1e6)
+  number(p.x, uiMessage("canvas.propertyPath", { name, path: "x" }), -1e6, 1e6)
+  number(p.y, uiMessage("canvas.propertyPath", { name, path: "y" }), -1e6, 1e6)
 }
-function keys(value: Record<string, unknown>, allowed: string[], name: string) {
+function keys(value: Record<string, unknown>, allowed: string[], name: UiText) {
   for (const key of Object.keys(value))
     if (!allowed.includes(key))
-      throw new Error(`${name}不支持字段 ${key}；扩展数据请放入 config。`)
+      throw uiTextError(
+        uiMessage("common.valueDoesNotSupportFieldValuePutExtension", {
+          value0: name,
+          value1: key,
+        }),
+      )
 }
 function safeValue(value: unknown, depth = 0) {
-  if (depth > 20) throw new Error("JSON 嵌套超过20层。")
+  if (depth > 20)
+    throw uiTextError(uiMessage("canvasValidation.jsonNestingExceeds20Levels"))
   if (typeof value === "number" && !Number.isFinite(value))
-    throw new Error("JSON 包含非有限数字。")
+    throw uiTextError(
+      uiMessage("canvasValidation.jsonContainsANonfiniteNumber"),
+    )
   if (value && typeof value === "object")
     for (const [key, child] of Object.entries(value)) {
       if (["__proto__", "prototype", "constructor"].includes(key))
-        throw new Error("JSON 包含不安全字段。")
+        throw uiTextError(
+          uiMessage("canvasValidation.jsonContainsAnUnsafeField"),
+        )
       safeValue(child, depth + 1)
     }
 }
@@ -307,10 +408,10 @@ export function parseCanvasDocument(
   options?: { allowInvalidBindings?: boolean },
 ): CanvasDocument {
   if (new TextEncoder().encode(json).byteLength > canvasLimits.bytes)
-    throw new Error("文件超过512KiB限制。")
+    throw uiTextError(uiMessage("canvasWorkspace.fileExceedsThe512kibLimit"))
   const raw: unknown = JSON.parse(json)
   safeValue(raw)
-  const doc = object(raw, "图文档")
+  const doc = object(raw, uiMessage("canvasParser.graphDocument"))
   keys(
     doc,
     [
@@ -323,13 +424,18 @@ export function parseCanvasDocument(
       "notes",
       "viewport",
     ],
-    "图文档",
+    uiMessage("canvasParser.graphDocument"),
   )
   if (doc.schemaVersion !== 1)
-    throw new Error("不兼容的 schemaVersion；当前仅支持版本1。")
-  id(doc.id, "文档ID")
+    throw uiTextError(
+      uiMessage(
+        "canvasValidation.incompatibleSchemaversionOnlyVersion1IsSupported",
+      ),
+    )
+  id(doc.id, uiMessage("canvasParser.documentID"))
   number(doc.revision, "revision", 0, Number.MAX_SAFE_INTEGER)
-  if (!Number.isInteger(doc.revision)) throw new Error("revision必须是整数。")
+  if (!Number.isInteger(doc.revision))
+    throw uiTextError(uiMessage("canvasValidation.revisionMustBeAnInteger"))
   for (const [key, max] of [
     ["nodes", canvasLimits.nodes],
     ["edges", canvasLimits.edges],
@@ -337,13 +443,21 @@ export function parseCanvasDocument(
     ["notes", canvasLimits.annotations],
   ] as const)
     if (!Array.isArray(doc[key]) || (doc[key] as unknown[]).length > max)
-      throw new Error(`${key}必须是数组且不超过${max}项。`)
+      throw uiTextError(
+        uiMessage("common.valueMustBeAnArrayWithAtMost", {
+          value0: key,
+          value1: max,
+        }),
+      )
   const seen = new Set<string>()
   const records = (key: "nodes" | "edges" | "frames" | "notes") =>
     (doc[key] as unknown[]).map((value, index) => {
       const record = object(value, `${key}[${index}]`)
       const valueId = id(record.id, `${key} ID`)
-      if (seen.has(valueId)) throw new Error(`ID重复：${valueId}。`)
+      if (seen.has(valueId))
+        throw uiTextError(
+          uiMessage("common.duplicateIdValue", { value0: valueId }),
+        )
       seen.add(valueId)
       return record
     })
@@ -355,24 +469,34 @@ export function parseCanvasDocument(
     keys(
       node,
       ["id", "type", "title", "position", "config", "bindings", "parentId"],
-      "节点",
+      uiMessage("canvasParser.node"),
     )
-    text(node.type, "节点类型")
-    text(node.title, "节点标题")
-    point(node.position, "节点位置")
-    object(node.config, "节点config")
+    text(node.type, uiMessage("canvasParser.nodeType"))
+    text(node.title, uiMessage("canvasParser.nodeTitle"))
+    point(node.position, uiMessage("canvasParser.nodePosition"))
+    object(node.config, uiMessage("canvasParser.nodeConfig"))
     if (
       node.parentId !== undefined &&
       !frames.some((frame) => frame.id === node.parentId)
     )
-      throw new Error(`节点 ${node.id} 引用了不存在的 Frame。`)
+      throw uiTextError(
+        uiMessage("common.nodeValueReferencesAMissingFrame", {
+          value0: String(node.id),
+        }),
+      )
     if (node.bindings !== undefined)
-      for (const value of Object.values(object(node.bindings, "变量引用"))) {
-        const ref = object(value, "变量")
-        keys(ref, ["nodeId", "portId", "path", "type"], "变量")
-        id(ref.nodeId, "变量来源ID")
-        id(ref.portId, "变量端口ID")
-        text(ref.type, "变量类型")
+      for (const value of Object.values(
+        object(node.bindings, uiMessage("canvasParser.variableReference")),
+      )) {
+        const ref = object(value, uiMessage("canvasParser.variable"))
+        keys(
+          ref,
+          ["nodeId", "portId", "path", "type"],
+          uiMessage("canvasParser.variable"),
+        )
+        id(ref.nodeId, uiMessage("canvasParser.variableSourceID"))
+        id(ref.portId, uiMessage("canvasParser.variablePortID"))
+        text(ref.type, uiMessage("canvasParser.variableType"))
         if (
           ![
             "string",
@@ -385,37 +509,40 @@ export function parseCanvasDocument(
             "model",
           ].includes(ref.type as string)
         )
-          throw new Error("变量类型无效。")
+          throw uiTextError(uiMessage("canvasValidation.invalidVariableType"))
         if (
           !Array.isArray(ref.path) ||
           !ref.path.every(
             (value) => typeof value === "string" && value.length <= 200,
           )
         )
-          throw new Error("变量path必须是文本数组。")
+          throw uiTextError(
+            uiMessage("canvasValidation.variablePathMustBeATextArray"),
+          )
       }
   }
   for (const edge of edges) {
     keys(
       edge,
       ["id", "source", "sourcePort", "target", "targetPort", "label"],
-      "连线",
+      uiMessage("canvasParser.edge"),
     )
     for (const key of ["source", "sourcePort", "target", "targetPort"])
       id(edge[key], key)
-    if (edge.label !== undefined) text(edge.label, "连线标签")
+    if (edge.label !== undefined)
+      text(edge.label, uiMessage("canvasParser.edgeLabel"))
   }
   for (const frame of frames) {
     keys(frame, ["id", "title", "position", "width", "height"], "Frame")
-    text(frame.title, "Frame标题")
-    point(frame.position, "Frame位置")
-    number(frame.width, "Frame宽度", 240, 10000)
-    number(frame.height, "Frame高度", 120, 10000)
+    text(frame.title, uiMessage("canvasParser.frameTitle"))
+    point(frame.position, uiMessage("canvasParser.framePosition"))
+    number(frame.width, uiMessage("canvasParser.frameWidth"), 240, 10000)
+    number(frame.height, uiMessage("canvasParser.frameHeight"), 120, 10000)
   }
   for (const note of notes) {
     keys(note, ["id", "text", "position"], "Note")
-    text(note.text, "Note正文", 4000)
-    point(note.position, "Note位置")
+    text(note.text, uiMessage("canvasParser.noteBody"), 4000)
+    point(note.position, uiMessage("canvasParser.notePosition"))
   }
   if (doc.viewport !== undefined) {
     const viewport = object(doc.viewport, "viewport")
@@ -428,7 +555,8 @@ export function parseCanvasDocument(
       issue.severity === "error" &&
       !(options?.allowInvalidBindings && issue.code === "variable"),
   )
-  if (errors.length) throw new Error(errors[0].message)
+  if (errors.length)
+    throw uiTextError(errors[0].messageI18n ?? errors[0].message)
   return document
 }
 
@@ -454,4 +582,28 @@ export function exportCanvasDocument(document: CanvasDocument): string {
     notes: document.notes,
     viewport: document.viewport,
   })
+}
+
+export function validateCanvasConnection(
+  ...args: Parameters<typeof describeValidateCanvasConnection>
+) {
+  const value = describeValidateCanvasConnection(...args)
+  return value === undefined ? undefined : resolveUiText(defaultLocale, value)
+}
+export function validateCanvasVariable(
+  ...args: Parameters<typeof describeValidateCanvasVariable>
+) {
+  const value = describeValidateCanvasVariable(...args)
+  return value === undefined ? undefined : resolveUiText(defaultLocale, value)
+}
+export function validateCanvasConfig(
+  ...args: Parameters<typeof describeValidateCanvasConfig>
+) {
+  const value = describeValidateCanvasConfig(...args)
+  return Object.fromEntries(
+    Object.entries(value).map(([key, item]) => [
+      key,
+      resolveUiText(defaultLocale, item),
+    ]),
+  )
 }

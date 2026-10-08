@@ -1,3 +1,4 @@
+import type { UiMessage } from "@/lib/i18n-core"
 import type { ReactNode } from "react"
 
 export type CanvasValue =
@@ -20,6 +21,7 @@ export type CanvasPortType =
 export type CanvasPortDefinition = {
   id: string
   label: string
+  labelI18n?: UiMessage
   direction: "input" | "output"
   type: CanvasPortType
   required?: boolean
@@ -36,6 +38,7 @@ export type CanvasCatalogs = Partial<
 export type CanvasField = {
   key: string
   label: string
+  labelI18n?: UiMessage
   kind:
     | "text"
     | "textarea"
@@ -49,7 +52,7 @@ export type CanvasField = {
     | "code"
   required?: boolean
   catalog?: keyof CanvasCatalogs
-  options?: { value: string; label: string }[]
+  options?: { value: string; label: string; labelI18n?: UiMessage }[]
   min?: number
   max?: number
   variableType?: CanvasPortType
@@ -102,11 +105,14 @@ export type CanvasDocument = {
 export type CanvasNodeDefinition = {
   type: string
   label: string
+  labelI18n?: UiMessage
   category: string
+  categoryI18n?: UiMessage
   icon?: ReactNode
   ports: CanvasPortDefinition[]
   defaults: Record<string, CanvasValue>
   fields?: CanvasField[]
+  summaryI18n?: UiMessage
   summary?: (node: CanvasNodeRecord) => string
   validate?: (node: CanvasNodeRecord) => string[]
 }
@@ -121,6 +127,7 @@ export const emptyCanvasSelection: CanvasSelection = {
   edgeIds: [],
 }
 export type CanvasIssue = {
+  messageI18n?: UiMessage
   code: string
   message: string
   nodeId?: string
@@ -132,6 +139,12 @@ export type CanvasConnectionPolicy = (
   source: CanvasPortDefinition,
   target: CanvasPortDefinition,
 ) => boolean
+/** Presentation only; these options never advance or pause an execution service. */
+export type CanvasExecutionVisuals = {
+  edgeEffect?: "flow" | "particles" | "none"
+  speed?: 0.5 | 1 | 2
+  paused?: boolean
+}
 export type CanvasExecutionSnapshot = {
   documentId: string
   runId: string

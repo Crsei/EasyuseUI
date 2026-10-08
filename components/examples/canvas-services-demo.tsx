@@ -1,4 +1,5 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useState } from "react"
 import { CanvasWorkspace } from "@/components/blocks/canvas-workspace"
@@ -54,6 +55,8 @@ function fixtureStorage() {
 export function CanvasServicesDemo({
   layout = "preview",
 }: { layout?: "preview" | "fill" } = {}) {
+  const { t } = useSiteI18n()
+
   const [initial] = useState(basicCanvasDocument),
     [fixture] = useState(fixtureStorage)
   const [session] = useState(() =>
@@ -73,14 +76,14 @@ export function CanvasServicesDemo({
     useState<CanvasServicePanelProps["operation"]>()
   const [environment, setEnvironment] = useState("test")
   const services: CanvasServicePanelProps = {
-    sourceLabel: "仅本地 fixture，非真实服务",
+    sourceLabel: t("site.localFixtureOnlyNoRealService"),
     snapshot,
     serverRevision: persistence.state.serverRevision,
     versions: [
       {
         id: "fixture-initial",
         serverRevision: "fixture-1",
-        createdAt: "本地初始快照",
+        createdAt: t("site.localInitialSnapshot"),
         author: "fixture",
       },
     ],
@@ -95,7 +98,9 @@ export function CanvasServicesDemo({
         requestId: command.requestId,
         kind: command.kind,
         status: "unknown",
-        message: "本地 fixture 模拟发布响应丢失，请查询操作回执。",
+        message: t(
+          "site.theLocalFixtureSimulatesALostPublicationResponseQuery",
+        ),
       }),
     onQueryReceipt: async (requestId) =>
       setOperation(
@@ -104,7 +109,9 @@ export function CanvasServicesDemo({
             ...current,
             requestId,
             status: "rejected",
-            message: "fixture 确认未发布。没有真实发布服务。",
+            message: t(
+              "site.theFixtureConfirmedNoPublicationNoRealPublishingService",
+            ),
           },
       ),
     onCommand: async (command) => {
@@ -130,7 +137,7 @@ export function CanvasServicesDemo({
                   messages: [
                     {
                       id: command.requestId,
-                      author: "本地 fixture 用户",
+                      author: t("site.localFixtureUser"),
                       text: command.text,
                       createdAt: "fixture",
                     },
@@ -145,8 +152,8 @@ export function CanvasServicesDemo({
         status: command.kind === "share" ? "rejected" : "confirmed",
         message:
           command.kind === "share"
-            ? "fixture 未提供分享服务。"
-            : "本地 fixture 确认收到操作；不代表真实服务。",
+            ? t("site.theFixtureDoesNotProvideASharingService")
+            : t("site.theLocalFixtureConfirmedReceiptOfTheOperationThis"),
       })
     },
   }
@@ -157,7 +164,7 @@ export function CanvasServicesDemo({
           layout === "fill" ? styles.notice : "text-sm text-muted-foreground"
         }
       >
-        所有保存回执、版本、讨论与权限均为显式本地夹具。发布只演示未知结果和查询，不模拟发布成功。
+        {t("site.allSaveReceiptsVersionsDiscussionsAndPermissionsAreExplicit")}
       </p>
       <div
         className={
@@ -167,15 +174,15 @@ export function CanvasServicesDemo({
         }
       >
         <label>
-          保存 fixture{" "}
+          {t("site.saveFixture")}{" "}
           <select
-            aria-label="保存 fixture"
+            aria-label={t("site.saveFixture")}
             className="h-8 rounded border bg-background px-2 [@media(pointer:coarse)]:min-h-11"
             onChange={(event) => fixture.setMode(event.target.value)}
           >
-            <option value="normal">正常回执</option>
-            <option value="unknown">响应丢失</option>
-            <option value="conflict">版本冲突</option>
+            <option value="normal">{t("site.normalReceipt")}</option>
+            <option value="unknown">{t("site.lostResponse")}</option>
+            <option value="conflict">{t("site.revisionConflict")}</option>
           </select>
         </label>
         {persistence.state.status === "conflict" && (
@@ -189,7 +196,7 @@ export function CanvasServicesDemo({
               )
             }
           >
-            以当前草稿明确处理 fixture 冲突
+            {t("site.explicitlyResolveTheFixtureConflictUsingTheCurrentDraft")}
           </Button>
         )}
       </div>

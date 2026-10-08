@@ -1,4 +1,8 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { uiMessage } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
+import { localizeStaticData } from "@/lib/i18n-core"
 
 import { useId, useRef, useState, type ReactNode } from "react"
 import { Bot, Copy, MessageSquare, Square, Info } from "lucide-react"
@@ -50,7 +54,11 @@ export function ChatMessage({
   onStop,
   onContinue,
 }: ChatMessageProps) {
-  const [feedback, setFeedback] = useState("")
+  const { t, locale } = useI18n()
+
+  const localizedStates = localizeStaticData(states, locale)
+
+  const [feedback, setFeedback] = useUiFeedback("")
   const Icon = role === "agent" ? Bot : role === "system" ? Info : MessageSquare
   return (
     <article
@@ -65,7 +73,11 @@ export function ChatMessage({
         <header>
           <span>
             {author ??
-              (role === "user" ? "你" : role === "agent" ? "Agent" : "System")}
+              (role === "user"
+                ? t("chatMessage.you")
+                : role === "agent"
+                  ? "Agent"
+                  : "System")}
           </span>
           {time && <time>{time}</time>}
           <span className={styles.actions}>
@@ -73,13 +85,15 @@ export function ChatMessage({
               <Button
                 variant="ghost"
                 size="icon-sm"
-                aria-label="复制消息"
+                aria-label={t("chatMessage.copyMessage")}
                 onClick={async () => {
                   try {
                     await navigator.clipboard.writeText(content)
-                    setFeedback("已复制消息。")
+                    setFeedback(uiMessage("chatMessage.messageCopied"))
                   } catch {
-                    setFeedback("无法访问剪贴板，请手动复制。")
+                    setFeedback(
+                      uiMessage("chatMessage.clipboardUnavailableCopyManually"),
+                    )
                   }
                 }}
               >
@@ -99,7 +113,7 @@ export function ChatMessage({
             data-error={state === "failed" || state === "interrupted"}
           >
             <span role="status">
-              {states[state]}
+              {localizedStates[state]}
               {stage && ` · ${stage}`}
             </span>
             {elapsed && <span>{elapsed}</span>}
@@ -107,17 +121,17 @@ export function ChatMessage({
             {state === "streaming" && onStop && (
               <Button variant="secondary" size="sm" onClick={onStop}>
                 <Square size={16} />
-                停止接收
+                {t("chatMessage.stopReceiving")}
               </Button>
             )}
             {state === "failed" && onRetry && (
               <Button variant="secondary" size="sm" onClick={onRetry}>
-                重试消息
+                {t("chatMessage.retryMessage")}
               </Button>
             )}
             {state === "interrupted" && onContinue && (
               <Button variant="secondary" size="sm" onClick={onContinue}>
-                继续接收
+                {t("chatMessage.continueReceiving")}
               </Button>
             )}
           </div>
@@ -144,6 +158,8 @@ export function Conversation({
   composer,
   className,
 }: ConversationProps) {
+  const { t } = useI18n()
+
   const id = useId()
   const [view, setView] = useState("conversation")
   const unique = [
@@ -163,7 +179,11 @@ export function Conversation({
   return (
     <div className={cn(styles.conversation, className)}>
       {workspace && (
-        <div className={styles.tabs} role="tablist" aria-label="对话与工作区">
+        <div
+          className={styles.tabs}
+          role="tablist"
+          aria-label={t("chatMessage.conversationAndWorkspace")}
+        >
           {["conversation", "workspace"].map((tab) => (
             <button
               key={tab}
@@ -212,13 +232,15 @@ export function Conversation({
             ref={scrollRef}
             onScroll={onScroll}
             className={styles.scroll}
-            aria-label="对话记录"
+            aria-label={t("chatMessage.conversationHistory")}
             tabIndex={0}
           >
             <DataRegion
               state={unique.length ? "success" : "empty"}
-              emptyTitle="开始一段对话"
-              emptyDescription="在下方输入任务，发送后会保留完整工作流记录。"
+              emptyTitle={t("chatMessage.startAConversation")}
+              emptyDescription={t(
+                "chatMessage.enterATaskBelowSendingItPreservesThe",
+              )}
               {...data}
               hasContent={unique.length > 0}
             >
@@ -239,7 +261,7 @@ export function Conversation({
               size="sm"
               onClick={jumpToLatest}
             >
-              返回最新
+              {t("chatMessage.jumpToLatest")}
             </Button>
           )}
         </div>
@@ -279,11 +301,13 @@ export function ChatComposer({
   onStop,
   attachments,
 }: ChatComposerProps) {
+  const { t } = useI18n()
+
   const id = useId()
   const composing = useRef(false)
   const sending = useRef(false)
   const [busy, setBusy] = useState(false)
-  const [error, setError] = useState("")
+  const [error, setError] = useUiFeedback("")
   const canSend = Boolean(
     value.trim() && !pending && !busy && !streaming && !disabled,
   )
@@ -295,7 +319,11 @@ export function ChatComposer({
     try {
       await onSend(value.trim())
     } catch {
-      setError("消息未确认发送成功，草稿已保留。请检查连接后重试。")
+      setError(
+        uiMessage(
+          "chatMessage.messageDeliveryIsUnconfirmedYourDraftIsPreserved",
+        ),
+      )
     } finally {
       sending.current = false
       setBusy(false)
@@ -311,12 +339,12 @@ export function ChatComposer({
     >
       {attachments && <div className={styles.attachments}>{attachments}</div>}
       <label htmlFor={id} className="sr-only">
-        消息输入
+        {t("chatMessage.messageInput")}
       </label>
       <textarea
         id={id}
         value={value}
-        placeholder="输入任务…"
+        placeholder={t("chatMessage.enterATask")}
         disabled={disabled}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
@@ -341,17 +369,17 @@ export function ChatComposer({
         }}
       />
       <div className={styles.composerActions}>
-        <span>Enter 发送 · Shift+Enter 换行</span>
+        <span>{t("chatMessage.enterToSendShiftEnterForANew")}</span>
         {streaming ? (
           onStop && (
             <Button variant="secondary" onClick={onStop}>
               <Square size={16} />
-              停止
+              {t("chatMessage.stop")}
             </Button>
           )
         ) : (
           <Button type="submit" disabled={!canSend} loading={pending || busy}>
-            发送
+            {t("chatMessage.send")}
           </Button>
         )}
       </div>

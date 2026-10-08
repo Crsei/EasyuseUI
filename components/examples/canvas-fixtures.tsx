@@ -1,3 +1,4 @@
+import { uiMessage } from "@/lib/i18n-core"
 import { Bot, Braces, GitBranch, LogIn, LogOut, Wrench } from "lucide-react"
 import {
   createCanvasDocument,
@@ -11,11 +12,26 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
     type: "input",
     label: "Input",
     category: "输入输出",
+    categoryI18n: uiMessage("canvasMetadata.inputsAndOutputs"),
     icon: <LogIn />,
     defaults: { text: "请分析这段文本" },
-    ports: [{ id: "text", label: "文本", direction: "output", type: "string" }],
+    ports: [
+      {
+        id: "text",
+        label: "文本",
+        labelI18n: uiMessage("canvasMetadata.text"),
+        direction: "output",
+        type: "string",
+      },
+    ],
     fields: [
-      { key: "text", label: "输入文本", kind: "textarea", required: true },
+      {
+        key: "text",
+        label: "输入文本",
+        labelI18n: uiMessage("canvasMetadata.inputText"),
+        kind: "textarea",
+        required: true,
+      },
     ],
     summary: (node) => String(node.config.text ?? "未设置输入"),
   },
@@ -33,15 +49,23 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
       {
         id: "input",
         label: "输入",
+        labelI18n: uiMessage("canvasMetadata.input"),
         direction: "input",
         type: "string",
         required: true,
         maxConnections: 1,
       },
-      { id: "result", label: "结果", direction: "output", type: "string" },
+      {
+        id: "result",
+        label: "结果",
+        labelI18n: uiMessage("canvasMetadata.result"),
+        direction: "output",
+        type: "string",
+      },
       {
         id: "model",
         label: "模型",
+        labelI18n: uiMessage("canvasMetadata.model"),
         direction: "input",
         type: "model",
         maxConnections: 1,
@@ -51,6 +75,7 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
       {
         key: "prompt",
         label: "指令",
+        labelI18n: uiMessage("canvasMetadata.instruction"),
         kind: "textarea",
         required: true,
         variableType: "string",
@@ -58,6 +83,7 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
       {
         key: "model",
         label: "模型引用",
+        labelI18n: uiMessage("canvasMetadata.modelReference"),
         kind: "text",
         required: true,
         variableType: "model",
@@ -65,6 +91,7 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
       {
         key: "temperature",
         label: "温度",
+        labelI18n: uiMessage("canvasMetadata.temperature"),
         kind: "number",
         required: true,
         min: 0,
@@ -77,23 +104,45 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
     type: "model",
     label: "Model",
     category: "配置",
+    categoryI18n: uiMessage("canvasMetadata.configuration"),
     icon: <Braces />,
     defaults: { provider: "caller", modelId: "caller-model" },
     ports: [
-      { id: "model", label: "模型配置", direction: "output", type: "model" },
+      {
+        id: "model",
+        label: "模型配置",
+        labelI18n: uiMessage("canvasMetadata.modelConfiguration"),
+        direction: "output",
+        type: "model",
+      },
     ],
     fields: [
       {
         key: "provider",
         label: "提供方",
+        labelI18n: uiMessage("canvasMetadata.provider"),
         kind: "select",
         options: [
-          { value: "caller", label: "消费方提供" },
-          { value: "local", label: "本地适配" },
+          {
+            value: "caller",
+            label: "消费方提供",
+            labelI18n: uiMessage("canvasMetadata.callerProvided"),
+          },
+          {
+            value: "local",
+            label: "本地适配",
+            labelI18n: uiMessage("canvasMetadata.localAdapter"),
+          },
         ],
         required: true,
       },
-      { key: "modelId", label: "模型 ID", kind: "text", required: true },
+      {
+        key: "modelId",
+        label: "模型 ID",
+        labelI18n: uiMessage("canvasMetadata.modelID"),
+        kind: "text",
+        required: true,
+      },
     ],
     summary: (node) => `${node.config.provider} / ${node.config.modelId}`,
   },
@@ -101,22 +150,42 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
     type: "tool",
     label: "Tool",
     category: "工具",
+    categoryI18n: uiMessage("canvasMetadata.tools"),
     icon: <Wrench />,
     defaults: { toolId: "caller-tool", arguments: { mode: "preview" } },
     ports: [
       {
         id: "input",
         label: "输入",
+        labelI18n: uiMessage("canvasMetadata.input"),
         direction: "input",
         type: "string",
         required: true,
         maxConnections: 1,
       },
-      { id: "result", label: "结果", direction: "output", type: "string" },
+      {
+        id: "result",
+        label: "结果",
+        labelI18n: uiMessage("canvasMetadata.result"),
+        direction: "output",
+        type: "string",
+      },
     ],
     fields: [
-      { key: "toolId", label: "工具 ID", kind: "text", required: true },
-      { key: "arguments", label: "参数 JSON", kind: "json", required: true },
+      {
+        key: "toolId",
+        label: "工具 ID",
+        labelI18n: uiMessage("canvasMetadata.toolID"),
+        kind: "text",
+        required: true,
+      },
+      {
+        key: "arguments",
+        label: "参数 JSON",
+        labelI18n: uiMessage("canvasMetadata.argumentsJSON"),
+        kind: "json",
+        required: true,
+      },
     ],
     summary: (node) => `${node.config.toolId} · 参数待执行方解释`,
   },
@@ -124,24 +193,39 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
     type: "condition",
     label: "Condition",
     category: "控制流",
+    categoryI18n: uiMessage("canvasMetadata.controlFlow"),
     icon: <GitBranch />,
     defaults: { expression: "包含关键词" },
     ports: [
       {
         id: "input",
         label: "输入",
+        labelI18n: uiMessage("canvasMetadata.input"),
         direction: "input",
         type: "string",
         required: true,
         maxConnections: 1,
       },
-      { id: "yes", label: "满足条件", direction: "output", type: "string" },
-      { id: "no", label: "不满足", direction: "output", type: "string" },
+      {
+        id: "yes",
+        label: "满足条件",
+        labelI18n: uiMessage("canvasMetadata.conditionMet"),
+        direction: "output",
+        type: "string",
+      },
+      {
+        id: "no",
+        label: "不满足",
+        labelI18n: uiMessage("canvasMetadata.conditionNotMet"),
+        direction: "output",
+        type: "string",
+      },
     ],
     fields: [
       {
         key: "expression",
         label: "条件说明",
+        labelI18n: uiMessage("canvasMetadata.conditionDescription"),
         kind: "text",
         required: true,
         variableType: "string",
@@ -153,12 +237,14 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
     type: "output",
     label: "Output",
     category: "输入输出",
+    categoryI18n: uiMessage("canvasMetadata.inputsAndOutputs"),
     icon: <LogOut />,
     defaults: { name: "result", format: "text" },
     ports: [
       {
         id: "input",
         label: "输入",
+        labelI18n: uiMessage("canvasMetadata.input"),
         direction: "input",
         type: "string",
         required: true,
@@ -166,13 +252,24 @@ export const canvasDefinitions: CanvasNodeDefinition[] = [
       },
     ],
     fields: [
-      { key: "name", label: "结果名称", kind: "text", required: true },
+      {
+        key: "name",
+        label: "结果名称",
+        labelI18n: uiMessage("canvasMetadata.resultName"),
+        kind: "text",
+        required: true,
+      },
       {
         key: "format",
         label: "输出格式",
+        labelI18n: uiMessage("canvasMetadata.outputFormat"),
         kind: "select",
         options: [
-          { value: "text", label: "文本" },
+          {
+            value: "text",
+            label: "文本",
+            labelI18n: uiMessage("canvasMetadata.text"),
+          },
           { value: "json", label: "JSON" },
         ],
         required: true,
@@ -215,6 +312,7 @@ export const agentCanvasDefinitions: CanvasNodeDefinition[] = [
       approval: "Human Approval",
     }[type]!,
     category: "Agent 扩展",
+    categoryI18n: uiMessage("canvasMetadata.agentExtensions"),
     icon: <Bot />,
     defaults: {
       description: "由调用方解释执行语义",
@@ -224,6 +322,7 @@ export const agentCanvasDefinitions: CanvasNodeDefinition[] = [
       {
         id: "input",
         label: "输入",
+        labelI18n: uiMessage("canvasMetadata.input"),
         direction: "input" as const,
         type: "string" as const,
         required: true,
@@ -232,6 +331,7 @@ export const agentCanvasDefinitions: CanvasNodeDefinition[] = [
       {
         id: "result",
         label: "结果",
+        labelI18n: uiMessage("canvasMetadata.result"),
         direction: "output" as const,
         type: "string" as const,
       },
@@ -240,12 +340,14 @@ export const agentCanvasDefinitions: CanvasNodeDefinition[] = [
       {
         key: "description",
         label: "说明",
+        labelI18n: uiMessage("canvasMetadata.description"),
         kind: "textarea" as const,
         required: true,
       },
       {
         key: "credentialRef",
         label: "凭据引用",
+        labelI18n: uiMessage("canvasMetadata.credentialReference"),
         kind: "text" as const,
         catalog: "credentials" as const,
         required: true,
@@ -269,15 +371,13 @@ export function agentCanvasDocument(): CanvasDocument {
         config: structuredClone(definition.defaults),
       }
     }),
-    edges: types
-      .slice(1)
-      .map((type, index) => ({
-        id: `extension-${index}`,
-        source: types[index],
-        sourcePort: index === 0 ? "text" : "result",
-        target: type,
-        targetPort: "input",
-      })),
+    edges: types.slice(1).map((type, index) => ({
+      id: `extension-${index}`,
+      source: types[index],
+      sourcePort: index === 0 ? "text" : "result",
+      target: type,
+      targetPort: "input",
+    })),
   }
 }
 
@@ -424,6 +524,7 @@ export const stressDefinitions: CanvasNodeDefinition[] = canvasDefinitions.map(
             {
               id: "extra",
               label: "分支输入",
+              labelI18n: uiMessage("canvasMetadata.branchInput"),
               direction: "input",
               type: "string",
               maxConnections: 1,

@@ -1,3 +1,5 @@
+import { SiteI18nProvider } from "@/components/site/site-i18n-provider"
+import { SiteText } from "@/components/site/site-i18n"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/site/header"
@@ -22,33 +24,47 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <body>
-        <a
-          href="#main-content"
-          className="sr-only z-50 rounded-md bg-background p-3 focus:fixed focus:top-2 focus:left-2 focus:not-sr-only"
-        >
-          跳转到主要内容
-        </a>
-        <ThemeProvider>
-          <SiteFrame
-            header={<Header />}
-            footer={
-              <footer className="border-t">
-                <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-7 text-xs text-muted-foreground sm:px-8">
-                  <p>EasyuseUI · 从好用的组件开始。</p>
-                  <div className="flex flex-wrap gap-5">
-                    <Link href="/docs">文档</Link>
-                    <Link href="/components">组件目录</Link>
-                    <Link href="/dictionary">视觉词典</Link>
-                    <Link href="/style-workbench">样式工作台</Link>
-                    <Link href="/docs/installation">安装指南</Link>
-                  </div>
-                </div>
-              </footer>
-            }
+        <SiteI18nProvider>
+          <a
+            href="#main-content"
+            className="sr-only z-50 rounded-md bg-background p-3 focus:fixed focus:top-2 focus:left-2 focus:not-sr-only"
           >
-            {children}
-          </SiteFrame>
-        </ThemeProvider>
+            <SiteText messageKey="site.skipToMainContent" />
+          </a>
+          <ThemeProvider>
+            <SiteFrame
+              header={<Header />}
+              footer={
+                <footer className="border-t">
+                  <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-7 text-xs text-muted-foreground sm:px-8">
+                    <p>
+                      <SiteText messageKey="site.easyuseuiStartWithUsefulComponents" />
+                    </p>
+                    <div className="flex flex-wrap gap-5">
+                      <Link href="/docs">
+                        <SiteText messageKey="site.documentation" />
+                      </Link>
+                      <Link href="/components">
+                        <SiteText messageKey="site.componentCatalog" />
+                      </Link>
+                      <Link href="/dictionary">
+                        <SiteText messageKey="site.visualDictionary" />
+                      </Link>
+                      <Link href="/style-workbench">
+                        <SiteText messageKey="site.styleWorkbench" />
+                      </Link>
+                      <Link href="/docs/installation">
+                        <SiteText messageKey="site.installationGuide" />
+                      </Link>
+                    </div>
+                  </div>
+                </footer>
+              }
+            >
+              {children}
+            </SiteFrame>
+          </ThemeProvider>
+        </SiteI18nProvider>
       </body>
     </html>
   )

@@ -1,4 +1,7 @@
 "use client"
+import { uiMessage } from "@/lib/i18n-core"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { useI18n } from "@/lib/i18n-provider"
 
 import {
   useId,
@@ -114,6 +117,8 @@ export function Tree({
   canMove,
   className,
 }: TreeProps) {
+  const { t } = useI18n()
+
   const id = useId()
   const root = useRef<HTMLUListElement>(null)
   const refs = useRef(new Map<string, HTMLLIElement>())
@@ -124,7 +129,7 @@ export function Tree({
   const [drop, setDrop] = useState<TreeMove>()
   const [targetId, setTargetId] = useState("")
   const [position, setPosition] = useState<TreeMove["position"]>("inside")
-  const [announcement, setAnnouncement] = useState("")
+  const [announcement, setAnnouncement] = useUiFeedback("")
   const prefix = useRef({ text: "", time: 0 })
   const all = useMemo(() => flatten(nodes), [nodes])
   const visible: TreeNode[] = []
@@ -178,11 +183,13 @@ export function Tree({
   }
   function requestMove(move: TreeMove) {
     if (!valid(move)) {
-      setAnnouncement("无法移动：不能移动到自身、后代或无权限的目标。")
+      setAnnouncement(uiMessage("tree.cannotMoveToItselfADescendantOrA"))
       return
     }
     onMove?.(move)
-    setAnnouncement("已请求移动节点，由调用方确认结果。")
+    setAnnouncement(
+      uiMessage("tree.nodeMoveRequestedTheCallerConfirmsTheResult"),
+    )
     setDragged(undefined)
     setDrop(undefined)
   }
@@ -237,7 +244,7 @@ export function Tree({
             } else if (event.key === "Escape") {
               setDragged(undefined)
               setDrop(undefined)
-              setAnnouncement("已取消移动。")
+              setAnnouncement(uiMessage("tree.moveCancelled"))
             } else if (
               event.key.length === 1 &&
               !event.ctrlKey &&
@@ -324,7 +331,7 @@ export function Tree({
                 type="button"
                 tabIndex={-1}
                 className={styles.chevron}
-                aria-label={`${open ? "折叠" : "展开"} ${node.label}`}
+                aria-label={`${open ? t("common.collapse") : t("common.expand")} ${node.label}`}
                 aria-expanded={open}
                 aria-controls={`${id}-${node.id}-children`}
                 disabled={node.disabled}
@@ -372,13 +379,14 @@ export function Tree({
                     state={childrenState}
                     hasContent={Boolean(node.children?.length)}
                     rowHeight={32}
-                    emptyTitle="暂无子项"
-                    emptyDescription="此节点还没有子项。"
-                    partialDescription="部分子项尚未加载。"
+                    emptyTitle={t("tree.noChildren")}
+                    emptyDescription={t("tree.thisNodeHasNoChildrenYet")}
+                    partialDescription={t("tree.someChildrenHaveNotLoadedYet")}
                     error={{
                       category: "request",
-                      message: "子项读取失败",
-                      reason: node.childrenError ?? "原因未确认。",
+                      message: t("tree.couldNotLoadChildren"),
+                      reason:
+                        node.childrenError ?? t("tree.theCauseIsUnconfirmed"),
                     }}
                     onRetry={
                       onLoadChildren ? () => onLoadChildren(node) : undefined
@@ -408,31 +416,31 @@ export function Tree({
       ) : (
         <DataRegion
           state="empty"
-          emptyTitle="树中暂无节点"
-          emptyDescription="添加节点后即可查看层级关系。"
+          emptyTitle={t("tree.noNodesInTheTree")}
+          emptyDescription={t("tree.addNodesToViewTheirHierarchy")}
         />
       )}
       {onMove && (
         <form
           className={styles.move}
-          aria-label="移动节点"
+          aria-label={t("tree.moveNode")}
           onSubmit={(event) => {
             event.preventDefault()
             if (proposed) requestMove(proposed)
           }}
         >
           <span>
-            移动：
+            {t("tree.move")}
             {all.find((entry) => entry.node.id === selectedId)?.node.label ??
-              "请先选择节点"}
+              t("tree.selectANodeFirst")}
           </span>
-          <label htmlFor={`${id}-target`}>目标</label>
+          <label htmlFor={`${id}-target`}>{t("canvasWorkspace.target")}</label>
           <select
             id={`${id}-target`}
             value={targetId}
             onChange={(event) => setTargetId(event.target.value)}
           >
-            <option value="">选择目标</option>
+            <option value="">{t("tree.selectTarget")}</option>
             {all.map(({ node }) => (
               <option
                 key={node.id}
@@ -446,7 +454,9 @@ export function Tree({
               </option>
             ))}
           </select>
-          <label htmlFor={`${id}-position`}>位置</label>
+          <label htmlFor={`${id}-position`}>
+            {t("nodeInspector.position")}
+          </label>
           <select
             id={`${id}-position`}
             value={position}
@@ -454,9 +464,9 @@ export function Tree({
               setPosition(event.target.value as TreeMove["position"])
             }
           >
-            <option value="inside">作为子项</option>
-            <option value="before">之前</option>
-            <option value="after">之后</option>
+            <option value="inside">{t("tree.asChild")}</option>
+            <option value="before">{t("tree.before")}</option>
+            <option value="after">{t("tree.after")}</option>
           </select>
           <Button
             size="sm"
@@ -464,7 +474,7 @@ export function Tree({
             type="submit"
             disabled={!proposed || !valid(proposed)}
           >
-            移动到
+            {t("tree.moveTo")}
           </Button>
         </form>
       )}

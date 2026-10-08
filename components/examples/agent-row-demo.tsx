@@ -1,18 +1,23 @@
 "use client"
+import { useSiteFeedback, siteMessage } from "@/components/site/site-i18n"
+import { useSiteI18n } from "@/components/site/site-i18n"
+
 import { useState } from "react"
 import { AgentRow } from "@/components/blocks/agent-row"
 export function AgentRowDemo() {
+  const { t } = useSiteI18n()
+
   const [selected, setSelected] = useState("builder")
-  const [feedback, setFeedback] = useState("")
+  const [feedback, setFeedback] = useSiteFeedback("")
   return (
     <div>
       <AgentRow
         agent={{
           id: "builder",
           name: "Builder",
-          model: "本地演示模型",
+          model: t("site.localDemoModel"),
           status: "thinking",
-          stage: "组织组件",
+          stage: t("site.organizeComponents"),
           activeSessionCount: 2,
           aggregate: true,
         }}
@@ -24,23 +29,24 @@ export function AgentRowDemo() {
         selected={selected === "reviewer"}
         onSelect={() => setSelected("reviewer")}
         action={{
-          label: "配置",
-          onAction: () => setFeedback("打开配置 · 本地演示回调。"),
+          label: t("site.configuration"),
+          onAction: () =>
+            setFeedback(siteMessage("site.openConfigurationLocalDemoCallback")),
         }}
       />
       <AgentRow
         agent={{
           id: "offline",
           name: "断线的 Agent",
-          model: "本地演示模型",
+          model: t("site.localDemoModel"),
           status: "running",
           offline: true,
           updatedAt: "16:42:08",
         }}
         action={{
-          label: "暂停",
+          label: t("site.pause2"),
           onAction: () => {},
-          disabledReason: "连接离线，请先恢复连接",
+          disabledReason: t("site.offlineRestoreTheConnectionFirst"),
         }}
       />
       <p role="status" className="mt-3 text-xs text-text-secondary">

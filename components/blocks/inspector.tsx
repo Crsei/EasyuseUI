@@ -1,6 +1,9 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { uiMessage } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
-import { useState, type ReactNode } from "react"
+import { type ReactNode } from "react"
 import { Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
@@ -58,21 +61,27 @@ function InspectorBody({
   children,
   emptyDescription,
 }: InspectorProps) {
-  const [feedback, setFeedback] = useState("")
+  const { t } = useI18n()
+
+  const [feedback, setFeedback] = useUiFeedback("")
   if (!object)
     return (
       <DataRegion
         state="empty"
-        emptyTitle="尚未选择对象"
+        emptyTitle={t("inspector.noObjectSelected")}
         emptyDescription={
-          emptyDescription ?? "选择 Session、Agent 或 Activity 以查看详情。"
+          emptyDescription ??
+          t("inspector.selectASessionAgentOrActivityToInspect")
         }
       />
     )
   return (
     <div className={styles.content} data-inspector-object={object.id}>
       <section>
-        <h3>当前对象 · {object.kind}</h3>
+        <h3>
+          {t("inspector.currentObject")}
+          {object.kind}
+        </h3>
         <p className={styles.title}>{object.title}</p>
         {object.status && <RuntimeStatusBadge status={object.status} />}
       </section>
@@ -82,8 +91,10 @@ function InspectorBody({
         error={error}
         onRetry={onRetry}
         refreshing={refreshing}
-        loadingLabel="正在加载对象详情"
-        partialDescription="对象详情尚未完整，缺失字段显示「—」。"
+        loadingLabel={t("inspector.loadingObjectDetails")}
+        partialDescription={t(
+          "inspector.objectDetailsAreIncompleteMissingFieldsAppearAs",
+        )}
       >
         <section>
           <h3>Metadata</h3>
@@ -97,13 +108,23 @@ function InspectorBody({
                     <Button
                       variant="ghost"
                       size="icon-sm"
-                      aria-label={`复制${field.label}`}
+                      aria-label={t("common.copyValue", {
+                        value0: field.label,
+                      })}
                       onClick={async () => {
                         try {
                           await navigator.clipboard.writeText(field.copyValue!)
-                          setFeedback(`已复制${field.label}。`)
+                          setFeedback(
+                            uiMessage("common.valueCopied", {
+                              value0: field.label,
+                            }),
+                          )
                         } catch {
-                          setFeedback("无法访问剪贴板，请手动复制。")
+                          setFeedback(
+                            uiMessage(
+                              "chatMessage.clipboardUnavailableCopyManually",
+                            ),
+                          )
                         }
                       }}
                     >

@@ -1,4 +1,5 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useId, useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -13,6 +14,8 @@ import {
 } from "@/components/ui/dialog"
 
 export function DialogDemo() {
+  const { t } = useSiteI18n()
+
   const id = useId()
   const [name, setName] = useState("")
   const [created, setCreated] = useState("")
@@ -21,40 +24,42 @@ export function DialogDemo() {
     <div className="flex flex-col items-center gap-4">
       <Dialog>
         <DialogTrigger render={<Button variant="outline" />}>
-          创建项目
+          {t("site.createProject")}
         </DialogTrigger>
         <DialogContent>
-          <DialogTitle>创建一个新项目</DialogTitle>
+          <DialogTitle>{t("site.createANewProject")}</DialogTitle>
           <DialogDescription>
-            给项目取个名字。这里的操作仅用于组件演示。
+            {t("site.nameTheProjectThisActionIsOnlyAComponent")}
           </DialogDescription>
           <div className="my-6 space-y-2">
             <label htmlFor={id} className="text-sm font-medium">
-              项目名称
+              {t("site.projectName")}
             </label>
             <Input
               id={id}
               value={name}
               onChange={(event) => setName(event.target.value)}
-              placeholder="我的新项目"
+              placeholder={t("site.myNewProject")}
             />
           </div>
           <div className="flex justify-end gap-2">
-            <DialogClose render={<Button variant="ghost" />}>取消</DialogClose>
+            <DialogClose render={<Button variant="ghost" />}>
+              {t("site.cancel")}
+            </DialogClose>
             <DialogClose
               disabled={!name.trim()}
               render={<Button />}
               onClick={() => setCreated(name.trim())}
             >
-              确认创建
+              {t("site.confirmCreation")}
             </DialogClose>
           </div>
         </DialogContent>
       </Dialog>
       <p role="status" className="text-xs text-muted-foreground">
         {created
-          ? `演示项目「${created}」已创建。`
-          : "支持键盘操作、Escape 关闭和焦点恢复。"}
+          ? t("site.demoProjectValueCreated", { value0: created })
+          : t("site.supportsKeyboardOperationEscapeAndFocusRestoration")}
       </p>
     </div>
   )

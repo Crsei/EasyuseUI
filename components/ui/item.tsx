@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useId, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
@@ -31,6 +32,8 @@ export function Item({
   className,
   ariaLabel,
 }: ItemProps) {
+  const { t } = useI18n()
+
   const errorId = useId()
   const content = (
     <>
@@ -75,7 +78,7 @@ export function Item({
           {trailing}
           {error && (
             <details className={styles.error}>
-              <summary>查看错误</summary>
+              <summary>{t("item.viewError")}</summary>
               <p id={errorId} role="alert">
                 {error}
               </p>

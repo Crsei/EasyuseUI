@@ -1,3 +1,4 @@
+import { SiteText } from "@/components/site/site-i18n"
 import Link from "next/link"
 import { WorkspaceShellDemo } from "@/components/examples/workspace-shell-demo"
 
@@ -17,14 +18,14 @@ export default function WorkspacePage() {
         <div>
           <h1 className="text-xl leading-7 font-semibold">Agent Workspace</h1>
           <p className="mt-2 text-[13px] leading-5 text-text-secondary">
-            紧凑布局、统一状态、清晰上下文。基于 Component Specification v1.0。
+            <SiteText messageKey="site.compactLayoutSharedStatesAndClearContextBasedOn" />
           </p>
         </div>
         <Link
           href="/docs/workspace-shell"
           className="text-xs leading-5 text-primary"
         >
-          组件用法与源码 →
+          <SiteText messageKey="site.componentUsageAndSource" />
         </Link>
       </div>
       <WorkspaceShellDemo />

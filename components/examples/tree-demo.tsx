@@ -1,4 +1,6 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
+
 import { useState } from "react"
 import { Tree, moveTreeNode, type TreeNode } from "@/components/ui/tree"
 const initial: TreeNode[] = [
@@ -32,15 +34,17 @@ const initial: TreeNode[] = [
   },
 ]
 export function TreeDemo() {
+  const { t } = useSiteI18n()
+
   const [nodes, setNodes] = useState(initial)
   const [selected, setSelected] = useState("session")
   return (
     <div>
       <p className="mb-3 text-xs text-text-secondary">
-        本地层级 · ↑↓ 导航，←→ 展开，Space 选择；拖拽或使用下方移动操作。
+        {t("site.localHierarchyNavigateExpandSpaceSelectsDragOrUse")}
       </p>
       <Tree
-        label="Session 层级演示"
+        label={t("site.sessionHierarchyDemo")}
         nodes={nodes}
         selectedId={selected}
         onSelect={(node) => setSelected(node.id)}
@@ -56,7 +60,7 @@ export function TreeDemo() {
                     children: [
                       {
                         id: "loaded-run",
-                        label: "已加载 Run",
+                        label: t("site.loadedRun"),
                         status: "completed",
                       },
                     ],

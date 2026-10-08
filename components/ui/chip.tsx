@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useId } from "react"
 import { cn } from "@/lib/utils"
@@ -24,9 +25,13 @@ export function Chip({
   busy = false,
   onSelectedChange,
   onRemove,
-  removeLabel = `移除 ${label}`,
+  removeLabel: providedRemoveLabel,
   className,
 }: ChipProps) {
+  const { t } = useI18n()
+  const removeLabel =
+    providedRemoveLabel ?? t("common.removeValue", { value0: label })
+
   const id = useId()
   const unavailable = disabled || busy
   return (
@@ -90,7 +95,7 @@ export function Chip({
       )}
       {busy && (
         <span id={id} className={styles.busyHint}>
-          处理中
+          {t("chip.processing")}
         </span>
       )}
     </span>

@@ -1,0 +1,121 @@
+"use client"
+
+import {
+  useCallback,
+  useEffect,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react"
+import { usePathname } from "next/navigation"
+import { I18nProvider } from "@/lib/i18n-provider"
+import {
+  defaultLocale,
+  isLocale,
+  type Locale,
+  createTranslator,
+} from "@/lib/i18n-core"
+import {
+  componentPageTitles,
+  pageDescriptionKeys,
+} from "@/lib/site-i18n-metadata"
+import { siteMessages } from "@/lib/site-i18n-messages"
+
+export const localeStorageKey = "easyuseui-locale"
+const localeEvent = "easyuseui:locale"
+function readLocale(): Locale {
+  try {
+    const stored = localStorage.getItem(localeStorageKey)
+    return isLocale(stored) ? stored : defaultLocale
+  } catch {
+    return defaultLocale
+  }
+}
+function subscribe(listener: () => void) {
+  const storage = (event: StorageEvent) => {
+    if (event.key === localeStorageKey || event.key === null) {
+      memoryLocale = undefined
+      listener()
+    }
+  }
+  window.addEventListener("storage", storage)
+  window.addEventListener(localeEvent, listener)
+  return () => {
+    window.removeEventListener("storage", storage)
+    window.removeEventListener(localeEvent, listener)
+  }
+}
+// The in-memory value also works when browser storage is unavailable.
+let memoryLocale: Locale | undefined
+function getSnapshot() {
+  return memoryLocale ?? readLocale()
+}
+function subscribeLocale(listener: () => void) {
+  return subscribe(listener)
+}
+const pageTitles: Record<string, string> = {
+  "/components": "组件目录",
+  "/dictionary": "视觉词典",
+  "/docs": "介绍",
+  "/docs/installation": "安装与主题",
+  "/scroll": "滚动实验室",
+  "/style-workbench": "样式工作台",
+  "/workspace": "工作台",
+  "/workspace/canvas": "流程画布",
+  "/workspace/canvas/project": "嵌套流程",
+  "/workspace/canvas/services": "服务接口",
+  "/workspace/canvas/stress": "压力图",
+}
+const sourceKeys = new Map<string, keyof (typeof siteMessages)["zh-CN"]>(
+  Object.entries(siteMessages["zh-CN"]).map(([key, source]) => [
+    source,
+    key as keyof (typeof siteMessages)["zh-CN"],
+  ]),
+)
+export function SiteI18nProvider({ children }: { children: ReactNode }) {
+  const locale = useSyncExternalStore(
+    subscribeLocale,
+    getSnapshot,
+    () => defaultLocale,
+  )
+  const pathname = usePathname().replace(/\/$/, "") || "/"
+  const setLocale = useCallback((next: Locale) => {
+    if (!isLocale(next)) return
+    memoryLocale = next
+    try {
+      localStorage.setItem(localeStorageKey, next)
+    } catch {
+      /* Memory preference remains usable. */
+    }
+    window.dispatchEvent(new Event(localeEvent))
+    // Storage denial must not replace the in-memory preference.
+    memoryLocale = next
+  }, [])
+  useEffect(() => {
+    document.documentElement.lang = locale
+    const t = createTranslator(locale, siteMessages)
+    const translated = (source: string) => {
+      const key = sourceKeys.get(source)
+      return key ? t(key) : source
+    }
+    const title =
+      pageTitles[pathname] ??
+      componentPageTitles[pathname] ??
+      (pathname.startsWith("/docs/") ? pathname.split("/").at(-1) : undefined)
+    document.title = title
+      ? `${translated(title)} · EasyuseUI`
+      : locale === "en"
+        ? "EasyuseUI — Make usability the default"
+        : "EasyuseUI — 让好用，成为默认"
+    const descriptionKey =
+      pageDescriptionKeys[pathname as keyof typeof pageDescriptionKeys] ??
+      pageDescriptionKeys["/"]
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", t(descriptionKey))
+  }, [locale, pathname])
+  return (
+    <I18nProvider locale={locale} onLocaleChange={setLocale}>
+      {children}
+    </I18nProvider>
+  )
+}

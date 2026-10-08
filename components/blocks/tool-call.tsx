@@ -1,4 +1,7 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { uiMessage, type UiMessage } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useId, useState } from "react"
 import { ChevronRight, Terminal, Copy } from "lucide-react"
@@ -50,31 +53,42 @@ export function ToolCall({
   onReconcile,
   onDownload,
 }: ToolCallProps) {
+  const { t, resolve } = useI18n()
+
   const id = useId()
   const [expanded, setExpanded] = useState(defaultExpanded)
   const [full, setFull] = useState(false)
   const [pending, setPending] = useState(false)
-  const [submitted, setSubmitted] = useState<{ key: string; label: string }>()
-  const [feedback, setFeedback] = useState("")
-  const [actionError, setActionError] = useState("")
+  const [submitted, setSubmitted] = useState<{
+    key: string
+    label: UiMessage
+  }>()
+  const [feedback, setFeedback] = useUiFeedback("")
+  const [actionError, setActionError] = useUiFeedback("")
   const [uncertainKey, setUncertainKey] = useState<string>()
   const key = `${call.id}:${call.status}:${call.outcome ?? "known"}:${permission?.scope ?? ""}`
   const waitingConfirmation = submitted?.key === key
   const output = redact(call.output)
   const preview = previewText(output)
   const unknown = call.outcome === "unknown" || uncertainKey === key
-  async function operate(label: string, action: Operation) {
+  async function operate(label: UiMessage, action: Operation) {
     if (pending || waitingConfirmation) return
     setPending(true)
     setActionError("")
     try {
       await action()
       setSubmitted({ key, label })
-      setFeedback(`${label}请求已提交，等待来源确认。`)
+      setFeedback(
+        uiMessage("common.valueRequestSubmittedWaitingForSourceConfirmation", {
+          value0: label,
+        }),
+      )
     } catch {
       setUncertainKey(key)
       setActionError(
-        `${label}请求失败，结果尚未确认。请查询状态后再决定下一步。`,
+        uiMessage("common.valueRequestFailedTheOutcomeIsUnknownQuery", {
+          value0: label,
+        }),
       )
     } finally {
       setPending(false)
@@ -95,7 +109,9 @@ export function ToolCall({
           <span className={styles.target}>{redact(call.target)}</span>
         )}
         <RuntimeStatusBadge status={call.status} />
-        {unknown && <span className={styles.warning}>结果未确认</span>}
+        {unknown && (
+          <span className={styles.warning}>{t("toolCall.outcomeUnknown")}</span>
+        )}
         <span className={styles.duration}>
           {redact(call.duration ?? call.elapsed ?? "—")}
         </span>
@@ -114,26 +130,34 @@ export function ToolCall({
               data?.error
                 ? {
                     ...data.error,
-                    message: redact(data.error.message),
-                    reason: redact(data.error.reason),
+                    message: redact(
+                      resolve(data.error.messageI18n, data.error.message),
+                    ),
+                    messageI18n: undefined,
+                    reason: redact(
+                      resolve(data.error.reasonI18n, data.error.reason),
+                    ),
+                    reasonI18n: undefined,
                   }
                 : undefined
             }
             hasContent={
               call.arguments !== undefined || call.output !== undefined
             }
-            partialDescription="部分输出 · 仍在接收或尚未完整读取。"
-            loadingLabel="正在加载工具详情"
+            partialDescription={t(
+              "toolCall.partialOutputStillReceivingOrNotFullyLoaded",
+            )}
+            loadingLabel={t("toolCall.loadingToolDetails")}
           >
             {(call.stage || call.elapsed) && (
               <p className={styles.stage}>
-                {redact(call.stage ?? "当前阶段未提供")} ·{" "}
-                {redact(call.elapsed ?? "耗时未知")}
+                {redact(call.stage ?? t("toolCall.currentStageNotProvided"))} ·{" "}
+                {redact(call.elapsed ?? t("toolCall.durationUnknown"))}
               </p>
             )}
             {unknown && (
               <div className={styles.notice}>
-                <p>结果未确认。先查询或对账，不能据此重试写操作。</p>
+                <p>{t("toolCall.outcomeUnknownQueryOrReconcileFirstDoNot")}</p>
                 {call.receipt && <p>Receipt：{redact(call.receipt)}</p>}
                 {onReconcile && (
                   <Button
@@ -141,35 +165,41 @@ export function ToolCall({
                     size="sm"
                     loading={pending}
                     disabled={waitingConfirmation}
-                    onClick={() => operate("查询结果", onReconcile)}
+                    onClick={() =>
+                      operate(uiMessage("toolCall.queryResult"), onReconcile)
+                    }
                   >
-                    查询结果
+                    {t("toolCall.queryResult")}
                   </Button>
                 )}
               </div>
             )}
             <section>
-              <h4>参数</h4>
+              <h4>{t("styleWorkbench.parameter")}</h4>
               <pre>
                 {call.arguments === undefined
-                  ? "参数未提供"
+                  ? t("toolCall.argumentsNotProvided")
                   : redact(call.arguments)}
               </pre>
             </section>
             <section>
               <div className={styles.sectionHeader}>
-                <h4>输出</h4>
+                <h4>{t("toolCall.output")}</h4>
                 {output && (
                   <Button
                     size="icon-sm"
                     variant="ghost"
-                    aria-label="复制脱敏输出"
+                    aria-label={t("toolCall.copyRedactedOutput")}
                     onClick={async () => {
                       try {
                         await navigator.clipboard.writeText(output)
-                        setFeedback("已复制脱敏输出。")
+                        setFeedback(uiMessage("toolCall.redactedOutputCopied"))
                       } catch {
-                        setFeedback("无法访问剪贴板，请手动复制脱敏内容。")
+                        setFeedback(
+                          uiMessage(
+                            "toolCall.clipboardUnavailableCopyTheRedactedContentManually",
+                          ),
+                        )
                       }
                     }}
                   >
@@ -178,15 +208,19 @@ export function ToolCall({
                 )}
               </div>
               <pre>
-                {output ? (full ? output : preview.text) : "工具未返回文本输出"}
+                {output
+                  ? full
+                    ? output
+                    : preview.text
+                  : t("toolCall.theToolReturnedNoTextOutput")}
               </pre>
               {(preview.truncated || call.outputTruncated) && (
                 <div className={styles.notice}>
                   <p>
-                    输出已截断
+                    {t("toolCall.outputTruncated")}
                     {preview.truncated
-                      ? "：预览最多 200 行 / 32KiB。"
-                      : "：来源只提供了部分输出。"}
+                      ? t("toolCall.previewLimitedTo200Lines32kib")
+                      : t("toolCall.theSourceSuppliedOnlyPartialOutput")}
                   </p>
                   {preview.truncated && !call.outputTruncated && (
                     <Button
@@ -194,7 +228,9 @@ export function ToolCall({
                       size="sm"
                       onClick={() => setFull(!full)}
                     >
-                      {full ? "收起完整输出" : "展开完整输出"}
+                      {full
+                        ? t("toolCall.collapseFullOutput")
+                        : t("toolCall.expandFullOutput")}
                     </Button>
                   )}
                   {onDownload && (
@@ -203,7 +239,8 @@ export function ToolCall({
                       size="sm"
                       onClick={() => onDownload(output)}
                     >
-                      下载脱敏输出{call.outputTruncated ? "片段" : ""}
+                      {t("toolCall.downloadRedactedOutput")}
+                      {call.outputTruncated ? t("toolCall.fragment") : ""}
                     </Button>
                   )}
                 </div>
@@ -218,19 +255,33 @@ export function ToolCall({
               </p>
             )}
             {!unknown && call.status === "waiting" && permission && (
-              <section className={styles.permission} aria-label="工具权限请求">
-                <h4>需要明确授权</h4>
-                <p>作用范围：{redact(permission.scope)}</p>
-                <p>风险：{redact(permission.risk)}</p>
+              <section
+                className={styles.permission}
+                aria-label={t("toolCall.toolPermissionRequest")}
+              >
+                <h4>{t("toolCall.explicitAuthorizationRequired")}</h4>
+                <p>
+                  {t("toolCall.scope")}
+                  {redact(permission.scope)}
+                </p>
+                <p>
+                  {t("toolCall.risk")}
+                  {redact(permission.risk)}
+                </p>
                 <div className={styles.actions}>
                   {permission.onApprove && (
                     <Button
                       size="sm"
                       loading={pending}
                       disabled={waitingConfirmation}
-                      onClick={() => operate("批准", permission.onApprove!)}
+                      onClick={() =>
+                        operate(
+                          uiMessage("toolCall.approve"),
+                          permission.onApprove!,
+                        )
+                      }
                     >
-                      批准
+                      {t("toolCall.approve")}
                     </Button>
                   )}
                   {permission.onReject && (
@@ -238,9 +289,14 @@ export function ToolCall({
                       size="sm"
                       variant="secondary"
                       disabled={pending || waitingConfirmation}
-                      onClick={() => operate("拒绝", permission.onReject!)}
+                      onClick={() =>
+                        operate(
+                          uiMessage("toolCall.reject"),
+                          permission.onReject!,
+                        )
+                      }
                     >
-                      拒绝
+                      {t("toolCall.reject")}
                     </Button>
                   )}
                 </div>
@@ -257,11 +313,14 @@ export function ToolCall({
                     variant="secondary"
                     loading={pending}
                     disabled={waitingConfirmation}
-                    onClick={() => operate("取消", onCancel)}
+                    onClick={() =>
+                      operate(uiMessage("toolCall.cancel"), onCancel)
+                    }
                   >
-                    {waitingConfirmation && submitted.label === "取消"
-                      ? "正在取消"
-                      : "取消执行"}
+                    {waitingConfirmation &&
+                    submitted.label.key === "toolCall.cancel"
+                      ? t("toolCall.cancelling")
+                      : t("toolCall.cancelExecution")}
                   </Button>
                 )}
               {!unknown && call.status === "failed" && onRetry && (
@@ -270,9 +329,9 @@ export function ToolCall({
                   variant="secondary"
                   loading={pending}
                   disabled={waitingConfirmation}
-                  onClick={() => operate("重试", onRetry)}
+                  onClick={() => operate(uiMessage("taskPanel.retry"), onRetry)}
                 >
-                  安全重试
+                  {t("toolCall.safeRetry")}
                 </Button>
               )}
             </div>

@@ -1,4 +1,6 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
+import { localizeStaticData } from "@/lib/i18n-core"
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -26,10 +28,14 @@ const statusLabels: Record<TaskStatus, string> = {
 
 export function TaskPanel({
   tasks,
-  title = "任务进度",
+  title: providedTitle,
   onRetry,
   className,
 }: TaskPanelProps) {
+  const { t, locale } = useI18n()
+  const title = providedTitle ?? t("taskPanel.taskProgress")
+  const localizedStatusLabels = localizeStaticData(statusLabels, locale)
+
   const completed = tasks.filter((task) => task.status === "completed").length
   const progress = tasks.length
     ? Math.round((completed / tasks.length) * 100)
@@ -48,7 +54,7 @@ export function TaskPanel({
       </div>
       <div
         role="progressbar"
-        aria-label="任务完成进度"
+        aria-label={t("taskPanel.taskCompletionProgress")}
         aria-valuenow={progress}
         aria-valuemin={0}
         aria-valuemax={100}
@@ -61,7 +67,7 @@ export function TaskPanel({
       </div>
       {tasks.length === 0 ? (
         <p className="py-5 text-center text-sm text-muted-foreground">
-          暂无任务，准备好后再开始。
+          {t("taskPanel.noTasksYetStartWhenReady")}
         </p>
       ) : (
         <ol className="space-y-5">
@@ -97,19 +103,19 @@ export function TaskPanel({
                 <Button
                   size="sm"
                   variant="outline"
-                  aria-label={`重试${task.title}`}
+                  aria-label={t("common.retryValue", { value0: task.title })}
                   onClick={() => onRetry(task.id)}
                 >
-                  重试
+                  {t("taskPanel.retry")}
                 </Button>
               ) : (
                 <span className="pt-0.5 text-xs whitespace-nowrap text-muted-foreground">
-                  {statusLabels[task.status]}
+                  {localizedStatusLabels[task.status]}
                 </span>
               )}
               <span className="sr-only">
                 {task.status === "failed" && onRetry
-                  ? statusLabels[task.status]
+                  ? localizedStatusLabels[task.status]
                   : ""}
               </span>
             </li>
@@ -117,7 +123,7 @@ export function TaskPanel({
         </ol>
       )}
       <p role="status" className="sr-only">
-        已完成 {completed} 项，共 {tasks.length} 项任务。
+        {t("taskPanel.completionSummary", { completed, total: tasks.length })}
       </p>
     </section>
   )

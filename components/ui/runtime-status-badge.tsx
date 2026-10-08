@@ -1,3 +1,5 @@
+"use client"
+import { useI18n } from "@/lib/i18n-provider"
 import {
   Ban,
   Check,
@@ -34,10 +36,15 @@ export function RuntimeStatusBadge({
   status,
   className,
 }: RuntimeStatusBadgeProps) {
+  const { t, builtIn } = useI18n()
+
   const known = isRuntimeStatus(status)
   const meta = known
     ? runtimeStatusMeta[status]
-    : { label: `未知状态 (${status})`, token: "status-waiting" }
+    : {
+        label: t("common.unknownStatusValue", { value0: status }),
+        token: "status-waiting",
+      }
   const Icon = known ? icons[status] : HelpCircle
   return (
     <span
@@ -49,7 +56,7 @@ export function RuntimeStatusBadge({
       style={{ color: `var(--${meta.token})` }}
     >
       <Icon size={12} strokeWidth={1.75} aria-hidden="true" />
-      {meta.label}
+      {builtIn(meta.label)}
     </span>
   )
 }

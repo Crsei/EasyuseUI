@@ -1,3 +1,4 @@
+import { SiteText } from "@/components/site/site-i18n"
 import { getSingletonHighlighter, createJavaScriptRegexEngine } from "shiki"
 import { CopyButton } from "@/components/docs/copy-button"
 
@@ -24,7 +25,7 @@ export async function CodeBlock({
     <div className="code-block min-w-0 overflow-hidden rounded-xl border">
       <div className="flex items-center justify-between gap-3 border-b bg-muted/40 px-4 py-1">
         <span className="min-w-0 truncate font-mono text-xs text-muted-foreground">
-          {title}
+          <SiteText text={title} />
         </span>
         <CopyButton value={code} />
       </div>

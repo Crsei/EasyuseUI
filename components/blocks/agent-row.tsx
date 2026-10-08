@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { Bot } from "lucide-react"
 import { Item } from "@/components/ui/item"
@@ -40,15 +41,19 @@ export function AgentRow({
   onSelect,
   action,
 }: AgentRowProps) {
-  const name = agent.name.trim() || "未命名 Agent"
+  const { t } = useI18n()
+
+  const name = agent.name.trim() || t("agentRow.unnamedAgent")
   const description = [
     agent.id,
-    agent.model ?? "未配置模型",
+    agent.model ?? t("agentRow.modelNotConfigured"),
     agent.provider,
     agent.stage,
     agent.elapsed,
     agent.offline
-      ? `连接离线 · 最后更新 ${agent.updatedAt ?? "未知"}`
+      ? t("common.offlineLastUpdatedValue", {
+          value0: agent.updatedAt ?? t("common.unknown"),
+        })
       : undefined,
   ]
     .filter(Boolean)
@@ -69,9 +74,16 @@ export function AgentRow({
         ariaLabel={`${name} ${agent.id}`}
         trailing={
           <>
-            {agent.aggregate && <span className={styles.aggregate}>汇总</span>}
+            {agent.aggregate && (
+              <span className={styles.aggregate}>
+                {t("agentRow.aggregate")}
+              </span>
+            )}
             <RuntimeStatusBadge status={agent.status} />
-            <span className={styles.load} aria-label="活跃 Session 数">
+            <span
+              className={styles.load}
+              aria-label={t("agentRow.activeSessions")}
+            >
               {agent.activeSessionCount ?? "—"}
             </span>
             {action && (
@@ -88,15 +100,20 @@ export function AgentRow({
           </>
         }
       />
-      {compact && !agent.model && <p className={styles.reason}>未配置模型</p>}
+      {compact && !agent.model && (
+        <p className={styles.reason}>{t("agentRow.modelNotConfigured")}</p>
+      )}
       {compact && agent.offline && (
         <p className={styles.reason}>
-          连接离线 · 最后更新 {agent.updatedAt ?? "未知"}
+          {t("agentRow.offlineLastUpdated")}
+          {agent.updatedAt ?? t("agentRow.unknown")}
         </p>
       )}
       {action?.disabledReason && (
         <p className={styles.reason}>
-          {action.label}不可用：{action.disabledReason}
+          {action.label}
+          {t("agentRow.unavailable")}
+          {action.disabledReason}
         </p>
       )}
     </div>

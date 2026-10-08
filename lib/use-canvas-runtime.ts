@@ -1,5 +1,7 @@
 "use client"
+import { uiMessage, uiField, type UiMessage } from "@/lib/i18n-core"
 
+import { useI18n } from "@/lib/i18n-provider"
 import { useEffect, useRef, useState } from "react"
 import {
   canvasId,
@@ -8,7 +10,7 @@ import {
 } from "@/lib/canvas-model"
 import {
   acceptCanvasRunSnapshot,
-  canvasRunProblem,
+  describeCanvasRunProblem,
   canvasRuntimeUnknown,
   type CanvasRuntimeAdapter,
   type CanvasRuntimeState,
@@ -23,6 +25,7 @@ export function useCanvasRuntime(
   definitions: CanvasNodeDefinition[],
   adapter: CanvasRuntimeAdapter,
 ) {
+  const { resolve } = useI18n()
   const initial: CanvasRuntimeState = {
     documentId: document.id,
     transport: "connected",
@@ -63,7 +66,7 @@ export function useCanvasRuntime(
     setStored(next)
   }
   async function operate(
-    label: string,
+    label: UiMessage,
     read: boolean,
     action: () => Promise<CanvasRunSnapshot | null>,
     establish = false,
@@ -81,7 +84,11 @@ export function useCanvasRuntime(
       owner.current.adapter === token.adapter
     busy.current = true
     if (!read) confirmation.current = confirm
-    commit({ ...latest(), pending: label, readError: undefined })
+    commit({
+      ...latest(),
+      ...uiField("pending", label),
+      ...uiField("readError", undefined),
+    })
     try {
       const result = await action()
       if (!active()) return
@@ -91,10 +98,15 @@ export function useCanvasRuntime(
         startRequest.current = undefined
         commit({
           ...latest(),
-          pending: undefined,
-          uncertain: undefined,
-          awaiting: undefined,
-          readError: "来源确认此请求未创建运行。",
+          ...uiField("pending", undefined),
+          ...uiField("uncertain", undefined),
+          ...uiField("awaiting", undefined),
+          ...uiField(
+            "readError",
+            uiMessage(
+              "useCanvasRuntime.theSourceConfirmedThatThisRequestDidNot",
+            ),
+          ),
         })
         return
       }
@@ -107,8 +119,13 @@ export function useCanvasRuntime(
         blocked.current = true
         commit({
           ...before,
-          pending: undefined,
-          uncertain: "启动回执的文档版本不匹配，请查询原请求确认。",
+          ...uiField("pending", undefined),
+          ...uiField(
+            "uncertain",
+            uiMessage(
+              "useCanvasRuntime.theStartReceiptReferencesADifferentDocumentRevision",
+            ),
+          ),
         })
         return
       }
@@ -117,10 +134,20 @@ export function useCanvasRuntime(
         if (!read) blocked.current = true
         commit({
           ...before,
-          pending: undefined,
-          readError: "来源返回的运行身份或序号不匹配，保留当前快照。",
+          ...uiField("pending", undefined),
+          ...uiField(
+            "readError",
+            uiMessage("useCanvasRuntime.theRunIdentityOrSequenceFromTheSource"),
+          ),
           ...(!read
-            ? { uncertain: "写请求回执不匹配；先查询确认，禁止重复提交。" }
+            ? {
+                ...uiField(
+                  "uncertain",
+                  uiMessage(
+                    "useCanvasRuntime.writeReceiptMismatchQueryForConfirmationBeforeSubmitting",
+                  ),
+                ),
+              }
             : {}),
         })
         return
@@ -140,8 +167,13 @@ export function useCanvasRuntime(
             : {
                 ...accepted,
                 uncertain: before.uncertain,
-                awaiting:
-                  "操作请求已收到，尚待来源确认最终结果；请查询，不能重复提交。",
+                uncertainI18n: before.uncertainI18n,
+                ...uiField(
+                  "awaiting",
+                  uiMessage(
+                    "useCanvasRuntime.theOperationRequestWasReceivedButItsFinal",
+                  ),
+                ),
               },
         )
       } else {
@@ -150,7 +182,13 @@ export function useCanvasRuntime(
           ...accepted,
           ...(!read
             ? {
-                awaiting: `${label}请求已提交，等待来源推进状态；查询确认前不可重复提交。`,
+                ...uiField(
+                  "awaiting",
+                  uiMessage(
+                    "common.valueRequestSubmittedWaitingForTheSourceQuery",
+                    { value0: label },
+                  ),
+                ),
               }
             : {}),
         })
@@ -160,11 +198,26 @@ export function useCanvasRuntime(
       if (!read) blocked.current = true
       commit({
         ...latest(),
-        pending: undefined,
+        ...uiField("pending", undefined),
         transport: "disconnected",
         ...(read
-          ? { readError: "读取运行失败，保留已有状态和输出。" }
-          : { uncertain: `${label}结果未确认；先查询回执，禁止重复提交。` }),
+          ? {
+              ...uiField(
+                "readError",
+                uiMessage(
+                  "useCanvasRuntime.runReadFailedExistingStateAndOutputAre",
+                ),
+              ),
+            }
+          : {
+              ...uiField(
+                "uncertain",
+                uiMessage(
+                  "common.valueOutcomeUnknownQueryTheReceiptBeforeSubmitting",
+                  { value0: label },
+                ),
+              ),
+            }),
       })
     } finally {
       if (active()) busy.current = false
@@ -176,7 +229,7 @@ export function useCanvasRuntime(
     inputs?: CanvasRunRequest["inputs"],
   ) {
     if (busy.current || blocked.current) return
-    const problem = canvasRunProblem(
+    const problem = describeCanvasRunProblem(
       document,
       definitions,
       scope,
@@ -184,7 +237,16 @@ export function useCanvasRuntime(
       inputs,
     )
     if (problem || !adapter.scopes.includes(scope)) {
-      commit({ ...latest(), readError: problem ?? "来源未提供此运行能力。" })
+      commit({
+        ...latest(),
+        ...uiField(
+          "readError",
+          problem ??
+            uiMessage(
+              "useCanvasRuntime.theSourceDoesNotProvideThisExecutionCapability",
+            ),
+        ),
+      })
       return
     }
     const snapshot = latest().snapshot
@@ -195,7 +257,7 @@ export function useCanvasRuntime(
       return
     const requestId = canvasId("run-request")
     return operate(
-      "启动运行",
+      uiMessage("useCanvasRuntime.startRun"),
       false,
       () => {
         startRequest.current = requestId
@@ -214,14 +276,16 @@ export function useCanvasRuntime(
   function query() {
     if (startRequest.current && adapter.reconcileStart)
       return operate(
-        "查询启动回执",
+        uiMessage("useCanvasRuntime.queryStartReceipt"),
         true,
         () => adapter.reconcileStart!(startRequest.current!),
         true,
       )
     const snapshot = latest().snapshot
     if (snapshot)
-      return operate("查询运行", true, () => adapter.query(snapshot.runId))
+      return operate(uiMessage("canvasExecutionPanel.queryRun"), true, () =>
+        adapter.query(snapshot.runId),
+      )
   }
   function stop() {
     const snapshot = latest().snapshot
@@ -233,7 +297,7 @@ export function useCanvasRuntime(
       return
     const requestId = canvasId("stop")
     return operate(
-      "停止",
+      uiMessage("chatMessage.stop"),
       false,
       () => adapter.stop!({ runId: snapshot.runId, requestId }),
       false,
@@ -258,7 +322,9 @@ export function useCanvasRuntime(
       return
     const requestId = canvasId("approval")
     return operate(
-      decision === "approve" ? "批准" : "拒绝",
+      decision === "approve"
+        ? uiMessage("toolCall.approve")
+        : uiMessage("toolCall.reject"),
       false,
       () =>
         adapter.decide!({
@@ -295,10 +361,38 @@ export function useCanvasRuntime(
         : {
             ...accepted,
             uncertain: before.uncertain,
+            uncertainI18n: before.uncertainI18n,
             awaiting: before.awaiting,
+            awaitingI18n: before.awaitingI18n,
           },
     )
   }
-  return { state, adapter, run, query, stop, decide, receive }
+  return {
+    state: {
+      ...state,
+      pending:
+        state.pending === undefined
+          ? undefined
+          : resolve(state.pendingI18n, state.pending),
+      readError:
+        state.readError === undefined
+          ? undefined
+          : resolve(state.readErrorI18n, state.readError),
+      uncertain:
+        state.uncertain === undefined
+          ? undefined
+          : resolve(state.uncertainI18n, state.uncertain),
+      awaiting:
+        state.awaiting === undefined
+          ? undefined
+          : resolve(state.awaitingI18n, state.awaiting),
+    },
+    adapter,
+    run,
+    query,
+    stop,
+    decide,
+    receive,
+  }
 }
 export type CanvasRuntimeController = ReturnType<typeof useCanvasRuntime>

@@ -1,5 +1,7 @@
 "use client"
 
+import { useI18n } from "@/lib/i18n-provider"
+import { uiMessage, type UiMessage } from "@/lib/i18n-core"
 import { useState } from "react"
 import {
   emptyCanvasSelection,
@@ -21,10 +23,12 @@ export function useCanvasEditor(
   definitions: CanvasNodeDefinition[],
   options?: { readOnly?: boolean; policy?: CanvasConnectionPolicy },
 ) {
+  const { resolve } = useI18n()
   const [state, setState] = useState(() => ({
     history: createCanvasHistory(initial),
     selection: emptyCanvasSelection,
     feedback: "",
+    feedbackI18n: undefined as UiMessage | undefined,
   }))
   function onCommand(command: CanvasCommand) {
     setState((current) => {
@@ -49,6 +53,7 @@ export function useCanvasEditor(
             ? result.selection
             : current.selection,
         feedback: result.message,
+        feedbackI18n: result.messageI18n,
       }
     })
   }
@@ -57,7 +62,11 @@ export function useCanvasEditor(
     setState((current) => ({
       history: stepCanvasHistory(current.history, direction),
       selection: emptyCanvasSelection,
-      feedback: direction === "undo" ? "已撤销本地编辑。" : "已重做本地编辑。",
+      feedback: "",
+      feedbackI18n:
+        direction === "undo"
+          ? uiMessage("useCanvasEditor.localEditUndone")
+          : uiMessage("useCanvasEditor.localEditRedone"),
     }))
   }
   return {
@@ -70,6 +79,7 @@ export function useCanvasEditor(
     canRedo: state.history.future.length > 0,
     onUndo: () => step("undo"),
     onRedo: () => step("redo"),
-    feedback: state.feedback,
+    feedback: resolve(state.feedbackI18n, state.feedback),
+    feedbackI18n: state.feedbackI18n,
   }
 }

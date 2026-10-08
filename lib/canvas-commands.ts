@@ -1,4 +1,12 @@
 import {
+  uiMessage,
+  uiTextFields,
+  uiTextError,
+  UiError,
+  type UiText,
+  type UiMessage,
+} from "@/lib/i18n-core"
+import {
   canvasId,
   canvasLimits,
   emptyCanvasSelection,
@@ -11,9 +19,9 @@ import {
 } from "@/lib/canvas-model"
 import {
   parseCanvasDocument,
-  validateCanvasConnection,
-  validateCanvasConfig,
-  validateCanvasVariable,
+  describeValidateCanvasConnection,
+  describeValidateCanvasConfig,
+  describeValidateCanvasVariable,
 } from "@/lib/canvas-validation"
 
 export type CanvasCommandResult = {
@@ -21,6 +29,7 @@ export type CanvasCommandResult = {
   document: CanvasDocument
   selection: CanvasSelection
   message: string
+  messageI18n?: UiMessage
 }
 export function copyCanvasFragment(
   document: CanvasDocument,
@@ -41,31 +50,33 @@ export function applyCanvasCommand(
   definitions: CanvasNodeDefinition[],
   options?: { readOnly?: boolean; policy?: CanvasConnectionPolicy },
 ): CanvasCommandResult {
-  const fail = (message: string): CanvasCommandResult => ({
+  const fail = (message: UiText): CanvasCommandResult => ({
     ok: false,
     document,
     selection: emptyCanvasSelection,
-    message,
+    ...uiTextFields(message),
   })
-  if (options?.readOnly) return fail("当前画布为只读，未修改文档。")
+  if (options?.readOnly)
+    return fail(uiMessage("canvasCommands.theCanvasIsReadOnlyTheDocumentWas"))
   let next = structuredClone(document)
   let selection = emptyCanvasSelection
   const connect = (
     edge: CanvasDocument["edges"][number],
     ignoreId?: string,
   ) => {
-    const error = validateCanvasConnection(
+    const error = describeValidateCanvasConnection(
       next,
       definitions,
       edge,
       ignoreId,
       options?.policy,
     )
-    if (error) throw new Error(error)
+    if (error) throw uiTextError(error)
   }
   const needNode = (id: string) => {
     const node = next.nodes.find((item) => item.id === id)
-    if (!node) throw new Error("节点已不存在。")
+    if (!node)
+      throw uiTextError(uiMessage("canvasCommands.theNodeNoLongerExists"))
     return node
   }
   try {
@@ -92,20 +103,24 @@ export function applyCanvasCommand(
       case "configure": {
         const node = needNode(command.nodeId)
         if (!definitions.some((definition) => definition.type === node.type))
-          throw new Error("未知节点不能配置；原始数据已保留。")
+          throw uiTextError(
+            uiMessage(
+              "canvasCommands.unknownNodesCannotBeConfiguredOriginalDataIs",
+            ),
+          )
         Object.assign(node, {
           title: command.title,
           config: structuredClone(command.config),
           bindings: structuredClone(command.bindings ?? {}),
         })
         const configErrors = Object.values(
-          validateCanvasConfig(
+          describeValidateCanvasConfig(
             node,
             definitions.find((definition) => definition.type === node.type)!,
           ),
         )
         for (const [field, reference] of Object.entries(node.bindings ?? {})) {
-          const error = validateCanvasVariable(
+          const error = describeValidateCanvasVariable(
             next,
             definitions,
             node,
@@ -114,7 +129,7 @@ export function applyCanvasCommand(
           )
           if (error) configErrors.push(error)
         }
-        if (configErrors.length) throw new Error(configErrors[0])
+        if (configErrors.length) throw uiTextError(configErrors[0])
         selection = { nodeIds: [node.id], edgeIds: [] }
         break
       }
@@ -125,7 +140,8 @@ export function applyCanvasCommand(
         break
       case "reconnect": {
         const index = next.edges.findIndex((edge) => edge.id === command.edgeId)
-        if (index < 0) throw new Error("连线已不存在。")
+        if (index < 0)
+          throw uiTextError(uiMessage("canvasCommands.theEdgeNoLongerExists"))
         const edge = { ...command.edge, id: command.edgeId }
         connect(edge, command.edgeId)
         next.edges[index] = edge
@@ -134,7 +150,8 @@ export function applyCanvasCommand(
       }
       case "insert": {
         const edge = next.edges.find((item) => item.id === command.edgeId)
-        if (!edge) throw new Error("连线已不存在。")
+        if (!edge)
+          throw uiTextError(uiMessage("canvasCommands.theEdgeNoLongerExists"))
         next.nodes.push(structuredClone(command.node))
         next.edges = next.edges.filter((item) => item.id !== edge.id)
         const first = {
@@ -160,7 +177,10 @@ export function applyCanvasCommand(
         break
       }
       case "paste": {
-        if (!command.fragment.nodes.length) throw new Error("尚未复制节点。")
+        if (!command.fragment.nodes.length)
+          throw uiTextError(
+            uiMessage("canvasCommands.noNodesHaveBeenCopiedYet"),
+          )
         const ids = new Map(
           command.fragment.nodes.map((node) => [node.id, canvasId("node")]),
         )
@@ -176,8 +196,10 @@ export function applyCanvasCommand(
           for (const reference of Object.values(node.bindings ?? {})) {
             const remapped = ids.get(reference.nodeId)
             if (!remapped)
-              throw new Error(
-                "复制内容包含外部变量引用；请同时复制来源节点，或先移除该绑定。",
+              throw uiTextError(
+                uiMessage(
+                  "canvasCommands.theCopiedContentReferencesExternalVariablesCopyThe",
+                ),
               )
             reference.nodeId = remapped
           }
@@ -186,7 +208,10 @@ export function applyCanvasCommand(
         for (const edge of command.fragment.edges) {
           const source = ids.get(edge.source),
             target = ids.get(edge.target)
-          if (!source || !target) throw new Error("复制内容包含外部连线。")
+          if (!source || !target)
+            throw uiTextError(
+              uiMessage("canvasCommands.theCopiedContentContainsExternalEdges"),
+            )
           const copied = { ...edge, id: canvasId("edge"), source, target }
           connect(copied)
           next.edges.push(copied)
@@ -202,7 +227,8 @@ export function applyCanvasCommand(
         break
       case "move-frame": {
         const frame = next.frames.find((item) => item.id === command.frameId)
-        if (!frame) throw new Error("Frame已不存在。")
+        if (!frame)
+          throw uiTextError(uiMessage("canvasCommands.theFrameNoLongerExists"))
         const dx = command.position.x - frame.position.x,
           dy = command.position.y - frame.position.y
         frame.position = { ...command.position }
@@ -223,13 +249,15 @@ export function applyCanvasCommand(
         break
       case "update-note": {
         const note = next.notes.find((item) => item.id === command.noteId)
-        if (!note) throw new Error("便笺已不存在。")
+        if (!note)
+          throw uiTextError(uiMessage("canvasCommands.theNoteNoLongerExists"))
         note.text = command.text
         break
       }
       case "move-note": {
         const note = next.notes.find((item) => item.id === command.noteId)
-        if (!note) throw new Error("便笺已不存在。")
+        if (!note)
+          throw uiTextError(uiMessage("canvasCommands.theNoteNoLongerExists"))
         note.position = { ...command.position }
         break
       }
@@ -252,12 +280,21 @@ export function applyCanvasCommand(
       { allowInvalidBindings: true },
     )
     if (JSON.stringify(next) === JSON.stringify(document))
-      return fail("文档没有变化。")
+      return fail(uiMessage("canvasCommands.theDocumentHasNotChanged"))
     next.revision = document.revision + 1
-    return { ok: true, document: next, selection, message: "本地草稿已修改。" }
+    return {
+      ok: true,
+      document: next,
+      selection,
+      ...uiTextFields(uiMessage("canvasCommands.localDraftChanged")),
+    }
   } catch (error) {
     return fail(
-      error instanceof Error ? error.message : "编辑未完成，原图已保留。",
+      error instanceof UiError
+        ? error.messageI18n
+        : error instanceof Error
+          ? error.message
+          : uiMessage("canvasCommands.editDidNotCompleteTheOriginalGraphIs"),
     )
   }
 }

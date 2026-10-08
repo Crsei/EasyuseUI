@@ -1,3 +1,9 @@
+import {
+  uiMessage,
+  resolveUiText,
+  defaultLocale,
+  type UiText,
+} from "@/lib/i18n-core"
 import type { CanvasField, CanvasValue } from "@/lib/canvas-model"
 export const canvasStructuredKinds = [
   "json",
@@ -10,10 +16,10 @@ export function isCanvasStructuredField(kind: CanvasField["kind"]) {
 }
 const record = (value: CanvasValue): value is Record<string, CanvasValue> =>
   !!value && typeof value === "object" && !Array.isArray(value)
-export function canvasFieldProblem(
+export function describeCanvasFieldProblem(
   kind: CanvasField["kind"],
   value: CanvasValue,
-): string | undefined {
+): UiText | undefined {
   if (
     kind === "key-value" &&
     (!record(value) ||
@@ -21,7 +27,7 @@ export function canvasFieldProblem(
         ([key, value]) => !key.trim() || typeof value !== "string",
       ))
   )
-    return "键值表需要非空键和字符串值。"
+    return uiMessage("canvasConfig.keyValueTablesRequireNonemptyKeysAndString")
   if (kind === "condition") {
     if (
       !record(value) ||
@@ -42,7 +48,9 @@ export function canvasFieldProblem(
             (!clause.value.trim() || !Number.isFinite(Number(clause.value)))),
       )
     )
-      return "条件需要 1–20 条有效规则，数值比较必须使用数字。"
+      return uiMessage(
+        "canvasConfig.conditionsRequire120ValidRulesNumericComparisons",
+      )
   }
   if (kind === "schema") {
     if (
@@ -65,6 +73,15 @@ export function canvasFieldProblem(
           ),
       )
     )
-      return "Schema 需要 object、有效 properties 和 required 字段。"
+      return uiMessage(
+        "canvasConfig.schemaRequiresObjectValidPropertiesAndRequiredFields",
+      )
   }
+}
+
+export function canvasFieldProblem(
+  ...args: Parameters<typeof describeCanvasFieldProblem>
+) {
+  const value = describeCanvasFieldProblem(...args)
+  return value === undefined ? undefined : resolveUiText(defaultLocale, value)
 }

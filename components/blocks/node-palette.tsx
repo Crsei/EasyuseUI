@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useState } from "react"
 import { Plus, Search } from "lucide-react"
@@ -22,46 +23,60 @@ export function NodePalette({
   className,
   recentTypes = [],
 }: NodePaletteProps) {
+  const { t, resolve } = useI18n()
+
   const [query, setQuery] = useState("")
   const [category, setCategory] = useState("")
   const visible = definitions.filter(
     (item) =>
       (!category || item.category === category) &&
-      `${item.label} ${item.type} ${item.category}`
+      `${item.label} ${resolve(item.labelI18n, item.label)} ${item.type} ${item.category} ${resolve(item.categoryI18n, item.category)}`
         .toLowerCase()
         .includes(query.trim().toLowerCase()),
   )
   return (
-    <section className={cn(styles.palette, className)} aria-label="节点目录">
+    <section
+      className={cn(styles.palette, className)}
+      aria-label={t("nodePalette.nodePalette")}
+    >
       <label className={styles.field}>
         <span>
           <Search size={14} />
-          搜索节点类型
+          {t("nodePalette.searchNodeTypes")}
         </span>
         <Input
-          aria-label="搜索节点类型"
+          aria-label={t("nodePalette.searchNodeTypes")}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="名称或类型"
+          placeholder={t("nodePalette.nameOrType")}
         />
       </label>
       <label className={styles.field}>
-        节点分类
+        {t("nodePalette.nodeCategory")}
         <select
           value={category}
           onChange={(event) => setCategory(event.target.value)}
         >
-          <option value="">全部分类</option>
+          <option value="">{t("nodePalette.allCategories")}</option>
           {[...new Set(definitions.map((item) => item.category))].map(
             (value) => (
-              <option key={value}>{value}</option>
+              <option key={value} value={value}>
+                {resolve(
+                  definitions.find((item) => item.category === value)
+                    ?.categoryI18n,
+                  value,
+                )}
+              </option>
             ),
           )}
         </select>
       </label>
       {recentTypes.length > 0 && !query && !category && (
-        <div className={styles.actions} aria-label="最近使用节点">
-          <span className={styles.muted}>最近使用</span>
+        <div
+          className={styles.actions}
+          aria-label={t("nodePalette.recentlyUsedNodes")}
+        >
+          <span className={styles.muted}>{t("nodePalette.recentlyUsed")}</span>
           {recentTypes.map((type) => {
             const definition = definitions.find((def) => def.type === type)
             return definition ? (
@@ -72,7 +87,8 @@ export function NodePalette({
                 disabled={readOnly}
                 onClick={() => onAdd(definition)}
               >
-                最近：{definition.label}
+                {t("nodePalette.recent")}
+                {resolve(definition.labelI18n, definition.label)}
               </Button>
             ) : null
           })}
@@ -85,7 +101,9 @@ export function NodePalette({
               variant="ghost"
               className={styles.paletteItem}
               disabled={readOnly}
-              aria-label={`添加 ${definition.label}`}
+              aria-label={t("common.addValue", {
+                value0: resolve(definition.labelI18n, definition.label),
+              })}
               draggable={!readOnly}
               onDragStart={(event) => {
                 event.dataTransfer.setData(
@@ -98,7 +116,7 @@ export function NodePalette({
             >
               {definition.icon ?? <Plus size={16} />}
               <span>
-                {definition.label}
+                {resolve(definition.labelI18n, definition.label)}
                 <small>{definition.type}</small>
               </span>
               <Plus size={14} />
@@ -108,10 +126,14 @@ export function NodePalette({
       </ul>
       {visible.length === 0 && (
         <p role="status" className={styles.muted}>
-          没有匹配的节点类型。尝试其他名称或分类。
+          {t("nodePalette.noMatchingNodeTypesTryAnotherNameOr")}
         </p>
       )}
-      {readOnly && <p className={styles.muted}>只读画布仍可浏览节点目录。</p>}
+      {readOnly && (
+        <p className={styles.muted}>
+          {t("nodePalette.theNodePaletteRemainsBrowsableOnARead")}
+        </p>
+      )}
     </section>
   )
 }

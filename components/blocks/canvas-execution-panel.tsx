@@ -1,4 +1,7 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { uiMessage } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -13,12 +16,10 @@ import type { CanvasRuntimeController } from "@/lib/use-canvas-runtime"
 import type { CanvasDocument, CanvasNodeDefinition } from "@/lib/canvas-model"
 import styles from "./canvas-controls.module.css"
 
-function bounded(value: unknown) {
+function bounded(value: unknown, truncatedLabel: string) {
   if (value === undefined) return "—"
   const preview = previewText(redact(value))
-  return (
-    preview.text + (preview.truncated ? "\n[预览已截断：200 行 / 32KiB]" : "")
-  )
+  return preview.text + (preview.truncated ? truncatedLabel : "")
 }
 export type CanvasExecutionPanelProps = {
   runtime: CanvasRuntimeController
@@ -34,6 +35,8 @@ export function CanvasRunControls({
   nodeId,
   readOnly,
 }: CanvasExecutionPanelProps) {
+  const { t } = useI18n()
+
   const { state, adapter } = runtime
   const [scope, setScope] = useState<"all" | "node" | "from" | "to">("all")
   const targetId = scope === "all" ? undefined : nodeId
@@ -51,11 +54,14 @@ export function CanvasRunControls({
     !!state.awaiting ||
     canvasRuntimeUnknown(state.snapshot)
   return (
-    <div className={styles.actions} aria-label="运行控制">
+    <div
+      className={styles.actions}
+      aria-label={t("canvasExecutionPanel.runControls")}
+    >
       <label>
-        运行范围{" "}
+        {t("canvasExecutionPanel.runScope")}{" "}
         <select
-          aria-label="运行范围"
+          aria-label={t("canvasExecutionPanel.runScope")}
           value={scope}
           onChange={(event) => setScope(event.target.value as typeof scope)}
         >
@@ -63,10 +69,10 @@ export function CanvasRunControls({
             <option key={value} value={value}>
               {
                 {
-                  all: "整个流程",
-                  node: "单个节点",
-                  from: "从此节点",
-                  to: "运行到此",
+                  all: t("canvasExecutionPanel.entireWorkflow"),
+                  node: t("canvasExecutionPanel.singleNode"),
+                  from: t("canvasExecutionPanel.fromThisNode"),
+                  to: t("canvasExecutionPanel.upToThisNode"),
                 }[value]
               }
             </option>
@@ -80,7 +86,7 @@ export function CanvasRunControls({
         }
         onClick={() => runtime.run(scope, nodeId)}
       >
-        运行流程
+        {t("canvasExecutionPanel.runWorkflow")}
       </Button>
       {adapter.stop && active && (
         <Button
@@ -89,7 +95,7 @@ export function CanvasRunControls({
           disabled={locked}
           onClick={runtime.stop}
         >
-          请求停止
+          {t("canvasExecutionPanel.requestStop")}
         </Button>
       )}
       <Button
@@ -98,7 +104,7 @@ export function CanvasRunControls({
         disabled={!!state.pending || (!state.snapshot && !state.uncertain)}
         onClick={runtime.query}
       >
-        查询运行
+        {t("canvasExecutionPanel.queryRun")}
       </Button>
       {state.snapshot && (
         <RuntimeStatusBadge status={redactText(state.snapshot.status)} />
@@ -111,8 +117,10 @@ export function CanvasExecutionPanel({
   runtime,
   document,
 }: CanvasExecutionPanelProps) {
+  const { t } = useI18n()
+
   const [view, setView] = useState("Activity")
-  const [feedback, setFeedback] = useState("")
+  const [feedback, setFeedback] = useUiFeedback("")
   const { state } = runtime,
     snapshot = state.snapshot
   const payload =
@@ -126,11 +134,14 @@ export function CanvasExecutionPanel({
           )
         : snapshot?.events.map((event) => ({
             ...event,
-            detail: bounded(event.detail),
+            detail: bounded(event.detail, t("canvas.truncatedPreview")),
           }))
-  const text = bounded(payload)
+  const text = bounded(payload, t("canvas.truncatedPreview"))
   return (
-    <section className={styles.execution} aria-label="执行调试">
+    <section
+      className={styles.execution}
+      aria-label={t("canvasExecutionPanel.executionDebugger")}
+    >
       <div className={styles.actions}>
         {["Activity", "Logs", "Variables", "Errors"].map((value) => (
           <Button
@@ -145,9 +156,11 @@ export function CanvasExecutionPanel({
         ))}
         {snapshot && (
           <span className={styles.muted}>
-            Run {redactText(snapshot.runId)} · 文档 r{snapshot.documentRevision}
+            Run {redactText(snapshot.runId)}{" "}
+            {t("canvasExecutionPanel.documentR")}
+            {snapshot.documentRevision}
             {snapshot.documentRevision !== document.revision
-              ? "（旧版本结果）"
+              ? t("canvasExecutionPanel.resultsFromAnOlderRevision")
               : ""}
           </span>
         )}
@@ -158,22 +171,33 @@ export function CanvasExecutionPanel({
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(text)
-                setFeedback("已复制脱敏预览。")
+                setFeedback(
+                  uiMessage("canvasExecutionPanel.redactedPreviewCopied"),
+                )
               } catch {
-                setFeedback("复制失败，请手动选择预览。")
+                setFeedback(
+                  uiMessage(
+                    "canvasExecutionPanel.copyFailedSelectThePreviewManually",
+                  ),
+                )
               }
             }}
           >
-            复制脱敏预览
+            {t("canvasExecutionPanel.copyRedactedPreview")}
           </Button>
         )}
       </div>
       {state.pending && (
-        <p role="status">{state.pending}请求处理中，最终状态由来源确认。</p>
+        <p role="status">
+          {state.pending}
+          {t("canvasExecutionPanel.requestInProgressTheSourceConfirmsTheFinal")}
+        </p>
       )}
       {canvasRuntimeUnknown(snapshot) && (
         <p role="alert" className={styles.error}>
-          执行结果未确认；查询来源后再执行写操作。
+          {t(
+            "canvasExecutionPanel.executionOutcomeUnknownQueryTheSourceBeforeAnother",
+          )}
         </p>
       )}
       {state.awaiting && <p role="status">{state.awaiting}</p>}
@@ -183,7 +207,9 @@ export function CanvasExecutionPanel({
         </p>
       )}
       {state.transport === "disconnected" && (
-        <p className={styles.muted}>连接中断 · 保留最后快照</p>
+        <p className={styles.muted}>
+          {t("canvasExecutionPanel.disconnectedLastSnapshotPreserved")}
+        </p>
       )}
       <DataRegion
         state={
@@ -201,13 +227,17 @@ export function CanvasExecutionPanel({
             ? {
                 category: "network",
                 message: state.readError,
-                reason: "已有运行快照保留，请安全重读。",
+                reason: t(
+                  "canvasExecutionPanel.theExistingRunSnapshotIsPreservedRetryThe",
+                ),
               }
             : undefined
         }
         onRetry={runtime.query}
-        emptyTitle="尚无执行记录"
-        emptyDescription="运行或查询由调用方提供的执行适配器；构图不会自动执行。"
+        emptyTitle={t("canvasExecutionPanel.noExecutionRecordsYet")}
+        emptyDescription={t(
+          "canvasExecutionPanel.runOrQueryTheExecutionAdapterSuppliedBy",
+        )}
       >
         {view === "Activity" || view === "Logs" ? (
           <ActivityTimeline
@@ -221,7 +251,9 @@ export function CanvasExecutionPanel({
               status: redactText(event.status),
               details:
                 event.detail === undefined ? undefined : (
-                  <pre>{bounded(event.detail)}</pre>
+                  <pre>
+                    {bounded(event.detail, t("canvas.truncatedPreview"))}
+                  </pre>
                 ),
             }))}
           />
@@ -241,14 +273,16 @@ export function CanvasExecutionInspector({
   nodeId,
   readOnly,
 }: CanvasExecutionPanelProps) {
+  const { t } = useI18n()
+
   const [view, setView] = useState("Output")
-  const [feedback, setFeedback] = useState("")
+  const [feedback, setFeedback] = useUiFeedback("")
   const snapshot = runtime.state.snapshot,
     execution = nodeId ? snapshot?.nodes[nodeId] : undefined
   const node = document.nodes.find((node) => node.id === nodeId)
   const payload =
     execution?.[view.toLowerCase() as "input" | "output" | "details" | "trace"]
-  const text = bounded(payload)
+  const text = bounded(payload, t("canvas.truncatedPreview"))
   const unknown =
     !!runtime.state.uncertain ||
     snapshot?.outcome === "unknown" ||
@@ -266,9 +300,9 @@ export function CanvasExecutionInspector({
               status: execution?.status,
               metadata: [
                 {
-                  label: "版本",
+                  label: t("canvasExecutionPanel.revision"),
                   value: snapshot
-                    ? `r${snapshot.documentRevision}${snapshot.documentRevision !== document.revision ? " · 旧版本结果" : ""}`
+                    ? `r${snapshot.documentRevision}${snapshot.documentRevision !== document.revision ? t("canvas.previousRevision") : ""}`
                     : "—",
                 },
                 { label: "Run", value: snapshot?.runId ?? "—" },
@@ -280,7 +314,9 @@ export function CanvasExecutionInspector({
             }
           : null
       }
-      emptyDescription="选择节点查看执行输入、输出和 Trace。"
+      emptyDescription={t(
+        "canvasExecutionPanel.selectANodeToInspectItsExecutionInput",
+      )}
     >
       <div className={styles.actions}>
         {["Input", "Output", "Details", "Trace"].map((value) => (
@@ -304,13 +340,19 @@ export function CanvasExecutionInspector({
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(text)
-                setFeedback("已复制脱敏预览。")
+                setFeedback(
+                  uiMessage("canvasExecutionPanel.redactedPreviewCopied"),
+                )
               } catch {
-                setFeedback("复制失败，请手动选择预览。")
+                setFeedback(
+                  uiMessage(
+                    "canvasExecutionPanel.copyFailedSelectThePreviewManually",
+                  ),
+                )
               }
             }}
           >
-            复制脱敏预览
+            {t("canvasExecutionPanel.copyRedactedPreview")}
           </Button>
           <p role="status" className={styles.muted}>
             {feedback}
@@ -322,12 +364,14 @@ export function CanvasExecutionInspector({
               id: `${snapshot!.runId}:${nodeId}:${execution.attemptId}`,
               name: node?.title ?? nodeId!,
               status: redactText(execution.status),
-              arguments: bounded(execution.input),
-              output: bounded(execution.output),
+              arguments: bounded(execution.input, t("canvas.truncatedPreview")),
+              output: bounded(execution.output, t("canvas.truncatedPreview")),
               outputTruncated: true,
               outcome: unknown ? "unknown" : execution.outcome,
               receipt: snapshot?.receipt,
-              error: execution.error ? bounded(execution.error) : undefined,
+              error: execution.error
+                ? bounded(execution.error, t("canvas.truncatedPreview"))
+                : undefined,
               duration: execution.duration,
             }}
             permission={
@@ -346,11 +390,15 @@ export function CanvasExecutionInspector({
             onReconcile={runtime.query}
           />
           {execution.artifacts && (
-            <pre className={styles.output}>{bounded(execution.artifacts)}</pre>
+            <pre className={styles.output}>
+              {bounded(execution.artifacts, t("canvas.truncatedPreview"))}
+            </pre>
           )}
         </>
       ) : (
-        <p className={styles.muted}>本次运行未提供该节点的执行记录。</p>
+        <p className={styles.muted}>
+          {t("canvasExecutionPanel.thisRunHasNoExecutionRecordForThis")}
+        </p>
       )}
     </Inspector>
   )

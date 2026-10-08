@@ -1,3 +1,4 @@
+import { SiteText, SiteElement } from "@/components/site/site-i18n"
 import type { CSSProperties } from "react"
 import type { DictionaryEntry } from "@/lib/visual-dictionary"
 import styles from "./dictionary.module.css"
@@ -36,8 +37,12 @@ export function DictionaryPreview({
   else if (kind === "type")
     content = (
       <span className={styles.typeSample}>
-        <strong>Aa 字体</strong>
-        <span>清晰的正文层级</span>
+        <strong>
+          <SiteText messageKey="site.aaTypography" />
+        </strong>
+        <span>
+          <SiteText messageKey="site.clearTextHierarchy" />
+        </span>
         <small>Metadata · 12px</small>
       </span>
     )
@@ -91,21 +96,34 @@ export function DictionaryPreview({
     )
   else if (["pill", "badge", "chip", "button", "choice"].includes(kind))
     content = (
-      <span
-        className={`${styles.capsules} ${kind === "button" ? styles.buttonSample : ""}`}
+      <SiteElement
+        as="span"
+        textProps={{
+          className: {
+            key: "site.valueValue2",
+            values: {
+              value0: styles.capsules,
+              value1: kind === "button" ? styles.buttonSample : "",
+            },
+          },
+        }}
       >
         <span>
-          {kind === "badge"
-            ? "Info"
-            : kind === "chip"
-              ? "TypeScript"
-              : kind === "choice"
-                ? "✓ 选项"
-                : "Label"}
+          <SiteText
+            text={
+              kind === "badge"
+                ? "Info"
+                : kind === "chip"
+                  ? "TypeScript"
+                  : kind === "choice"
+                    ? "✓ 选项"
+                    : "Label"
+            }
+          />
           {kind === "chip" && <i>×</i>}
         </span>
         <span>{kind === "chip" ? "Selected ✓" : "Neutral"}</span>
-      </span>
+      </SiteElement>
     )
   else if (kind === "circle" || kind === "avatar")
     content = (
@@ -134,7 +152,9 @@ export function DictionaryPreview({
   else if (kind === "input" || kind === "command")
     content = (
       <span className={styles.inputSample}>
-        {kind === "command" ? "⌕ 搜索命令或选项…" : "输入内容…"}
+        <SiteText
+          text={kind === "command" ? "⌕ 搜索命令或选项…" : "输入内容…"}
+        />
       </span>
     )
   else if (kind === "tree")
@@ -179,13 +199,21 @@ export function DictionaryPreview({
     content = (
       <span className={styles.floatingSample}>
         <span>
-          {kind === "tooltip"
-            ? "短解释"
-            : kind === "disclosure"
-              ? "▾ Details"
-              : "Action"}
+          <SiteText
+            text={
+              kind === "tooltip"
+                ? "短解释"
+                : kind === "disclosure"
+                  ? "▾ Details"
+                  : "Action"
+            }
+          />
         </span>
-        <span>{kind === "disclosure" ? "Arguments / Output" : "补充内容"}</span>
+        <span>
+          <SiteText
+            text={kind === "disclosure" ? "Arguments / Output" : "补充内容"}
+          />
+        </span>
       </span>
     )
   else if (kind === "dialog" || kind === "drawer")
@@ -209,9 +237,15 @@ export function DictionaryPreview({
   else if (kind === "conversation")
     content = (
       <span className={styles.conversationSample}>
-        <span>你 · 查看这个文件</span>
-        <span>Agent · 已读取内容</span>
-        <i>输入消息…</i>
+        <span>
+          <SiteText messageKey="site.youInspectThisFile" />
+        </span>
+        <span>
+          <SiteText messageKey="site.agentFileRead" />
+        </span>
+        <i>
+          <SiteText messageKey="site.enterAMessage" />
+        </i>
       </span>
     )
   else if (kind === "progress")
@@ -223,7 +257,11 @@ export function DictionaryPreview({
   else if (kind === "spinner")
     content = <span className={styles.spinnerSample} />
   else if (kind === "feedback")
-    content = <span className={styles.feedbackSample}>ⓘ 需要关注的信息</span>
+    content = (
+      <span className={styles.feedbackSample}>
+        <SiteText messageKey="site.informationRequiringAttention" />
+      </span>
+    )
   else
     content = (
       <span
@@ -263,9 +301,20 @@ export function FoundationPreview({ entry }: { entry: DictionaryEntry }) {
             { label: "发光", hint: "视觉参考", className: styles.glow },
           ].map((sample) => (
             <div key={sample.label}>
-              <span className={`${styles.effectSample} ${sample.className}`}>
+              <SiteElement
+                as="span"
+                textProps={{
+                  className: {
+                    key: "site.valueValue2",
+                    values: {
+                      value0: styles.effectSample,
+                      value1: sample.className,
+                    },
+                  },
+                }}
+              >
                 <span>Surface</span>
-              </span>
+              </SiteElement>
               <strong>{sample.label}</strong>
               <small>{sample.hint}</small>
             </div>

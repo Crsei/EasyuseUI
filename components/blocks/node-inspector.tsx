@@ -1,4 +1,7 @@
 "use client"
+import { uiMessage, resolveUiText, type UiText } from "@/lib/i18n-core"
+import { UiError } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useId, useRef, useState } from "react"
 import { CanvasConfigEditor } from "@/components/blocks/canvas-config-editor"
@@ -14,8 +17,8 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog"
 import {
-  validateCanvasConfig,
-  validateCanvasVariable,
+  describeValidateCanvasConfig,
+  describeValidateCanvasVariable,
   parseCanvasDocument,
 } from "@/lib/canvas-validation"
 import type {
@@ -35,7 +38,7 @@ export type CanvasInspectorDraft = {
   title: string
   values: Record<string, string>
   bindings: Record<string, CanvasVariable>
-  errors: Record<string, string>
+  errors: Record<string, UiText>
 }
 export type NodeInspectorProps = {
   document: CanvasDocument
@@ -79,6 +82,8 @@ export function NodeInspector({
   draftStore,
   onDraftStoreChange,
 }: NodeInspectorProps) {
+  const { t, resolve, locale } = useI18n()
+
   const [localDrafts, setLocalDrafts] = useState<
     Record<string, CanvasInspectorDraft>
   >({})
@@ -96,11 +101,18 @@ export function NodeInspector({
     ? {
         id: node.id,
         title: node.title,
-        kind: definition?.label ?? "未知节点",
+        kind: definition?.label ?? t("nodeInspector.unknownNode"),
         metadata: [
-          { label: "节点 ID", value: node.id, copyValue: node.id },
-          { label: "节点类型", value: node.type },
-          { label: "位置", value: `${node.position.x}, ${node.position.y}` },
+          {
+            label: t("nodeInspector.nodeId"),
+            value: node.id,
+            copyValue: node.id,
+          },
+          { label: t("nodeInspector.nodeType"), value: node.type },
+          {
+            label: t("nodeInspector.position"),
+            value: `${node.position.x}, ${node.position.y}`,
+          },
         ],
       }
     : null
@@ -108,11 +120,15 @@ export function NodeInspector({
     return (
       <Inspector
         object={object}
-        emptyDescription="选择一个节点来编辑配置；选择连线可重连或断开。"
+        emptyDescription={t(
+          "nodeInspector.selectANodeToEditItsConfigurationSelect",
+        )}
       >
         {node && (
           <p className={styles.muted}>
-            缺少对应节点定义，原始配置和端口引用已保留。可导出文档；此节点不能配置。
+            {t(
+              "nodeInspector.theNodeDefinitionIsMissingOriginalConfigurationAnd",
+            )}
           </p>
         )}
       </Inspector>
@@ -125,7 +141,7 @@ export function NodeInspector({
     setDrafts({ ...drafts, [node!.id]: { ...draft, ...change } })
   }
   function apply() {
-    const errors: Record<string, string> = {}
+    const errors: Record<string, UiText> = {}
     const config = structuredClone(node!.config)
     for (const field of definition!.fields ?? []) {
       if (draft.bindings[field.key]) continue
@@ -139,7 +155,9 @@ export function NodeInspector({
               : null
             : value
       } catch {
-        errors[field.key] = `${field.label}不是有效 JSON。`
+        errors[field.key] = t("common.valueIsNotValidJson", {
+          value0: field.labelI18n ?? field.label,
+        })
       }
     }
     const candidate = {
@@ -148,8 +166,9 @@ export function NodeInspector({
       config,
       bindings: draft.bindings,
     }
-    if (!draft.title.trim()) errors.title = "节点名称不能为空。"
-    Object.assign(errors, validateCanvasConfig(candidate, definition!))
+    if (!draft.title.trim())
+      errors.title = uiMessage("nodeInspector.nodeNameCannotBeEmpty")
+    Object.assign(errors, describeValidateCanvasConfig(candidate, definition!))
     for (const field of definition!.fields ?? [])
       if (
         field.catalog &&
@@ -158,9 +177,12 @@ export function NodeInspector({
           (entry) => entry.id === config[field.key] && entry.available,
         )
       )
-        errors[field.key] = `${field.label}引用不可用，请重新选择。`
+        errors[field.key] = t(
+          "common.theValueReferenceIsUnavailableSelectItAgain",
+          { value0: field.labelI18n ?? field.label },
+        )
     for (const [field, reference] of Object.entries(draft.bindings)) {
-      const error = validateCanvasVariable(
+      const error = describeValidateCanvasVariable(
         document,
         definitions,
         candidate,
@@ -196,7 +218,13 @@ export function NodeInspector({
           errors: {
             ...errors,
             custom:
-              error instanceof Error ? error.message : "配置无法写入文档。",
+              error instanceof UiError
+                ? error.messageI18n
+                : error instanceof Error
+                  ? error.message
+                  : uiMessage(
+                      "nodeInspector.configurationCouldNotBeWrittenToTheDocument",
+                    ),
           },
         })
         return
@@ -219,14 +247,14 @@ export function NodeInspector({
         ref={formRef}
         noValidate
         className={styles.form}
-        aria-label="节点配置"
+        aria-label={t("nodeInspector.nodeConfiguration")}
         onSubmit={(event) => {
           event.preventDefault()
           apply()
         }}
       >
         <label className={styles.field} htmlFor={`${prefix}-title`}>
-          节点名称
+          {t("nodeInspector.nodeName")}
           <Input
             id={`${prefix}-title`}
             disabled={locked}
@@ -239,7 +267,7 @@ export function NodeInspector({
           />
           {draft.errors.title && (
             <span id={`${prefix}-title-error`} className={styles.error}>
-              {draft.errors.title}
+              {resolveUiText(locale, draft.errors.title)}
             </span>
           )}
         </label>
@@ -262,18 +290,21 @@ export function NodeInspector({
           return (
             <div key={field.key} className={styles.field}>
               <label htmlFor={id}>
-                {field.label}
+                {resolve(field.labelI18n, field.label)}
                 {field.required ? " *" : ""}
               </label>
               {field.catalog ? (
                 <select {...inputProps}>
-                  <option value="">选择{field.label}</option>
+                  <option value="">
+                    {t("nodeInspector.select")}
+                    {resolve(field.labelI18n, field.label)}
+                  </option>
                   {draft.values[field.key] &&
                     !catalogs?.[field.catalog]?.some(
                       (entry) => entry.id === draft.values[field.key],
                     ) && (
                       <option value={draft.values[field.key]}>
-                        当前引用不可用
+                        {t("nodeInspector.currentReferenceUnavailable")}
                       </option>
                     )}
                   {catalogs?.[field.catalog]?.map((entry) => (
@@ -283,7 +314,7 @@ export function NodeInspector({
                       disabled={!entry.available}
                     >
                       {entry.name}
-                      {entry.available ? "" : " · 不可用"}
+                      {entry.available ? "" : t("nodeInspector.unavailable")}
                     </option>
                   ))}
                 </select>
@@ -293,7 +324,7 @@ export function NodeInspector({
                 <CanvasConfigEditor
                   kind={field.kind}
                   id={id}
-                  label={field.label}
+                  label={resolve(field.labelI18n, field.label)}
                   value={inputProps.value}
                   disabled={inputProps.disabled}
                   invalid={inputProps["aria-invalid"]}
@@ -312,7 +343,7 @@ export function NodeInspector({
                 <select {...inputProps}>
                   {field.options?.map((option) => (
                     <option key={option.value} value={option.value}>
-                      {option.label}
+                      {resolve(option.labelI18n, option.label)}
                     </option>
                   ))}
                 </select>
@@ -327,9 +358,9 @@ export function NodeInspector({
               )}
               {reference && (
                 <p className={styles.muted}>
-                  引用：
+                  {t("nodeInspector.reference")}
                   {document.nodes.find((item) => item.id === reference.nodeId)
-                    ?.title ?? "来源已删除"}{" "}
+                    ?.title ?? t("nodeInspector.sourceDeleted")}{" "}
                   / {reference.portId}
                   {reference.path.length
                     ? `.${reference.path.join(".")}`
@@ -339,7 +370,7 @@ export function NodeInspector({
               )}
               {draft.errors[field.key] && (
                 <span id={`${id}-error`} className={styles.error}>
-                  {draft.errors[field.key]}
+                  {resolveUiText(locale, draft.errors[field.key])}
                 </span>
               )}
               {field.variableType && (
@@ -351,7 +382,9 @@ export function NodeInspector({
                     disabled={locked}
                     onClick={() => setVariableField(field.key)}
                   >
-                    选择{field.label}变量
+                    {t("nodeInspector.select")}
+                    {resolve(field.labelI18n, field.label)}
+                    {t("nodeInspector.variables")}
                   </Button>
                   {reference && (
                     <Button
@@ -365,7 +398,7 @@ export function NodeInspector({
                         update({ bindings })
                       }}
                     >
-                      移除绑定
+                      {t("nodeInspector.removeBinding")}
                     </Button>
                   )}
                 </div>
@@ -377,12 +410,12 @@ export function NodeInspector({
           .filter(([key]) => key.startsWith("custom"))
           .map(([key, message]) => (
             <p key={key} className={styles.error}>
-              {message}
+              {resolveUiText(locale, message)}
             </p>
           ))}
         <div className={styles.actions}>
           <Button type="submit" disabled={locked}>
-            应用配置
+            {t("nodeInspector.applyConfiguration")}
           </Button>
           <Button
             type="button"
@@ -394,17 +427,17 @@ export function NodeInspector({
               setDrafts(next)
             }}
           >
-            放弃修改
+            {t("nodeInspector.discardChanges")}
           </Button>
         </div>
         <p className={styles.muted}>
-          字段修改在应用前仅保留于当前对象草稿。无效输入不会覆盖图文档。
+          {t("nodeInspector.fieldEditsStayInTheCurrentObjectDraft")}
         </p>
         {issues
           .filter((issue) => issue.nodeId === node.id)
           .map((issue, index) => (
             <p key={index} className={styles.error}>
-              {issue.message}
+              {resolve(issue.messageI18n, issue.message)}
             </p>
           ))}
       </form>
@@ -415,9 +448,11 @@ export function NodeInspector({
         }}
       >
         <DialogContent className={styles.dialog}>
-          <DialogTitle>选择上游变量</DialogTitle>
+          <DialogTitle>{t("nodeInspector.selectUpstreamVariable")}</DialogTitle>
           <DialogDescription>
-            仅展示当前节点可达上游的兼容输出。引用关联稳定 ID。
+            {t(
+              "nodeInspector.onlyCompatibleOutputsReachableUpstreamAreShownReferences",
+            )}
           </DialogDescription>
           {variableField && (
             <VariablePicker

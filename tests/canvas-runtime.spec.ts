@@ -1,3 +1,8 @@
+import {
+  openFrozenCanvas,
+  advanceStages,
+  closeClockDialog,
+} from "./canvas-playback-helpers"
 import { expect, test, type Page } from "@playwright/test"
 import {
   acceptCanvasRunSnapshot,
@@ -99,8 +104,7 @@ async function select(page: Page, title: string) {
   await dialog
     .getByRole("button", { name: `定位 ${title}`, exact: true })
     .click()
-  await dialog.getByRole("button", { name: "关闭弹窗" }).click()
-  await expect(dialog).toBeHidden()
+  await closeClockDialog(page)
 }
 async function execution(page: Page) {
   await page.getByRole("button", { name: "执行调试", exact: true }).click()
@@ -109,12 +113,12 @@ async function execution(page: Page) {
 test("runtime normal, redaction, version ownership and late run rejection", async ({
   page,
 }) => {
-  await page.goto("/workspace/canvas/")
+  await openFrozenCanvas(page)
   const panel = await execution(page)
   await page.getByRole("button", { name: "运行流程", exact: true }).click()
   await expect(panel).toContainText("Run fixture-run")
   const first = (await panel.innerText()).match(/fixture-run-[\w-]+/)![0]
-  await page.getByRole("button", { name: "查询运行", exact: true }).click()
+  await advanceStages(page, 7)
   await expect(
     page.locator('.react-flow__edge-path[ data-execution-status="completed"]'),
   ).toHaveCount(3)
@@ -145,7 +149,7 @@ test("runtime normal, redaction, version ownership and late run rejection", asyn
 test("explicit human approval and unknown writes reconcile before another operation", async ({
   page,
 }) => {
-  await page.goto("/workspace/canvas/")
+  await openFrozenCanvas(page)
   await page.locator("[data-canvas-fixtures] > summary").click()
   await page.getByRole("button", { name: "Agent 扩展", exact: true }).click()
   await page.getByLabel("运行 fixture", { exact: true }).selectOption("unknown")
@@ -159,6 +163,7 @@ test("explicit human approval and unknown writes reconcile before another operat
   await page.getByRole("button", { name: "查询运行", exact: true }).click()
   await expect(panel).not.toContainText("启动运行结果未确认")
   await page.getByRole("button", { name: "查询运行", exact: true }).click()
+  await advanceStages(page, 10)
   await select(page, "Human Approval")
   await page.getByRole("button", { name: "执行详情", exact: true }).click()
   const inspector = page.locator('[data-inspector-object="approval"]')
@@ -172,12 +177,13 @@ test("explicit human approval and unknown writes reconcile before another operat
   ).toHaveCount(0)
   await page.getByRole("button", { name: "查询运行", exact: true }).click()
   await expect(panel).not.toContainText("批准结果未确认")
+  await advanceStages(page, 10)
   await expect(inspector).toContainText("已完成")
 })
 test("stop waits for source cancellation; disconnect preserves data and permits safe reread", async ({
   page,
 }) => {
-  await page.goto("/workspace/canvas/")
+  await openFrozenCanvas(page)
   await page.locator("[data-canvas-fixtures] > summary").click()
   await page
     .getByLabel("运行 fixture", { exact: true })
@@ -194,7 +200,7 @@ test("stop waits for source cancellation; disconnect preserves data and permits 
     page.getByRole("button", { name: "请求停止", exact: true }),
   ).toBeDisabled()
   await expect(panel).not.toContainText("来源确认已停止")
-  await page.getByRole("button", { name: "查询运行", exact: true }).click()
+  await page.clock.runFor(1000)
   await expect(panel).toContainText("来源确认已停止")
   await expect(
     page.getByRole("button", { name: "请求停止", exact: true }),

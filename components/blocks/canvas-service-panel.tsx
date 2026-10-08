@@ -1,4 +1,6 @@
 "use client"
+import { uiMessage, resolveUiText, type UiText } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -78,12 +80,14 @@ export function CanvasServicePanel({
   onRetry,
   readOnly,
 }: CanvasServicePanelProps) {
+  const { t, locale, resolve } = useI18n()
+
   const [restore, setRestore] = useState<string>()
   const [draft, setDraft] = useState("")
   const [local, setLocal] = useState<{
     key: string
     requestId: string
-    message: string
+    message: UiText
     unknown?: boolean
   }>()
   const busy = useRef(false)
@@ -118,21 +122,27 @@ export function CanvasServicePanel({
     setLocal({
       key,
       requestId: command.requestId,
-      message: "请求提交中；结果由来源确认。",
+      message: uiMessage(
+        "canvasServicePanel.submittingRequestTheSourceConfirmsTheResult",
+      ),
     })
     try {
       await onCommand?.(command)
       setLocal({
         key,
         requestId: command.requestId,
-        message: "请求已提交，等待来源确认。",
+        message: uiMessage(
+          "canvasServicePanel.requestSubmittedWaitingForSourceConfirmation",
+        ),
       })
     } catch {
       onUncertain(command)
       setLocal({
         key,
         requestId: command.requestId,
-        message: "结果未确认；查询回执前禁止重复提交。",
+        message: uiMessage(
+          "canvasServicePanel.outcomeUnknownQueryTheReceiptBeforeSubmittingAgain",
+        ),
         unknown: true,
       })
     } finally {
@@ -154,10 +164,13 @@ export function CanvasServicePanel({
     }
   }
   return (
-    <section className={styles.execution} aria-label="服务接入">
+    <section
+      className={styles.execution}
+      aria-label={t("canvasServicePanel.serviceIntegration")}
+    >
       <p className={styles.muted}>
         {redactText(sourceLabel)} · {redactText(serverRevision)}
-        。本地撤销与服务端版本历史分开。
+        {t("canvasServicePanel.localUndoIsSeparateFromServerVersionHistory")}
       </p>
       <DataRegion
         state={state}
@@ -170,17 +183,26 @@ export function CanvasServicePanel({
           error
             ? {
                 ...error,
-                message: redactText(error.message),
-                reason: redactText(error.reason),
+                message: redactText(resolve(error.messageI18n, error.message)),
+                messageI18n: undefined,
+                reason: redactText(resolve(error.reasonI18n, error.reason)),
+                reasonI18n: undefined,
               }
             : undefined
         }
         onRetry={onRetry}
-        emptyTitle="来源尚未提供服务内容"
-        emptyDescription="调用方提供版本、权限、讨论、环境和回执后显示对应内容。"
+        emptyTitle={t(
+          "canvasServicePanel.theSourceHasNotProvidedServiceContent",
+        )}
+        emptyDescription={t(
+          "canvasServicePanel.versionsPermissionsDiscussionsEnvironmentsAndReceiptsAppearWhen",
+        )}
       >
         <details open>
-          <summary>版本历史 · {versions.length}</summary>
+          <summary>
+            {t("canvasServicePanel.versionHistory")}
+            {versions.length}
+          </summary>
           <ul className={styles.list}>
             {versions.map((version) => (
               <li key={version.id} className={styles.actions}>
@@ -195,7 +217,9 @@ export function CanvasServicePanel({
                     disabled={locked}
                     onClick={() => setRestore(version.id)}
                   >
-                    恢复版本 {redactText(version.id)}
+                    {t("canvasServicePanel.restoreVersionWithId", {
+                      id: redactText(version.id),
+                    })}
                   </Button>
                 )}
               </li>
@@ -203,13 +227,17 @@ export function CanvasServicePanel({
           </ul>
         </details>
         <details open>
-          <summary>讨论 · {snapshot.threads.length}（与便笺分开）</summary>
+          <summary>
+            {t("canvasServicePanel.discussions")}
+            {snapshot.threads.length}
+            {t("canvasServicePanel.separateFromNotes")}
+          </summary>
           <ul className={styles.list}>
             {snapshot.threads.map((thread) => (
               <li key={thread.id}>
                 <strong>
                   {redactText(thread.id)}
-                  {thread.resolved ? " · 已解决" : ""}
+                  {thread.resolved ? t("canvasServicePanel.resolved") : ""}
                 </strong>
                 {thread.messages.map((message) => (
                   <p key={message.id}>
@@ -222,7 +250,9 @@ export function CanvasServicePanel({
           </ul>
           {snapshot.permissions.comment && onCommand && (
             <div className={styles.field}>
-              <label htmlFor={`comment-${snapshot.documentId}`}>讨论草稿</label>
+              <label htmlFor={`comment-${snapshot.documentId}`}>
+                {t("canvasServicePanel.discussionDraft")}
+              </label>
               <textarea
                 id={`comment-${snapshot.documentId}`}
                 value={draft}
@@ -240,16 +270,18 @@ export function CanvasServicePanel({
                   })
                 }
               >
-                提交讨论
+                {t("canvasServicePanel.submitDiscussion")}
               </Button>
               <span className={styles.muted}>
-                提交不直接插入消息；草稿保留，等待来源更新 Thread。
+                {t(
+                  "canvasServicePanel.submittingDoesNotInsertAMessageTheDraft",
+                )}
               </span>
             </div>
           )}
         </details>
         <details>
-          <summary>协作 Presence</summary>
+          <summary>{t("canvasServicePanel.collaborationPresence")}</summary>
           <ul>
             {snapshot.presence
               .filter((member) => member.expiresAt > snapshot.asOf)
@@ -257,26 +289,33 @@ export function CanvasServicePanel({
                 <li key={member.memberId}>
                   {redactText(member.name)}
                   {member.cursor
-                    ? ` · 指针 ${member.cursor.x}, ${member.cursor.y}`
+                    ? t("canvas.cursorPosition", {
+                        x: member.cursor.x,
+                        y: member.cursor.y,
+                      })
                     : ""}
                 </li>
               ))}
           </ul>
           <p className={styles.muted}>
-            临时状态，以来源 asOf 和 expiresAt 判定；不写入图文档。
+            {t(
+              "canvasServicePanel.transientStateUsesSourceAsofAndExpiresatValues",
+            )}
           </p>
         </details>
         <div className={styles.actions}>
           {environments.length > 0 && (
             <label>
-              环境
+              {t("canvasServicePanel.environments")}
               <select
-                aria-label="发布环境"
+                aria-label={t("canvasServicePanel.publishEnvironment")}
                 value={environmentId ?? ""}
                 disabled={readOnly || !!waiting || !onEnvironmentChange}
                 onChange={(event) => onEnvironmentChange?.(event.target.value)}
               >
-                <option value="">选择环境</option>
+                <option value="">
+                  {t("canvasServicePanel.selectAnEnvironment")}
+                </option>
                 {environments.map((environment) => (
                   <option
                     key={environment.id}
@@ -306,7 +345,7 @@ export function CanvasServicePanel({
                 })
               }
             >
-              发布已保存版本
+              {t("canvasServicePanel.publishSavedRevision")}
             </Button>
           )}
           {snapshot.permissions.share && onCommand && (
@@ -316,30 +355,34 @@ export function CanvasServicePanel({
               disabled={locked}
               onClick={() => dispatch({ kind: "share" })}
             >
-              请求分享链接
+              {t("canvasServicePanel.requestSharingLink")}
             </Button>
           )}
         </div>
         {publication &&
           (publicationValid ? (
             <p>
-              来源确认发布：{redactText(publication.publicationId)} ·{" "}
+              {t("canvasServicePanel.publicationConfirmedBySource")}
+              {redactText(publication.publicationId)} ·{" "}
               {redactText(publication.environmentId)}
             </p>
           ) : (
             <p className={styles.error}>
-              发布回执属于其他文档或版本，不能证明当前版本已发布。
+              {t(
+                "canvasServicePanel.thisPublicationReceiptBelongsToAnotherDocumentOr",
+              )}
             </p>
           ))}
         {shareUrl && safeUrl(shareUrl) && (
           <a href={safeUrl(shareUrl)} target="_blank" rel="noreferrer">
-            打开来源提供的分享链接
+            {t("canvasServicePanel.openSharingLinkSuppliedBySource")}
           </a>
         )}
       </DataRegion>
       <p role="status">
         {redactText(
-          operation?.message ?? (local?.key === key ? local.message : ""),
+          operation?.message ??
+            (local?.key === key ? resolveUiText(locale, local.message) : ""),
         )}
       </p>
       {unknown && requestId && onQueryReceipt && (
@@ -355,7 +398,9 @@ export function CanvasServicePanel({
               setLocal({
                 key,
                 requestId,
-                message: "查询操作回执失败，原请求和未知结果保留。",
+                message: uiMessage(
+                  "canvasServicePanel.receiptQueryFailedTheOriginalRequestAndUnknown",
+                ),
                 unknown: true,
               })
             } finally {
@@ -363,7 +408,7 @@ export function CanvasServicePanel({
             }
           }}
         >
-          查询操作回执
+          {t("canvasServicePanel.queryOperationReceipt")}
         </Button>
       )}
       <Dialog
@@ -373,10 +418,13 @@ export function CanvasServicePanel({
         }}
       >
         <DialogContent>
-          <DialogTitle>恢复服务端版本</DialogTitle>
+          <DialogTitle>
+            {t("canvasServicePanel.restoreServerVersion")}
+          </DialogTitle>
           <DialogDescription>
-            将版本 {redactText(restore ?? "")}{" "}
-            作为新服务版本。当前本地草稿由调用方保留或合并；这不是本地撤销。
+            {t("canvasServicePanel.useVersion")}
+            {redactText(restore ?? "")}{" "}
+            {t("canvasServicePanel.asANewServerRevisionTheCallerPreserves")}
           </DialogDescription>
           <Button
             disabled={locked || !snapshot.permissions.restore}
@@ -389,7 +437,7 @@ export function CanvasServicePanel({
               setRestore(undefined)
             }}
           >
-            确认恢复版本
+            {t("canvasServicePanel.confirmVersionRestore")}
           </Button>
         </DialogContent>
       </Dialog>

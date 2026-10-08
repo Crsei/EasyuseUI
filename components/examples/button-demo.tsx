@@ -1,9 +1,12 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 
 export function ButtonDemo() {
+  const { t } = useSiteI18n()
+
   const [status, setStatus] = useState<"idle" | "loading" | "saved">("idle")
   const [selected, setSelected] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -24,38 +27,38 @@ export function ButtonDemo() {
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Button loading={status === "loading"} onClick={save}>
           {status === "loading"
-            ? "保存中…"
+            ? t("site.saving2")
             : status === "saved"
-              ? "已保存，重新保存"
-              : "保存更改"}
+              ? t("site.savedSaveAgain")
+              : t("site.saveChanges")}
         </Button>
-        <Button variant="outline">次要操作</Button>
-        <Button variant="ghost">轻量操作</Button>
-        <Button disabled>不可用</Button>
+        <Button variant="outline">{t("site.secondaryAction")}</Button>
+        <Button variant="ghost">{t("site.lightweightAction")}</Button>
+        <Button disabled>{t("site.unavailable3")}</Button>
       </div>
       <div
-        aria-label="按钮尺寸与选中状态"
+        aria-label={t("site.buttonSizesAndSelection")}
         className="flex flex-wrap items-center justify-center gap-2"
       >
         <Button size="sm" variant="secondary">
-          小号 28
+          {t("site.small28")}
         </Button>
-        <Button variant="secondary">标准 32</Button>
+        <Button variant="secondary">{t("site.standard32")}</Button>
         <Button size="lg" variant="secondary">
-          大号 36
+          {t("site.large36")}
         </Button>
         <Button
           variant="ghost"
           aria-pressed={selected}
           onClick={() => setSelected(!selected)}
         >
-          切换选中状态
+          {t("site.toggleSelection")}
         </Button>
       </div>
       <p role="status" className="text-xs text-muted-foreground">
         {status === "saved"
-          ? "演示设置已保存。"
-          : "点击保存，体验加载与禁用状态。"}
+          ? t("site.demoSettingsSaved")
+          : t("site.clickSaveToTryLoadingAndDisabledStates")}
       </p>
     </div>
   )

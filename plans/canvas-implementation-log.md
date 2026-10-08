@@ -111,3 +111,27 @@ M0–M5 的组件能力已实现，M6 的受控接口与本地故障验证已实
 扩大绘图区后，完整回归与消费项目构建并行时测得200节点冷启动2086ms，超过2s；随后消费项目构建结束，单worker性能复验2项通过：冷启动1778ms、Inspector p9550.3ms、连续拖动51.3fps，达到原预算。共享主机负载限制仍适用，未放宽预算。
 
 最新日志、原始性能样本和截图统一保存于 `test-results/canvas-layout-validation/`；四尺寸生产截图位于其中的 `regression/canvas-full-window-*.png`，独立安装截图为 `consumer-installed.png`。此前M4–M6证据继续保留于 `test-results/canvas-validation/`。复用现有3010开发服务，没有重启或停止其他服务。
+
+
+## 逐节点播放、执行动画与国际化交付（2026-10-08）
+
+运行示例现在按稳定拓扑顺序自动播放节点和连线阶段，提供暂停、单步、0.5/1/2倍速，以及流光/粒子/关闭三种动画。公共组件通过可选 `CanvasExecutionVisuals` 和 `runtimeToolbar` 接收展示配置，演示计时器留在 examples；查询为纯读取。审批、未知结果、断线、页面隐藏和版本变化按来源契约暂停或清理任务。减少动态效果时保留静态运行状态，关闭动画不改变运行结果。
+
+修复框选节点时 React Flow 自动选择关联边导致节点选择被清空的问题；保持直接选择连线、Shift 多选、全选、键盘和触摸操作。文档、Catalog、Registry、AGENTS 与中英文资源一并更新。
+
+按用户授权，交付包含原有国际化改动和本次播放功能。为避开共享工作区内并行进行的优化、Blog 和新增基础组件工作，使用独立源码候选与独立 Git index 验证和提交；这些其他工作保留在原工作区。以下结果针对本次提交候选，不代表其他未提交改动的验收。
+
+| 检查 | 结果 |
+| --- | --- |
+| `pnpm lint` / `pnpm typecheck` | 通过 |
+| `pnpm check:i18n` | 通过：828条可分发消息、1665条站点消息及 Registry 闭包 |
+| `pnpm build` | Webpack 生产构建通过：47项 Registry、50个页面 |
+| 播放与运行定向测试 | 17项通过 |
+| `pnpm test` | 110项完整回归通过，包含真实计时自动播放、粒子移动、暂停/单步/倍速、审批/失败/断线、框选、多选、触摸及切换语言保留编辑器状态 |
+| `pnpm test:install` | 独立安装72个文件；消费项目 TypeScript、生产构建、浏览器操作通过，验证粒子2倍速与暂停及配套 CSS |
+
+完整回归日志：`/tmp/easyuse-canvas-full-tests.log`；独立安装日志：`/tmp/easyuse-canvas-install.log`；消费项目：`../.tmp/easyuse-ui-consumer-eL4kHD`。消费项目内 `canvas-installed.png` 为安装截图，不作为运行中动画截图。原开发服务继续复用，未重启。
+
+性能预算仍为首次可操作≤2s、Inspector p95≤100ms、持续拖动≥30fps。共享主机完整回归（2 workers）中，200节点冷启动为2130ms，略超2s预算，Inspector p95为53.3ms、拖动49.9fps。随后独立单 worker 性能复测2项通过：200节点冷启动1931ms、Inspector p95为53.2ms、拖动47.7fps；50/200节点暖切换为495/854ms。两次结果均保留；单次达标不代表所有共享负载均满足预算。复测日志：`/tmp/easyuse-canvas-performance.log`。
+
+本轮完成受控接口与本地演示验证；真实模型/工具执行、运行暂停协议、存储和发布服务仍待接入，不以本地阶段播放替代业务回执。

@@ -1,7 +1,9 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { memo, useEffect, useMemo, useRef, useState } from "react"
 import {
+  type AriaLabelConfig,
   ReactFlow,
   ReactFlowProvider,
   Background,
@@ -33,6 +35,7 @@ import {
   type CanvasSelection,
   type CanvasIssue,
   type CanvasExecutionSnapshot,
+  type CanvasExecutionVisuals,
   type CanvasFrameRecord,
   type CanvasNoteRecord,
   type CanvasPoint,
@@ -49,6 +52,7 @@ type FlowNode = Node<
     readOnly: boolean
     issues: CanvasIssue[]
     status?: string
+    executionVisuals?: CanvasExecutionVisuals
     outcome?: "known" | "unknown"
     fallbackPorts: CanvasNodeDefinition["ports"]
   },
@@ -91,6 +95,7 @@ export type WorkflowCanvasProps = {
   readOnly?: boolean
   issues?: CanvasIssue[]
   execution?: CanvasExecutionSnapshot
+  executionVisuals?: CanvasExecutionVisuals
   onContextMenu?: () => void
   focusRequest?: { id: string; request: number }
   viewport?: CanvasDocument["viewport"]
@@ -115,6 +120,7 @@ function CanvasViewport({
   readOnly = false,
   issues = noIssues,
   execution,
+  executionVisuals,
   onContextMenu,
   focusRequest,
   className,
@@ -123,6 +129,8 @@ function CanvasViewport({
   onViewportChange,
   onOpenNode,
 }: WorkflowCanvasProps) {
+  const { t } = useI18n()
+
   const locked = readOnly || !onCommand
   const [pan, setPan] = useState(true)
   const [positions, setPositions] = useState<{
@@ -133,6 +141,39 @@ function CanvasViewport({
     Record<string, { width: number; height: number }>
   >({})
   const reconnecting = useRef<string | undefined>(undefined)
+  const boxSelecting = useRef(false)
+  const ariaLabelConfig = useMemo<Partial<AriaLabelConfig>>(
+    () => ({
+      "node.a11yDescription.default": t(
+        locked ? "canvas.nodeReadOnlyInstructions" : "canvas.nodeInstructions",
+      ),
+      "node.a11yDescription.keyboardDisabled": t(
+        "canvas.nodeReadOnlyInstructions",
+      ),
+      "node.a11yDescription.ariaLiveMessage": ({ direction, x, y }) =>
+        t("canvas.movedNode", {
+          direction:
+            direction === "left"
+              ? t("canvas.left")
+              : direction === "right"
+                ? t("canvas.right")
+                : direction === "up"
+                  ? t("canvas.up")
+                  : direction === "down"
+                    ? t("canvas.down")
+                    : direction,
+          x,
+          y,
+        }),
+      "edge.a11yDescription.default": t(
+        locked ? "canvas.nodeReadOnlyInstructions" : "canvas.edgeInstructions",
+      ),
+      "controls.ariaLabel": t("canvas.controls"),
+      "minimap.ariaLabel": t("canvas.minimap"),
+      "handle.ariaLabel": t("canvas.handle"),
+    }),
+    [locked, t],
+  )
   const flow = useReactFlow()
   const { zoom } = useViewport()
   const initialized = useNodesInitialized()
@@ -168,7 +209,7 @@ function CanvasViewport({
         id: record.id,
         type: "canvas" as const,
         position: record.position,
-        ariaLabel: `${record.title} 节点`,
+        ariaLabel: t("common.valueNode", { value0: record.title }),
         hidden:
           !!record.parentId && collapsedFrameIds.includes(record.parentId),
         data: {
@@ -177,6 +218,7 @@ function CanvasViewport({
           readOnly: locked,
           issues: issues.filter((i) => i.nodeId === record.id),
           status: snapshot?.nodes[record.id]?.status,
+          executionVisuals,
           outcome: snapshot?.nodes[record.id]?.outcome,
           fallbackPorts: [
             ...new Map(
@@ -214,7 +256,16 @@ function CanvasViewport({
         data: { note },
       })),
     ]
-  }, [document, definitions, issues, execution, locked, collapsedFrameIds])
+  }, [
+    document,
+    definitions,
+    issues,
+    execution,
+    executionVisuals,
+    locked,
+    collapsedFrameIds,
+    t,
+  ])
   const nodes = useMemo<AnyNode[]>(
     () =>
       baseNodes.map((node) => {
@@ -263,6 +314,7 @@ function CanvasViewport({
             collapsedFrameIds.includes(node.parentId),
         ),
         data: {
+          executionVisuals,
           status:
             execution?.documentId === document.id &&
             execution?.documentRevision === document.revision
@@ -270,7 +322,7 @@ function CanvasViewport({
               : undefined,
         },
       })),
-    [document, execution, collapsedFrameIds],
+    [document, execution, executionVisuals, collapsedFrameIds],
   )
   const edges = useMemo(
     () =>
@@ -418,7 +470,7 @@ function CanvasViewport({
   return (
     <div
       className={cn(styles.canvas, className)}
-      aria-label="流程画布"
+      aria-label={t("workflowCanvas.workflowCanvas")}
       data-canvas-ready={initialized}
       onDragOver={(event) => {
         if (
@@ -536,6 +588,7 @@ function CanvasViewport({
       }}
     >
       <ReactFlow
+        ariaLabelConfig={ariaLabelConfig}
         onlyRenderVisibleElements={initialized && document.nodes.length > 50}
         nodes={nodes}
         edges={edges}
@@ -553,11 +606,20 @@ function CanvasViewport({
         maxZoom={2}
         panOnDrag={pan ? true : [1, 2]}
         selectionOnDrag={!pan}
+        onSelectionStart={() => {
+          boxSelecting.current = true
+        }}
+        onSelectionEnd={() => {
+          boxSelecting.current = false
+        }}
         multiSelectionKeyCode="Shift"
         selectNodesOnDrag={false}
         onNodesChange={changes}
         onNodeClick={(event, node) => select(node, event.shiftKey)}
         onEdgesChange={(changes) => {
+          // React Flow auto-selects connected edges during a node box gesture.
+          // Those events must not replace the controlled node selection.
+          if (boxSelecting.current) return
           const selected = new Set(selection.edgeIds)
           let changed = false
           for (const change of changes)
@@ -639,16 +701,18 @@ function CanvasViewport({
           <Button
             variant="outline"
             size="icon"
-            aria-label="缩小画布"
+            aria-label={t("workflowCanvas.zoomOut")}
             onClick={() => flow.zoomOut({ duration: 0 })}
           >
             <ZoomOut />
           </Button>
-          <output aria-label="画布缩放比例">{Math.round(zoom * 100)}%</output>
+          <output aria-label={t("workflowCanvas.canvasZoomLevel")}>
+            {Math.round(zoom * 100)}%
+          </output>
           <Button
             variant="outline"
             size="icon"
-            aria-label="放大画布"
+            aria-label={t("workflowCanvas.zoomIn")}
             onClick={() => flow.zoomIn({ duration: 0 })}
           >
             <ZoomIn />
@@ -656,7 +720,7 @@ function CanvasViewport({
           <Button
             variant="outline"
             size="icon"
-            aria-label="适应全部节点"
+            aria-label={t("workflowCanvas.fitAllNodes")}
             onClick={() =>
               flow.fitBounds(flow.getNodesBounds(flow.getNodes()), {
                 padding: 0.16,
@@ -669,7 +733,11 @@ function CanvasViewport({
           <Button
             variant="outline"
             size="icon"
-            aria-label={pan ? "切换为选择模式" : "切换为平移模式"}
+            aria-label={
+              pan
+                ? t("workflowCanvas.switchToSelectionMode")
+                : t("workflowCanvas.switchToPanMode")
+            }
             aria-pressed={!pan}
             onClick={() => setPan((value) => !value)}
           >
@@ -682,7 +750,7 @@ function CanvasViewport({
           nodeColor="var(--canvas-node-surface)"
           nodeStrokeColor="var(--canvas-node-border)"
           maskColor="var(--canvas-minimap-mask)"
-          ariaLabel="流程缩略图"
+          ariaLabel={t("workflowCanvas.workflowMinimap")}
         />
       </ReactFlow>
     </div>

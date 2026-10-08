@@ -1,4 +1,6 @@
 "use client"
+import { useSiteFeedback, siteMessage } from "@/components/site/site-i18n"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useState } from "react"
 import { FileText, MoreHorizontal } from "lucide-react"
@@ -6,13 +8,15 @@ import { Item } from "@/components/ui/item"
 import { Button } from "@/components/ui/button"
 
 export function ItemDemo() {
+  const { t } = useSiteI18n()
+
   const [selected, setSelected] = useState("spec")
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useSiteFeedback("")
   return (
     <div className="w-full space-y-2">
       <Item
         title="Component Specification"
-        description="双行 Item · 56px"
+        description={t("site.twoLineItem56px")}
         leading={<FileText />}
         selected={selected === "spec"}
         onSelect={() => setSelected("spec")}
@@ -20,8 +24,12 @@ export function ItemDemo() {
           <Button
             variant="ghost"
             size="icon-sm"
-            aria-label="查看规范操作"
-            onClick={() => setMessage("这是独立的尾部操作，不会触发行选择。")}
+            aria-label={t("site.inspectSpecificationAction")}
+            onClick={() =>
+              setMessage(
+                siteMessage("site.thisIsAnIndependentTrailingActionItDoesNot"),
+              )
+            }
           >
             <MoreHorizontal />
           </Button>
@@ -33,24 +41,29 @@ export function ItemDemo() {
         selected={selected === "rules"}
         onSelect={() => setSelected("rules")}
       />
-      <Item title="静态信息，不接收点击" density="compact" />
       <Item
-        title="不可选择"
+        title={t("site.staticInformationDoesNotReceiveClicks")}
+        density="compact"
+      />
+      <Item
+        title={t("site.notSelectable")}
         onSelect={() => setSelected("disabled")}
         disabled
       />
       <Item
-        title="正在读取对象"
+        title={t("site.readingObject")}
         loading
         onSelect={() => setSelected("loading")}
       />
       <Item
-        title="保留已读取内容"
-        error="请求错误：演示读取中断。已有内容保留，请重新读取。"
+        title={t("site.previouslyReadContentPreserved")}
+        error={t(
+          "site.requestErrorDemoReadInterruptedExistingContentPreservedRetry",
+        )}
         onSelect={() => setSelected("error")}
       />
       <p role="status" className="text-xs text-muted-foreground">
-        {message || `当前选择：${selected}`}
+        {message || t("site.currentSelectionValue", { value0: selected })}
       </p>
     </div>
   )

@@ -1,6 +1,17 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { uiMessage } from "@/lib/i18n-core"
+import { UiError } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
-import { useEffect, useId, useMemo, useRef, useState } from "react"
+import {
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react"
 import {
   Plus,
   Undo2,
@@ -29,6 +40,8 @@ import {
   type CanvasServicePanelProps,
 } from "@/components/blocks/canvas-service-panel"
 import type { CanvasPersistenceController } from "@/lib/use-canvas-persistence"
+import { canvasRuntimeUnknown } from "@/lib/canvas-runtime"
+import type { CanvasExecutionVisuals } from "@/lib/canvas-model"
 import type { CanvasRuntimeController } from "@/lib/use-canvas-runtime"
 import { WorkspaceShell } from "@/components/blocks/workspace-shell"
 import { WorkflowCanvas } from "@/components/blocks/workflow-canvas"
@@ -87,6 +100,8 @@ export type CanvasWorkspaceProps = {
   services?: CanvasServicePanelProps
   persistence?: CanvasPersistenceController
   runtime?: CanvasRuntimeController
+  executionVisuals?: CanvasExecutionVisuals
+  runtimeToolbar?: ReactNode
   catalogs?: CanvasCatalogs
   viewport?: CanvasDocument["viewport"]
   onViewportChange?: (viewport: NonNullable<CanvasDocument["viewport"]>) => void
@@ -114,6 +129,8 @@ export function CanvasWorkspace({
   feedback,
   onDirtyChange,
   runtime,
+  executionVisuals,
+  runtimeToolbar,
   persistence,
   services,
   catalogs,
@@ -121,6 +138,8 @@ export function CanvasWorkspace({
   onViewportChange,
   onOpenNode,
 }: CanvasWorkspaceProps) {
+  const { t, resolve } = useI18n()
+
   const [collapsed, setCollapsed] = useState<string[]>([])
   const [recent, setRecent] = useState<string[]>([])
   const [commandQuery, setCommandQuery] = useState("")
@@ -129,6 +148,27 @@ export function CanvasWorkspace({
   const [bottomOpen, setBottomOpen] = useState(layout !== "fill")
   const bottomId = useId()
   const locked = readOnly || !onCommand
+  const sourceFrozen =
+    !!runtime &&
+    (runtime.state.transport === "disconnected" ||
+      !!runtime.state.readError ||
+      !!runtime.state.uncertain ||
+      canvasRuntimeUnknown(runtime.state.snapshot) ||
+      !["starting", "running", "thinking", "queued"].includes(
+        runtime.state.snapshot?.status ?? "",
+      ))
+  const effect = executionVisuals?.edgeEffect,
+    speed = executionVisuals?.speed,
+    visualPaused = executionVisuals?.paused
+  // Selection changes must not recreate every node's execution presentation.
+  const flowVisuals = useMemo<CanvasExecutionVisuals>(
+    () => ({
+      edgeEffect: effect,
+      speed,
+      paused: visualPaused || sourceFrozen,
+    }),
+    [effect, speed, visualPaused, sourceFrozen],
+  )
   const [dialog, setDialog] = useState<
     | "palette"
     | "connect"
@@ -141,8 +181,8 @@ export function CanvasWorkspace({
   >(null)
   const [query, setQuery] = useState("")
   const [json, setJson] = useState("")
-  const [fileError, setFileError] = useState("")
-  const [localFeedback, setLocalFeedback] = useState("")
+  const [fileError, setFileError] = useUiFeedback("")
+  const [localFeedback, setLocalFeedback] = useUiFeedback("")
   const [locate, setLocate] = useState<{ id: string; request: number }>()
   const [checkpoint, setCheckpoint] = useState(() => fingerprint(graph))
   const [draftStore, setDraftStore] = useState<
@@ -219,8 +259,8 @@ export function CanvasWorkspace({
     setHasClipboard(!!clipboard.current.nodes.length)
     setLocalFeedback(
       clipboard.current.nodes.length
-        ? "已复制到画布内存剪贴板。"
-        : "请先选择要复制的节点。",
+        ? uiMessage("canvasWorkspace.copiedToTheCanvasInMemoryClipboard")
+        : uiMessage("canvasWorkspace.selectNodesToCopyFirst"),
     )
   }
   function paste() {
@@ -296,12 +336,12 @@ export function CanvasWorkspace({
   const nodeList = (
     <div className={styles.navigation}>
       <label className={styles.field}>
-        查找图中节点
+        {t("canvasWorkspace.findNodesInGraph")}
         <Input
-          aria-label="查找图中节点"
+          aria-label={t("canvasWorkspace.findNodesInGraph")}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="节点标题或 ID"
+          placeholder={t("canvasWorkspace.nodeTitleOrId")}
         />
       </label>
       <ul className={styles.list}>
@@ -315,7 +355,7 @@ export function CanvasWorkspace({
             <li key={node.id}>
               <button
                 className={styles.nodeLink}
-                aria-label={`定位 ${node.title}`}
+                aria-label={t("common.locateValue", { value0: node.title })}
                 aria-pressed={selection.nodeIds.includes(node.id)}
                 onClick={(event) => selectNode(node.id, event.shiftKey)}
               >
@@ -328,7 +368,11 @@ export function CanvasWorkspace({
         `${node.title} ${node.id}`
           .toLowerCase()
           .includes(query.trim().toLowerCase()),
-      ) && <p className={styles.muted}>没有匹配的图中节点。</p>}
+      ) && (
+        <p className={styles.muted}>
+          {t("canvasWorkspace.noMatchingNodesInThisGraph")}
+        </p>
+      )}
     </div>
   )
   const operations = (
@@ -339,7 +383,7 @@ export function CanvasWorkspace({
         onClick={copy}
       >
         <Copy />
-        复制节点
+        {t("canvasWorkspace.copyNodes")}
       </Button>
       <Button
         variant="outline"
@@ -347,7 +391,7 @@ export function CanvasWorkspace({
         onClick={paste}
       >
         <ClipboardPaste />
-        粘贴节点
+        {t("canvasWorkspace.pasteNodes")}
       </Button>
       <Button
         variant="outline"
@@ -355,7 +399,9 @@ export function CanvasWorkspace({
         onClick={remove}
       >
         <Trash2 />
-        {frame ? "删除分组并解组" : "删除选中对象"}
+        {frame
+          ? t("canvasWorkspace.deleteGroupAndUngroupMembers")
+          : t("canvasWorkspace.deleteSelection")}
       </Button>
       <Button
         variant="outline"
@@ -363,28 +409,28 @@ export function CanvasWorkspace({
         onClick={group}
       >
         <Group />
-        将选中节点分组
+        {t("canvasWorkspace.groupSelectedNodes")}
       </Button>
       <Button
         variant="outline"
         disabled={locked || selection.nodeIds.length < 2}
         onClick={() => align("x")}
       >
-        左对齐
+        {t("canvasWorkspace.alignLeft")}
       </Button>
       <Button
         variant="outline"
         disabled={locked || selection.nodeIds.length < 2}
         onClick={() => align("y")}
       >
-        顶对齐
+        {t("canvasWorkspace.alignTop")}
       </Button>
       <Button
         variant="outline"
         disabled={locked || selection.nodeIds.length < 3}
         onClick={() => align("distribute")}
       >
-        水平分布
+        {t("canvasWorkspace.distributeHorizontally")}
       </Button>
       <Button
         variant="outline"
@@ -394,14 +440,14 @@ export function CanvasWorkspace({
             type: "note",
             note: {
               id: canvasId("note"),
-              text: "说明此处流程的意图。",
+              text: t("canvasWorkspace.describeTheIntentOfThisWorkflowSection"),
               position: { x: 80, y: 400 },
             },
           })
         }
       >
         <StickyNote />
-        添加便笺
+        {t("canvasWorkspace.addNote")}
       </Button>
     </div>
   )
@@ -460,8 +506,11 @@ export function CanvasWorkspace({
         className={styles.workspace}
         title={
           <span>
-            Canvas · {locked ? "只读" : "本地草稿"}
-            {dirty ? " · 未导出修改" : ""}
+            Canvas ·{" "}
+            {locked
+              ? t("canvasWorkspace.readOnly")
+              : t("canvasWorkspace.localDraft")}
+            {dirty ? t("canvasWorkspace.changesNotExported") : ""}
           </span>
         }
         sidebar={
@@ -474,7 +523,7 @@ export function CanvasWorkspace({
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label="打开节点目录"
+                aria-label={t("canvasWorkspace.openNodePalette")}
                 onClick={() => setDialog("palette")}
               >
                 <Plus />
@@ -482,7 +531,7 @@ export function CanvasWorkspace({
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label="查找图中节点"
+                aria-label={t("canvasWorkspace.findNodesInGraph")}
                 onClick={() => setDialog("nodes")}
               >
                 <Search />
@@ -498,12 +547,12 @@ export function CanvasWorkspace({
               onClick={() => setDialog("palette")}
             >
               <Plus />
-              添加节点
+              {t("canvasWorkspace.addNode")}
             </Button>
             <Button
               variant="outline"
               size="icon"
-              aria-label="撤销编辑"
+              aria-label={t("canvasWorkspace.undoEdit")}
               disabled={locked || !canUndo}
               onClick={onUndo}
             >
@@ -512,7 +561,7 @@ export function CanvasWorkspace({
             <Button
               variant="outline"
               size="icon"
-              aria-label="重做编辑"
+              aria-label={t("canvasWorkspace.redoEdit")}
               disabled={locked || !canRedo}
               onClick={onRedo}
             >
@@ -525,12 +574,12 @@ export function CanvasWorkspace({
               onClick={() => setDialog("connect")}
             >
               <Link2 />
-              连接端口
+              {t("canvasWorkspace.connectPorts")}
             </Button>
             <Button
               variant="outline"
               size="icon"
-              aria-label="打开画布操作"
+              aria-label={t("canvasWorkspace.openCanvasActions")}
               onClick={() => setDialog("operations")}
             >
               <MoreHorizontal />
@@ -538,7 +587,7 @@ export function CanvasWorkspace({
             <Button
               variant="outline"
               size="icon"
-              aria-label="查找图中节点"
+              aria-label={t("canvasWorkspace.findNodesInGraph")}
               onClick={() => setDialog("nodes")}
             >
               <Search />
@@ -557,22 +606,25 @@ export function CanvasWorkspace({
             <Button
               variant="ghost"
               size="icon"
-              aria-label="键盘快捷键"
+              aria-label={t("canvasWorkspace.keyboardShortcuts")}
               onClick={() => setDialog("help")}
             >
               <Keyboard />
             </Button>
             {persistence && (
-              <div className={styles.actions} aria-label="文档保存">
+              <div
+                className={styles.actions}
+                aria-label={t("canvasWorkspace.documentSaving")}
+              >
                 <span role="status">
                   {
                     {
-                      saved: "服务已确认保存",
-                      dirty: "未保存修改",
-                      saving: "保存中",
-                      error: "保存失败",
-                      conflict: "版本冲突",
-                      unknown: "保存结果未确认",
+                      saved: t("canvasWorkspace.saveConfirmedByService"),
+                      dirty: t("canvasWorkspace.unsavedChanges"),
+                      saving: t("canvasWorkspace.saving"),
+                      error: t("canvasWorkspace.saveFailed"),
+                      conflict: t("canvasWorkspace.revisionConflict"),
+                      unknown: t("canvasWorkspace.saveOutcomeUnknown"),
                     }[persistence.state.status]
                   }{" "}
                   · {persistence.state.serverRevision}
@@ -586,7 +638,7 @@ export function CanvasWorkspace({
                   }
                   onClick={persistence.save}
                 >
-                  保存文档
+                  {t("canvasWorkspace.saveDocument")}
                 </Button>
                 {persistence.state.status === "unknown" && (
                   <Button
@@ -594,7 +646,7 @@ export function CanvasWorkspace({
                     variant="outline"
                     onClick={persistence.query}
                   >
-                    查询保存回执
+                    {t("canvasWorkspace.querySaveReceipt")}
                   </Button>
                 )}
                 {persistence.state.message && (
@@ -613,6 +665,7 @@ export function CanvasWorkspace({
                 readOnly={locked}
               />
             )}
+            {runtimeToolbar}
             <Button
               size="sm"
               variant="outline"
@@ -621,14 +674,17 @@ export function CanvasWorkspace({
                 setDialog("commands")
               }}
             >
-              命令搜索
+              {t("canvasWorkspace.commandSearch")}
             </Button>
             <span>
-              {graph.nodes.length} 节点 · {graph.edges.length} 连线
+              {t("canvasWorkspace.graphCounts", {
+                nodes: graph.nodes.length,
+                edges: graph.edges.length,
+              })}
             </span>
           </div>
         }
-        inspectorTitle="节点与连接"
+        inspectorTitle={t("canvasWorkspace.nodesAndConnections")}
         inspector={
           <>
             {(runtime || services) && (
@@ -639,7 +695,7 @@ export function CanvasWorkspace({
                   aria-pressed={inspectorView === "config"}
                   onClick={() => setInspectorView("config")}
                 >
-                  配置
+                  {t("canvasWorkspace.configuration")}
                 </Button>
                 <Button
                   size="sm"
@@ -647,7 +703,7 @@ export function CanvasWorkspace({
                   aria-pressed={inspectorView === "execution"}
                   onClick={() => setInspectorView("execution")}
                 >
-                  执行详情
+                  {t("canvasWorkspace.executionDetails")}
                 </Button>
               </div>
             )}
@@ -663,11 +719,11 @@ export function CanvasWorkspace({
               <Inspector
                 object={{
                   id: edge.id,
-                  title: edge.label ?? "连线",
+                  title: edge.label ?? t("canvasWorkspace.edge"),
                   kind: "Edge",
                   metadata: [
-                    { label: "来源", value: edge.source },
-                    { label: "目标", value: edge.target },
+                    { label: t("canvasWorkspace.source"), value: edge.source },
+                    { label: t("canvasWorkspace.target"), value: edge.target },
                   ],
                 }}
               >
@@ -695,7 +751,7 @@ export function CanvasWorkspace({
                   kind: "Frame",
                   metadata: [
                     {
-                      label: "成员数",
+                      label: t("canvasWorkspace.members"),
                       value: graph.nodes.filter(
                         (node) => node.parentId === frame.id,
                       ).length,
@@ -704,7 +760,7 @@ export function CanvasWorkspace({
                 }}
               >
                 <p className={styles.muted}>
-                  此分组仅组织视觉。移动分组会整体移动成员。折叠隐藏成员及其连线，不删除图文档。
+                  {t("canvasWorkspace.thisGroupIsVisualOnlyMovingItMoves")}
                 </p>
                 <Button
                   variant="outline"
@@ -716,10 +772,12 @@ export function CanvasWorkspace({
                     )
                   }
                 >
-                  {collapsed.includes(frame.id) ? "展开分组" : "折叠分组"}
+                  {collapsed.includes(frame.id)
+                    ? t("canvasWorkspace.expandGroup")
+                    : t("canvasWorkspace.collapseGroup")}
                 </Button>
                 <p className={styles.muted}>
-                  关联连线：
+                  {t("canvasWorkspace.relatedEdges")}
                   {
                     graph.edges.filter((edge) =>
                       graph.nodes.some(
@@ -729,10 +787,10 @@ export function CanvasWorkspace({
                       ),
                     ).length
                   }{" "}
-                  条（原端点保留）
+                  {t("canvasWorkspace.originalEndpointsPreserved")}
                 </p>
                 <Button variant="outline" disabled={locked} onClick={remove}>
-                  删除分组并解组
+                  {t("canvasWorkspace.deleteGroupAndUngroupMembers")}
                 </Button>
               </Inspector>
             ) : (
@@ -764,7 +822,8 @@ export function CanvasWorkspace({
                   setBottomOpen(true)
                 }}
               >
-                文档校验{issues.length > 0 ? ` · ${issues.length}` : ""}
+                {t("canvasWorkspace.documentValidation")}
+                {issues.length > 0 ? ` · ${issues.length}` : ""}
               </Button>
               {runtime && (
                 <Button
@@ -776,7 +835,7 @@ export function CanvasWorkspace({
                     setBottomOpen(true)
                   }}
                 >
-                  执行调试
+                  {t("canvasExecutionPanel.executionDebugger")}
                 </Button>
               )}
               {services && (
@@ -789,7 +848,7 @@ export function CanvasWorkspace({
                     setBottomOpen(true)
                   }}
                 >
-                  服务接入
+                  {t("canvasServicePanel.serviceIntegration")}
                 </Button>
               )}
               {!bottomOpen && (localFeedback || feedback) && (
@@ -801,7 +860,11 @@ export function CanvasWorkspace({
                 size="icon-sm"
                 variant="ghost"
                 className={styles.bottomToggle}
-                aria-label={bottomOpen ? "收起底部面板" : "展开底部面板"}
+                aria-label={
+                  bottomOpen
+                    ? t("canvasWorkspace.collapseBottomPanel")
+                    : t("canvasWorkspace.expandBottomPanel")
+                }
                 aria-expanded={bottomOpen}
                 aria-controls={bottomId}
                 onClick={() => setBottomOpen((open) => !open)}
@@ -828,18 +891,29 @@ export function CanvasWorkspace({
               ) : (
                 <>
                   <div className={styles.actions}>
-                    <h3>文档校验 · {issues.length} 项</h3>
+                    <h3>
+                      {t("canvasWorkspace.documentValidation2")}
+                      {issues.length} {t("canvasWorkspace.issues")}
+                    </h3>
                     <span className={styles.muted}>
                       {persistence ? (
                         persistence.state.status === "saved" ? (
-                          "服务已确认当前版本"
+                          t("canvasWorkspace.currentRevisionConfirmedByService")
                         ) : (
-                          "本地草稿等待服务确认"
+                          t(
+                            "canvasWorkspace.localDraftAwaitingServiceConfirmation",
+                          )
                         )
                       ) : (
                         <>
-                          {dirty ? "有未导出修改" : "当前初始版本或已导出版本"}{" "}
-                          · 内存文档，刷新或离开后丢失
+                          {dirty
+                            ? t("canvasWorkspace.changesNotExported2")
+                            : t(
+                                "canvasWorkspace.initialOrExportedRevision",
+                              )}{" "}
+                          {t(
+                            "canvasWorkspace.inMemoryDocumentLostOnReloadOrNavigation",
+                          )}
                         </>
                       )}
                     </span>
@@ -847,7 +921,7 @@ export function CanvasWorkspace({
                   <p role="status" aria-live="polite" className={styles.muted}>
                     {localFeedback ||
                       feedback ||
-                      "可从节点目录添加，也可通过连接端口表单构图。"}
+                      t("canvasWorkspace.addNodesFromThePaletteOrConnectThem")}
                   </p>
                   {issues.length ? (
                     <ul>
@@ -864,15 +938,19 @@ export function CanvasWorkspace({
                                 })
                             }}
                           >
-                            {issue.severity === "error" ? "错误" : "提示"} ·{" "}
-                            {issue.message}
+                            {issue.severity === "error"
+                              ? t("canvasWorkspace.error")
+                              : t("canvasWorkspace.notice")}{" "}
+                            · {resolve(issue.messageI18n, issue.message)}
                           </button>
                         </li>
                       ))}
                     </ul>
                   ) : (
                     <p className={styles.muted}>
-                      未发现结构或配置问题。这不表示流程已执行。
+                      {t(
+                        "canvasWorkspace.noStructuralOrConfigurationIssuesFoundThisDoes",
+                      )}
                     </p>
                   )}
                 </>
@@ -901,20 +979,25 @@ export function CanvasWorkspace({
             error={error}
             onRetry={onRetry}
             refreshing={refreshing}
-            emptyTitle="从一个节点开始构图"
-            emptyDescription="添加 Input、Agent、Tool 和 Output，并连接它们的端口。"
+            emptyTitle={t("canvasWorkspace.startWithOneNode")}
+            emptyDescription={t(
+              "canvasWorkspace.addInputAgentToolAndOutputNodesAnd",
+            )}
             emptyAction={
               <Button disabled={locked} onClick={() => setDialog("palette")}>
-                添加第一个节点
+                {t("canvasWorkspace.addTheFirstNode")}
               </Button>
             }
-            partialDescription="图文档尚未完整，保留当前已读取的内容。"
+            partialDescription={t(
+              "canvasWorkspace.theGraphDocumentIsIncompleteAlreadyLoadedContent",
+            )}
           >
             <div className={styles.canvasSurface}>
               <WorkflowCanvas
                 document={graph}
                 definitions={definitions}
                 execution={runtime?.state.snapshot}
+                executionVisuals={flowVisuals}
                 collapsedFrameIds={collapsed}
                 viewport={viewport}
                 onViewportChange={onViewportChange}
@@ -941,54 +1024,56 @@ export function CanvasWorkspace({
           <DialogTitle>
             {
               {
-                palette: "添加节点",
-                connect: "连接端口",
-                operations: "画布操作",
-                help: "键盘快捷键",
-                json: "图文档 JSON",
-                nodes: "查找图中节点",
-                commands: "命令搜索",
+                palette: t("canvasWorkspace.addNode"),
+                connect: t("canvasWorkspace.connectPorts"),
+                operations: t("canvasWorkspace.canvasActions"),
+                help: t("canvasWorkspace.keyboardShortcuts"),
+                json: t("canvasWorkspace.graphDocumentJson"),
+                nodes: t("canvasWorkspace.findNodesInGraph"),
+                commands: t("canvasWorkspace.commandSearch"),
               }[dialog ?? "help"]
             }
           </DialogTitle>
           <DialogDescription>
             {dialog === "json"
-              ? "导出仅含脱敏后的图配置，不含运行快照。导入会替换本地草稿，可撤销。"
-              : "所有修改仅作用于当前内存图文档。"}
+              ? t(
+                  "canvasWorkspace.exportsIncludeOnlyRedactedGraphConfigurationWithoutExecution",
+                )
+              : t("canvasWorkspace.allEditsAffectOnlyTheCurrentInMemory")}
           </DialogDescription>
           {dialog === "palette" && palette}
           {dialog === "nodes" && nodeList}
           {dialog === "commands" && (
             <div className={styles.form}>
               <Input
-                aria-label="搜索命令或节点"
+                aria-label={t("canvasWorkspace.searchCommandsOrNodes")}
                 autoFocus
                 value={commandQuery}
                 onChange={(event) => setCommandQuery(event.target.value)}
-                placeholder="添加、定位、对齐、撤销"
+                placeholder={t("canvasWorkspace.addLocateAlignUndo")}
               />
               {[
                 ...definitions.map((def) => ({
                   id: `add-${def.type}`,
-                  label: `添加 ${def.label}`,
+                  label: t("common.addValue", { value0: def.label }),
                   disabled: locked,
                   action: () => add(def),
                 })),
                 ...graph.nodes.map((node) => ({
                   id: `locate-${node.id}`,
-                  label: `定位 ${node.title}`,
+                  label: t("common.locateValue", { value0: node.title }),
                   disabled: false,
                   action: () => selectNode(node.id),
                 })),
                 {
                   id: "undo",
-                  label: "撤销编辑",
+                  label: t("canvasWorkspace.undoEdit"),
                   disabled: locked || !canUndo,
                   action: () => onUndo?.(),
                 },
                 {
                   id: "align",
-                  label: "左对齐",
+                  label: t("canvasWorkspace.alignLeft"),
                   disabled: locked || selection.nodeIds.length < 2,
                   action: () => align("x"),
                 },
@@ -1011,8 +1096,7 @@ export function CanvasWorkspace({
                   </Button>
                 ))}
               <p className={styles.muted}>
-                显示前 50 项；输入名称缩小范围。Tab 选择命令，Enter 执行，Escape
-                关闭。
+                {t("canvasWorkspace.showingTheFirst50MatchesTypeAName")}
               </p>
             </div>
           )}
@@ -1027,30 +1111,30 @@ export function CanvasWorkspace({
           )}
           {dialog === "help" && (
             <dl className={styles.shortcut}>
-              <dt>Shift + 点击 / 框选</dt>
-              <dd>多选节点</dd>
-              <dt>方向键 / Shift + 方向键</dt>
-              <dd>移动焦点节点 8 / 32px</dd>
+              <dt>{t("canvasWorkspace.shiftClickMarqueeSelect")}</dt>
+              <dd>{t("canvasWorkspace.selectMultipleNodes")}</dd>
+              <dt>{t("canvasWorkspace.arrowKeysShiftArrowKeys")}</dt>
+              <dd>{t("canvasWorkspace.moveFocusedNodeBy832px")}</dd>
               <dt>Ctrl / ⌘ + A</dt>
-              <dd>选择全部节点</dd>
+              <dd>{t("canvasWorkspace.selectAllNodes")}</dd>
               <dt>Ctrl / ⌘ + C / V</dt>
-              <dd>复制 / 粘贴节点</dd>
+              <dd>{t("canvasWorkspace.copyPasteNodes")}</dd>
               <dt>Delete / Backspace</dt>
-              <dd>删除选中对象</dd>
+              <dd>{t("canvasWorkspace.deleteSelection")}</dd>
               <dt>Ctrl / ⌘ + Z / Shift + Z</dt>
-              <dd>撤销 / 重做</dd>
+              <dd>{t("canvasWorkspace.undoRedo")}</dd>
               <dt>Escape</dt>
-              <dd>关闭弹窗并返回触发按钮</dd>
-              <dt>连接端口按钮</dt>
-              <dd>无须拖线的连接方式</dd>
+              <dd>{t("canvasWorkspace.closeDialogAndReturnToTrigger")}</dd>
+              <dt>{t("canvasWorkspace.connectPortsButton")}</dt>
+              <dd>{t("canvasWorkspace.connectWithoutDraggingAnEdge")}</dd>
             </dl>
           )}
           {dialog === "json" && (
             <div className={styles.stack}>
               <label className={styles.field}>
-                图文档内容
+                {t("canvasWorkspace.graphDocumentContent")}
                 <textarea
-                  aria-label="图文档内容"
+                  aria-label={t("canvasWorkspace.graphDocumentContent")}
                   className={styles.json}
                   value={json}
                   readOnly={locked}
@@ -1059,7 +1143,7 @@ export function CanvasWorkspace({
                 />
               </label>
               <label className={styles.field}>
-                读取 JSON 文件
+                {t("canvasWorkspace.readJsonFile")}
                 <input
                   type="file"
                   accept=".json,application/json"
@@ -1069,14 +1153,20 @@ export function CanvasWorkspace({
                     if (!file) return
                     try {
                       if (file.size > 524288)
-                        throw new Error("文件超过512KiB限制。")
+                        throw new UiError(
+                          "canvasWorkspace.fileExceedsThe512kibLimit",
+                        )
                       setJson(await file.text())
                       setFileError("")
                     } catch (error) {
                       setFileError(
-                        error instanceof Error
-                          ? error.message
-                          : "读取文件失败，原图已保留。",
+                        error instanceof UiError
+                          ? error.messageI18n
+                          : error instanceof Error
+                            ? error.message
+                            : uiMessage(
+                                "canvasWorkspace.fileReadFailedTheOriginalGraphIsPreserved",
+                              ),
                       )
                     }
                   }}
@@ -1092,15 +1182,21 @@ export function CanvasWorkspace({
                       )
                       setCheckpoint(fingerprint(graph))
                       setLocalFeedback(
-                        "已复制脱敏图文档；本地草稿仍仅存于内存。",
+                        uiMessage(
+                          "canvasWorkspace.redactedGraphDocumentCopiedTheLocalDraftRemains",
+                        ),
                       )
                       setFileError("")
                     } catch {
-                      setFileError("复制失败，草稿已保留。可以下载 JSON 文件。")
+                      setFileError(
+                        uiMessage(
+                          "canvasWorkspace.copyFailedTheDraftIsPreservedDownloadThe",
+                        ),
+                      )
                     }
                   }}
                 >
-                  复制脱敏 JSON
+                  {t("canvasWorkspace.copyRedactedJson")}
                 </Button>
                 <Button
                   variant="outline"
@@ -1116,15 +1212,23 @@ export function CanvasWorkspace({
                       anchor.click()
                       setTimeout(() => URL.revokeObjectURL(url), 1000)
                       setCheckpoint(fingerprint(graph))
-                      setLocalFeedback("已发起图文档下载，请保留下载文件。")
+                      setLocalFeedback(
+                        uiMessage(
+                          "canvasWorkspace.graphDownloadRequestedKeepTheDownloadedFile",
+                        ),
+                      )
                       setFileError("")
                     } catch {
-                      setFileError("导出失败，草稿已保留。")
+                      setFileError(
+                        uiMessage(
+                          "canvasWorkspace.exportFailedTheDraftIsPreserved",
+                        ),
+                      )
                     }
                   }}
                 >
                   <Download />
-                  下载 JSON
+                  {t("canvasWorkspace.downloadJson")}
                 </Button>
                 <Button
                   disabled={locked}
@@ -1138,18 +1242,21 @@ export function CanvasWorkspace({
                       setFileError(
                         error instanceof Error
                           ? error.message
-                          : "导入失败，原图已保留。",
+                          : uiMessage(
+                              "canvasWorkspace.importFailedTheOriginalGraphIsPreserved",
+                            ),
                       )
                     }
                   }}
                 >
                   <Upload />
-                  校验并替换草稿
+                  {t("canvasWorkspace.validateAndReplaceDraft")}
                 </Button>
               </div>
               {fileError && (
                 <p role="alert" className={styles.error}>
-                  {fileError} 原文档未被覆盖。
+                  {fileError}{" "}
+                  {t("canvasWorkspace.theOriginalDocumentWasNotOverwritten")}
                 </p>
               )}
             </div>
@@ -1168,6 +1275,8 @@ function NoteInspector({
   onCommand: (command: CanvasCommand) => void
   readOnly: boolean
 }) {
+  const { t } = useI18n()
+
   const [text, setText] = useState(note.text)
   return (
     <Inspector
@@ -1179,7 +1288,7 @@ function NoteInspector({
       }}
     >
       <label className={styles.field}>
-        便笺正文
+        {t("canvasWorkspace.noteBody")}
         <textarea
           value={text}
           disabled={readOnly}
@@ -1193,7 +1302,7 @@ function NoteInspector({
           onCommand({ type: "update-note", noteId: note.id, text })
         }
       >
-        应用便笺
+        {t("canvasWorkspace.applyNote")}
       </Button>
     </Inspector>
   )

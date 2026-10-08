@@ -1,4 +1,6 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
+import { localizeStaticData } from "@/lib/i18n-core"
 
 import {
   useEffect,
@@ -77,6 +79,8 @@ function ScrollHint({ children }: { children: React.ReactNode }) {
 }
 
 function TriggeredDemo() {
+  const { t } = useI18n()
+
   const ref = useRef<HTMLDivElement>(null)
   const reduced = useReducedMotion()
 
@@ -111,19 +115,38 @@ function TriggeredDemo() {
       ref={ref}
       className={`${styles.viewport} ${styles.revealViewport}`}
       role="region"
-      aria-label="Scroll-triggered 演示，向下滚动查看淡入卡片"
+      aria-label={t(
+        "scrollPlayground.scrollTriggeredDemoScrollDownToRevealCards",
+      )}
       tabIndex={0}
     >
       <div className={styles.revealIntro}>
         <span className={styles.eyebrow}>GOOD THINGS TAKE A SCROLL</span>
-        <h3>每一次出现，恰到好处。</h3>
-        <ScrollHint>向下滚动，遇见三张卡片</ScrollHint>
+        <h3>{t("scrollPlayground.everyEntranceJustInTime")}</h3>
+        <ScrollHint>
+          {t("scrollPlayground.scrollDownToDiscoverThreeCards")}
+        </ScrollHint>
       </div>
       <div className={styles.revealList}>
         {[
-          ["01", "一点灵感", "从一个小小的想法开始。", "✳"],
-          ["02", "一点惊喜", "进入视野，就把动画播完。", "↗"],
-          ["03", "刚刚好", "再滚回来，卡片依然在这里。", "◒"],
+          [
+            "01",
+            t("scrollPlayground.aLittleInspiration"),
+            t("scrollPlayground.startWithASmallIdea"),
+            "✳",
+          ],
+          [
+            "02",
+            t("scrollPlayground.aLittleSurprise"),
+            t("scrollPlayground.onceInViewTheAnimationPlaysToCompletion"),
+            "↗",
+          ],
+          [
+            "03",
+            t("scrollPlayground.justEnough"),
+            t("scrollPlayground.scrollBackTheCardsAreStillHere"),
+            "◒",
+          ],
         ].map(([number, title, text, mark]) => (
           <div key={number} className={styles.revealItem} data-reveal>
             <span className={styles.revealMark} aria-hidden="true">
@@ -136,13 +159,17 @@ function TriggeredDemo() {
             </div>
           </div>
         ))}
-        <p className={styles.endNote}>已经全部出现 · 向上滚动不会重播</p>
+        <p className={styles.endNote}>
+          {t("scrollPlayground.allRevealedScrollingUpDoesNotReplay")}
+        </p>
       </div>
     </div>
   )
 }
 
 function LinkedDemo() {
+  const { t } = useI18n()
+
   const ref = useRef<HTMLDivElement>(null)
   const { progress } = useScrollMetrics(ref)
   const percent = Math.round(progress * 100)
@@ -151,16 +178,21 @@ function LinkedDemo() {
       ref={ref}
       className={`${styles.viewport} ${styles.readingViewport}`}
       role="region"
-      aria-label="Scroll-linked 演示，滚动文章更新阅读进度"
+      aria-label={t(
+        "scrollPlayground.scrollLinkedDemoReadingProgressFollowsArticleScrolling",
+      )}
       tabIndex={0}
     >
       <div className={styles.readingToolbar}>
         <span className={styles.micro}>THE SLOW JOURNAL</span>
-        <output className={styles.readingPercent}>已读 {percent}%</output>
+        <output className={styles.readingPercent}>
+          {t("scrollPlayground.read")}
+          {percent}%
+        </output>
         <div
           className={styles.progressTrack}
           role="progressbar"
-          aria-label="演示文章阅读进度"
+          aria-label={t("scrollPlayground.demoArticleReadingProgress")}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={percent}
@@ -172,14 +204,16 @@ function LinkedDemo() {
         </div>
       </div>
       <article className={styles.readingArticle}>
-        <span className={styles.eyebrow}>VOL. 02 / 关于慢下来</span>
+        <span className={styles.eyebrow}>
+          {t("scrollPlayground.vol02OnSlowingDown")}
+        </span>
         <h3>
-          滚动之间，
+          {t("scrollPlayground.betweenScrolls")}
           <br />
-          留一点呼吸。
+          {t("scrollPlayground.leaveRoomToBreathe")}
         </h3>
         <p className={styles.readingLead}>
-          向下阅读，顶部的细线会跟上你的步伐。
+          {t("scrollPlayground.readOnTheFineLineAboveFollowsYour")}
         </p>
         <div className={styles.readingArt} aria-hidden="true">
           <span>
@@ -192,16 +226,18 @@ function LinkedDemo() {
         </div>
         {[
           [
-            "01 / 由你掌握节奏",
-            "好的阅读体验，会让内容自然展开。你滚过多少，进度就走过多少；停下来时，细线也停在原处。",
+            t("scrollPlayground.01SetYourOwnPace"),
+            t(
+              "scrollPlayground.aGoodReadingExperienceLetsContentUnfoldNaturally",
+            ),
           ],
           [
-            "02 / 随时可以回看",
-            "试着向上滚动。进度会沿着原路退回，不需要等待一段动画结束。这里的变化始终由滚动位置决定。",
+            t("scrollPlayground.02LookBackAnytime"),
+            t("scrollPlayground.tryScrollingUpProgressRetracesItsPathWithout"),
           ],
           [
-            "03 / 抵达这一页的结尾",
-            "细线填满时，这篇短文也读完了。一个简单的比例，就能给长内容一个清楚的位置感。",
+            t("scrollPlayground.03ReachTheEnd"),
+            t("scrollPlayground.whenTheLineIsFullThisShortArticle"),
           ],
         ].map(([title, text]) => (
           <section key={title}>
@@ -216,6 +252,8 @@ function LinkedDemo() {
 }
 
 function ParallaxDemo() {
+  const { t } = useI18n()
+
   const ref = useRef<HTMLDivElement>(null)
   const { top } = useScrollMetrics(ref)
   const reduced = useReducedMotion()
@@ -224,7 +262,9 @@ function ParallaxDemo() {
       ref={ref}
       className={`${styles.viewport} ${styles.parallaxViewport}`}
       role="region"
-      aria-label="Parallax 演示，滚动比较背景与前景速度"
+      aria-label={t(
+        "scrollPlayground.parallaxDemoCompareBackgroundAndForegroundScrollingSpeeds",
+      )}
       tabIndex={0}
     >
       <div className={styles.parallaxScene}>
@@ -241,22 +281,25 @@ function ParallaxDemo() {
         <div className={styles.parallaxForeground}>
           <span className={styles.landscapeLabel}>A LITTLE FURTHER</span>
           <h3 data-parallax-foreground>
-            山很远，
+            {t("scrollPlayground.distantMountains")}
             <br />
-            此刻很近。
+            {t("scrollPlayground.aMomentCloseBy")}
           </h3>
-          <ScrollHint>往下走，看看远处的山</ScrollHint>
+          <ScrollHint>
+            {t("scrollPlayground.scrollDownToSeeTheDistantMountains")}
+          </ScrollHint>
           <div className={styles.landscapeNote}>
             <span className={styles.micro}>SAME SCROLL, DIFFERENT SPEEDS</span>
-            <h4>近处掠过，远处慢行。</h4>
+            <h4>{t("scrollPlayground.nearThingsPassDistantThingsDrift")}</h4>
             <p>
-              文字以正常速度滚动，背景只走过 35%
-              的距离，层次就在这段距离里出现。
+              {t("scrollPlayground.textScrollsAtNormalSpeedWhileTheBackground")}
             </p>
             <span className={styles.speedBadge}>
               {reduced
-                ? "减少动态效果：背景随内容正常滚动"
-                : "背景 0.35× / 前景 1×"}
+                ? t(
+                    "scrollPlayground.reducedMotionBackgroundScrollsNormallyWithContent",
+                  )
+                : t("scrollPlayground.background035Foreground1")}
             </span>
           </div>
         </div>
@@ -296,23 +339,27 @@ const contacts = [
 ]
 
 function StickyDemo() {
+  const { t } = useI18n()
+
   return (
     <div
       className={`${styles.viewport} ${styles.contactsViewport}`}
       role="region"
-      aria-label="Sticky 演示，滚动通讯录查看字母标题吸顶"
+      aria-label={t(
+        "scrollPlayground.stickyDemoAlphabetHeadersStickWhileYouScroll",
+      )}
       tabIndex={0}
     >
       <div className={styles.contactsIntro}>
         <span className={styles.micro}>THE PEOPLE BOOK</span>
-        <h3>一起做点好东西。</h3>
-        <p>12 位伙伴 · 按姓名分组</p>
+        <h3>{t("scrollPlayground.makeSomethingGoodTogether")}</h3>
+        <p>{t("scrollPlayground.12TeammatesGroupedByName")}</p>
       </div>
       {contacts.map(({ letter, names }) => (
         <section key={letter} className={styles.contactGroup}>
           <h4 className={styles.stickyLetter} data-sticky-letter={letter}>
             <span>{letter}</span>
-            <span>4 位伙伴</span>
+            <span>{t("scrollPlayground.4Teammates")}</span>
           </h4>
           {names.map(([name, role], index) => (
             <div key={name} className={styles.contact}>
@@ -327,7 +374,10 @@ function StickyDemo() {
                 <p>{name}</p>
                 <span>{role}</span>
               </div>
-              <span className={styles.contactDot} aria-label="在线" />
+              <span
+                className={styles.contactDot}
+                aria-label={t("scrollPlayground.online")}
+              />
             </div>
           ))}
         </section>
@@ -361,6 +411,8 @@ const snapSlides = [
 ]
 
 function SnapDemo() {
+  const { t } = useI18n()
+
   const ref = useRef<HTMLDivElement>(null)
   const { progress } = useScrollMetrics(ref)
   const reduced = useReducedMotion()
@@ -379,7 +431,7 @@ function SnapDemo() {
         ref={ref}
         className={`${styles.viewport} ${styles.snapViewport}`}
         role="region"
-        aria-label="Scroll Snap 演示，滚动后自动对齐一屏"
+        aria-label={t("scrollPlayground.scrollSnapDemoScrollingAlignsToAFull")}
         tabIndex={0}
       >
         {snapSlides.map(({ word, title, text, tone, mark }, index) => (
@@ -387,7 +439,10 @@ function SnapDemo() {
             key={word}
             className={styles.snapSlide}
             data-tone={tone}
-            aria-label={`第 ${index + 1} 屏：${title}`}
+            aria-label={t("common.screenValueValue", {
+              value0: index + 1,
+              value1: title,
+            })}
           >
             <span className={styles.snapNumber}>0{index + 1} / 03</span>
             <span className={styles.snapMark} aria-hidden="true">
@@ -404,7 +459,7 @@ function SnapDemo() {
       <div className={styles.snapControls}>
         <button
           type="button"
-          aria-label="上一屏"
+          aria-label={t("scrollPlayground.previousScreen")}
           onClick={() => goTo(active - 1)}
           disabled={active === 0}
         >
@@ -415,7 +470,7 @@ function SnapDemo() {
             <button
               key={slide.word}
               type="button"
-              aria-label={`跳到第 ${index + 1} 屏`}
+              aria-label={t("common.goToScreenValue", { value0: index + 1 })}
               aria-pressed={index === active}
               onClick={() => goTo(index)}
             >
@@ -425,7 +480,7 @@ function SnapDemo() {
         </div>
         <button
           type="button"
-          aria-label="下一屏"
+          aria-label={t("scrollPlayground.nextScreen")}
           onClick={() => goTo(active + 1)}
           disabled={active === snapSlides.length - 1}
         >
@@ -468,6 +523,8 @@ const horizontalCards = [
 ]
 
 function HorizontalDemo() {
+  const { t } = useI18n()
+
   const ref = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const { progress } = useScrollMetrics(ref)
@@ -508,8 +565,8 @@ function HorizontalDemo() {
       role="region"
       aria-label={
         reduced
-          ? "Horizontal Scroll 演示，向右滚动查看卡片"
-          : "Horizontal Scroll 演示，向下滚动让卡片横向移动"
+          ? t("scrollPlayground.horizontalScrollDemoScrollRightToViewCards")
+          : t("scrollPlayground.horizontalScrollDemoScrollDownToMoveCards")
       }
       tabIndex={0}
     >
@@ -520,7 +577,11 @@ function HorizontalDemo() {
         <div className={styles.horizontalSticky}>
           <div className={styles.horizontalLabel}>
             <span className={styles.micro}>SCROLL DOWN. GO SIDEWAYS.</span>
-            <span>{reduced ? "向右滑动 →" : "向下滚动 ↓"}</span>
+            <span>
+              {reduced
+                ? t("scrollPlayground.swipeRight")
+                : t("scrollPlayground.scrollDown")}
+            </span>
           </div>
           <div
             ref={trackRef}
@@ -632,6 +693,8 @@ function DemoCard({
   index: number
   id: string
 }) {
+  const { t } = useI18n()
+
   const [iteration, setIteration] = useState(0)
   const { name, label, description, technique, Preview } = pattern
   return (
@@ -647,8 +710,8 @@ function DemoCard({
         <button
           type="button"
           className={styles.reset}
-          aria-label={`重置 ${name} 演示`}
-          title="重新体验"
+          aria-label={t("common.resetValueDemo", { value0: name })}
+          title={t("scrollPlayground.tryAgain")}
           onClick={() => setIteration((value) => value + 1)}
         >
           <RotateCcw size={15} aria-hidden="true" />
@@ -677,11 +740,15 @@ export function ScrollPlayground({
   pattern: selectedPattern,
   className,
 }: ScrollPlaygroundProps) {
+  const { locale } = useI18n()
+
+  const localizedPatterns = localizeStaticData(patterns, locale)
+
   const generatedId = useId()
   const prefix = idPrefix || generatedId
   return (
     <div className={`${styles.grid}${className ? ` ${className}` : ""}`}>
-      {patterns.map((pattern, index) =>
+      {localizedPatterns.map((pattern, index) =>
         !selectedPattern || selectedPattern === pattern.id ? (
           <DemoCard
             key={pattern.id}

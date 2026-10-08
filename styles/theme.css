@@ -102,6 +102,10 @@
   --canvas-port-color: var(--text-secondary);
   --canvas-edge: var(--text-secondary);
   --canvas-selection: var(--primary);
+  --canvas-execution-duration: 1200ms;
+  --canvas-execution-color: var(--status-info);
+  --canvas-execution-width: 3px;
+  --canvas-particle-width: 4px;
   --canvas-frame: var(--surface-raised);
   --canvas-note: var(--surface);
   --canvas-minimap-mask: rgba(127, 127, 127, 0.12);

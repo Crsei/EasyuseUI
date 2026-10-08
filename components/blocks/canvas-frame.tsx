@@ -1,3 +1,5 @@
+"use client"
+import { useI18n } from "@/lib/i18n-provider"
 import type { CanvasFrameRecord } from "@/lib/canvas-model"
 import { redactText } from "@/lib/redact"
 import styles from "./canvas-annotations.module.css"
@@ -12,6 +14,8 @@ export function CanvasFrame({
   selected?: boolean
   collapsed?: boolean
 }) {
+  const { t } = useI18n()
+
   return (
     <section
       className={styles.frame}
@@ -20,7 +24,11 @@ export function CanvasFrame({
       style={{ width: frame.width, height: collapsed ? 64 : frame.height }}
     >
       <strong>{redactText(frame.title)}</strong>
-      <small>{collapsed ? "已折叠 · 节点和连线保留" : "视觉分组"}</small>
+      <small>
+        {collapsed
+          ? t("canvasFrame.collapsedNodesAndEdgesPreserved")
+          : t("canvasFrame.visualGroup")}
+      </small>
     </section>
   )
 }

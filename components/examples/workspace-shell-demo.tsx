@@ -1,4 +1,6 @@
 "use client"
+import { useSiteFeedback, siteMessage } from "@/components/site/site-i18n"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useId, useState } from "react"
 import {
@@ -85,6 +87,8 @@ const navigation = [
 ] as const
 
 export function WorkspaceShellDemo() {
+  const { t } = useSiteI18n()
+
   const id = useId()
   const [view, setView] = useState<View>("sessions")
   const [sessions, setSessions] = useState(initialSessions)
@@ -95,7 +99,7 @@ export function WorkspaceShellDemo() {
   const [draft, setDraft] = useState("")
   const [sessionView, setSessionView] = useState<"list" | "tree">("list")
   const [messages, setMessages] = useState<string[]>([])
-  const [feedback, setFeedback] = useState("")
+  const [feedback, setFeedback] = useSiteFeedback("")
   const selectedStatus = (entity: Entity) =>
     entity.id === selected?.id ? runtime : entity.status
   const items = (
@@ -110,7 +114,7 @@ export function WorkspaceShellDemo() {
   function createSession() {
     const entity: Entity = {
       id: `session-local-${sessions.length + 1}`,
-      name: `本地 Session ${sessions.length + 1}`,
+      name: t("site.localSessionValue", { value0: sessions.length + 1 }),
       kind: "Session",
       status: "idle",
     }
@@ -119,13 +123,13 @@ export function WorkspaceShellDemo() {
     setView("sessions")
     setSearch("")
     setDataState("success")
-    setFeedback("已创建本地演示 Session。")
+    setFeedback(siteMessage("site.localDemoSessionCreated"))
   }
   function sendMessage() {
     if (!draft.trim()) return
     setMessages((current) => [...current, draft.trim()])
     setDraft("")
-    setFeedback("消息已添加到本地演示，未向 Agent 发送请求。")
+    setFeedback(siteMessage("site.messageAddedToLocalDemoNoRequestSentTo"))
   }
 
   const inspector = (
@@ -138,11 +142,11 @@ export function WorkspaceShellDemo() {
               kind: selected.kind,
               status: runtime,
               metadata: [
-                { label: "类型", value: selected.kind },
+                { label: t("site.type"), value: selected.kind },
                 { label: "ID", value: selected.id, copyValue: selected.id },
-                { label: "模型", value: "未连接 · 本地演示" },
+                { label: t("site.model"), value: "未连接 · 本地演示" },
                 { label: "Tokens" },
-                { label: "来源", value: "本地 UI fixture" },
+                { label: t("site.source"), value: "本地 UI fixture" },
               ],
             }
           : null
@@ -150,7 +154,7 @@ export function WorkspaceShellDemo() {
     >
       {selected && (
         <section>
-          <h3>关联文件</h3>
+          <h3>{t("site.relatedFiles")}</h3>
           <div className={styles.fileRow}>
             <FileText size={16} aria-hidden="true" />
             <span>Component-Specification.md</span>
@@ -168,12 +172,12 @@ export function WorkspaceShellDemo() {
             id: entity.id,
             time: `16:42:0${index}`,
             agent: "Builder",
-            type: "本地事件",
+            type: t("site.localEvent"),
             action: entity.name,
             target: "Component-Specification.md",
             status: selectedStatus(entity),
             duration: "24ms",
-            details: <p>本地演示事件，尚未连接真实 Runtime。</p>,
+            details: <p>{t("site.localDemoEventNoRealRuntimeConnected")}</p>,
           }))}
           selectedId={selected?.id}
           onSelect={(event) => {
@@ -202,7 +206,7 @@ export function WorkspaceShellDemo() {
                   id: entity.id,
                   title: entity.name,
                   status: selectedStatus(entity),
-                  updatedAt: "刚刚更新",
+                  updatedAt: t("site.justUpdated"),
                 }}
                 selected={selected?.id === entity.id}
                 onSelect={() => select(entity)}
@@ -216,7 +220,7 @@ export function WorkspaceShellDemo() {
   const treeNodes: TreeNode[] = [
     {
       id: "idea-design",
-      label: "Idea / 工作台设计",
+      label: t("site.ideaWorkspaceDesign"),
       children: items.map((entity) => ({
         id: entity.id,
         label: entity.name,
@@ -227,7 +231,7 @@ export function WorkspaceShellDemo() {
             ? [
                 {
                   id: "run-foundation",
-                  label: "Run / 初始化 Foundation",
+                  label: t("site.runInitializeFoundation"),
                   status: "completed",
                 },
               ]
@@ -240,21 +244,21 @@ export function WorkspaceShellDemo() {
     <div className={styles.demo}>
       <div className={styles.controls}>
         <div>
-          <label htmlFor={`${id}-data`}>数据状态</label>
+          <label htmlFor={`${id}-data`}>{t("site.dataState")}</label>
           <select
             id={`${id}-data`}
             value={dataState}
             onChange={(event) => setDataState(event.target.value as DataState)}
           >
-            <option value="success">Success · 完整数据</option>
-            <option value="loading">Loading · 首次加载</option>
-            <option value="empty">Empty · 空状态</option>
-            <option value="partial">Partial · 部分数据</option>
-            <option value="error">Error · 刷新失败</option>
+            <option value="success">{t("site.successCompleteData")}</option>
+            <option value="loading">{t("site.loadingInitialLoad")}</option>
+            <option value="empty">{t("site.emptyEmptyState")}</option>
+            <option value="partial">{t("site.partialPartialData")}</option>
+            <option value="error">{t("site.errorRefreshFailure")}</option>
           </select>
         </div>
         <div>
-          <label htmlFor={`${id}-runtime`}>运行状态</label>
+          <label htmlFor={`${id}-runtime`}>{t("site.runtimeStatus")}</label>
           <select
             id={`${id}-runtime`}
             value={runtime}
@@ -269,7 +273,7 @@ export function WorkspaceShellDemo() {
             ))}
           </select>
         </div>
-        <span className={styles.fixtureLabel}>本地演示</span>
+        <span className={styles.fixtureLabel}>{t("site.localDemo2")}</span>
       </div>
       <WorkspaceShell
         inspectorFooter={
@@ -280,17 +284,21 @@ export function WorkspaceShellDemo() {
                 onClick={async () => {
                   try {
                     await navigator.clipboard.writeText(selected.id)
-                    setFeedback("已复制对象 ID。")
+                    setFeedback(siteMessage("site.objectIdCopied"))
                   } catch {
-                    setFeedback("无法访问剪贴板，请从 Metadata 手动复制 ID。")
+                    setFeedback(
+                      siteMessage(
+                        "site.clipboardUnavailableCopyTheIdFromMetadataManually",
+                      ),
+                    )
                   }
                 }}
               >
                 <Copy size={16} />
-                复制 ID
+                {t("site.copyId")}
               </Button>
               <Button variant="ghost" onClick={() => setView("chat")}>
-                查看对话
+                {t("site.viewConversation")}
               </Button>
             </div>
           ) : undefined
@@ -302,7 +310,7 @@ export function WorkspaceShellDemo() {
               <span>e.</span>
               <span className={styles.navLabel}>Agent Workspace</span>
             </div>
-            <nav aria-label="工作台页面">
+            <nav aria-label={t("site.workspacePage")}>
               {navigation.map(({ id: navId, label, Icon }) => (
                 <Item
                   key={navId}
@@ -333,8 +341,8 @@ export function WorkspaceShellDemo() {
                 <Search size={16} aria-hidden="true" />
                 <Input
                   type="search"
-                  aria-label="搜索当前列表"
-                  placeholder="搜索当前列表…"
+                  aria-label={t("site.searchCurrentList")}
+                  placeholder={t("site.searchCurrentList2")}
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
                 />
@@ -345,14 +353,17 @@ export function WorkspaceShellDemo() {
               </span>
             )}
             {view === "sessions" && (
-              <div className={styles.viewSwitch} aria-label="Session 视图">
+              <div
+                className={styles.viewSwitch}
+                aria-label={t("site.sessionView")}
+              >
                 <Button
                   variant="ghost"
                   size="sm"
                   aria-pressed={sessionView === "list"}
                   onClick={() => setSessionView("list")}
                 >
-                  列表视图
+                  {t("site.listView")}
                 </Button>
                 <Button
                   variant="ghost"
@@ -360,14 +371,14 @@ export function WorkspaceShellDemo() {
                   aria-pressed={sessionView === "tree"}
                   onClick={() => setSessionView("tree")}
                 >
-                  层级视图
+                  {t("site.hierarchyView")}
                 </Button>
               </div>
             )}
             <Button
               variant="ghost"
               size="icon"
-              aria-label="清除对象选择"
+              aria-label={t("site.clearObjectSelection")}
               onClick={() => setSelected(null)}
             >
               <X />
@@ -380,18 +391,23 @@ export function WorkspaceShellDemo() {
             <h2>{navigation.find((item) => item.id === view)?.label}</h2>
             <p>
               {view === "chat"
-                ? "对话与工具执行各自表达语义。"
-                : "平铺列表 · 选择对象，在 Inspector 查看上下文。"}
+                ? t(
+                    "site.conversationAndToolExecutionExpressDifferentSemantics",
+                  )
+                : t("site.flatListSelectAnObjectToInspectItsContext")}
             </p>
           </div>
           <Button onClick={createSession}>
             <Plus size={16} />
-            新建 Session
+            {t("site.newSession")}
           </Button>
         </div>
         <div className={styles.pageContent} aria-busy={dataState === "loading"}>
           {dataState === "loading" ? (
-            <div aria-label="正在加载工作区" className={styles.skeletons}>
+            <div
+              aria-label={t("site.loadingWorkspace")}
+              className={styles.skeletons}
+            >
               {[0, 1, 2].map((key) => (
                 <div key={key}>
                   <span />
@@ -403,30 +419,34 @@ export function WorkspaceShellDemo() {
             <>
               {dataState === "error" && (
                 <div role="alert" className={styles.error}>
-                  <p>演示刷新失败：网络不可用。已有内容已保留。</p>
+                  <p>
+                    {t(
+                      "site.demoRefreshFailedNetworkUnavailableExistingContentPreserved",
+                    )}
+                  </p>
                   <Button
                     size="sm"
                     variant="secondary"
                     onClick={() => setDataState("success")}
                   >
-                    重试读取
+                    {t("site.retryRead")}
                   </Button>
                 </div>
               )}
               {dataState === "partial" && (
                 <p className={styles.notice}>
-                  当前为部分数据。缺失的 usage 显示「—」，不计为 0。
+                  {t("site.partialDataMissingUsageIsShownAsNotZero")}
                 </p>
               )}
               {dataState === "empty" ||
               (view !== "chat" && items.length === 0) ? (
                 <div className={styles.empty}>
                   <Inbox size={20} aria-hidden="true" />
-                  <h3>这里暂时没有内容</h3>
+                  <h3>{t("site.noContentYet")}</h3>
                   <p>
                     {search
-                      ? "没有匹配的结果，清除搜索后查看全部对象。"
-                      : "当前演示数据为空，可以恢复数据或创建本地 Session。"}
+                      ? t("site.noMatchingResultsClearSearchToViewAllObjects")
+                      : t("site.demoDataIsEmptyRestoreDataOrCreateA")}
                   </p>
                   <Button
                     variant="secondary"
@@ -435,7 +455,7 @@ export function WorkspaceShellDemo() {
                       setSearch("")
                     }}
                   >
-                    恢复演示数据
+                    {t("site.restoreDemoData")}
                   </Button>
                 </div>
               ) : view === "chat" ? (
@@ -462,7 +482,7 @@ export function WorkspaceShellDemo() {
                             : runtime === "cancelled"
                               ? "cancelled"
                               : "completed",
-                      stage: "本地展示片段",
+                      stage: t("site.localDisplayFragment"),
                       elapsed: "00:24",
                       onStop: () => setRuntime("cancelled"),
                       after: (
@@ -484,7 +504,7 @@ export function WorkspaceShellDemo() {
                       id: `local-message-${index}`,
                       role: "user" as const,
                       content: text,
-                      author: "你 · 本地消息",
+                      author: t("site.youLocalMessage"),
                     })),
                   ]}
                   workspace={
@@ -497,7 +517,9 @@ export function WorkspaceShellDemo() {
                         leading={<FileText />}
                       />
                       <p className={styles.caption}>
-                        本地工作区预览 · 未连接文件系统或终端。
+                        {t(
+                          "site.localWorkspacePreviewNoFilesystemOrTerminalConnected",
+                        )}
                       </p>
                     </>
                   }
@@ -512,7 +534,7 @@ export function WorkspaceShellDemo() {
               ) : view === "sessions" ? (
                 sessionView === "tree" ? (
                   <Tree
-                    label="工作台 Session 层级"
+                    label={t("site.workspaceSessionHierarchy")}
                     nodes={treeNodes}
                     selectedId={selected?.id}
                     defaultExpandedIds={["idea-design", "session-design"]}
@@ -524,9 +546,10 @@ export function WorkspaceShellDemo() {
                     }}
                   />
                 ) : (
-                  <section aria-label="Idea / 工作台设计">
+                  <section aria-label={t("site.ideaWorkspaceDesign")}>
                     <h3 className={styles.groupTitle}>
-                      Idea / 工作台设计 · {items.length} Sessions
+                      {t("site.ideaWorkspaceDesign2")}
+                      {items.length} Sessions
                     </h3>
                     {renderRows()}
                   </section>
@@ -539,7 +562,7 @@ export function WorkspaceShellDemo() {
         </div>
       </WorkspaceShell>
       <p role="status" className={styles.feedback}>
-        {feedback || "调整状态、选择对象或打开 Chat，检查规范中的布局与状态。"}
+        {feedback || t("site.adjustStatesSelectObjectsOrOpenChatToInspect")}
       </p>
     </div>
   )

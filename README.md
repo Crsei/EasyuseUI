@@ -19,6 +19,8 @@
 
 Agent 可按任务读取 [UI Skills 分类与入口](./skills/README.md)：视觉词典系、基本原则系（基础样式/模式/状态）、组件实现系和验收系共六个技能。每个技能明确区分复用 EasyuseUI 组件与不使用本库的独立实现要求；分类目录与完整技能包的使用方式见该入口。
 
+站点与组件支持简体中文和英文，默认中文；顶部语言选择保留浏览器偏好和页面中的编辑状态，URL 保持不变。独立项目可安装 `i18n` Registry 项并使用 `I18nProvider`，接入与文案边界见 [国际化指南](./I18N.md) 和 `/docs/i18n/`。
+
 打开 http://localhost:3010/dictionary/ 浏览可视化词典。支持九类分类、中文/英文/别名搜索和实现情况筛选；已实现词条复用 Catalog 的真实演示、代码和源码入口。基础样式展示主题颜色、字号、间距、圆角、边框和投影；内阴影、发光等标为视觉参考。Badge/Tag 是只读信息，Chip 提供受控选择、独立移除、禁用与 busy 状态。
 
 打开 http://localhost:3010/style-workbench/ 使用样式工作台。A 从当前主题与样例探针读取基准，B 实时调整圆角、控件高度、间距、边框、内外阴影、颜色与透明度、背景模糊、字体等24个参数；两侧共享内容与交互状态，差异表显示改动及数值差。支持四种预设、将 B 固定为新基准、重置和复制局部 CSS / A/B 参数 JSON。未固定 A 时主题切换更新未修改参数；实验保留在当前页面，刷新后恢复默认。详细操作与参数范围见 [样式工作台指南](./STYLE-WORKBENCH.md)，组件文档在 `/docs/style-workbench/`。
@@ -58,6 +60,7 @@ pnpm dev
 ## 常用命令
 
 ```bash
+pnpm check:i18n     # 双语资源、文档覆盖与 Registry 依赖
 pnpm lint           # ESLint
 pnpm typecheck      # 路由类型生成和 TypeScript 检查
 pnpm registry:build # 生成 public/r/*.json

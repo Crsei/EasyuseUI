@@ -1,3 +1,4 @@
+import { SiteText, SiteElement } from "@/components/site/site-i18n"
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { notFound } from "next/navigation"
@@ -30,13 +31,22 @@ export default async function ComponentPage({ params }: Props) {
 
   return (
     <>
-      <p className="mb-3 text-xs font-medium text-primary">{category}</p>
+      <p className="mb-3 text-xs font-medium text-primary">
+        <SiteText text={category} />
+      </p>
       <h1 className="text-3xl font-semibold tracking-tight">{name}</h1>
       <p className="mt-4 text-sm leading-7 text-muted-foreground">
-        {description}
+        <SiteText text={description} />
       </p>
-      <section
-        aria-label={`${name} 交互演示`}
+      <SiteElement
+        as="section"
+        textProps={{
+          "aria-label": {
+            key: "site.valueInteractiveDemo",
+            values: { value0: name },
+          },
+        }}
+
         className="mt-8 flex min-h-64 items-center justify-center rounded-xl border bg-muted/20 p-6 sm:p-9"
       >
         <div
@@ -44,9 +54,9 @@ export default async function ComponentPage({ params }: Props) {
         >
           <Demo />
         </div>
-      </section>
+      </SiteElement>
       <h2 id="installation" className="mt-12 mb-4 text-xl font-semibold">
-        安装
+        <SiteText messageKey="site.installation" />
       </h2>
       <CodeBlock
         lang="bash"
@@ -54,7 +64,7 @@ export default async function ComponentPage({ params }: Props) {
         code={`pnpm dlx shadcn@latest add ${registryUrl}/${slug}.json`}
       />
       <h2 id="usage" className="mt-12 mb-4 text-xl font-semibold">
-        使用
+        <SiteText messageKey="site.usage" />
       </h2>
       <CodeBlock code={usage} />
       <h2 id="api" className="mt-12 mb-4 text-xl font-semibold">
@@ -65,13 +75,13 @@ export default async function ComponentPage({ params }: Props) {
           <thead className="border-b bg-muted/40 text-xs text-muted-foreground">
             <tr>
               <th scope="col" className="p-4 font-medium">
-                属性
+                <SiteText messageKey="site.property" />
               </th>
               <th scope="col" className="p-4 font-medium">
-                类型与默认值
+                <SiteText messageKey="site.typeAndDefault" />
               </th>
               <th scope="col" className="p-4 font-medium">
-                说明
+                <SiteText messageKey="site.description" />
               </th>
             </tr>
           </thead>
@@ -88,12 +98,13 @@ export default async function ComponentPage({ params }: Props) {
                   {prop.type}
                   {prop.default && (
                     <p className="text-muted-foreground">
-                      默认：{prop.default}
+                      <SiteText messageKey="site.default" />
+                      {prop.default}
                     </p>
                   )}
                 </td>
                 <td className="p-4 align-top text-xs leading-6 text-muted-foreground">
-                  {prop.description}
+                  <SiteText text={prop.description} />
                 </td>
               </tr>
             ))}
@@ -102,18 +113,20 @@ export default async function ComponentPage({ params }: Props) {
       </div>
       <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
         {notes.map((note) => (
-          <li key={note}>{note}</li>
+          <li key={note}>
+            <SiteText text={note} />
+          </li>
         ))}
       </ul>
       <h2 id="example" className="mt-12 mb-4 text-xl font-semibold">
-        完整示例
+        <SiteText messageKey="site.completeExample" />
       </h2>
       <p className="mb-4 text-sm leading-7 text-muted-foreground">
-        下面的代码就是本页交互演示使用的文件。
+        <SiteText messageKey="site.theCodeBelowIsTheActualFileUsedBy" />
       </p>
       <CodeBlock code={example} title={entry.example} />
       <h2 id="source" className="mt-12 mb-4 text-xl font-semibold">
-        组件源码
+        <SiteText messageKey="site.componentSource" />
       </h2>
       <CodeBlock code={source} title={entry.source} />
       {entry.relatedSources?.map((file, index) => (

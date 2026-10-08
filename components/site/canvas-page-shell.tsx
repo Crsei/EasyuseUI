@@ -1,6 +1,8 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import type { ReactNode } from "react"
+import { LocaleSwitcher } from "@/components/site/locale-switcher"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
@@ -15,6 +17,10 @@ const pages = [
   { href: "/workspace/canvas/stress", label: "压力图" },
 ]
 export function CanvasPageShell({ children }: { children: ReactNode }) {
+  const { t, localize } = useSiteI18n()
+
+  const localizedPages = localize(pages)
+
   const pathname = usePathname().replace(/\/$/, "")
   const { resolvedTheme, setTheme } = useTheme()
   return (
@@ -25,14 +31,22 @@ export function CanvasPageShell({ children }: { children: ReactNode }) {
       data-canvas-page
     >
       <header className={styles.header}>
-        <Link href="/" className={styles.home} aria-label="EasyuseUI 首页">
+        <Link
+          href="/"
+          className={styles.home}
+          aria-label={t("site.easyuseuiHome")}
+        >
           e.
         </Link>
         <h1 className="sr-only">
-          {pages.find((page) => page.href === pathname)?.label}工作台
+          {localizedPages.find((page) => page.href === pathname)?.label}
+          {t("site.workspace")}
         </h1>
-        <nav aria-label="画布工作台导航" className={styles.navigation}>
-          {pages.map((page) => (
+        <nav
+          aria-label={t("site.canvasWorkspaceNavigation")}
+          className={styles.navigation}
+        >
+          {localizedPages.map((page) => (
             <Link
               key={page.href}
               href={page.href}
@@ -42,10 +56,11 @@ export function CanvasPageShell({ children }: { children: ReactNode }) {
             </Link>
           ))}
         </nav>
+        <LocaleSwitcher />
         <Button
           size="icon"
           variant="ghost"
-          aria-label="切换深浅主题"
+          aria-label={t("site.toggleLightAndDarkTheme")}
           onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
         >
           <Sun className="hidden dark:block" />

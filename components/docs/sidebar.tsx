@@ -1,4 +1,5 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -18,6 +19,7 @@ const sections = [
   {
     title: "基础组件",
     links: [
+      { href: "/docs/i18n", label: "I18nProvider" },
       { href: "/docs/button", label: "Button" },
       { href: "/docs/input", label: "Input" },
       { href: "/docs/badge", label: "Badge" },
@@ -55,14 +57,18 @@ const sections = [
 ]
 
 export function Sidebar() {
+  const { t, localize } = useSiteI18n()
+
+  const localizedSections = localize(sections)
+
   const pathname = usePathname().replace(/\/$/, "")
   return (
     <nav
-      aria-label="文档导航"
+      aria-label={t("site.documentationNavigation")}
       className="flex gap-6 overflow-x-auto pb-4 lg:sticky lg:top-26 lg:block lg:space-y-7 lg:overflow-visible lg:pb-0"
     >
-      {sections.map((section) => (
-        <div key={section.title} className="shrink-0">
+      {localizedSections.map((section) => (
+        <div key={section.links[0].href} className="shrink-0">
           <p className="mb-3 text-xs font-semibold text-muted-foreground">
             {section.title}
           </p>

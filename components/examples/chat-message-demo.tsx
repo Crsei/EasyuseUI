@@ -1,4 +1,7 @@
 "use client"
+import { useSiteFeedback, siteMessage } from "@/components/site/site-i18n"
+import { useSiteI18n } from "@/components/site/site-i18n"
+
 import { useState } from "react"
 import {
   Conversation,
@@ -9,6 +12,8 @@ import { ToolCall } from "@/components/blocks/tool-call"
 import { Button } from "@/components/ui/button"
 import { Item } from "@/components/ui/item"
 export function ChatMessageDemo() {
+  const { t } = useSiteI18n()
+
   const [draft, setDraft] = useState("")
   const [messages, setMessages] = useState<ChatMessageProps[]>([
     {
@@ -28,7 +33,7 @@ export function ChatMessageDemo() {
       time: "16:42",
     },
   ])
-  const [feedback, setFeedback] = useState("")
+  const [feedback, setFeedback] = useSiteFeedback("")
   const [failSend, setFailSend] = useState(false)
   function stop() {
     setMessages((current) =>
@@ -37,7 +42,7 @@ export function ChatMessageDemo() {
           ? {
               ...message,
               state: "cancelled",
-              reason: "用户停止本地演示接收，已有内容保留。",
+              reason: t("site.theUserStoppedTheLocalDemoStreamReceivedContent"),
             }
           : message,
       ),
@@ -54,13 +59,13 @@ export function ChatMessageDemo() {
               {
                 id: `history-${current.length}`,
                 role: "system",
-                content: "较早的本地历史记录。\n".repeat(4),
+                content: t("site.earlierLocalHistoryRecord").repeat(4),
               },
               ...current,
             ])
           }
         >
-          加载早期历史
+          {t("site.loadEarlierHistory")}
         </Button>
         <Button
           size="sm"
@@ -68,7 +73,7 @@ export function ChatMessageDemo() {
           aria-pressed={failSend}
           onClick={() => setFailSend(!failSend)}
         >
-          模拟发送失败
+          {t("site.simulateSendFailure")}
         </Button>
         <Button
           size="sm"
@@ -79,7 +84,8 @@ export function ChatMessageDemo() {
                 message.id === "agent-1"
                   ? {
                       ...message,
-                      content: message.content + "\n新增一段本地演示输出。",
+                      content:
+                        message.content + t("site.aNewLocalDemoOutputFragment"),
                       state: "streaming",
                     }
                   : message,
@@ -87,7 +93,7 @@ export function ChatMessageDemo() {
             )
           }
         >
-          追加演示片段
+          {t("site.appendDemoFragment")}
         </Button>
         <Button
           size="sm"
@@ -99,14 +105,16 @@ export function ChatMessageDemo() {
                   ? {
                       ...message,
                       state: "interrupted",
-                      reason: "演示连接断开，保留部分正文。",
+                      reason: t(
+                        "site.demoConnectionInterruptedPartialTextPreserved",
+                      ),
                     }
                   : message,
               ),
             )
           }
         >
-          模拟中断
+          {t("site.simulateInterruption")}
         </Button>
       </div>
       <Conversation
@@ -131,7 +139,9 @@ export function ChatMessageDemo() {
         }))}
         workspace={
           <>
-            <h3 className="mb-3 text-sm font-medium">Files / 本地预览</h3>
+            <h3 className="mb-3 text-sm font-medium">
+              {t("site.filesLocalPreview")}
+            </h3>
             <Item title="Component-Specification.md" />
             <pre className="mt-3 overflow-auto text-xs">
               {"+ Tree\n+ ActivityTimeline\n+ ChatMessage\n+ ToolCall"}
@@ -150,13 +160,15 @@ export function ChatMessageDemo() {
                 { id: `local-${current.length}`, role: "user", content: text },
               ])
               setDraft("")
-              setFeedback("已添加本地消息，未向 Agent 发送请求。")
+              setFeedback(
+                siteMessage("site.localMessageAddedNoRequestSentToAnAgent"),
+              )
             }}
           />
         }
       />
       <p role="status" className="mt-3 text-xs text-text-secondary">
-        {feedback || "本地演示，片段追加由按钮触发。"}
+        {feedback || t("site.localDemoAppendFragmentsWithTheButton")}
       </p>
     </div>
   )

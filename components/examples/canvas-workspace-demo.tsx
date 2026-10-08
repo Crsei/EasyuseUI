@@ -1,6 +1,8 @@
 "use client"
+import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useEffect, useState } from "react"
+import { CanvasPlaybackToolbar, useCanvasPlayback } from "./canvas-playback"
 import { CanvasWorkspace } from "@/components/blocks/canvas-workspace"
 import { Button } from "@/components/ui/button"
 import { useCanvasEditor } from "@/lib/use-canvas-editor"
@@ -27,6 +29,8 @@ export function CanvasWorkspaceDemo({
   stressSize,
   layout = "preview",
 }: { stressSize?: 200; layout?: "preview" | "fill" } = {}) {
+  const { t } = useSiteI18n()
+
   const [fixture] = useState(createCanvasRuntimeFixture)
   const [extensions, setExtensions] = useState(false)
   const [readOnly, setReadOnly] = useState(false)
@@ -56,6 +60,7 @@ export function CanvasWorkspaceDemo({
     definitions,
     fixture.adapter,
   )
+  const playback = useCanvasPlayback(editor.document, runtime, fixture)
   useEffect(() => {
     if (!dirty) return
     function leave(event: MouseEvent) {
@@ -75,7 +80,7 @@ export function CanvasWorkspaceDemo({
       )
         return
       if (
-        !window.confirm("有未导出的图修改，离开后内存草稿会丢失。确定离开？")
+        !window.confirm(t("site.theGraphHasChangesThatHaveNotBeenExported"))
       ) {
         event.preventDefault()
         event.stopPropagation()
@@ -83,13 +88,15 @@ export function CanvasWorkspaceDemo({
     }
     window.document.addEventListener("click", leave, true)
     return () => window.document.removeEventListener("click", leave, true)
-  }, [dirty])
+  }, [dirty, t])
   const controls = (
     <div
       className="flex flex-wrap items-center gap-2"
-      aria-label="本地 Canvas 示例场景"
+      aria-label={t("site.localCanvasDemoScenarios")}
     >
-      <span className="text-xs text-muted-foreground">本地示例：</span>
+      <span className="text-xs text-muted-foreground">
+        {t("site.localDemo")}
+      </span>
       <Button
         size="sm"
         variant="outline"
@@ -103,22 +110,24 @@ export function CanvasWorkspaceDemo({
           })
         }}
       >
-        Agent 扩展
+        {t("site.agentExtensions")}
       </Button>
       <label className="text-xs">
-        运行 fixture{" "}
+        {t("site.runFixture")}{" "}
         <select
-          aria-label="运行 fixture"
+          aria-label={t("site.runFixture")}
           className="h-8 rounded border bg-background px-2 [@media(pointer:coarse)]:min-h-11"
           onChange={(event) =>
             fixture.setScenario(event.target.value as CanvasFixtureScenario)
           }
         >
-          <option value="success">正常</option>
-          <option value="failure">失败</option>
-          <option value="approval">等待审批</option>
-          <option value="unknown">响应丢失</option>
-          <option value="disconnect">断线 / 重读失败</option>
+          <option value="success">{t("site.normal")}</option>
+          <option value="failure">{t("site.failed")}</option>
+          <option value="approval">{t("site.awaitingApproval")}</option>
+          <option value="unknown">{t("site.lostResponse")}</option>
+          <option value="disconnect">
+            {t("site.disconnectedReadFailure")}
+          </option>
         </select>
       </label>
       <Button
@@ -129,7 +138,7 @@ export function CanvasWorkspaceDemo({
           if (previous) runtime.receive(previous)
         }}
       >
-        注入旧运行事件
+        {t("site.injectAnEventFromAnOldRun")}
       </Button>
       <Button
         size="sm"
@@ -143,7 +152,7 @@ export function CanvasWorkspaceDemo({
           setState("success")
         }}
       >
-        空图
+        {t("site.emptyGraph")}
       </Button>
       <Button
         size="sm"
@@ -157,7 +166,7 @@ export function CanvasWorkspaceDemo({
           setState("success")
         }}
       >
-        基础 Agent 流程
+        {t("site.basicAgentWorkflow")}
       </Button>
       <Button
         size="sm"
@@ -171,7 +180,7 @@ export function CanvasWorkspaceDemo({
           setState("success")
         }}
       >
-        条件分支
+        {t("site.conditionalBranch")}
       </Button>
       <Button
         size="sm"
@@ -179,21 +188,21 @@ export function CanvasWorkspaceDemo({
         aria-pressed={readOnly}
         onClick={() => setReadOnly((value) => !value)}
       >
-        只读模式
+        {t("site.readOnlyMode")}
       </Button>
       <label className="text-xs">
-        数据场景{" "}
+        {t("site.dataScenario")}{" "}
         <select
           className="h-8 rounded border bg-background px-2 [@media(pointer:coarse)]:min-h-11"
-          aria-label="Canvas 数据场景"
+          aria-label={t("site.canvasDataScenario")}
           value={state}
           onChange={(event) => setState(event.target.value as DataState)}
         >
-          <option value="success">完整</option>
-          <option value="loading">加载中</option>
-          <option value="partial">部分数据</option>
-          <option value="error">刷新失败</option>
-          <option value="empty">空状态</option>
+          <option value="success">{t("site.complete")}</option>
+          <option value="loading">{t("site.loading2")}</option>
+          <option value="partial">{t("site.partialData")}</option>
+          <option value="error">{t("site.refreshFailed")}</option>
+          <option value="empty">{t("site.emptyState")}</option>
         </select>
       </label>
       <Button
@@ -208,7 +217,7 @@ export function CanvasWorkspaceDemo({
           })
         }}
       >
-        50 节点
+        {t("site.50Nodes")}
       </Button>
       <Button
         size="sm"
@@ -222,7 +231,7 @@ export function CanvasWorkspaceDemo({
           })
         }}
       >
-        200 节点
+        {t("site.200Nodes")}
       </Button>
     </div>
   )
@@ -231,8 +240,8 @@ export function CanvasWorkspaceDemo({
       {layout === "fill" ? (
         <details className={styles.options} data-canvas-fixtures>
           <summary>
-            <span>示例场景</span>
-            <span>本地内存草稿 · 导出 JSON 保留 · 执行由消费方接入</span>
+            <span>{t("site.demoScenarios")}</span>
+            <span>{t("site.localInMemoryDraftExportJsonToKeepIt")}</span>
           </summary>
           {controls}
         </details>
@@ -244,6 +253,8 @@ export function CanvasWorkspaceDemo({
         {...editor}
         definitions={definitions}
         runtime={runtime}
+        executionVisuals={playback.visuals}
+        runtimeToolbar={<CanvasPlaybackToolbar playback={playback} />}
         catalogs={canvasCatalogs}
         readOnly={readOnly}
         state={state}
@@ -251,8 +262,10 @@ export function CanvasWorkspaceDemo({
           state === "error"
             ? {
                 category: "network",
-                message: "示例：刷新图文档失败",
-                reason: "已有本地草稿保留；此场景不请求真实服务。",
+                message: t("site.demoGraphDocumentRefreshFailed"),
+                reason: t(
+                  "site.existingLocalDraftPreservedThisScenarioMakesNoReal",
+                ),
               }
             : undefined
         }

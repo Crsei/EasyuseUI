@@ -19,7 +19,7 @@
       "type": "registry:ui",
       "title": "RuntimeStatusBadge",
       "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["theme", "utils", "runtime-status"],
+      "registryDependencies": ["theme", "utils", "runtime-status", "i18n"],
       "files": [
         {
           "path": "components/ui/runtime-status-badge.tsx",
@@ -31,7 +31,7 @@
       "name": "item",
       "type": "registry:ui",
       "title": "Item",
-      "registryDependencies": ["theme", "utils"],
+      "registryDependencies": ["theme", "utils", "i18n"],
       "files": [
         {
           "path": "components/ui/item.tsx",
@@ -50,7 +50,7 @@
       "type": "registry:block",
       "title": "WorkspaceShell",
       "dependencies": ["@base-ui/react@^1.8.0", "lucide-react@^0.577.0"],
-      "registryDependencies": ["theme", "utils", "button"],
+      "registryDependencies": ["theme", "utils", "button", "i18n"],
       "files": [
         {
           "path": "components/blocks/workspace-shell.tsx",
@@ -119,7 +119,7 @@
       "type": "registry:ui",
       "title": "Dialog",
       "dependencies": ["@base-ui/react@^1.8.0"],
-      "registryDependencies": ["theme", "utils"],
+      "registryDependencies": ["theme", "utils", "i18n"],
       "files": [
         {
           "path": "components/ui/dialog.tsx",
@@ -131,7 +131,7 @@
       "name": "task-panel",
       "type": "registry:block",
       "title": "TaskPanel",
-      "registryDependencies": ["button", "utils", "theme"],
+      "registryDependencies": ["button", "utils", "theme", "i18n"],
       "files": [
         {
           "path": "components/blocks/task-panel.tsx",
@@ -146,7 +146,7 @@
       "title": "ScrollPlayground",
       "description": "Six native scroll experiments: triggered, linked, parallax, sticky, snap and horizontal.",
       "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["theme"],
+      "registryDependencies": ["theme", "i18n"],
       "files": [
         {
           "path": "components/blocks/scroll-playground.tsx",
@@ -186,7 +186,7 @@
       "title": "DataRegion",
       "description": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
       "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["button", "theme"],
+      "registryDependencies": ["button", "theme", "i18n"],
       "files": [
         {
           "path": "components/ui/data-region.tsx",
@@ -211,7 +211,8 @@
         "utils",
         "button",
         "data-region",
-        "runtime-status-badge"
+        "runtime-status-badge",
+        "i18n"
       ],
       "files": [
         {
@@ -232,7 +233,12 @@
       "title": "SessionRow",
       "description": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
       "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["item", "button", "runtime-status-badge"],
+      "registryDependencies": [
+        "item",
+        "button",
+        "runtime-status-badge",
+        "i18n"
+      ],
       "files": [
         {
           "path": "components/blocks/session-row.tsx",
@@ -252,7 +258,12 @@
       "title": "AgentRow",
       "description": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
       "dependencies": ["lucide-react@^0.577.0"],
-      "registryDependencies": ["item", "button", "runtime-status-badge"],
+      "registryDependencies": [
+        "item",
+        "button",
+        "runtime-status-badge",
+        "i18n"
+      ],
       "files": [
         {
           "path": "components/blocks/agent-row.tsx",
@@ -278,7 +289,8 @@
         "button",
         "runtime-status-badge",
         "data-region",
-        "use-follow-tail"
+        "use-follow-tail",
+        "i18n"
       ],
       "files": [
         {
@@ -303,7 +315,8 @@
         "theme",
         "button",
         "runtime-status-badge",
-        "data-region"
+        "data-region",
+        "i18n"
       ],
       "files": [
         {
@@ -329,7 +342,8 @@
         "utils",
         "button",
         "data-region",
-        "use-follow-tail"
+        "use-follow-tail",
+        "i18n"
       ],
       "files": [
         {
@@ -355,7 +369,8 @@
         "button",
         "runtime-status-badge",
         "data-region",
-        "redact"
+        "redact",
+        "i18n"
       ],
       "files": [
         {
@@ -405,7 +420,7 @@
       "name": "chip",
       "type": "registry:ui",
       "title": "Chip",
-      "registryDependencies": ["theme", "utils", "button"],
+      "registryDependencies": ["theme", "utils", "button", "i18n"],
       "files": [
         {
           "path": "components/ui/chip.tsx",
@@ -427,7 +442,8 @@
           "path": "lib/style-workbench-model.ts",
           "type": "registry:lib"
         }
-      ]
+      ],
+      "registryDependencies": ["i18n"]
     },
     {
       "name": "style-workbench",
@@ -444,7 +460,8 @@
         "tag",
         "chip",
         "data-region",
-        "style-workbench-model"
+        "style-workbench-model",
+        "i18n"
       ],
       "files": [
         {
@@ -462,7 +479,7 @@
     {
       "name": "canvas-model",
       "type": "registry:lib",
-      "registryDependencies": [],
+      "registryDependencies": ["i18n"],
       "dependencies": [],
       "files": [
         {
@@ -479,7 +496,7 @@
     {
       "name": "canvas-port",
       "type": "registry:ui",
-      "registryDependencies": ["theme", "canvas-model"],
+      "registryDependencies": ["theme", "canvas-model", "i18n"],
       "dependencies": ["@xyflow/react@12.12.0"],
       "files": [
         {
@@ -501,7 +518,8 @@
         "canvas-model",
         "canvas-port",
         "runtime-status-badge",
-        "redact"
+        "redact",
+        "i18n"
       ],
       "dependencies": ["lucide-react"],
       "files": [
@@ -515,13 +533,18 @@
     {
       "name": "canvas-edge",
       "type": "registry:ui",
-      "registryDependencies": ["theme", "redact"],
+      "registryDependencies": ["theme", "redact", "canvas-model"],
       "dependencies": ["@xyflow/react@12.12.0"],
       "files": [
         {
           "path": "components/ui/canvas-edge.tsx",
           "type": "registry:component",
           "target": "components/ui/canvas-edge.tsx"
+        },
+        {
+          "path": "components/ui/canvas-edge.module.css",
+          "type": "registry:component",
+          "target": "components/ui/canvas-edge.module.css"
         }
       ]
     },
@@ -537,7 +560,8 @@
         "canvas-validation",
         "canvas-frame",
         "canvas-note",
-        "button"
+        "button",
+        "i18n"
       ],
       "dependencies": ["@xyflow/react@12.12.0", "lucide-react"],
       "files": [
@@ -556,7 +580,7 @@
     {
       "name": "canvas-validation",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model", "redact"],
+      "registryDependencies": ["canvas-model", "redact", "i18n"],
       "dependencies": [],
       "files": [
         {
@@ -569,7 +593,7 @@
     {
       "name": "canvas-editor",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model", "canvas-validation"],
+      "registryDependencies": ["canvas-model", "canvas-validation", "i18n"],
       "dependencies": [],
       "files": [
         {
@@ -600,7 +624,7 @@
     {
       "name": "canvas-frame",
       "type": "registry:block",
-      "registryDependencies": ["canvas-model", "theme", "redact"],
+      "registryDependencies": ["canvas-model", "theme", "redact", "i18n"],
       "dependencies": [],
       "files": [
         {
@@ -618,7 +642,12 @@
     {
       "name": "canvas-note",
       "type": "registry:block",
-      "registryDependencies": ["canvas-model", "canvas-frame", "redact"],
+      "registryDependencies": [
+        "canvas-model",
+        "canvas-frame",
+        "redact",
+        "i18n"
+      ],
       "dependencies": [],
       "files": [
         {
@@ -636,7 +665,8 @@
         "canvas-controls",
         "button",
         "input",
-        "utils"
+        "utils",
+        "i18n"
       ],
       "dependencies": ["lucide-react"],
       "files": [
@@ -656,7 +686,8 @@
         "canvas-validation",
         "tree",
         "input",
-        "button"
+        "button",
+        "i18n"
       ],
       "dependencies": [],
       "files": [
@@ -679,7 +710,8 @@
         "input",
         "button",
         "dialog",
-        "canvas-config-editor"
+        "canvas-config-editor",
+        "i18n"
       ],
       "dependencies": [],
       "files": [
@@ -709,7 +741,8 @@
         "data-region",
         "canvas-execution-panel",
         "canvas-services",
-        "canvas-service-panel"
+        "canvas-service-panel",
+        "i18n"
       ],
       "dependencies": ["lucide-react"],
       "files": [
@@ -728,7 +761,7 @@
     {
       "name": "canvas-runtime",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model", "canvas-validation"],
+      "registryDependencies": ["canvas-model", "canvas-validation", "i18n"],
       "files": [
         {
           "path": "lib/canvas-runtime.ts",
@@ -752,7 +785,8 @@
         "tool-call",
         "inspector",
         "data-region",
-        "redact"
+        "redact",
+        "i18n"
       ],
       "files": [
         {
@@ -769,7 +803,8 @@
         "canvas-model",
         "canvas-controls",
         "button",
-        "input"
+        "input",
+        "i18n"
       ],
       "files": [
         {
@@ -789,7 +824,8 @@
         "canvas-controls",
         "button",
         "dialog",
-        "redact"
+        "redact",
+        "i18n"
       ],
       "files": [
         {
@@ -806,7 +842,7 @@
     {
       "name": "canvas-services",
       "type": "registry:lib",
-      "registryDependencies": ["canvas-model"],
+      "registryDependencies": ["canvas-model", "i18n"],
       "files": [
         {
           "path": "lib/canvas-services.ts",
@@ -827,13 +863,37 @@
         "button",
         "dialog",
         "data-region",
-        "redact"
+        "redact",
+        "i18n"
       ],
       "files": [
         {
           "path": "components/blocks/canvas-service-panel.tsx",
           "type": "registry:component",
           "target": "components/blocks/canvas-service-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "i18n",
+      "title": "I18nProvider",
+      "type": "registry:lib",
+      "description": "Portable zh-CN/en context, typed messages, Intl formatting and structured UI diagnostics.",
+      "files": [
+        {
+          "path": "lib/i18n-core.ts",
+          "type": "registry:lib",
+          "target": "lib/i18n-core.ts"
+        },
+        {
+          "path": "lib/i18n-messages.ts",
+          "type": "registry:lib",
+          "target": "lib/i18n-messages.ts"
+        },
+        {
+          "path": "lib/i18n-provider.tsx",
+          "type": "registry:lib",
+          "target": "lib/i18n-provider.tsx"
         }
       ]
     }

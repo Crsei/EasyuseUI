@@ -1,3 +1,4 @@
+import { SiteText } from "@/components/site/site-i18n"
 import Link from "next/link"
 import { ArrowRight, Check, Code2, Layers3, MousePointer2 } from "lucide-react"
 import { TaskPanelDemo } from "@/components/examples/task-panel-demo"
@@ -16,36 +17,38 @@ export default function HomePage() {
         <div>
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border bg-muted/40 px-3 py-1.5 text-xs text-muted-foreground">
             <span className="size-1.5 rounded-full bg-primary" />
-            EasyuseUI · 第一版组件已就绪
+            <SiteText messageKey="site.easyuseuiTheFirstComponentsAreReady" />
           </div>
           <h1 className="text-4xl leading-[1.25] font-semibold tracking-tight sm:text-5xl lg:text-[3.5rem]">
-            把好用，
+            <SiteText messageKey="site.makeUsability" />
             <br />
-            <span className="text-primary">变成默认。</span>
+            <span className="text-primary">
+              <SiteText messageKey="site.theDefault" />
+            </span>
           </h1>
           <p className="mt-6 max-w-md text-base leading-8 text-muted-foreground">
-            为日常开发准备的 React
-            组件。清楚的状态、统一的细节，以及你可以直接修改的源码。
+            <SiteText messageKey="site.reactComponentsForEverydayDevelopmentClearStatesConsistentDetails" />
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link
               href="/docs/installation"
               className={buttonVariants({ size: "lg" })}
             >
-              开始使用
+              <SiteText messageKey="site.getStarted" />
               <ArrowRight size={16} />
             </Link>
             <Link
               href="/components"
               className={buttonVariants({ size: "lg", variant: "outline" })}
             >
-              浏览组件
+              <SiteText messageKey="site.browseComponents" />
             </Link>
             <Link
               href="/scroll"
               className="inline-flex items-center gap-1.5 px-2 py-3 text-sm text-muted-foreground hover:text-primary"
             >
-              体验滚动交互 <ArrowRight size={14} />
+              <SiteText messageKey="site.tryScrollInteractions" />
+              <ArrowRight size={14} />
             </Link>
           </div>
           <p className="mt-7 font-mono text-xs text-muted-foreground">
@@ -60,13 +63,13 @@ export default function HomePage() {
               <span className="size-2 rounded-full bg-border" />
             </div>
             <span className="rounded-md bg-background px-2 py-1 font-mono text-[10px] text-muted-foreground">
-              交互演示 / task-panel.tsx
+              <SiteText messageKey="site.interactiveDemoTaskPanelTsx" />
             </span>
           </div>
           <TaskPanelDemo />
           <div className="mt-5 flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <MousePointer2 size={13} />
-            试试点击「重试」，看看任务如何继续。
+            <SiteText messageKey="site.clickRetryToSeeTheTaskContinue" />
           </div>
         </div>
       </section>
@@ -92,9 +95,11 @@ export default function HomePage() {
           ].map(({ icon: Icon, title, text }) => (
             <div key={title}>
               <Icon size={19} className="mb-4 text-primary" />
-              <h2 className="text-sm font-semibold">{title}</h2>
+              <h2 className="text-sm font-semibold">
+                <SiteText text={title} />
+              </h2>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                {text}
+                <SiteText text={text} />
               </p>
             </div>
           ))}
@@ -108,14 +113,14 @@ export default function HomePage() {
               SMALL DETAILS, BETTER INTERFACES
             </p>
             <h2 className="text-2xl font-semibold tracking-tight">
-              从小组件，做好每个细节。
+              <SiteText messageKey="site.smallComponentsEveryDetailConsidered" />
             </h2>
           </div>
           <Link
             href="/components"
             className="hidden items-center gap-2 text-sm text-muted-foreground sm:flex"
           >
-            全部组件
+            <SiteText messageKey="site.allComponents" />
             <ArrowRight size={15} />
           </Link>
         </div>
@@ -152,8 +157,12 @@ export default function HomePage() {
                 className="flex items-center justify-between border-t bg-muted/25 p-5"
               >
                 <div>
-                  <h3 className="text-sm font-semibold">{title}</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">{text}</p>
+                  <h3 className="text-sm font-semibold">
+                    <SiteText text={title} />
+                  </h3>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    <SiteText text={text} />
+                  </p>
                 </div>
                 <ArrowRight size={16} />
               </Link>
@@ -165,20 +174,20 @@ export default function HomePage() {
       <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-24 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight">
-            一条命令，带进你的项目。
+            <SiteText messageKey="site.oneCommandInYourProject" />
           </h2>
           <p className="mt-4 text-sm leading-7 text-muted-foreground">
-            组件、依赖和主题一起安装。代码落在你的项目里，接下来按自己的方式修改。
+            <SiteText messageKey="site.componentsDependenciesAndThemeInstallTogetherTheCodeLives" />
           </p>
           <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
             <Check size={14} className="text-success" />
-            适用于已初始化 shadcn 的 React 项目
+            <SiteText messageKey="site.forReactProjectsWithShadcnInitialized" />
           </p>
           <Link
             href="/docs/installation"
             className={cn(buttonVariants({ variant: "ghost" }), "mt-4 -ml-4")}
           >
-            查看安装指南
+            <SiteText messageKey="site.viewInstallationGuide" />
             <ArrowRight size={15} />
           </Link>
         </div>

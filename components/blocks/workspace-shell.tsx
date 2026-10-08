@@ -1,4 +1,5 @@
 "use client"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { Dialog } from "@base-ui/react/dialog"
 import { PanelLeftClose, PanelLeftOpen, PanelRight, X } from "lucide-react"
@@ -40,6 +41,8 @@ export function WorkspaceShell({
   bottomPanelCollapsed = false,
   className,
 }: WorkspaceShellProps) {
+  const { t } = useI18n()
+
   const ref = useRef<HTMLDivElement>(null)
   const openerRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLElement>(null)
@@ -105,7 +108,11 @@ export function WorkspaceShell({
           variant="ghost"
           size="icon"
           className={styles.sidebarToggle}
-          aria-label={sidebarCollapsed ? "展开侧栏" : "折叠侧栏"}
+          aria-label={
+            sidebarCollapsed
+              ? t("workspaceShell.expandSidebar")
+              : t("workspaceShell.collapseSidebar")
+          }
           onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
         >
           {sidebarCollapsed ? <PanelLeftOpen /> : <PanelLeftClose />}
@@ -116,7 +123,11 @@ export function WorkspaceShell({
             ref={openerRef}
             variant="ghost"
             size="icon"
-            aria-label={docked ? "收起 Inspector" : "打开 Inspector"}
+            aria-label={
+              docked
+                ? t("workspaceShell.collapseInspector")
+                : t("workspaceShell.openInspector")
+            }
             aria-expanded={wide ? docked : overlayOpen}
             onClick={() =>
               wide
@@ -129,7 +140,10 @@ export function WorkspaceShell({
         )}
       </header>
       <div className={styles.layout}>
-        <aside className={styles.sidebar} aria-label="工作区导航">
+        <aside
+          className={styles.sidebar}
+          aria-label={t("workspaceShell.workspaceNavigation")}
+        >
           {sidebar}
         </aside>
         <div className={styles.main}>
@@ -146,7 +160,7 @@ export function WorkspaceShell({
             <div
               role="separator"
               tabIndex={0}
-              aria-label="调整 Inspector 宽度"
+              aria-label={t("workspaceShell.resizeInspectorWidth")}
               aria-orientation="vertical"
               aria-valuemin={limits.min}
               aria-valuemax={limits.max}
@@ -188,7 +202,7 @@ export function WorkspaceShell({
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label="关闭 Inspector"
+                aria-label={t("workspaceShell.closeInspector")}
                 onClick={() => {
                   setInspectorCollapsed(true)
                   openerRef.current?.focus()
@@ -207,7 +221,7 @@ export function WorkspaceShell({
       {bottomPanel && (
         <section
           className={styles.bottom}
-          aria-label="底部工作面板"
+          aria-label={t("workspaceShell.bottomWorkspacePanel")}
           data-collapsed={bottomPanelCollapsed}
           style={
             bottomPanelResizable && !bottomPanelCollapsed
@@ -219,7 +233,7 @@ export function WorkspaceShell({
             <div
               role="separator"
               tabIndex={0}
-              aria-label="调整底部面板高度"
+              aria-label={t("workspaceShell.resizeBottomPanelHeight")}
               aria-orientation="horizontal"
               aria-valuemin={200}
               aria-valuemax={400}
@@ -285,14 +299,14 @@ export function WorkspaceShell({
               <Button
                 variant="ghost"
                 size="icon"
-                aria-label="关闭 Inspector"
+                aria-label={t("workspaceShell.closeInspector")}
                 onClick={() => setOverlayOpen(false)}
               >
                 <X />
               </Button>
             </div>
             <Dialog.Description className="sr-only">
-              当前选中对象的状态、元数据与操作。
+              {t("workspaceShell.statusMetadataAndActionsForTheSelectedObject")}
             </Dialog.Description>
             {panelBody}
             {inspectorFooter && (

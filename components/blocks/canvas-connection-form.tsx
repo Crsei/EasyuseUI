@@ -1,4 +1,7 @@
 "use client"
+import { useUiFeedback } from "@/lib/i18n-provider"
+import { uiMessage } from "@/lib/i18n-core"
+import { useI18n } from "@/lib/i18n-provider"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -10,7 +13,7 @@ import {
   type CanvasEdgeRecord,
   type CanvasNodeDefinition,
 } from "@/lib/canvas-model"
-import { validateCanvasConnection } from "@/lib/canvas-validation"
+import { describeValidateCanvasConnection } from "@/lib/canvas-validation"
 import styles from "./canvas-controls.module.css"
 
 /** Internal workspace form: keyboard/touch equivalent of connecting and reconnecting handles. */
@@ -27,13 +30,15 @@ export function CanvasConnectionForm({
   onCommand: (command: CanvasCommand) => void
   readOnly: boolean
 }) {
+  const { t, resolve } = useI18n()
+
   const choices = (direction: "input" | "output") =>
     document.nodes.flatMap((node) =>
       (definitions.find((item) => item.type === node.type)?.ports ?? [])
         .filter((port) => port.direction === direction)
         .map((port) => ({
           value: `${node.id}:${port.id}`,
-          label: `${node.title} / ${port.label} (${port.type})`,
+          label: `${node.title} / ${resolve(port.labelI18n, port.label)} (${port.type})`,
           nodeId: node.id,
           port,
         })),
@@ -46,7 +51,7 @@ export function CanvasConnectionForm({
   const [target, setTarget] = useState(
     edge ? `${edge.target}:${edge.targetPort}` : (inputs[0]?.value ?? ""),
   )
-  const [error, setError] = useState("")
+  const [error, setError] = useUiFeedback("")
   const [inserting, setInserting] = useState(false)
   const from = outputs.find((item) => item.value === source),
     to = inputs.find((item) => item.value === target)
@@ -61,14 +66,14 @@ export function CanvasConnectionForm({
         }
       : undefined
   const reason = newEdge
-    ? validateCanvasConnection(document, definitions, newEdge, edge?.id)
-    : "请选择来源和目标端口。"
+    ? describeValidateCanvasConnection(document, definitions, newEdge, edge?.id)
+    : uiMessage("canvasConnectionForm.selectTheSourceAndTargetPorts")
   return (
     <div className={styles.stack}>
       <label className={styles.field}>
-        来源输出端口
+        {t("canvasConnectionForm.sourceOutputPort")}
         <select
-          aria-label="来源输出端口"
+          aria-label={t("canvasConnectionForm.sourceOutputPort")}
           value={source}
           disabled={readOnly}
           onChange={(event) => {
@@ -76,7 +81,7 @@ export function CanvasConnectionForm({
             setError("")
           }}
         >
-          <option value="">请选择来源</option>
+          <option value="">{t("canvasConnectionForm.selectASource")}</option>
           {outputs.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
@@ -85,9 +90,9 @@ export function CanvasConnectionForm({
         </select>
       </label>
       <label className={styles.field}>
-        目标输入端口
+        {t("canvasConnectionForm.targetInputPort")}
         <select
-          aria-label="目标输入端口"
+          aria-label={t("canvasConnectionForm.targetInputPort")}
           value={target}
           disabled={readOnly}
           onChange={(event) => {
@@ -95,7 +100,7 @@ export function CanvasConnectionForm({
             setError("")
           }}
         >
-          <option value="">请选择目标</option>
+          <option value="">{t("canvasConnectionForm.selectATarget")}</option>
           {inputs.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
@@ -103,12 +108,19 @@ export function CanvasConnectionForm({
           ))}
         </select>
       </label>
-      {reason && <p className={styles.muted}>{reason}</p>}
+      {reason && (
+        <p className={styles.muted}>
+          {resolve(
+            typeof reason === "object" ? reason : undefined,
+            typeof reason === "string" ? reason : "",
+          )}
+        </p>
+      )}
       <Button
         disabled={readOnly}
         onClick={() => {
           if (reason || !newEdge) {
-            setError(reason ?? "端口无效。")
+            setError(reason ?? uiMessage("canvasConnectionForm.invalidPort"))
             return
           }
           onCommand(
@@ -122,7 +134,9 @@ export function CanvasConnectionForm({
           )
         }}
       >
-        {edge ? "应用重连" : "建立连接"}
+        {edge
+          ? t("canvasConnectionForm.applyReconnection")
+          : t("canvasConnectionForm.connect")}
       </Button>
       {error && (
         <p role="alert" className={styles.error}>
@@ -142,14 +156,14 @@ export function CanvasConnectionForm({
                 })
               }
             >
-              断开连线
+              {t("canvasConnectionForm.disconnectEdge")}
             </Button>
             <Button
               variant="outline"
               disabled={readOnly}
               onClick={() => setInserting((value) => !value)}
             >
-              在连线中插入节点
+              {t("canvasConnectionForm.insertNodeIntoEdge")}
             </Button>
           </div>
           {inserting && (
@@ -182,7 +196,11 @@ export function CanvasConnectionForm({
                       port.direction === "output" && port.type === input?.type,
                   )
                 if (!inputPort || !outputPort) {
-                  setError("此节点两侧端口不兼容；原连线保留。")
+                  setError(
+                    uiMessage(
+                      "canvasConnectionForm.thePortsOnEitherSideAreIncompatibleThe",
+                    ),
+                  )
                   return
                 }
                 onCommand({
