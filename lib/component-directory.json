@@ -826,5 +826,68 @@
     "docPath": "/docs/work-items-saved-views/",
     "installType": "block",
     "registryId": "work-items-enhancements"
+  },
+  {
+    "slug": "timeline",
+    "name": "Timeline",
+    "description": "业务无关的排期行、按日吸附与区间裁切。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/timeline/",
+    "installType": "block",
+    "registryId": "timeline"
+  },
+  {
+    "slug": "calendar",
+    "name": "Calendar",
+    "description": "受控月、周与当日Agenda，消费权威按日快照。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/calendar/",
+    "installType": "block",
+    "registryId": "calendar"
+  },
+  {
+    "slug": "schedule-view-controls",
+    "name": "ScheduleViewControls",
+    "description": "受控排期锚点、刻度、每周首日与周末显隐。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/schedule-view-controls/",
+    "installType": "block",
+    "registryId": "schedule-view-controls"
+  },
+  {
+    "slug": "work-item-date-range-field",
+    "name": "WorkItemDateRangeField",
+    "description": "成对日期意图、字段权限、校验与失败草稿保留。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-date-range-field/",
+    "installType": "block",
+    "registryId": "work-item-date-range-field"
+  },
+  {
+    "slug": "work-items-schedule",
+    "name": "UnscheduledWorkItems",
+    "description": "去重未排期队列与紧凑工作项日历条目。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-items-schedule/",
+    "installType": "block",
+    "registryId": "work-items-schedule"
+  },
+  {
+    "slug": "work-item-timeline",
+    "name": "WorkItemTimeline",
+    "description": "工作项排期，平移与两端调整使用独立字段能力。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-timeline/",
+    "installType": "block",
+    "registryId": "work-item-timeline"
+  },
+  {
+    "slug": "work-item-calendar",
+    "name": "WorkItemCalendar",
+    "description": "仅修改截止日的日历、逐日分页与未排期工作项。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/work-item-calendar/",
+    "installType": "block",
+    "registryId": "work-item-calendar"
   }
 ]

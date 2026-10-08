@@ -2083,7 +2083,8 @@
       "work-item-properties",
       "work-items-model",
       "work-items-styles",
-      "i18n"
+      "i18n",
+      "work-item-date-range-field"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -2108,7 +2109,6 @@
       "workspace-shell",
       "work-items-toolbar",
       "work-items-views",
-      "work-items-enhancements",
       "work-item-detail",
       "data-region",
       "button",
@@ -2116,7 +2116,11 @@
       "work-items-model",
       "grouped-items-model",
       "work-items-styles",
-      "i18n"
+      "i18n",
+      "work-items-enhancements",
+      "work-item-timeline",
+      "work-item-calendar",
+      "schedule-view-controls"
     ],
     "installType": "block",
     "displayCategory": "workspace",
@@ -2296,6 +2300,193 @@
     "widePreview": true,
     "notes": [
       "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
+    ]
+  },
+  {
+    "slug": "timeline",
+    "docPath": "/docs/timeline/",
+    "registryId": "timeline",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "i18n",
+      "work-items-model"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "Timeline",
+    "category": "组合模块",
+    "description": "业务无关的排期行、按日吸附与区间裁切。",
+    "source": "components/blocks/timeline.tsx",
+    "example": "components/examples/work-items-schedule-demo.tsx",
+    "usage": "import { Timeline } from \"@/components/blocks/timeline\"",
+    "widePreview": true,
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "calendar",
+    "docPath": "/docs/calendar/",
+    "registryId": "calendar",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "i18n",
+      "work-items-model",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "Calendar",
+    "category": "组合模块",
+    "description": "受控月、周与当日Agenda，消费权威按日快照。",
+    "source": "components/blocks/calendar.tsx",
+    "example": "components/examples/work-items-schedule-demo.tsx",
+    "usage": "import { Calendar } from \"@/components/blocks/calendar\"",
+    "widePreview": true,
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "schedule-view-controls",
+    "docPath": "/docs/schedule-view-controls/",
+    "registryId": "schedule-view-controls",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "i18n",
+      "work-items-model",
+      "input"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "ScheduleViewControls",
+    "category": "组合模块",
+    "description": "受控排期锚点、刻度、每周首日与周末显隐。",
+    "source": "components/blocks/schedule-view-controls.tsx",
+    "example": "components/examples/work-items-schedule-demo.tsx",
+    "usage": "import { ScheduleViewControls } from \"@/components/blocks/schedule-view-controls\"",
+    "widePreview": true,
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-item-date-range-field",
+    "docPath": "/docs/work-item-date-range-field/",
+    "registryId": "work-item-date-range-field",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "i18n",
+      "work-items-model",
+      "input",
+      "field",
+      "popover",
+      "schedule-view-controls"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemDateRangeField",
+    "category": "组合模块",
+    "description": "成对日期意图、字段权限、校验与失败草稿保留。",
+    "source": "components/blocks/work-item-date-range-field.tsx",
+    "example": "components/examples/work-items-schedule-demo.tsx",
+    "usage": "import { WorkItemDateRangeField } from \"@/components/blocks/work-item-date-range-field\"",
+    "widePreview": true,
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-items-schedule",
+    "docPath": "/docs/work-items-schedule/",
+    "registryId": "work-items-schedule",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "i18n",
+      "work-items-model",
+      "checkbox",
+      "work-item",
+      "work-items-views",
+      "work-item-date-range-field",
+      "schedule-view-controls",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "UnscheduledWorkItems",
+    "category": "组合模块",
+    "description": "去重未排期队列与紧凑工作项日历条目。",
+    "source": "components/blocks/work-items-schedule.tsx",
+    "example": "components/examples/work-items-schedule-demo.tsx",
+    "usage": "import { UnscheduledWorkItems } from \"@/components/blocks/work-items-schedule\"",
+    "widePreview": true,
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-item-timeline",
+    "docPath": "/docs/work-item-timeline/",
+    "registryId": "work-item-timeline",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "i18n",
+      "work-items-model",
+      "timeline",
+      "work-items-schedule",
+      "work-item-date-range-field",
+      "dialog",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemTimeline",
+    "category": "组合模块",
+    "description": "工作项排期，平移与两端调整使用独立字段能力。",
+    "source": "components/blocks/work-item-timeline.tsx",
+    "example": "components/examples/work-items-schedule-demo.tsx",
+    "usage": "import { WorkItemTimeline } from \"@/components/blocks/work-item-timeline\"",
+    "widePreview": true,
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-item-calendar",
+    "docPath": "/docs/work-item-calendar/",
+    "registryId": "work-item-calendar",
+    "registryDependencies": [
+      "theme",
+      "button",
+      "i18n",
+      "work-items-model",
+      "calendar",
+      "work-items-schedule"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "name": "WorkItemCalendar",
+    "category": "组合模块",
+    "description": "仅修改截止日的日历、逐日分页与未排期工作项。",
+    "source": "components/blocks/work-item-calendar.tsx",
+    "example": "components/examples/work-items-schedule-demo.tsx",
+    "usage": "import { WorkItemCalendar } from \"@/components/blocks/work-item-calendar\"",
+    "widePreview": true,
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
     ]
   }
 ]

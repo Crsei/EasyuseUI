@@ -642,5 +642,54 @@
     "category": "组合模块",
     "docPath": "/docs/work-items-saved-views/",
     "displayCategory": "patterns"
+  },
+  {
+    "slug": "timeline",
+    "name": "Timeline",
+    "category": "组合模块",
+    "docPath": "/docs/timeline/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "calendar",
+    "name": "Calendar",
+    "category": "组合模块",
+    "docPath": "/docs/calendar/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "schedule-view-controls",
+    "name": "ScheduleViewControls",
+    "category": "组合模块",
+    "docPath": "/docs/schedule-view-controls/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-date-range-field",
+    "name": "WorkItemDateRangeField",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-date-range-field/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-items-schedule",
+    "name": "UnscheduledWorkItems",
+    "category": "组合模块",
+    "docPath": "/docs/work-items-schedule/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-timeline",
+    "name": "WorkItemTimeline",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-timeline/",
+    "displayCategory": "patterns"
+  },
+  {
+    "slug": "work-item-calendar",
+    "name": "WorkItemCalendar",
+    "category": "组合模块",
+    "docPath": "/docs/work-item-calendar/",
+    "displayCategory": "patterns"
   }
 ]
