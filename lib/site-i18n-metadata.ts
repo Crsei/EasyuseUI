@@ -5,6 +5,9 @@ export const componentPageTitles: Record<string, string> = Object.fromEntries(
 )
 
 export const pageDescriptionKeys = {
+  "/examples": "site.examples.description",
+  "/examples/work-items": "site.examples.workItemsDescription",
+  "/workspace/work-items": "site.examples.moved",
   "/": "site.metadata_Description",
   "/style-workbench": "site.metadata_style_workbenchDescription",
   "/dictionary": "site.metadata_dictionaryDescription",

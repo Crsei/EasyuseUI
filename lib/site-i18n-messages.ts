@@ -1,6 +1,14 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.examples.workItemsTitle": "Work Items 组件示例",
+    "site.examples.navigation": "示例",
+    "site.examples.title": "组件示例",
+    "site.examples.description": "通过完整交互示例了解组件如何组合；每个示例使用本地数据，便于探索布局与状态。",
+    "site.examples.workItemsDescription": "List、Board、Table、Timeline 与 Calendar 共享字段、选择和日期操作。",
+    "site.examples.back": "返回示例",
+    "site.examples.moved": "Work Items 展示已移至组件示例页面。",
+    "site.examples.openWorkItems": "打开 Work Items 示例",
     "site.schedule.catalog.0": "业务无关的排期行、按日吸附与区间裁切。",
     "site.schedule.catalog.1": "受控月、周与当日Agenda，消费权威按日快照。",
     "site.schedule.catalog.2": "受控排期锚点、刻度、每周首日与周末显隐。",
@@ -2490,6 +2498,14 @@ export const siteMessages = {
       "构图、配置、校验与 JSON 导入导出的本地画布工作台。",
   },
   en: {
+    "site.examples.workItemsTitle": "Work Items component example",
+    "site.examples.navigation": "Examples",
+    "site.examples.title": "Component examples",
+    "site.examples.description": "Explore how components fit together in interactive examples. Each example uses local data to demonstrate layouts and states.",
+    "site.examples.workItemsDescription": "List, Board, Table, Timeline and Calendar share fields, selection and date operations.",
+    "site.examples.back": "Back to examples",
+    "site.examples.moved": "The Work Items showcase has moved to the component examples.",
+    "site.examples.openWorkItems": "Open the Work Items example",
     "site.schedule.catalog.0": "Business-independent scheduling rows, day snapping and clipped ranges.",
     "site.schedule.catalog.1": "Controlled month, week and daily agenda with authoritative date buckets.",
     "site.schedule.catalog.2": "Controlled schedule anchors, scales, week starts and weekend visibility.",

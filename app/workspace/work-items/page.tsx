@@ -1,14 +1,9 @@
 import type { Metadata } from "next"
-import { Suspense } from "react"
-import { WorkItemsDemo } from "@/components/examples/work-items/work-items-demo"
+import { WorkItemsExampleRedirect } from "@/components/examples/work-items/work-items-redirect"
 export const metadata: Metadata = {
-  title: "Work Items",
-  description: "List, Board and Table sharing controlled work item components.",
+  title: "Work Items 组件示例入口",
+  robots: { index: false, follow: true },
 }
 export default function WorkItemsPage() {
-  return (
-    <Suspense fallback={<p>Work Items…</p>}>
-      <WorkItemsDemo />
-    </Suspense>
-  )
+  return <WorkItemsExampleRedirect />
 }

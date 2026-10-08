@@ -50,7 +50,7 @@ test("independent Board moves an idea into another group", async ({ page }) => {
 test("manual reordering changes the actual order; moving into a filtered empty group retains the filter", async ({
   page,
 }) => {
-  await page.goto("/workspace/work-items/?layout=board")
+  await page.goto("/examples/work-items/?layout=board")
   await page.locator('[data-work-items-ready="true"]').waitFor()
   await page.getByRole("button", { name: "移动 WI-001", exact: true }).click()
   await page.getByRole("button", { name: "下移", exact: true }).click()
@@ -59,7 +59,7 @@ test("manual reordering changes the actual order; moving into a filtered empty g
   await expect(ids.first()).toHaveAttribute("data-work-item", "wi-006")
   await expect(ids.nth(1)).toHaveAttribute("data-work-item", "wi-001")
   await page.goto(
-    "/workspace/work-items/?layout=board&group=priority&state=backlog&priority=p0",
+    "/examples/work-items/?layout=board&group=priority&state=backlog&priority=p0",
   )
   await page.locator('[data-work-items-ready="true"]').waitFor()
   await expect(
@@ -79,7 +79,7 @@ test("manual reordering changes the actual order; moving into a filtered empty g
 test("automatic sorting can move into a partially loaded group through the keyboard menu", async ({
   page,
 }) => {
-  await page.goto("/workspace/work-items/?layout=board&sort=dueDate")
+  await page.goto("/examples/work-items/?layout=board&sort=dueDate")
   await page.locator('[data-work-items-ready="true"]').waitFor()
   await page.getByRole("button", { name: "展开底部面板", exact: true }).click()
   await page.getByLabel("示例场景", { exact: true }).selectOption("partial")

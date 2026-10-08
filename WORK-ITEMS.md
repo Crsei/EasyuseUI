@@ -1,6 +1,6 @@
 # Work Items
 
-入口：`/workspace/work-items/`。提供 List、Board、Table，以及可选泳道、子项、批量状态/优先级修改和保存视图接口；Calendar/Gantt 不在本轮范围。示例数据刷新后重置，所有写入与回执均为本地模拟。
+组件展示入口：`/examples/work-items/`，从 `/examples/` 进入。提供 List、Board、Table、Timeline、Calendar，以及可选泳道、子项、批量状态/优先级修改和保存视图接口。示例数据刷新后重置，所有写入与回执均为本地模拟。旧 `/workspace/work-items/` 入口保留参数跳转到示例页面。
 
 ## 分层与安装
 

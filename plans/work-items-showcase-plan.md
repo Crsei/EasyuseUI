@@ -6,7 +6,7 @@
 
 ## 1. 页面目标与范围
 
-入口 `/workspace/work-items/`，用同一组确定性本地工作项展示 List、Board、Table、Timeline、Calendar，验证组件在完整工作台中的组合、状态恢复、响应式和无障碍。
+入口 `/examples/work-items/`，用同一组确定性本地工作项展示 List、Board、Table、Timeline、Calendar，验证组件在完整工作台中的组合、状态恢复、响应式和无障碍。
 
 参考 Plane 的工作项信息架构，视觉遵循 EasyuseUI 的紧凑中性设计，不承诺逐像素复制 Plane。不会修改 Plane 项目、连接其真实工作区或把本地交互当作真实任务服务。
 
@@ -44,11 +44,11 @@ WorkspaceShell
 建议可分享参数：
 
 ```text
-/workspace/work-items/?layout=list
-/workspace/work-items/?layout=board&group=state
-/workspace/work-items/?layout=table&item=wi-012
-/workspace/work-items/?layout=timeline&scale=quarter&timelineDate=2026-10-09
-/workspace/work-items/?layout=calendar&mode=week&calendarDate=2026-10-09
+/examples/work-items/?layout=list
+/examples/work-items/?layout=board&group=state
+/examples/work-items/?layout=table&item=wi-012
+/examples/work-items/?layout=timeline&scale=quarter&timelineDate=2026-10-09
+/examples/work-items/?layout=calendar&mode=week&calendarDate=2026-10-09
 ```
 
 - 路由适配层持有 layout、group、sort、q、已支持的过滤条件和 item；公共组件不读取 Next 路由。
@@ -107,7 +107,9 @@ WorkspaceShell
 
 | 路径 | 职责 |
 | --- | --- |
-| `app/workspace/work-items/page.tsx` | 页面metadata与组装，静态导出入口 |
+| `app/examples/work-items/page.tsx` | 页面metadata与组装，静态导出的组件示例入口 |
+| `app/examples/page.tsx` | 示例索引与组件目录导航 |
+| `app/workspace/work-items/page.tsx` | 兼容旧链接，保留查询和片段后跳转到示例 |
 | `components/examples/work-items/work-items-demo.tsx` | 唯一示例数据/交互适配器与Workspace组合 |
 | `components/examples/work-items/{fixtures,selectors,commands,scenarios}.ts` | 确定性数据、查询、模拟写入与失败注入 |
 | `components/examples/work-items/use-work-items-url.ts` | URL编解码、导航及回退 |
@@ -148,6 +150,6 @@ Blog增加“Work Items的List、Board与Table如何共享组件”文章，展�
 
 ## W9 时间布局展示增量（已实施）
 
-沿用 `/workspace/work-items/` 和同一份 fixture/操作回执，新增 Timeline 周/月/季度与 Calendar 月/周，展示单端日期、无日期队列、按日分页失败重试、只读、拒绝和unknown保留。URL分别保存两种布局的锚点与参数，旧List/Board/Table与保存视图继续可读。公共容器文档使用发布窗口/便笺等非工作项数据，业务文档展示对应WorkItem适配。
+沿用 `/examples/work-items/` 和同一份 fixture/操作回执，新增 Timeline 周/月/季度与 Calendar 月/周，展示单端日期、无日期队列、按日分页失败重试、只读、拒绝和unknown保留。URL分别保存两种布局的锚点与参数，旧List/Board/Table与保存视图继续可读。公共容器文档使用发布窗口/便笺等非工作项数据，业务文档展示对应WorkItem适配。
 
 本轮证据独立保存于 `public/blog/work-items-schedule/`，不替换W0–W5历史截图或性能基线。新采集覆盖三档时间刻度、月/周日历、390px Agenda、未排期、只读和保存错误；50/200/1000项分别测日期修改、范围切换与布局切换，明确已加载/总数/DOM与自动化开销。已采集 12 张正式截图与 18 次实际性能观察，来源哈希和工程/分发验证见实施记录与现有 Blog 的 W6–W9 增量。真实Plane服务与人工业务验收另行确认。

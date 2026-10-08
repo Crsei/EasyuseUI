@@ -58,7 +58,7 @@ const sources = await snapshot(),
   errors = []
 page.on("pageerror", (e) => errors.push(e.message))
 async function ready(query) {
-  await page.goto(`${origin}/workspace/work-items/?${query}`)
+  await page.goto(`${origin}/examples/work-items/?${query}`)
   await page.locator('[data-work-items-ready="true"]').waitFor()
 }
 async function scenario(value) {

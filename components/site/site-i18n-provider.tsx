@@ -54,6 +54,9 @@ function subscribeLocale(listener: () => void) {
   return subscribe(listener)
 }
 const pageTitles: Record<string, string> = {
+  "/examples": "组件示例",
+  "/examples/work-items": "Work Items 组件示例",
+  "/workspace/work-items": "Work Items 组件示例",
   "/components": "组件目录",
   "/blog": "优化日志",
   "/dictionary": "视觉词典",
@@ -108,7 +111,7 @@ export function SiteI18nProvider({ children }: { children: ReactNode }) {
       pageTitles[pathname] ??
       componentPageTitles[pathname] ??
       (pathname.startsWith("/docs/") ? pathname.split("/").at(-1) : undefined)
-    document.title = title
+    const localizedTitle = title
       ? `${translated(title)} · EasyuseUI`
       : locale === "en"
         ? "EasyuseUI — Make usability the default"
@@ -116,16 +119,31 @@ export function SiteI18nProvider({ children }: { children: ReactNode }) {
     const descriptionKey =
       pageDescriptionKeys[pathname as keyof typeof pageDescriptionKeys] ??
       pageDescriptionKeys["/"]
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute(
-        "content",
-        blog
-          ? (blog.summary[locale] ?? blog.summary["zh-CN"])
-          : pathname === "/blog"
-            ? t("site.optimization.blogIntro")
-            : t(descriptionKey),
+    const localizedDescription =
+      blog
+        ? (blog.summary[locale] ?? blog.summary["zh-CN"])
+        : pathname === "/blog"
+          ? t("site.optimization.blogIntro")
+          : t(descriptionKey)
+    const syncMetadata = () => {
+      if (document.title !== localizedTitle) document.title = localizedTitle
+      const description = document.querySelector<HTMLMetaElement>(
+        'meta[name="description"]',
       )
+      if (description && description.content !== localizedDescription)
+        description.content = localizedDescription
+    }
+    // Route metadata may arrive after the locale effect during client navigation.
+    const observer = new MutationObserver(syncMetadata)
+    observer.observe(document.head, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+      attributes: true,
+      attributeFilter: ["content"],
+    })
+    syncMetadata()
+    return () => observer.disconnect()
   }, [locale, pathname])
   return (
     <I18nProvider locale={locale} onLocaleChange={setLocale}>

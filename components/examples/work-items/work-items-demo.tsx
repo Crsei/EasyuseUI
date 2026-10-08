@@ -820,23 +820,20 @@ export function WorkItemsDemo() {
         sidebar={
           <nav className={styles.nav}>
             <span className="text-xs text-muted-foreground">
-              EASYUSEUI / LOCAL
+              EASYUSEUI / {siteT("site.examples.navigation")}
             </span>
             <strong>EasyuseUI</strong>
             <Link
-              href="/workspace/work-items/"
+              href="/examples/work-items/"
               aria-current="page"
               aria-label="Work Items"
             >
               <ListTodo size={16} />
               <span>Work Items</span>
             </Link>
-            <Link
-              href="/workspace/"
-              aria-label={siteT("site.workItems.demoWorkspace")}
-            >
+            <Link href="/examples/" aria-label={siteT("site.examples.back")}>
               <ArrowLeft size={16} />
-              <span>{siteT("site.workItems.demoWorkspace")}</span>
+              <span>{siteT("site.examples.back")}</span>
             </Link>
             <Link
               href="/docs/work-items-workspace/"

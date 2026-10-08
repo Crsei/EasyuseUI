@@ -13,7 +13,7 @@ import {
 } from "../lib/work-items-view"
 import { defaultWorkItemsView, isOverdue } from "../lib/work-items-model"
 async function start(page: Page, query = "") {
-  await page.goto(`/workspace/work-items/${query}`)
+  await page.goto(`/examples/work-items/${query}`)
   await expect(page.locator("[data-work-items-ready] ")).toHaveAttribute(
     "data-work-items-ready",
     "true",

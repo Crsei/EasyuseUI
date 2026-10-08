@@ -136,7 +136,7 @@ export function encodeWorkItemsUrl(
   if (view.layout === "timeline" || view.layout === "calendar")
     params.set("date", settings.anchorDate)
   if (item) params.set("item", item.toUpperCase())
-  return `/workspace/work-items/?${params}`
+  return `/examples/work-items/?${params}`
 }
 export function useWorkItemsUrl() {
   const params = useSearchParams()

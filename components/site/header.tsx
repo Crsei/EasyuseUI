@@ -41,6 +41,7 @@ export function Header() {
             { href: "/style-workbench", label: t("site.styleWorkbench") },
             { href: "/workspace/canvas", label: t("site.workflowCanvas") },
             { href: "/components", label: t("site.components") },
+            { href: "/examples", label: t("site.examples.navigation") },
             { href: "/blog", label: t("site.optimization.blog") },
             { href: "/docs/task-panel", label: t("site.blocks") },
             { href: "/scroll", label: t("site.scrollLab") },

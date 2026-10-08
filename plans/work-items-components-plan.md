@@ -199,7 +199,7 @@ List/Board/Table/Timeline/Calendar 共用 records、筛选、selectedIds、activ
 | `components/examples/` 内现有 Work Items 示例适配器 | 固定日期、跨范围和异常fixtures、统一内存回执、查询参数与旧保存视图升级 |
 | `plans/work-items-showcase-plan.md`、现有 Work Items Blog 与实施记录 | W9补充 Timeline/Calendar 场景、截图、日期与交互证据；保留 S0–S5 的已完成范围 |
 
-页面沿用 `/workspace/work-items/`，新增 `layout=timeline&scale=month&date=2026-10-09` 和 `layout=calendar&mode=month&date=2026-10-09`。参数由页面适配器白名单解析，非法日期回退到明确基准；保存视图需兼容旧三布局，尚未支持的协议值不得导致空白页。组件目录分别提供通用非工作项示例和 WorkItem 组合示例。
+页面沿用 `/examples/work-items/`，新增 `layout=timeline&scale=month&date=2026-10-09` 和 `layout=calendar&mode=month&date=2026-10-09`。参数由页面适配器白名单解析，非法日期回退到明确基准；保存视图需兼容旧三布局，尚未支持的协议值不得导致空白页。组件目录分别提供通用非工作项示例和 WorkItem 组合示例。
 
 ## 7. 分发、测试与交付
 

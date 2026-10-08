@@ -57,6 +57,10 @@ pnpm dev
 
 打开 http://localhost:3010 。开发命令会先生成 Registry，再启动文档站。此机器使用 GLIBC 2.28，因此开发和生产构建均显式使用 Webpack，允许 Next.js 回退到 WASM SWC。首次回退可能需要下载 WASM 包。
 
+## 组件组合示例
+
+从 `/examples/` 浏览完整组件组合，Work Items 五布局展示位于 `/examples/work-items/`。示例复用可分发组件并使用本地 fixture；字段、选择、日期与恢复交互用于展示组件能力，真实服务由消费方接入。
+
 ## 常用命令
 
 ```bash

@@ -39,7 +39,7 @@ const sources = [
   "components/blocks/work-items-workspace.tsx",
   "components/blocks/work-items.module.css",
   "components/examples/work-items-components-demo.tsx",
-  "app/workspace/work-items/page.tsx",
+  "app/examples/work-items/page.tsx",
   "tests/work-items.spec.ts",
   "scripts/work-items-consumer.mjs",
   "scripts/capture-work-items.mjs",
@@ -77,7 +77,7 @@ try {
           { theme, locale },
         )
         for (const layout of ["list", "board", "table"]) {
-          await page.goto(`${origin}/workspace/work-items/?layout=${layout}`)
+          await page.goto(`${origin}/examples/work-items/?layout=${layout}`)
           await page.locator('[data-work-items-ready="true"]').waitFor()
           await page.evaluate(
             () =>
@@ -101,7 +101,7 @@ try {
   const page = await browser.newPage({
     viewport: { width: 1440, height: 1000 },
   })
-  await page.goto(`${origin}/workspace/work-items/?item=WI-008`)
+  await page.goto(`${origin}/examples/work-items/?item=WI-008`)
   await page.locator('[data-work-items-ready="true"]').waitFor()
   await page.screenshot({
     path: path.join(output, "detail-1440-light-zh-CN.png"),
@@ -116,7 +116,7 @@ try {
     capturedAt,
   })
   for (const scenario of ["partial", "readonly", "unknown"]) {
-    await page.goto(`${origin}/workspace/work-items/?layout=board`)
+    await page.goto(`${origin}/examples/work-items/?layout=board`)
     await page.locator('[data-work-items-ready="true"]').waitFor()
     await page
       .getByRole("button", { name: "展开底部面板", exact: true })
@@ -151,7 +151,7 @@ try {
   }
   const measurements = []
   for (const count of [50, 200, 1000]) {
-    await page.goto(`${origin}/workspace/work-items/`)
+    await page.goto(`${origin}/examples/work-items/`)
     await page.locator('[data-work-items-ready="true"]').waitFor()
     await page
       .getByRole("button", { name: "展开底部面板", exact: true })

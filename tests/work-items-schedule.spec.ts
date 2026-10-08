@@ -173,7 +173,7 @@ test("atomic schedule validation rejects permissions, stale versions, unknown, n
   ).toBe("invalidRange")
 })
 async function start(page: Page, query = "layout=timeline") {
-  await page.goto(`/workspace/work-items/?${query}`)
+  await page.goto(`/examples/work-items/?${query}`)
   await expect(page.locator("[data-work-items-ready]")).toHaveAttribute(
     "data-work-items-ready",
     "true",

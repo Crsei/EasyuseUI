@@ -825,8 +825,8 @@ export const workItemsSharedViews: BlogPost = {
       type: "paragraph",
       text: {
         "zh-CN":
-          "入口 /workspace/work-items/ 现提供五种布局。Timeline 展示开始/截止区间；Calendar 只按截止日定位。两者共享 records、筛选、选择、详情、写入回执和未提交日期草稿。时间线的周/月/季度与日历的月/周各保留自己的锚点；原有分组和泳道偏好返回 List/Board 后恢复。",
-        en: "The /workspace/work-items/ route now offers five layouts. Timeline shows start/due ranges; Calendar places each item on its due date. Both share records, filters, selection, details, mutation receipts and unsent date drafts. Timeline week/month/quarter and Calendar month/week retain separate anchors. Returning to List/Board restores grouping and swimlane preferences.",
+          "入口 /examples/work-items/ 现提供五种布局。Timeline 展示开始/截止区间；Calendar 只按截止日定位。两者共享 records、筛选、选择、详情、写入回执和未提交日期草稿。时间线的周/月/季度与日历的月/周各保留自己的锚点；原有分组和泳道偏好返回 List/Board 后恢复。",
+        en: "The /examples/work-items/ route now offers five layouts. Timeline shows start/due ranges; Calendar places each item on its due date. Both share records, filters, selection, details, mutation receipts and unsent date drafts. Timeline week/month/quarter and Calendar month/week retain separate anchors. Returning to List/Board restores grouping and swimlane preferences.",
       },
     },
     {
@@ -1334,6 +1334,19 @@ export const workItemsSharedViews: BlogPost = {
             "3 samples per count and time layout. Date edit includes Playwright, 120ms fixture receipt and two frames. Layout and range measurements are round trips. Complete local fixture, retained DOM; no service latency or SLA claim.",
         },
       ],
+    },
+    {
+      type: "heading",
+      id: "examples-entry",
+      text: { "zh-CN": "组件示例入口", en: "Component example entry" },
+    },
+    {
+      type: "paragraph",
+      text: {
+        "zh-CN":
+          "Work Items 的五布局组合现归于 /examples/work-items/，从站点的示例页进入；旧 /workspace/work-items/ 链接保留参数跳转。页面用本地数据展示可复用组件。历史截图与性能测量保留采集时来源 ID，路由迁移验证见实施记录。",
+        en: "The five-layout Work Items composition now lives at /examples/work-items/, linked from the examples index. Legacy /workspace/work-items/ links forward with their parameters. Local data demonstrates reusable components. Historical screenshots and measurements retain their capture source IDs; the implementation log records route migration validation.",
+      },
     },
   ],
   evidence: [

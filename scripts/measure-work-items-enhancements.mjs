@@ -73,7 +73,7 @@ try {
       // Alternate order to reduce warm-cache/order bias. Both modes use the same optimized source.
       for (const deferred of sample % 2 ? [true, false] : [false, true]) {
         await page.goto(
-          `${origin}/workspace/work-items/?defer=${deferred ? 1 : 0}`,
+          `${origin}/examples/work-items/?defer=${deferred ? 1 : 0}`,
         )
         await page.locator('[data-work-items-ready="true"]').waitFor()
         let begin = performance.now()
@@ -151,10 +151,10 @@ try {
         )
       }
     }
-  await page.goto(`${origin}/workspace/work-items/?layout=board&lane=priority`)
+  await page.goto(`${origin}/examples/work-items/?layout=board&lane=priority`)
   await page.locator("[data-work-items-lane]").first().waitFor()
   await screenshot(page, "swimlanes-1440-zh-CN.png")
-  await page.goto(`${origin}/workspace/work-items/?children=1`)
+  await page.goto(`${origin}/examples/work-items/?children=1`)
   await scenario(page, "hierarchy")
   await page.getByRole("button", { name: "收起底部面板", exact: true }).click()
   await page
@@ -197,7 +197,7 @@ try {
     localStorage.setItem("easyuseui-locale", "en")
   })
   await mobile.goto(
-    `${origin}/workspace/work-items/?layout=board&lane=priority`,
+    `${origin}/examples/work-items/?layout=board&lane=priority`,
   )
   await mobile.locator('[data-work-items-ready="true"]').waitFor()
   await screenshot(mobile, "swimlanes-390-dark-en.png")
