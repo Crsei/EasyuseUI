@@ -1,0 +1,83 @@
+{
+  "baseline_commit": "db8c9910f1d635936a4417d8c1b823eb0021e187",
+  "committed_baseline_checks": [
+    {
+      "check": "lint",
+      "exit_code": 0,
+      "elapsed_seconds": 26.0
+    },
+    {
+      "check": "typecheck",
+      "exit_code": 0,
+      "elapsed_seconds": 14.4
+    },
+    {
+      "check": "build",
+      "exit_code": 0,
+      "elapsed_seconds": 88.1
+    }
+  ],
+  "working_snapshot_checks": [
+    {
+      "check": "lint",
+      "exit_code": 0,
+      "elapsed_seconds": 25.9
+    },
+    {
+      "check": "typecheck",
+      "exit_code": 0,
+      "elapsed_seconds": 17.1
+    },
+    {
+      "check": "build",
+      "exit_code": 1,
+      "elapsed_seconds": 2.7
+    }
+  ],
+  "working_snapshot_build_failure": {
+    "component": "data-region",
+    "actual_manifest_dependencies": [
+      "button",
+      "i18n",
+      "runtime-status",
+      "theme"
+    ],
+    "expected_registry_dependencies": [
+      "alert",
+      "button",
+      "empty",
+      "i18n",
+      "runtime-status",
+      "skeleton",
+      "theme"
+    ],
+    "scope": "Captured concurrent work, not a released baseline failure"
+  },
+  "browser_probe": "dialog-viewport-probe.json",
+  "scope": "Baseline engineering checks and targeted browser investigation; not full regression or service acceptance",
+  "delivery_checks": [
+    {
+      "check": "lint",
+      "exit_code": 0,
+      "elapsed_seconds": 23.8
+    },
+    {
+      "check": "typecheck",
+      "exit_code": 0,
+      "elapsed_seconds": 8.0
+    },
+    {
+      "check": "build",
+      "exit_code": 0,
+      "elapsed_seconds": 62.0
+    }
+  ],
+  "delivery_scope": "Committed baseline plus research documents, README entry and read-only browser probe; excludes parallel uncommitted product changes",
+  "document_checks": {
+    "local_markdown_links": 48,
+    "pinned_source_references": 36,
+    "source_and_license_files_verified": 54,
+    "metadata_files_verified": 6,
+    "errors": 0
+  }
+}

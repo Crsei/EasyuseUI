@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "research_date": "2026-10-09",
+  "scope": "Representative source inspection; not a complete audit of upstream projects or a source redistribution grant.",
+  "entrypoint": {
+    "path": "../UI-package/README.md",
+    "sha256": "15601f85461465dccbb437db843eb2d05ac6e588e02cd15584251396679bfb0b"
+  },
+  "easyuseui": {
+    "captured_at": "2026-10-09T00:40:36.779324+00:00",
+    "head": "db8c9910f1d635936a4417d8c1b823eb0021e187",
+    "includes_parallel_uncommitted_work": true,
+    "registry_items_at_capture": 143,
+    "evidence_files": [
+      {
+        "path": "README.md",
+        "sha256": "20a66cd60cbd17f5a6e16c6301a2d7afdca4da53cc5a50c4bcb911f0db90d8cd",
+        "status": "matches_head"
+      },
+      {
+        "path": "Design-rules.md",
+        "sha256": "2af194151cd6b69a38f65b2911aa4039f2004fd8cf396aac3fdf753a875bbe3e",
+        "status": "matches_head"
+      },
+      {
+        "path": "Component-Specification.md",
+        "sha256": "cffb301b5aeebe2dd54250ef5a01b399af9039be0b75e418c9d749dafeca9c5a",
+        "status": "modified_in_worktree"
+      },
+      {
+        "path": "UI-VISUAL-DICTIONARY.md",
+        "sha256": "d167a9b00e9a75e822ba0c4788777a7ddc6a1f09a4cc9058704eb98350055e40",
+        "status": "matches_head"
+      },
+      {
+        "path": "package.json",
+        "sha256": "04504cbbf2200774ffc30f01280224a60f2a7e7046a61d5df4cf28baf9aa2223",
+        "status": "matches_head"
+      },
+      {
+        "path": "styles/theme.css",
+        "sha256": "d6ed7b786ebe9aa802da95b68ef2e06b34db18a48de8b0ecce89d1a36c2f1a8d",
+        "status": "matches_head"
+      },
+      {
+        "path": "registry.json",
+        "sha256": "cbe3e5b8a4004dc223c2fb2886b6e01022e149e00f74451a8d90b16223c53751",
+        "status": "modified_in_worktree"
+      },
+      {
+        "path": "lib/component-manifest.ts",
+        "sha256": "bd31b347cd0e9089ae80c11e5209090856ade8866c9ace54d6e39593a6d1e17f",
+        "status": "modified_in_worktree"
+      },
+      {
+        "path": "lib/catalog.ts",
+        "sha256": "4c49277cd2b17527cb4845d4704ef778cc4a5dd150bc8abb6a1f14625dad7fbe",
+        "status": "matches_head"
+      },
+      {
+        "path": "lib/visual-dictionary.ts",
+        "sha256": "0027922b9277a71f0b134a724670f709a7a374a03610211d5f5c8a6bb41af974",
+        "status": "matches_head"
+      },
+      {
+        "path": "lib/runtime-status.ts",
+        "sha256": "e41b55b984502f8a2f299c60b052a9bd44aa35ccff0f9e5003ee455a9ad735d0",
+        "status": "matches_head"
+      },
+      {
+        "path": "lib/canvas-runtime.ts",
+        "sha256": "2cc4c436e706361d9523d32d4726cc6e4d5a82e8619797db7368c6dcfd76f107",
+        "status": "matches_head"
+      },
+      {
+        "path": "scripts/check-manifest.mjs",
+        "sha256": "7a33be780a3e61678f1dde1451a1ca5cbfd3900d1ce7311048eae29076893897",
+        "status": "matches_head"
+      },
+      {
+        "path": "scripts/build-registry.mjs",
+        "sha256": "ee12153120df424ad6e6f88944b1515c2e684f43aff3711c766cce16cc5597ac",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/button.tsx",
+        "sha256": "17c794f9cc3d3be699a7c38a41eaa6f1365249295439fa6d95c90d47ece5d906",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/dialog.tsx",
+        "sha256": "3b66c387b1f97da2e3e64f90fbac280455d4c79ab49058a4f4095b48c1195081",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/sheet.tsx",
+        "sha256": "35cee272e7facb79028450b38524845920e21f2d788201cd06e140378d10988f",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/sheet.module.css",
+        "sha256": "6896548548002b98ce0c9d581e7924238b242782f3cdfd13159dfa17045233dd",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/popover.tsx",
+        "sha256": "1a10924aceab131c09e66fb0dc5bca6e8889ab9178cf9d8d28466a0119871289",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/select.tsx",
+        "sha256": "c1d7b5da0f0ddac29a156cc83028f6b605dd4072b9dcc478aa132158e4d5bc3b",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/combobox.tsx",
+        "sha256": "d1fa520cb335bbca3abbf2cdd61d07940e11c57f07a20087023b5bd835807dd5",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/button-tooltip.tsx",
+        "sha256": "2b67b835b4cea73d6741f0e93ffc4be48a91803c059df0203eef9f42fa00c1e8",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/theme-boundary.tsx",
+        "sha256": "7c8f069ef3fa5835d64146c83ff72cbe3e394b75a5abacc165e3468336ffc0ef",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/canvas-edge.tsx",
+        "sha256": "02a66b586b85e6878b202aa4dd7086f28f97517543dc4cdaee6eec982fabb3e7",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/canvas-edge.module.css",
+        "sha256": "3a3c24134b77c73639565386cb3ea3da2887330db5928801b46c608aaca27129",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/ui/tooltip.tsx",
+        "sha256": "ae9d2ca0ca00cb9b9a89916ab87986a1e09c7e7486a85cb9e6a4d7816848f7aa",
+        "status": "not_in_head"
+      },
+      {
+        "path": "components/ui/button-group.tsx",
+        "sha256": "0e2fefdbb3223b6085feeacd1ae7b8df7dcd9f287058fe3cb6706369b5dfab01",
+        "status": "not_in_head"
+      },
+      {
+        "path": "components/ui/alert-dialog.tsx",
+        "sha256": "e5aa29bb2452ee09ebb8146b9f4bb15c91ef1a27992867b439c0ff68b27b2e75",
+        "status": "not_in_head"
+      },
+      {
+        "path": "components/ui/data-region.tsx",
+        "sha256": "a6194cd104442e4f2a782180065f5ee50f3db709398c48332cdf5752dc81d7c2",
+        "status": "modified_in_worktree"
+      },
+      {
+        "path": "components/blocks/filter-toolbar.tsx",
+        "sha256": "f0f5ac4f8e08c11da25e1b9bd3e9fd79d93570dd7b73a3ec2a97967cc8005eab",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/blocks/data-table.tsx",
+        "sha256": "6079846d2d0ad792031ac75468d81b9054b1fc31a8e5ae742782a99429baacc0",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/blocks/command-palette.tsx",
+        "sha256": "fb772d5d8b61c02de4e3ac7e7da60ea11ef8feac010b707d62e2a200cc36f966",
+        "status": "modified_in_worktree"
+      },
+      {
+        "path": "components/blocks/workspace-shell.tsx",
+        "sha256": "25ec2210ea78f918e5de9b12998a6864aa085f77ebd736b836a410d8865f8177",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/blocks/workspace-shell.module.css",
+        "sha256": "467acb1a75d5677a5794bf8077ffa20f6208172ca655ba93309e598eb2a31401",
+        "status": "matches_head"
+      },
+      {
+        "path": "components/blocks/agent-run-virtual-list.tsx",
+        "sha256": "45522bd1fb32afa542d6e8536a5fc90a31ed0d4531bf0a564c7f8c28b1655dbd",
+        "status": "matches_head"
+      },
+      {
+        "path": "tests/common-components.spec.ts",
+        "sha256": "126129220b318717f2eb6a728493f57558a146e47034be5bbe238e398d28edff",
+        "status": "matches_head"
+      },
+      {
+        "path": "tests/accessibility.spec.ts",
+        "sha256": "869fc2bdc88b6f9b2eb4f6dc916175f69172ad00905908e2c1c72f3d38ff6e42",
+        "status": "matches_head"
+      },
+      {
+        "path": "tests/visual.spec.ts",
+        "sha256": "bc8c357e5cb22a9ee7886a7678f3990fe6abc648a94a2ea38f1466a04443f5fd",
+        "status": "matches_head"
+      },
+      {
+        "path": "tests/theme-namespace.spec.ts",
+        "sha256": "bcc88eaed1776841134bc9e339a92fa5787e4f377074d26eff716126a514b8bc",
+        "status": "matches_head"
+      },
+      {
+        "path": "tests/layout-controlled.spec.ts",
+        "sha256": "9b3104f49b15569f8ff6d2520b57c9193ba918199573c21342e6e03c599a7a33",
+        "status": "matches_head"
+      },
+      {
+        "path": "plans/shadcn-component-completion-plan.md",
+        "sha256": "81f8ad95a8da3b1f4394bfdb0a0a2a08340bc2f736184274ac6e0d056948de6f",
+        "status": "matches_head"
+      },
+      {
+        "path": "plans/shadcn-component-completion-log.md",
+        "sha256": "93477c21fe05e69999be819c8641312f36caa60d818c3d814b403979d82a004a",
+        "status": "matches_head"
+      },
+      {
+        "path": "plans/workflow-analytics-components-plan.md",
+        "sha256": "9e1fb1ff38590ea6f344dcf282afdec8a3f820cb8b7a0455af3b494258f0e137",
+        "status": "not_in_head"
+      }
+    ],
+    "follow_up": {
+      "captured_at": "2026-10-09T00:51:24.026488+00:00",
+      "head": "db8c9910f1d635936a4417d8c1b823eb0021e187",
+      "scope": "Parallel work availability refresh only; not acceptance or delivery proof",
+      "files": [
+        {
+          "path": "UI-VISUAL-DICTIONARY.md",
+          "sha256": "1096c9b2c59081387223382b5d997f538fb54fe1d7c30ad644e840ff3c19fe4d"
+        },
+        {
+          "path": "README.md",
+          "sha256": "cf5e24a8df0c847233d9713f517bd6c8bb380bb79a1b4b82cd0f1485eb09e1ed"
+        },
+        {
+          "path": "registry.json",
+          "sha256": "758e83e6d4169b965c7f85efd47b8c0d6cf854726ba15b8d68f6ee56c759cf14"
+        },
+        {
+          "path": "components/ui/resizable.tsx",
+          "sha256": "5796faa8d7f1c3421c8446ee9c7c092cf7ede48385d8dfe912ce53030decf152"
+        },
+        {
+          "path": "components/blocks/workspace-shell.tsx",
+          "sha256": "3e5fe033b4f2ed65aabdd7d5fc6b6c1865b5526ddaf83928b030ca93d099f514"
+        },
+        {
+          "path": "components/blocks/chart.tsx",
+          "sha256": "9473a51aa7b85375a032e2ec51e0ffe2d5ea804046a02cfbf41603bc67ef9965"
+        },
+        {
+          "path": "components/ui/chart.tsx",
+          "sha256": "c06f081dc7e45433b5c1c46866bb4784ed4b3ac73de7b464fe67e2d8d3e3e990"
+        },
+        {
+          "path": "plans/workflow-analytics-components-plan.md",
+          "sha256": "9e1fb1ff38590ea6f344dcf282afdec8a3f820cb8b7a0455af3b494258f0e137"
+        }
+      ]
+    }
+  },
+  "references": [
+    {
+      "repo": "21st-registry",
+      "sha": "93d686812df081cca6532f07bcb145ad22cc5d72",
+      "date": "2026-06-11T13:30:40+03:00",
+      "remote": "https://github.com/21st-dev/registry.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "8bc26817d6b5c323f8cb5e5da77182fe0db8a5ad0e0b563903f9382bba06dc9a",
+          "url": "https://github.com/21st-dev/registry/blob/93d686812df081cca6532f07bcb145ad22cc5d72/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "registry-deps",
+          "path": "src/registry-dependencies.ts",
+          "line": 43,
+          "sha256": "4c9baa8bb7b405fbf8efb89e8087640d9c0950c0e777dae9eeb948ff32f052b4",
+          "url": "https://github.com/21st-dev/registry/blob/93d686812df081cca6532f07bcb145ad22cc5d72/src/registry-dependencies.ts#L43"
+        },
+        {
+          "reference": "registry-config",
+          "path": "src/config-loader.ts",
+          "line": 17,
+          "sha256": "7770fe92e4e35d0ba9f88653e061a53869ffe6b464e11c01663e31a268af95fe",
+          "url": "https://github.com/21st-dev/registry/blob/93d686812df081cca6532f07bcb145ad22cc5d72/src/config-loader.ts#L17"
+        }
+      ]
+    },
+    {
+      "repo": "ark-ui",
+      "sha": "687b9dcba7c56f98da4db7bb8fac7d764ecd3f65",
+      "date": "2026-10-08T19:16:03+01:00",
+      "remote": "https://github.com/chakra-ui/ark.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "1ad675033bca604060fe02612c2d9d6f6c9dfa4f50f71ba78c7ab3fa406efeae",
+          "url": "https://github.com/chakra-ui/ark/blob/687b9dcba7c56f98da4db7bb8fac7d764ecd3f65/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "ark-splitter",
+          "path": "packages/react/src/components/splitter/use-splitter.ts",
+          "line": 12,
+          "sha256": "29c3ce70a62f72a5e3a8796dd95a9ff1b44d4367f2fac37954e006547c0e5406",
+          "url": "https://github.com/chakra-ui/ark/blob/687b9dcba7c56f98da4db7bb8fac7d764ecd3f65/packages/react/src/components/splitter/use-splitter.ts#L12"
+        },
+        {
+          "reference": "ark-tree",
+          "path": "packages/react/src/components/tree-view/use-tree-view.ts",
+          "line": 22,
+          "sha256": "5c66258fe313615a48d1728a9dca894e23ec5fa611255ff50215c961b279420e",
+          "url": "https://github.com/chakra-ui/ark/blob/687b9dcba7c56f98da4db7bb8fac7d764ecd3f65/packages/react/src/components/tree-view/use-tree-view.ts#L22"
+        }
+      ]
+    },
+    {
+      "repo": "base-ui",
+      "sha": "7e4b2f921cf0cafd62ea294675f1d670d1292dec",
+      "date": "2026-10-08T12:20:36+02:00",
+      "remote": "https://github.com/mui/base-ui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "07fc1b39d69d14bc7d40482a628f47226258eb01265db68ae684944b916beb2a",
+          "url": "https://github.com/mui/base-ui/blob/7e4b2f921cf0cafd62ea294675f1d670d1292dec/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "base-dialog",
+          "path": "packages/react/src/dialog/popup/DialogPopup.tsx",
+          "line": 97,
+          "sha256": "9f357563949e14fd06af2d83a3f59d041e86c852982e9849b21856ce8508c7f8",
+          "url": "https://github.com/mui/base-ui/blob/7e4b2f921cf0cafd62ea294675f1d670d1292dec/packages/react/src/dialog/popup/DialogPopup.tsx#L97"
+        },
+        {
+          "reference": "base-toolbar",
+          "path": "packages/react/src/toolbar/root/ToolbarRoot.tsx",
+          "line": 18,
+          "sha256": "ed3241a7234e92582bdbbd54a2bf0f32ea01d5a4317a5dddca10835ccc17153c",
+          "url": "https://github.com/mui/base-ui/blob/7e4b2f921cf0cafd62ea294675f1d670d1292dec/packages/react/src/toolbar/root/ToolbarRoot.tsx#L18"
+        }
+      ],
+      "metadata_files": [
+        {
+          "path": "package.json",
+          "sha256": "d258293420fa6c44163b0c71361b80e898a3316c1453f673f4cda87abc6d6bd3",
+          "url": "https://github.com/mui/base-ui/blob/7e4b2f921cf0cafd62ea294675f1d670d1292dec/package.json"
+        }
+      ]
+    },
+    {
+      "repo": "carbon",
+      "sha": "1f808a5777e29329b814a51e6eee15c44ceac1c7",
+      "date": "2026-10-08T21:11:42Z",
+      "remote": "https://github.com/carbon-design-system/carbon.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "037b3e9eaff51477b270e9082f54b99175e4dd893548654f00995045b68294b8",
+          "url": "https://github.com/carbon-design-system/carbon/blob/1f808a5777e29329b814a51e6eee15c44ceac1c7/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "carbon-table",
+          "path": "packages/react/src/components/DataTable/DataTable.tsx",
+          "line": 656,
+          "sha256": "f3b05dd1a80bcb4b1fc5647644108c415acc20eb725088740e313307176c3022",
+          "url": "https://github.com/carbon-design-system/carbon/blob/1f808a5777e29329b814a51e6eee15c44ceac1c7/packages/react/src/components/DataTable/DataTable.tsx#L656"
+        },
+        {
+          "reference": "carbon-batch",
+          "path": "packages/react/src/components/DataTable/TableBatchActions.tsx",
+          "line": 99,
+          "sha256": "21ba1d0caa393f7f171c66dfc734459b3acbaea17890d7cc7be17055aacb2aec",
+          "url": "https://github.com/carbon-design-system/carbon/blob/1f808a5777e29329b814a51e6eee15c44ceac1c7/packages/react/src/components/DataTable/TableBatchActions.tsx#L99"
+        }
+      ]
+    },
+    {
+      "repo": "chakra-ui",
+      "sha": "f799e4d478d31fdae1311fad6c6de7cca47b9d3e",
+      "date": "2026-10-06T21:56:36+02:00",
+      "remote": "https://github.com/chakra-ui/chakra-ui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "9763e8439364e3663d1c41ac4c2a2bb44af407e3f28d9a079919d7a574d868f8",
+          "url": "https://github.com/chakra-ui/chakra-ui/blob/f799e4d478d31fdae1311fad6c6de7cca47b9d3e/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "chakra-slots",
+          "path": "packages/react/src/styled-system/create-slot-recipe-context.tsx",
+          "line": 70,
+          "sha256": "bfcf0bce65f02dfa6df582cbdbbcc51130fc55cd2ae11846a1cb4aee48547fe6",
+          "url": "https://github.com/chakra-ui/chakra-ui/blob/f799e4d478d31fdae1311fad6c6de7cca47b9d3e/packages/react/src/styled-system/create-slot-recipe-context.tsx#L70"
+        },
+        {
+          "reference": "chakra-button",
+          "path": "packages/react/src/theme/recipes/button.ts",
+          "line": 1,
+          "sha256": "12c2dd26eca8bdd35c83a25ac0bc7d008a94d71e574f8ad531d403c5f871155e",
+          "url": "https://github.com/chakra-ui/chakra-ui/blob/f799e4d478d31fdae1311fad6c6de7cca47b9d3e/packages/react/src/theme/recipes/button.ts#L1"
+        }
+      ]
+    },
+    {
+      "repo": "daisyui",
+      "sha": "8c24218588f34a678f48df435950790b57ef2bf7",
+      "date": "2026-10-08T20:12:11+03:00",
+      "remote": "https://github.com/saadeghi/daisyui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "8709e3ac65c84637c422dc8082b893d9997fce093751c77b2f1983bf29dbf9ea",
+          "url": "https://github.com/saadeghi/daisyui/blob/8c24218588f34a678f48df435950790b57ef2bf7/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "daisy-theme",
+          "path": "packages/daisyui/functions/themePlugin.js",
+          "line": 10,
+          "sha256": "1915cae5649c62438a1d9c816b6c356833e4a431e60cda8476123fd973b68420",
+          "url": "https://github.com/saadeghi/daisyui/blob/8c24218588f34a678f48df435950790b57ef2bf7/packages/daisyui/functions/themePlugin.js#L10"
+        },
+        {
+          "reference": "daisy-button",
+          "path": "packages/daisyui/src/components/button.css",
+          "line": 1,
+          "sha256": "0f7f6516909c9032201628a13b7a0ce8e293fa7abd1f15886c76ec717cea0d94",
+          "url": "https://github.com/saadeghi/daisyui/blob/8c24218588f34a678f48df435950790b57ef2bf7/packages/daisyui/src/components/button.css#L1"
+        }
+      ]
+    },
+    {
+      "repo": "fluent-ui",
+      "sha": "8abb0781d7d8bdb5e7bccaad16a6e4ba7efaf1aa",
+      "date": "2026-10-08T10:22:33-07:00",
+      "remote": "https://github.com/microsoft/fluentui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "1434c6b2a8417d41e4db20ff3b772888e66a0069e20d928f83fa1390f44758c7",
+          "url": "https://github.com/microsoft/fluentui/blob/8abb0781d7d8bdb5e7bccaad16a6e4ba7efaf1aa/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "fluent-toolbar",
+          "path": "packages/react-components/react-toolbar/library/src/components/Toolbar/useToolbar.ts",
+          "line": 25,
+          "sha256": "d6764a6933d75a4fd862266192b157d265b28567b16acae68eda3a4f11c67f51",
+          "url": "https://github.com/microsoft/fluentui/blob/8abb0781d7d8bdb5e7bccaad16a6e4ba7efaf1aa/packages/react-components/react-toolbar/library/src/components/Toolbar/useToolbar.ts#L25"
+        },
+        {
+          "reference": "fluent-overflow",
+          "path": "packages/react-components/react-overflow/library/src/components/Overflow/useOverflow.ts",
+          "line": 16,
+          "sha256": "4b704f1047c4433a874f510f9584f83b747ef4b3e5a2587d5ad59cbca403200f",
+          "url": "https://github.com/microsoft/fluentui/blob/8abb0781d7d8bdb5e7bccaad16a6e4ba7efaf1aa/packages/react-components/react-overflow/library/src/components/Overflow/useOverflow.ts#L16"
+        },
+        {
+          "reference": "fluent-grid",
+          "path": "packages/react-components/react-table/library/src/components/DataGrid/useDataGrid.ts",
+          "line": 31,
+          "sha256": "b70d09fa838d8d83d4fdc57386e678a55a38e065a9a959e72dc176186e13bb6d",
+          "url": "https://github.com/microsoft/fluentui/blob/8abb0781d7d8bdb5e7bccaad16a6e4ba7efaf1aa/packages/react-components/react-table/library/src/components/DataGrid/useDataGrid.ts#L31"
+        }
+      ]
+    },
+    {
+      "repo": "headless-ui",
+      "sha": "eea57cf46fd6767ed1059012f7073b88eb159fba",
+      "date": "2026-04-13T18:12:23+02:00",
+      "remote": "https://github.com/tailwindlabs/headlessui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "c0812e5b3b5848765343baffe9e304233fceae7891ba414a10d679aa7eccc0a6",
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "headless-dialog",
+          "path": "packages/@headlessui-react/src/components/dialog/dialog.tsx",
+          "line": 206,
+          "sha256": "73da98373f4458d897c8e99b3b4a0da45a40b96bc3ccf6ffde03d4eaa50c64c8",
+          "url": "https://github.com/tailwindlabs/headlessui/blob/eea57cf46fd6767ed1059012f7073b88eb159fba/packages/@headlessui-react/src/components/dialog/dialog.tsx#L206"
+        }
+      ]
+    },
+    {
+      "repo": "heroui",
+      "sha": "83b92dfccf847856d277504fed64d954c2dd9066",
+      "date": "2026-10-08T15:21:16+08:00",
+      "remote": "https://github.com/heroui-inc/heroui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "bd087c1ebd511adbab74705ec2b31d63d175e8d422f58c1af54754da02b1d329",
+          "url": "https://github.com/heroui-inc/heroui/blob/83b92dfccf847856d277504fed64d954c2dd9066/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "hero-button",
+          "path": "packages/react/src/components/button/button.tsx",
+          "line": 20,
+          "sha256": "6ce4bd16a45a4a867ac2446423e3332c029098aeed98c10c84ce81918b9989e2",
+          "url": "https://github.com/heroui-inc/heroui/blob/83b92dfccf847856d277504fed64d954c2dd9066/packages/react/src/components/button/button.tsx#L20"
+        },
+        {
+          "reference": "hero-styles",
+          "path": "packages/styles/src/components/button/button.styles.ts",
+          "line": 5,
+          "sha256": "2340b0b95db0688e13089295ce979eee8eec3a69ccf538da06cf0a7d9ac4b8e9",
+          "url": "https://github.com/heroui-inc/heroui/blob/83b92dfccf847856d277504fed64d954c2dd9066/packages/styles/src/components/button/button.styles.ts#L5"
+        }
+      ],
+      "metadata_files": [
+        {
+          "path": "package.json",
+          "sha256": "4a0cf48a52d4963bd6af9fbfb456041752b79ac6f765717563164926932bae85",
+          "url": "https://github.com/heroui-inc/heroui/blob/83b92dfccf847856d277504fed64d954c2dd9066/package.json"
+        },
+        {
+          "path": "packages/react/package.json",
+          "sha256": "249c214328afa44b88068924527a4972ca0d3a8ea45c1d7d0e21a7e01e665994",
+          "url": "https://github.com/heroui-inc/heroui/blob/83b92dfccf847856d277504fed64d954c2dd9066/packages/react/package.json"
+        },
+        {
+          "path": "packages/styles/package.json",
+          "sha256": "66f56219e71a2765c492a63ca158e4c900da9819b3556c68ad9e8ecb1b46fb29",
+          "url": "https://github.com/heroui-inc/heroui/blob/83b92dfccf847856d277504fed64d954c2dd9066/packages/styles/package.json"
+        }
+      ]
+    },
+    {
+      "repo": "hextaui",
+      "sha": "daaba0c3dc3f63931540b24b651929d3d1d2c4ea",
+      "date": "2026-10-08T20:06:59+05:30",
+      "remote": "https://github.com/preetsuthar17/hextaui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "1712522c36838eacc34a3e0b567eccd8668486a5badaf369521944760ac5845b",
+          "url": "https://github.com/preetsuthar17/hextaui/blob/daaba0c3dc3f63931540b24b651929d3d1d2c4ea/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "hexta-button",
+          "path": "components/ui/button.tsx",
+          "line": 17,
+          "sha256": "f93ca97a4edf22cafce9246982270d0b191a8ddc72146a76a342e8ad72729b14",
+          "url": "https://github.com/preetsuthar17/hextaui/blob/daaba0c3dc3f63931540b24b651929d3d1d2c4ea/components/ui/button.tsx#L17"
+        }
+      ]
+    },
+    {
+      "repo": "magic-ui",
+      "sha": "cdb348cb4c72a9b54b554d8617801e479fbc8714",
+      "date": "2026-10-05T19:22:01+09:00",
+      "remote": "https://github.com/magicuidesign/magicui.git",
+      "license_files": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "0147b84235ed916b8b4e89c1f80655351c5afe7d211b629be61f553a227b34ba",
+          "url": "https://github.com/magicuidesign/magicui/blob/cdb348cb4c72a9b54b554d8617801e479fbc8714/LICENSE.md"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "magic-beam",
+          "path": "apps/www/registry/magicui/border-beam.tsx",
+          "line": 58,
+          "sha256": "ccdfb52cb8f2089e7823a9edfe9c3a52e52ab6759ed5b91d184b1e2bb80cf414",
+          "url": "https://github.com/magicuidesign/magicui/blob/cdb348cb4c72a9b54b554d8617801e479fbc8714/apps/www/registry/magicui/border-beam.tsx#L58"
+        },
+        {
+          "reference": "magic-number",
+          "path": "apps/www/registry/magicui/number-ticker.tsx",
+          "line": 17,
+          "sha256": "0f7dcbc6a1962615a877590304e846f33d390002a51f2226f544938577c220f4",
+          "url": "https://github.com/magicuidesign/magicui/blob/cdb348cb4c72a9b54b554d8617801e479fbc8714/apps/www/registry/magicui/number-ticker.tsx#L17"
+        }
+      ]
+    },
+    {
+      "repo": "mantine",
+      "sha": "f7ab1ef52579366e2310fc12b1a12e88a821053a",
+      "date": "2026-10-08T11:51:47+03:00",
+      "remote": "https://github.com/mantinedev/mantine.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "61c765e625bc25d55143f14de7554685c52f21d9e671d3d204304691a163d06a",
+          "url": "https://github.com/mantinedev/mantine/blob/f7ab1ef52579366e2310fc12b1a12e88a821053a/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "mantine-shell",
+          "path": "packages/@mantine/core/src/components/AppShell/AppShell.tsx",
+          "line": 56,
+          "sha256": "612a0ffd6785e9a7458c80f1194c9795772c969eea20fa62b46cbaabb4bbd1e4",
+          "url": "https://github.com/mantinedev/mantine/blob/f7ab1ef52579366e2310fc12b1a12e88a821053a/packages/@mantine/core/src/components/AppShell/AppShell.tsx#L56"
+        },
+        {
+          "reference": "mantine-spotlight",
+          "path": "packages/@mantine/spotlight/src/Spotlight.tsx",
+          "line": 69,
+          "sha256": "9a7f53d812ee20503545f239eb32a1cd7c332e386789d5257e86ae08faad7683",
+          "url": "https://github.com/mantinedev/mantine/blob/f7ab1ef52579366e2310fc12b1a12e88a821053a/packages/@mantine/spotlight/src/Spotlight.tsx#L69"
+        }
+      ]
+    },
+    {
+      "repo": "motion-primitives",
+      "sha": "120f64f6ca60348e251f929e9c81f11ccbe45eda",
+      "date": "2026-09-28T15:32:06+02:00",
+      "remote": "https://github.com/ibelick/motion-primitives.git",
+      "license_files": [],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "motion-panel",
+          "path": "components/core/transition-panel.tsx",
+          "line": 1,
+          "sha256": "1b3c67058a09a560a034b7fe52ad1c205b589a63ed80055900e8a66830db0be2",
+          "url": "https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/components/core/transition-panel.tsx#L1"
+        },
+        {
+          "reference": "motion-number",
+          "path": "components/core/animated-number.tsx",
+          "line": 1,
+          "sha256": "3b4a9f3262cb79527fba01a76576e920e340137f0643bf34a7732f7f8b1ff792",
+          "url": "https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/components/core/animated-number.tsx#L1"
+        },
+        {
+          "reference": "motion-dialog",
+          "path": "components/core/dialog.tsx",
+          "line": 65,
+          "sha256": "11ab87b504cb42e778f947ad722925b051b977f62638741402f170a57ca6ba2d",
+          "url": "https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/components/core/dialog.tsx#L65"
+        }
+      ],
+      "metadata_files": [
+        {
+          "path": "README.md",
+          "sha256": "104fe086b717c6e68274965445d49e7b433b5ec5e0c13bc9056804e74e39d69a",
+          "url": "https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/README.md"
+        },
+        {
+          "path": "package.json",
+          "sha256": "9918eafbf773be206b3bf7982b8cac1dc5f7111b9d1b5ee2499865869688f008",
+          "url": "https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/package.json"
+        }
+      ]
+    },
+    {
+      "repo": "mui",
+      "sha": "edb9f2df1694fae5f04d027c785f0c4d10e492b5",
+      "date": "2026-10-08T15:17:21Z",
+      "remote": "https://github.com/mui/material-ui.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "4c57cedbef546270e5648786682f633b2e6ae62c8862a45797bcb6d0bffda98d",
+          "url": "https://github.com/mui/material-ui/blob/edb9f2df1694fae5f04d027c785f0c4d10e492b5/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "mui-pagination",
+          "path": "packages/mui-material/src/TablePagination/TablePagination.js",
+          "line": 200,
+          "sha256": "4112a1d3d3e4f9336af5f0750fabc33ceef62ceb7f11605a46ed2d309fcec001",
+          "url": "https://github.com/mui/material-ui/blob/edb9f2df1694fae5f04d027c785f0c4d10e492b5/packages/mui-material/src/TablePagination/TablePagination.js#L200"
+        }
+      ]
+    },
+    {
+      "repo": "origin-ui",
+      "sha": "f4f366ae39759248d46b1252c52fbdc0bc01c285",
+      "date": "2025-07-25T12:17:50+02:00",
+      "remote": "https://github.com/shadcn/originui.git",
+      "license_files": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "5cf1ac404337879e1cbb3fe98b79742e465f2e7ca6d20c1cfdccfe2226c9b6a7",
+          "url": "https://github.com/shadcn/originui/blob/f4f366ae39759248d46b1252c52fbdc0bc01c285/LICENSE.md"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "origin-input",
+          "path": "registry/default/components/comp-01.tsx",
+          "line": 1,
+          "sha256": "835ec7cc560accab1c57add98e72aa05b0a23040d1d39a10b66b98f54c6f4145",
+          "url": "https://github.com/shadcn/originui/blob/f4f366ae39759248d46b1252c52fbdc0bc01c285/registry/default/components/comp-01.tsx#L1"
+        },
+        {
+          "reference": "origin-password",
+          "path": "registry/default/components/comp-51.tsx",
+          "line": 55,
+          "sha256": "e06df62471a0a2a353577242690c45f008392d36e505ef1020f36f8c5c47c0ef",
+          "url": "https://github.com/shadcn/originui/blob/f4f366ae39759248d46b1252c52fbdc0bc01c285/registry/default/components/comp-51.tsx#L55"
+        }
+      ]
+    },
+    {
+      "repo": "radix-ui",
+      "sha": "c432731c48097140bcca66947b0bdbcd9741e942",
+      "date": "2026-10-08T16:44:34-07:00",
+      "remote": "https://github.com/radix-ui/primitives.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "0e80a2d229d2fd4fc7e8636142ec5d0ff0bc031f14c15b682e2ac01dfd5b5138",
+          "url": "https://github.com/radix-ui/primitives/blob/c432731c48097140bcca66947b0bdbcd9741e942/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "radix-dialog",
+          "path": "packages/react/dialog/src/dialog.tsx",
+          "line": 296,
+          "sha256": "f2542dc1ac24b125bfa3e407a6f0dbc820162c07a4de629b2e3dff200f5289bd",
+          "url": "https://github.com/radix-ui/primitives/blob/c432731c48097140bcca66947b0bdbcd9741e942/packages/react/dialog/src/dialog.tsx#L296"
+        },
+        {
+          "reference": "radix-layer",
+          "path": "packages/react/dismissable-layer/src/dismissable-layer.tsx",
+          "line": 90,
+          "sha256": "20de40aa45a2a93f956ee4f8a6a78f2182b1d9fef7ead53ad48d9aebc4f4ecb7",
+          "url": "https://github.com/radix-ui/primitives/blob/c432731c48097140bcca66947b0bdbcd9741e942/packages/react/dismissable-layer/src/dismissable-layer.tsx#L90"
+        }
+      ]
+    },
+    {
+      "repo": "react-bits",
+      "sha": "b2098591ad5b3489eff65ca9e5b9f9bdf2de29c3",
+      "date": "2026-10-08T17:44:41+03:00",
+      "remote": "https://github.com/DavidHDev/react-bits.git",
+      "license_files": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "f4c33af6739191537738662d223b68d77bc226f4b57ea883e16481d8cc5c73c9",
+          "url": "https://github.com/DavidHDev/react-bits/blob/b2098591ad5b3489eff65ca9e5b9f9bdf2de29c3/LICENSE.md"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "bits-magnet",
+          "path": "src/ts-default/Animations/Magnet/Magnet.tsx",
+          "line": 31,
+          "sha256": "17227417dc61cf1cf02b88c7a291607de3eedfd4714ab642078c5ebf102f586f",
+          "url": "https://github.com/DavidHDev/react-bits/blob/b2098591ad5b3489eff65ca9e5b9f9bdf2de29c3/src/ts-default/Animations/Magnet/Magnet.tsx#L31"
+        },
+        {
+          "reference": "bits-particles",
+          "path": "src/ts-default/Backgrounds/Particles/Particles.tsx",
+          "line": 127,
+          "sha256": "4da9d311453ef906f4f7da63bac6e2a2473dcdd6b07be04dec23acf227914ddb",
+          "url": "https://github.com/DavidHDev/react-bits/blob/b2098591ad5b3489eff65ca9e5b9f9bdf2de29c3/src/ts-default/Backgrounds/Particles/Particles.tsx#L127"
+        }
+      ]
+    },
+    {
+      "repo": "shadcn-ui",
+      "sha": "6ea090075cd537d3b792c6c1a625e2448b6ede26",
+      "date": "2026-10-08T22:59:48+04:00",
+      "remote": "https://github.com/shadcn-ui/ui.git",
+      "license_files": [
+        {
+          "path": "LICENSE.md",
+          "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
+          "url": "https://github.com/shadcn-ui/ui/blob/6ea090075cd537d3b792c6c1a625e2448b6ede26/LICENSE.md"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "shadcn-schema",
+          "path": "packages/registry/src/registry/schema.ts",
+          "line": 100,
+          "sha256": "22faa04ef156a98b1aee1c64a4c64b604d6e3cc8506f8ea0df34dd38fe76ec0f",
+          "url": "https://github.com/shadcn-ui/ui/blob/6ea090075cd537d3b792c6c1a625e2448b6ede26/packages/registry/src/registry/schema.ts#L100"
+        },
+        {
+          "reference": "shadcn-button",
+          "path": "apps/v4/registry/bases/base/ui/button.tsx",
+          "line": 1,
+          "sha256": "74f982d7ad7a764e3c95a519fc063a671e66ad758ea31dc89d747838e20c2487",
+          "url": "https://github.com/shadcn-ui/ui/blob/6ea090075cd537d3b792c6c1a625e2448b6ede26/apps/v4/registry/bases/base/ui/button.tsx#L1"
+        }
+      ]
+    },
+    {
+      "repo": "tremor",
+      "sha": "ca4d588f47820ff3d514d37fa4ee08a4222dec11",
+      "date": "2025-10-10T15:08:21+02:00",
+      "remote": "https://github.com/tremorlabs/tremor.git",
+      "license_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "6e43333ff4b171baacff233a3672365923eb688bf7ce8724eac42868bc4a08eb",
+          "url": "https://github.com/tremorlabs/tremor/blob/ca4d588f47820ff3d514d37fa4ee08a4222dec11/LICENSE"
+        }
+      ],
+      "clean_at_inspection": true,
+      "inspected_files": [
+        {
+          "reference": "tremor-line",
+          "path": "src/components/LineChart/LineChart.tsx",
+          "line": 495,
+          "sha256": "0564aaa98ceb844211c607cfd5ee3122f662435460e65522713863343d469869",
+          "url": "https://github.com/tremorlabs/tremor/blob/ca4d588f47820ff3d514d37fa4ee08a4222dec11/src/components/LineChart/LineChart.tsx#L495"
+        }
+      ]
+    }
+  ],
+  "online_references": [
+    {
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+      "accessed": "2026-10-09"
+    },
+    {
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/",
+      "accessed": "2026-10-09"
+    },
+    {
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+      "accessed": "2026-10-09"
+    },
+    {
+      "url": "https://ui.aceternity.com/components",
+      "accessed": "2026-10-09"
+    }
+  ]
+}
