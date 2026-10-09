@@ -2,6 +2,8 @@
 
 入口：[/examples/agent-workbench/](/examples/agent-workbench/)。区域实验室 → 三种布局 → 编码、产物审阅、多任务三种完整示例。
 
+后续改造见 [编码工作台增强计划](plans/agent-coding-workbench-enhancement-plan.md)：侧边工具入口、设置对话框、上下文、命令输出与多类型文件小窗的组件清单和 E0–E6 验收安排；该计划尚待实施。
+
 ## 安装与分层
 
 ```sh
