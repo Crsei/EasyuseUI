@@ -1,4 +1,9 @@
 "use client"
+import {
+  configuredColumns,
+  columnWidth,
+  type DataTableColumnConfig,
+} from "@/lib/data-table-model"
 import type { ReactNode } from "react"
 import styles from "./data-table.module.css"
 import { Button } from "@/components/ui/button"
@@ -17,6 +22,9 @@ import {
 import { useI18n } from "@/lib/i18n-provider"
 export type DataTableColumn<T> = {
   id: string
+  minWidth?: number
+  maxWidth?: number
+  hideable?: boolean
   header: ReactNode
   cell: (row: T) => ReactNode
   align?: "left" | "center" | "right"
@@ -31,6 +39,8 @@ export type DataTableSort = {
 export type DataTableProps<T> = {
   rows: readonly T[]
   columns: readonly DataTableColumn<T>[]
+  columnConfig?: DataTableColumnConfig
+  activationMode?: "primary-cell" | "separate"
   getRowId: (row: T) => string
   getRowLabel: (row: T) => string
   caption: string
@@ -49,7 +59,9 @@ export type DataTableProps<T> = {
 }
 export function DataTable<T>({
   rows,
-  columns,
+  columns: sourceColumns,
+  columnConfig,
+  activationMode = "primary-cell",
   getRowId,
   getRowLabel,
   caption,
@@ -67,6 +79,7 @@ export function DataTable<T>({
   className,
 }: DataTableProps<T>) {
   const { t } = useI18n()
+  const columns = configuredColumns(sourceColumns, columnConfig)
   const selected = new Set(selectedIds)
   const selectable = rows.filter(isRowSelectable).map(getRowId)
   const chosen = selectable.filter((id) => selected.has(id)).length
@@ -86,8 +99,35 @@ export function DataTable<T>({
         hasContent={rows.length > 0}
       >
         <TableContainer aria-label={caption} style={{ maxHeight }}>
-          <Table>
+          <Table
+            style={
+              Object.keys(columnConfig?.widths ?? {}).length
+                ? {
+                    tableLayout: "fixed",
+                    width: columns.reduce(
+                      (sum, c) => sum + (columnWidth(c, columnConfig) ?? 160),
+                      (onSelectionChange ? 48 : 0) +
+                        (onActivateRow && activationMode === "separate"
+                          ? 80
+                          : 0),
+                    ),
+                  }
+                : undefined
+            }
+          >
             <TableCaption>{caption}</TableCaption>
+            <colgroup>
+              {onSelectionChange && <col style={{ width: 48 }} />}
+              {onActivateRow && activationMode === "separate" && (
+                <col style={{ width: 80 }} />
+              )}
+              {columns.map((column) => (
+                <col
+                  key={column.id}
+                  style={{ width: columnWidth(column, columnConfig) }}
+                />
+              ))}
+            </colgroup>
             <TableHeader
               className={stickyHeader ? "sticky top-0 z-10" : undefined}
             >
@@ -104,6 +144,9 @@ export function DataTable<T>({
                       onCheckedChange={(checked) => toggle(selectable, checked)}
                     />
                   </TableHead>
+                )}
+                {onActivateRow && activationMode === "separate" && (
+                  <TableHead>{t("tableControls.open")}</TableHead>
                 )}
                 {columns.map((column) => (
                   <TableHead
@@ -167,13 +210,29 @@ export function DataTable<T>({
                         />
                       </TableCell>
                     )}
+                    {onActivateRow && activationMode === "separate" && (
+                      <TableCell>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          aria-label={t("commonComponents.viewRow", {
+                            name: getRowLabel(row),
+                          })}
+                          onClick={() => onActivateRow(row)}
+                        >
+                          {t("tableControls.open")}
+                        </Button>
+                      </TableCell>
+                    )}
                     {columns.map((column, index) => (
                       <TableCell
                         key={column.id}
                         className={column.className}
                         style={{ textAlign: column.align }}
                       >
-                        {onActivateRow && (column.primary ?? index === 0) ? (
+                        {onActivateRow &&
+                        activationMode === "primary-cell" &&
+                        (column.primary ?? index === 0) ? (
                           <Button
                             variant="ghost"
                             className={styles.activation}

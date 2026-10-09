@@ -1,4 +1,5 @@
 "use client"
+import { OverlayLayer } from "@/lib/overlay-layer"
 import { Tooltip as Base } from "@base-ui/react/tooltip"
 import { cn } from "@/lib/utils"
 import { useThemePortalContainer } from "./theme-boundary"
@@ -19,22 +20,27 @@ export function TooltipContent({
 }) {
   const container = useThemePortalContainer()
   return (
-    <Base.Portal container={container}>
-      <Base.Positioner
-        side={side}
-        align={align}
-        sideOffset={sideOffset}
-        className="z-[80]"
-      >
-        <Base.Popup
-          role="tooltip"
-          {...props}
-          className={cn(
-            "max-w-xs rounded-control border bg-surface px-2 py-1 text-xs text-foreground shadow-[var(--shadow-floating)]",
-            className,
-          )}
-        />
-      </Base.Positioner>
-    </Base.Portal>
+    <OverlayLayer>
+      {(layerStyle) => (
+        <Base.Portal container={container}>
+          <Base.Positioner
+            style={layerStyle}
+            side={side}
+            align={align}
+            sideOffset={sideOffset}
+            className=""
+          >
+            <Base.Popup
+              role="tooltip"
+              {...props}
+              className={cn(
+                "max-w-xs rounded-control border bg-surface px-2 py-1 text-xs text-foreground shadow-[var(--shadow-floating)]",
+                className,
+              )}
+            />
+          </Base.Positioner>
+        </Base.Portal>
+      )}
+    </OverlayLayer>
   )
 }

@@ -1,0 +1,265 @@
+{
+  "capturedAt": "2026-10-09T03:06:07.015Z",
+  "browser": "138.0.7204.92",
+  "scope": "Isolated production export; original DialogDemo and CommandPaletteDemo; coarse pointer; reduced motion; no DOM injection",
+  "results": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "popup": {
+        "x": 16,
+        "y": 287,
+        "width": 358,
+        "height": 270,
+        "bottom": 557
+      },
+      "fitsViewport": true,
+      "overflowY": "hidden",
+      "maxHeight": "812px",
+      "clientHeight": 268,
+      "scrollHeight": 268,
+      "controls": [
+        {
+          "name": "取消",
+          "rect": {
+            "x": 199,
+            "y": 488,
+            "width": 64,
+            "height": 44,
+            "bottom": 532
+          }
+        },
+        {
+          "name": "确认创建",
+          "rect": {
+            "x": 271,
+            "y": 488,
+            "width": 78,
+            "height": 44,
+            "bottom": 532
+          }
+        },
+        {
+          "name": "关闭弹窗",
+          "rect": {
+            "x": 313,
+            "y": 304,
+            "width": 44,
+            "height": 44,
+            "bottom": 348
+          }
+        }
+      ],
+      "component": "dialog",
+      "escapeCloses": true,
+      "focusReturns": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 320
+      },
+      "popup": {
+        "x": 16,
+        "y": 25,
+        "width": 358,
+        "height": 270,
+        "bottom": 295
+      },
+      "fitsViewport": true,
+      "overflowY": "hidden",
+      "maxHeight": "288px",
+      "clientHeight": 268,
+      "scrollHeight": 268,
+      "controls": [
+        {
+          "name": "取消",
+          "rect": {
+            "x": 199,
+            "y": 226,
+            "width": 64,
+            "height": 44,
+            "bottom": 270
+          }
+        },
+        {
+          "name": "确认创建",
+          "rect": {
+            "x": 271,
+            "y": 226,
+            "width": 78,
+            "height": 44,
+            "bottom": 270
+          }
+        },
+        {
+          "name": "关闭弹窗",
+          "rect": {
+            "x": 313,
+            "y": 42,
+            "width": 44,
+            "height": 44,
+            "bottom": 86
+          }
+        }
+      ],
+      "component": "dialog",
+      "escapeCloses": true,
+      "focusReturns": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 240
+      },
+      "popup": {
+        "x": 16,
+        "y": 16,
+        "width": 358,
+        "height": 208,
+        "bottom": 224
+      },
+      "fitsViewport": true,
+      "overflowY": "hidden",
+      "maxHeight": "208px",
+      "clientHeight": 206,
+      "scrollHeight": 206,
+      "controls": [
+        {
+          "name": "取消",
+          "rect": {
+            "x": 199,
+            "y": 217,
+            "width": 64,
+            "height": 44,
+            "bottom": 261
+          }
+        },
+        {
+          "name": "确认创建",
+          "rect": {
+            "x": 271,
+            "y": 217,
+            "width": 78,
+            "height": 44,
+            "bottom": 261
+          }
+        },
+        {
+          "name": "关闭弹窗",
+          "rect": {
+            "x": 313,
+            "y": 33,
+            "width": 44,
+            "height": 44,
+            "bottom": 77
+          }
+        }
+      ],
+      "component": "dialog",
+      "escapeCloses": true,
+      "focusReturns": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "popup": {
+        "x": 16,
+        "y": 254.5,
+        "width": 358,
+        "height": 335,
+        "bottom": 589.5
+      },
+      "fitsViewport": true,
+      "overflowY": "hidden",
+      "maxHeight": "812px",
+      "clientHeight": 333,
+      "scrollHeight": 333,
+      "controls": [
+        {
+          "name": "关闭弹窗",
+          "rect": {
+            "x": 313,
+            "y": 271.5,
+            "width": 44,
+            "height": 44,
+            "bottom": 315.5
+          }
+        }
+      ],
+      "component": "command-palette",
+      "escapeCloses": true,
+      "focusReturns": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 320
+      },
+      "popup": {
+        "x": 16,
+        "y": 16,
+        "width": 358,
+        "height": 288,
+        "bottom": 304
+      },
+      "fitsViewport": true,
+      "overflowY": "hidden",
+      "maxHeight": "288px",
+      "clientHeight": 286,
+      "scrollHeight": 286,
+      "controls": [
+        {
+          "name": "关闭弹窗",
+          "rect": {
+            "x": 313,
+            "y": 33,
+            "width": 44,
+            "height": 44,
+            "bottom": 77
+          }
+        }
+      ],
+      "component": "command-palette",
+      "escapeCloses": true,
+      "focusReturns": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 240
+      },
+      "popup": {
+        "x": 16,
+        "y": 16,
+        "width": 358,
+        "height": 208,
+        "bottom": 224
+      },
+      "fitsViewport": true,
+      "overflowY": "hidden",
+      "maxHeight": "208px",
+      "clientHeight": 206,
+      "scrollHeight": 206,
+      "controls": [
+        {
+          "name": "关闭弹窗",
+          "rect": {
+            "x": 313,
+            "y": 33,
+            "width": 44,
+            "height": 44,
+            "bottom": 77
+          }
+        }
+      ],
+      "component": "command-palette",
+      "escapeCloses": true,
+      "focusReturns": true
+    }
+  ]
+}

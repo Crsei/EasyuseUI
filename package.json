@@ -27,7 +27,9 @@
     "test:install:themes": "node scripts/check-theme-install.mjs",
     "registry:snapshot": "node scripts/snapshot-registry.mjs",
     "docs:build": "node scripts/build-docs.mjs --write",
-    "check:docs": "node scripts/build-docs.mjs && node scripts/check-docs-snippets.mjs"
+    "check:docs": "node scripts/build-docs.mjs && node scripts/check-docs-snippets.mjs",
+    "ui-contracts:build": "node scripts/check-ui-contracts.mjs --write",
+    "check:ui-contracts": "node scripts/check-ui-contracts.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",

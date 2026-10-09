@@ -1,3 +1,4 @@
+import {gapRegistryItems,createGapConsumer,verifyGapConsumer} from "./gap-contract-consumer.mjs"
 import { workflowAnalyticsRegistryItems, createWorkflowAnalyticsConsumer, verifyWorkflowAnalyticsConsumer } from "./workflow-analytics-consumer.mjs"
 import {
   workItemsRegistryItems,
@@ -32,9 +33,7 @@ process.env.no_proxy = process.env.NO_PROXY
 
 const project = path.resolve(import.meta.dirname, "..")
 const fixture = await mkdtemp(path.join(os.tmpdir(), "easyuse-ui-consumer-"))
-let site = (
-  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3010"
-).replace(/\/$/, "")
+let site
 console.log(`Independent consumer: ${fixture}`)
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`
 await mkdir(path.join(fixture, "app"))
@@ -232,6 +231,7 @@ export default function Consumer() {
 `,
 )
 execFileSync("git", ["init", "--quiet"], { cwd: fixture })
+await createGapConsumer(fixture)
 await createWorkflowAnalyticsConsumer(fixture)
 await createCommonConsumer(fixture)
 await createWorkItemsConsumer(fixture)
@@ -240,16 +240,38 @@ execFileSync("pnpm", ["install", "--ignore-scripts"], {
   cwd: fixture,
   stdio: "inherit",
 })
-const registryOrigin = site
+// Use the built Registry's origin, which can differ from this process's env.
+// Freeze its items before the CLI runs so dependency reads cannot reach a live
+// dev server or observe a concurrently rewritten item halfway through a build.
+const registryIndex = JSON.parse(
+  await readFile(path.join(project, "public/r/registry.json"), "utf8"),
+)
+const registryOrigin = registryIndex.homepage.replace(/\/$/, "")
+const registryItems = new Map(
+  await Promise.all(
+    registryIndex.items.map(async ({ name }) => [
+      name,
+      JSON.parse(
+        await readFile(path.join(project, "public/r", `${name}.json`), "utf8"),
+      ),
+    ]),
+  ),
+)
+for (const item of registryItems.values())
+  for (const url of item.registryDependencies ?? []) {
+    const name = url.startsWith(`${registryOrigin}/r/`)
+      ? url.slice(`${registryOrigin}/r/`.length).replace(/\.json$/, "")
+      : undefined
+    assert.ok(registryItems.has(name), `Non-snapshot dependency: ${url}`)
+  }
 const registryServer = createServer(async (request, response) => {
   try {
     const name = new URL(request.url, "http://localhost").pathname.match(
       /^\/r\/([\w-]+)\.json$/,
     )?.[1]
     if (!name) throw new Error("Invalid registry path")
-    const item = JSON.parse(
-      await readFile(path.join(project, "public/r", `${name}.json`), "utf8"),
-    )
+    const item = structuredClone(registryItems.get(name))
+    if (!item) throw new Error("Unknown registry item")
     item.registryDependencies = item.registryDependencies?.map((url) =>
       url.replace(`${registryOrigin}/r/`, `${site}/r/`),
     )
@@ -272,6 +294,7 @@ try {
         "shadcn",
         "add",
         ...workflowAnalyticsRegistryItems.map((name) => `${site}/r/${name}.json`),
+        ...gapRegistryItems.map((name) => `${site}/r/${name}.json`),
         ...commonRegistryItems.map((name) => `${site}/r/${name}.json`),
         ...workItemsRegistryItems.map((name) => `${site}/r/${name}.json`),
         `${site}/r/agent-board-workspace.json`,
@@ -628,6 +651,7 @@ try {
   await page.getByText("执行中", { exact: true }).waitFor()
   process.env.COMMON_CONSUMER_EVIDENCE_DIR = fixture
   await verifyWorkflowAnalyticsConsumer(page, `http://127.0.0.1:${server.address().port}`)
+  await verifyGapConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyCommonConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyAgentBoardConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyWorkItemsConsumer(page, `http://127.0.0.1:${server.address().port}`)

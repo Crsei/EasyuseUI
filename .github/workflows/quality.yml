@@ -38,7 +38,7 @@ jobs:
           echo "XDG_CONFIG_HOME=$RUNNER_TEMP/chrome-config" >> "$GITHUB_ENV"
           echo "XDG_CACHE_HOME=$RUNNER_TEMP/chrome-cache" >> "$GITHUB_ENV"
           echo "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=$RUNNER_TEMP/browser/chrome-linux64/chrome" >> "$GITHUB_ENV"
-      - run: pnpm lint && pnpm typecheck && pnpm check:i18n && pnpm check:manifest && pnpm check:blog && pnpm check:docs
+      - run: pnpm lint && pnpm typecheck && pnpm check:i18n && pnpm check:manifest && pnpm check:blog && pnpm check:docs && pnpm check:ui-contracts
       - run: pnpm build
       - run: pnpm test --grep-invert @performance
       - run: pnpm exec playwright test tests/stream-performance.spec.ts tests/canvas-performance.spec.ts --workers=1

@@ -1,4 +1,5 @@
 "use client"
+import { OverlayLayer } from "@/lib/overlay-layer"
 import { Combobox as ComboboxPrimitive } from "@base-ui/react/combobox"
 import { cn } from "@/lib/utils"
 import { useThemePortalContainer } from "./theme-boundary"
@@ -15,19 +16,27 @@ export function ComboboxContent({
 }: Omit<ComboboxPrimitive.Popup.Props, "className"> & { className?: string }) {
   const container = useThemePortalContainer()
   return (
-    <ComboboxPrimitive.Portal container={container}>
-      <ComboboxPrimitive.Positioner sideOffset={6} className="z-[60]">
-        <ComboboxPrimitive.Popup
-          {...props}
-          className={cn(
-            "z-[60] min-w-40 rounded-lg border bg-surface p-1 text-foreground shadow-[var(--shadow-floating)] outline-none",
-            className,
-          )}
-        >
-          {children}
-        </ComboboxPrimitive.Popup>
-      </ComboboxPrimitive.Positioner>
-    </ComboboxPrimitive.Portal>
+    <OverlayLayer>
+      {(layerStyle) => (
+        <ComboboxPrimitive.Portal container={container}>
+          <ComboboxPrimitive.Positioner
+            style={layerStyle}
+            sideOffset={6}
+            className=""
+          >
+            <ComboboxPrimitive.Popup
+              {...props}
+              className={cn(
+                "min-w-40 rounded-lg border bg-surface p-1 text-foreground shadow-[var(--shadow-floating)] outline-none",
+                className,
+              )}
+            >
+              {children}
+            </ComboboxPrimitive.Popup>
+          </ComboboxPrimitive.Positioner>
+        </ComboboxPrimitive.Portal>
+      )}
+    </OverlayLayer>
   )
 }
 export function ComboboxItem({

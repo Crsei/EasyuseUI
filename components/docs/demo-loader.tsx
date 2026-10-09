@@ -31,6 +31,10 @@ const loadCompletion6 = () =>
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  "toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.ToolbarDemo),
+  "command-toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.CommandToolbarDemo),
+  "data-table-controls": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
+  "data-table-model": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
   // BEGIN shadcn completion
   "button-group": completionDemo(loadCompletion0, "ButtonGroupDemo"),
   "input-group": completionDemo(loadCompletion0, "InputGroupDemo"),

@@ -264,11 +264,7 @@ const sourceManifest: ComponentManifestEntry[] = [
   "slug": "tooltip",
   "docPath": "/docs/tooltip/",
   "registryId": "tooltip",
-  "registryDependencies": [
-    "theme",
-    "utils",
-    "theme-boundary"
-  ],
+  "registryDependencies": ["theme","utils","theme-boundary","overlay-layer"],
   "installType": "ui",
   "displayCategory": "primitives",
   "availability": "available",
@@ -293,11 +289,7 @@ const sourceManifest: ComponentManifestEntry[] = [
   "slug": "alert-dialog",
   "docPath": "/docs/alert-dialog/",
   "registryId": "alert-dialog",
-  "registryDependencies": [
-    "theme",
-    "utils",
-    "theme-boundary"
-  ],
+  "registryDependencies": ["theme","utils","theme-boundary","overlay-layer"],
   "installType": "ui",
   "displayCategory": "primitives",
   "availability": "available",
@@ -2673,14 +2665,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "data-table",
     docPath: "/docs/data-table/",
     registryId: "data-table",
-    registryDependencies: [
-      "theme",
-      "button",
-      "checkbox",
-      "table",
-      "data-region",
-      "i18n",
-    ],
+    registryDependencies: ["theme","button","checkbox","table","data-region","i18n","data-table-model"],
     installType: "block",
     displayCategory: "patterns",
     availability: "available",
@@ -2693,11 +2678,21 @@ const sourceManifest: ComponentManifestEntry[] = [
     usage: 'import { DataTable } from "@/components/blocks/data-table"',
     props: [
       {
-        name: "rows / columns / getRowId / getRowLabel / selectedIds / onSelectionChange / activeRowId / onActivateRow / sort / onSortChange / data / footer",
-        type: "DataTableProps<T>",
-        description:
-          "全选只修改当前可选行并保留隐藏选择；调用方提供排序后的数据与汇总。",
+        "name": "columnConfig",
+        "type": "DataTableColumnConfig",
+        "description": "受控列顺序、显隐与宽度；选择身份不随列变化。"
       },
+      {
+        "name": "activationMode",
+        "type": "\"primary-cell\" | \"separate\"",
+        "default": "primary-cell",
+        "description": "交互单元格使用separate，避免嵌套按钮。"
+      },
+      {
+        "name": "rows / columns / getRowId / getRowLabel / selectedIds / onSelectionChange / activeRowId / onActivateRow / sort / onSortChange / data / footer",
+        "type": "DataTableProps<T>",
+        "description": "全选只修改当前可选行并保留隐藏选择；调用方提供排序后的数据与汇总。"
+      }
     ],
     notes: [
       "全选只修改当前可选行并保留隐藏选择；调用方提供排序后的数据与汇总。",
@@ -2802,13 +2797,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "sheet",
     docPath: "/docs/sheet/",
     registryId: "sheet",
-    registryDependencies: [
-      "theme",
-      "utils",
-      "theme-boundary",
-      "button",
-      "i18n",
-    ],
+    registryDependencies: ["theme","utils","theme-boundary","button","i18n","overlay-layer"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",
@@ -3071,7 +3060,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "menu",
     docPath: "/docs/menu/",
     registryId: "menu",
-    registryDependencies: ["theme", "utils", "theme-boundary"],
+    registryDependencies: ["theme","utils","theme-boundary","overlay-layer"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",
@@ -3097,7 +3086,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "popover",
     docPath: "/docs/popover/",
     registryId: "popover",
-    registryDependencies: ["theme", "utils", "theme-boundary"],
+    registryDependencies: ["theme","utils","theme-boundary","overlay-layer"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",
@@ -3123,7 +3112,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "select",
     docPath: "/docs/select/",
     registryId: "select",
-    registryDependencies: ["theme", "utils", "theme-boundary"],
+    registryDependencies: ["theme","utils","theme-boundary","overlay-layer"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",
@@ -3149,7 +3138,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "combobox",
     docPath: "/docs/combobox/",
     registryId: "combobox",
-    registryDependencies: ["theme", "utils", "theme-boundary"],
+    registryDependencies: ["theme","utils","theme-boundary","overlay-layer"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",
@@ -3461,27 +3450,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "canvas-workspace",
     docPath: "/docs/canvas-workspace/",
     registryId: "canvas-workspace",
-    registryDependencies: [
-      "canvas-model",
-      "canvas-controls",
-      "canvas-editor",
-      "canvas-validation",
-      "workspace-shell",
-      "workflow-canvas",
-      "node-palette",
-      "node-inspector",
-      "inspector",
-      "input",
-      "button",
-      "dialog",
-      "data-region",
-      "canvas-execution-panel",
-      "canvas-services",
-      "canvas-service-panel",
-      "i18n",
-      "menu",
-      "tabs",
-    ],
+    registryDependencies: ["canvas-model","canvas-controls","canvas-editor","canvas-validation","workspace-shell","workflow-canvas","node-palette","node-inspector","inspector","input","button","dialog","data-region","canvas-execution-panel","canvas-services","canvas-service-panel","i18n","menu","tabs","command-toolbar"],
     installType: "block",
     displayCategory: "canvas",
     availability: "available",
@@ -4003,7 +3972,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "button",
     docPath: "/docs/button/",
     registryId: "button",
-    registryDependencies: ["theme-boundary", "theme", "utils"],
+    registryDependencies: ["theme","utils","theme-boundary","overlay-layer"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",
@@ -4097,7 +4066,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "dialog",
     docPath: "/docs/dialog/",
     registryId: "dialog",
-    registryDependencies: ["theme-boundary", "theme", "utils", "i18n"],
+    registryDependencies: ["theme","utils","i18n","theme-boundary","overlay-layer"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",
@@ -4324,7 +4293,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "workspace-shell",
     docPath: "/docs/workspace-shell/",
     registryId: "workspace-shell",
-    registryDependencies: ["theme-boundary", "theme", "utils", "button", "i18n", "resizable"],
+    registryDependencies: ["theme","utils","button","i18n","theme-boundary","overlay-layer","resizable"],
     installType: "block",
     displayCategory: "workspace",
     availability: "available",
@@ -5293,14 +5262,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "agent-usage-summary",
     docPath: "/docs/agent-usage-summary/",
     registryId: "agent-usage-summary",
-    registryDependencies: [
-      "theme",
-      "metric-summary",
-      "runtime-status-badge",
-      "data-table",
-      "agent-board-model",
-      "i18n",
-    ],
+    registryDependencies: ["theme","metric-summary","data-table","agent-board-model","i18n","runtime-status-badge"],
     installType: "block",
     displayCategory: "patterns",
     availability: "available",
@@ -6391,6 +6353,128 @@ const sourceManifest: ComponentManifestEntry[] = [
   ],
   "widePreview": true
 },
+
+{
+    "slug": "toolbar",
+    "name": "Toolbar",
+    "docPath": "/docs/toolbar/",
+    "registryId": "toolbar",
+    "registryDependencies": [
+      "button",
+      "input",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "category": "基础组件",
+    "description": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+    "source": "components/ui/toolbar.tsx",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { Toolbar, ToolbarButton } from \"@/components/ui/toolbar\"\nexport function Commands() { return <Toolbar aria-label=\"Commands\"><ToolbarButton>Save</ToolbarButton></Toolbar> }",
+    "props": [
+      {
+        "name": "orientation / loopFocus",
+        "type": "Base UI Toolbar.Root props",
+        "description": "使用Base UI键盘模型；禁用命令跳过方向键导航。"
+      }
+    ],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
+    ],
+    "docGroup": "interaction"
+  },
+{
+    "slug": "command-toolbar",
+    "name": "CommandToolbar",
+    "docPath": "/docs/command-toolbar/",
+    "registryId": "command-toolbar",
+    "registryDependencies": [
+      "toolbar",
+      "menu",
+      "button",
+      "i18n",
+      "command-toolbar-model"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "category": "组合模块",
+    "description": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+    "source": "components/blocks/command-toolbar.tsx",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { CommandToolbar } from \"@/components/blocks/command-toolbar\"\nexport function Commands() { return <CommandToolbar label=\"Commands\" actions={[{id:\"save\",label:\"Save\",onInvoke:()=>{}}]} /> }",
+    "props": [
+      {
+        "name": "actions / leading / leadingWidth",
+        "type": "CommandToolbarAction[] / ReactNode / number",
+        "description": "稳定ID、标签、宽度、优先级及显式调用回调。"
+      }
+    ],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
+    ],
+    "docGroup": "interaction"
+  },
+{
+    "slug": "data-table-controls",
+    "name": "DataTableControls",
+    "docPath": "/docs/data-table-controls/",
+    "registryId": "data-table-controls",
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "input",
+      "popover",
+      "i18n",
+      "data-table-model"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "category": "组合模块",
+    "description": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+    "source": "components/blocks/data-table-controls.tsx",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { DataTableControls } from \"@/components/blocks/data-table-controls\"\nexport function Columns() { return <DataTableControls columns={[{id:\"title\",label:\"Title\"}]} value={{}} onValueChange={()=>{}} /> }",
+    "props": [
+      {
+        "name": "columns / value / onValueChange",
+        "type": "ConfigurableColumn[] / DataTableColumnConfig / callback",
+        "description": "配置请求由调用方回传，列身份独立于显示顺序。"
+      }
+    ],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
+    ],
+    "docGroup": "data"
+  },
+{
+    "slug": "data-table-model",
+    "name": "DataTableModel",
+    "docPath": "/docs/data-table-model/",
+    "registryId": "data-table-model",
+    "registryDependencies": [],
+    "installType": "lib",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "category": "组合模块",
+    "description": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+    "source": "lib/data-table-model.ts",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { dataTableQueryKey } from \"@/lib/data-table-model\"\nexport const key = dataTableQueryKey({scope:\"local\",filter:\"\",sort:null,page:1,pageSize:20})",
+    "props": [
+      {
+        "name": "DataTableQuery / createDataTableQuerySession",
+        "type": "scope, filter, sort, page, pageSize, cursor / optional adapter",
+        "description": "未知总数保持undefined；刷新失败保留同一查询已有行。"
+      }
+    ],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
+    ],
+    "docGroup": "data"
+  }
 ]
 
 // Documentation metadata is derived from this inventory, independently of install type.

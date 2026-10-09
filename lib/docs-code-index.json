@@ -129,11 +129,11 @@
   ],
   "tooltip": [
     {
-      "id": "5eba72d8c3d511afaafcf2945ab2a8fad8dd56da11df4a0e93611c2a528d5994",
+      "id": "090a82e81b8cee1861ddcb48889afcefea4546d0686a601f5f5c85439a023d8f",
       "path": "components/ui/tooltip.tsx",
       "kind": "source",
-      "url": "/docs-code/5eba72d8c3d511afaafcf2945ab2a8fad8dd56da11df4a0e93611c2a528d5994.json",
-      "lines": 41
+      "url": "/docs-code/090a82e81b8cee1861ddcb48889afcefea4546d0686a601f5f5c85439a023d8f.json",
+      "lines": 47
     },
     {
       "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
@@ -145,11 +145,11 @@
   ],
   "alert-dialog": [
     {
-      "id": "2c5955f722550cf7507d8ba8362cc4d7f349735dc01210826a133d47d6087faa",
+      "id": "13980a5bc552a2176b675197c3a49e5936f03ad73ff30cd1e2a9f77f3152a46a",
       "path": "components/ui/alert-dialog.tsx",
       "kind": "source",
-      "url": "/docs-code/2c5955f722550cf7507d8ba8362cc4d7f349735dc01210826a133d47d6087faa.json",
-      "lines": 29
+      "url": "/docs-code/13980a5bc552a2176b675197c3a49e5936f03ad73ff30cd1e2a9f77f3152a46a.json",
+      "lines": 61
     },
     {
       "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
@@ -529,11 +529,11 @@
   ],
   "chart": [
     {
-      "id": "25209949aba1df1835303a83e832f6cfa3a2c18540e8c6941f24861cfa290ce1",
+      "id": "4144a88b3b3d7305d1337baf7ad16d698639ae34eddbffa72cf5fedc65c3eb6a",
       "path": "components/blocks/chart.tsx",
       "kind": "source",
-      "url": "/docs-code/25209949aba1df1835303a83e832f6cfa3a2c18540e8c6941f24861cfa290ce1.json",
-      "lines": 171
+      "url": "/docs-code/4144a88b3b3d7305d1337baf7ad16d698639ae34eddbffa72cf5fedc65c3eb6a.json",
+      "lines": 184
     },
     {
       "id": "6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a",
@@ -577,11 +577,11 @@
   ],
   "resizable": [
     {
-      "id": "2bbceca44a18a9f344d6b9fc228ad966b5ffb7e2e15edfacee0c6b4faa908f52",
+      "id": "823f49a5c7c4a7a956591c8d1752c6e40078a15f0b1719da6093689699fbca79",
       "path": "components/ui/resizable.tsx",
       "kind": "source",
-      "url": "/docs-code/2bbceca44a18a9f344d6b9fc228ad966b5ffb7e2e15edfacee0c6b4faa908f52.json",
-      "lines": 188
+      "url": "/docs-code/823f49a5c7c4a7a956591c8d1752c6e40078a15f0b1719da6093689699fbca79.json",
+      "lines": 221
     },
     {
       "id": "4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94",
@@ -1276,11 +1276,11 @@
   ],
   "data-table": [
     {
-      "id": "62f2f3ce86066d6075c19e5b24338ab3350463c1b4d0d5de3d95b6029d66b04f",
+      "id": "aa8d5d123154612b5a277fe29b469c1c726c0c4a3f2b3da293ba0b9b0009c681",
       "path": "components/blocks/data-table.tsx",
       "kind": "source",
-      "url": "/docs-code/62f2f3ce86066d6075c19e5b24338ab3350463c1b4d0d5de3d95b6029d66b04f.json",
-      "lines": 210
+      "url": "/docs-code/aa8d5d123154612b5a277fe29b469c1c726c0c4a3f2b3da293ba0b9b0009c681.json",
+      "lines": 269
     },
     {
       "id": "79e2c86c7733b6e5ca96ee52d10cbcbc7bc7fedfdaf60f0f48cdd2e74927ffbc",
@@ -1363,11 +1363,11 @@
   ],
   "sheet": [
     {
-      "id": "16bf7e9b09488364a9004946e1477beee680eb6c04ffb254414e0ab760417067",
+      "id": "d2ba8a572a2363ef193dcf66901af00f7a0ca62fab33778eaa88f0860dda859d",
       "path": "components/ui/sheet.tsx",
       "kind": "source",
-      "url": "/docs-code/16bf7e9b09488364a9004946e1477beee680eb6c04ffb254414e0ab760417067.json",
-      "lines": 73
+      "url": "/docs-code/d2ba8a572a2363ef193dcf66901af00f7a0ca62fab33778eaa88f0860dda859d.json",
+      "lines": 102
     },
     {
       "id": "8ab392815915cfa0575fa9fc292cccee1a4846ed2d632585120d38d26d7da4b7",
@@ -1377,19 +1377,19 @@
       "lines": 104
     },
     {
-      "id": "91b9649930bc2d4a0da131df976e3587019acba6ca7de67721ea3210096dc410",
+      "id": "0b1eb3d9fb742f9b8b370345428afb4fe319b2c88657952b48ee2deeb76ecc27",
       "path": "components/ui/sheet.module.css",
       "kind": "related",
-      "url": "/docs-code/91b9649930bc2d4a0da131df976e3587019acba6ca7de67721ea3210096dc410.json",
+      "url": "/docs-code/0b1eb3d9fb742f9b8b370345428afb4fe319b2c88657952b48ee2deeb76ecc27.json",
       "lines": 84
     }
   ],
   "command-palette": [
     {
-      "id": "6ef832af67e9c1a4f5e7c99f765560d5f68eec7208109f1ed0aa451b4cf96442",
+      "id": "d51dd925853fe39b9abc69a5f069eb335cd988ff68e8e80d72865e48e568b160",
       "path": "components/blocks/command-palette.tsx",
       "kind": "source",
-      "url": "/docs-code/6ef832af67e9c1a4f5e7c99f765560d5f68eec7208109f1ed0aa451b4cf96442.json",
+      "url": "/docs-code/d51dd925853fe39b9abc69a5f069eb335cd988ff68e8e80d72865e48e568b160.json",
       "lines": 288
     },
     {
@@ -1530,11 +1530,11 @@
   ],
   "menu": [
     {
-      "id": "603fc7612b80ba8a6f2c10039efd63b9ea5ef6f925055e540cd9b95d5abbbee1",
+      "id": "911395d9f3c975018a085864b8d23961261bdd8c15e5763eb0bb7fb59618f5ab",
       "path": "components/ui/menu.tsx",
       "kind": "source",
-      "url": "/docs-code/603fc7612b80ba8a6f2c10039efd63b9ea5ef6f925055e540cd9b95d5abbbee1.json",
-      "lines": 47
+      "url": "/docs-code/911395d9f3c975018a085864b8d23961261bdd8c15e5763eb0bb7fb59618f5ab.json",
+      "lines": 56
     },
     {
       "id": "bc97c6e92e8702982a07b4fd620fe46068af24e107be3b99bcc32fabfbd0a6d8",
@@ -1546,11 +1546,11 @@
   ],
   "popover": [
     {
-      "id": "036304ad6bdec6e93ceb091e05f71e2befce167bf3906145fafa99bbf8fbd20a",
+      "id": "318c40f7b7712337beb42d6029c9603abd636b3783dbf60f6621b536f9185361",
       "path": "components/ui/popover.tsx",
       "kind": "source",
-      "url": "/docs-code/036304ad6bdec6e93ceb091e05f71e2befce167bf3906145fafa99bbf8fbd20a.json",
-      "lines": 47
+      "url": "/docs-code/318c40f7b7712337beb42d6029c9603abd636b3783dbf60f6621b536f9185361.json",
+      "lines": 76
     },
     {
       "id": "9f43c424530629220c1fdecf44f9da636745fe683d522728ff86c6fd99eeac37",
@@ -1562,11 +1562,11 @@
   ],
   "select": [
     {
-      "id": "e05c66fa55d549024c6f32b1f9f8237a6cd19fa94306e98fe692b867fa0fb656",
+      "id": "92075fd03cc5a45720fbbf609461b4496bf3dc3661591fa7619baeaf87f4a029",
       "path": "components/ui/select.tsx",
       "kind": "source",
-      "url": "/docs-code/e05c66fa55d549024c6f32b1f9f8237a6cd19fa94306e98fe692b867fa0fb656.json",
-      "lines": 99
+      "url": "/docs-code/92075fd03cc5a45720fbbf609461b4496bf3dc3661591fa7619baeaf87f4a029.json",
+      "lines": 105
     },
     {
       "id": "192a00394265c19981458476d0285bcb3ba14b921c2aa75afa5c7f781a38479c",
@@ -1578,11 +1578,11 @@
   ],
   "combobox": [
     {
-      "id": "73675d224b4d569fc6d44feadb655ef87838d9cf6a9e92a129864bd37bad10b4",
+      "id": "b5b1f02e08333dcb0d04dee9b04ee7535bf15bf8086f2fa4821b94845facd566",
       "path": "components/ui/combobox.tsx",
       "kind": "source",
-      "url": "/docs-code/73675d224b4d569fc6d44feadb655ef87838d9cf6a9e92a129864bd37bad10b4.json",
-      "lines": 76
+      "url": "/docs-code/b5b1f02e08333dcb0d04dee9b04ee7535bf15bf8086f2fa4821b94845facd566.json",
+      "lines": 85
     },
     {
       "id": "ac0800a7d5564e78909d484cdb15ef01edd9177c3f98da71e1f8512f09759e62",
@@ -1626,11 +1626,11 @@
   ],
   "theme-boundary": [
     {
-      "id": "1123fbe006121d8c80e26f26b707ffec0ecc6c89563ef911d186658bcd6490b0",
+      "id": "104ab2f92492c529dccaf78826f04c60aeb04c6a0088e52c78b42ef0583e3a11",
       "path": "components/ui/theme-boundary.tsx",
       "kind": "source",
-      "url": "/docs-code/1123fbe006121d8c80e26f26b707ffec0ecc6c89563ef911d186658bcd6490b0.json",
-      "lines": 45
+      "url": "/docs-code/104ab2f92492c529dccaf78826f04c60aeb04c6a0088e52c78b42ef0583e3a11.json",
+      "lines": 60
     },
     {
       "id": "78d3fbfc4daa5469a672c54e7b0487cfaa59998f28ca5f7b4d70d5aec0cc57aa",
@@ -1640,11 +1640,11 @@
       "lines": 49
     },
     {
-      "id": "34eefa06f218f40ec9f47868ec065cd1f33165342450e8be9f5438b57f21a895",
+      "id": "2dbf61a74685c65c569cda1d08782494b78d0ee25bc13f1982eeaa7b66f3641a",
       "path": "styles/theme-boundary.css",
       "kind": "related",
-      "url": "/docs-code/34eefa06f218f40ec9f47868ec065cd1f33165342450e8be9f5438b57f21a895.json",
-      "lines": 352
+      "url": "/docs-code/2dbf61a74685c65c569cda1d08782494b78d0ee25bc13f1982eeaa7b66f3641a.json",
+      "lines": 360
     }
   ],
   "i18n": [
@@ -1670,11 +1670,11 @@
       "lines": 135
     },
     {
-      "id": "e6eebcbdb51cdd8a340ced41fc8a5c28c7e88eb52607a8587b28e3b7fc5d66b5",
+      "id": "dd6bde8a8a8c045f4a2097f0e32aba13ff2329241b47d57f9f37dd4d1c452053",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/e6eebcbdb51cdd8a340ced41fc8a5c28c7e88eb52607a8587b28e3b7fc5d66b5.json",
-      "lines": 3355
+      "url": "/docs-code/dd6bde8a8a8c045f4a2097f0e32aba13ff2329241b47d57f9f37dd4d1c452053.json",
+      "lines": 3385
     }
   ],
   "canvas-service-panel": [
@@ -1792,11 +1792,11 @@
   ],
   "canvas-workspace": [
     {
-      "id": "26d847b9e40be2dea239e4a54d53f5d7248a26105dba83e7d736fccf054baf21",
+      "id": "25dc7834e90c006eb6ba7f28c942f47604fff76987a0fe06f702f4ffa4b58ca9",
       "path": "components/blocks/canvas-workspace.tsx",
       "kind": "source",
-      "url": "/docs-code/26d847b9e40be2dea239e4a54d53f5d7248a26105dba83e7d736fccf054baf21.json",
-      "lines": 1453
+      "url": "/docs-code/25dc7834e90c006eb6ba7f28c942f47604fff76987a0fe06f702f4ffa4b58ca9.json",
+      "lines": 1461
     },
     {
       "id": "dca0597f425f3b4b0bd53c122d809627e61fb841644d9bb1529f1e9b62c2f114",
@@ -2184,10 +2184,10 @@
   ],
   "button": [
     {
-      "id": "8df7ef5c2c4f4e8869c609261a29f4abee37c9983ef89036c43da3f71d8f8f3f",
+      "id": "65e72fdabbcac660c1e8a72ad37244a2cdfcc5aa8e51aea0349bdfecad628023",
       "path": "components/ui/button.tsx",
       "kind": "source",
-      "url": "/docs-code/8df7ef5c2c4f4e8869c609261a29f4abee37c9983ef89036c43da3f71d8f8f3f.json",
+      "url": "/docs-code/65e72fdabbcac660c1e8a72ad37244a2cdfcc5aa8e51aea0349bdfecad628023.json",
       "lines": 89
     },
     {
@@ -2198,19 +2198,19 @@
       "lines": 66
     },
     {
-      "id": "b59d415a19f16f7db2f8afa6951125212ad09b540a256cf3ad48473ebaf21adb",
+      "id": "9ddd916aa327c3ff676a1e0c306a67426f63c18c95cd2171e167a3444baa1d8b",
       "path": "components/ui/button-tooltip.tsx",
       "kind": "related",
-      "url": "/docs-code/b59d415a19f16f7db2f8afa6951125212ad09b540a256cf3ad48473ebaf21adb.json",
-      "lines": 37
+      "url": "/docs-code/9ddd916aa327c3ff676a1e0c306a67426f63c18c95cd2171e167a3444baa1d8b.json",
+      "lines": 42
     }
   ],
   "input": [
     {
-      "id": "8597e91f4128fa7cbcb7bfd2b8802ccd66be7e9fb505bb30dd45631a72d22959",
+      "id": "a42cd45cca1dd41afc5bbe23b7bafbd376ec8c8bdec16894e3a5d95207666408",
       "path": "components/ui/input.tsx",
       "kind": "source",
-      "url": "/docs-code/8597e91f4128fa7cbcb7bfd2b8802ccd66be7e9fb505bb30dd45631a72d22959.json",
+      "url": "/docs-code/a42cd45cca1dd41afc5bbe23b7bafbd376ec8c8bdec16894e3a5d95207666408.json",
       "lines": 18
     },
     {
@@ -2223,11 +2223,11 @@
   ],
   "dialog": [
     {
-      "id": "405a2510f122a9952e54654af572c3922ed9047b849ce0bdd1d9d4ea8aacc79f",
+      "id": "d2090a1a0268f3ff4f19b6297e3aaa9fc3aaf12133debe30e187beec64a88ab3",
       "path": "components/ui/dialog.tsx",
       "kind": "source",
-      "url": "/docs-code/405a2510f122a9952e54654af572c3922ed9047b849ce0bdd1d9d4ea8aacc79f.json",
-      "lines": 77
+      "url": "/docs-code/d2090a1a0268f3ff4f19b6297e3aaa9fc3aaf12133debe30e187beec64a88ab3.json",
+      "lines": 152
     },
     {
       "id": "9fb30f2d4bd6aca555dd962b850f930ccde3654b7a3b8e1078357bf074ba8203",
@@ -2324,11 +2324,11 @@
   ],
   "workspace-shell": [
     {
-      "id": "051e7cca101c719883e1e454d8e5a2dfc648db2e2682644ccdc2042694d6455d",
+      "id": "2d3820112787ae643fa80493b754da0d56bc8469de50d227ead2ee00d9343266",
       "path": "components/blocks/workspace-shell.tsx",
       "kind": "source",
-      "url": "/docs-code/051e7cca101c719883e1e454d8e5a2dfc648db2e2682644ccdc2042694d6455d.json",
-      "lines": 486
+      "url": "/docs-code/2d3820112787ae643fa80493b754da0d56bc8469de50d227ead2ee00d9343266.json",
+      "lines": 422
     },
     {
       "id": "82be09674e5c713d6c6805d6d32223accff8915b154108cf05406ba650b23a0e",
@@ -2345,10 +2345,10 @@
       "lines": 150
     },
     {
-      "id": "f0814b0031593d29339330801183f6c488feabcc6aabdf1853c547a5eec1050a",
+      "id": "4cc5fabce55a8eb0837fc99969338dd3ae3c2e11684736f31027675c33b7eb58",
       "path": "components/blocks/workspace-shell.module.css",
       "kind": "related",
-      "url": "/docs-code/f0814b0031593d29339330801183f6c488feabcc6aabdf1853c547a5eec1050a.json",
+      "url": "/docs-code/4cc5fabce55a8eb0837fc99969338dd3ae3c2e11684736f31027675c33b7eb58.json",
       "lines": 243
     },
     {
@@ -2398,11 +2398,11 @@
       "lines": 76
     },
     {
-      "id": "26faf2ed7fd2cd19c1594e0342b771f0f4dc6207a82db3c0ecd6aee77d4532a6",
+      "id": "74027dc148f94701a335a53509c6230111bbedde1070766fe5009abfc9c7a5c2",
       "path": "components/ui/tree.module.css",
       "kind": "related",
-      "url": "/docs-code/26faf2ed7fd2cd19c1594e0342b771f0f4dc6207a82db3c0ecd6aee77d4532a6.json",
-      "lines": 190
+      "url": "/docs-code/74027dc148f94701a335a53509c6230111bbedde1070766fe5009abfc9c7a5c2.json",
+      "lines": 195
     }
   ],
   "session-row": [
@@ -3370,6 +3370,70 @@
       "kind": "example",
       "url": "/docs-code/42c3940e9d73e1a116439db121e43503d94ec87dd3aef02a480dd68adc35f1b9.json",
       "lines": 315
+    }
+  ],
+  "toolbar": [
+    {
+      "id": "917a6dab9acbe5773abf24682a6bf752a296b47eba7b7947fe3aa053920c0409",
+      "path": "components/ui/toolbar.tsx",
+      "kind": "source",
+      "url": "/docs-code/917a6dab9acbe5773abf24682a6bf752a296b47eba7b7947fe3aa053920c0409.json",
+      "lines": 33
+    },
+    {
+      "id": "ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677",
+      "path": "components/examples/gap-audit-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677.json",
+      "lines": 695
+    }
+  ],
+  "command-toolbar": [
+    {
+      "id": "b45eee02deeb82281601fba8de0cdcf4b3b860fbc6b820c005e869e52d4f0e6e",
+      "path": "components/blocks/command-toolbar.tsx",
+      "kind": "source",
+      "url": "/docs-code/b45eee02deeb82281601fba8de0cdcf4b3b860fbc6b820c005e869e52d4f0e6e.json",
+      "lines": 225
+    },
+    {
+      "id": "ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677",
+      "path": "components/examples/gap-audit-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677.json",
+      "lines": 695
+    }
+  ],
+  "data-table-controls": [
+    {
+      "id": "7a1b46102107a34242e4d30c784a200dc16089a311f6f211ae8c1eb2f725650a",
+      "path": "components/blocks/data-table-controls.tsx",
+      "kind": "source",
+      "url": "/docs-code/7a1b46102107a34242e4d30c784a200dc16089a311f6f211ae8c1eb2f725650a.json",
+      "lines": 125
+    },
+    {
+      "id": "ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677",
+      "path": "components/examples/gap-audit-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677.json",
+      "lines": 695
+    }
+  ],
+  "data-table-model": [
+    {
+      "id": "9bdd977815abcbf14d040647f40395d8fdcbd420b147b65d88e75a28974349de",
+      "path": "lib/data-table-model.ts",
+      "kind": "source",
+      "url": "/docs-code/9bdd977815abcbf14d040647f40395d8fdcbd420b147b65d88e75a28974349de.json",
+      "lines": 180
+    },
+    {
+      "id": "ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677",
+      "path": "components/examples/gap-audit-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677.json",
+      "lines": 695
     }
   ]
 }

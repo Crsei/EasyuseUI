@@ -1,5 +1,5 @@
 "use client"
-import { useId, useRef, useState, type ReactNode } from "react"
+import { useEffect, useId, useRef, useState, type ReactNode } from "react"
 import { cn } from "@/lib/utils"
 export type ResizableHandleProps = {
   value: number
@@ -56,7 +56,7 @@ export function ResizableHandle({
       aria-valuemax={hi}
       aria-valuenow={current}
       className={cn(
-        "shrink-0 touch-none select-none outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "shrink-0 touch-none select-none outline-none forced-colors:focus-visible:outline-solid forced-colors:focus-visible:outline-2 forced-colors:focus-visible:outline-[Highlight] focus-visible:ring-2 focus-visible:ring-ring",
         !unstyled &&
           (axis === "horizontal"
             ? "w-1 cursor-col-resize bg-border [@media(pointer:coarse)]:w-11"
@@ -130,6 +130,7 @@ export type ResizableProps = {
   max?: number
   axis?: "horizontal" | "vertical"
   disabled?: boolean
+  secondMin?: number
   className?: string
 }
 export function Resizable({
@@ -142,19 +143,51 @@ export function Resizable({
   min = 160,
   max = 480,
   axis = "horizontal",
+  secondMin = 120,
   disabled,
   className,
 }: ResizableProps) {
   const id = useId()
+  const container = useRef<HTMLDivElement>(null)
+  const [available, setAvailable] = useState<number | null>(null)
+  const minimumSecond = Number.isFinite(secondMin)
+    ? Math.max(0, secondMin)
+    : 120
+  useEffect(() => {
+    const root = container.current
+    if (!root) return
+    const handle = root.querySelector<HTMLElement>(":scope > [role=separator]")
+    const measure = () => {
+      const divider = handle?.getBoundingClientRect()
+      setAvailable(
+        Math.max(
+          0,
+          (axis === "horizontal"
+            ? root.clientWidth - (divider?.width ?? 0)
+            : root.clientHeight - (divider?.height ?? 0)) - minimumSecond,
+        ),
+      )
+    }
+    const observer = new ResizeObserver(measure)
+    observer.observe(root)
+    if (handle) observer.observe(handle)
+    return () => observer.disconnect()
+  }, [axis, minimumSecond])
   const [internal, setInternal] = useState(defaultValue)
-  const lo = Number.isFinite(min) ? Math.max(0, min) : 160
-  const hi = Number.isFinite(max) ? Math.max(lo, max) : Math.max(lo, 480)
+  const requestedMin = Number.isFinite(min) ? Math.max(0, min) : 160
+  const requestedMax = Number.isFinite(max)
+    ? Math.max(requestedMin, max)
+    : Math.max(requestedMin, 480)
+  const hi =
+    available === null ? requestedMax : Math.min(requestedMax, available)
+  const lo = Math.min(requestedMin, hi)
   const requested = provided ?? internal
   const value = Number.isFinite(requested)
     ? Math.max(lo, Math.min(hi, requested))
     : lo
   return (
     <div
+      ref={container}
       className={cn(
         "flex min-h-0 min-w-0 overflow-auto",
         axis === "vertical" && "flex-col",

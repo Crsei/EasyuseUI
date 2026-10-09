@@ -216,7 +216,7 @@ export function CommandPalette({
         role="listbox"
         aria-label={title}
         aria-busy={loading}
-        className="max-h-80 overflow-auto overscroll-contain p-1"
+        className="min-h-0 max-h-80 flex-1 overflow-auto overscroll-contain p-1"
       >
         {groups.map((group) => (
           <div

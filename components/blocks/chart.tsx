@@ -13,7 +13,12 @@ import {
   TableCell,
   TableCaption,
 } from "@/components/ui/table"
-export type ChartDatum = { id: string; label: string; value: number | null }
+export type ChartDatum = {
+  id: string
+  label: string
+  value: number | null
+  missingReason?: "unknown" | "not-collected" | "permission" | "gap"
+}
 export type ChartProps = {
   label: string
   description?: string
@@ -155,7 +160,15 @@ export function Chart({
                 <TableCell>{p.label}</TableCell>
                 <TableCell>
                   {p.value === null
-                    ? t("chart.missing")
+                    ? t(
+                        p.missingReason === "unknown"
+                          ? "chart.unknown"
+                          : p.missingReason === "not-collected"
+                            ? "chart.notCollected"
+                            : p.missingReason === "permission"
+                              ? "chart.noPermission"
+                              : "chart.missing",
+                      )
                     : new Intl.NumberFormat(locale, {
                         maximumFractionDigits: 4,
                       }).format(p.value)}

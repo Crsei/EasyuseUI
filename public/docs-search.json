@@ -6274,6 +6274,202 @@
       "keywords": "item 源码 Source"
     },
     {
+      "id": "toolbar",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toolbar",
+        "en": "Toolbar"
+      },
+      "summary": {
+        "zh-CN": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+        "en": "A command toolbar with one Tab stop, arrow navigation and text input support."
+      },
+      "href": "/docs/toolbar/",
+      "keywords": "toolbar interaction"
+    },
+    {
+      "id": "toolbar-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toolbar · 安装",
+        "en": "Toolbar · Installation"
+      },
+      "summary": {
+        "zh-CN": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+        "en": "A command toolbar with one Tab stop, arrow navigation and text input support."
+      },
+      "href": "/docs/toolbar/#installation",
+      "keywords": "toolbar 安装 Installation"
+    },
+    {
+      "id": "toolbar-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toolbar · 使用",
+        "en": "Toolbar · Usage"
+      },
+      "summary": {
+        "zh-CN": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+        "en": "A command toolbar with one Tab stop, arrow navigation and text input support."
+      },
+      "href": "/docs/toolbar/#usage",
+      "keywords": "toolbar 使用 Usage"
+    },
+    {
+      "id": "toolbar-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toolbar · API",
+        "en": "Toolbar · API"
+      },
+      "summary": {
+        "zh-CN": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+        "en": "A command toolbar with one Tab stop, arrow navigation and text input support."
+      },
+      "href": "/docs/toolbar/#api",
+      "keywords": "toolbar API API"
+    },
+    {
+      "id": "toolbar-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toolbar · 状态与交互",
+        "en": "Toolbar · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+        "en": "A command toolbar with one Tab stop, arrow navigation and text input support."
+      },
+      "href": "/docs/toolbar/#states",
+      "keywords": "toolbar 状态与交互 States and interaction"
+    },
+    {
+      "id": "toolbar-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toolbar · 完整示例",
+        "en": "Toolbar · Complete example"
+      },
+      "summary": {
+        "zh-CN": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+        "en": "A command toolbar with one Tab stop, arrow navigation and text input support."
+      },
+      "href": "/docs/toolbar/#example",
+      "keywords": "toolbar 完整示例 Complete example"
+    },
+    {
+      "id": "toolbar-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toolbar · 源码",
+        "en": "Toolbar · Source"
+      },
+      "summary": {
+        "zh-CN": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+        "en": "A command toolbar with one Tab stop, arrow navigation and text input support."
+      },
+      "href": "/docs/toolbar/#source",
+      "keywords": "toolbar 源码 Source"
+    },
+    {
+      "id": "command-toolbar",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CommandToolbar",
+        "en": "CommandToolbar"
+      },
+      "summary": {
+        "zh-CN": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+        "en": "Commands adapt to width and priority while retaining menu discovery and focus."
+      },
+      "href": "/docs/command-toolbar/",
+      "keywords": "command-toolbar interaction"
+    },
+    {
+      "id": "command-toolbar-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CommandToolbar · 安装",
+        "en": "CommandToolbar · Installation"
+      },
+      "summary": {
+        "zh-CN": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+        "en": "Commands adapt to width and priority while retaining menu discovery and focus."
+      },
+      "href": "/docs/command-toolbar/#installation",
+      "keywords": "command-toolbar 安装 Installation"
+    },
+    {
+      "id": "command-toolbar-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CommandToolbar · 使用",
+        "en": "CommandToolbar · Usage"
+      },
+      "summary": {
+        "zh-CN": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+        "en": "Commands adapt to width and priority while retaining menu discovery and focus."
+      },
+      "href": "/docs/command-toolbar/#usage",
+      "keywords": "command-toolbar 使用 Usage"
+    },
+    {
+      "id": "command-toolbar-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CommandToolbar · API",
+        "en": "CommandToolbar · API"
+      },
+      "summary": {
+        "zh-CN": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+        "en": "Commands adapt to width and priority while retaining menu discovery and focus."
+      },
+      "href": "/docs/command-toolbar/#api",
+      "keywords": "command-toolbar API API"
+    },
+    {
+      "id": "command-toolbar-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CommandToolbar · 状态与交互",
+        "en": "CommandToolbar · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+        "en": "Commands adapt to width and priority while retaining menu discovery and focus."
+      },
+      "href": "/docs/command-toolbar/#states",
+      "keywords": "command-toolbar 状态与交互 States and interaction"
+    },
+    {
+      "id": "command-toolbar-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CommandToolbar · 完整示例",
+        "en": "CommandToolbar · Complete example"
+      },
+      "summary": {
+        "zh-CN": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+        "en": "Commands adapt to width and priority while retaining menu discovery and focus."
+      },
+      "href": "/docs/command-toolbar/#example",
+      "keywords": "command-toolbar 完整示例 Complete example"
+    },
+    {
+      "id": "command-toolbar-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CommandToolbar · 源码",
+        "en": "CommandToolbar · Source"
+      },
+      "summary": {
+        "zh-CN": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+        "en": "Commands adapt to width and priority while retaining menu discovery and focus."
+      },
+      "href": "/docs/command-toolbar/#source",
+      "keywords": "command-toolbar 源码 Source"
+    },
+    {
       "id": "data-region",
       "kind": "components",
       "title": {
@@ -11368,6 +11564,202 @@
       },
       "href": "/docs/work-item-calendar/#source",
       "keywords": "work-item-calendar 源码 Source"
+    },
+    {
+      "id": "data-table-controls",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableControls",
+        "en": "DataTableControls"
+      },
+      "summary": {
+        "zh-CN": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+        "en": "Controlled column visibility, order and width with keyboard alternatives."
+      },
+      "href": "/docs/data-table-controls/",
+      "keywords": "data-table-controls data"
+    },
+    {
+      "id": "data-table-controls-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableControls · 安装",
+        "en": "DataTableControls · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+        "en": "Controlled column visibility, order and width with keyboard alternatives."
+      },
+      "href": "/docs/data-table-controls/#installation",
+      "keywords": "data-table-controls 安装 Installation"
+    },
+    {
+      "id": "data-table-controls-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableControls · 使用",
+        "en": "DataTableControls · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+        "en": "Controlled column visibility, order and width with keyboard alternatives."
+      },
+      "href": "/docs/data-table-controls/#usage",
+      "keywords": "data-table-controls 使用 Usage"
+    },
+    {
+      "id": "data-table-controls-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableControls · API",
+        "en": "DataTableControls · API"
+      },
+      "summary": {
+        "zh-CN": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+        "en": "Controlled column visibility, order and width with keyboard alternatives."
+      },
+      "href": "/docs/data-table-controls/#api",
+      "keywords": "data-table-controls API API"
+    },
+    {
+      "id": "data-table-controls-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableControls · 状态与交互",
+        "en": "DataTableControls · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+        "en": "Controlled column visibility, order and width with keyboard alternatives."
+      },
+      "href": "/docs/data-table-controls/#states",
+      "keywords": "data-table-controls 状态与交互 States and interaction"
+    },
+    {
+      "id": "data-table-controls-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableControls · 完整示例",
+        "en": "DataTableControls · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+        "en": "Controlled column visibility, order and width with keyboard alternatives."
+      },
+      "href": "/docs/data-table-controls/#example",
+      "keywords": "data-table-controls 完整示例 Complete example"
+    },
+    {
+      "id": "data-table-controls-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableControls · 源码",
+        "en": "DataTableControls · Source"
+      },
+      "summary": {
+        "zh-CN": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+        "en": "Controlled column visibility, order and width with keyboard alternatives."
+      },
+      "href": "/docs/data-table-controls/#source",
+      "keywords": "data-table-controls 源码 Source"
+    },
+    {
+      "id": "data-table-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableModel",
+        "en": "DataTableModel"
+      },
+      "summary": {
+        "zh-CN": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+        "en": "Column configuration and a read-only query session bound to complete request identity."
+      },
+      "href": "/docs/data-table-model/",
+      "keywords": "data-table-model data"
+    },
+    {
+      "id": "data-table-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableModel · 安装",
+        "en": "DataTableModel · Installation"
+      },
+      "summary": {
+        "zh-CN": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+        "en": "Column configuration and a read-only query session bound to complete request identity."
+      },
+      "href": "/docs/data-table-model/#installation",
+      "keywords": "data-table-model 安装 Installation"
+    },
+    {
+      "id": "data-table-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableModel · 使用",
+        "en": "DataTableModel · Usage"
+      },
+      "summary": {
+        "zh-CN": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+        "en": "Column configuration and a read-only query session bound to complete request identity."
+      },
+      "href": "/docs/data-table-model/#usage",
+      "keywords": "data-table-model 使用 Usage"
+    },
+    {
+      "id": "data-table-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableModel · API",
+        "en": "DataTableModel · API"
+      },
+      "summary": {
+        "zh-CN": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+        "en": "Column configuration and a read-only query session bound to complete request identity."
+      },
+      "href": "/docs/data-table-model/#api",
+      "keywords": "data-table-model API API"
+    },
+    {
+      "id": "data-table-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableModel · 状态与交互",
+        "en": "DataTableModel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+        "en": "Column configuration and a read-only query session bound to complete request identity."
+      },
+      "href": "/docs/data-table-model/#states",
+      "keywords": "data-table-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "data-table-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableModel · 完整示例",
+        "en": "DataTableModel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+        "en": "Column configuration and a read-only query session bound to complete request identity."
+      },
+      "href": "/docs/data-table-model/#example",
+      "keywords": "data-table-model 完整示例 Complete example"
+    },
+    {
+      "id": "data-table-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DataTableModel · 源码",
+        "en": "DataTableModel · Source"
+      },
+      "summary": {
+        "zh-CN": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+        "en": "Column configuration and a read-only query session bound to complete request identity."
+      },
+      "href": "/docs/data-table-model/#source",
+      "keywords": "data-table-model 源码 Source"
     },
     {
       "id": "runtime-status-badge",

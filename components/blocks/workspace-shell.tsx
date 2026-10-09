@@ -1,4 +1,5 @@
 "use client"
+import { OverlayLayer } from "@/lib/overlay-layer"
 import { useThemePortalContainer } from "@/components/ui/theme-boundary"
 import { useI18n } from "@/lib/i18n-provider"
 
@@ -138,7 +139,6 @@ export function WorkspaceShell({
   const ref = useRef<HTMLDivElement>(null)
   const openerRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLElement>(null)
-  const drag = useRef<{ x: number; width: number } | null>(null)
   const [wide, setWide] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useLayoutValue(
     controlledSidebar,
@@ -179,7 +179,6 @@ export function WorkspaceShell({
     400,
     Math.max(200, Number.isFinite(requestedHeight) ? requestedHeight : 240),
   )
-  const bottomDrag = useRef<{ y: number; height: number } | null>(null)
   const [limits, setLimits] = useState({ min: 300, max: 360, initial: 320 })
 
   useEffect(() => {
@@ -306,45 +305,15 @@ export function WorkspaceShell({
             aria-label="Inspector"
             data-inspector-docked
           >
-            <div
-              role="separator"
-              tabIndex={0}
-              aria-label={t("workspaceShell.resizeInspectorWidth")}
-              aria-orientation="vertical"
-              aria-valuemin={limits.min}
-              aria-valuemax={limits.max}
-              aria-valuenow={inspectorWidth ?? limits.initial}
+            <ResizableHandle
+              unstyled
+              reverse
+              value={inspectorWidth ?? limits.initial}
+              min={limits.min}
+              max={limits.max}
+              onValueChange={resize}
+              label={t("workspaceShell.resizeInspectorWidth")}
               className={styles.resizeHandle}
-              onPointerDown={(event) => {
-                event.currentTarget.focus()
-                event.currentTarget.setPointerCapture(event.pointerId)
-                drag.current = {
-                  x: event.clientX,
-                  width: panelRef.current?.getBoundingClientRect().width ?? 320,
-                }
-              }}
-              onPointerMove={(event) => {
-                if (drag.current)
-                  resize(drag.current.width + drag.current.x - event.clientX)
-              }}
-              onPointerUp={(event) => {
-                drag.current = null
-                event.currentTarget.releasePointerCapture(event.pointerId)
-              }}
-              onPointerCancel={() => {
-                drag.current = null
-              }}
-              onKeyDown={(event) => {
-                const current =
-                  panelRef.current?.getBoundingClientRect().width ?? 320
-                const { min, max } = limits
-                if (event.key === "ArrowLeft") resize(current + 8)
-                else if (event.key === "ArrowRight") resize(current - 8)
-                else if (event.key === "Home") resize(min)
-                else if (event.key === "End") resize(max)
-                else return
-                event.preventDefault()
-              }}
             />
             <div className={styles.inspectorHeader}>
               <h2>{inspectorTitle}</h2>
@@ -379,61 +348,16 @@ export function WorkspaceShell({
           }
         >
           {bottomPanelResizable && bottomOpen && (
-            <div
-              role="separator"
-              tabIndex={0}
-              aria-label={t("workspaceShell.resizeBottomPanelHeight")}
-              aria-orientation="horizontal"
-              aria-valuemin={200}
-              aria-valuemax={400}
-              aria-valuenow={bottomHeight}
+            <ResizableHandle
+              unstyled
+              reverse
+              axis="vertical"
+              value={bottomHeight}
+              min={200}
+              max={400}
+              onValueChange={setBottomHeight}
+              label={t("workspaceShell.resizeBottomPanelHeight")}
               className={styles.bottomResize}
-              onPointerDown={(event) => {
-                event.currentTarget.focus()
-                event.currentTarget.setPointerCapture(event.pointerId)
-                bottomDrag.current = { y: event.clientY, height: bottomHeight }
-              }}
-              onPointerMove={(event) => {
-                if (bottomDrag.current)
-                  setBottomHeight(
-                    Math.max(
-                      200,
-                      Math.min(
-                        400,
-                        bottomDrag.current.height +
-                          bottomDrag.current.y -
-                          event.clientY,
-                      ),
-                    ),
-                  )
-              }}
-              onPointerUp={(event) => {
-                bottomDrag.current = null
-                event.currentTarget.releasePointerCapture(event.pointerId)
-              }}
-              onPointerCancel={() => {
-                bottomDrag.current = null
-              }}
-              onKeyDown={(event) => {
-                if (
-                  !["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)
-                )
-                  return
-                event.preventDefault()
-                setBottomHeight((height) =>
-                  event.key === "Home"
-                    ? 200
-                    : event.key === "End"
-                      ? 400
-                      : Math.max(
-                          200,
-                          Math.min(
-                            400,
-                            height + (event.key === "ArrowUp" ? 8 : -8),
-                          ),
-                        ),
-                )
-              }}
             />
           )}
           {bottomPanelCollapsed === undefined && (
@@ -456,29 +380,41 @@ export function WorkspaceShell({
         </section>
       )}
       <Dialog.Root open={!wide && overlayOpen} onOpenChange={setOverlayOpen}>
-        <Dialog.Portal container={portalContainer}>
-          <Dialog.Backdrop className={styles.backdrop} />
-          <Dialog.Popup className={styles.drawer} finalFocus={openerRef}>
-            <div className={styles.inspectorHeader}>
-              <Dialog.Title>{inspectorTitle}</Dialog.Title>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label={t("workspaceShell.closeInspector")}
-                onClick={() => setOverlayOpen(false)}
+        <OverlayLayer>
+          {(layerStyle) => (
+            <Dialog.Portal container={portalContainer}>
+              <Dialog.Backdrop style={layerStyle} className={styles.backdrop} />
+              <Dialog.Popup
+                style={layerStyle}
+                className={styles.drawer}
+                finalFocus={openerRef}
               >
-                <X />
-              </Button>
-            </div>
-            <Dialog.Description className="sr-only">
-              {t("workspaceShell.statusMetadataAndActionsForTheSelectedObject")}
-            </Dialog.Description>
-            {panelBody}
-            {inspectorFooter && (
-              <div className={styles.inspectorFooter}>{inspectorFooter}</div>
-            )}
-          </Dialog.Popup>
-        </Dialog.Portal>
+                <div className={styles.inspectorHeader}>
+                  <Dialog.Title>{inspectorTitle}</Dialog.Title>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    aria-label={t("workspaceShell.closeInspector")}
+                    onClick={() => setOverlayOpen(false)}
+                  >
+                    <X />
+                  </Button>
+                </div>
+                <Dialog.Description className="sr-only">
+                  {t(
+                    "workspaceShell.statusMetadataAndActionsForTheSelectedObject",
+                  )}
+                </Dialog.Description>
+                {panelBody}
+                {inspectorFooter && (
+                  <div className={styles.inspectorFooter}>
+                    {inspectorFooter}
+                  </div>
+                )}
+              </Dialog.Popup>
+            </Dialog.Portal>
+          )}
+        </OverlayLayer>
       </Dialog.Root>
     </div>
   )

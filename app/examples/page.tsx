@@ -17,6 +17,7 @@ export default function ExamplesPage() {
         <SiteText messageKey="site.redesign.exampleGalleryIntro" />
       </p>
       <ExampleGallery />
+      <Link href="/examples/component-contracts/" prefetch={false} className="mt-8 flex min-h-11 items-center text-sm text-primary"><SiteText messageKey="site.gap.contracts" /> ↗</Link>
       <Link
         href="/components/"
         prefetch={false}

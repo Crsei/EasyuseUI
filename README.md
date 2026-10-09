@@ -89,7 +89,7 @@ components/examples/  文档中的真实交互示例
 components/docs/      文档站自身的展示组件
 components/site/      导航与主题切换
 styles/theme.css      唯一的主题变量来源
-lib/catalog.ts        组件文档元数据与示例入口
+lib/component-manifest.ts  组件文档元数据与示例入口（catalog 仅重导出）
 lib/style-workbench-model.ts  样式参数、预设、主题基准读取和导出
 lib/utils.ts          可分发的样式合并工具
 registry.json         源码、npm 依赖与内部组件依赖清单
@@ -138,7 +138,7 @@ WorkspaceShell 和 Item 会一起复制同目录的 CSS Module；RuntimeStatusBa
 
 1. 在 `components/ui/` 或 `components/blocks/` 写组件。
 2. 在 `components/examples/` 添加可运行示例。
-3. 在 `lib/catalog.ts` 登记文档信息、属性和源码路径；文档页会自动生成。
+3. 在 `lib/component-manifest.ts` 登记文档信息、属性和源码路径；文档页会自动生成。
 4. 在 `registry.json` 登记源码及依赖。内部依赖使用本清单中的条目名称，构建器会替换为站点的绝对 URL。
 5. 运行 lint、typecheck、build，并在独立项目验证安装。
 
@@ -177,3 +177,5 @@ pnpm dlx shadcn@4.21.2 add http://localhost:3010/r/chart.json
 ToastProvider 内放一个 Toaster，通过 `useToastManager` 的 add/update/close 报告已知事实；Sonner 条目导出同一体系，不承诺 `sonner` npm 包的 API 兼容。通知不证明真实操作成功。Attachment 不上传，Questionnaire 不持久化，未知结果由调用方对账。
 
 ScrollArea 使用原生滚动；Resizable 与 Sidebar 的偏好由调用方持有。Drawer 复用 Sheet，仅底部显式手柄可选滑动关闭。Command 与 CommandPalette 共享键盘与受控结果。Conversation 的 `actionsRef.scrollToMessage(id, { focus })` 只定位已经加载的消息，缺失返回 false；`jumpToLatest()` 恢复跟随。Bubble 是独立引用容器，正式 ChatMessage 保持同轴布局。Card 用于独立内容，日志、Session 和 Activity 继续使用列表或表格。
+
+组件边界与可访问性示例：`/examples/component-contracts/`。契约见 [组件组合说明](docs/component-contracts.md)，运行 `pnpm ui-contracts:build` 更新可用性与变体验收索引，`pnpm check:ui-contracts` 检查同步。

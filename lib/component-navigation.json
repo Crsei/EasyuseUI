@@ -1537,5 +1537,41 @@
     "displayCategory": "patterns",
     "docGroup": "data",
     "docOrder": 270
+  },
+  {
+    "slug": "toolbar",
+    "name": "Toolbar",
+    "category": "基础组件",
+    "docPath": "/docs/toolbar/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 271
+  },
+  {
+    "slug": "command-toolbar",
+    "name": "CommandToolbar",
+    "category": "组合模块",
+    "docPath": "/docs/command-toolbar/",
+    "displayCategory": "patterns",
+    "docGroup": "interaction",
+    "docOrder": 272
+  },
+  {
+    "slug": "data-table-controls",
+    "name": "DataTableControls",
+    "category": "组合模块",
+    "docPath": "/docs/data-table-controls/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 273
+  },
+  {
+    "slug": "data-table-model",
+    "name": "DataTableModel",
+    "category": "组合模块",
+    "docPath": "/docs/data-table-model/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 274
   }
 ]

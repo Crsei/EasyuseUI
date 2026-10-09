@@ -593,5 +593,17 @@
   {
     "slug": "work-item-calendar",
     "widePreview": true
+  },
+  {
+    "slug": "toolbar"
+  },
+  {
+    "slug": "command-toolbar"
+  },
+  {
+    "slug": "data-table-controls"
+  },
+  {
+    "slug": "data-table-model"
   }
 ]

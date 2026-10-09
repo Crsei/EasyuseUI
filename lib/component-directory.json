@@ -1879,5 +1879,49 @@
     "registryId": "work-item-calendar",
     "docGroup": "data",
     "docOrder": 270
+  },
+  {
+    "slug": "toolbar",
+    "name": "Toolbar",
+    "description": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/toolbar/",
+    "installType": "ui",
+    "registryId": "toolbar",
+    "docGroup": "interaction",
+    "docOrder": 271
+  },
+  {
+    "slug": "command-toolbar",
+    "name": "CommandToolbar",
+    "description": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/command-toolbar/",
+    "installType": "block",
+    "registryId": "command-toolbar",
+    "docGroup": "interaction",
+    "docOrder": 272
+  },
+  {
+    "slug": "data-table-controls",
+    "name": "DataTableControls",
+    "description": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/data-table-controls/",
+    "installType": "block",
+    "registryId": "data-table-controls",
+    "docGroup": "data",
+    "docOrder": 273
+  },
+  {
+    "slug": "data-table-model",
+    "name": "DataTableModel",
+    "description": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/data-table-model/",
+    "installType": "lib",
+    "registryId": "data-table-model",
+    "docGroup": "data",
+    "docOrder": 274
   }
 ]

@@ -97,6 +97,8 @@
   --workspace-inspector-min: 300px;
   --workspace-inspector-max: 360px;
   --workspace-bottom-height: 240px;
+  --layer-overlay: 60;
+  --layer-overlay-step: 20;
   --motion-hover: 150ms;
   --motion-button: 180ms;
   --motion-popover: 200ms;

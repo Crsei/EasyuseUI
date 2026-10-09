@@ -64,6 +64,8 @@
   --eu-workspace-inspector-min: 300px;
   --eu-workspace-inspector-max: 360px;
   --eu-workspace-bottom-height: 240px;
+  --eu-layer-overlay: 60;
+  --eu-layer-overlay-step: 20;
   --eu-motion-hover: 150ms;
   --eu-motion-button: 180ms;
   --eu-motion-popover: 200ms;
@@ -150,6 +152,8 @@
   --eu-workspace-inspector-min: 300px;
   --eu-workspace-inspector-max: 360px;
   --eu-workspace-bottom-height: 240px;
+  --eu-layer-overlay: 60;
+  --eu-layer-overlay-step: 20;
   --eu-motion-hover: 150ms;
   --eu-motion-button: 180ms;
   --eu-motion-popover: 200ms;
@@ -237,6 +241,8 @@
   --eu-workspace-inspector-min: 300px;
   --eu-workspace-inspector-max: 360px;
   --eu-workspace-bottom-height: 240px;
+  --eu-layer-overlay: 60;
+  --eu-layer-overlay-step: 20;
   --eu-motion-hover: 150ms;
   --eu-motion-button: 180ms;
   --eu-motion-popover: 200ms;
@@ -324,6 +330,8 @@
   --workspace-inspector-min: var(--eu-workspace-inspector-min);
   --workspace-inspector-max: var(--eu-workspace-inspector-max);
   --workspace-bottom-height: var(--eu-workspace-bottom-height);
+  --layer-overlay: var(--eu-layer-overlay);
+  --layer-overlay-step: var(--eu-layer-overlay-step);
   --motion-hover: var(--eu-motion-hover);
   --motion-button: var(--eu-motion-button);
   --motion-popover: var(--eu-motion-popover);

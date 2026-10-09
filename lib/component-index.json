@@ -201,7 +201,8 @@
     "registryDependencies": [
       "theme",
       "utils",
-      "theme-boundary"
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -226,7 +227,8 @@
     "registryDependencies": [
       "theme",
       "utils",
-      "theme-boundary"
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -2152,7 +2154,8 @@
       "checkbox",
       "table",
       "data-region",
-      "i18n"
+      "i18n",
+      "data-table-model"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -2301,7 +2304,8 @@
       "utils",
       "theme-boundary",
       "button",
-      "i18n"
+      "i18n",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -2550,7 +2554,8 @@
     "registryDependencies": [
       "theme",
       "utils",
-      "theme-boundary"
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -2575,7 +2580,8 @@
     "registryDependencies": [
       "theme",
       "utils",
-      "theme-boundary"
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -2600,7 +2606,8 @@
     "registryDependencies": [
       "theme",
       "utils",
-      "theme-boundary"
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -2625,7 +2632,8 @@
     "registryDependencies": [
       "theme",
       "utils",
-      "theme-boundary"
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -2879,7 +2887,8 @@
       "canvas-service-panel",
       "i18n",
       "menu",
-      "tabs"
+      "tabs",
+      "command-toolbar"
     ],
     "installType": "block",
     "displayCategory": "canvas",
@@ -3293,9 +3302,10 @@
     "docPath": "/docs/button/",
     "registryId": "button",
     "registryDependencies": [
-      "theme-boundary",
       "theme",
-      "utils"
+      "utils",
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -3369,10 +3379,11 @@
     "docPath": "/docs/dialog/",
     "registryId": "dialog",
     "registryDependencies": [
-      "theme-boundary",
       "theme",
       "utils",
-      "i18n"
+      "i18n",
+      "theme-boundary",
+      "overlay-layer"
     ],
     "installType": "ui",
     "displayCategory": "primitives",
@@ -3499,11 +3510,12 @@
     "docPath": "/docs/workspace-shell/",
     "registryId": "workspace-shell",
     "registryDependencies": [
-      "theme-boundary",
       "theme",
       "utils",
       "button",
       "i18n",
+      "theme-boundary",
+      "overlay-layer",
       "resizable"
     ],
     "installType": "block",
@@ -4151,10 +4163,10 @@
     "registryDependencies": [
       "theme",
       "metric-summary",
-      "runtime-status-badge",
       "data-table",
       "agent-board-model",
-      "i18n"
+      "i18n",
+      "runtime-status-badge"
     ],
     "installType": "block",
     "displayCategory": "patterns",
@@ -5022,6 +5034,107 @@
     "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "toolbar",
+    "name": "Toolbar",
+    "docPath": "/docs/toolbar/",
+    "registryId": "toolbar",
+    "registryDependencies": [
+      "button",
+      "input",
+      "utils"
+    ],
+    "installType": "ui",
+    "displayCategory": "primitives",
+    "availability": "available",
+    "category": "基础组件",
+    "description": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+    "source": "components/ui/toolbar.tsx",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { Toolbar, ToolbarButton } from \"@/components/ui/toolbar\"\nexport function Commands() { return <Toolbar aria-label=\"Commands\"><ToolbarButton>Save</ToolbarButton></Toolbar> }",
+    "docGroup": "interaction",
+    "docOrder": 271,
+    "aliases": [],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
+    ]
+  },
+  {
+    "slug": "command-toolbar",
+    "name": "CommandToolbar",
+    "docPath": "/docs/command-toolbar/",
+    "registryId": "command-toolbar",
+    "registryDependencies": [
+      "toolbar",
+      "menu",
+      "button",
+      "i18n",
+      "command-toolbar-model"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "category": "组合模块",
+    "description": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+    "source": "components/blocks/command-toolbar.tsx",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { CommandToolbar } from \"@/components/blocks/command-toolbar\"\nexport function Commands() { return <CommandToolbar label=\"Commands\" actions={[{id:\"save\",label:\"Save\",onInvoke:()=>{}}]} /> }",
+    "docGroup": "interaction",
+    "docOrder": 272,
+    "aliases": [],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
+    ]
+  },
+  {
+    "slug": "data-table-controls",
+    "name": "DataTableControls",
+    "docPath": "/docs/data-table-controls/",
+    "registryId": "data-table-controls",
+    "registryDependencies": [
+      "button",
+      "checkbox",
+      "input",
+      "popover",
+      "i18n",
+      "data-table-model"
+    ],
+    "installType": "block",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "category": "组合模块",
+    "description": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+    "source": "components/blocks/data-table-controls.tsx",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { DataTableControls } from \"@/components/blocks/data-table-controls\"\nexport function Columns() { return <DataTableControls columns={[{id:\"title\",label:\"Title\"}]} value={{}} onValueChange={()=>{}} /> }",
+    "docGroup": "data",
+    "docOrder": 273,
+    "aliases": [],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
+    ]
+  },
+  {
+    "slug": "data-table-model",
+    "name": "DataTableModel",
+    "docPath": "/docs/data-table-model/",
+    "registryId": "data-table-model",
+    "registryDependencies": [],
+    "installType": "lib",
+    "displayCategory": "patterns",
+    "availability": "available",
+    "category": "组合模块",
+    "description": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+    "source": "lib/data-table-model.ts",
+    "example": "components/examples/gap-audit-demo.tsx",
+    "usage": "import { dataTableQueryKey } from \"@/lib/data-table-model\"\nexport const key = dataTableQueryKey({scope:\"local\",filter:\"\",sort:null,page:1,pageSize:20})",
+    "docGroup": "data",
+    "docOrder": 274,
+    "aliases": [],
+    "notes": [
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
     ]
   }
 ]

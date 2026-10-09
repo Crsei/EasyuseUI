@@ -2183,7 +2183,20 @@
     "site.workflowAnalytics.fullCatalog.12",
     "site.workflowAnalytics.fullCatalog.13",
     "site.workflowAnalytics.fullCatalog.14",
-    "site.workflowAnalytics.fullCatalog.15"
+    "site.workflowAnalytics.fullCatalog.15",
+    "site.gap.contracts",
+    "site.gapAudit.prose0",
+    "site.gapAudit.prose1",
+    "site.gapAudit.prose2",
+    "site.gapAudit.prose3",
+    "site.gapAudit.prose4",
+    "site.gapAudit.prose5",
+    "site.gapAudit.detail0",
+    "site.gapAudit.detail1",
+    "site.gapAudit.detail2",
+    "site.gapAudit.detail3",
+    "site.gapAudit.detail4",
+    "site.gapAudit.detail5"
   ],
   "values": {
     "zh-CN": [
@@ -4370,7 +4383,20 @@
       "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
       "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-      "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+      "未知不当零，时间范围为 [from,to)，点选默认只下钻。",
+      "组件边界与可访问性示例",
+      "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。",
+      "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+      "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+      "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+      "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+      "轻量Chart只展示调用方已计算的值；统计、时间桶与历史覆盖使用ChartFrame/StatisticalChart分析契约。",
+      "使用Base UI键盘模型；禁用命令跳过方向键导航。",
+      "稳定ID、标签、宽度、优先级及显式调用回调。",
+      "配置请求由调用方回传，列身份独立于显示顺序。",
+      "未知总数保持undefined；刷新失败保留同一查询已有行。",
+      "受控列顺序、显隐与宽度；选择身份不随列变化。",
+      "交互单元格使用separate，避免嵌套按钮。"
     ],
     "en": [
       "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown.",
@@ -6556,7 +6582,20 @@
       "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves.",
       "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis.",
       "Local fixtures do not prove real services; callers own sources, permissions, execution, storage and forecast validity.",
-      "Unknown is not zero; ranges are half-open and selection drills down by default."
+      "Unknown is not zero; ranges are half-open and selection drills down by default.",
+      "Component boundaries and accessibility examples",
+      "Controlled UI only; callers own requests, permissions, persistence and business outcomes.",
+      "A command toolbar with one Tab stop, arrow navigation and text input support.",
+      "Commands adapt to width and priority while retaining menu discovery and focus.",
+      "Controlled column visibility, order and width with keyboard alternatives.",
+      "Column configuration and a read-only query session bound to complete request identity.",
+      "Lightweight Chart presents caller-computed values; use ChartFrame/StatisticalChart for analytics, time buckets and history coverage.",
+      "Base UI owns keyboard navigation; disabled commands are skipped.",
+      "Stable identity, label, width, priority and explicit action callbacks.",
+      "Callers return requested configuration; column identity is independent of display order.",
+      "Unknown totals stay undefined; failed refreshes retain rows for the same query.",
+      "Controlled column order, visibility and width; selection identity remains stable.",
+      "Use separate activation for interactive cells to avoid nested buttons."
     ]
   }
 }

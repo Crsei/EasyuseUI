@@ -1,13 +1,13 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  z-index: 60;
+  z-index: var(--layer-overlay, 60);
   background: rgb(0 0 0 / 40%);
   transition: opacity var(--motion-drawer) ease-out;
 }
 .content {
   position: fixed;
-  z-index: 60;
+  z-index: var(--layer-overlay, 60);
   display: flex;
   flex-direction: column;
   max-width: 100vw;

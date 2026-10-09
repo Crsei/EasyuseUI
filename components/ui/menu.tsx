@@ -1,4 +1,5 @@
 "use client"
+import { OverlayLayer } from "@/lib/overlay-layer"
 import { Menu as MenuPrimitive } from "@base-ui/react/menu"
 import { cn } from "@/lib/utils"
 import { useThemePortalContainer } from "./theme-boundary"
@@ -15,19 +16,27 @@ export function MenuContent({
 }: Omit<MenuPrimitive.Popup.Props, "className"> & { className?: string }) {
   const container = useThemePortalContainer()
   return (
-    <MenuPrimitive.Portal container={container}>
-      <MenuPrimitive.Positioner sideOffset={6} className="z-[60]">
-        <MenuPrimitive.Popup
-          {...props}
-          className={cn(
-            "z-[60] min-w-40 rounded-lg border bg-surface p-1 text-foreground shadow-[var(--shadow-floating)] outline-none",
-            className,
-          )}
-        >
-          {children}
-        </MenuPrimitive.Popup>
-      </MenuPrimitive.Positioner>
-    </MenuPrimitive.Portal>
+    <OverlayLayer>
+      {(layerStyle) => (
+        <MenuPrimitive.Portal container={container}>
+          <MenuPrimitive.Positioner
+            style={layerStyle}
+            sideOffset={6}
+            className=""
+          >
+            <MenuPrimitive.Popup
+              {...props}
+              className={cn(
+                "min-w-40 rounded-lg border bg-surface p-1 text-foreground shadow-[var(--shadow-floating)] outline-none",
+                className,
+              )}
+            >
+              {children}
+            </MenuPrimitive.Popup>
+          </MenuPrimitive.Positioner>
+        </MenuPrimitive.Portal>
+      )}
+    </OverlayLayer>
   )
 }
 export function MenuItem({

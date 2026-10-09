@@ -73,6 +73,9 @@ C3 资源/执行、C4 迭代进度/布局保存、C5 CFD/周期/预测/任务依
 
 底层尺寸和事件 API 按 [Recharts 官方文档](https://recharts.github.io/en-US/api/BarChart/) 与安装版本类型核对，组件业务事件不暴露底层库 payload。参考包只借鉴语义和组织，没有复制其源码；依赖采用 Recharts MIT 许可。
 
+## 轻量图形与分析图表分层
+
+`components/blocks/chart.tsx`（Registry `chart`）只呈现调用方已计算的最多120个标签/数值，不引入 Recharts，不计算工作流指标或时间桶。null 的缺失原因与真实0分开，并提供可见表格。ChartFrame / StatisticalChart 和 WorkflowMetrics 继续沿用本文的查询身份、时区、历史覆盖、权限及导出契约。两条安装入口独立；本地轻量图示不证明真实运行指标。
 
 ## 完整组件与场景（C3–C6 / S2–S5）
 

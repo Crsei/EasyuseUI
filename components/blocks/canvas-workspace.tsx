@@ -55,6 +55,7 @@ import { Inspector } from "@/components/blocks/inspector"
 import { layoutCanvasDAG, type CanvasMeasurements } from "@/lib/canvas-layout"
 import { Menu, MenuTrigger, MenuContent, MenuItem } from "@/components/ui/menu"
 import { Tabs, TabsList, TabsTab, TabsPanel } from "@/components/ui/tabs"
+import { CommandToolbar } from "./command-toolbar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DataRegion, type RegionError } from "@/components/ui/data-region"
@@ -648,24 +649,31 @@ export function CanvasWorkspace({
               <Plus />
               {t("canvasWorkspace.addNode")}
             </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              aria-label={t("canvasWorkspace.undoEdit")}
-              disabled={locked || !canUndo}
-              onClick={onUndo}
-            >
-              <Undo2 />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              aria-label={t("canvasWorkspace.redoEdit")}
-              disabled={locked || !canRedo}
-              onClick={onRedo}
-            >
-              <Redo2 />
-            </Button>
+            <CommandToolbar
+              className="w-28 min-w-11 shrink"
+              label={t("toolbar.history")}
+              actions={[
+                {
+                  id: "undo",
+                  label: t("canvasWorkspace.undoEdit"),
+                  icon: <Undo2 />,
+                  iconOnly: true,
+                  width: 44,
+                  priority: 1,
+                  disabled: locked || !canUndo,
+                  onInvoke: () => onUndo?.(),
+                },
+                {
+                  id: "redo",
+                  label: t("canvasWorkspace.redoEdit"),
+                  icon: <Redo2 />,
+                  iconOnly: true,
+                  width: 44,
+                  disabled: locked || !canRedo,
+                  onInvoke: () => onRedo?.(),
+                },
+              ]}
+            />
             <Button
               variant="outline"
               size="sm"

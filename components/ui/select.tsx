@@ -1,4 +1,5 @@
 "use client"
+import { OverlayLayer } from "@/lib/overlay-layer"
 import { Children, isValidElement } from "react"
 import { Select as SelectPrimitive } from "@base-ui/react/select"
 import { cn } from "@/lib/utils"
@@ -26,24 +27,29 @@ export function SelectContent({
 }) {
   const container = useThemePortalContainer()
   return (
-    <SelectPrimitive.Portal container={container}>
-      <SelectPrimitive.Positioner
-        side={side}
-        align={align}
-        sideOffset={sideOffset}
-        className="z-[70]"
-      >
-        <SelectPrimitive.Popup
-          {...props}
-          className={cn(
-            "z-[70] max-h-[var(--available-height)] max-w-[var(--available-width)] overflow-auto min-w-40 rounded-lg border bg-surface p-1 text-foreground shadow-[var(--shadow-floating)] outline-none",
-            className,
-          )}
-        >
-          {children}
-        </SelectPrimitive.Popup>
-      </SelectPrimitive.Positioner>
-    </SelectPrimitive.Portal>
+    <OverlayLayer>
+      {(layerStyle) => (
+        <SelectPrimitive.Portal container={container}>
+          <SelectPrimitive.Positioner
+            style={layerStyle}
+            side={side}
+            align={align}
+            sideOffset={sideOffset}
+            className=""
+          >
+            <SelectPrimitive.Popup
+              {...props}
+              className={cn(
+                "max-h-[var(--available-height)] max-w-[var(--available-width)] overflow-auto min-w-40 rounded-lg border bg-surface p-1 text-foreground shadow-[var(--shadow-floating)] outline-none",
+                className,
+              )}
+            >
+              {children}
+            </SelectPrimitive.Popup>
+          </SelectPrimitive.Positioner>
+        </SelectPrimitive.Portal>
+      )}
+    </OverlayLayer>
   )
 }
 export function SelectItem({

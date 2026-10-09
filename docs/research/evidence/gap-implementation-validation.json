@@ -1,0 +1,505 @@
+{
+  "capturedAt": "2026-10-09T03:33:17.575134+00:00",
+  "formalBaseline": "3b2dfead4a0073eb8e2c8c39ce9fc0c2a2b87ca9",
+  "scope": "Committed baseline plus G01-G10 changes, isolated production export. Pending Agent workbench/CRM changes excluded from formal release validation; active 3010 server retained.",
+  "sourceHashes": {
+    "components/blocks/canvas-workspace.tsx": "5b948ef21550b08a6d009110dc53c94483ea14ad9bc34788e3af17d88338bcbb",
+    "components/blocks/chart.tsx": "c8c935b56a4d43c56cfcd842f18bb4f00f12cd65827409465444eb27ac2c21ac",
+    "components/blocks/command-palette.tsx": "9aa19cc3ccc203193957fe7ec8ed205fe449625332037dfd3cbed763af8f0351",
+    "components/blocks/command-toolbar.tsx": "772d0c3182b6ce1d105a43910ad2bb487b6807a119bdc321075c178d191ba8b2",
+    "components/blocks/data-table-controls.tsx": "3aac91da23e3c9dcd75754b81c636c64c063b17fab8d35617be0ab9c64642821",
+    "components/blocks/data-table.tsx": "8311435783854d7b4947e2943c8c7c9af55fd96230f341075cb14ab5deb17d84",
+    "components/blocks/workspace-shell.module.css": "65ec41ed68adad1cd64fe11bba6347d241116f96ca1d3310951f2eec06bc8491",
+    "components/blocks/workspace-shell.tsx": "b1e2d40414b8cf838912ff707b7b2ea3286f8ce8a2159a0d2f6395e58c0e37d0",
+    "components/docs/demo-loader.tsx": "5e6ce08e72369d9e0b5923e58f71533e24972bf15cd50572582916aa7aaa0222",
+    "components/examples/gap-audit-demo.tsx": "1329594af94703a2d58542ea1351fe41ac43cf143b3932e60c9ac7a1c0a57b6a",
+    "components/ui/alert-dialog.tsx": "822f38017c48c41d868e0da4a11d0d2e9e9de3d6a419970a6ae3bf527b09c9d7",
+    "components/ui/button-tooltip.tsx": "619f6969b9cf2bfdc105bcb0d26d4775bc7129bed5af8ec540ce165bc7d7722e",
+    "components/ui/button.tsx": "016afcdd4833e9c00f27a7b81cf501f0cb3ee8e2bf927a5284a1856477d5cc29",
+    "components/ui/combobox.tsx": "806dad6fd7fd24c4fef29a5e9b9ce5c3d6e1829936e190efa76f66d6fc15d674",
+    "components/ui/dialog.tsx": "74b485621dda597eec0375e3031b8d88388ebd5ae87e3559e0781f321e0cfa1f",
+    "components/ui/input.tsx": "8d5a12a6915d043e1d51dbbfcec43c007665505fdc8ab54e43308bf7614b416f",
+    "components/ui/menu.tsx": "64b59a2f84633f92eedec475a037751ba802c7d65c5372b96cf930e5ea971999",
+    "components/ui/popover.tsx": "9c5a6a435668a9d8c14e7f155310b5fd41b3227a784539a9338f1c4a4e243ee0",
+    "components/ui/resizable.tsx": "a9b1a9dcb99dede6bcb5ff245a811b71491c244401caa991266bb2ea5cbe32f3",
+    "components/ui/select.tsx": "67267ccaceeb17ea658be92edd722a07fb7d85e8292a03cd420dd0ad1b79969a",
+    "components/ui/sheet.module.css": "44088f6ad2e6da17378e0897a954e1ff1bffea49a90b0082d687c96608d0b614",
+    "components/ui/sheet.tsx": "d0c9710b0a3460abe1b3841e0ba42cc12df3f3bd0e8866572581a01c87179a4d",
+    "components/ui/theme-boundary.tsx": "4c4a08d969edb06e41387465a2f5776462bc888d3af669c684e71011ddb74a98",
+    "components/ui/toolbar.tsx": "acfbddce9173ddf79752a2995907eba4cbcaaa7df7245a9350f1f8b97aa27fde",
+    "components/ui/tooltip.tsx": "5da4d974004bb27a0cbc838a08c361fc9c50ec9c53c435e739868a52e04f58c8",
+    "components/ui/tree.module.css": "562d7823da58c3bc6eba08d8889805f6d00d1c30fa94509e4873c4d07a2a569f",
+    "lib/command-toolbar-model.ts": "120598fd53c37126b4f909d9a62f429bce1897e4895f591e462bd7bf91ba8d9c",
+    "lib/component-manifest.ts": "5df573074df096fe42de6611113e4b0c2f2dff826e7d0a10d5010f4167858468",
+    "lib/data-table-model.ts": "b2b498adb1fc0ef409bcf46cbfe6e39e94df0a81929f8b7c57d629c9ccd88aaa",
+    "lib/i18n-messages.ts": "a2899b1c75072c917d4a66389feb741c28e222dac1c07477df96a1f914ede186",
+    "lib/overlay-layer.tsx": "64146c3576d32cf96f85b9c24777c0b9da8a79c184b078ac58b3bcf7141f8e21",
+    "lib/site-i18n-messages.ts": "fccd8b09cd0a33f01e60c97aa7007ad4c37bf6305df286bee0130ed7266a9fd8",
+    "lib/ui-contract-evidence.ts": "b3ca5e7835b6845ec315aea0565b80515df99529aed7eea0762517894053ba7a",
+    "registry.json": "c73f177270074cbbe7894998254b42cc89a018da71c70cbe9a969c6363eecc61",
+    "styles/theme-boundary.css": "7174cd63f67a9d4939136b38c42489e98de05a6ec16d6fcfbbc935f91e85247f",
+    "styles/theme.css": "81ac1668e76d4c45e20393fa634416916ad678a78edba5fd9fcd4e5f3e6128ec"
+  },
+  "catalogComponents": 175,
+  "registryItems": 190,
+  "commands": [
+    {
+      "command": "pnpm lint",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm typecheck",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm build",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm check:i18n",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm check:manifest",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm check:blog",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm check:docs",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm check:ui-contracts",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm test:install",
+      "exitCode": 0
+    },
+    {
+      "command": "pnpm test:install:themes",
+      "exitCode": 0
+    }
+  ],
+  "fullRegression": {
+    "command": "pnpm exec playwright test --grep-invert @performance --workers=4",
+    "stats": {
+      "startTime": "2026-10-09T03:20:27.768Z",
+      "duration": 332277.08499999996,
+      "expected": 492,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "firstRegression": {
+    "stats": {
+      "startTime": "2026-10-09T03:05:58.717Z",
+      "duration": 599721.519,
+      "expected": 491,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "failure": "Toolbar return focus after grow and immediate Escape",
+    "resolution": "Read live container width on menu state changes before resolving final focus. Original failed trace retained locally."
+  },
+  "repeatRegression": {
+    "command": "pnpm exec playwright test tests/ui-gap-audit.spec.ts --grep \"overflow preserves\" --repeat-each=20 --workers=2",
+    "stats": {
+      "startTime": "2026-10-09T03:19:13.271Z",
+      "duration": 52234.39,
+      "expected": 20,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "performance": {
+    "command": "pnpm exec playwright test tests/stream-performance.spec.ts tests/canvas-performance.spec.ts --workers=1",
+    "stats": {
+      "startTime": "2026-10-09T03:30:58.591Z",
+      "duration": 132821.699,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "scope": "Standard shared-host observation profile; timing assertions belong to isolated CI. Additional CI-threshold probes and baseline failures are recorded separately; no budgets or baseline fields changed.",
+    "measurements": [
+      {
+        "file": "canvas-cold-drag.json",
+        "result": {
+          "context": "production, fresh browser context, navigation through measured nodes and first selection; 60 mouse moves with rAF timestamps",
+          "cold200OperableMs": 2951,
+          "dragFrames": 160,
+          "dragDurationMs": 3417,
+          "dragFps": 46.5
+        }
+      },
+      {
+        "file": "canvas-performance.json",
+        "result": {
+          "context": "warm fixture switch; Google Chrome; see canvas-implementation-log.md; shared-host load",
+          "samples": {},
+          "switch50Ms": 583,
+          "inspector50SamplesMs": [
+            56.9,
+            41.7,
+            41.8,
+            40.9,
+            39.3,
+            41.7,
+            37.9,
+            33,
+            33.8,
+            31,
+            75.3,
+            52.8,
+            42.8,
+            43.5,
+            51.4,
+            51.2,
+            46.7,
+            45.3,
+            37.9,
+            38.2,
+            37.5,
+            37.5,
+            39.6,
+            38.5,
+            32.2,
+            34,
+            34.1,
+            32,
+            32.6,
+            31.1
+          ],
+          "inspector50P95Ms": 56.9,
+          "switch200Ms": 778,
+          "inspector200SamplesMs": [
+            37.1,
+            38.2,
+            46.9,
+            46.5,
+            55.2,
+            61.1,
+            48.3,
+            49.1,
+            54.9,
+            55.1,
+            49.9,
+            41.7,
+            65.1,
+            52,
+            43.7,
+            45.6,
+            47.4,
+            53.4,
+            55.7,
+            51.1,
+            50.2,
+            48.8,
+            41.6,
+            40,
+            53.2,
+            51.1,
+            48.1,
+            40.6,
+            47,
+            45
+          ],
+          "inspector200P95Ms": 61.1
+        }
+      },
+      {
+        "file": "activity-append.json",
+        "result": {
+          "profile": "shared-host-observation",
+          "kind": "activity",
+          "budget": {
+            "count": 5000,
+            "samples": 30,
+            "appendP95Ms": 100,
+            "ciBaselineP95Ms": null,
+            "relativeRegressionLimit": 1.2
+          },
+          "values": [
+            104.29999923706055,
+            84.10000038146973,
+            87.20000076293945,
+            96,
+            92.79999923706055,
+            87.20000076293945,
+            94.80000114440918,
+            84.5999984741211,
+            85,
+            91,
+            90.39999961853027,
+            95.20000076293945,
+            83.60000038146973,
+            74.10000038146973,
+            74.4000015258789,
+            103.0999984741211,
+            83.80000114440918,
+            102.39999961853027,
+            85.9000015258789,
+            90.20000076293945,
+            96,
+            105.79999923706055,
+            80.29999923706055,
+            88.89999961853027,
+            84.60000038146973,
+            80.79999923706055,
+            78.19999885559082,
+            75,
+            81.20000076293945,
+            84.0999984741211
+          ],
+          "p95": 104.29999923706055
+        }
+      },
+      {
+        "file": "conversation-append.json",
+        "result": {
+          "profile": "shared-host-observation",
+          "kind": "conversation",
+          "budget": {
+            "count": 5000,
+            "samples": 30,
+            "appendP95Ms": 100,
+            "ciBaselineP95Ms": null,
+            "relativeRegressionLimit": 1.2
+          },
+          "values": [
+            91.60000038146973,
+            82.89999961853027,
+            73,
+            175.0999984741211,
+            83.60000038146973,
+            86.10000038146973,
+            75.89999961853027,
+            86.60000038146973,
+            67.69999885559082,
+            86.29999923706055,
+            72.30000114440918,
+            94.29999923706055,
+            100.5,
+            89.9000015258789,
+            71.5,
+            75.5,
+            73.89999961853027,
+            76.70000076293945,
+            72.60000038146973,
+            74.10000038146973,
+            62,
+            77.79999923706055,
+            70,
+            71.10000038146973,
+            66.30000114440918,
+            67.10000038146973,
+            67,
+            73.89999961853027,
+            66.20000076293945,
+            70.39999961853027
+          ],
+          "p95": 100.5
+        }
+      }
+    ]
+  },
+  "ciThresholdProbe": {
+    "stats": {
+      "startTime": "2026-10-09T03:26:07.047Z",
+      "duration": 125243.099,
+      "expected": 4,
+      "skipped": 0,
+      "unexpected": 2,
+      "flaky": 0
+    },
+    "baselineStats": {
+      "startTime": "2026-10-09T03:29:54.380Z",
+      "duration": 55967.933000000005,
+      "expected": 0,
+      "skipped": 0,
+      "unexpected": 2,
+      "flaky": 0
+    },
+    "baselineSourceFilesChecked": 425,
+    "scope": "Diagnostic CI thresholds on a shared host, not an isolated CI acceptance run. Preserve failures; matching formal baseline also tested.",
+    "candidateMeasurements": [
+      {
+        "file": "canvas-cold-drag.json",
+        "result": {
+          "context": "production, fresh browser context, navigation through measured nodes and first selection; 60 mouse moves with rAF timestamps",
+          "cold200OperableMs": 2831,
+          "dragFrames": 162,
+          "dragDurationMs": 3317,
+          "dragFps": 48.5
+        }
+      },
+      {
+        "file": "conversation-append.json",
+        "result": {
+          "profile": "ci",
+          "kind": "conversation",
+          "budget": {
+            "count": 5000,
+            "samples": 30,
+            "appendP95Ms": 100,
+            "ciBaselineP95Ms": null,
+            "relativeRegressionLimit": 1.2
+          },
+          "values": [
+            122.79999923706055,
+            134.29999923706055,
+            103.79999923706055,
+            102.79999923706055,
+            67.70000076293945,
+            83.5,
+            71.89999961853027,
+            82.69999885559082,
+            70.60000038146973,
+            78.39999961853027,
+            72.80000114440918,
+            84,
+            70.60000038146973,
+            79.4000015258789,
+            73.39999961853027,
+            80.89999961853027,
+            69.39999961853027,
+            103.69999885559082,
+            82.29999923706055,
+            106.60000038146973,
+            75.79999923706055,
+            92.5,
+            76.39999961853027,
+            79.69999885559082,
+            74.89999961853027,
+            80,
+            67.29999923706055,
+            126,
+            71.5999984741211,
+            77.4000015258789
+          ],
+          "p95": 126
+        }
+      }
+    ],
+    "baselineMeasurements": [
+      {
+        "file": "canvas-cold-drag.json",
+        "result": {
+          "context": "production, fresh browser context, navigation through measured nodes and first selection; 60 mouse moves with rAF timestamps",
+          "cold200OperableMs": 2782,
+          "dragFrames": 160,
+          "dragDurationMs": 3233,
+          "dragFps": 49.2
+        }
+      },
+      {
+        "file": "conversation-append.json",
+        "result": {
+          "profile": "ci",
+          "kind": "conversation",
+          "budget": {
+            "count": 5000,
+            "samples": 30,
+            "appendP95Ms": 100,
+            "ciBaselineP95Ms": null,
+            "relativeRegressionLimit": 1.2
+          },
+          "values": [
+            94.89999961853027,
+            100.19999885559082,
+            84.79999923706055,
+            80.5,
+            76,
+            96.29999923706055,
+            76.70000076293945,
+            100.5,
+            86.29999923706055,
+            103,
+            85.4000015258789,
+            87.69999885559082,
+            140.39999961853027,
+            90.39999961853027,
+            79.79999923706055,
+            80.89999961853027,
+            71.60000038146973,
+            80.5,
+            87.5999984741211,
+            103.60000038146973,
+            88.89999961853027,
+            122.89999961853027,
+            80.5999984741211,
+            83.70000076293945,
+            83.10000038146973,
+            87,
+            71.79999923706055,
+            90.0999984741211,
+            74.39999961853027,
+            95.29999923706055
+          ],
+          "p95": 122.89999961853027
+        }
+      }
+    ]
+  },
+  "viewportProbe": {
+    "evidence": "dialog-viewport-after-gaps.json",
+    "scenarios": 6,
+    "fitsViewport": 6,
+    "escapeAndFocusRestore": 6,
+    "originalEvidencePreserved": true
+  },
+  "forcedColors": {
+    "evidence": "component-contracts-forced-colors.png",
+    "browser": "138.0.7204.92",
+    "axeViolations": 0,
+    "scope": "Critical fixture states with computed focus, selection, error, disabled and busy labels. Full-page screenshot at focused Tree scroll position."
+  },
+  "documentation": {
+    "sourceExampleRegistryMappings": 175,
+    "compiledSnippets": 73
+  },
+  "independentInstallation": {
+    "registryOriginFromBuiltIndex": true,
+    "registryItemsFrozenBeforeCLI": true,
+    "dependencyGuardRejectsNonSnapshotUrls": true,
+    "typedPayload": true,
+    "scope": "Clean consumer production build and native browser interactions; no docs-site imports or live dev-server dependency."
+  },
+  "themeInstallation": {
+    "sourceSnapshotId": "843312582f965d6e01e2cc6e73a2c5d554aa762f5c5aa33542e1666aeefa40f4",
+    "modes": [
+      {
+        "mode": "host",
+        "hostScreenshotIdentical": true,
+        "focusRestored": true,
+        "portal": true,
+        "canvas": true,
+        "chartPrivateColors": true
+      },
+      {
+        "mode": "scoped",
+        "hostScreenshotIdentical": true,
+        "focusRestored": true,
+        "portal": true,
+        "canvas": true,
+        "chartPrivateColors": true
+      }
+    ],
+    "scope": "Host/scoped theme and popup sources unchanged by the subsequent Toolbar timing fix; final global installation and regression rerun after that fix."
+  },
+  "acceptanceBoundaries": {
+    "manualScreenReader": "pending",
+    "stableCIPerformance": "pending",
+    "realServiceExecution": "not evaluated",
+    "businessPersistence": "caller owned",
+    "realBusinessAcceptance": "not evaluated"
+  }
+}

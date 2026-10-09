@@ -2908,7 +2908,21 @@ export const siteMessages = {
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
     "site.workflowAnalytics.fullCatalog.15":
       "未知不当零，时间范围为 [from,to)，点选默认只下钻。",
-  },
+
+"site.gap.contracts":"组件边界与可访问性示例",
+"site.gapAudit.prose0":"仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。",
+"site.gapAudit.prose1":"单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
+"site.gapAudit.prose2":"按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
+"site.gapAudit.prose3":"受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
+"site.gapAudit.prose4":"列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
+"site.gapAudit.prose5":"轻量Chart只展示调用方已计算的值；统计、时间桶与历史覆盖使用ChartFrame/StatisticalChart分析契约。",
+"site.gapAudit.detail0":"使用Base UI键盘模型；禁用命令跳过方向键导航。",
+"site.gapAudit.detail1":"稳定ID、标签、宽度、优先级及显式调用回调。",
+"site.gapAudit.detail2":"配置请求由调用方回传，列身份独立于显示顺序。",
+"site.gapAudit.detail3":"未知总数保持undefined；刷新失败保留同一查询已有行。",
+"site.gapAudit.detail4":"受控列顺序、显隐与宽度；选择身份不随列变化。",
+"site.gapAudit.detail5":"交互单元格使用separate，避免嵌套按钮。"
+},
   en: {
     "site.workflowAnalytics.catalog.00":
       "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown.",
@@ -6075,5 +6089,19 @@ export const siteMessages = {
       "Local fixtures do not prove real services; callers own sources, permissions, execution, storage and forecast validity.",
     "site.workflowAnalytics.fullCatalog.15":
       "Unknown is not zero; ranges are half-open and selection drills down by default.",
-  },
+
+"site.gap.contracts":"Component boundaries and accessibility examples",
+"site.gapAudit.prose0":"Controlled UI only; callers own requests, permissions, persistence and business outcomes.",
+"site.gapAudit.prose1":"A command toolbar with one Tab stop, arrow navigation and text input support.",
+"site.gapAudit.prose2":"Commands adapt to width and priority while retaining menu discovery and focus.",
+"site.gapAudit.prose3":"Controlled column visibility, order and width with keyboard alternatives.",
+"site.gapAudit.prose4":"Column configuration and a read-only query session bound to complete request identity.",
+"site.gapAudit.prose5":"Lightweight Chart presents caller-computed values; use ChartFrame/StatisticalChart for analytics, time buckets and history coverage.",
+"site.gapAudit.detail0":"Base UI owns keyboard navigation; disabled commands are skipped.",
+"site.gapAudit.detail1":"Stable identity, label, width, priority and explicit action callbacks.",
+"site.gapAudit.detail2":"Callers return requested configuration; column identity is independent of display order.",
+"site.gapAudit.detail3":"Unknown totals stay undefined; failed refreshes retain rows for the same query.",
+"site.gapAudit.detail4":"Controlled column order, visibility and width; selection identity remains stable.",
+"site.gapAudit.detail5":"Use separate activation for interactive cells to avoid nested buttons."
+},
 } as const

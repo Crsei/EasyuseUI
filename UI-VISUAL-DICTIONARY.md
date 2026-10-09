@@ -114,7 +114,7 @@
 | Tabs / Tab Panel               | 标签页及其关联内容面板           | 同一上下文内切换内容；跨页面导航用链接      | 已有 Tabs；工作台窄屏切换仍保持原兼容接口         |
 | Tree / Tree View               | 层级树 `▸ Project`               | 父子关系、展开/折叠；无层级列表不要强行树化 | 已有 `Tree`，单选、键盘导航、受控移动             |
 | Command Palette / Command Menu | 可搜索的命令面板                 | 快速执行或跳转；重要操作仍应有可发现入口    | 已有 `CommandPalette`（模态）和 `Command`（内嵌） |
-| Toolbar / Command Bar          | 当前内容附近的一排动作           | 当前页面/对象的操作；少用同权重主按钮       | 内嵌：工作台与组件动作区；暂无通用 Toolbar        |
+| Toolbar / Command Bar          | 当前内容附近的一排动作           | 当前页面/对象的操作；少用同权重主按钮       | 已有：`Toolbar`；[源码](components/ui/toolbar.tsx) / [文档](/docs/toolbar/) / Registry `toolbar` |
 
 ## 7. Data Display · 数据展示
 
@@ -127,7 +127,7 @@
 | Activity Feed               | 活动流，谁在何时做了什么           | 人可读活动摘要；原始完整诊断记录另看日志             | 已有 `ActivityTimeline`，按 eventId 去重            |
 | Event Log / Trace           | 事件日志 / 调用追踪                | 诊断细节、关联ID、原始证据；不要让原始 JSON 取代摘要 | ToolCall / Inspector 可承载详情；暂无独立日志查看器 |
 | Description List / Metadata | 名称—值列表                        | 当前对象属性；未知值用「—」，不要补零                | 内嵌：`Inspector` 使用描述列表                      |
-| Avatar / Entity Icon        | 头像 / 对象图标                    | 识别身份和类型；紫色 AI 身份不表示成功/失败          | 内嵌：AgentRow、ChatMessage；暂无独立 Avatar        |
+| Avatar / Entity Icon        | 头像 / 对象图标                    | 识别身份和类型；紫色 AI 身份不表示成功/失败          | 已有：`Avatar`；[源码](components/ui/avatar.tsx) / [文档](/docs/avatar/) / Registry `avatar` |
 
 ## 8. Overlays · 浮层
 
@@ -206,7 +206,7 @@ Shadow 是「如何画阴影」，Elevation 是「元素在层级中如何相互
 | Activity Feed                      | 活动摘要流                           | 已有 ActivityTimeline；不与原始 Trace 混为一谈                                         |
 | Workspace / Workbench              | 导航、主内容、上下文详情构成的工作台 | 已有 WorkspaceShell，入口 `/workspace/`；示例是本地 fixture                            |
 | Style Workbench / Style Playground | 保持内容相同的 A/B 样式对比工具      | 已有 StyleWorkbench，入口 `/style-workbench/`；操作见 [使用指南](./STYLE-WORKBENCH.md) |
-| Command Bar                        | 当前工作上下文的动作集合             | 内嵌动作区；通用可搜索命令系统待实现                                                   |
+| Command Bar                        | 当前工作上下文的动作集合             | 已有：`CommandToolbar`；[源码](components/blocks/command-toolbar.tsx) / [文档](/docs/command-toolbar/) / Registry `command-toolbar` |
 
 ## 13. 给 Agent 描述 UI 的模板
 
@@ -243,9 +243,9 @@ Shadow 是「如何画阴影」，Elevation 是「元素在层级中如何相互
 | ----------------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | Canvas / Workflow Canvas                  | 流程画布                     | WorkflowCanvas；完整编辑入口 CanvasWorkspace                                                                          |
 | Node / Port / Edge                        | 节点 / 端口 / 连线           | CanvasNode / CanvasPort / CanvasEdge，引擎适配器                                                                      |
-| Node Palette / Quick Add                  | 节点目录 / 快速新增          | NodePalette；侧栏和新增对话框共享目录                                                                                 |
-| Node Inspector                            | 节点配置面板                 | NodeInspector，复用 Inspector                                                                                         |
-| Variable Picker                           | 变量选择器                   | VariablePicker，复用单选 Tree                                                                                         |
+| Node Palette / Quick Add                  | 节点目录 / 快速新增          | 已有：`NodePalette`；[源码](components/blocks/node-palette.tsx) / [文档](/docs/node-palette/) / Registry `node-palette` |
+| Node Inspector                            | 节点配置面板                 | 已有：`NodeInspector`；[源码](components/blocks/node-inspector.tsx) / [文档](/docs/node-inspector/) / Registry `node-inspector` |
+| Variable Picker                           | 变量选择器                   | 已有：`VariablePicker`；[源码](components/blocks/variable-picker.tsx) / [文档](/docs/variable-picker/) / Registry `variable-picker` |
 | Frame / Group                             | 视觉分组                     | CanvasFrame；命令整体移动、删除时解组                                                                                 |
 | Sticky Note                               | 流程便笺                     | CanvasNote；不等于 Comment Thread                                                                                     |
 | Execution Panel / Subflow / Service Panel | 执行调试 / 子流程 / 服务面板 | CanvasExecutionPanel / CanvasProjectWorkspace / CanvasServicePanel 已分发；Presence为受控临时数据，不导出独立光标图元 |
@@ -269,11 +269,11 @@ CanvasConfigEditor 已分发，内部包含 ConditionBuilder、扁平对象 Sche
 
 | 名称                                        | 语义与真实实现                                     | 安装/文档                                        |
 | ------------------------------------------- | -------------------------------------------------- | ------------------------------------------------ |
-| Timeline / Axis / Row / Bar                 | 受控排期轴、侧栏、时间条；不同于 Activity 事件历史 | `/docs/timeline/`，`timeline`                    |
-| Calendar / Header / Day / Agenda            | 月/周截止日网格与当日条目；不同于 DatePicker       | `/docs/calendar/`，`calendar`                    |
-| WorkItemTimeline / WorkItemCalendarEntry    | 工作项日期意图、字段能力、共享详情与分页           | `work-item-timeline` / `work-item-calendar`      |
-| WorkItemDateRangeField                      | 开始/截止成对校验与精确日期键盘/触摸替代           | `work-item-date-range-field`                     |
-| ScheduleViewControls / UnscheduledWorkItems | 可控范围/刻度/周末；去重未排期队列                 | `schedule-view-controls` / `work-items-schedule` |
+| Timeline / Axis / Row / Bar                 | 受控排期轴、侧栏、时间条；不同于 Activity 事件历史 | 已有：`Timeline`；[源码](components/blocks/timeline.tsx) / [文档](/docs/timeline/) / Registry `timeline` |
+| Calendar / Header / Day / Agenda            | 月/周截止日网格与当日条目；不同于 DatePicker       | 已有：`Calendar`；[源码](components/blocks/calendar.tsx) / [文档](/docs/calendar/) / Registry `calendar` |
+| WorkItemTimeline / WorkItemCalendarEntry    | 工作项日期意图、字段能力、共享详情与分页           | 已有：`WorkItemTimeline`；[源码](components/blocks/work-item-timeline.tsx) / [文档](/docs/work-item-timeline/) / Registry `work-item-timeline` |
+| WorkItemDateRangeField                      | 开始/截止成对校验与精确日期键盘/触摸替代           | 已有：`WorkItemDateRangeField`；[源码](components/blocks/work-item-date-range-field.tsx) / [文档](/docs/work-item-date-range-field/) / Registry `work-item-date-range-field` |
+| ScheduleViewControls / UnscheduledWorkItems | 可控范围/刻度/周末；去重未排期队列                 | 已有：`ScheduleViewControls`；[源码](components/blocks/schedule-view-controls.tsx) / [文档](/docs/schedule-view-controls/) / Registry `schedule-view-controls` |
 
 ## shadcn 补齐与名称边界
 
@@ -283,13 +283,13 @@ CanvasConfigEditor 已分发，内部包含 ConditionBuilder、扁平对象 Sche
 
 | 名称 | 本仓库安装项 | 语义边界 |
 | --- | --- | --- |
-| Chart Frame / 图表框架 | chart-frame | 标题、口径、范围、权限与数据态，不加载统计引擎 |
-| Statistical Chart / 统计图 | statistical-chart | 柱、线、面积、Donut、散点；不替换现有轻量 Chart/Sparkline |
-| Chart Data Table / 聚合数据表 | chart-data-table | 聚合点表，不冒充工作项来源表 |
+| Chart Frame / 图表框架 | chart-frame | 已有：`ChartFrame`；[源码](components/ui/chart.tsx) / [文档](/docs/chart-frame/) / Registry `chart-frame` |
+| Statistical Chart / 统计图 | statistical-chart | 已有：`StatisticalChart`；[源码](components/blocks/charts/statistical-chart.tsx) / [文档](/docs/statistical-chart/) / Registry `statistical-chart` |
+| Chart Data Table / 聚合数据表 | chart-data-table | 已有：`ChartDataTable`；[源码](components/blocks/charts/chart-data-table.tsx) / [文档](/docs/chart-data-table/) / Registry `chart-data-table` |
 | Drilldown Panel / 来源面板 | chart-drilldown-panel | 同快照成员与分页；历史集合不以当前状态替代 |
-| Workflow Metric / 工作流指标 | workflow-metric | 数值、正式口径、比较基期、完整性与明确下钻 |
+| Workflow Metric / 工作流指标 | workflow-metric | 已有：`WorkflowMetric`；[源码](components/blocks/analytics/workflow-metric.tsx) / [文档](/docs/workflow-metric/) / Registry `workflow-metric` |
 | Risk Evidence / 风险事实 | risk-evidence-list | 可解释规则，不是混合健康分或预测 |
 | Traceability / 工作关联 | work-traceability-view | Idea/WorkItem/Session/Run/Artifact明确关系，不是转化漏斗 |
-| Dashboard / 决策组合 | dashboard / project-overview-dashboard | 固定网格与项目模板，首版无自由编辑/持久化 |
+| Dashboard / 决策组合 | dashboard / project-overview-dashboard | 已有：`Dashboard`；[源码](components/blocks/dashboard/dashboard.tsx) / [文档](/docs/dashboard/) / Registry `dashboard` |
 
 详见 [组件与接入契约](WORKFLOW-ANALYTICS.md)、[本地示例](/examples/workflow-analytics/) 和 [实施证据](plans/workflow-analytics-implementation-log.md)。C3–C6计划中的热图、预测、依赖与构建器不属于本表已实现项。
