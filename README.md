@@ -179,3 +179,7 @@ ToastProvider 内放一个 Toaster，通过 `useToastManager` 的 add/update/clo
 ScrollArea 使用原生滚动；Resizable 与 Sidebar 的偏好由调用方持有。Drawer 复用 Sheet，仅底部显式手柄可选滑动关闭。Command 与 CommandPalette 共享键盘与受控结果。Conversation 的 `actionsRef.scrollToMessage(id, { focus })` 只定位已经加载的消息，缺失返回 false；`jumpToLatest()` 恢复跟随。Bubble 是独立引用容器，正式 ChatMessage 保持同轴布局。Card 用于独立内容，日志、Session 和 Activity 继续使用列表或表格。
 
 组件边界与可访问性示例：`/examples/component-contracts/`。契约见 [组件组合说明](docs/component-contracts.md)，运行 `pnpm ui-contracts:build` 更新可用性与变体验收索引，`pnpm check:ui-contracts` 检查同步。
+
+### Agent 编码工作台
+
+区域实验室、三种布局与完整编码/产物/任务示例：`/examples/agent-workbench/`。安装及受控服务边界见 [AGENT-WORKBENCH.md](./AGENT-WORKBENCH.md)，本轮验收见 [实施记录](plans/agent-workbench-implementation-log.md)。

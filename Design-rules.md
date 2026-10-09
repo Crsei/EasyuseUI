@@ -464,7 +464,7 @@ Collapsed Sidebar
 48px
 
 Inspector
-300–360px
+280–360px
 
 Main
 1fr

@@ -1,0 +1,295 @@
+{
+  "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943",
+  "sourceFiles": {
+    "lib/agent-workbench-model.ts": "aae11c1a3b11b81f20c385480e8620d970058330f34f931c18d3637ea82f6f67",
+    "components/blocks/agent-workbench.tsx": "5424cb62c5bdbeb39d9d6191b6888e2b193e2ea53b39d33c2d5dcd5ed862ecd7",
+    "components/blocks/chat-message.tsx": "2c9f3dcb40726dc791fd2b93ebd92aa042aaa9d9a7f266cc345a297346cff8f3",
+    "components/blocks/chat-message.module.css": "0cfa5fdbc32248a08e42cffc9b1ae5bb4a5400408d5c5a9da5c5f6e8c4d8cd24",
+    "components/blocks/workspace-shell.tsx": "b1e2d40414b8cf838912ff707b7b2ea3286f8ce8a2159a0d2f6395e58c0e37d0",
+    "components/blocks/workspace-shell.module.css": "65ec41ed68adad1cd64fe11bba6347d241116f96ca1d3310951f2eec06bc8491",
+    "styles/theme.css": "81ac1668e76d4c45e20393fa634416916ad678a78edba5fd9fcd4e5f3e6128ec",
+    "components/blocks/agent-workbench/navigation.tsx": "602e5b972f9e1613ea4d5c52c81581916e59ea51999165cff1bea22d1ad6eba4",
+    "components/blocks/agent-workbench/context.tsx": "71623fe96b8139f47ccf0b89ee178816d66f435f20be2401889d539d49e1e50e",
+    "components/blocks/agent-workbench/conversation.tsx": "89837a2929f6bd653ee0b8bbb01f64b6bab6672f6dfb7095749ae3b88becb7c9",
+    "components/blocks/agent-workbench/composer.tsx": "169c3b19e024202594581ce32a37d1c49ab725931e02c00814bcc035f273a17a",
+    "components/blocks/agent-workbench/review.tsx": "ba29f3ed3b4e6849e95dc6fa87fb16e926c6d21dba4674f72725fc9d306d5f1e",
+    "components/blocks/agent-workbench/panels.tsx": "f0ac8dcce1ce2b3cd79b16d4abd38503a6965253a8a36ed3ee6929b20cd75f94",
+    "components/blocks/agent-workbench/workbench.module.css": "7fe982a371a4cf48183473f5ea160d9740ebff5c7a805b11f36bc6b41385c594",
+    "components/examples/agent-workbench/fixtures.ts": "b8dfdba96105433a42449339defddec913e7e08b3a52cd96858537853188eeac",
+    "components/examples/agent-workbench/reducer.ts": "43d70157eb37e1833552ce342413b3ac2a014af0c39177a3475dc1c4078d93eb",
+    "components/examples/agent-workbench/messages.ts": "043cd269035b58b7ae57e0c245c68ea4e080d187b4f1f574f6512a02339451c1",
+    "components/examples/agent-workbench/workbench-demo.tsx": "9d13cd0c449cd59e19e0579e879eb9b7c2eb5a67992c767dfe2b25e19d5d78a1",
+    "components/examples/agent-workbench/demo.module.css": "b1aeed37faccab49829e0b4a73e9e706740f521abb1797fb725d6da3a75c48cb"
+  },
+  "baseline": {
+    "asset": "/blog/agent-workbench/baseline-board.jpg",
+    "url": "http://127.0.0.1:3018/workspace/agents/",
+    "sourceSnapshotId": "8a095c21cd9370c7c6fbaefa02b35d54979837b1",
+    "capturedAt": "2026-10-09T03:44:43.999Z",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "theme": "light",
+    "locale": "zh-CN",
+    "fixture": "Existing Agent Board fixture; unchanged baseline region sources"
+  },
+  "images": [
+    {
+      "id": "agent-coding-workbench",
+      "template": "coding",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=coding&page=session&session=session-filter",
+      "asset": "/site/scenes/agent-coding-workbench-desktop-light.jpg",
+      "blogAsset": "/blog/agent-workbench/desktop-light.jpg",
+      "capturedAt": "2026-10-09T03:44:46.351Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-filter; session",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-coding-workbench",
+      "template": "coding",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=coding&page=session&session=session-filter",
+      "asset": "/site/scenes/agent-coding-workbench-desktop-dark.jpg",
+      "blogAsset": "/blog/agent-workbench/desktop-dark.jpg",
+      "capturedAt": "2026-10-09T03:44:48.586Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-filter; session",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-coding-workbench",
+      "template": "coding",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=coding&page=session&session=session-filter",
+      "asset": "/site/scenes/agent-coding-workbench-mobile-light.jpg",
+      "blogAsset": "/blog/agent-workbench/mobile-light.jpg",
+      "capturedAt": "2026-10-09T03:44:50.805Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-filter; session",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-coding-workbench",
+      "template": "coding",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=coding&page=session&session=session-filter",
+      "asset": "/site/scenes/agent-coding-workbench-mobile-dark.jpg",
+      "blogAsset": "/blog/agent-workbench/mobile-dark.jpg",
+      "capturedAt": "2026-10-09T03:44:53.101Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-filter; session",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-artifacts-workbench",
+      "template": "artifacts",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
+      "asset": "/site/scenes/agent-artifacts-workbench-desktop-light.jpg",
+      "capturedAt": "2026-10-09T03:44:55.412Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; artifacts",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-artifacts-workbench",
+      "template": "artifacts",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
+      "asset": "/site/scenes/agent-artifacts-workbench-desktop-dark.jpg",
+      "capturedAt": "2026-10-09T03:44:57.560Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; artifacts",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-artifacts-workbench",
+      "template": "artifacts",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
+      "asset": "/site/scenes/agent-artifacts-workbench-mobile-light.jpg",
+      "capturedAt": "2026-10-09T03:44:59.718Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; artifacts",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-artifacts-workbench",
+      "template": "artifacts",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
+      "asset": "/site/scenes/agent-artifacts-workbench-mobile-dark.jpg",
+      "capturedAt": "2026-10-09T03:45:01.915Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; artifacts",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-console-workbench",
+      "template": "console",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
+      "asset": "/site/scenes/agent-console-workbench-desktop-light.jpg",
+      "capturedAt": "2026-10-09T03:45:04.128Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; inbox",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-console-workbench",
+      "template": "console",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
+      "asset": "/site/scenes/agent-console-workbench-desktop-dark.jpg",
+      "capturedAt": "2026-10-09T03:45:06.441Z",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; inbox",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-console-workbench",
+      "template": "console",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
+      "asset": "/site/scenes/agent-console-workbench-mobile-light.jpg",
+      "capturedAt": "2026-10-09T03:45:08.596Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; inbox",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    },
+    {
+      "id": "agent-console-workbench",
+      "template": "console",
+      "url": "http://127.0.0.1:3018/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
+      "asset": "/site/scenes/agent-console-workbench-mobile-dark.jpg",
+      "capturedAt": "2026-10-09T03:45:10.783Z",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "initial fixture; session-report; inbox",
+      "fonts": {
+        "status": "loaded",
+        "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Noto Sans\", \"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+        "faces": [],
+        "horizontalOverflow": false
+      },
+      "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943"
+    }
+  ]
+}

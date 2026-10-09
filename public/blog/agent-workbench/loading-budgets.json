@@ -1,0 +1,315 @@
+{
+  "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943",
+  "capturedAt": "2026-10-09T04:02:57.277Z",
+  "command": "TMPDIR=/tmp pnpm exec playwright test --config playwright.workbench-rerun.config.ts tests/loading-budget.spec.ts tests/ui-gap-audit.spec.ts --grep \"initial loading budget|coarse pointer dialogs\"",
+  "method": "Production response JavaScript bodies, including automatic prefetch, estimated with node:zlib gzipSync after first navigation and locale=en; original budgets retained.",
+  "environment": "Debian GLIBC 2.28, static Webpack export, Chrome 138, preview port 3017",
+  "sampleCount": 2,
+  "before": {
+    "startedAt": "2026-10-09T03:45:53.031Z",
+    "siteSourceFiles": {
+      "components/site/home/scene-preview.tsx": "6aa026459595bb0d5d31dc8b91760d652d46cfe9b2a530b405063fc087027787"
+    },
+    "routes": {
+      "/components/": {
+        "route": "/components/",
+        "estimatedGzipBytes": 382861,
+        "budget": 380000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-310246317796bd6b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9518-4590817de8dd9a98.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6459-7a813983adca17c4.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6311-06168945aebe85c1.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-02ad9aa2cd6e37a5.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/components/page-54fcb6da903aba93.js"
+        ]
+      },
+      "/dictionary/": {
+        "route": "/dictionary/",
+        "estimatedGzipBytes": 402072,
+        "budget": 400000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-310246317796bd6b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9518-4590817de8dd9a98.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6459-7a813983adca17c4.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6311-06168945aebe85c1.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-02ad9aa2cd6e37a5.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/dictionary/page-5715c83d4c0273f5.js"
+        ]
+      },
+      "/docs/button/": {
+        "route": "/docs/button/",
+        "estimatedGzipBytes": 359473,
+        "budget": 360000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-310246317796bd6b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/docs/%5Bslug%5D/page-68533e0501a4eb3d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/docs/layout-849896cf017cac2b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3189.a581a3b028bff66d.js"
+        ]
+      },
+      "/blog/": {
+        "route": "/blog/",
+        "estimatedGzipBytes": 369844,
+        "budget": 375000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-310246317796bd6b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9518-4590817de8dd9a98.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6459-7a813983adca17c4.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6311-06168945aebe85c1.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-02ad9aa2cd6e37a5.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/263-74f4213978d0ca4f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/blog/page-7fa206097e82fda8.js"
+        ]
+      },
+      "/blog/on-demand-demos/": {
+        "route": "/blog/on-demand-demos/",
+        "estimatedGzipBytes": 358435,
+        "budget": 365000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-310246317796bd6b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/263-74f4213978d0ca4f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/blog/%5Bslug%5D/page-5690ecb0a10998f8.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js"
+        ]
+      },
+      "/": {
+        "route": "/",
+        "estimatedGzipBytes": 358835,
+        "budget": 380000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-310246317796bd6b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9518-4590817de8dd9a98.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6459-7a813983adca17c4.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6311-06168945aebe85c1.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-02ad9aa2cd6e37a5.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js"
+        ]
+      },
+      "/examples/": {
+        "route": "/examples/",
+        "estimatedGzipBytes": 346784,
+        "budget": 380000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-310246317796bd6b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/examples/page-5c47c58245ac059b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js"
+        ]
+      }
+    }
+  },
+  "after": {
+    "startedAt": "2026-10-09T04:02:57.277Z",
+    "siteSourceFiles": {
+      "components/site/home/scene-preview.tsx": "d831c137987090657a3b1e2fb6448de32791a3c9baf6166d60defafd0e7e1d4c",
+      "components/site/home/scene-preview-content.tsx": "6aa026459595bb0d5d31dc8b91760d652d46cfe9b2a530b405063fc087027787"
+    },
+    "routes": {
+      "/components/": {
+        "route": "/components/",
+        "estimatedGzipBytes": 371919,
+        "budget": 380000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-8b22594b2971e36d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-b65cd8399b56933f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/components/page-54fcb6da903aba93.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js"
+        ]
+      },
+      "/dictionary/": {
+        "route": "/dictionary/",
+        "estimatedGzipBytes": 391130,
+        "budget": 400000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-8b22594b2971e36d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-b65cd8399b56933f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/dictionary/page-5715c83d4c0273f5.js"
+        ]
+      },
+      "/docs/button/": {
+        "route": "/docs/button/",
+        "estimatedGzipBytes": 359503,
+        "budget": 360000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-8b22594b2971e36d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/docs/%5Bslug%5D/page-68533e0501a4eb3d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/docs/layout-849896cf017cac2b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3189.a581a3b028bff66d.js"
+        ]
+      },
+      "/blog/": {
+        "route": "/blog/",
+        "estimatedGzipBytes": 358902,
+        "budget": 375000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-8b22594b2971e36d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-b65cd8399b56933f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/263-74f4213978d0ca4f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/blog/page-7fa206097e82fda8.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js"
+        ]
+      },
+      "/blog/on-demand-demos/": {
+        "route": "/blog/on-demand-demos/",
+        "estimatedGzipBytes": 358465,
+        "budget": 365000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-8b22594b2971e36d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/263-74f4213978d0ca4f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9778-968c706dcab2c033.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/blog/%5Bslug%5D/page-5690ecb0a10998f8.js"
+        ]
+      },
+      "/": {
+        "route": "/",
+        "estimatedGzipBytes": 360119,
+        "budget": 380000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-8b22594b2971e36d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/page-b65cd8399b56933f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9518-4590817de8dd9a98.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js",
+          "http://127.0.0.1:3017/_next/static/chunks/6459-7a813983adca17c4.js",
+          "http://127.0.0.1:3017/_next/static/chunks/8504.b722fd43783f7ca2.js"
+        ]
+      },
+      "/examples/": {
+        "route": "/examples/",
+        "estimatedGzipBytes": 346814,
+        "budget": 380000,
+        "resources": [
+          "http://127.0.0.1:3017/_next/static/chunks/webpack-8b22594b2971e36d.js",
+          "http://127.0.0.1:3017/_next/static/chunks/main-app-c9b23d380ddd9c1a.js",
+          "http://127.0.0.1:3017/_next/static/chunks/9755-2d2fc1d837f0bd4e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3639-db684ee306c2359f.js",
+          "http://127.0.0.1:3017/_next/static/chunks/3943-5feb5b55769aef9e.js",
+          "http://127.0.0.1:3017/_next/static/chunks/64baba53-d5e89b99693be0ed.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1402-d641b83651b87946.js",
+          "http://127.0.0.1:3017/_next/static/chunks/1700-b88045ac719e2a63.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/layout-3b51d024819efd4b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/app/examples/page-5c47c58245ac059b.js",
+          "http://127.0.0.1:3017/_next/static/chunks/7859-3fd7d981a8482b11.js"
+        ]
+      }
+    }
+  },
+  "limitations": "One observation per route and version on a shared host. Gzip estimates are response-body estimates, not network transport or latency. The sourceSnapshotId identifies the 19 workbench runtime files; site module hashes above identify the bundle split."
+}

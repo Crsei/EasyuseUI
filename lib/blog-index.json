@@ -11,6 +11,17 @@
     }
   },
   {
+    "slug": "agent-workbench",
+    "title": {
+      "zh-CN": "Agent 工作台：从独立区域到三种完整网页",
+      "en": "Agent workbench: from individual regions to three complete pages"
+    },
+    "summary": {
+      "zh-CN": "复用会话、工具和运行区域，组合编码、产物审阅与多任务模板；按草稿版本、来源游标和独立回执连接交互。",
+      "en": "Reuse conversation, tool and runtime regions across coding, artifact review and task templates, with draft versions, source cursors and separate operation receipts."
+    }
+  },
+  {
     "slug": "canvas-indexes",
     "title": {
       "zh-CN": "Canvas 从重复扫描改为索引查询",

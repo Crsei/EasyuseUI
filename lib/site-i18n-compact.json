@@ -1,5 +1,9 @@
 {
   "keys": [
+    "workbenchCatalog.description",
+    "workbenchCatalog.snapshot",
+    "workbenchCatalog.actions",
+    "workbenchCatalog.boundary",
     "site.workflowAnalytics.catalog.00",
     "site.workflowAnalytics.catalog.01",
     "site.workflowAnalytics.catalog.02",
@@ -2200,6 +2204,10 @@
   ],
   "values": {
     "zh-CN": [
+      "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+      "稳定对象标识、版本、能力与独立操作回执。",
+      "选择与执行分离；未知结果先查询，确认前保留草稿。",
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。",
       "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
       "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。",
@@ -4399,6 +4407,10 @@
       "交互单元格使用separate，避免嵌套按钮。"
     ],
     "en": [
+      "Controlled Agent workbench regions; the caller owns services, permission and source confirmation.",
+      "Stable object identity, revisions, capabilities and separate operation receipts.",
+      "Selection and execution are separate; reconcile unknown outcomes and retain drafts until confirmation.",
+      "Local fixtures prove component interaction; real model, file, Git, PTY and browser services need separate adapters.",
       "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown.",
       "Local examples do not prove service integration; callers own permissions, history, queries, writes and persistence.",
       "Time uses [from,to); missing values are not zero. Legends keep denominators unchanged; point selection opens drilldown by default.",

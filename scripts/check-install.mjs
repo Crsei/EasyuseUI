@@ -1,3 +1,4 @@
+import { workbenchRegistryItems, createWorkbenchConsumer, verifyWorkbenchConsumer } from "./agent-workbench-consumer.mjs"
 import {gapRegistryItems,createGapConsumer,verifyGapConsumer} from "./gap-contract-consumer.mjs"
 import { workflowAnalyticsRegistryItems, createWorkflowAnalyticsConsumer, verifyWorkflowAnalyticsConsumer } from "./workflow-analytics-consumer.mjs"
 import {
@@ -233,6 +234,7 @@ export default function Consumer() {
 execFileSync("git", ["init", "--quiet"], { cwd: fixture })
 await createGapConsumer(fixture)
 await createWorkflowAnalyticsConsumer(fixture)
+await createWorkbenchConsumer(fixture)
 await createCommonConsumer(fixture)
 await createWorkItemsConsumer(fixture)
 await createAgentBoardConsumer(fixture)
@@ -296,6 +298,7 @@ try {
         ...workflowAnalyticsRegistryItems.map((name) => `${site}/r/${name}.json`),
         ...gapRegistryItems.map((name) => `${site}/r/${name}.json`),
         ...commonRegistryItems.map((name) => `${site}/r/${name}.json`),
+        ...workbenchRegistryItems.map((name) => `${site}/r/${name}.json`),
         ...workItemsRegistryItems.map((name) => `${site}/r/${name}.json`),
         `${site}/r/agent-board-workspace.json`,
         `${site}/r/task-panel.json`,
@@ -652,6 +655,7 @@ try {
   process.env.COMMON_CONSUMER_EVIDENCE_DIR = fixture
   await verifyWorkflowAnalyticsConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyGapConsumer(page, `http://127.0.0.1:${server.address().port}`)
+  await verifyWorkbenchConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyCommonConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyAgentBoardConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyWorkItemsConsumer(page, `http://127.0.0.1:${server.address().port}`)

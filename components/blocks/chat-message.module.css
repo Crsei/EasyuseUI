@@ -114,6 +114,38 @@
   container: conversation / inline-size;
   min-width: 0;
 }
+.conversation[data-layout="fill"] {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.conversation[data-layout="fill"] > .panes {
+  flex: 1;
+  min-height: 0;
+}
+.conversation[data-layout="fill"] .panes .chatPane {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+.conversation[data-layout="fill"] .panes[data-view="workspace"] .chatPane {
+  display: none;
+}
+.conversation[data-layout="fill"] .workspace {
+  min-height: 0;
+  max-height: none;
+}
+.conversation[data-layout="fill"] .scroll {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+}
+.conversation[data-layout="fill"] .latest {
+  flex-shrink: 0;
+}
 .panes {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -232,6 +264,9 @@
   margin-top: 8px;
 }
 @container conversation (min-width: 800px) {
+  .conversation[data-layout="fill"] .panes[data-view] .chatPane {
+    display: flex;
+  }
   .tabs {
     display: none;
   }
@@ -254,4 +289,7 @@
 }
 
 /* Opt-in browser deferral retains all text for search/copy and accessibility. */
-.messages[data-defer-offscreen] > .messageEntry { content-visibility: auto; contain-intrinsic-block-size: auto 88px; }
+.messages[data-defer-offscreen] > .messageEntry {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 88px;
+}

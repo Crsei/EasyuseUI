@@ -3945,6 +3945,384 @@
           "type": "registry:lib"
         }
       ]
+    },
+    {
+      "name": "agent-workbench-model",
+      "type": "registry:lib",
+      "title": "Agent workbench model",
+      "description": "Portable source snapshots, draft versions and operation receipts.",
+      "registryDependencies": [
+        "agent-board-model",
+        "runtime-status"
+      ],
+      "files": [
+        {
+          "path": "lib/agent-workbench-model.ts",
+          "type": "registry:lib",
+          "target": "lib/agent-workbench-model.ts"
+        }
+      ]
+    },
+    {
+      "name": "agent-workbench-navigation",
+      "type": "registry:block",
+      "title": "agent-workbench-navigation",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "input",
+        "data-region",
+        "session-row",
+        "runtime-status-badge"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/navigation.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/navigation.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "session-navigator",
+      "type": "registry:block",
+      "title": "session-navigator",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-navigation"
+      ],
+      "files": []
+    },
+    {
+      "name": "project-switcher",
+      "type": "registry:block",
+      "title": "project-switcher",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-navigation"
+      ],
+      "files": []
+    },
+    {
+      "name": "session-header",
+      "type": "registry:block",
+      "title": "session-header",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-navigation"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-context",
+      "type": "registry:block",
+      "title": "agent-workbench-context",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "data-region",
+        "item"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/context.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/context.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "context-panel",
+      "type": "registry:block",
+      "title": "context-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-context"
+      ],
+      "files": []
+    },
+    {
+      "name": "context-picker",
+      "type": "registry:block",
+      "title": "context-picker",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-context"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-conversation",
+      "type": "registry:block",
+      "title": "agent-workbench-conversation",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "chat-message",
+        "tool-call"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/conversation.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/conversation.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "message-content",
+      "type": "registry:block",
+      "title": "message-content",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-conversation"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-conversation",
+      "type": "registry:block",
+      "title": "agent-conversation",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-conversation"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-composer",
+      "type": "registry:block",
+      "title": "agent-workbench-composer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "chat-message"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/composer.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/composer.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "composer-controls",
+      "type": "registry:block",
+      "title": "composer-controls",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-composer"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-composer",
+      "type": "registry:block",
+      "title": "agent-composer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-composer"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-review",
+      "type": "registry:block",
+      "title": "agent-workbench-review",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "tree",
+        "button",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/review.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/review.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "file-viewer",
+      "type": "registry:block",
+      "title": "file-viewer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-review"
+      ],
+      "files": []
+    },
+    {
+      "name": "diff-viewer",
+      "type": "registry:block",
+      "title": "diff-viewer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-review"
+      ],
+      "files": []
+    },
+    {
+      "name": "change-review-panel",
+      "type": "registry:block",
+      "title": "change-review-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-review"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-panels",
+      "type": "registry:block",
+      "title": "agent-workbench-panels",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "tabs",
+        "button",
+        "input",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/panels.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/panels.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "workbench-panel-tabs",
+      "type": "registry:block",
+      "title": "workbench-panel-tabs",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-panels"
+      ],
+      "files": []
+    },
+    {
+      "name": "execution-output-panel",
+      "type": "registry:block",
+      "title": "execution-output-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-panels"
+      ],
+      "files": []
+    },
+    {
+      "name": "preview-panel",
+      "type": "registry:block",
+      "title": "preview-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-panels"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench",
+      "type": "registry:block",
+      "title": "AgentWorkbench",
+      "description": "Controlled agent workspace composition. Services remain caller owned.",
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "utils",
+        "workspace-shell",
+        "inspector",
+        "agent-run-list",
+        "attention-queue",
+        "button",
+        "agent-workbench-model",
+        "agent-workbench-navigation",
+        "agent-workbench-context",
+        "agent-workbench-conversation",
+        "agent-workbench-composer",
+        "agent-workbench-review",
+        "agent-workbench-panels"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench.tsx",
+          "target": "components/blocks/agent-workbench.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "target": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "task-inbox",
+      "type": "registry:block",
+      "title": "TaskInbox",
+      "description": "Controlled agent workspace composition. Services remain caller owned.",
+      "registryDependencies": [
+        "agent-workbench"
+      ],
+      "files": []
     }
   ]
 }

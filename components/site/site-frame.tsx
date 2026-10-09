@@ -14,6 +14,7 @@ export function SiteFrame({
 }) {
   const pathname = usePathname()
   if (
+    /^\/examples\/agent-workbench\/(app|layouts)\/?$/.test(pathname) ||
     pathname === "/examples/workflow-analytics" ||
     pathname === "/examples/workflow-analytics/" ||
     pathname === "/workspace/agents" ||

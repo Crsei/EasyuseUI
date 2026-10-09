@@ -28,6 +28,8 @@ export type ChatMessageProps = {
   author?: string
   time?: string
   content: string
+  /** One body renderer; content remains the accessible plain text and copy source. */
+  renderContent?: (content: string) => ReactNode
   state?: MessageState
   stage?: string
   elapsed?: string
@@ -52,6 +54,7 @@ export const ChatMessage = memo(function ChatMessage({
   author,
   time,
   content,
+  renderContent,
   state = "completed",
   stage,
   elapsed,
@@ -111,7 +114,7 @@ export const ChatMessage = memo(function ChatMessage({
           </span>
         </header>
         <div className={styles.body}>
-          {content && <p>{content}</p>}
+          {renderContent ? renderContent(content) : content && <p>{content}</p>}
           {children}
         </div>
         {attachments && <div className={styles.attachments}>{attachments}</div>}
@@ -157,6 +160,8 @@ export type ConversationActions = {
   jumpToLatest: () => void
 }
 export type ConversationProps = {
+  /** Fill a bounded parent while keeping the composer outside the history scroller. */
+  layout?: "content" | "fill"
   actionsRef?: Ref<ConversationActions>
   /** Opt in to browser offscreen layout deferral; records remain in the DOM. */
   deferOffscreen?: boolean
@@ -169,6 +174,7 @@ export type ConversationProps = {
   className?: string
 }
 export function Conversation({
+  layout = "content",
   actionsRef,
   deferOffscreen = false,
   messages,
@@ -213,7 +219,7 @@ export function Conversation({
     jumpToLatest,
   }))
   return (
-    <div className={cn(styles.conversation, className)}>
+    <div className={cn(styles.conversation, className)} data-layout={layout}>
       {workspace && (
         <div
           className={styles.tabs}
@@ -323,6 +329,7 @@ export type ChatComposerProps = {
   onChange: (value: string) => void
   onSend: (value: string) => void | Promise<void>
   pending?: boolean
+  sendDisabled?: boolean
   streaming?: boolean
   disabled?: boolean
   onStop?: () => void
@@ -333,6 +340,7 @@ export function ChatComposer({
   onChange,
   onSend,
   pending,
+  sendDisabled,
   streaming,
   disabled,
   onStop,
@@ -346,7 +354,12 @@ export function ChatComposer({
   const [busy, setBusy] = useState(false)
   const [error, setError] = useUiFeedback("")
   const canSend = Boolean(
-    value.trim() && !pending && !busy && !streaming && !disabled,
+    value.trim() &&
+    !pending &&
+    !busy &&
+    !streaming &&
+    !disabled &&
+    !sendDisabled,
   )
   async function send() {
     if (!canSend || sending.current || composing.current) return

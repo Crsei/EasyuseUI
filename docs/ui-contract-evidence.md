@@ -4,6 +4,24 @@
 
 | 组件 | 变体编译入口 | 浏览器或模型场景 |
 | --- | --- | --- |
+| SessionNavigator | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| ProjectSwitcher | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| SessionHeader | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| ContextPanel | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| ContextPicker | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| MessageContent | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| AgentConversation | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| ComposerControls | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| AgentComposer | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| FileViewer | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| DiffViewer | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| ChangeReviewPanel | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| WorkbenchPanelTabs | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| ExecutionOutputPanel | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| PreviewPanel | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| AgentWorkbench | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| TaskInbox | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| AgentWorkbenchModel | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
 | ButtonGroup | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
 | InputGroup | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
 | Toggle | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |

@@ -12350,6 +12350,1770 @@
       "keywords": "activity-timeline 源码 Source"
     },
     {
+      "id": "session-navigator",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionNavigator",
+        "en": "SessionNavigator"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-navigator/",
+      "keywords": "session-navigator agent"
+    },
+    {
+      "id": "session-navigator-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionNavigator · 安装",
+        "en": "SessionNavigator · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-navigator/#installation",
+      "keywords": "session-navigator 安装 Installation"
+    },
+    {
+      "id": "session-navigator-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionNavigator · 使用",
+        "en": "SessionNavigator · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-navigator/#usage",
+      "keywords": "session-navigator 使用 Usage"
+    },
+    {
+      "id": "session-navigator-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionNavigator · API",
+        "en": "SessionNavigator · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-navigator/#api",
+      "keywords": "session-navigator API API"
+    },
+    {
+      "id": "session-navigator-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionNavigator · 状态与交互",
+        "en": "SessionNavigator · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-navigator/#states",
+      "keywords": "session-navigator 状态与交互 States and interaction"
+    },
+    {
+      "id": "session-navigator-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionNavigator · 完整示例",
+        "en": "SessionNavigator · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-navigator/#example",
+      "keywords": "session-navigator 完整示例 Complete example"
+    },
+    {
+      "id": "session-navigator-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionNavigator · 源码",
+        "en": "SessionNavigator · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-navigator/#source",
+      "keywords": "session-navigator 源码 Source"
+    },
+    {
+      "id": "project-switcher",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectSwitcher",
+        "en": "ProjectSwitcher"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/project-switcher/",
+      "keywords": "project-switcher agent"
+    },
+    {
+      "id": "project-switcher-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectSwitcher · 安装",
+        "en": "ProjectSwitcher · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/project-switcher/#installation",
+      "keywords": "project-switcher 安装 Installation"
+    },
+    {
+      "id": "project-switcher-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectSwitcher · 使用",
+        "en": "ProjectSwitcher · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/project-switcher/#usage",
+      "keywords": "project-switcher 使用 Usage"
+    },
+    {
+      "id": "project-switcher-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectSwitcher · API",
+        "en": "ProjectSwitcher · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/project-switcher/#api",
+      "keywords": "project-switcher API API"
+    },
+    {
+      "id": "project-switcher-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectSwitcher · 状态与交互",
+        "en": "ProjectSwitcher · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/project-switcher/#states",
+      "keywords": "project-switcher 状态与交互 States and interaction"
+    },
+    {
+      "id": "project-switcher-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectSwitcher · 完整示例",
+        "en": "ProjectSwitcher · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/project-switcher/#example",
+      "keywords": "project-switcher 完整示例 Complete example"
+    },
+    {
+      "id": "project-switcher-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectSwitcher · 源码",
+        "en": "ProjectSwitcher · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/project-switcher/#source",
+      "keywords": "project-switcher 源码 Source"
+    },
+    {
+      "id": "session-header",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionHeader",
+        "en": "SessionHeader"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-header/",
+      "keywords": "session-header agent"
+    },
+    {
+      "id": "session-header-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionHeader · 安装",
+        "en": "SessionHeader · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-header/#installation",
+      "keywords": "session-header 安装 Installation"
+    },
+    {
+      "id": "session-header-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionHeader · 使用",
+        "en": "SessionHeader · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-header/#usage",
+      "keywords": "session-header 使用 Usage"
+    },
+    {
+      "id": "session-header-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionHeader · API",
+        "en": "SessionHeader · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-header/#api",
+      "keywords": "session-header API API"
+    },
+    {
+      "id": "session-header-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionHeader · 状态与交互",
+        "en": "SessionHeader · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-header/#states",
+      "keywords": "session-header 状态与交互 States and interaction"
+    },
+    {
+      "id": "session-header-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionHeader · 完整示例",
+        "en": "SessionHeader · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-header/#example",
+      "keywords": "session-header 完整示例 Complete example"
+    },
+    {
+      "id": "session-header-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SessionHeader · 源码",
+        "en": "SessionHeader · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/session-header/#source",
+      "keywords": "session-header 源码 Source"
+    },
+    {
+      "id": "context-panel",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPanel",
+        "en": "ContextPanel"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-panel/",
+      "keywords": "context-panel agent"
+    },
+    {
+      "id": "context-panel-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPanel · 安装",
+        "en": "ContextPanel · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-panel/#installation",
+      "keywords": "context-panel 安装 Installation"
+    },
+    {
+      "id": "context-panel-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPanel · 使用",
+        "en": "ContextPanel · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-panel/#usage",
+      "keywords": "context-panel 使用 Usage"
+    },
+    {
+      "id": "context-panel-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPanel · API",
+        "en": "ContextPanel · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-panel/#api",
+      "keywords": "context-panel API API"
+    },
+    {
+      "id": "context-panel-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPanel · 状态与交互",
+        "en": "ContextPanel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-panel/#states",
+      "keywords": "context-panel 状态与交互 States and interaction"
+    },
+    {
+      "id": "context-panel-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPanel · 完整示例",
+        "en": "ContextPanel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-panel/#example",
+      "keywords": "context-panel 完整示例 Complete example"
+    },
+    {
+      "id": "context-panel-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPanel · 源码",
+        "en": "ContextPanel · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-panel/#source",
+      "keywords": "context-panel 源码 Source"
+    },
+    {
+      "id": "context-picker",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPicker",
+        "en": "ContextPicker"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-picker/",
+      "keywords": "context-picker agent"
+    },
+    {
+      "id": "context-picker-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPicker · 安装",
+        "en": "ContextPicker · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-picker/#installation",
+      "keywords": "context-picker 安装 Installation"
+    },
+    {
+      "id": "context-picker-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPicker · 使用",
+        "en": "ContextPicker · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-picker/#usage",
+      "keywords": "context-picker 使用 Usage"
+    },
+    {
+      "id": "context-picker-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPicker · API",
+        "en": "ContextPicker · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-picker/#api",
+      "keywords": "context-picker API API"
+    },
+    {
+      "id": "context-picker-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPicker · 状态与交互",
+        "en": "ContextPicker · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-picker/#states",
+      "keywords": "context-picker 状态与交互 States and interaction"
+    },
+    {
+      "id": "context-picker-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPicker · 完整示例",
+        "en": "ContextPicker · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-picker/#example",
+      "keywords": "context-picker 完整示例 Complete example"
+    },
+    {
+      "id": "context-picker-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextPicker · 源码",
+        "en": "ContextPicker · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/context-picker/#source",
+      "keywords": "context-picker 源码 Source"
+    },
+    {
+      "id": "message-content",
+      "kind": "components",
+      "title": {
+        "zh-CN": "MessageContent",
+        "en": "MessageContent"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/message-content/",
+      "keywords": "message-content agent"
+    },
+    {
+      "id": "message-content-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "MessageContent · 安装",
+        "en": "MessageContent · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/message-content/#installation",
+      "keywords": "message-content 安装 Installation"
+    },
+    {
+      "id": "message-content-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "MessageContent · 使用",
+        "en": "MessageContent · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/message-content/#usage",
+      "keywords": "message-content 使用 Usage"
+    },
+    {
+      "id": "message-content-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "MessageContent · API",
+        "en": "MessageContent · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/message-content/#api",
+      "keywords": "message-content API API"
+    },
+    {
+      "id": "message-content-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "MessageContent · 状态与交互",
+        "en": "MessageContent · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/message-content/#states",
+      "keywords": "message-content 状态与交互 States and interaction"
+    },
+    {
+      "id": "message-content-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "MessageContent · 完整示例",
+        "en": "MessageContent · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/message-content/#example",
+      "keywords": "message-content 完整示例 Complete example"
+    },
+    {
+      "id": "message-content-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "MessageContent · 源码",
+        "en": "MessageContent · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/message-content/#source",
+      "keywords": "message-content 源码 Source"
+    },
+    {
+      "id": "agent-conversation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentConversation",
+        "en": "AgentConversation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-conversation/",
+      "keywords": "agent-conversation agent"
+    },
+    {
+      "id": "agent-conversation-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentConversation · 安装",
+        "en": "AgentConversation · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-conversation/#installation",
+      "keywords": "agent-conversation 安装 Installation"
+    },
+    {
+      "id": "agent-conversation-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentConversation · 使用",
+        "en": "AgentConversation · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-conversation/#usage",
+      "keywords": "agent-conversation 使用 Usage"
+    },
+    {
+      "id": "agent-conversation-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentConversation · API",
+        "en": "AgentConversation · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-conversation/#api",
+      "keywords": "agent-conversation API API"
+    },
+    {
+      "id": "agent-conversation-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentConversation · 状态与交互",
+        "en": "AgentConversation · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-conversation/#states",
+      "keywords": "agent-conversation 状态与交互 States and interaction"
+    },
+    {
+      "id": "agent-conversation-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentConversation · 完整示例",
+        "en": "AgentConversation · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-conversation/#example",
+      "keywords": "agent-conversation 完整示例 Complete example"
+    },
+    {
+      "id": "agent-conversation-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentConversation · 源码",
+        "en": "AgentConversation · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-conversation/#source",
+      "keywords": "agent-conversation 源码 Source"
+    },
+    {
+      "id": "composer-controls",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComposerControls",
+        "en": "ComposerControls"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/composer-controls/",
+      "keywords": "composer-controls agent"
+    },
+    {
+      "id": "composer-controls-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComposerControls · 安装",
+        "en": "ComposerControls · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/composer-controls/#installation",
+      "keywords": "composer-controls 安装 Installation"
+    },
+    {
+      "id": "composer-controls-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComposerControls · 使用",
+        "en": "ComposerControls · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/composer-controls/#usage",
+      "keywords": "composer-controls 使用 Usage"
+    },
+    {
+      "id": "composer-controls-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComposerControls · API",
+        "en": "ComposerControls · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/composer-controls/#api",
+      "keywords": "composer-controls API API"
+    },
+    {
+      "id": "composer-controls-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComposerControls · 状态与交互",
+        "en": "ComposerControls · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/composer-controls/#states",
+      "keywords": "composer-controls 状态与交互 States and interaction"
+    },
+    {
+      "id": "composer-controls-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComposerControls · 完整示例",
+        "en": "ComposerControls · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/composer-controls/#example",
+      "keywords": "composer-controls 完整示例 Complete example"
+    },
+    {
+      "id": "composer-controls-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComposerControls · 源码",
+        "en": "ComposerControls · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/composer-controls/#source",
+      "keywords": "composer-controls 源码 Source"
+    },
+    {
+      "id": "agent-composer",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentComposer",
+        "en": "AgentComposer"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-composer/",
+      "keywords": "agent-composer agent"
+    },
+    {
+      "id": "agent-composer-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentComposer · 安装",
+        "en": "AgentComposer · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-composer/#installation",
+      "keywords": "agent-composer 安装 Installation"
+    },
+    {
+      "id": "agent-composer-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentComposer · 使用",
+        "en": "AgentComposer · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-composer/#usage",
+      "keywords": "agent-composer 使用 Usage"
+    },
+    {
+      "id": "agent-composer-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentComposer · API",
+        "en": "AgentComposer · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-composer/#api",
+      "keywords": "agent-composer API API"
+    },
+    {
+      "id": "agent-composer-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentComposer · 状态与交互",
+        "en": "AgentComposer · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-composer/#states",
+      "keywords": "agent-composer 状态与交互 States and interaction"
+    },
+    {
+      "id": "agent-composer-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentComposer · 完整示例",
+        "en": "AgentComposer · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-composer/#example",
+      "keywords": "agent-composer 完整示例 Complete example"
+    },
+    {
+      "id": "agent-composer-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentComposer · 源码",
+        "en": "AgentComposer · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-composer/#source",
+      "keywords": "agent-composer 源码 Source"
+    },
+    {
+      "id": "file-viewer",
+      "kind": "components",
+      "title": {
+        "zh-CN": "FileViewer",
+        "en": "FileViewer"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/file-viewer/",
+      "keywords": "file-viewer agent"
+    },
+    {
+      "id": "file-viewer-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "FileViewer · 安装",
+        "en": "FileViewer · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/file-viewer/#installation",
+      "keywords": "file-viewer 安装 Installation"
+    },
+    {
+      "id": "file-viewer-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "FileViewer · 使用",
+        "en": "FileViewer · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/file-viewer/#usage",
+      "keywords": "file-viewer 使用 Usage"
+    },
+    {
+      "id": "file-viewer-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "FileViewer · API",
+        "en": "FileViewer · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/file-viewer/#api",
+      "keywords": "file-viewer API API"
+    },
+    {
+      "id": "file-viewer-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "FileViewer · 状态与交互",
+        "en": "FileViewer · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/file-viewer/#states",
+      "keywords": "file-viewer 状态与交互 States and interaction"
+    },
+    {
+      "id": "file-viewer-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "FileViewer · 完整示例",
+        "en": "FileViewer · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/file-viewer/#example",
+      "keywords": "file-viewer 完整示例 Complete example"
+    },
+    {
+      "id": "file-viewer-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "FileViewer · 源码",
+        "en": "FileViewer · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/file-viewer/#source",
+      "keywords": "file-viewer 源码 Source"
+    },
+    {
+      "id": "diff-viewer",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DiffViewer",
+        "en": "DiffViewer"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/diff-viewer/",
+      "keywords": "diff-viewer agent"
+    },
+    {
+      "id": "diff-viewer-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DiffViewer · 安装",
+        "en": "DiffViewer · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/diff-viewer/#installation",
+      "keywords": "diff-viewer 安装 Installation"
+    },
+    {
+      "id": "diff-viewer-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DiffViewer · 使用",
+        "en": "DiffViewer · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/diff-viewer/#usage",
+      "keywords": "diff-viewer 使用 Usage"
+    },
+    {
+      "id": "diff-viewer-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DiffViewer · API",
+        "en": "DiffViewer · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/diff-viewer/#api",
+      "keywords": "diff-viewer API API"
+    },
+    {
+      "id": "diff-viewer-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DiffViewer · 状态与交互",
+        "en": "DiffViewer · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/diff-viewer/#states",
+      "keywords": "diff-viewer 状态与交互 States and interaction"
+    },
+    {
+      "id": "diff-viewer-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DiffViewer · 完整示例",
+        "en": "DiffViewer · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/diff-viewer/#example",
+      "keywords": "diff-viewer 完整示例 Complete example"
+    },
+    {
+      "id": "diff-viewer-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DiffViewer · 源码",
+        "en": "DiffViewer · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/diff-viewer/#source",
+      "keywords": "diff-viewer 源码 Source"
+    },
+    {
+      "id": "change-review-panel",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChangeReviewPanel",
+        "en": "ChangeReviewPanel"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/change-review-panel/",
+      "keywords": "change-review-panel agent"
+    },
+    {
+      "id": "change-review-panel-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChangeReviewPanel · 安装",
+        "en": "ChangeReviewPanel · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/change-review-panel/#installation",
+      "keywords": "change-review-panel 安装 Installation"
+    },
+    {
+      "id": "change-review-panel-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChangeReviewPanel · 使用",
+        "en": "ChangeReviewPanel · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/change-review-panel/#usage",
+      "keywords": "change-review-panel 使用 Usage"
+    },
+    {
+      "id": "change-review-panel-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChangeReviewPanel · API",
+        "en": "ChangeReviewPanel · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/change-review-panel/#api",
+      "keywords": "change-review-panel API API"
+    },
+    {
+      "id": "change-review-panel-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChangeReviewPanel · 状态与交互",
+        "en": "ChangeReviewPanel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/change-review-panel/#states",
+      "keywords": "change-review-panel 状态与交互 States and interaction"
+    },
+    {
+      "id": "change-review-panel-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChangeReviewPanel · 完整示例",
+        "en": "ChangeReviewPanel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/change-review-panel/#example",
+      "keywords": "change-review-panel 完整示例 Complete example"
+    },
+    {
+      "id": "change-review-panel-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChangeReviewPanel · 源码",
+        "en": "ChangeReviewPanel · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/change-review-panel/#source",
+      "keywords": "change-review-panel 源码 Source"
+    },
+    {
+      "id": "workbench-panel-tabs",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchPanelTabs",
+        "en": "WorkbenchPanelTabs"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/workbench-panel-tabs/",
+      "keywords": "workbench-panel-tabs agent"
+    },
+    {
+      "id": "workbench-panel-tabs-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchPanelTabs · 安装",
+        "en": "WorkbenchPanelTabs · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/workbench-panel-tabs/#installation",
+      "keywords": "workbench-panel-tabs 安装 Installation"
+    },
+    {
+      "id": "workbench-panel-tabs-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchPanelTabs · 使用",
+        "en": "WorkbenchPanelTabs · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/workbench-panel-tabs/#usage",
+      "keywords": "workbench-panel-tabs 使用 Usage"
+    },
+    {
+      "id": "workbench-panel-tabs-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchPanelTabs · API",
+        "en": "WorkbenchPanelTabs · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/workbench-panel-tabs/#api",
+      "keywords": "workbench-panel-tabs API API"
+    },
+    {
+      "id": "workbench-panel-tabs-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchPanelTabs · 状态与交互",
+        "en": "WorkbenchPanelTabs · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/workbench-panel-tabs/#states",
+      "keywords": "workbench-panel-tabs 状态与交互 States and interaction"
+    },
+    {
+      "id": "workbench-panel-tabs-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchPanelTabs · 完整示例",
+        "en": "WorkbenchPanelTabs · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/workbench-panel-tabs/#example",
+      "keywords": "workbench-panel-tabs 完整示例 Complete example"
+    },
+    {
+      "id": "workbench-panel-tabs-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchPanelTabs · 源码",
+        "en": "WorkbenchPanelTabs · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/workbench-panel-tabs/#source",
+      "keywords": "workbench-panel-tabs 源码 Source"
+    },
+    {
+      "id": "execution-output-panel",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionOutputPanel",
+        "en": "ExecutionOutputPanel"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/execution-output-panel/",
+      "keywords": "execution-output-panel agent"
+    },
+    {
+      "id": "execution-output-panel-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionOutputPanel · 安装",
+        "en": "ExecutionOutputPanel · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/execution-output-panel/#installation",
+      "keywords": "execution-output-panel 安装 Installation"
+    },
+    {
+      "id": "execution-output-panel-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionOutputPanel · 使用",
+        "en": "ExecutionOutputPanel · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/execution-output-panel/#usage",
+      "keywords": "execution-output-panel 使用 Usage"
+    },
+    {
+      "id": "execution-output-panel-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionOutputPanel · API",
+        "en": "ExecutionOutputPanel · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/execution-output-panel/#api",
+      "keywords": "execution-output-panel API API"
+    },
+    {
+      "id": "execution-output-panel-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionOutputPanel · 状态与交互",
+        "en": "ExecutionOutputPanel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/execution-output-panel/#states",
+      "keywords": "execution-output-panel 状态与交互 States and interaction"
+    },
+    {
+      "id": "execution-output-panel-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionOutputPanel · 完整示例",
+        "en": "ExecutionOutputPanel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/execution-output-panel/#example",
+      "keywords": "execution-output-panel 完整示例 Complete example"
+    },
+    {
+      "id": "execution-output-panel-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionOutputPanel · 源码",
+        "en": "ExecutionOutputPanel · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/execution-output-panel/#source",
+      "keywords": "execution-output-panel 源码 Source"
+    },
+    {
+      "id": "preview-panel",
+      "kind": "components",
+      "title": {
+        "zh-CN": "PreviewPanel",
+        "en": "PreviewPanel"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/preview-panel/",
+      "keywords": "preview-panel agent"
+    },
+    {
+      "id": "preview-panel-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "PreviewPanel · 安装",
+        "en": "PreviewPanel · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/preview-panel/#installation",
+      "keywords": "preview-panel 安装 Installation"
+    },
+    {
+      "id": "preview-panel-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "PreviewPanel · 使用",
+        "en": "PreviewPanel · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/preview-panel/#usage",
+      "keywords": "preview-panel 使用 Usage"
+    },
+    {
+      "id": "preview-panel-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "PreviewPanel · API",
+        "en": "PreviewPanel · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/preview-panel/#api",
+      "keywords": "preview-panel API API"
+    },
+    {
+      "id": "preview-panel-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "PreviewPanel · 状态与交互",
+        "en": "PreviewPanel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/preview-panel/#states",
+      "keywords": "preview-panel 状态与交互 States and interaction"
+    },
+    {
+      "id": "preview-panel-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "PreviewPanel · 完整示例",
+        "en": "PreviewPanel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/preview-panel/#example",
+      "keywords": "preview-panel 完整示例 Complete example"
+    },
+    {
+      "id": "preview-panel-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "PreviewPanel · 源码",
+        "en": "PreviewPanel · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/preview-panel/#source",
+      "keywords": "preview-panel 源码 Source"
+    },
+    {
+      "id": "agent-workbench",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbench",
+        "en": "AgentWorkbench"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench/",
+      "keywords": "agent-workbench agent"
+    },
+    {
+      "id": "agent-workbench-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbench · 安装",
+        "en": "AgentWorkbench · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench/#installation",
+      "keywords": "agent-workbench 安装 Installation"
+    },
+    {
+      "id": "agent-workbench-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbench · 使用",
+        "en": "AgentWorkbench · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench/#usage",
+      "keywords": "agent-workbench 使用 Usage"
+    },
+    {
+      "id": "agent-workbench-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbench · API",
+        "en": "AgentWorkbench · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench/#api",
+      "keywords": "agent-workbench API API"
+    },
+    {
+      "id": "agent-workbench-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbench · 状态与交互",
+        "en": "AgentWorkbench · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench/#states",
+      "keywords": "agent-workbench 状态与交互 States and interaction"
+    },
+    {
+      "id": "agent-workbench-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbench · 完整示例",
+        "en": "AgentWorkbench · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench/#example",
+      "keywords": "agent-workbench 完整示例 Complete example"
+    },
+    {
+      "id": "agent-workbench-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbench · 源码",
+        "en": "AgentWorkbench · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench/#source",
+      "keywords": "agent-workbench 源码 Source"
+    },
+    {
+      "id": "task-inbox",
+      "kind": "components",
+      "title": {
+        "zh-CN": "TaskInbox",
+        "en": "TaskInbox"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/task-inbox/",
+      "keywords": "task-inbox agent"
+    },
+    {
+      "id": "task-inbox-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "TaskInbox · 安装",
+        "en": "TaskInbox · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/task-inbox/#installation",
+      "keywords": "task-inbox 安装 Installation"
+    },
+    {
+      "id": "task-inbox-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "TaskInbox · 使用",
+        "en": "TaskInbox · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/task-inbox/#usage",
+      "keywords": "task-inbox 使用 Usage"
+    },
+    {
+      "id": "task-inbox-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "TaskInbox · API",
+        "en": "TaskInbox · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/task-inbox/#api",
+      "keywords": "task-inbox API API"
+    },
+    {
+      "id": "task-inbox-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "TaskInbox · 状态与交互",
+        "en": "TaskInbox · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/task-inbox/#states",
+      "keywords": "task-inbox 状态与交互 States and interaction"
+    },
+    {
+      "id": "task-inbox-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "TaskInbox · 完整示例",
+        "en": "TaskInbox · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/task-inbox/#example",
+      "keywords": "task-inbox 完整示例 Complete example"
+    },
+    {
+      "id": "task-inbox-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "TaskInbox · 源码",
+        "en": "TaskInbox · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/task-inbox/#source",
+      "keywords": "task-inbox 源码 Source"
+    },
+    {
+      "id": "agent-workbench-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbenchModel",
+        "en": "AgentWorkbenchModel"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench-model/",
+      "keywords": "agent-workbench-model agent"
+    },
+    {
+      "id": "agent-workbench-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbenchModel · 安装",
+        "en": "AgentWorkbenchModel · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench-model/#installation",
+      "keywords": "agent-workbench-model 安装 Installation"
+    },
+    {
+      "id": "agent-workbench-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbenchModel · 使用",
+        "en": "AgentWorkbenchModel · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench-model/#usage",
+      "keywords": "agent-workbench-model 使用 Usage"
+    },
+    {
+      "id": "agent-workbench-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbenchModel · API",
+        "en": "AgentWorkbenchModel · API"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench-model/#api",
+      "keywords": "agent-workbench-model API API"
+    },
+    {
+      "id": "agent-workbench-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbenchModel · 状态与交互",
+        "en": "AgentWorkbenchModel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench-model/#states",
+      "keywords": "agent-workbench-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "agent-workbench-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbenchModel · 完整示例",
+        "en": "AgentWorkbenchModel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench-model/#example",
+      "keywords": "agent-workbench-model 完整示例 Complete example"
+    },
+    {
+      "id": "agent-workbench-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentWorkbenchModel · 源码",
+        "en": "AgentWorkbenchModel · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+        "en": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation."
+      },
+      "href": "/docs/agent-workbench-model/#source",
+      "keywords": "agent-workbench-model 源码 Source"
+    },
+    {
       "id": "agent-run-properties",
       "kind": "components",
       "title": {
@@ -17152,6 +18916,76 @@
       "keywords": "item-board 源码 Source"
     },
     {
+      "id": "agent-workbench-guide",
+      "kind": "guides",
+      "title": {
+        "zh-CN": "Agent 工作台集成",
+        "en": "Agent workbench integration"
+      },
+      "summary": {
+        "zh-CN": "区域组合、草稿确认、审阅版本与调用方服务边界。",
+        "en": "Region composition, draft acknowledgements, review revisions and caller service boundaries."
+      },
+      "href": "/docs/agent-workbench-guide/",
+      "keywords": "agent-workbench-guide"
+    },
+    {
+      "id": "agent-workbench-guide-install",
+      "kind": "guides",
+      "title": {
+        "zh-CN": "Agent 工作台集成 · 安装区域源码",
+        "en": "Agent workbench integration · Install region source"
+      },
+      "summary": {
+        "zh-CN": "安装整个组合，或选择 session-navigator、agent-composer、context-panel、change-review-panel 等区域。区域组件复用同一套基础主题与便携语言提供器；不依赖文档站或 Next。",
+        "en": "Install the complete composition, or choose regions such as session-navigator, agent-composer, context-panel and change-review-panel. Regions share theme tokens and portable localization; they do not depend on this documentation site or Next."
+      },
+      "href": "/docs/agent-workbench-guide/#install",
+      "keywords": "agent-workbench-guide"
+    },
+    {
+      "id": "agent-workbench-guide-acknowledgements",
+      "kind": "guides",
+      "title": {
+        "zh-CN": "Agent 工作台集成 · 控制状态与回执",
+        "en": "Agent workbench integration · Control state and receipts"
+      },
+      "summary": {
+        "zh-CN": "Session、Run、Message、Tool 与 Request 独立标识。宿主按连续来源游标应用修订；缺口先读取补齐。只有 confirmed 且 draftId/version 匹配才清理草稿。unknown 时先查询结果，不重新发送写入。",
+        "en": "Session, Run, Message, Tool and Request have distinct identities. Apply revisions in contiguous source cursor order and read missing records before proceeding. Clear drafts only when confirmed draftId and version match. Reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/agent-workbench-guide/#acknowledgements",
+      "keywords": "agent-workbench-guide"
+    },
+    {
+      "id": "agent-workbench-guide-layouts",
+      "kind": "guides",
+      "title": {
+        "zh-CN": "Agent 工作台集成 · 布局与区域",
+        "en": "Agent workbench integration · Layouts and regions"
+      },
+      "summary": {
+        "zh-CN": "WorkspaceShell 管理唯一的导航、Inspector 和底栏。宽 Diff 位于 Main。容器不足920px切换对话/详情，保留已挂载编辑器；关闭面板不停止任务。文件反馈绑定 base/head/revision，需要重新定位旧版本评论。",
+        "en": "WorkspaceShell owns navigation, Inspector and the bottom panel. Wide Diffs belong in Main. Below 920px of remaining container width, switch conversation and detail panes while retaining mounted editors. Closing a panel does not stop work. File feedback binds base, head and revision; relocate older comments explicitly."
+      },
+      "href": "/docs/agent-workbench-guide/#layouts",
+      "keywords": "agent-workbench-guide"
+    },
+    {
+      "id": "agent-workbench-guide-services",
+      "kind": "guides",
+      "title": {
+        "zh-CN": "Agent 工作台集成 · 明确来源能力",
+        "en": "Agent workbench integration · Make source capabilities explicit"
+      },
+      "summary": {
+        "zh-CN": "公共组件只收快照、数据和回调。附件选择不等于引擎注入，日志不等于 PTY，报告 fixture 不等于真实执行。模型、权限、文件/Git、终端、浏览器和业务持久化须由宿主另行接入与验收。",
+        "en": "Public components accept snapshots, data and callbacks. File selection is not engine injection, logs are not a PTY, and report fixtures are not real execution. The host must separately integrate and verify models, permissions, file/Git access, terminals, browsers and business persistence."
+      },
+      "href": "/docs/agent-workbench-guide/#services",
+      "keywords": "agent-workbench-guide"
+    },
+    {
       "id": "installation",
       "kind": "guides",
       "title": {
@@ -17418,6 +19252,48 @@
       "keywords": "composing-workspaces"
     },
     {
+      "id": "agent-coding-workbench",
+      "kind": "examples",
+      "title": {
+        "zh-CN": "Agent 编码工作台",
+        "en": "Agent coding workbench"
+      },
+      "summary": {
+        "zh-CN": "项目会话、上下文、工具批准与版本绑定的代码审阅，共享一份受控快照。",
+        "en": "Projects, sessions, context, tool approval and version-bound code review share a controlled snapshot."
+      },
+      "href": "/examples/agent-workbench/app/?template=coding&page=home",
+      "keywords": "session-navigator agent-conversation agent-composer context-panel change-review-panel"
+    },
+    {
+      "id": "agent-artifacts-workbench",
+      "kind": "examples",
+      "title": {
+        "zh-CN": "Agent 产物审阅",
+        "en": "Agent artifact review"
+      },
+      "summary": {
+        "zh-CN": "资料引用、报告预览和反馈草稿，形成不依赖代码执行的本地交互闭环。",
+        "en": "Source references, report previews and feedback drafts form a local interaction flow without code execution."
+      },
+      "href": "/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
+      "keywords": "context-panel message-content artifact-list preview-panel agent-composer"
+    },
+    {
+      "id": "agent-console-workbench",
+      "kind": "examples",
+      "title": {
+        "zh-CN": "多任务 Agent 控制台",
+        "en": "Agent task console"
+      },
+      "summary": {
+        "zh-CN": "筛选待批准、待回答和失败任务，先查看详情，再显式进入对应会话。",
+        "en": "Filter approvals, questions and failed tasks, inspect details, then explicitly enter a session."
+      },
+      "href": "/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
+      "keywords": "task-inbox attention-queue agent-run-list execution-trace-tree agent-workbench"
+    },
+    {
       "id": "workflow-analytics",
       "kind": "examples",
       "title": {
@@ -17486,6 +19362,20 @@
       },
       "href": "/blog/agent-board-showcase/",
       "keywords": "agent-board-showcase"
+    },
+    {
+      "id": "agent-workbench",
+      "kind": "articles",
+      "title": {
+        "zh-CN": "Agent 工作台：从独立区域到三种完整网页",
+        "en": "Agent workbench: from individual regions to three complete pages"
+      },
+      "summary": {
+        "zh-CN": "复用会话、工具和运行区域，组合编码、产物审阅与多任务模板；按草稿版本、来源游标和独立回执连接交互。",
+        "en": "Reuse conversation, tool and runtime regions across coding, artifact review and task templates, with draft versions, source cursors and separate operation receipts."
+      },
+      "href": "/blog/agent-workbench/",
+      "keywords": "agent-workbench"
     },
     {
       "id": "canvas-indexes",

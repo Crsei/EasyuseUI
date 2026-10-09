@@ -1,0 +1,60 @@
+{
+  "complete": true,
+  "capturedAt": "2026-10-09T04:05:39.059487+00:00",
+  "sourceSnapshotId": "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943",
+  "command": "Isolated candidate: pnpm lint; pnpm typecheck; pnpm build; pnpm check:i18n; pnpm registry:build; pnpm blog:build; pnpm docs:build; pnpm check:docs; TMPDIR=/tmp pnpm exec playwright test (full config, preview port 3017), then repeat all seven loading budgets and the configured-origin touch case; TMPDIR=/tmp pnpm test:install",
+  "modelTests": 10,
+  "browserTests": 30,
+  "fullRegression": {
+    "passed": 536,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 696276.173,
+    "validationRuns": [
+      {
+        "kind": "full",
+        "passed": 533,
+        "failed": 3,
+        "durationMs": 682864.882
+      },
+      {
+        "kind": "loading budgets and configured-origin correction",
+        "passed": 8,
+        "failed": 0,
+        "durationMs": 13411.291000000001,
+        "cases": [
+          "initial loading budget and no Canvas engine: /components/",
+          "initial loading budget and no Canvas engine: /dictionary/",
+          "initial loading budget and no Canvas engine: /docs/button/",
+          "initial loading budget and no Canvas engine: /blog/",
+          "initial loading budget and no Canvas engine: /blog/on-demand-demos/",
+          "initial loading budget and no Canvas engine: /",
+          "initial loading budget and no Canvas engine: /examples/",
+          "coarse pointer dialogs and splitters preserve touch target sizes"
+        ],
+        "correction": "Split the homepage gallery into a separate site-only client module to keep example metadata out of shared catalog/dictionary bundles. Retained original JS ceilings. The coarse pointer context now inherits configured baseURL."
+      }
+    ],
+    "siteChangesBetweenRuns": [
+      "components/site/home/scene-preview.tsx",
+      "components/site/home/scene-preview-content.tsx"
+    ],
+    "runtimeSourceChangesBetweenRuns": false
+  },
+  "independentInstall": "passed",
+  "registryPayloads": 643,
+  "historyAndDiff": {
+    "historyRecords": 1002,
+    "diffRows": 1000,
+    "initialNavigationAndRenderMs": 3718,
+    "mode": "all records mounted with browser layout deferral; not virtualized"
+  },
+  "screenshots": {
+    "templates": 3,
+    "routeImages": 12,
+    "baselineImages": 1,
+    "fontStatus": "loaded",
+    "horizontalOverflow": false
+  },
+  "boundary": "Local fixture UI, engineering and independent installation. Real model/filesystem/Git/PTY/browser/auth/persistence services are not connected."
+}

@@ -32,6 +32,1161 @@ export type ComponentManifestEntry = {
 }
 
 const sourceManifest: ComponentManifestEntry[] = [
+  // BEGIN agent workbench
+{
+  "slug": "session-navigator",
+  "docPath": "/docs/session-navigator/",
+  "registryId": "agent-workbench-navigation",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "input",
+    "data-region",
+    "session-row",
+    "runtime-status-badge"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "SessionNavigator",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/navigation.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { SessionNavigator } from \"@/components/blocks/agent-workbench/navigation\"",
+  "props": [
+    {
+      "name": "projects",
+      "type": "readonly ProjectRef[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "sessions",
+      "type": "readonly SessionSnapshot[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "projectId",
+      "type": "string",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "selectedId",
+      "type": "string | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onProjectChange",
+      "type": "(id: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onSelect",
+      "type": "(id: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onNew",
+      "type": "() => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onUpdate",
+      "type": "(id: string, patch: Partial<Pick<SessionSnapshot, \"title\" | \"favorite\" | \"archived\">>) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "receipts",
+      "type": "readonly OperationReceipt[] | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onReconcile",
+      "type": "(receipt: OperationReceipt) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "project-switcher",
+  "docPath": "/docs/project-switcher/",
+  "registryId": "agent-workbench-navigation",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "input",
+    "data-region",
+    "session-row",
+    "runtime-status-badge"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "ProjectSwitcher",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/navigation.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { ProjectSwitcher } from \"@/components/blocks/agent-workbench/navigation\"",
+  "props": [
+    {
+      "name": "projects",
+      "type": "readonly ProjectRef[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onChange",
+      "type": "(id: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "session-header",
+  "docPath": "/docs/session-header/",
+  "registryId": "agent-workbench-navigation",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "input",
+    "data-region",
+    "session-row",
+    "runtime-status-badge"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "SessionHeader",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/navigation.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { SessionHeader } from \"@/components/blocks/agent-workbench/navigation\"",
+  "props": [
+    {
+      "name": "session",
+      "type": "SessionSnapshot",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "environment",
+      "type": "EnvironmentRef | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onRename",
+      "type": "(title: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onInterrupt",
+      "type": "() => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "actions",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "context-panel",
+  "docPath": "/docs/context-panel/",
+  "registryId": "agent-workbench-context",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "data-region",
+    "item"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ContextPanel",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/context.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { ContextPanel } from \"@/components/blocks/agent-workbench/context\"",
+  "props": [
+    {
+      "name": "references",
+      "type": "readonly ContextReference[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onRemove",
+      "type": "(id: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onInclude",
+      "type": "(id: string, included: boolean) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onRetry",
+      "type": "(id: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onOpen",
+      "type": "(reference: ContextReference) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "data",
+      "type": "Omit<DataRegionProps, \"children\" | \"hasContent\">",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "limit",
+      "type": "number | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "context-picker",
+  "docPath": "/docs/context-picker/",
+  "registryId": "agent-workbench-context",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "data-region",
+    "item"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ContextPicker",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/context.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { ContextPicker } from \"@/components/blocks/agent-workbench/context\"",
+  "props": [
+    {
+      "name": "references",
+      "type": "readonly ContextReference[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onPick",
+      "type": "(reference: ContextReference) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "message-content",
+  "docPath": "/docs/message-content/",
+  "registryId": "agent-workbench-conversation",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "chat-message",
+    "tool-call"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "MessageContent",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/conversation.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { MessageContent } from \"@/components/blocks/agent-workbench/conversation\"",
+  "props": [
+    {
+      "name": "content",
+      "type": "string",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "maximum",
+      "type": "number | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "agent-conversation",
+  "docPath": "/docs/agent-conversation/",
+  "registryId": "agent-workbench-conversation",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "chat-message",
+    "tool-call"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "AgentConversation",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/conversation.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { AgentConversation } from \"@/components/blocks/agent-workbench/conversation\"",
+  "props": [
+    {
+      "name": "session",
+      "type": "SessionSnapshot",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "composer",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "attention",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onLoadHistory",
+      "type": "() => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onOpenReference",
+      "type": "(part: MessagePart) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "actionsRef",
+      "type": "Ref<ConversationActions>",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "deferOffscreen",
+      "type": "boolean | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onRetry",
+      "type": "() => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "composer-controls",
+  "docPath": "/docs/composer-controls/",
+  "registryId": "agent-workbench-composer",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "chat-message"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ComposerControls",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/composer.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { ComposerControls } from \"@/components/blocks/agent-workbench/composer\"",
+  "props": [
+    {
+      "name": "draft",
+      "type": "DraftState",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "session",
+      "type": "SessionSnapshot",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "models",
+      "type": "readonly WorkbenchChoice[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "permissions",
+      "type": "readonly WorkbenchChoice[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "environments",
+      "type": "readonly WorkbenchChoice[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onChange",
+      "type": "(draft: DraftState) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "agent-composer",
+  "docPath": "/docs/agent-composer/",
+  "registryId": "agent-workbench-composer",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "button",
+    "chat-message"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "AgentComposer",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/composer.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { AgentComposer } from \"@/components/blocks/agent-workbench/composer\"",
+  "props": [
+    {
+      "name": "draft",
+      "type": "DraftState",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "session",
+      "type": "SessionSnapshot",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "models",
+      "type": "readonly WorkbenchChoice[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "permissions",
+      "type": "readonly WorkbenchChoice[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "environments",
+      "type": "readonly WorkbenchChoice[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "receipts",
+      "type": "readonly OperationReceipt[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onChange",
+      "type": "(draft: DraftState) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onSubmit",
+      "type": "(draft: DraftState) => void | Promise<void>",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onInterrupt",
+      "type": "() => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onReconcile",
+      "type": "(receipt: OperationReceipt) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onFiles",
+      "type": "(files: File[]) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "attachments",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "file-viewer",
+  "docPath": "/docs/file-viewer/",
+  "registryId": "agent-workbench-review",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "tree",
+    "button",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "FileViewer",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/review.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { FileViewer } from \"@/components/blocks/agent-workbench/review\"",
+  "props": [
+    {
+      "name": "file",
+      "type": "ChangedFile | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "revision",
+      "type": "string",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "maximumLines",
+      "type": "number | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "diff-viewer",
+  "docPath": "/docs/diff-viewer/",
+  "registryId": "agent-workbench-review",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "tree",
+    "button",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "DiffViewer",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/review.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { DiffViewer } from \"@/components/blocks/agent-workbench/review\"",
+  "props": [
+    {
+      "name": "file",
+      "type": "ChangedFile",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "mode",
+      "type": "\"unified\" | \"split\"",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onComment",
+      "type": "(lineId: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "maximumLines",
+      "type": "number | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "change-review-panel",
+  "docPath": "/docs/change-review-panel/",
+  "registryId": "agent-workbench-review",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "tree",
+    "button",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ChangeReviewPanel",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/review.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { ChangeReviewPanel } from \"@/components/blocks/agent-workbench/review\"",
+  "props": [
+    {
+      "name": "changes",
+      "type": "ChangeSet",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "scopeId",
+      "type": "string | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "selectedFileId",
+      "type": "string | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onSelectFile",
+      "type": "(id: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "comments",
+      "type": "readonly ReviewComment[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onCommentsChange",
+      "type": "(comments: ReviewComment[]) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onFeedback",
+      "type": "(text: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "mode",
+      "type": "\"unified\" | \"split\"",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onModeChange",
+      "type": "(mode: \"unified\" | \"split\") => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "fileOnly",
+      "type": "boolean | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "workbench-panel-tabs",
+  "docPath": "/docs/workbench-panel-tabs/",
+  "registryId": "agent-workbench-panels",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "tabs",
+    "button",
+    "input",
+    "redact"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkbenchPanelTabs",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/panels.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { WorkbenchPanelTabs } from \"@/components/blocks/agent-workbench/panels\"",
+  "props": [
+    {
+      "name": "panels",
+      "type": "readonly WorkbenchPanelDescriptor[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "value",
+      "type": "WorkbenchPanelId",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onChange",
+      "type": "(id: WorkbenchPanelId) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "execution-output-panel",
+  "docPath": "/docs/execution-output-panel/",
+  "registryId": "agent-workbench-panels",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "tabs",
+    "button",
+    "input",
+    "redact"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ExecutionOutputPanel",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/panels.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { ExecutionOutputPanel } from \"@/components/blocks/agent-workbench/panels\"",
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "truncated",
+      "type": "boolean | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "connected",
+      "type": "boolean | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onReconnect",
+      "type": "() => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "terminal",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "preview-panel",
+  "docPath": "/docs/preview-panel/",
+  "registryId": "agent-workbench-panels",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "tabs",
+    "button",
+    "input",
+    "redact"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "PreviewPanel",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench/panels.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { PreviewPanel } from \"@/components/blocks/agent-workbench/panels\"",
+  "props": [
+    {
+      "name": "url",
+      "type": "string | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "allowed",
+      "type": "boolean | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "reason",
+      "type": "string | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "agent-workbench",
+  "docPath": "/docs/agent-workbench/",
+  "registryId": "agent-workbench",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "utils",
+    "workspace-shell",
+    "inspector",
+    "agent-run-list",
+    "attention-queue",
+    "button",
+    "agent-workbench-model",
+    "agent-workbench-navigation",
+    "agent-workbench-context",
+    "agent-workbench-conversation",
+    "agent-workbench-composer",
+    "agent-workbench-review",
+    "agent-workbench-panels"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "AgentWorkbench",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { AgentWorkbench } from \"@/components/blocks/agent-workbench\"",
+  "props": [
+    {
+      "name": "session",
+      "type": "SessionSnapshot",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "layout",
+      "type": "WorkbenchLayout",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "panelState",
+      "type": "PanelState",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onPanelStateChange",
+      "type": "(state: PanelState) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "navigation",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "workspace",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "composer",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "inspector",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "bottom",
+      "type": "ReactNode",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "conversation",
+      "type": "Omit<AgentConversationProps, \"session\" | \"composer\">",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onRename",
+      "type": "(title: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": [
+    "session-navigator",
+    "agent-composer",
+    "change-review-panel"
+  ]
+},
+{
+  "slug": "task-inbox",
+  "docPath": "/docs/task-inbox/",
+  "registryId": "agent-workbench",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "utils",
+    "workspace-shell",
+    "inspector",
+    "agent-run-list",
+    "attention-queue",
+    "button",
+    "agent-workbench-model",
+    "agent-workbench-navigation",
+    "agent-workbench-context",
+    "agent-workbench-conversation",
+    "agent-workbench-composer",
+    "agent-workbench-review",
+    "agent-workbench-panels"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "TaskInbox",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "components/blocks/agent-workbench.tsx",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { TaskInbox } from \"@/components/blocks/agent-workbench\"",
+  "props": [
+    {
+      "name": "runs",
+      "type": "readonly AgentRunSnapshot[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "attention",
+      "type": "readonly AttentionRecord[]",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "selectedRunId",
+      "type": "string | undefined",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "onSelect",
+      "type": "(runId: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    },
+    {
+      "name": "onEnter",
+      "type": "(runId: string) => void",
+      "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": [
+    "agent-workbench",
+    "agent-workbench-model"
+  ]
+},
+{
+  "slug": "agent-workbench-model",
+  "docPath": "/docs/agent-workbench-model/",
+  "registryId": "agent-workbench-model",
+  "registryDependencies": [
+    "agent-board-model",
+    "runtime-status"
+  ],
+  "installType": "lib",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "AgentWorkbenchModel",
+  "category": "组合模块",
+  "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+  "source": "lib/agent-workbench-model.ts",
+  "example": "components/examples/agent-workbench/component-demos.tsx",
+  "usage": "import { draftCanSubmit } from \"@/lib/agent-workbench-model\"",
+  "props": [
+    {
+      "name": "applySessionEvent",
+      "type": "(session: SessionSnapshot, event: { sessionId: string; cursor: number; message: WorkbenchMessage }) => SessionSnapshot",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "acknowledgeDraft",
+      "type": "(draft: DraftState, receipt: OperationReceipt) => DraftState",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "draftCanSubmit",
+      "type": "(session: SessionSnapshot, draft: DraftState, receipts: readonly OperationReceipt[]) => boolean",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "reviewCommentIsCurrent",
+      "type": "(changes: ChangeSet, comment: ReviewComment) => boolean",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    },
+    {
+      "name": "parseWorkbenchQuery",
+      "type": "(query: URLSearchParams, sessionIds: readonly string[]) => ReturnType<typeof parseWorkbenchQuery>",
+      "description": "稳定对象标识、版本、能力与独立操作回执。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+  ],
+  "widePreview": false,
+  "docGroup": "agent",
+  "related": [
+    "session-navigator",
+    "agent-composer",
+    "change-review-panel"
+  ]
+},
+  // END agent workbench
+
 // BEGIN shadcn completion
 {
   "slug": "button-group",

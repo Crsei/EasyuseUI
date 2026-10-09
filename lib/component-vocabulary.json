@@ -1,5 +1,203 @@
 [
   {
+    "slug": "session-navigator",
+    "name": "SessionNavigator",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/navigation.tsx",
+    "usage": "import { SessionNavigator } from \"@/components/blocks/agent-workbench/navigation\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "project-switcher",
+    "name": "ProjectSwitcher",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/navigation.tsx",
+    "usage": "import { ProjectSwitcher } from \"@/components/blocks/agent-workbench/navigation\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "session-header",
+    "name": "SessionHeader",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/navigation.tsx",
+    "usage": "import { SessionHeader } from \"@/components/blocks/agent-workbench/navigation\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "context-panel",
+    "name": "ContextPanel",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/context.tsx",
+    "usage": "import { ContextPanel } from \"@/components/blocks/agent-workbench/context\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "context-picker",
+    "name": "ContextPicker",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/context.tsx",
+    "usage": "import { ContextPicker } from \"@/components/blocks/agent-workbench/context\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "message-content",
+    "name": "MessageContent",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/conversation.tsx",
+    "usage": "import { MessageContent } from \"@/components/blocks/agent-workbench/conversation\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "agent-conversation",
+    "name": "AgentConversation",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/conversation.tsx",
+    "usage": "import { AgentConversation } from \"@/components/blocks/agent-workbench/conversation\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "composer-controls",
+    "name": "ComposerControls",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/composer.tsx",
+    "usage": "import { ComposerControls } from \"@/components/blocks/agent-workbench/composer\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "agent-composer",
+    "name": "AgentComposer",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/composer.tsx",
+    "usage": "import { AgentComposer } from \"@/components/blocks/agent-workbench/composer\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "file-viewer",
+    "name": "FileViewer",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/review.tsx",
+    "usage": "import { FileViewer } from \"@/components/blocks/agent-workbench/review\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "diff-viewer",
+    "name": "DiffViewer",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/review.tsx",
+    "usage": "import { DiffViewer } from \"@/components/blocks/agent-workbench/review\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "change-review-panel",
+    "name": "ChangeReviewPanel",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/review.tsx",
+    "usage": "import { ChangeReviewPanel } from \"@/components/blocks/agent-workbench/review\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "workbench-panel-tabs",
+    "name": "WorkbenchPanelTabs",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/panels.tsx",
+    "usage": "import { WorkbenchPanelTabs } from \"@/components/blocks/agent-workbench/panels\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "execution-output-panel",
+    "name": "ExecutionOutputPanel",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/panels.tsx",
+    "usage": "import { ExecutionOutputPanel } from \"@/components/blocks/agent-workbench/panels\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "preview-panel",
+    "name": "PreviewPanel",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench/panels.tsx",
+    "usage": "import { PreviewPanel } from \"@/components/blocks/agent-workbench/panels\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "agent-workbench",
+    "name": "AgentWorkbench",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench.tsx",
+    "usage": "import { AgentWorkbench } from \"@/components/blocks/agent-workbench\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "task-inbox",
+    "name": "TaskInbox",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "components/blocks/agent-workbench.tsx",
+    "usage": "import { TaskInbox } from \"@/components/blocks/agent-workbench\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
+    "slug": "agent-workbench-model",
+    "name": "AgentWorkbenchModel",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "source": "lib/agent-workbench-model.ts",
+    "usage": "import { draftCanSubmit } from \"@/lib/agent-workbench-model\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
+    ]
+  },
+  {
     "slug": "button-group",
     "name": "ButtonGroup",
     "category": "基础组件",

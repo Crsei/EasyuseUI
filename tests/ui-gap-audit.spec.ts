@@ -364,14 +364,16 @@ test("lightweight chart distinguishes zero and missing reasons with a table", as
 })
 test("coarse pointer dialogs and splitters preserve touch target sizes", async ({
   browser,
+  baseURL,
 }) => {
   const context = await browser.newContext({
+    baseURL,
     hasTouch: true,
     isMobile: false,
     viewport: { width: 390, height: 240 },
   })
   const page = await context.newPage()
-  await page.goto("http://127.0.0.1:3011/examples/component-contracts/")
+  await page.goto("/examples/component-contracts/")
   await page.getByRole("button", { name: "打开长表单", exact: true }).tap()
   const dialog = page.getByRole("dialog")
   for (const name of ["关闭弹窗", "提交本地示例"]) {

@@ -13,6 +13,7 @@ test("example gallery and source docs expose installed charts on the current sit
     "href",
     "/examples/workflow-analytics/",
   )
+  await example.scrollIntoViewIfNeeded()
   await expect
     .poll(() =>
       example

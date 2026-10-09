@@ -1,5 +1,66 @@
 [
   {
+    "slug": "session-navigator"
+  },
+  {
+    "slug": "project-switcher"
+  },
+  {
+    "slug": "session-header"
+  },
+  {
+    "slug": "context-panel"
+  },
+  {
+    "slug": "context-picker"
+  },
+  {
+    "slug": "message-content",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-conversation",
+    "widePreview": true
+  },
+  {
+    "slug": "composer-controls"
+  },
+  {
+    "slug": "agent-composer"
+  },
+  {
+    "slug": "file-viewer",
+    "widePreview": true
+  },
+  {
+    "slug": "diff-viewer",
+    "widePreview": true
+  },
+  {
+    "slug": "change-review-panel",
+    "widePreview": true
+  },
+  {
+    "slug": "workbench-panel-tabs"
+  },
+  {
+    "slug": "execution-output-panel"
+  },
+  {
+    "slug": "preview-panel"
+  },
+  {
+    "slug": "agent-workbench",
+    "widePreview": true
+  },
+  {
+    "slug": "task-inbox",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-workbench-model"
+  },
+  {
     "slug": "button-group"
   },
   {

@@ -1,5 +1,10 @@
 export const siteMessages = {
   "zh-CN": {
+    "workbenchCatalog.description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
+    "workbenchCatalog.snapshot": "稳定对象标识、版本、能力与独立操作回执。",
+    "workbenchCatalog.actions": "选择与执行分离；未知结果先查询，确认前保留草稿。",
+    "workbenchCatalog.boundary": "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。",
+
     "site.workflowAnalytics.catalog.00":
       "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
     "site.workflowAnalytics.catalog.01":
@@ -2924,6 +2929,11 @@ export const siteMessages = {
 "site.gapAudit.detail5":"交互单元格使用separate，避免嵌套按钮。"
 },
   en: {
+    "workbenchCatalog.description": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation.",
+    "workbenchCatalog.snapshot": "Stable object identity, revisions, capabilities and separate operation receipts.",
+    "workbenchCatalog.actions": "Selection and execution are separate; reconcile unknown outcomes and retain drafts until confirmation.",
+    "workbenchCatalog.boundary": "Local fixtures prove component interaction; real model, file, Git, PTY and browser services need separate adapters.",
+
     "site.workflowAnalytics.catalog.00":
       "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown.",
     "site.workflowAnalytics.catalog.01":

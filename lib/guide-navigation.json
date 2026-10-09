@@ -1,5 +1,46 @@
 [
   {
+    "slug": "agent-workbench-guide",
+    "title": {
+      "zh-CN": "Agent 工作台集成",
+      "en": "Agent workbench integration"
+    },
+    "summary": {
+      "zh-CN": "区域组合、草稿确认、审阅版本与调用方服务边界。",
+      "en": "Region composition, draft acknowledgements, review revisions and caller service boundaries."
+    },
+    "sections": [
+      {
+        "id": "install",
+        "title": {
+          "zh-CN": "安装区域源码",
+          "en": "Install region source"
+        }
+      },
+      {
+        "id": "acknowledgements",
+        "title": {
+          "zh-CN": "控制状态与回执",
+          "en": "Control state and receipts"
+        }
+      },
+      {
+        "id": "layouts",
+        "title": {
+          "zh-CN": "布局与区域",
+          "en": "Layouts and regions"
+        }
+      },
+      {
+        "id": "services",
+        "title": {
+          "zh-CN": "明确来源能力",
+          "en": "Make source capabilities explicit"
+        }
+      }
+    ]
+  },
+  {
     "slug": "installation",
     "title": {
       "zh-CN": "安装与主题",

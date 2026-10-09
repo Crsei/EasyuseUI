@@ -22,6 +22,46 @@ const images = (id: string) => ({
 })
 export const exampleManifest: SiteExample[] = [
   {
+    id: "agent-coding-workbench",
+    title: { "zh-CN": "Agent 编码工作台", en: "Agent coding workbench" },
+    description: {
+      "zh-CN": "项目会话、上下文、工具批准与版本绑定的代码审阅，共享一份受控快照。",
+      en: "Projects, sessions, context, tool approval and version-bound code review share a controlled snapshot.",
+    },
+    href: "/examples/agent-workbench/app/?template=coding&page=home",
+    thumbnail: images("agent-coding-workbench"),
+    components: ["session-navigator", "agent-conversation", "agent-composer", "context-panel", "change-review-panel"],
+    article: "agent-workbench",
+    validation: "fixture-verified",
+  },
+  {
+    id: "agent-artifacts-workbench",
+    title: { "zh-CN": "Agent 产物审阅", en: "Agent artifact review" },
+    description: {
+      "zh-CN": "资料引用、报告预览和反馈草稿，形成不依赖代码执行的本地交互闭环。",
+      en: "Source references, report previews and feedback drafts form a local interaction flow without code execution.",
+    },
+    href: "/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
+    thumbnail: images("agent-artifacts-workbench"),
+    components: ["context-panel", "message-content", "artifact-list", "preview-panel", "agent-composer"],
+    article: "agent-workbench",
+    validation: "fixture-verified",
+  },
+  {
+    id: "agent-console-workbench",
+    title: { "zh-CN": "多任务 Agent 控制台", en: "Agent task console" },
+    description: {
+      "zh-CN": "筛选待批准、待回答和失败任务，先查看详情，再显式进入对应会话。",
+      en: "Filter approvals, questions and failed tasks, inspect details, then explicitly enter a session.",
+    },
+    href: "/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
+    thumbnail: images("agent-console-workbench"),
+    components: ["task-inbox", "attention-queue", "agent-run-list", "execution-trace-tree", "agent-workbench"],
+    article: "agent-workbench",
+    validation: "fixture-verified",
+  },
+
+  {
     id: "workflow-analytics",
     title: { "zh-CN": "工作流分析", en: "Workflow analytics" },
     description: {

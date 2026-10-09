@@ -1,4 +1,292 @@
 {
+  "session-navigator": [
+    {
+      "id": "25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926",
+      "path": "components/blocks/agent-workbench/navigation.tsx",
+      "kind": "source",
+      "url": "/docs-code/25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926.json",
+      "lines": 358
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "project-switcher": [
+    {
+      "id": "25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926",
+      "path": "components/blocks/agent-workbench/navigation.tsx",
+      "kind": "source",
+      "url": "/docs-code/25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926.json",
+      "lines": 358
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "session-header": [
+    {
+      "id": "25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926",
+      "path": "components/blocks/agent-workbench/navigation.tsx",
+      "kind": "source",
+      "url": "/docs-code/25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926.json",
+      "lines": 358
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "context-panel": [
+    {
+      "id": "01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85",
+      "path": "components/blocks/agent-workbench/context.tsx",
+      "kind": "source",
+      "url": "/docs-code/01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85.json",
+      "lines": 153
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "context-picker": [
+    {
+      "id": "01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85",
+      "path": "components/blocks/agent-workbench/context.tsx",
+      "kind": "source",
+      "url": "/docs-code/01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85.json",
+      "lines": 153
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "message-content": [
+    {
+      "id": "29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c",
+      "path": "components/blocks/agent-workbench/conversation.tsx",
+      "kind": "source",
+      "url": "/docs-code/29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c.json",
+      "lines": 206
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "agent-conversation": [
+    {
+      "id": "29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c",
+      "path": "components/blocks/agent-workbench/conversation.tsx",
+      "kind": "source",
+      "url": "/docs-code/29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c.json",
+      "lines": 206
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "composer-controls": [
+    {
+      "id": "95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc",
+      "path": "components/blocks/agent-workbench/composer.tsx",
+      "kind": "source",
+      "url": "/docs-code/95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc.json",
+      "lines": 271
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "agent-composer": [
+    {
+      "id": "95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc",
+      "path": "components/blocks/agent-workbench/composer.tsx",
+      "kind": "source",
+      "url": "/docs-code/95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc.json",
+      "lines": 271
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "file-viewer": [
+    {
+      "id": "88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f",
+      "path": "components/blocks/agent-workbench/review.tsx",
+      "kind": "source",
+      "url": "/docs-code/88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f.json",
+      "lines": 405
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "diff-viewer": [
+    {
+      "id": "88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f",
+      "path": "components/blocks/agent-workbench/review.tsx",
+      "kind": "source",
+      "url": "/docs-code/88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f.json",
+      "lines": 405
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "change-review-panel": [
+    {
+      "id": "88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f",
+      "path": "components/blocks/agent-workbench/review.tsx",
+      "kind": "source",
+      "url": "/docs-code/88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f.json",
+      "lines": 405
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "workbench-panel-tabs": [
+    {
+      "id": "1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898",
+      "path": "components/blocks/agent-workbench/panels.tsx",
+      "kind": "source",
+      "url": "/docs-code/1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898.json",
+      "lines": 186
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "execution-output-panel": [
+    {
+      "id": "1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898",
+      "path": "components/blocks/agent-workbench/panels.tsx",
+      "kind": "source",
+      "url": "/docs-code/1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898.json",
+      "lines": 186
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "preview-panel": [
+    {
+      "id": "1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898",
+      "path": "components/blocks/agent-workbench/panels.tsx",
+      "kind": "source",
+      "url": "/docs-code/1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898.json",
+      "lines": 186
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "agent-workbench": [
+    {
+      "id": "4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff",
+      "path": "components/blocks/agent-workbench.tsx",
+      "kind": "source",
+      "url": "/docs-code/4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff.json",
+      "lines": 197
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "task-inbox": [
+    {
+      "id": "4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff",
+      "path": "components/blocks/agent-workbench.tsx",
+      "kind": "source",
+      "url": "/docs-code/4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff.json",
+      "lines": 197
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
+  "agent-workbench-model": [
+    {
+      "id": "1840e9dd16c17c0399c869a6a1a3307224f449dd38082a2c439616833d9ff920",
+      "path": "lib/agent-workbench-model.ts",
+      "kind": "source",
+      "url": "/docs-code/1840e9dd16c17c0399c869a6a1a3307224f449dd38082a2c439616833d9ff920.json",
+      "lines": 403
+    },
+    {
+      "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
+      "path": "components/examples/agent-workbench/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1.json",
+      "lines": 290
+    }
+  ],
   "button-group": [
     {
       "id": "253e3b10f95b4344ef6799571d037a7808821f79975e093d5a7797f7b75794af",
@@ -1670,11 +1958,11 @@
       "lines": 135
     },
     {
-      "id": "dd6bde8a8a8c045f4a2097f0e32aba13ff2329241b47d57f9f37dd4d1c452053",
+      "id": "5e85d05cfd556d595108718f71722edc0334ac313ef1ad9a1d13124b7d94db32",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/dd6bde8a8a8c045f4a2097f0e32aba13ff2329241b47d57f9f37dd4d1c452053.json",
-      "lines": 3385
+      "url": "/docs-code/5e85d05cfd556d595108718f71722edc0334ac313ef1ad9a1d13124b7d94db32.json",
+      "lines": 3587
     }
   ],
   "canvas-service-panel": [
@@ -2506,11 +2794,11 @@
   ],
   "chat-message": [
     {
-      "id": "95e2fbcdc9549cb5d3d6dfc1f753045495c32308181ab11f2eb27e73d7822646",
+      "id": "0f35cdc3ffa20885dff7004d401f1c7cf9a3718c074a1fdd49cf3b09af0c2e75",
       "path": "components/blocks/chat-message.tsx",
       "kind": "source",
-      "url": "/docs-code/95e2fbcdc9549cb5d3d6dfc1f753045495c32308181ab11f2eb27e73d7822646.json",
-      "lines": 445
+      "url": "/docs-code/0f35cdc3ffa20885dff7004d401f1c7cf9a3718c074a1fdd49cf3b09af0c2e75.json",
+      "lines": 458
     },
     {
       "id": "04144bef2527c90bc0673a0943f15886be594044dd617ef07d46c49de6a00ccd",
@@ -2520,11 +2808,11 @@
       "lines": 197
     },
     {
-      "id": "e074dd0925804c5fdad4675f9a116c7e29ebdef945a27bf744150be5d762249d",
+      "id": "d83320e75d621b088df910ec4ad53fcee9b19dd7a05f5502b3d87b1d867038c6",
       "path": "components/blocks/chat-message.module.css",
       "kind": "related",
-      "url": "/docs-code/e074dd0925804c5fdad4675f9a116c7e29ebdef945a27bf744150be5d762249d.json",
-      "lines": 258
+      "url": "/docs-code/d83320e75d621b088df910ec4ad53fcee9b19dd7a05f5502b3d87b1d867038c6.json",
+      "lines": 296
     },
     {
       "id": "17192c0225840b1eb029ff9989a4817c083b8143c0fdc263da7836672df5335d",

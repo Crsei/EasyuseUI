@@ -15,6 +15,78 @@ export type DocGuide = {
   sections: GuideSection[]
 }
 export const docGuides: DocGuide[] = [
+{
+  "slug": "agent-workbench-guide",
+  "title": {
+    "zh-CN": "Agent 工作台集成",
+    "en": "Agent workbench integration"
+  },
+  "summary": {
+    "zh-CN": "区域组合、草稿确认、审阅版本与调用方服务边界。",
+    "en": "Region composition, draft acknowledgements, review revisions and caller service boundaries."
+  },
+  "source": "AGENT-WORKBENCH.md",
+  "sections": [
+    {
+      "id": "install",
+      "title": {
+        "zh-CN": "安装区域源码",
+        "en": "Install region source"
+      },
+      "body": {
+        "zh-CN": "安装整个组合，或选择 session-navigator、agent-composer、context-panel、change-review-panel 等区域。区域组件复用同一套基础主题与便携语言提供器；不依赖文档站或 Next。",
+        "en": "Install the complete composition, or choose regions such as session-navigator, agent-composer, context-panel and change-review-panel. Regions share theme tokens and portable localization; they do not depend on this documentation site or Next."
+      },
+      "code": "pnpm dlx shadcn@4.21.2 add $REGISTRY_URL/agent-workbench.json",
+      "language": "bash"
+    },
+    {
+      "id": "acknowledgements",
+      "title": {
+        "zh-CN": "控制状态与回执",
+        "en": "Control state and receipts"
+      },
+      "body": {
+        "zh-CN": "Session、Run、Message、Tool 与 Request 独立标识。宿主按连续来源游标应用修订；缺口先读取补齐。只有 confirmed 且 draftId/version 匹配才清理草稿。unknown 时先查询结果，不重新发送写入。",
+        "en": "Session, Run, Message, Tool and Request have distinct identities. Apply revisions in contiguous source cursor order and read missing records before proceeding. Clear drafts only when confirmed draftId and version match. Reconcile unknown outcomes before another write."
+      },
+      "code": "import { applySessionEvent, acknowledgeDraft, draftCanSubmit } from \"@/lib/agent-workbench-model\"",
+      "language": "tsx"
+    },
+    {
+      "id": "layouts",
+      "title": {
+        "zh-CN": "布局与区域",
+        "en": "Layouts and regions"
+      },
+      "body": {
+        "zh-CN": "WorkspaceShell 管理唯一的导航、Inspector 和底栏。宽 Diff 位于 Main。容器不足920px切换对话/详情，保留已挂载编辑器；关闭面板不停止任务。文件反馈绑定 base/head/revision，需要重新定位旧版本评论。",
+        "en": "WorkspaceShell owns navigation, Inspector and the bottom panel. Wide Diffs belong in Main. Below 920px of remaining container width, switch conversation and detail panes while retaining mounted editors. Closing a panel does not stop work. File feedback binds base, head and revision; relocate older comments explicitly."
+      },
+      "links": [
+        {
+          "href": "/examples/agent-workbench/",
+          "title": {
+            "zh-CN": "打开区域与完整示例",
+            "en": "Open regions and complete examples"
+          }
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "title": {
+        "zh-CN": "明确来源能力",
+        "en": "Make source capabilities explicit"
+      },
+      "body": {
+        "zh-CN": "公共组件只收快照、数据和回调。附件选择不等于引擎注入，日志不等于 PTY，报告 fixture 不等于真实执行。模型、权限、文件/Git、终端、浏览器和业务持久化须由宿主另行接入与验收。",
+        "en": "Public components accept snapshots, data and callbacks. File selection is not engine injection, logs are not a PTY, and report fixtures are not real execution. The host must separately integrate and verify models, permissions, file/Git access, terminals, browsers and business persistence."
+      }
+    }
+  ]
+},
+
   {
     slug: "installation",
     title: { "zh-CN": "安装与主题", en: "Installation and theme" },

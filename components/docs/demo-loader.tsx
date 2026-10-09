@@ -31,6 +31,135 @@ const loadCompletion6 = () =>
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  // BEGIN agent workbench
+  "session-navigator": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="session-navigator" />
+        },
+    ),
+  "project-switcher": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="project-switcher" />
+        },
+    ),
+  "session-header": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="session-header" />
+        },
+    ),
+  "context-panel": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="context-panel" />
+        },
+    ),
+  "context-picker": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="context-picker" />
+        },
+    ),
+  "message-content": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="message-content" />
+        },
+    ),
+  "agent-conversation": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="agent-conversation" />
+        },
+    ),
+  "composer-controls": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="composer-controls" />
+        },
+    ),
+  "agent-composer": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="agent-composer" />
+        },
+    ),
+  "file-viewer": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="file-viewer" />
+        },
+    ),
+  "diff-viewer": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="diff-viewer" />
+        },
+    ),
+  "change-review-panel": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="change-review-panel" />
+        },
+    ),
+  "workbench-panel-tabs": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="workbench-panel-tabs" />
+        },
+    ),
+  "execution-output-panel": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="execution-output-panel" />
+        },
+    ),
+  "preview-panel": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="preview-panel" />
+        },
+    ),
+  "agent-workbench": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="agent-workbench" />
+        },
+    ),
+  "task-inbox": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="task-inbox" />
+        },
+    ),
+  "agent-workbench-model": () =>
+    import("@/components/examples/agent-workbench/component-demos").then(
+      (m) =>
+        function Demo() {
+          return <m.WorkbenchComponentDemo region="agent-workbench-model" />
+        },
+    ),
+  // END agent workbench
+
   "toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.ToolbarDemo),
   "command-toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.CommandToolbarDemo),
   "data-table-controls": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
