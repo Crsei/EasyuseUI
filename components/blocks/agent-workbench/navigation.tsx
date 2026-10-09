@@ -14,6 +14,7 @@ import type {
   OperationReceipt,
 } from "@/lib/agent-workbench-model"
 import { activeReceipt } from "@/lib/agent-workbench-model"
+import { cn } from "@/lib/utils"
 import styles from "./workbench.module.css"
 export function ProjectSwitcher({
   projects,
@@ -56,6 +57,9 @@ export type SessionNavigatorProps = {
   onProjectChange: (id: string) => void
   onSelect: (id: string) => void
   onNew: () => void
+  newLabel?: string
+  newDisabled?: boolean
+  filters?: "all" | "runtime"
   onUpdate?: (
     id: string,
     patch: Partial<Pick<SessionSnapshot, "title" | "favorite" | "archived">>,
@@ -73,6 +77,9 @@ export function SessionNavigator({
   onProjectChange,
   onSelect,
   onNew,
+  newLabel,
+  newDisabled = false,
+  filters = "all",
   onUpdate,
   data,
   footer,
@@ -102,10 +109,11 @@ export function SessionNavigator({
       <Button
         className={styles.newButton}
         onClick={onNew}
-        aria-label={t("workbench.newTask")}
+        aria-label={newLabel ?? t("workbench.newTask")}
+        disabled={newDisabled}
       >
         <Plus size={16} />
-        {t("workbench.newTask")}
+        {newLabel ?? t("workbench.newTask")}
       </Button>
       <ProjectSwitcher
         projects={projects}
@@ -140,25 +148,29 @@ export function SessionNavigator({
         >
           {t("agentBoard.active")}
         </Button>
-        <Button
-          size="sm"
-          variant="ghost"
-          aria-pressed={archived}
-          onClick={() => {
-            setArchived(true)
-            setRunningOnly(false)
-          }}
-        >
-          {t("workbench.archived")}
-        </Button>
-        <Button
-          size="sm"
-          variant="ghost"
-          aria-pressed={favoritesOnly}
-          onClick={() => setFavoritesOnly(!favoritesOnly)}
-        >
-          {t("workbench.favorites")}
-        </Button>
+        {filters === "all" && (
+          <Button
+            size="sm"
+            variant="ghost"
+            aria-pressed={archived}
+            onClick={() => {
+              setArchived(true)
+              setRunningOnly(false)
+            }}
+          >
+            {t("workbench.archived")}
+          </Button>
+        )}
+        {filters === "all" && (
+          <Button
+            size="sm"
+            variant="ghost"
+            aria-pressed={favoritesOnly}
+            onClick={() => setFavoritesOnly(!favoritesOnly)}
+          >
+            {t("workbench.favorites")}
+          </Button>
+        )}
       </div>
       <DataRegion
         state={filtered.length ? "success" : "empty"}
@@ -286,18 +298,25 @@ export function SessionHeader({
   onRename,
   onInterrupt,
   actions,
+  presentation = "default",
 }: {
   session: SessionSnapshot
   environment?: EnvironmentRef
   onRename?: (title: string) => void
   onInterrupt?: () => void
   actions?: ReactNode
+  presentation?: "default" | "workspace"
 }) {
   const { t } = useI18n()
   const [editing, setEditing] = useState<string | null>(null)
   const [name, setName] = useState("")
   return (
-    <div className={styles.row}>
+    <div
+      className={cn(
+        styles.row,
+        presentation === "workspace" && styles.sessionHeader,
+      )}
+    >
       {editing === session.sessionId ? (
         <form
           onSubmit={(e) => {

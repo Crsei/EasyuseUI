@@ -76,6 +76,7 @@ export const ChatMessage = memo(function ChatMessage({
       className={styles.message}
       data-message-id={id}
       data-message-state={state}
+      data-message-role={role}
     >
       <div className={styles.avatar}>
         <Icon size={16} aria-hidden="true" />
@@ -160,6 +161,8 @@ export type ConversationActions = {
   jumpToLatest: () => void
 }
 export type ConversationProps = {
+  /** Optional workspace appearance; compact shared defaults remain unchanged. */
+  presentation?: "default" | "workspace"
   /** Fill a bounded parent while keeping the composer outside the history scroller. */
   layout?: "content" | "fill"
   actionsRef?: Ref<ConversationActions>
@@ -174,6 +177,7 @@ export type ConversationProps = {
   className?: string
 }
 export function Conversation({
+  presentation = "default",
   layout = "content",
   actionsRef,
   deferOffscreen = false,
@@ -219,7 +223,11 @@ export function Conversation({
     jumpToLatest,
   }))
   return (
-    <div className={cn(styles.conversation, className)} data-layout={layout}>
+    <div
+      className={cn(styles.conversation, className)}
+      data-layout={layout}
+      data-presentation={presentation}
+    >
       {workspace && (
         <div
           className={styles.tabs}

@@ -62,6 +62,7 @@ export type MessagePart = {
 } & (
   | { kind: "text"; text: string }
   | { kind: "code"; text: string; language?: string }
+  | { kind: "phase"; phase: "thinking" | "action" | "output"; label: string }
   | {
       kind: "tool" | "artifact" | "plan" | "citation"
       referenceId: string
@@ -69,6 +70,7 @@ export type MessagePart = {
     }
 )
 export type WorkbenchMessage = {
+  timestamp?: string
   messageId: string
   turnId: string
   role: "user" | "agent" | "system"

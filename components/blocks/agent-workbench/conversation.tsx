@@ -97,6 +97,7 @@ export type AgentConversationProps = {
   onRetry?: () => void
   onOpenTool?: (toolCallId: string) => void
   groupTools?: boolean
+  presentation?: "default" | "workspace"
 }
 export function AgentConversation({
   session,
@@ -109,87 +110,152 @@ export function AgentConversation({
   onRetry,
   onOpenTool,
   groupTools = false,
+  presentation = "default",
 }: AgentConversationProps) {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const messages = useMemo(
     () =>
       session.messages.map((m) => ({
         id: m.messageId,
         role: m.role,
         state: m.state,
+        time: m.timestamp
+          ? new Date(m.timestamp).toLocaleTimeString(locale, {
+              hour: "2-digit",
+              minute: "2-digit",
+            })
+          : undefined,
         content: m.parts
           .map((p) => ("text" in p ? p.text : p.label))
           .join("\n"),
         renderContent: () => (
           <>
-            {groupTools && m.parts.some((p) => p.kind === "tool") && (
-              <details className={styles.toolGroup}>
-                <summary>
-                  {t("resource.toolGroup")} ·{" "}
-                  {m.parts.filter((p) => p.kind === "tool").length}
-                </summary>
-                {m.parts
-                  .filter((p) => p.kind === "tool")
-                  .map((part) => {
-                    const tool = session.tools.find(
-                      (call) =>
-                        call.id ===
-                        (part as { referenceId: string }).referenceId,
-                    )
-                    return tool ? (
-                      <div key={part.partId}>
-                        <ToolCall call={tool} />
-                        {onOpenTool && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => onOpenTool(tool.id)}
-                          >
-                            {t("resource.commands")}
-                          </Button>
-                        )}
-                      </div>
-                    ) : (
-                      <p key={part.partId}>{t("workbench.unavailable")}</p>
-                    )
-                  })}
-              </details>
-            )}
-            {m.parts
-              .filter((part) => !groupTools || part.kind !== "tool")
-              .map((part) => (
-                <div className={styles.messagePart} key={part.partId}>
-                  {part.kind === "text" ? (
-                    <MessageContent content={part.text} />
-                  ) : part.kind === "code" ? (
-                    <MessageContent
-                      content={`\`\`\`${part.language ?? ""}\n${part.text}\n\`\`\``}
-                    />
-                  ) : part.kind === "tool" ? (
-                    (() => {
-                      const tool = session.tools.find(
-                        (tool) => tool.id === part.referenceId,
-                      )
-                      return tool ? (
-                        <ToolCall call={tool} />
+            {(() => {
+              const groups: MessagePart[][] = []
+              const canGroup = (part: MessagePart) => {
+                if (!groupTools || part.kind !== "tool") return false
+                const tool = session.tools.find(
+                  (tool) => tool.id === part.referenceId,
+                )
+                return Boolean(
+                  tool &&
+                  ["read", "grep", "find", "ls", "search"].includes(
+                    tool.name.toLowerCase(),
+                  ) &&
+                  tool.status === "completed" &&
+                  tool.outcome !== "unknown" &&
+                  !tool.error,
+                )
+              }
+              for (const part of m.parts) {
+                const previous = groups.at(-1)
+                if (canGroup(part) && previous && canGroup(previous[0]))
+                  previous.push(part)
+                else groups.push([part])
+              }
+              return groups.map((parts) =>
+                canGroup(parts[0]) ? (
+                  <details key={parts[0].partId} className={styles.toolGroup}>
+                    <summary>
+                      {parts
+                        .map((part) =>
+                          part.kind === "tool"
+                            ? session.tools.find(
+                                (tool) => tool.id === part.referenceId,
+                              )?.name
+                            : "",
+                        )
+                        .filter(
+                          (value, index, all) => all.indexOf(value) === index,
+                        )
+                        .join(" / ")}{" "}
+                      · {parts.length}
+                    </summary>
+                    {parts.map((part) =>
+                      part.kind === "tool" ? (
+                        <div key={part.partId}>
+                          <ToolCall
+                            call={session.tools.find(
+                              (tool) => tool.id === part.referenceId,
+                            )!}
+                          />
+                          {onOpenTool && (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => onOpenTool(part.referenceId)}
+                            >
+                              {t("resource.commands")}
+                            </Button>
+                          )}
+                        </div>
+                      ) : null,
+                    )}
+                  </details>
+                ) : (
+                  parts.map((part) => (
+                    <div className={styles.messagePart} key={part.partId}>
+                      {part.kind === "phase" ? (
+                        <div className={styles.phase} data-phase={part.phase}>
+                          {t(
+                            part.phase === "action"
+                              ? "workbench.phaseAction"
+                              : part.phase === "output"
+                                ? "workbench.phaseOutput"
+                                : "workbench.phaseThinking",
+                          )}
+                        </div>
+                      ) : part.kind === "text" ? (
+                        <MessageContent content={part.text} />
+                      ) : part.kind === "code" ? (
+                        <MessageContent
+                          content={`\`\`\`${part.language ?? ""}\n${part.text}\n\`\`\``}
+                        />
+                      ) : part.kind === "tool" ? (
+                        (() => {
+                          const tool = session.tools.find(
+                            (tool) => tool.id === part.referenceId,
+                          )
+                          return tool ? (
+                            <div>
+                              <ToolCall
+                                call={tool}
+                                defaultExpanded={
+                                  tool.status === "failed" ||
+                                  tool.outcome === "unknown"
+                                }
+                              />
+                              {onOpenTool && (
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={() => onOpenTool(tool.id)}
+                                >
+                                  {t("resource.commands")}
+                                </Button>
+                              )}
+                            </div>
+                          ) : (
+                            <p className={styles.meta}>
+                              {part.label} · {t("workbench.unavailable")}
+                            </p>
+                          )
+                        })()
                       ) : (
-                        <p className={styles.meta}>
-                          {part.label} · {t("workbench.unavailable")}
-                        </p>
-                      )
-                    })()
-                  ) : (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => onOpenReference?.(part)}
-                      disabled={!onOpenReference}
-                    >
-                      {part.label}
-                    </Button>
-                  )}
-                </div>
-              ))}
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => onOpenReference?.(part)}
+                          disabled={!onOpenReference}
+                        >
+                          {part.label}
+                        </Button>
+                      )}
+                    </div>
+                  ))
+                ),
+              )
+            })()}
           </>
         ),
       })),
@@ -200,6 +266,7 @@ export function AgentConversation({
       onOpenTool,
       groupTools,
       t,
+      locale,
     ],
   )
   const displayed = useMemo(
@@ -227,6 +294,7 @@ export function AgentConversation({
         </div>
       )}
       <Conversation
+        presentation={presentation}
         layout="fill"
         className={styles.conversation}
         messages={displayed}

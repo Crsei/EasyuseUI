@@ -122,6 +122,11 @@ export function ToolCall({
           aria-hidden="true"
         />
       </button>
+      {!expanded && call.error && (
+        <p className={styles.notice} role="alert">
+          {redact(call.error).slice(0, 256)}
+        </p>
+      )}
       {expanded && (
         <div id={`${id}-body`} className={styles.body}>
           <DataRegion

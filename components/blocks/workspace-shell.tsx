@@ -254,7 +254,11 @@ export function WorkspaceShell({
           className={styles.sidebarToggle}
           ref={navigationOpenerRef}
           aria-label={
-            sidebarCollapsed
+            (
+              activityBar !== undefined && !sidebarInline
+                ? !navigationOpen
+                : sidebarCollapsed
+            )
               ? t("workspaceShell.expandSidebar")
               : t("workspaceShell.collapseSidebar")
           }
@@ -269,7 +273,15 @@ export function WorkspaceShell({
               : setSidebarCollapsed(!sidebarCollapsed)
           }
         >
-          {sidebarCollapsed ? <PanelLeftOpen /> : <PanelLeftClose />}
+          {(
+            activityBar !== undefined && !sidebarInline
+              ? !navigationOpen
+              : sidebarCollapsed
+          ) ? (
+            <PanelLeftOpen />
+          ) : (
+            <PanelLeftClose />
+          )}
         </Button>
         <div className={styles.title}>{title}</div>
         {inspector !== undefined && (

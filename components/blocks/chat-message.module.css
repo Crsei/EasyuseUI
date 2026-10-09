@@ -110,6 +110,83 @@
 .feedback:empty {
   display: none;
 }
+/* Explicit opt-in for the Agent Workspace reference V2 (V03-V06). */
+.conversation[data-presentation="workspace"] .messages {
+  max-width: 760px;
+  padding: 0 16px;
+}
+.conversation[data-presentation="workspace"] .message {
+  padding: 16px 0;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"] {
+  justify-content: flex-end;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  .avatar {
+  display: none;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  .main {
+  flex: 0 1 72%;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  .body {
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--status-info) 18%, var(--border));
+  background: color-mix(in srgb, var(--status-info) 8%, var(--surface));
+  border-radius: 16px;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  .main {
+  display: flex;
+  flex-direction: column;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  header {
+  display: contents;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  header
+  > span:first-child {
+  text-align: right;
+  font-size: 12px;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  time {
+  align-self: flex-end;
+  font-size: 12px;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  .body {
+  order: 1;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  .actions {
+  order: 2;
+  margin-top: 4px;
+}
+.conversation[data-presentation="workspace"]
+  .message[data-message-role="user"]
+  header {
+  justify-content: flex-end;
+}
+@container conversation (max-width: 600px) {
+  .conversation[data-presentation="workspace"]
+    .message[data-message-role="user"]
+    .main {
+    flex-basis: 92%;
+  }
+}
 .conversation {
   container: conversation / inline-size;
   min-width: 0;

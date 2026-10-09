@@ -2,6 +2,8 @@
 
 入口：[/examples/agent-workbench/](/examples/agent-workbench/)。区域实验室 → 三种布局 → 编码、产物审阅、多任务三种完整示例。
 
+真实本地Pi入口：`/examples/agent-workbench/pi/`。启动、配置、历史来源和恢复见[PI-WORKSPACE.md](PI-WORKSPACE.md)。Host/HTTP/SSE仅在服务包与示例适配层，公共组件保持受控、可独立分发。
+
 后续改造见 [编码工作台增强计划](plans/agent-coding-workbench-enhancement-plan.md)：侧边工具入口、设置对话框、上下文、命令输出与多类型文件小窗的组件清单和 E0–E6 验收安排；E0–E5 本轮实施，结果见 [增强实施记录](plans/agent-coding-workbench-enhancement-log.md)；E6真实服务能力另行接入。
 
 ## 安装与分层
@@ -104,3 +106,13 @@ import { resourceKey, openDocument, acceptResourceRead } from "@/lib/workbench-r
 可单独安装`workbench-file-preview`/`workbench-resource-model`/`execution-session-list`，或安装对应Catalog别名。来源renderer、availability、dataState、完整字节下载能力由宿主提供；资源名不选择renderer。字段、格式与边界见增强记录。设置组合仍在示例层，不将fixture表单发布成可执行服务设置。
 
 `AgentWorkbench.showViewSwitch` 默认保留内置视图切换；关闭时调用方负责提供对话/主区入口。应用示例通过活动栏和紧凑工具栏承担导航。窄屏常驻配置行使用原生横向滚动，选择器文案截断但可访问标签保留；触摸目标仍至少44px。
+
+## Pi 首轮新增的兼容接口
+
+`Conversation.presentation` 和 `AgentConversation.presentation` 可选 `workspace`；默认仍为 `default`。该外观只调整用户消息、正文列和操作位置，不持有网络或执行能力。`SessionHeader.presentation="workspace"` 将环境信息置于第二行。`MessagePart` 新增公开 `phase` 类型，`WorkbenchMessage.timestamp` 可选；阶段来自调用方，隐藏思考不进入显示/复制内容。
+
+`SessionNavigator.newLabel/newDisabled` 控制新建入口；`filters="runtime"` 仅展示最近/运行筛选。`ComposerControls/AgentComposer.modes` 可限制模式；`AgentComposer.editableOffline` 允许断线时编辑草稿，发送仍受连接、能力、选择和回执控制。全部默认值保持旧消费者行为。
+
+`AgentConversation.groupTools` 仅折叠相邻、已完成且结果已知的只读 Read/Search 调用，保留正文/工具源顺序与 `onOpenTool` 回调。运行、失败、等待和 unknown 不进入隐藏组；`ToolCall` 折叠时也保留脱敏错误摘要。新建/复制尚未完成视图切换时，Pi 私有适配器暂停发送并保留原会话草稿，切到其它对象不会被迟到响应拉回。
+
+Pi Host 和网页凭据、持久化、SSE、SDK 运行均留在私有示例/服务层；没有新的公共 Registry 服务组件。启动、协议与边界见 [PI-WORKSPACE.md](PI-WORKSPACE.md)，实际验证见 [首轮记录](plans/agent-workspace-completion-log.md)。

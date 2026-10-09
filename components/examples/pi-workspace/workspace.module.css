@@ -1,0 +1,176 @@
+.root {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 14px;
+  line-height: 20px;
+}
+.product {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+.product .shell {
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+}
+.shell > header {
+  min-height: 48px;
+}
+.shell > div > div:first-child:has(> .rail) {
+  flex-basis: 56px;
+  width: 56px;
+}
+.connection {
+  flex-shrink: 0;
+  max-height: 240px;
+  overflow: auto;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.connection form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px;
+}
+.connection form > div {
+  flex: 1 1 200px;
+}
+.connection form input {
+  width: 100%;
+}
+.global {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.global strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.path {
+  font:
+    12px/16px var(--font-mono),
+    monospace;
+  color: var(--muted-foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 4px;
+}
+.rail button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.navigator [data-session-id] {
+  border: 0;
+  padding-top: 0;
+}
+.navigator [data-selected] {
+  border-radius: 8px;
+}
+.navigator [data-selected="true"] {
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+}
+.navigator [data-selected="true"] button > span > span:first-child {
+  font-weight: 600;
+}
+.sessionHeader {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-height: 64px;
+  padding-block: 8px;
+}
+.sessionHeader > div:first-child {
+  flex: 1 1 360px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.meta {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--muted-foreground);
+  overflow-wrap: anywhere;
+}
+.dock {
+  flex-shrink: 0;
+  max-height: min(300px, 55dvh);
+  overflow: auto;
+  background: var(--surface);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.dock section {
+  border-radius: 16px;
+}
+.notice {
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 16px;
+  overflow-wrap: anywhere;
+}
+.notice[role="alert"] {
+  color: var(--status-error);
+}
+.navigator a {
+  display: inline-block;
+  min-height: 32px;
+  padding: 8px;
+  font-size: 12px;
+}
+.root[data-connection="disconnected"] .actions > span {
+  color: var(--status-waiting);
+}
+@media (max-width: 767px) {
+  .shell > div > div:first-child:has(> .rail) {
+    flex-basis: 48px;
+    width: 100%;
+  }
+  .rail {
+    flex-direction: row;
+    padding: 0 4px;
+  }
+  .global .path {
+    display: none;
+  }
+  .sessionHeader {
+    gap: 4px;
+    padding-block: 4px;
+  }
+  .sessionHeader > div:first-child {
+    flex-basis: 100%;
+  }
+  .dock {
+    max-height: min(300px, 55dvh);
+  }
+}
+@media (pointer: coarse) {
+  .navigator a {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .root * {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}

@@ -1982,6 +1982,10 @@ export function WorkbenchDemo({
           {x.verification}
         </Link>
         <div className={styles.overview}>
+          <Link prefetch={false} href="/examples/agent-workbench/pi/">
+            <strong>Pi Workspace</strong>
+            <span>{locale === "en" ? "Real local service · conversation and history" : "真实本地服务 · 对话与历史"}</span>
+          </Link>
           <Link
             prefetch={false}
             href="/examples/agent-workbench/regions/?region=sidebar"
@@ -2037,6 +2041,7 @@ export function WorkbenchDemo({
     context: contextPanel,
     conversation: (
       <AgentConversation
+        presentation="workspace"
         session={session}
         actionsRef={retainConversationActions}
         onLoadHistory={() =>
@@ -2301,6 +2306,7 @@ export function WorkbenchDemo({
                   })
           }
           conversation={{
+            presentation: "workspace",
             actionsRef: retainConversationActions,
             attention: attentionRecords,
             deferOffscreen: true,

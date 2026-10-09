@@ -27,6 +27,7 @@ export type ComposerControlsProps = {
   environments: readonly WorkbenchChoice[]
   session: SessionSnapshot
   compact?: boolean
+  modes?: readonly DraftState["mode"][]
 }
 export function ComposerControls({
   draft,
@@ -36,6 +37,7 @@ export function ComposerControls({
   environments,
   session,
   compact = false,
+  modes = ["send", "queue", "steer"],
 }: ComposerControlsProps) {
   const { t } = useI18n()
   const id = useId()
@@ -127,7 +129,7 @@ export function ComposerControls({
             })
           }
         >
-          {(["send", "queue", "steer"] as const).map((mode) => (
+          {modes.map((mode) => (
             <option
               key={mode}
               value={mode}
@@ -153,6 +155,7 @@ export type AgentComposerProps = ComposerControlsProps & {
   onOpenContext?: () => void
   onCommandMenu?: () => void
   onOpenSettings?: () => void
+  editableOffline?: boolean
 }
 export function AgentComposer({
   draft,
@@ -172,6 +175,8 @@ export function AgentComposer({
   onOpenContext,
   onCommandMenu,
   onOpenSettings,
+  modes,
+  editableOffline = false,
 }: AgentComposerProps) {
   const { t } = useI18n()
   const rootRef = useRef<HTMLElement>(null)
@@ -231,7 +236,15 @@ export function AgentComposer({
       {quickControls && (
         <>
           <ComposerControls
-            {...{ draft, onChange, models, permissions, environments, session }}
+            {...{
+              draft,
+              onChange,
+              models,
+              permissions,
+              environments,
+              session,
+              modes,
+            }}
             compact
           />
           <div className={styles.toolbar}>
@@ -271,6 +284,7 @@ export function AgentComposer({
                 permissions,
                 environments,
                 session,
+                modes,
               }}
             />
           )}
@@ -300,7 +314,7 @@ export function AgentComposer({
         }}
         sendDisabled={!canSubmit || !validChoices}
         pending={receipt?.state === "pending"}
-        disabled={!connected}
+        disabled={!connected && !editableOffline}
         attachments={
           receipt || (!canSubmit && draft.text.trim()) || !validChoices ? (
             <>

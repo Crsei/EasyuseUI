@@ -32,7 +32,10 @@
     "check:ui-contracts": "node scripts/check-ui-contracts.mjs",
     "svg:assets": "node scripts/build-svg-assets.mjs",
     "test:svg:model": "node scripts/test-svg-workbench.mjs",
-    "svg:tsx": "node scripts/svg-to-tsx.mjs"
+    "svg:tsx": "node scripts/svg-to-tsx.mjs",
+    "pi:host": "pnpm --filter @easyuse-ui/pi-host start",
+    "pi:typecheck": "pnpm --filter @easyuse-ui/pi-host typecheck",
+    "pi:test": "pnpm --filter @easyuse-ui/pi-host test"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",

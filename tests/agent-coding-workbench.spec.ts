@@ -225,7 +225,7 @@ test("command-to-tool-to-file navigation keeps unknown exit codes and disconnect
   await expect(
     page.locator('[data-command-id="command-unknown"]'),
   ).toContainText("结果未确认")
-  await page.getByRole("button", { name: /^run_tests/ }).click()
+  await page.getByRole("region", { name: "命令记录", exact: true }).getByRole("button", { name: /^run_tests/ }).click()
   output = page.locator('[data-command-id="command-tool-session-filter"]')
   await output.getByRole("button", { name: /文件 · file-filter/ }).click()
   await expect(page.getByRole("dialog")).toContainText("item.toLowerCase()")
@@ -234,8 +234,9 @@ test("conversation and tool command links open main output without restoring the
   page,
 }) => {
   await page.goto(root)
-  await page.locator("details").filter({ has: page.locator("summary", { hasText: "本轮工具记录" }) }).locator("summary").click()
-  await page.getByRole("button", { name: "命令记录", exact: true }).click()
+  // Running/exceptional calls stay outside compact read/search groups.
+  await expect(page.locator('[data-follow-tail-list] [data-call-id="tool-session-filter"]')).toBeVisible()
+  await page.locator("[data-follow-tail-list]").getByRole("button", { name: "命令记录", exact: true }).click()
   await expect(page).toHaveURL(/panel=terminal/)
   const output = page.locator('[data-command-id="command-tool-session-filter"]')
   await expect(output).toBeVisible()
@@ -369,12 +370,12 @@ test("touch rail, navigation Sheet, locale and reduced motion retain drafts and 
   expect(bounds!.width).toBeGreaterThanOrEqual(44)
   expect(bounds!.height).toBeGreaterThanOrEqual(44)
   await fileEntry.click()
-  await page.getByRole("button", { name: "折叠侧栏", exact: true }).click()
+  await page.getByRole("button", { name: "展开侧栏", exact: true }).click()
   let dialog = page.getByRole("dialog")
   await expect(dialog.getByRole("tree", { name: "项目文件" })).toBeVisible()
   await page.keyboard.press("Escape")
   await expect(
-    page.getByRole("button", { name: "折叠侧栏", exact: true }),
+    page.getByRole("button", { name: "展开侧栏", exact: true }),
   ).toBeFocused()
   await page
     .getByRole("link", { name: "会话", exact: true })

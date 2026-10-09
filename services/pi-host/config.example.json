@@ -1,0 +1,18 @@
+{
+  "port": 3012,
+  "dataDir": "./.local/pi-host",
+  "agentDir": "~/.pi/agent",
+  "allowedOrigins": [
+    "http://localhost:3010",
+    "http://127.0.0.1:3010",
+    "http://127.0.0.1:3011"
+  ],
+  "projects": [
+    {
+      "projectId": "easyuse-ui",
+      "name": "EasyuseUI",
+      "cwd": ".",
+      "sessionDirs": []
+    }
+  ]
+}
