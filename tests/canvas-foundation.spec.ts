@@ -6,8 +6,9 @@ test("Canvas engine hydrates with theme styles, named ports, an edge and control
   const errors: string[] = []
   page.on("pageerror", (error) => errors.push(error.message))
   await page.goto("/docs/workflow-canvas/")
-  await expect(page.locator(".react-flow")).toHaveCount(0)
-  await page.getByRole("button", { name: "加载演示", exact: true }).click()
+  await expect(
+    page.locator('[data-demo-loader="workflow-canvas"]'),
+  ).toHaveAttribute("data-demo-mounted", "true")
   const input = page.locator('[data-canvas-node="input"]')
   await expect(input).toBeVisible()
   await expect(input).toHaveCSS("width", "240px")

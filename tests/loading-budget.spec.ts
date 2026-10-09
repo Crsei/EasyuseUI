@@ -26,10 +26,14 @@ for (const [route, budget] of Object.entries(
         )
     })
     await page.goto(route)
+    await expect(
+      page.getByRole("button", { name: "搜索文档", exact: true }),
+    ).toBeEnabled()
     await page
       .getByRole("combobox", { name: "语言", exact: true })
       .first()
       .selectOption("en")
+    await expect(page.locator("html")).toHaveAttribute("lang", "en")
     await page.waitForLoadState("networkidle")
     await Promise.all(pending)
     expect(failures).toEqual([])

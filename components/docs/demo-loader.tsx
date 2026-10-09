@@ -5,10 +5,12 @@ import {
   useEffect,
   useRef,
   useState,
+  useSyncExternalStore,
   type ComponentType,
   type ReactNode,
 } from "react"
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
 import { useSiteI18n } from "@/components/site/site-i18n"
 
 function completionDemo<M extends Record<string, ComponentType>>(
@@ -721,6 +723,16 @@ export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
       (m) => m.BuilderDemo,
     ),
 }
+async function resolveDemo(slug: string) {
+  const component = await demoLoaders[slug]?.()
+  if (!component) throw new Error(`Missing demo component: ${slug}`)
+  return component
+}
+
+const subscribeHydration = () => () => {}
+const clientHydrated = () => true
+const serverHydrated = () => false
+
 class DemoErrorBoundary extends Component<
   { children: ReactNode; fallback: ReactNode },
   { failed: boolean }
@@ -741,6 +753,11 @@ function DemoScope({
   autoLoad?: boolean
 }) {
   const { t } = useSiteI18n()
+  const hydrated = useSyncExternalStore(
+    subscribeHydration,
+    clientHydrated,
+    serverHydrated,
+  )
   const [Loaded, setLoaded] = useState<ComponentType>()
   const [state, setState] = useState<"idle" | "loading" | "error">(
     autoLoad ? "loading" : "idle",
@@ -757,7 +774,7 @@ function DemoScope({
     const request = ++token.current
     setState("loading")
     try {
-      const component = await demoLoaders[slug]()
+      const component = await resolveDemo(slug)
       if (token.current !== request) return
       setLoaded(() => component)
       setState("idle")
@@ -769,7 +786,7 @@ function DemoScope({
     if (autoLoad) {
       let active = true
       const request = ++token.current
-      demoLoaders[slug]()
+      resolveDemo(slug)
         .then((component) => {
           if (active && token.current === request) {
             setLoaded(() => component)
@@ -785,9 +802,10 @@ function DemoScope({
     }
   }, [autoLoad, slug])
   const retry = (
-    <div role="alert">
+    <div role="alert" data-demo-error>
       <p>{t("site.optimization.demoError")}</p>
       <Button
+        disabled={!hydrated}
         onClick={() => {
           setLoaded(undefined)
           setAttempt((value) => value + 1)
@@ -799,11 +817,16 @@ function DemoScope({
     </div>
   )
   return (
-    <div data-demo-loader={slug} data-demo-mounted={Boolean(Loaded)}>
+    <div
+      data-demo-loader={slug}
+      data-demo-mounted={Boolean(Loaded)}
+      aria-busy={state === "loading"}
+    >
       {(Loaded || state !== "idle") && (
         <Button
           variant="ghost"
           size="sm"
+          disabled={!hydrated}
           onClick={() => {
             token.current++
             setLoaded(undefined)
@@ -814,22 +837,31 @@ function DemoScope({
         </Button>
       )}
       {Loaded ? (
-        <>
+        <div data-demo-content className="min-w-0">
           <DemoErrorBoundary key={attempt} fallback={retry}>
             <Loaded />
           </DemoErrorBoundary>
-        </>
+        </div>
       ) : state === "error" ? (
         retry
+      ) : state === "loading" ? (
+        <div role="status" className="grid min-h-40 content-center gap-4 py-4">
+          <span className="text-sm text-muted-foreground">
+            {t("site.optimization.loadingDemo")}
+          </span>
+          <div aria-hidden="true" className="grid gap-3">
+            <Skeleton className="h-8 w-3/4" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="h-8 w-1/2" />
+          </div>
+        </div>
       ) : (
         <Button
           variant="outline"
-          loading={state === "loading"}
+          disabled={!hydrated}
           onClick={() => void load()}
         >
-          {state === "loading"
-            ? t("site.optimization.loadingDemo")
-            : t("site.optimization.loadDemo")}
+          {t("site.optimization.loadDemo")}
         </Button>
       )}
     </div>

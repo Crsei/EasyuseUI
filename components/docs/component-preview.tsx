@@ -20,9 +20,6 @@ export function ComponentPreview({
     [generation, setGeneration] = useState(0),
     [tab, setTab] = useState("preview"),
     id = useId()
-  const heavy = /^(canvas|workflow|node-|variable-|work-items-workspace)/.test(
-    slug,
-  )
   return (
     <section
       aria-label={t("site.valueInteractiveDemo", { value0: name })}
@@ -73,7 +70,7 @@ export function ComponentPreview({
         >
           <div className={wide ? "w-full min-w-0" : "mx-auto w-full max-w-lg"}>
             <DemoVisibility value={tab === "preview"}>
-              <DemoLoader key={generation} slug={slug} autoLoad={!heavy} />
+              <DemoLoader key={generation} slug={slug} autoLoad />
             </DemoVisibility>
           </div>
         </div>
