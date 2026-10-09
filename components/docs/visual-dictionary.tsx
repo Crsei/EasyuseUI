@@ -4,7 +4,7 @@ import { useSiteI18n } from "@/components/site/site-i18n"
 import { useRef, useState } from "react"
 import Link from "next/link"
 import { ArrowUpRight, BookOpen, Search } from "lucide-react"
-import catalog from "@/lib/component-index.json"
+import catalog from "@/lib/component-preview.json"
 import { DemoLoader } from "./demo-loader"
 import {
   availabilityLabels,

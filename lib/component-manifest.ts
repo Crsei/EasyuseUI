@@ -32,6 +32,1168 @@ export type ComponentManifestEntry = {
 }
 
 const sourceManifest: ComponentManifestEntry[] = [
+// BEGIN shadcn completion
+{
+  "slug": "button-group",
+  "docPath": "/docs/button-group/",
+  "registryId": "button-group",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "ButtonGroup",
+  "category": "基础组件",
+  "description": "同组操作的紧凑容器。",
+  "source": "components/ui/button-group.tsx",
+  "example": "components/examples/control-composition-demo.tsx",
+  "usage": "import { ButtonGroup } from \"@/components/ui/button-group\"",
+  "props": [
+    {
+      "name": "orientation / children / aria-label",
+      "type": "ButtonGroupProps",
+      "description": "只组合兄弟操作目标，不引入选中状态。"
+    }
+  ],
+  "notes": [
+    "只组合兄弟操作目标，不引入选中状态。"
+  ]
+},
+{
+  "slug": "input-group",
+  "docPath": "/docs/input-group/",
+  "registryId": "input-group",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "input",
+    "textarea"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "InputGroup",
+  "category": "基础组件",
+  "description": "输入与前后缀、操作的组合。",
+  "source": "components/ui/input-group.tsx",
+  "example": "components/examples/control-composition-demo.tsx",
+  "usage": "import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupTextarea } from \"@/components/ui/input-group\"",
+  "props": [
+    {
+      "name": "children / className",
+      "type": "InputGroupProps",
+      "description": "标签由原生输入负责；附加操作保持独立。"
+    }
+  ],
+  "notes": [
+    "标签由原生输入负责；附加操作保持独立。"
+  ]
+},
+{
+  "slug": "toggle",
+  "docPath": "/docs/toggle/",
+  "registryId": "toggle",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Toggle",
+  "category": "基础组件",
+  "description": "支持按下状态的切换按钮。",
+  "source": "components/ui/toggle.tsx",
+  "example": "components/examples/control-composition-demo.tsx",
+  "usage": "import { Toggle } from \"@/components/ui/toggle\"",
+  "props": [
+    {
+      "name": "pressed / defaultPressed / onPressedChange / disabled",
+      "type": "ToggleProps",
+      "description": "按下与焦点独立；值由调用方持有。"
+    }
+  ],
+  "notes": [
+    "按下与焦点独立；值由调用方持有。"
+  ]
+},
+{
+  "slug": "toggle-group",
+  "docPath": "/docs/toggle-group/",
+  "registryId": "toggle-group",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "toggle"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "ToggleGroup",
+  "category": "基础组件",
+  "description": "单选或多选切换组。",
+  "source": "components/ui/toggle-group.tsx",
+  "example": "components/examples/control-composition-demo.tsx",
+  "usage": "import { ToggleGroup, ToggleGroupItem } from \"@/components/ui/toggle-group\"",
+  "props": [
+    {
+      "name": "value / defaultValue / multiple / orientation / onValueChange",
+      "type": "ToggleGroupProps",
+      "description": "值始终为数组；方向键移动焦点。"
+    }
+  ],
+  "notes": [
+    "值始终为数组；方向键移动焦点。"
+  ]
+},
+{
+  "slug": "input-otp",
+  "docPath": "/docs/input-otp/",
+  "registryId": "input-otp",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "InputOTP",
+  "category": "基础组件",
+  "description": "原生一次性验证码输入。",
+  "source": "components/ui/input-otp.tsx",
+  "example": "components/examples/control-composition-demo.tsx",
+  "usage": "import { InputOTP } from \"@/components/ui/input-otp\"",
+  "props": [
+    {
+      "name": "length / value / defaultValue / pattern / name / form / ref",
+      "type": "InputOTPProps",
+      "description": "保留原生粘贴、选择、删除、自动填充及表单行为；验证由调用方负责。"
+    }
+  ],
+  "notes": [
+    "保留原生粘贴、选择、删除、自动填充及表单行为；验证由调用方负责。"
+  ]
+},
+{
+  "slug": "separator",
+  "docPath": "/docs/separator/",
+  "registryId": "separator",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Separator",
+  "category": "基础组件",
+  "description": "语义或装饰性分隔线。",
+  "source": "components/ui/separator.tsx",
+  "example": "components/examples/disclosure-demo.tsx",
+  "usage": "import { Separator } from \"@/components/ui/separator\"",
+  "props": [
+    {
+      "name": "orientation / decorative",
+      "type": "SeparatorProps",
+      "description": "装饰性分隔默认不进入无障碍树。"
+    }
+  ],
+  "notes": [
+    "装饰性分隔默认不进入无障碍树。"
+  ]
+},
+{
+  "slug": "collapsible",
+  "docPath": "/docs/collapsible/",
+  "registryId": "collapsible",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Collapsible",
+  "category": "基础组件",
+  "description": "受控或非受控内容折叠。",
+  "source": "components/ui/collapsible.tsx",
+  "example": "components/examples/disclosure-demo.tsx",
+  "usage": "import { Collapsible, CollapsibleTrigger, CollapsibleContent } from \"@/components/ui/collapsible\"",
+  "props": [
+    {
+      "name": "open / defaultOpen / onOpenChange",
+      "type": "CollapsibleProps",
+      "description": "展开与业务选择分开；触发器保持键盘与焦点关联。"
+    }
+  ],
+  "notes": [
+    "展开与业务选择分开；触发器保持键盘与焦点关联。"
+  ]
+},
+{
+  "slug": "accordion",
+  "docPath": "/docs/accordion/",
+  "registryId": "accordion",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Accordion",
+  "category": "基础组件",
+  "description": "单项或多项展开的手风琴。",
+  "source": "components/ui/accordion.tsx",
+  "example": "components/examples/disclosure-demo.tsx",
+  "usage": "import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from \"@/components/ui/accordion\"",
+  "props": [
+    {
+      "name": "value / defaultValue / multiple / onValueChange",
+      "type": "AccordionProps",
+      "description": "每个标题有独立触发器；禁用项不展开。"
+    }
+  ],
+  "notes": [
+    "每个标题有独立触发器；禁用项不展开。"
+  ]
+},
+{
+  "slug": "tooltip",
+  "docPath": "/docs/tooltip/",
+  "registryId": "tooltip",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "theme-boundary"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Tooltip",
+  "category": "基础组件",
+  "description": "支持悬停和焦点的补充提示。",
+  "source": "components/ui/tooltip.tsx",
+  "example": "components/examples/disclosure-demo.tsx",
+  "usage": "import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from \"@/components/ui/tooltip\"",
+  "props": [
+    {
+      "name": "open / defaultOpen / delay / side / align",
+      "type": "TooltipProps",
+      "description": "提示不承担关键操作；浮层进入当前主题边界。"
+    }
+  ],
+  "notes": [
+    "提示不承担关键操作；浮层进入当前主题边界。"
+  ]
+},
+{
+  "slug": "alert-dialog",
+  "docPath": "/docs/alert-dialog/",
+  "registryId": "alert-dialog",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "theme-boundary"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "AlertDialog",
+  "category": "基础组件",
+  "description": "显式确认请求的模态对话框。",
+  "source": "components/ui/alert-dialog.tsx",
+  "example": "components/examples/disclosure-demo.tsx",
+  "usage": "import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogTitle, AlertDialogDescription, AlertDialogCancel } from \"@/components/ui/alert-dialog\"",
+  "props": [
+    {
+      "name": "open / onOpenChange / initialFocus / children",
+      "type": "AlertDialogProps",
+      "description": "确认按钮由调用方提供；请求返回不代表操作完成。"
+    }
+  ],
+  "notes": [
+    "确认按钮由调用方提供；请求返回不代表操作完成。"
+  ]
+},
+{
+  "slug": "hover-card",
+  "docPath": "/docs/hover-card/",
+  "registryId": "hover-card",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "theme-boundary"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "HoverCard",
+  "category": "基础组件",
+  "description": "链接的补充预览层。",
+  "source": "components/ui/hover-card.tsx",
+  "example": "components/examples/disclosure-demo.tsx",
+  "usage": "import { HoverCard, HoverCardTrigger, HoverCardContent } from \"@/components/ui/hover-card\"",
+  "props": [
+    {
+      "name": "open / defaultOpen / delay / side / align",
+      "type": "HoverCardProps",
+      "description": "重要内容需通过链接或可见按钮到达；预览不是唯一入口。"
+    }
+  ],
+  "notes": [
+    "重要内容需通过链接或可见按钮到达；预览不是唯一入口。"
+  ]
+},
+{
+  "slug": "context-menu",
+  "docPath": "/docs/context-menu/",
+  "registryId": "context-menu",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "theme-boundary",
+    "menu",
+    "dropdown-menu"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "ContextMenu",
+  "category": "基础组件",
+  "description": "右键、键盘与长按的上下文动作。",
+  "source": "components/ui/context-menu.tsx",
+  "example": "components/examples/disclosure-demo.tsx",
+  "usage": "import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from \"@/components/ui/context-menu\"",
+  "props": [
+    {
+      "name": "open / onOpenChange / children",
+      "type": "ContextMenuProps",
+      "description": "提供可见菜单替代以支持触摸；动作仅由回调触发。"
+    }
+  ],
+  "notes": [
+    "提供可见菜单替代以支持触摸；动作仅由回调触发。"
+  ]
+},
+{
+  "slug": "skeleton",
+  "docPath": "/docs/skeleton/",
+  "registryId": "skeleton",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Skeleton",
+  "category": "基础组件",
+  "description": "结构相符的静态加载占位。",
+  "source": "components/ui/skeleton.tsx",
+  "example": "components/examples/feedback-demo.tsx",
+  "usage": "import { Skeleton } from \"@/components/ui/skeleton\"",
+  "props": [
+    {
+      "name": "className / style",
+      "type": "SkeletonProps",
+      "description": "加载语义由外层区域负责；减少动效下无闪烁。"
+    }
+  ],
+  "notes": [
+    "加载语义由外层区域负责；减少动效下无闪烁。"
+  ]
+},
+{
+  "slug": "spinner",
+  "docPath": "/docs/spinner/",
+  "registryId": "spinner",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Spinner",
+  "category": "基础组件",
+  "description": "附带可读文本的忙碌指示。",
+  "source": "components/ui/spinner.tsx",
+  "example": "components/examples/feedback-demo.tsx",
+  "usage": "import { Spinner } from \"@/components/ui/spinner\"",
+  "props": [
+    {
+      "name": "label / className",
+      "type": "SpinnerProps",
+      "description": "减少动效时停止旋转，保持状态文字。"
+    }
+  ],
+  "notes": [
+    "减少动效时停止旋转，保持状态文字。"
+  ]
+},
+{
+  "slug": "empty",
+  "docPath": "/docs/empty/",
+  "registryId": "empty",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Empty",
+  "category": "基础组件",
+  "description": "说明空态原因与下一步。",
+  "source": "components/ui/empty.tsx",
+  "example": "components/examples/feedback-demo.tsx",
+  "usage": "import { Empty } from \"@/components/ui/empty\"",
+  "props": [
+    {
+      "name": "title / description / icon / action",
+      "type": "EmptyProps",
+      "description": "操作由调用方提供；不把错误展示为空数据。"
+    }
+  ],
+  "notes": [
+    "操作由调用方提供；不把错误展示为空数据。"
+  ]
+},
+{
+  "slug": "alert",
+  "docPath": "/docs/alert/",
+  "registryId": "alert",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Alert",
+  "category": "基础组件",
+  "description": "内联信息、警告与错误反馈。",
+  "source": "components/ui/alert.tsx",
+  "example": "components/examples/feedback-demo.tsx",
+  "usage": "import { Alert, AlertTitle, AlertDescription } from \"@/components/ui/alert\"",
+  "props": [
+    {
+      "name": "tone / urgent / children",
+      "type": "AlertProps",
+      "description": "即时错误用 alert，常规通知用 status；不改变运行状态。"
+    }
+  ],
+  "notes": [
+    "即时错误用 alert，常规通知用 status；不改变运行状态。"
+  ]
+},
+{
+  "slug": "progress",
+  "docPath": "/docs/progress/",
+  "registryId": "progress",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Progress",
+  "category": "基础组件",
+  "description": "确定或未知总量的任务进度。",
+  "source": "components/ui/progress.tsx",
+  "example": "components/examples/feedback-demo.tsx",
+  "usage": "import { Progress, Meter } from \"@/components/ui/progress\"",
+  "props": [
+    {
+      "name": "value / min / max / label / aria-label",
+      "type": "ProgressProps",
+      "description": "未知进度不提供伪造百分比；测量值使用 Meter。"
+    }
+  ],
+  "notes": [
+    "未知进度不提供伪造百分比；测量值使用 Meter。"
+  ]
+},
+{
+  "slug": "toast",
+  "docPath": "/docs/toast/",
+  "registryId": "toast",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n",
+    "theme-boundary",
+    "button"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Toast",
+  "category": "基础组件",
+  "description": "统一、可更新和关闭的通知体系。",
+  "source": "components/ui/toast.tsx",
+  "example": "components/examples/feedback-demo.tsx",
+  "usage": "import { ToastProvider, Toaster, useToastManager, createToastManager } from \"@/components/ui/toast\"",
+  "props": [
+    {
+      "name": "timeout / limit / toastManager / add / update / close",
+      "type": "ToastProps",
+      "description": "通知仅表达调用方已知事实，不根据请求返回推断业务完成。"
+    }
+  ],
+  "notes": [
+    "通知仅表达调用方已知事实，不根据请求返回推断业务完成。"
+  ]
+},
+{
+  "slug": "sonner",
+  "docPath": "/docs/sonner/",
+  "registryId": "sonner",
+  "registryDependencies": [
+    "toast"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Sonner",
+  "category": "基础组件",
+  "description": "复用 Toast 的通知适配入口。",
+  "source": "components/ui/sonner.tsx",
+  "example": "components/examples/feedback-demo.tsx",
+  "usage": "import { ToastProvider, Toaster, useToastManager } from \"@/components/ui/sonner\"",
+  "props": [
+    {
+      "name": "ToastProvider / Toaster / useToastManager",
+      "type": "SonnerProps",
+      "description": "使用同一 Provider 与 Toaster；不承诺 Sonner 包的 API 兼容。"
+    }
+  ],
+  "notes": [
+    "使用同一 Provider 与 Toaster；不承诺 Sonner 包的 API 兼容。"
+  ]
+},
+{
+  "slug": "date-calendar",
+  "docPath": "/docs/date-calendar/",
+  "registryId": "date-calendar",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "button",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "DateCalendar",
+  "category": "基础组件",
+  "description": "按民用日期键选择单日或范围。",
+  "source": "components/ui/date-calendar.tsx",
+  "example": "components/examples/date-navigation-demo.tsx",
+  "usage": "import { DateCalendar } from \"@/components/ui/date-calendar\"",
+  "props": [
+    {
+      "name": "mode / value / defaultValue / month / onMonthChange / isDateDisabled / min / max",
+      "type": "DateCalendarProps",
+      "description": "使用 YYYY-MM-DD 与 UTC 日历运算；禁用日期不可选择，范围内禁用日会阻止完成。"
+    }
+  ],
+  "notes": [
+    "使用 YYYY-MM-DD 与 UTC 日历运算；禁用日期不可选择，范围内禁用日会阻止完成。"
+  ]
+},
+{
+  "slug": "date-picker",
+  "docPath": "/docs/date-picker/",
+  "registryId": "date-picker",
+  "registryDependencies": [
+    "date-calendar",
+    "popover",
+    "button",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "DatePicker",
+  "category": "基础组件",
+  "description": "日期日历与弹出层的组合。",
+  "source": "components/ui/date-picker.tsx",
+  "example": "components/examples/date-navigation-demo.tsx",
+  "usage": "import { DatePicker } from \"@/components/ui/date-picker\"",
+  "props": [
+    {
+      "name": "label / mode / value / onValueChange / disabled",
+      "type": "DatePickerProps",
+      "description": "单日或完整范围选择后关闭并恢复焦点；日期值不因语言或时区变化。"
+    }
+  ],
+  "notes": [
+    "单日或完整范围选择后关闭并恢复焦点；日期值不因语言或时区变化。"
+  ]
+},
+{
+  "slug": "pagination",
+  "docPath": "/docs/pagination/",
+  "registryId": "pagination",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "button",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Pagination",
+  "category": "基础组件",
+  "description": "受控分页请求与未知总数导航。",
+  "source": "components/ui/pagination.tsx",
+  "example": "components/examples/date-navigation-demo.tsx",
+  "usage": "import { Pagination } from \"@/components/ui/pagination\"",
+  "props": [
+    {
+      "name": "page / pageCount / hasNext / onPageChange",
+      "type": "PaginationProps",
+      "description": "只请求页码变化；未知总数依赖 hasNext，不推断最后一页。"
+    }
+  ],
+  "notes": [
+    "只请求页码变化；未知总数依赖 hasNext，不推断最后一页。"
+  ]
+},
+{
+  "slug": "breadcrumb",
+  "docPath": "/docs/breadcrumb/",
+  "registryId": "breadcrumb",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Breadcrumb",
+  "category": "基础组件",
+  "description": "路径层级与当前页面导航。",
+  "source": "components/ui/breadcrumb.tsx",
+  "example": "components/examples/date-navigation-demo.tsx",
+  "usage": "import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from \"@/components/ui/breadcrumb\"",
+  "props": [
+    {
+      "name": "children / aria-label",
+      "type": "BreadcrumbProps",
+      "description": "导航使用链接；当前页面使用 aria-current。"
+    }
+  ],
+  "notes": [
+    "导航使用链接；当前页面使用 aria-current。"
+  ]
+},
+{
+  "slug": "menubar",
+  "docPath": "/docs/menubar/",
+  "registryId": "menubar",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "menu",
+    "dropdown-menu"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Menubar",
+  "category": "基础组件",
+  "description": "桌面应用菜单栏与动作菜单。",
+  "source": "components/ui/menubar.tsx",
+  "example": "components/examples/date-navigation-demo.tsx",
+  "usage": "import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from \"@/components/ui/menubar\"",
+  "props": [
+    {
+      "name": "orientation / loopFocus / children",
+      "type": "MenubarProps",
+      "description": "键盘跨菜单导航由 Base UI 管理；禁用动作不执行。"
+    }
+  ],
+  "notes": [
+    "键盘跨菜单导航由 Base UI 管理；禁用动作不执行。"
+  ]
+},
+{
+  "slug": "navigation-menu",
+  "docPath": "/docs/navigation-menu/",
+  "registryId": "navigation-menu",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "theme-boundary"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "NavigationMenu",
+  "category": "基础组件",
+  "description": "站点层级导航与链接浮层。",
+  "source": "components/ui/navigation-menu.tsx",
+  "example": "components/examples/date-navigation-demo.tsx",
+  "usage": "import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuViewport } from \"@/components/ui/navigation-menu\"",
+  "props": [
+    {
+      "name": "value / defaultValue / onValueChange / children",
+      "type": "NavigationMenuProps",
+      "description": "保留链接和键盘语义；主题浮层通过 Viewport 分发。"
+    }
+  ],
+  "notes": [
+    "保留链接和键盘语义；主题浮层通过 Viewport 分发。"
+  ]
+},
+{
+  "slug": "direction",
+  "docPath": "/docs/direction/",
+  "registryId": "direction",
+  "registryDependencies": [],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Direction",
+  "category": "基础组件",
+  "description": "同步 DOM 与 Base UI 的阅读方向。",
+  "source": "components/ui/direction.tsx",
+  "example": "components/examples/date-navigation-demo.tsx",
+  "usage": "import { DirectionProvider } from \"@/components/ui/direction\"",
+  "props": [
+    {
+      "name": "direction / children / ref",
+      "type": "DirectionProps",
+      "description": "方向边界不翻译调用方内容，值与服务请求保持不变。"
+    }
+  ],
+  "notes": [
+    "方向边界不翻译调用方内容，值与服务请求保持不变。"
+  ]
+},
+{
+  "slug": "attachment",
+  "docPath": "/docs/attachment/",
+  "registryId": "attachment",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n",
+    "item",
+    "button"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Attachment",
+  "category": "基础组件",
+  "description": "调用方附件状态与打开、移除操作。",
+  "source": "components/ui/attachment.tsx",
+  "example": "components/examples/conversation-extensions-demo.tsx",
+  "usage": "import { Attachment } from \"@/components/ui/attachment\"",
+  "props": [
+    {
+      "name": "name / status / error / onOpen / onRemove",
+      "type": "AttachmentProps",
+      "description": "不读取或上传文件；未知结果和忙碌状态阻止再次写入。"
+    }
+  ],
+  "notes": [
+    "不读取或上传文件；未知结果和忙碌状态阻止再次写入。"
+  ]
+},
+{
+  "slug": "marker",
+  "docPath": "/docs/marker/",
+  "registryId": "marker",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Marker",
+  "category": "基础组件",
+  "description": "对话时间、章节与事件分隔标记。",
+  "source": "components/ui/marker.tsx",
+  "example": "components/examples/conversation-extensions-demo.tsx",
+  "usage": "import { Marker, MarkerIcon, MarkerContent } from \"@/components/ui/marker\"",
+  "props": [
+    {
+      "name": "variant / children",
+      "type": "MarkerProps",
+      "description": "只读标记无交互悬停；调用方内容保持原样。"
+    }
+  ],
+  "notes": [
+    "只读标记无交互悬停；调用方内容保持原样。"
+  ]
+},
+{
+  "slug": "questionnaire",
+  "docPath": "/docs/questionnaire/",
+  "registryId": "questionnaire",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n",
+    "button",
+    "textarea",
+    "radio-group",
+    "checkbox"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Questionnaire",
+  "category": "组合模块",
+  "description": "逐题单选、多选和文本问卷。",
+  "source": "components/blocks/questionnaire.tsx",
+  "example": "components/examples/conversation-extensions-demo.tsx",
+  "usage": "import { Questionnaire } from \"@/components/blocks/questionnaire\"",
+  "props": [
+    {
+      "name": "questions / value / activeId / onValueChange / onSubmit / busy / error",
+      "type": "QuestionnaireProps",
+      "description": "答案受控；支持跳过、回退和错误保留；提交结果由调用方确认。"
+    }
+  ],
+  "notes": [
+    "答案受控；支持跳过、回退和错误保留；提交结果由调用方确认。"
+  ]
+},
+{
+  "slug": "bubble",
+  "docPath": "/docs/bubble/",
+  "registryId": "bubble",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Bubble",
+  "category": "基础组件",
+  "description": "独立引用或批注的内容容器。",
+  "source": "components/ui/bubble.tsx",
+  "example": "components/examples/conversation-extensions-demo.tsx",
+  "usage": "import { Bubble, BubbleContent, BubbleAttribution } from \"@/components/ui/bubble\"",
+  "props": [
+    {
+      "name": "children / className",
+      "type": "BubbleProps",
+      "description": "用于独立引用示例，不改变 ChatMessage 的同轴对话布局。"
+    }
+  ],
+  "notes": [
+    "用于独立引用示例，不改变 ChatMessage 的同轴对话布局。"
+  ]
+},
+{
+  "slug": "card",
+  "docPath": "/docs/card/",
+  "registryId": "card",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Card",
+  "category": "基础组件",
+  "description": "独立内容、概览和预览容器。",
+  "source": "components/ui/card.tsx",
+  "example": "components/examples/content-chart-demo.tsx",
+  "usage": "import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from \"@/components/ui/card\"",
+  "props": [
+    {
+      "name": "children / className",
+      "type": "CardProps",
+      "description": "普通会话、日志和列表继续使用 Item、list 或 table。"
+    }
+  ],
+  "notes": [
+    "普通会话、日志和列表继续使用 Item、list 或 table。"
+  ]
+},
+{
+  "slug": "aspect-ratio",
+  "docPath": "/docs/aspect-ratio/",
+  "registryId": "aspect-ratio",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "AspectRatio",
+  "category": "基础组件",
+  "description": "保留指定纵横比的内容区域。",
+  "source": "components/ui/aspect-ratio.tsx",
+  "example": "components/examples/content-chart-demo.tsx",
+  "usage": "import { AspectRatio } from \"@/components/ui/aspect-ratio\"",
+  "props": [
+    {
+      "name": "ratio / style / children",
+      "type": "AspectRatioProps",
+      "description": "比例必须为有限正数；无效输入回退 16:9。"
+    }
+  ],
+  "notes": [
+    "比例必须为有限正数；无效输入回退 16:9。"
+  ]
+},
+{
+  "slug": "carousel",
+  "docPath": "/docs/carousel/",
+  "registryId": "carousel",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n",
+    "button",
+    "empty"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Carousel",
+  "category": "基础组件",
+  "description": "手动控制、键盘与触摸轮播。",
+  "source": "components/ui/carousel.tsx",
+  "example": "components/examples/content-chart-demo.tsx",
+  "usage": "import { Carousel } from \"@/components/ui/carousel\"",
+  "props": [
+    {
+      "name": "items / label / index / defaultIndex / onIndexChange / loop",
+      "type": "CarouselProps",
+      "description": "不自动播放；隐藏页保留草稿并离开 Tab 顺序；方向随 RTL 调整。"
+    }
+  ],
+  "notes": [
+    "不自动播放；隐藏页保留草稿并离开 Tab 顺序；方向随 RTL 调整。"
+  ]
+},
+{
+  "slug": "chart",
+  "docPath": "/docs/chart/",
+  "registryId": "chart",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n",
+    "runtime-status",
+    "data-region",
+    "table"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Chart",
+  "category": "组合模块",
+  "description": "带完整文本替代的轻量柱图和折线图。",
+  "source": "components/blocks/chart.tsx",
+  "example": "components/examples/content-chart-demo.tsx",
+  "usage": "import { Chart } from \"@/components/blocks/chart\"",
+  "props": [
+    {
+      "name": "label / data / type / state / error / onRetry",
+      "type": "ChartProps",
+      "description": "最多展示最近120项；空、缺失、负值和零值分开，未增加图表依赖。"
+    }
+  ],
+  "notes": [
+    "最多展示最近120项；空、缺失、负值和零值分开，未增加图表依赖。"
+  ]
+},
+{
+  "slug": "form",
+  "docPath": "/docs/form/",
+  "registryId": "form",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "field"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Form",
+  "category": "基础组件",
+  "description": "原生表单与 Field 的轻量组合。",
+  "source": "components/ui/form.tsx",
+  "example": "components/examples/layout-integration-demo.tsx",
+  "usage": "import { Form, FormField } from \"@/components/ui/form\"",
+  "props": [
+    {
+      "name": "onSubmit / children / native form props",
+      "type": "FormProps",
+      "description": "调用方拥有验证、提交、错误和持久化；不要求特定表单库。"
+    }
+  ],
+  "notes": [
+    "调用方拥有验证、提交、错误和持久化；不要求特定表单库。"
+  ]
+},
+{
+  "slug": "sidebar",
+  "docPath": "/docs/sidebar/",
+  "registryId": "sidebar",
+  "registryDependencies": [
+    "theme",
+    "utils",
+    "i18n",
+    "button"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Sidebar",
+  "category": "组合模块",
+  "description": "受控折叠的独立侧栏布局。",
+  "source": "components/blocks/sidebar.tsx",
+  "example": "components/examples/layout-integration-demo.tsx",
+  "usage": "import { Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter, SidebarLink } from \"@/components/blocks/sidebar\"",
+  "props": [
+    {
+      "name": "label / collapsed / defaultCollapsed / onCollapsedChange / width",
+      "type": "SidebarProps",
+      "description": "默认宽256、折叠48；标签和当前链接保留；不持久化偏好。"
+    }
+  ],
+  "notes": [
+    "默认宽256、折叠48；标签和当前链接保留；不持久化偏好。"
+  ]
+},
+{
+  "slug": "resizable",
+  "docPath": "/docs/resizable/",
+  "registryId": "resizable",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Resizable",
+  "category": "基础组件",
+  "description": "可复用双面板与尺寸调整手柄。",
+  "source": "components/ui/resizable.tsx",
+  "example": "components/examples/layout-integration-demo.tsx",
+  "usage": "import { Resizable, ResizableHandle } from \"@/components/ui/resizable\"",
+  "props": [
+    {
+      "name": "value / defaultValue / onValueChange / min / max / axis",
+      "type": "ResizableProps",
+      "description": "支持指针、键盘、RTL、边界和取消；像素值由调用方持有。"
+    }
+  ],
+  "notes": [
+    "支持指针、键盘、RTL、边界和取消；像素值由调用方持有。"
+  ]
+},
+{
+  "slug": "scroll-area",
+  "docPath": "/docs/scroll-area/",
+  "registryId": "scroll-area",
+  "registryDependencies": [
+    "theme",
+    "utils"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "ScrollArea",
+  "category": "基础组件",
+  "description": "保留浏览器行为的原生滚动区域。",
+  "source": "components/ui/scroll-area.tsx",
+  "example": "components/examples/layout-integration-demo.tsx",
+  "usage": "import { ScrollArea } from \"@/components/ui/scroll-area\"",
+  "props": [
+    {
+      "name": "label / orientation / className / ref",
+      "type": "ScrollAreaProps",
+      "description": "无需模拟滚动条；保留键盘、选择、查找与 ref。"
+    }
+  ],
+  "notes": [
+    "无需模拟滚动条；保留键盘、选择、查找与 ref。"
+  ]
+},
+{
+  "slug": "command",
+  "docPath": "/docs/command/",
+  "registryId": "command",
+  "registryDependencies": [
+    "command-palette"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Command",
+  "category": "组合模块",
+  "description": "复用 CommandPalette 的内嵌命令面板。",
+  "source": "components/blocks/command.tsx",
+  "example": "components/examples/layout-integration-demo.tsx",
+  "usage": "import { Command } from \"@/components/blocks/command\"",
+  "props": [
+    {
+      "name": "title / query / groups / onSelect",
+      "type": "CommandProps",
+      "description": "结果、过滤和激活由调用方提供；不默认监听全局快捷键。"
+    }
+  ],
+  "notes": [
+    "结果、过滤和激活由调用方提供；不默认监听全局快捷键。"
+  ]
+},
+{
+  "slug": "drawer",
+  "docPath": "/docs/drawer/",
+  "registryId": "drawer",
+  "registryDependencies": [
+    "sheet",
+    "button",
+    "i18n"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "Drawer",
+  "category": "基础组件",
+  "description": "复用 Sheet 的抽屉与可选滑动关闭。",
+  "source": "components/ui/drawer.tsx",
+  "example": "components/examples/layout-integration-demo.tsx",
+  "usage": "import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle, DrawerHeader, DrawerBody, DrawerFooter, DrawerClose } from \"@/components/ui/drawer\"",
+  "props": [
+    {
+      "name": "open / defaultOpen / side / swipeToClose",
+      "type": "DrawerProps",
+      "description": "仅底部显式手柄支持滑动；正文原生滚动，焦点恢复沿用 Sheet。"
+    }
+  ],
+  "notes": [
+    "仅底部显式手柄支持滑动；正文原生滚动，焦点恢复沿用 Sheet。"
+  ]
+},
+// END shadcn completion
+
   // BEGIN workflow analytics
 {
   "slug": "analytics-model",
@@ -2559,13 +3721,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "workspace-shell",
     docPath: "/docs/workspace-shell/",
     registryId: "workspace-shell",
-    registryDependencies: [
-      "theme-boundary",
-      "theme",
-      "utils",
-      "button",
-      "i18n",
-    ],
+    registryDependencies: ["theme-boundary", "theme", "utils", "button", "i18n", "resizable"],
     installType: "block",
     displayCategory: "workspace",
     availability: "available",
@@ -2640,7 +3796,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     slug: "data-region",
     docPath: "/docs/data-region/",
     registryId: "data-region",
-    registryDependencies: ["button", "theme", "i18n", "runtime-status"],
+    registryDependencies: ["button", "theme", "i18n", "runtime-status", "skeleton", "empty", "alert"],
     installType: "ui",
     displayCategory: "primitives",
     availability: "available",

@@ -436,3 +436,19 @@ WorkItemsBatchActions 只提交状态/优先级 patch 与每项基础版本，�
 详见 [WORK-ITEMS.md](./WORK-ITEMS.md)。Timeline 行最小44px、时间条视觉24px，侧栏与轴共用垂直滚动；周/月/季度按日吸附，裁切保留完整日期、单端记录不虚构工期。粗指针使用44px日期表单目标，隐藏细小拖动把手。Calendar 是截止日布局，月/周格与当日Agenda分责，390px使用日期选择与Agenda；今日、选中日期与当前对象分开呈现。周末与无日期任务保留可达入口。
 
 日期使用严格有效日历字符串、包含两端，不按本地24小时毫秒差计算。shift成对提交，resize仅改一端，Calendar只改dueDate；共同校验权限、基础版本、queryKey与pending/unknown锁。已确认快照与日期草稿分开，失败/未知保留并由调用方对账。远程范围/按日分页、总数与游标是调用方权威快照，不从已加载页推断完整计数。五布局共享对象、选择、详情和回执；旧记录/保存视图保持兼容，分组偏好在日期布局不生效。
+
+## shadcn S2–S9 补齐契约
+
+ButtonGroup 和 InputGroup 只组合兄弟控件；Toggle 与 ToggleGroup 的按下、焦点和单/多选分开。InputOTP 保留一个原生文本输入框、光标选择、粘贴、删除、自动填充与表单验证，不将输入草稿当成验证成功。
+
+Collapsible/Accordion 的展开独立于业务选择；Tooltip/HoverCard 仅承载补充信息，关键内容有可见入口。ContextMenu 有键盘和可见菜单替代。AlertDialog 确认只触发调用方能力；回调返回不自动关闭或显示业务成功。所有浮层进入 ThemeBoundary。
+
+Skeleton 为静态结构占位；Spinner 减少动态效果时停止旋转并保留文字。Empty/Alert/Progress 提取为通用原语，DataRegion 继续负责五种数据态与已有内容保留。Progress 的 null/非有限值为未知，Meter 表达测量。Toast/Sonner 共用 Provider、Toaster 与通知管理器，不创建第二套业务事实。
+
+DateCalendar 使用 ISO 民用日期键和 UTC 日期运算，支持单日/范围、禁用日期、月导航、键盘与方向边界；不选择禁用日期，不跨越范围内的禁用日。DatePicker 完成选择关闭并恢复焦点。Pagination 只请求变更，未知总数必须通过 hasNext 控制。Menubar 表达命令，NavigationMenu/Breadcrumb 表达链接。
+
+Attachment 仅显示调用方附件描述，未知或忙碌时禁止再次移除；不读取或上传文件。Questionnaire 的答案、当前问题、busy/error 和提交结果由调用方控制，回退与切语言保留草稿。Bubble 是独立引用容器，ChatMessage 继续按正式同轴契约呈现。
+
+Card 只用于独立内容。AspectRatio 使用有限正比例。Carousel 不自动播放，隐藏页保留输入并退出 Tab 顺序，支持键盘、指针和 RTL。Chart 提供最近120项的柱/线图与对应可读数据表，空、缺失、负值和零分开；外层 DataRegion 保留刷新失败时的数据。
+
+Form 复用原生提交和 Field；不绑定业务验证库。Sidebar 默认256/折叠48，隐藏文字仍有标签。Resizable/ResizableHandle 的尺寸值受控或非受控，支持指针捕获、取消、8px键盘步进、Home/End 与 RTL；WorkspaceShell 侧栏复用手柄。ScrollArea 保留原生滚动。Command 是 CommandPalette 的内嵌展示；Drawer 复用 Sheet，仅底部显式手柄可选48px向下滑动关闭，正文继续原生滚动。Conversation actionsRef 只定位已加载消息，不读取历史、不选中或执行消息，找不到返回 false。

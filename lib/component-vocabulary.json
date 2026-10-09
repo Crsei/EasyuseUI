@@ -1,0 +1,1729 @@
+[
+  {
+    "slug": "button-group",
+    "name": "ButtonGroup",
+    "category": "基础组件",
+    "description": "同组操作的紧凑容器。",
+    "source": "components/ui/button-group.tsx",
+    "usage": "import { ButtonGroup } from \"@/components/ui/button-group\"",
+    "notes": [
+      "只组合兄弟操作目标，不引入选中状态。"
+    ]
+  },
+  {
+    "slug": "input-group",
+    "name": "InputGroup",
+    "category": "基础组件",
+    "description": "输入与前后缀、操作的组合。",
+    "source": "components/ui/input-group.tsx",
+    "usage": "import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupTextarea } from \"@/components/ui/input-group\"",
+    "notes": [
+      "标签由原生输入负责；附加操作保持独立。"
+    ]
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "category": "基础组件",
+    "description": "支持按下状态的切换按钮。",
+    "source": "components/ui/toggle.tsx",
+    "usage": "import { Toggle } from \"@/components/ui/toggle\"",
+    "notes": [
+      "按下与焦点独立；值由调用方持有。"
+    ]
+  },
+  {
+    "slug": "toggle-group",
+    "name": "ToggleGroup",
+    "category": "基础组件",
+    "description": "单选或多选切换组。",
+    "source": "components/ui/toggle-group.tsx",
+    "usage": "import { ToggleGroup, ToggleGroupItem } from \"@/components/ui/toggle-group\"",
+    "notes": [
+      "值始终为数组；方向键移动焦点。"
+    ]
+  },
+  {
+    "slug": "input-otp",
+    "name": "InputOTP",
+    "category": "基础组件",
+    "description": "原生一次性验证码输入。",
+    "source": "components/ui/input-otp.tsx",
+    "usage": "import { InputOTP } from \"@/components/ui/input-otp\"",
+    "notes": [
+      "保留原生粘贴、选择、删除、自动填充及表单行为；验证由调用方负责。"
+    ]
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "category": "基础组件",
+    "description": "语义或装饰性分隔线。",
+    "source": "components/ui/separator.tsx",
+    "usage": "import { Separator } from \"@/components/ui/separator\"",
+    "notes": [
+      "装饰性分隔默认不进入无障碍树。"
+    ]
+  },
+  {
+    "slug": "collapsible",
+    "name": "Collapsible",
+    "category": "基础组件",
+    "description": "受控或非受控内容折叠。",
+    "source": "components/ui/collapsible.tsx",
+    "usage": "import { Collapsible, CollapsibleTrigger, CollapsibleContent } from \"@/components/ui/collapsible\"",
+    "notes": [
+      "展开与业务选择分开；触发器保持键盘与焦点关联。"
+    ]
+  },
+  {
+    "slug": "accordion",
+    "name": "Accordion",
+    "category": "基础组件",
+    "description": "单项或多项展开的手风琴。",
+    "source": "components/ui/accordion.tsx",
+    "usage": "import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from \"@/components/ui/accordion\"",
+    "notes": [
+      "每个标题有独立触发器；禁用项不展开。"
+    ]
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip",
+    "category": "基础组件",
+    "description": "支持悬停和焦点的补充提示。",
+    "source": "components/ui/tooltip.tsx",
+    "usage": "import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from \"@/components/ui/tooltip\"",
+    "notes": [
+      "提示不承担关键操作；浮层进入当前主题边界。"
+    ]
+  },
+  {
+    "slug": "alert-dialog",
+    "name": "AlertDialog",
+    "category": "基础组件",
+    "description": "显式确认请求的模态对话框。",
+    "source": "components/ui/alert-dialog.tsx",
+    "usage": "import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogTitle, AlertDialogDescription, AlertDialogCancel } from \"@/components/ui/alert-dialog\"",
+    "notes": [
+      "确认按钮由调用方提供；请求返回不代表操作完成。"
+    ]
+  },
+  {
+    "slug": "hover-card",
+    "name": "HoverCard",
+    "category": "基础组件",
+    "description": "链接的补充预览层。",
+    "source": "components/ui/hover-card.tsx",
+    "usage": "import { HoverCard, HoverCardTrigger, HoverCardContent } from \"@/components/ui/hover-card\"",
+    "notes": [
+      "重要内容需通过链接或可见按钮到达；预览不是唯一入口。"
+    ]
+  },
+  {
+    "slug": "context-menu",
+    "name": "ContextMenu",
+    "category": "基础组件",
+    "description": "右键、键盘与长按的上下文动作。",
+    "source": "components/ui/context-menu.tsx",
+    "usage": "import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from \"@/components/ui/context-menu\"",
+    "notes": [
+      "提供可见菜单替代以支持触摸；动作仅由回调触发。"
+    ]
+  },
+  {
+    "slug": "skeleton",
+    "name": "Skeleton",
+    "category": "基础组件",
+    "description": "结构相符的静态加载占位。",
+    "source": "components/ui/skeleton.tsx",
+    "usage": "import { Skeleton } from \"@/components/ui/skeleton\"",
+    "notes": [
+      "加载语义由外层区域负责；减少动效下无闪烁。"
+    ]
+  },
+  {
+    "slug": "spinner",
+    "name": "Spinner",
+    "category": "基础组件",
+    "description": "附带可读文本的忙碌指示。",
+    "source": "components/ui/spinner.tsx",
+    "usage": "import { Spinner } from \"@/components/ui/spinner\"",
+    "notes": [
+      "减少动效时停止旋转，保持状态文字。"
+    ]
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "category": "基础组件",
+    "description": "说明空态原因与下一步。",
+    "source": "components/ui/empty.tsx",
+    "usage": "import { Empty } from \"@/components/ui/empty\"",
+    "notes": [
+      "操作由调用方提供；不把错误展示为空数据。"
+    ]
+  },
+  {
+    "slug": "alert",
+    "name": "Alert",
+    "category": "基础组件",
+    "description": "内联信息、警告与错误反馈。",
+    "source": "components/ui/alert.tsx",
+    "usage": "import { Alert, AlertTitle, AlertDescription } from \"@/components/ui/alert\"",
+    "notes": [
+      "即时错误用 alert，常规通知用 status；不改变运行状态。"
+    ]
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "category": "基础组件",
+    "description": "确定或未知总量的任务进度。",
+    "source": "components/ui/progress.tsx",
+    "usage": "import { Progress, Meter } from \"@/components/ui/progress\"",
+    "notes": [
+      "未知进度不提供伪造百分比；测量值使用 Meter。"
+    ]
+  },
+  {
+    "slug": "toast",
+    "name": "Toast",
+    "category": "基础组件",
+    "description": "统一、可更新和关闭的通知体系。",
+    "source": "components/ui/toast.tsx",
+    "usage": "import { ToastProvider, Toaster, useToastManager, createToastManager } from \"@/components/ui/toast\"",
+    "notes": [
+      "通知仅表达调用方已知事实，不根据请求返回推断业务完成。"
+    ]
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "category": "基础组件",
+    "description": "复用 Toast 的通知适配入口。",
+    "source": "components/ui/sonner.tsx",
+    "usage": "import { ToastProvider, Toaster, useToastManager } from \"@/components/ui/sonner\"",
+    "notes": [
+      "使用同一 Provider 与 Toaster；不承诺 Sonner 包的 API 兼容。"
+    ]
+  },
+  {
+    "slug": "date-calendar",
+    "name": "DateCalendar",
+    "category": "基础组件",
+    "description": "按民用日期键选择单日或范围。",
+    "source": "components/ui/date-calendar.tsx",
+    "usage": "import { DateCalendar } from \"@/components/ui/date-calendar\"",
+    "notes": [
+      "使用 YYYY-MM-DD 与 UTC 日历运算；禁用日期不可选择，范围内禁用日会阻止完成。"
+    ]
+  },
+  {
+    "slug": "date-picker",
+    "name": "DatePicker",
+    "category": "基础组件",
+    "description": "日期日历与弹出层的组合。",
+    "source": "components/ui/date-picker.tsx",
+    "usage": "import { DatePicker } from \"@/components/ui/date-picker\"",
+    "notes": [
+      "单日或完整范围选择后关闭并恢复焦点；日期值不因语言或时区变化。"
+    ]
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "category": "基础组件",
+    "description": "受控分页请求与未知总数导航。",
+    "source": "components/ui/pagination.tsx",
+    "usage": "import { Pagination } from \"@/components/ui/pagination\"",
+    "notes": [
+      "只请求页码变化；未知总数依赖 hasNext，不推断最后一页。"
+    ]
+  },
+  {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "category": "基础组件",
+    "description": "路径层级与当前页面导航。",
+    "source": "components/ui/breadcrumb.tsx",
+    "usage": "import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from \"@/components/ui/breadcrumb\"",
+    "notes": [
+      "导航使用链接；当前页面使用 aria-current。"
+    ]
+  },
+  {
+    "slug": "menubar",
+    "name": "Menubar",
+    "category": "基础组件",
+    "description": "桌面应用菜单栏与动作菜单。",
+    "source": "components/ui/menubar.tsx",
+    "usage": "import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from \"@/components/ui/menubar\"",
+    "notes": [
+      "键盘跨菜单导航由 Base UI 管理；禁用动作不执行。"
+    ]
+  },
+  {
+    "slug": "navigation-menu",
+    "name": "NavigationMenu",
+    "category": "基础组件",
+    "description": "站点层级导航与链接浮层。",
+    "source": "components/ui/navigation-menu.tsx",
+    "usage": "import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuViewport } from \"@/components/ui/navigation-menu\"",
+    "notes": [
+      "保留链接和键盘语义；主题浮层通过 Viewport 分发。"
+    ]
+  },
+  {
+    "slug": "direction",
+    "name": "Direction",
+    "category": "基础组件",
+    "description": "同步 DOM 与 Base UI 的阅读方向。",
+    "source": "components/ui/direction.tsx",
+    "usage": "import { DirectionProvider } from \"@/components/ui/direction\"",
+    "notes": [
+      "方向边界不翻译调用方内容，值与服务请求保持不变。"
+    ]
+  },
+  {
+    "slug": "attachment",
+    "name": "Attachment",
+    "category": "基础组件",
+    "description": "调用方附件状态与打开、移除操作。",
+    "source": "components/ui/attachment.tsx",
+    "usage": "import { Attachment } from \"@/components/ui/attachment\"",
+    "notes": [
+      "不读取或上传文件；未知结果和忙碌状态阻止再次写入。"
+    ]
+  },
+  {
+    "slug": "marker",
+    "name": "Marker",
+    "category": "基础组件",
+    "description": "对话时间、章节与事件分隔标记。",
+    "source": "components/ui/marker.tsx",
+    "usage": "import { Marker, MarkerIcon, MarkerContent } from \"@/components/ui/marker\"",
+    "notes": [
+      "只读标记无交互悬停；调用方内容保持原样。"
+    ]
+  },
+  {
+    "slug": "questionnaire",
+    "name": "Questionnaire",
+    "category": "组合模块",
+    "description": "逐题单选、多选和文本问卷。",
+    "source": "components/blocks/questionnaire.tsx",
+    "usage": "import { Questionnaire } from \"@/components/blocks/questionnaire\"",
+    "notes": [
+      "答案受控；支持跳过、回退和错误保留；提交结果由调用方确认。"
+    ]
+  },
+  {
+    "slug": "bubble",
+    "name": "Bubble",
+    "category": "基础组件",
+    "description": "独立引用或批注的内容容器。",
+    "source": "components/ui/bubble.tsx",
+    "usage": "import { Bubble, BubbleContent, BubbleAttribution } from \"@/components/ui/bubble\"",
+    "notes": [
+      "用于独立引用示例，不改变 ChatMessage 的同轴对话布局。"
+    ]
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "category": "基础组件",
+    "description": "独立内容、概览和预览容器。",
+    "source": "components/ui/card.tsx",
+    "usage": "import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from \"@/components/ui/card\"",
+    "notes": [
+      "普通会话、日志和列表继续使用 Item、list 或 table。"
+    ]
+  },
+  {
+    "slug": "aspect-ratio",
+    "name": "AspectRatio",
+    "category": "基础组件",
+    "description": "保留指定纵横比的内容区域。",
+    "source": "components/ui/aspect-ratio.tsx",
+    "usage": "import { AspectRatio } from \"@/components/ui/aspect-ratio\"",
+    "notes": [
+      "比例必须为有限正数；无效输入回退 16:9。"
+    ]
+  },
+  {
+    "slug": "carousel",
+    "name": "Carousel",
+    "category": "基础组件",
+    "description": "手动控制、键盘与触摸轮播。",
+    "source": "components/ui/carousel.tsx",
+    "usage": "import { Carousel } from \"@/components/ui/carousel\"",
+    "notes": [
+      "不自动播放；隐藏页保留草稿并离开 Tab 顺序；方向随 RTL 调整。"
+    ]
+  },
+  {
+    "slug": "chart",
+    "name": "Chart",
+    "category": "组合模块",
+    "description": "带完整文本替代的轻量柱图和折线图。",
+    "source": "components/blocks/chart.tsx",
+    "usage": "import { Chart } from \"@/components/blocks/chart\"",
+    "notes": [
+      "最多展示最近120项；空、缺失、负值和零值分开，未增加图表依赖。"
+    ]
+  },
+  {
+    "slug": "form",
+    "name": "Form",
+    "category": "基础组件",
+    "description": "原生表单与 Field 的轻量组合。",
+    "source": "components/ui/form.tsx",
+    "usage": "import { Form, FormField } from \"@/components/ui/form\"",
+    "notes": [
+      "调用方拥有验证、提交、错误和持久化；不要求特定表单库。"
+    ]
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "category": "组合模块",
+    "description": "受控折叠的独立侧栏布局。",
+    "source": "components/blocks/sidebar.tsx",
+    "usage": "import { Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter, SidebarLink } from \"@/components/blocks/sidebar\"",
+    "notes": [
+      "默认宽256、折叠48；标签和当前链接保留；不持久化偏好。"
+    ]
+  },
+  {
+    "slug": "resizable",
+    "name": "Resizable",
+    "category": "基础组件",
+    "description": "可复用双面板与尺寸调整手柄。",
+    "source": "components/ui/resizable.tsx",
+    "usage": "import { Resizable, ResizableHandle } from \"@/components/ui/resizable\"",
+    "notes": [
+      "支持指针、键盘、RTL、边界和取消；像素值由调用方持有。"
+    ]
+  },
+  {
+    "slug": "scroll-area",
+    "name": "ScrollArea",
+    "category": "基础组件",
+    "description": "保留浏览器行为的原生滚动区域。",
+    "source": "components/ui/scroll-area.tsx",
+    "usage": "import { ScrollArea } from \"@/components/ui/scroll-area\"",
+    "notes": [
+      "无需模拟滚动条；保留键盘、选择、查找与 ref。"
+    ]
+  },
+  {
+    "slug": "command",
+    "name": "Command",
+    "category": "组合模块",
+    "description": "复用 CommandPalette 的内嵌命令面板。",
+    "source": "components/blocks/command.tsx",
+    "usage": "import { Command } from \"@/components/blocks/command\"",
+    "notes": [
+      "结果、过滤和激活由调用方提供；不默认监听全局快捷键。"
+    ]
+  },
+  {
+    "slug": "drawer",
+    "name": "Drawer",
+    "category": "基础组件",
+    "description": "复用 Sheet 的抽屉与可选滑动关闭。",
+    "source": "components/ui/drawer.tsx",
+    "usage": "import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle, DrawerHeader, DrawerBody, DrawerFooter, DrawerClose } from \"@/components/ui/drawer\"",
+    "notes": [
+      "仅底部显式手柄支持滑动；正文原生滚动，焦点恢复沿用 Sheet。"
+    ]
+  },
+  {
+    "slug": "analytics-model",
+    "name": "AnalyticsModel",
+    "category": "组合模块",
+    "description": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+    "source": "lib/analytics-model.ts",
+    "usage": "import { analyticsEntityKey } from \"@/lib/analytics-model\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "chart-model",
+    "name": "ChartModel",
+    "category": "组合模块",
+    "description": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+    "source": "lib/chart-model.ts",
+    "usage": "import { chartData } from \"@/lib/chart-model\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "chart-frame",
+    "name": "ChartFrame",
+    "category": "基础组件",
+    "description": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+    "source": "components/ui/chart.tsx",
+    "usage": "import { ChartFrame } from \"@/components/ui/chart\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "chart-data-table",
+    "name": "ChartDataTable",
+    "category": "组合模块",
+    "description": "聚合点的完整结构化表格与键盘下钻路径。",
+    "source": "components/blocks/charts/chart-data-table.tsx",
+    "usage": "import { ChartDataTable } from \"@/components/blocks/charts/chart-data-table\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "statistical-chart",
+    "name": "StatisticalChart",
+    "category": "组合模块",
+    "description": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+    "source": "components/blocks/charts/statistical-chart.tsx",
+    "usage": "import { StatisticalChart } from \"@/components/blocks/charts/statistical-chart\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "chart-drilldown-panel",
+    "name": "ChartDrilldownPanel",
+    "category": "组合模块",
+    "description": "快照匹配、历史成员说明与分页来源记录面板。",
+    "source": "components/blocks/charts/chart-drilldown-panel.tsx",
+    "usage": "import { ChartDrilldownPanel } from \"@/components/blocks/charts/chart-drilldown-panel\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "workflow-metric",
+    "name": "WorkflowMetric",
+    "category": "组合模块",
+    "description": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+    "source": "components/blocks/analytics/workflow-metric.tsx",
+    "usage": "import { WorkflowMetric } from \"@/components/blocks/analytics/workflow-metric\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "workflow-charts",
+    "name": "WorkflowCharts",
+    "category": "组合模块",
+    "description": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+    "source": "components/blocks/analytics/workflow-charts.tsx",
+    "usage": "import { StatusDistribution } from \"@/components/blocks/analytics/workflow-charts\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "risk-evidence-list",
+    "name": "RiskEvidenceList",
+    "category": "组合模块",
+    "description": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+    "source": "components/blocks/analytics/risk-evidence-list.tsx",
+    "usage": "import { RiskEvidenceList } from \"@/components/blocks/analytics/risk-evidence-list\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "work-traceability-view",
+    "name": "WorkTraceabilityView",
+    "category": "组合模块",
+    "description": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+    "source": "components/blocks/analytics/work-traceability-view.tsx",
+    "usage": "import { WorkTraceabilityView } from \"@/components/blocks/analytics/work-traceability-view\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "work-items-view-adapter",
+    "name": "WorkItemsViewAdapter",
+    "category": "组合模块",
+    "description": "保留业务能力的分析快照到工作项五布局适配。",
+    "source": "components/blocks/analytics/work-items-view-adapter.tsx",
+    "usage": "import { WorkItemsViewAdapter } from \"@/components/blocks/analytics/work-items-view-adapter\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "dashboard",
+    "name": "Dashboard",
+    "category": "组合模块",
+    "description": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+    "source": "components/blocks/dashboard/dashboard.tsx",
+    "usage": "import { DashboardGrid } from \"@/components/blocks/dashboard/dashboard\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "project-overview-dashboard",
+    "name": "ProjectOverviewDashboard",
+    "category": "组合模块",
+    "description": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+    "source": "components/blocks/dashboard/project-overview-dashboard.tsx",
+    "usage": "import { ProjectOverviewDashboard } from \"@/components/blocks/dashboard/project-overview-dashboard\"",
+    "notes": [
+      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
+    ]
+  },
+  {
+    "slug": "textarea",
+    "name": "Textarea",
+    "category": "基础组件",
+    "description": "多行文本输入，保留原生表单、引用与草稿语义。",
+    "source": "components/ui/textarea.tsx",
+    "usage": "import { Textarea } from \"@/components/ui/textarea\"",
+    "notes": [
+      "支持受控和非受控值；错误不会清空草稿。"
+    ]
+  },
+  {
+    "slug": "label",
+    "name": "Label",
+    "category": "基础组件",
+    "description": "独立字段标签，沿用原生 htmlFor 与 ref。",
+    "source": "components/ui/label.tsx",
+    "usage": "import { Label } from \"@/components/ui/label\"",
+    "notes": [
+      "只负责标签关联；完整说明与错误关联使用 Field。"
+    ]
+  },
+  {
+    "slug": "native-select",
+    "name": "NativeSelect",
+    "category": "基础组件",
+    "description": "原生选择器、选项与分组，保留移动端系统选择器。",
+    "source": "components/ui/native-select.tsx",
+    "usage": "import { NativeSelect, NativeSelectOption, NativeSelectOptGroup } from \"@/components/ui/native-select\"",
+    "notes": [
+      "显示标签与提交值分开，支持多选和原生表单属性。"
+    ]
+  },
+  {
+    "slug": "switch",
+    "name": "Switch",
+    "category": "基础组件",
+    "description": "受控或非受控开关，保留原生表单与只读状态。",
+    "source": "components/ui/switch.tsx",
+    "usage": "import { Switch } from \"@/components/ui/switch\"",
+    "notes": [
+      "32px操作目标、粗指针44px；回调只报告设置值变化。"
+    ]
+  },
+  {
+    "slug": "radio-group",
+    "name": "RadioGroup",
+    "category": "基础组件",
+    "description": "常规单选组，键盘选择、焦点与表单值由 Base UI 管理。",
+    "source": "components/ui/radio-group.tsx",
+    "usage": "import { RadioGroup, RadioGroupItem } from \"@/components/ui/radio-group\"",
+    "notes": [
+      "单选值受控或非受控；协议值不随显示语言改变。"
+    ]
+  },
+  {
+    "slug": "checkbox",
+    "name": "Checkbox",
+    "category": "基础组件",
+    "description": "原生表单关联的三态复选框，选择与焦点分离。",
+    "source": "components/ui/checkbox.tsx",
+    "usage": "import { Checkbox } from \"@/components/ui/checkbox\"",
+    "notes": [
+      "indeterminate只表达部分选择，不提交第三种业务值。"
+    ]
+  },
+  {
+    "slug": "table",
+    "name": "Table",
+    "category": "基础组件",
+    "description": "原生表格结构，保留表头、单元格、标题和滚动语义。",
+    "source": "components/ui/table.tsx",
+    "usage": "import { Table } from \"@/components/ui/table\"",
+    "notes": [
+      "TableContainer负责横向滚动，Table不拥有数据请求或行选择。"
+    ]
+  },
+  {
+    "slug": "data-table",
+    "name": "DataTable",
+    "category": "组合模块",
+    "description": "受控通用表格，勾选、查看与排序请求分别建模。",
+    "source": "components/blocks/data-table.tsx",
+    "usage": "\"use client\"\nimport { DataTable } from \"@/components/blocks/data-table\"\nconst rows = [{ id: \"task-1\", title: \"Review changes\" }]\nexport function Tasks() {\n  return <DataTable rows={rows} caption=\"Tasks\"\n    getRowId={row => row.id} getRowLabel={row => row.title}\n    columns={[{ id: \"title\", header: \"Title\", cell: row => row.title }]} />\n}",
+    "notes": [
+      "全选只修改当前可选行并保留隐藏选择；调用方提供排序后的数据与汇总。"
+    ]
+  },
+  {
+    "slug": "avatar",
+    "name": "Avatar",
+    "category": "基础组件",
+    "description": "头像图片、姓名缩写与读取失败回退。",
+    "source": "components/ui/avatar.tsx",
+    "usage": "import { Avatar } from \"@/components/ui/avatar\"",
+    "notes": [
+      "name提供可访问名称；图片失败后显示缩写，src变化允许重新读取。"
+    ]
+  },
+  {
+    "slug": "segment-bar",
+    "name": "SegmentBar",
+    "category": "基础组件",
+    "description": "分段量值显示，使用meter语义并明确未知值。",
+    "source": "components/ui/segment-bar.tsx",
+    "usage": "import { SegmentBar } from \"@/components/ui/segment-bar\"",
+    "notes": [
+      "有限值限制在声明范围，分段数1–50；未知值不补零，不用作任务进度。"
+    ]
+  },
+  {
+    "slug": "sparkline",
+    "name": "Sparkline",
+    "category": "基础组件",
+    "description": "带文本替代的微型柱状趋势，覆盖空值、缺失和等值。",
+    "source": "components/ui/sparkline.tsx",
+    "usage": "import { Sparkline } from \"@/components/ui/sparkline\"",
+    "notes": [
+      "最多显示最近120个点；缺失值不画柱，零值有基线，负值从零线向下。"
+    ]
+  },
+  {
+    "slug": "dropdown-menu",
+    "name": "DropdownMenu",
+    "category": "基础组件",
+    "description": "复用Menu的动作、复选及单选菜单，支持键盘定位。",
+    "source": "components/ui/dropdown-menu.tsx",
+    "usage": "import { DropdownMenu } from \"@/components/ui/dropdown-menu\"",
+    "notes": [
+      "不创建第二套菜单基础；菜单选项不替代普通表单Select。"
+    ]
+  },
+  {
+    "slug": "sheet",
+    "name": "Sheet",
+    "category": "基础组件",
+    "description": "左右及底部抽屉，固定首尾、正文滚动与嵌套焦点管理。",
+    "source": "components/ui/sheet.tsx",
+    "usage": "import { Sheet } from \"@/components/ui/sheet\"",
+    "notes": [
+      "复用Dialog语义；Portal继承ThemeBoundary，支持指定转场后的焦点目标。"
+    ]
+  },
+  {
+    "slug": "command-palette",
+    "name": "CommandPalette",
+    "category": "组合模块",
+    "description": "调用方提供结果的命令搜索，支持键盘选择与IME。",
+    "source": "components/blocks/command-palette.tsx",
+    "usage": "import { CommandPalette } from \"@/components/blocks/command-palette\"",
+    "notes": [
+      "默认不注册全局快捷键；可配置scope，忽略编辑器、Canvas及已处理事件；选择不执行内置服务。"
+    ]
+  },
+  {
+    "slug": "kbd",
+    "name": "Kbd",
+    "category": "基础组件",
+    "description": "语义化快捷键呈现，不注册键盘事件。",
+    "source": "components/ui/kbd.tsx",
+    "usage": "import { Kbd } from \"@/components/ui/kbd\"",
+    "notes": [
+      "修饰键符号需要调用方提供适合读屏的名称。"
+    ]
+  },
+  {
+    "slug": "field",
+    "name": "Field",
+    "category": "基础组件",
+    "description": "统一标签、描述与错误关联，保留调用方输入草稿。",
+    "source": "components/ui/field.tsx",
+    "usage": "import { Field } from \"@/components/ui/field\"",
+    "notes": [
+      "通过render函数传递id、aria-describedby、aria-invalid和required；校验属于调用方。"
+    ]
+  },
+  {
+    "slug": "form-section",
+    "name": "FormSection",
+    "category": "组合模块",
+    "description": "使用fieldset和legend组织表单分组。",
+    "source": "components/blocks/form-section.tsx",
+    "usage": "import { FormSection } from \"@/components/blocks/form-section\"",
+    "notes": [
+      "不嵌套创建form，不拥有保存或校验逻辑。"
+    ]
+  },
+  {
+    "slug": "slider",
+    "name": "Slider",
+    "category": "基础组件",
+    "description": "受控或非受控数值滑块，连续变化与提交回调分离。",
+    "source": "components/ui/slider.tsx",
+    "usage": "import { Slider } from \"@/components/ui/slider\"",
+    "notes": [
+      "复用Base UI键盘与触摸行为；无效边界和数值有确定回退，不创建业务持久化。"
+    ]
+  },
+  {
+    "slug": "image-upload",
+    "name": "ImageUpload",
+    "category": "组合模块",
+    "description": "本地图片选择、拖放、预览、替换与失败恢复。",
+    "source": "components/blocks/image-upload.tsx",
+    "usage": "import { ImageUpload } from \"@/components/blocks/image-upload\"",
+    "notes": [
+      "替换失败保留旧File；迟到读取丢弃，卸载取消读取；上传及远程结果由调用方负责。"
+    ]
+  },
+  {
+    "slug": "filter-toolbar",
+    "name": "FilterToolbar",
+    "category": "组合模块",
+    "description": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+    "source": "components/blocks/filter-toolbar.tsx",
+    "usage": "import { FilterToolbar } from \"@/components/blocks/filter-toolbar\"",
+    "notes": [
+      "筛选值由调用方持有；切换布局只挂载一组筛选控件，避免重复ID。"
+    ]
+  },
+  {
+    "slug": "metric-summary",
+    "name": "MetricSummary",
+    "category": "组合模块",
+    "description": "使用名称、值、单位和说明展示调用方计算的指标。",
+    "source": "components/blocks/metric-summary.tsx",
+    "usage": "import { MetricSummary } from \"@/components/blocks/metric-summary\"",
+    "notes": [
+      "使用dl语义和稳定ID，不从业务记录推导指标，不增加只读hover。"
+    ]
+  },
+  {
+    "slug": "rating-display",
+    "name": "RatingDisplay",
+    "category": "基础组件",
+    "description": "只读评分与半星显示，提供完整文本替代。",
+    "source": "components/ui/rating-display.tsx",
+    "usage": "import { RatingDisplay } from \"@/components/ui/rating-display\"",
+    "notes": [
+      "max为1–10，value限制范围并四舍五入到半星；缺失值保持未知。"
+    ]
+  },
+  {
+    "slug": "menu",
+    "name": "Menu",
+    "category": "基础组件",
+    "description": "动作菜单，沿用方向键、禁用与 Escape 焦点恢复。",
+    "source": "components/ui/menu.tsx",
+    "usage": "import { Menu, MenuTrigger, MenuContent, MenuItem } from \"@/components/ui/menu\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "popover",
+    "name": "Popover",
+    "category": "基础组件",
+    "description": "带主题继承的辅助信息浮层，不伪造业务反馈。",
+    "source": "components/ui/popover.tsx",
+    "usage": "import { Popover, PopoverTrigger, PopoverContent, PopoverTitle, PopoverDescription, PopoverClose } from \"@/components/ui/popover\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "select",
+    "name": "Select",
+    "category": "基础组件",
+    "description": "有限选项单选，支持受控值与键盘选择。",
+    "source": "components/ui/select.tsx",
+    "usage": "import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectItemText } from \"@/components/ui/select\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "combobox",
+    "name": "Combobox",
+    "category": "基础组件",
+    "description": "可输入筛选的选值控件，保留空结果和键盘导航。",
+    "source": "components/ui/combobox.tsx",
+    "usage": "import { Combobox, ComboboxInput, ComboboxContent, ComboboxEmpty, ComboboxList, ComboboxItem } from \"@/components/ui/combobox\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "segmented",
+    "name": "Segmented",
+    "category": "基础组件",
+    "description": "互斥选值分段控件，使用 radio 语义与方向键。",
+    "source": "components/ui/segmented.tsx",
+    "usage": "import { Segmented, SegmentedItem } from \"@/components/ui/segmented\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "tabs",
+    "name": "Tabs",
+    "category": "基础组件",
+    "description": "内容面板切换，选中与焦点分开并支持方向键。",
+    "source": "components/ui/tabs.tsx",
+    "usage": "import { Tabs, TabsList, TabsTab, TabsPanel } from \"@/components/ui/tabs\"",
+    "notes": [
+      "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
+    ]
+  },
+  {
+    "slug": "theme-boundary",
+    "name": "ThemeBoundary",
+    "category": "基础组件",
+    "description": "兼容宿主或隔离主题的作用域，Portal 继承对应实例的变量。",
+    "source": "components/ui/theme-boundary.tsx",
+    "usage": "import { ThemeBoundary } from \"@/components/ui/theme-boundary\"\n\n<ThemeBoundary mode=\"scoped\" theme=\"dark\">{children}</ThemeBoundary>",
+    "notes": [
+      "默认安装保持 legacy；host 和 scoped Registry 路径需要显式选择并包裹 ThemeBoundary。"
+    ]
+  },
+  {
+    "slug": "i18n",
+    "name": "I18nProvider",
+    "category": "基础组件",
+    "description": "提供简体中文与英文、类型化消息、Intl 格式化和结构化界面反馈。",
+    "source": "lib/i18n-provider.tsx",
+    "usage": "import { I18nProvider } from \"@/lib/i18n-provider\"\n\n<I18nProvider defaultLocale=\"en\">{children}</I18nProvider>",
+    "notes": [
+      "未提供 Provider 时默认中文。组件不依赖 Next、路由或浏览器存储。"
+    ]
+  },
+  {
+    "slug": "canvas-service-panel",
+    "name": "CanvasServicePanel",
+    "category": "组合模块",
+    "description": "受控服务面板：版本恢复、讨论、临时 Presence、环境、分享和发布回执。",
+    "source": "components/blocks/canvas-service-panel.tsx",
+    "usage": "<CanvasServicePanel {...sourceSnapshotAndCapabilities} />",
+    "notes": [
+      "保存适配器使用 CAS 与服务回执；unknown 不自动重试，冲突不自动覆盖。"
+    ]
+  },
+  {
+    "slug": "canvas-project-workspace",
+    "name": "CanvasProjectWorkspace",
+    "category": "组合模块",
+    "description": "显式边界与递归校验的嵌套流程工作台，保留每个子图的选择、视口和本地历史。",
+    "source": "components/blocks/canvas-project-workspace.tsx",
+    "usage": "<CanvasProjectWorkspace project={project} definitions={definitions} onChange={setProject} />",
+    "notes": [
+      "同一子流程可复用，禁止递归引用；Loop / Iteration 仅包装有界独立作用域。"
+    ]
+  },
+  {
+    "slug": "canvas-config-editor",
+    "name": "CanvasConfigEditor",
+    "category": "组合模块",
+    "description": "条件、对象 Schema、键值表、表达式和代码的受控编辑器。",
+    "source": "components/blocks/canvas-config-editor.tsx",
+    "usage": "<CanvasConfigEditor kind=\"condition\" id=\"rules\" label=\"条件\" value={json} onChange={setJson} />",
+    "notes": [
+      "通过 NodeInspector 的字段 kind 使用。高级示例选择 Advanced Config 或 Switch。"
+    ]
+  },
+  {
+    "slug": "canvas-execution-panel",
+    "name": "CanvasExecutionPanel",
+    "category": "组合模块",
+    "description": "受控执行调试：运行、停止请求、审批、脱敏输出和未知结果对账。",
+    "source": "components/blocks/canvas-execution-panel.tsx",
+    "usage": "const runtime = useCanvasRuntime(document, definitions, adapter)\n<CanvasWorkspace {...editor} definitions={definitions} runtime={runtime} />",
+    "notes": [
+      "同条目导出 CanvasRunControls 和 CanvasExecutionInspector。"
+    ]
+  },
+  {
+    "slug": "canvas-workspace",
+    "name": "CanvasWorkspace",
+    "category": "组合模块",
+    "description": "可编辑流程工作台：构图、配置、变量、校验、撤销和导入导出。",
+    "source": "components/blocks/canvas-workspace.tsx",
+    "usage": "import { CanvasWorkspace } from \"@/components/blocks/canvas-workspace\"\nimport { useCanvasEditor } from \"@/lib/use-canvas-editor\"\n\nconst editor = useCanvasEditor(initialDocument, definitions)\n<CanvasWorkspace {...editor} definitions={definitions} />",
+    "notes": [
+      "layout=fill 填满有明确高度的父容器，底部默认收起；默认 preview 用于文档演示。底部标签可展开面板，收起保留高度与内容。"
+    ]
+  },
+  {
+    "slug": "node-palette",
+    "name": "NodePalette",
+    "category": "组合模块",
+    "description": "按分类和名称查找节点，支持点击新增与拖放目录。",
+    "source": "components/blocks/node-palette.tsx",
+    "usage": "import { NodePalette } from \"@/components/blocks/node-palette\"\n\n<NodePalette definitions={definitions} onAdd={addNode} />",
+    "notes": [
+      "Quick Add 与侧栏共享同一目录；新增请求交给调用方命令。"
+    ]
+  },
+  {
+    "slug": "node-inspector",
+    "name": "NodeInspector",
+    "category": "组合模块",
+    "description": "复用 Inspector 的受控节点配置，保留无效草稿并校验后应用。",
+    "source": "components/blocks/node-inspector.tsx",
+    "usage": "import { NodeInspector } from \"@/components/blocks/node-inspector\"\n\n<NodeInspector document={document} definitions={definitions} nodeId={selectedId} onCommand={onCommand} />",
+    "notes": [
+      "每个对象独立保留草稿，应用前不会写入图文档。"
+    ]
+  },
+  {
+    "slug": "variable-picker",
+    "name": "VariablePicker",
+    "category": "组合模块",
+    "description": "复用单选 Tree，选择可达上游的兼容输出并生成结构化引用。",
+    "source": "components/blocks/variable-picker.tsx",
+    "usage": "import { VariablePicker } from \"@/components/blocks/variable-picker\"\n\n<VariablePicker document={document} definitions={definitions} targetId={targetId} expectedType=\"string\" onInsert={setReference} />",
+    "notes": [
+      "nodeId、portId 和 path 关联变量；修改显示名称不影响绑定。"
+    ]
+  },
+  {
+    "slug": "canvas-frame",
+    "name": "CanvasFrame",
+    "category": "组合模块",
+    "description": "流程图的视觉分组；移动由命令整体更新成员位置。",
+    "source": "components/blocks/canvas-frame.tsx",
+    "usage": "import { CanvasFrame } from \"@/components/blocks/canvas-frame\"\n\n<CanvasFrame frame={frame} selected={selected} />",
+    "notes": [
+      "仅视觉组织；删除分组默认解组，保留成员。"
+    ]
+  },
+  {
+    "slug": "canvas-note",
+    "name": "CanvasNote",
+    "category": "组合模块",
+    "description": "流程说明便笺，独立于执行与讨论线程。",
+    "source": "components/blocks/canvas-note.tsx",
+    "usage": "import { CanvasNote } from \"@/components/blocks/canvas-note\"\n\n<CanvasNote note={note} selected={selected} />",
+    "notes": [
+      "正文在展示前脱敏，最多4000字符；持久化由消费方负责。"
+    ]
+  },
+  {
+    "slug": "workflow-canvas",
+    "name": "WorkflowCanvas",
+    "category": "组合模块",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/blocks/workflow-canvas.tsx",
+    "usage": "\"use client\"\nimport { WorkflowCanvas, type WorkflowCanvasProps } from \"@/components/blocks/workflow-canvas\"\n// The caller supplies the graph, selection and command callbacks.\nexport function Graph(props: WorkflowCanvasProps) {\n  return <div style={{ height: 400 }}><WorkflowCanvas {...props} /></div>\n}",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "canvas-node",
+    "name": "CanvasNode",
+    "category": "基础组件",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/ui/canvas-node.tsx",
+    "usage": "import { CanvasNode } from \"@/components/ui/canvas-node\"\n\n// 在 React Flow 的自定义节点渲染器中使用。\n<CanvasNode node={record} definition={definition} selected={selected} readOnly={readOnly} />",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "canvas-port",
+    "name": "CanvasPort",
+    "category": "基础组件",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/ui/canvas-port.tsx",
+    "usage": "import { CanvasPort } from \"@/components/ui/canvas-port\"\n\n// 在 React Flow 自定义节点上下文中使用。\n<CanvasPort port={portDefinition} readOnly={readOnly} />",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "canvas-edge",
+    "name": "CanvasEdge",
+    "category": "基础组件",
+    "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+    "source": "components/ui/canvas-edge.tsx",
+    "usage": "import { CanvasEdge } from \"@/components/ui/canvas-edge\"\nimport { ReactFlow } from \"@xyflow/react\"\n\n<ReactFlow edgeTypes={{ canvas: CanvasEdge }} nodes={nodes} edges={edges} />",
+    "notes": [
+      "示例为本地数据，不运行模型或工具。"
+    ]
+  },
+  {
+    "slug": "style-workbench",
+    "name": "StyleWorkbench",
+    "category": "组合模块",
+    "description": "A/B 样式实验：实时修改圆角、间距、阴影、颜色和字体，比较参数并复制 CSS。",
+    "source": "components/blocks/style-workbench.tsx",
+    "usage": "import { StyleWorkbench } from \"@/components/blocks/style-workbench\"\n\n<StyleWorkbench initialSection=\"shadow\" />",
+    "notes": [
+      "A 从当前主题与未修改的局部探针读取；B 的修改只影响预览，不改全局 token。"
+    ]
+  },
+  {
+    "slug": "badge",
+    "name": "Badge",
+    "category": "基础组件",
+    "description": "只读的信息徽标，支持语义色、小圆角和胶囊外观。",
+    "source": "components/ui/badge.tsx",
+    "usage": "import { Badge } from \"@/components/ui/badge\"\n\n<Badge tone=\"info\" shape=\"pill\">只读信息</Badge>",
+    "notes": [
+      "只读 span，无点击、焦点或 hover 行为，不承载操作。"
+    ]
+  },
+  {
+    "slug": "tag",
+    "name": "Tag",
+    "category": "基础组件",
+    "description": "胶囊外观的只读分类标签，区分分类与交互值。",
+    "source": "components/ui/tag.tsx",
+    "usage": "import { Tag } from \"@/components/ui/tag\"\n\n<Tag leading=\"#\">TypeScript</Tag>",
+    "notes": [
+      "固定中性色和胶囊外观，不进入 Tab 顺序，不接受点击行为。"
+    ]
+  },
+  {
+    "slug": "chip",
+    "name": "Chip",
+    "category": "基础组件",
+    "description": "可选择、移除的受控胶囊，主操作与删除是兄弟目标。",
+    "source": "components/ui/chip.tsx",
+    "usage": "import { Chip } from \"@/components/ui/chip\"\n\n<Chip label=\"TypeScript\" selected={selected}\n  onSelectedChange={setSelected} onRemove={removeValue} />",
+    "notes": [
+      "主操作和移除按钮是兄弟目标，Enter/Space 激活；选中状态通过 aria-pressed 表达。"
+    ]
+  },
+  {
+    "slug": "button",
+    "name": "Button",
+    "category": "基础组件",
+    "description": "清楚地表达操作，给等待一个确定的反馈。",
+    "source": "components/ui/button.tsx",
+    "usage": "\"use client\"\nimport { Button } from \"@/components/ui/button\"\nexport function SaveButton() {\n  return <Button onClick={() => console.log(\"save\")}>Save</Button>\n}",
+    "notes": [
+      "继承 Base UI Button 的其他属性，包括 render、onClick 和 ref。"
+    ]
+  },
+  {
+    "slug": "input",
+    "name": "Input",
+    "category": "基础组件",
+    "description": "从填写到校验，保持简单而清晰。",
+    "source": "components/ui/input.tsx",
+    "usage": "import { Input } from \"@/components/ui/input\"\n\n<label htmlFor=\"project-name\">项目名称</label>\n<Input id=\"project-name\" placeholder=\"我的工作台\" />",
+    "notes": [
+      "继承原生 input 属性和 ref，无额外业务依赖。"
+    ]
+  },
+  {
+    "slug": "dialog",
+    "name": "Dialog",
+    "category": "基础组件",
+    "description": "让用户专注于眼前的一件事。",
+    "source": "components/ui/dialog.tsx",
+    "usage": "import { Button } from \"@/components/ui/button\"\nimport { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from \"@/components/ui/dialog\"\n\n<Dialog>\n  <DialogTrigger render={<Button />}>打开弹窗</DialogTrigger>\n  <DialogContent>\n    <DialogTitle>项目设置</DialogTitle>\n    <DialogDescription>在这里更新项目信息。</DialogDescription>\n  </DialogContent>\n</Dialog>",
+    "notes": [
+      "用 DialogTitle 和 DialogDescription 命名弹窗和说明用途。"
+    ]
+  },
+  {
+    "slug": "task-panel",
+    "name": "TaskPanel",
+    "category": "组合模块",
+    "description": "把任务的等待、执行、完成和失败，一眼说清。",
+    "source": "components/blocks/task-panel.tsx",
+    "usage": "import { TaskPanel } from \"@/components/blocks/task-panel\"\n\n<TaskPanel\n  title=\"发布进度\"\n  tasks={[\n    { id: \"build\", title: \"构建应用\", status: \"completed\" },\n    { id: \"deploy\", title: \"部署应用\", status: \"failed\" },\n  ]}\n  onRetry={(id) => retryTask(id)}\n/>",
+    "notes": [
+      "空数组显示空状态；进度按已完成数量计算。"
+    ]
+  },
+  {
+    "slug": "scroll-playground",
+    "name": "ScrollPlayground",
+    "category": "组合模块",
+    "description": "六种滚动交互，亲手体验：触发、联动、视差、吸顶、吸附与横向展开。",
+    "source": "components/blocks/scroll-playground.tsx",
+    "usage": "import { ScrollPlayground } from \"@/components/blocks/scroll-playground\"\n\n// 展示全部六种交互\n<ScrollPlayground />\n\n// 也可以只展示其中一种\n<ScrollPlayground pattern=\"parallax\" />",
+    "notes": [
+      "每个演示区独立滚动，支持滚轮、触屏以及聚焦后的方向键和 Page Down；右上角按钮可重置体验。"
+    ]
+  },
+  {
+    "slug": "item",
+    "name": "Item",
+    "category": "基础组件",
+    "description": "统一列表行。交互、选中和运行状态分开表达，尾部操作独立。",
+    "source": "components/ui/item.tsx",
+    "usage": "import { Item } from \"@/components/ui/item\"\n\n<Item title=\"整理组件规范\" description=\"Session · 刚刚更新\" selected={selected} onSelect={() => selectSession()} />",
+    "notes": [
+      "Item不设置listitem角色，由调用方提供ul/li等集合结构。"
+    ]
+  },
+  {
+    "slug": "runtime-status-badge",
+    "name": "RuntimeStatusBadge",
+    "category": "基础组件",
+    "description": "Session、Agent、Activity与Tool Call共用的十种运行状态语言。",
+    "source": "components/ui/runtime-status-badge.tsx",
+    "usage": "import { RuntimeStatusBadge } from \"@/components/ui/runtime-status-badge\"\n\n<RuntimeStatusBadge status=\"running\" />",
+    "notes": [
+      "每个状态同时显示图标与文字，颜色不是唯一信息。"
+    ]
+  },
+  {
+    "slug": "workspace-shell",
+    "name": "WorkspaceShell",
+    "category": "组合模块",
+    "description": "紧凑Agent工作台骨架：Sidebar、Main、可调整的Inspector与可选底部面板。",
+    "source": "components/blocks/workspace-shell.tsx",
+    "usage": "import { WorkspaceShell } from \"@/components/blocks/workspace-shell\"\n\n<WorkspaceShell title=\"Agent Workspace\" sidebar={<Navigation />} inspector={<ObjectDetails />} inspectorTitle=\"Session\">\n  <SessionList />\n</WorkspaceShell>",
+    "notes": [
+      "完整基础页在/workspace/；窄容器的Inspector改为带焦点约束的抽屉。"
+    ]
+  },
+  {
+    "slug": "data-region",
+    "name": "DataRegion",
+    "category": "基础组件",
+    "description": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
+    "source": "components/ui/data-region.tsx",
+    "usage": "<DataRegion state=\"error\" hasContent error={{ category: \"network\", message: \"刷新失败\", reason: \"连接中断\" }} onRetry={reload}>\n  <SessionList />\n</DataRegion>",
+    "notes": [
+      "首次 loading 展示三个同尺寸骨架；已有数据时更新中不替换列表。"
+    ]
+  },
+  {
+    "slug": "tree",
+    "name": "Tree",
+    "category": "基础组件",
+    "description": "完整树键盘模型、Idea → Session → Run 层级与受控节点移动。",
+    "source": "components/ui/tree.tsx",
+    "usage": "<Tree label=\"Sessions\" nodes={nodes} selectedId={selectedId} onSelect={node => setSelectedId(node.id)} defaultExpandedIds={[\"idea\"]} onMove={move => setNodes(current => moveTreeNode(current, move))} />",
+    "notes": [
+      "方向键、Home/End、Enter/Space、前缀定位与单一节点 tab stop。"
+    ]
+  },
+  {
+    "slug": "session-row",
+    "name": "SessionRow",
+    "category": "组合模块",
+    "description": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
+    "source": "components/blocks/session-row.tsx",
+    "usage": "<SessionRow session={session} selected={selectedId === session.id} onSelect={() => select(session.id)} action={{ label: \"继续\", onAction: resume }} />",
+    "notes": [
+      "点击行仅选择；尾部操作是独立按钮，不会触发选择。"
+    ]
+  },
+  {
+    "slug": "agent-row",
+    "name": "AgentRow",
+    "category": "组合模块",
+    "description": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
+    "source": "components/blocks/agent-row.tsx",
+    "usage": "<AgentRow agent={agent} selected={selectedId === agent.id} onSelect={() => select(agent.id)} />",
+    "notes": [
+      "未配置模型明确提示；idle 不表示离线，断线保留最后已知运行状态。"
+    ]
+  },
+  {
+    "slug": "activity-timeline",
+    "name": "ActivityTimeline",
+    "category": "组合模块",
+    "description": "Runtime 时间线：平铺事件、详情展开、去重、滚动跟随及新事件提示。",
+    "source": "components/blocks/activity-timeline.tsx",
+    "usage": "<ActivityTimeline events={events} selectedId={selectedId} onSelect={event => inspect(event.id)} data={{ state: \"success\" }} />",
+    "notes": [
+      "按 eventId 去重，保留来源顺序；只在距离底部不超过64px时跟随。"
+    ]
+  },
+  {
+    "slug": "inspector",
+    "name": "Inspector",
+    "category": "组合模块",
+    "description": "当前对象的受控详情，统一 Metadata、缺失字段与复制反馈。",
+    "source": "components/blocks/inspector.tsx",
+    "usage": "<WorkspaceShell title=\"Workspace\" sidebar={<Navigation />} inspector={<Inspector object={selectedObject} state=\"success\" />}>\n  <SessionList />\n</WorkspaceShell>",
+    "notes": [
+      "Inspector 是详情内容；停靠、抽屉、resize 与焦点约束由 WorkspaceShell 提供。"
+    ]
+  },
+  {
+    "slug": "chat-message",
+    "name": "ChatMessage",
+    "category": "组合模块",
+    "description": "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
+    "source": "components/blocks/chat-message.tsx",
+    "usage": "<Conversation messages={messages} workspace={<Files />} composer={<ChatComposer value={draft} onChange={setDraft} onSend={send} />} />",
+    "notes": [
+      "只跟随距底部64px以内的阅读位置；加载旧历史保留锚点，状态边界播报而非每个 token。"
+    ]
+  },
+  {
+    "slug": "tool-call",
+    "name": "ToolCall",
+    "category": "组合模块",
+    "description": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
+    "source": "components/blocks/tool-call.tsx",
+    "usage": "import { ToolCall } from \"@/components/blocks/tool-call\"\nexport function ToolResult() {\n  return <ToolCall call={{ id: \"read-1\", name: \"read_file\",\n    target: \"README.md\", status: \"completed\",\n    arguments: { path: \"README.md\" }, output: \"Local preview\" }} />\n}",
+    "notes": [
+      "参数/输出在展示、复制和导出前按敏感键与常见凭据格式脱敏；业务特殊凭据需调用方预处理。"
+    ]
+  },
+  {
+    "slug": "agent-run-properties",
+    "name": "AgentRunProperties",
+    "category": "组合模块",
+    "description": "共享运行身份、模型、耗时与原始状态。",
+    "source": "components/blocks/agent-run-properties.tsx",
+    "usage": "import { AgentRunProperties } from \"@/components/blocks/agent-run-properties\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "run-stage-summary",
+    "name": "RunStageSummary",
+    "category": "组合模块",
+    "description": "来源阶段与有明确分母的步骤计数，不生成假进度。",
+    "source": "components/blocks/run-stage-summary.tsx",
+    "usage": "import { RunStageSummary } from \"@/components/blocks/run-stage-summary\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-run-row",
+    "name": "AgentRunRow",
+    "category": "组合模块",
+    "description": "紧凑运行行；查看与尾部操作使用兄弟目标。",
+    "source": "components/blocks/agent-run-row.tsx",
+    "usage": "import { AgentRunRow } from \"@/components/blocks/agent-run-row\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-run-card",
+    "name": "AgentRunCard",
+    "category": "组合模块",
+    "description": "独立运行卡片；缺失计数保留为未知。",
+    "source": "components/blocks/agent-run-card.tsx",
+    "usage": "import { AgentRunCard } from \"@/components/blocks/agent-run-card\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-run-list",
+    "name": "AgentRunList",
+    "category": "组合模块",
+    "description": "同一运行集合的只读分组列表。",
+    "source": "components/blocks/agent-run-list.tsx",
+    "usage": "import { AgentRunList } from \"@/components/blocks/agent-run-list\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-run-board",
+    "name": "AgentRunBoard",
+    "category": "组合模块",
+    "description": "按来源状态派生分列的只读运行看板。",
+    "source": "components/blocks/agent-run-board.tsx",
+    "usage": "import { AgentRunBoard } from \"@/components/blocks/agent-run-board\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-run-inspector",
+    "name": "AgentRunInspector",
+    "category": "组合模块",
+    "description": "完整受控运行详情，组合请求、执行、产物与关联。",
+    "source": "components/blocks/agent-run-inspector.tsx",
+    "usage": "import { AgentRunInspector } from \"@/components/blocks/agent-run-inspector\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "attention-queue",
+    "name": "AttentionQueue",
+    "category": "组合模块",
+    "description": "按关注 ID 去重；请求数与运行数分别表达。",
+    "source": "components/blocks/attention-queue.tsx",
+    "usage": "import { AttentionQueue } from \"@/components/blocks/attention-queue\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "approval-request-panel",
+    "name": "ApprovalRequestPanel",
+    "category": "组合模块",
+    "description": "工具审批复用 ToolCall；未知结果必须先核对。",
+    "source": "components/blocks/approval-request-panel.tsx",
+    "usage": "import { ApprovalRequestPanel } from \"@/components/blocks/approval-request-panel\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "artifact-list",
+    "name": "ArtifactList",
+    "category": "组合模块",
+    "description": "产物入口、可用状态与独立审阅摘要。",
+    "source": "components/blocks/artifact-list.tsx",
+    "usage": "import { ArtifactList } from \"@/components/blocks/artifact-list\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "review-summary",
+    "name": "ReviewSummary",
+    "category": "组合模块",
+    "description": "审阅、业务验收与 PR 状态分别呈现。",
+    "source": "components/blocks/artifact-list.tsx",
+    "usage": "import { ReviewSummary } from \"@/components/blocks/artifact-list\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "execution-trace-tree",
+    "name": "ExecutionTraceTree",
+    "category": "组合模块",
+    "description": "可观测父子执行步骤与脱敏工具详情。",
+    "source": "components/blocks/execution-trace-tree.tsx",
+    "usage": "import { ExecutionTraceTree } from \"@/components/blocks/execution-trace-tree\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-relationship-list",
+    "name": "AgentRelationshipList",
+    "category": "组合模块",
+    "description": "仅展示来源明确的运行关联与交接。",
+    "source": "components/blocks/agent-relationship-list.tsx",
+    "usage": "import { AgentRelationshipList } from \"@/components/blocks/agent-relationship-list\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-usage-summary",
+    "name": "AgentUsageSummary",
+    "category": "组合模块",
+    "description": "来源用量去重、覆盖说明与分币种合计。",
+    "source": "components/blocks/agent-usage-summary.tsx",
+    "usage": "import { AgentUsageSummary } from \"@/components/blocks/agent-usage-summary\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-board-toolbar",
+    "name": "AgentBoardToolbar",
+    "category": "组合模块",
+    "description": "共享运行筛选与可选依赖视图受控切换。",
+    "source": "components/blocks/agent-board-toolbar.tsx",
+    "usage": "import { AgentBoardToolbar } from \"@/components/blocks/agent-board-toolbar\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-board-workspace",
+    "name": "AgentBoardWorkspace",
+    "category": "组合模块",
+    "description": "受控 Agent 工作台；路由、服务与持久化归调用方。",
+    "source": "components/blocks/agent-board-workspace.tsx",
+    "usage": "import { AgentBoardWorkspace } from \"@/components/blocks/agent-board-workspace\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "grouped-list",
+    "name": "GroupedList",
+    "category": "组合模块",
+    "description": "受控分组列表，保留分组读取状态与未知总数。",
+    "source": "components/blocks/grouped-list.tsx",
+    "usage": "import { GroupedList } from \"@/components/blocks/grouped-list\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "item-board",
+    "name": "Board",
+    "category": "组合模块",
+    "description": "通用受控看板，指针、触屏与键盘移动共享命令。",
+    "source": "components/blocks/item-board.tsx",
+    "usage": "import { Board } from \"@/components/blocks/item-board\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-properties",
+    "name": "WorkItemProperties",
+    "category": "组合模块",
+    "description": "工作项共享属性与选择器，业务状态独立于运行状态。",
+    "source": "components/blocks/work-item-properties.tsx",
+    "usage": "import { WorkItemProperties } from \"@/components/blocks/work-item-properties\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-row",
+    "name": "WorkItemRow",
+    "category": "组合模块",
+    "description": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+    "source": "components/blocks/work-item.tsx",
+    "usage": "import { WorkItemRow } from \"@/components/blocks/work-item\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-card",
+    "name": "WorkItemCard",
+    "category": "组合模块",
+    "description": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+    "source": "components/blocks/work-item.tsx",
+    "usage": "import { WorkItemCard } from \"@/components/blocks/work-item\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-list",
+    "name": "WorkItemList",
+    "category": "组合模块",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "source": "components/blocks/work-items-views.tsx",
+    "usage": "import { WorkItemList } from \"@/components/blocks/work-items-views\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-board",
+    "name": "WorkItemBoard",
+    "category": "组合模块",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "source": "components/blocks/work-items-views.tsx",
+    "usage": "import { WorkItemBoard } from \"@/components/blocks/work-items-views\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-table",
+    "name": "WorkItemTable",
+    "category": "组合模块",
+    "description": "同一工作项快照的列表、看板和表格适配。",
+    "source": "components/blocks/work-items-views.tsx",
+    "usage": "import { WorkItemTable } from \"@/components/blocks/work-items-views\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-items-toolbar",
+    "name": "WorkItemsToolbar",
+    "category": "组合模块",
+    "description": "工作项搜索、筛选、布局、排序与显示设置。",
+    "source": "components/blocks/work-items-toolbar.tsx",
+    "usage": "import { WorkItemsToolbar } from \"@/components/blocks/work-items-toolbar\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-item-detail",
+    "name": "WorkItemDetail / WorkItemQuickCreate",
+    "category": "组合模块",
+    "description": "受控工作项详情及保留失败草稿的快速创建。",
+    "source": "components/blocks/work-item-detail.tsx",
+    "usage": "import { WorkItemDetail } from \"@/components/blocks/work-item-detail\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-items-workspace",
+    "name": "WorkItemsWorkspace",
+    "category": "组合模块",
+    "description": "组合三种工作项布局与详情，路由和服务由调用方持有。",
+    "source": "components/blocks/work-items-workspace.tsx",
+    "usage": "\"use client\"\nimport { WorkItemsWorkspace, type WorkItemsWorkspaceProps } from \"@/components/blocks/work-items-workspace\"\n// The caller supplies the complete controlled snapshot and callbacks.\nexport function WorkItemsPage(props: WorkItemsWorkspaceProps) {\n  return <WorkItemsWorkspace {...props} />\n}",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "work-items-board-base",
+    "name": "Board",
+    "category": "组合模块",
+    "description": "通用受控看板，指针、触屏与键盘移动共享命令。",
+    "source": "components/blocks/work-items-board-base.tsx",
+    "usage": "import { Board } from \"@/components/blocks/work-items-board-base\"",
+    "notes": [
+      "调用方负责权威快照、权限、写入、分页与未知结果对账。"
+    ]
+  },
+  {
+    "slug": "agent-dependency-graph",
+    "name": "AgentDependencyGraph",
+    "category": "组合模块",
+    "description": "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
+    "source": "components/blocks/agent-dependency-graph.tsx",
+    "usage": "import { AgentDependencyGraph } from \"@/components/blocks/agent-dependency-graph\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-usage-history",
+    "name": "AgentUsageHistory",
+    "category": "组合模块",
+    "description": "来源区间历史；运行与币种独立，缺失观测保留断点。",
+    "source": "components/blocks/agent-usage-history.tsx",
+    "usage": "import { AgentUsageHistory } from \"@/components/blocks/agent-usage-history\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "agent-run-virtual-list",
+    "name": "AgentRunVirtualList",
+    "category": "组合模块",
+    "description": "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
+    "source": "components/blocks/agent-run-virtual-list.tsx",
+    "usage": "import { AgentRunVirtualList } from \"@/components/blocks/agent-run-virtual-list\"",
+    "notes": [
+      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
+    ]
+  },
+  {
+    "slug": "work-items-batch-actions",
+    "name": "WorkItemsBatchActions",
+    "category": "组合模块",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "source": "components/blocks/work-items-enhancements.tsx",
+    "usage": "import { WorkItemsBatchActions } from \"@/components/blocks/work-items-enhancements\"",
+    "notes": [
+      "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-items-saved-views",
+    "name": "WorkItemsSavedViews",
+    "category": "组合模块",
+    "description": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "source": "components/blocks/work-items-enhancements.tsx",
+    "usage": "import { WorkItemsSavedViews } from \"@/components/blocks/work-items-enhancements\"",
+    "notes": [
+      "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
+    ]
+  },
+  {
+    "slug": "timeline",
+    "name": "Timeline",
+    "category": "组合模块",
+    "description": "业务无关的排期行、按日吸附与区间裁切。",
+    "source": "components/blocks/timeline.tsx",
+    "usage": "import { Timeline } from \"@/components/blocks/timeline\"",
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "calendar",
+    "name": "Calendar",
+    "category": "组合模块",
+    "description": "受控月、周与当日Agenda，消费权威按日快照。",
+    "source": "components/blocks/calendar.tsx",
+    "usage": "import { Calendar } from \"@/components/blocks/calendar\"",
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "schedule-view-controls",
+    "name": "ScheduleViewControls",
+    "category": "组合模块",
+    "description": "受控排期锚点、刻度、每周首日与周末显隐。",
+    "source": "components/blocks/schedule-view-controls.tsx",
+    "usage": "import { ScheduleViewControls } from \"@/components/blocks/schedule-view-controls\"",
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-item-date-range-field",
+    "name": "WorkItemDateRangeField",
+    "category": "组合模块",
+    "description": "成对日期意图、字段权限、校验与失败草稿保留。",
+    "source": "components/blocks/work-item-date-range-field.tsx",
+    "usage": "import { WorkItemDateRangeField } from \"@/components/blocks/work-item-date-range-field\"",
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-items-schedule",
+    "name": "UnscheduledWorkItems",
+    "category": "组合模块",
+    "description": "去重未排期队列与紧凑工作项日历条目。",
+    "source": "components/blocks/work-items-schedule.tsx",
+    "usage": "import { UnscheduledWorkItems } from \"@/components/blocks/work-items-schedule\"",
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-item-timeline",
+    "name": "WorkItemTimeline",
+    "category": "组合模块",
+    "description": "工作项排期，平移与两端调整使用独立字段能力。",
+    "source": "components/blocks/work-item-timeline.tsx",
+    "usage": "import { WorkItemTimeline } from \"@/components/blocks/work-item-timeline\"",
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  },
+  {
+    "slug": "work-item-calendar",
+    "name": "WorkItemCalendar",
+    "category": "组合模块",
+    "description": "仅修改截止日的日历、逐日分页与未排期工作项。",
+    "source": "components/blocks/work-item-calendar.tsx",
+    "usage": "import { WorkItemCalendar } from \"@/components/blocks/work-item-calendar\"",
+    "notes": [
+      "本地示例刷新清除；真实服务仍由调用方接入。"
+    ]
+  }
+]

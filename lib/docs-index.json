@@ -203,6 +203,438 @@
     "aliases": []
   },
   {
+    "slug": "button-group",
+    "name": "ButtonGroup",
+    "docPath": "/docs/button-group/",
+    "description": {
+      "zh-CN": "同组操作的紧凑容器。",
+      "en": "A compact group of related actions."
+    },
+    "docGroup": "interaction",
+    "docOrder": 100,
+    "aliases": []
+  },
+  {
+    "slug": "input-group",
+    "name": "InputGroup",
+    "docPath": "/docs/input-group/",
+    "description": {
+      "zh-CN": "输入与前后缀、操作的组合。",
+      "en": "Input with addons and sibling actions."
+    },
+    "docGroup": "interaction",
+    "docOrder": 101,
+    "aliases": []
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "docPath": "/docs/toggle/",
+    "description": {
+      "zh-CN": "支持按下状态的切换按钮。",
+      "en": "A button with a pressed state."
+    },
+    "docGroup": "interaction",
+    "docOrder": 102,
+    "aliases": []
+  },
+  {
+    "slug": "toggle-group",
+    "name": "ToggleGroup",
+    "docPath": "/docs/toggle-group/",
+    "description": {
+      "zh-CN": "单选或多选切换组。",
+      "en": "A single or multiple selection toggle group."
+    },
+    "docGroup": "interaction",
+    "docOrder": 103,
+    "aliases": []
+  },
+  {
+    "slug": "input-otp",
+    "name": "InputOTP",
+    "docPath": "/docs/input-otp/",
+    "description": {
+      "zh-CN": "原生一次性验证码输入。",
+      "en": "A native one-time-code input."
+    },
+    "docGroup": "interaction",
+    "docOrder": 104,
+    "aliases": []
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "docPath": "/docs/separator/",
+    "description": {
+      "zh-CN": "语义或装饰性分隔线。",
+      "en": "Semantic or decorative separator."
+    },
+    "docGroup": "interaction",
+    "docOrder": 105,
+    "aliases": []
+  },
+  {
+    "slug": "collapsible",
+    "name": "Collapsible",
+    "docPath": "/docs/collapsible/",
+    "description": {
+      "zh-CN": "受控或非受控内容折叠。",
+      "en": "Controlled or uncontrolled disclosure."
+    },
+    "docGroup": "interaction",
+    "docOrder": 106,
+    "aliases": []
+  },
+  {
+    "slug": "accordion",
+    "name": "Accordion",
+    "docPath": "/docs/accordion/",
+    "description": {
+      "zh-CN": "单项或多项展开的手风琴。",
+      "en": "An accordion with single or multiple expansion."
+    },
+    "docGroup": "interaction",
+    "docOrder": 107,
+    "aliases": []
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip",
+    "docPath": "/docs/tooltip/",
+    "description": {
+      "zh-CN": "支持悬停和焦点的补充提示。",
+      "en": "Supplemental hover and focus tooltip."
+    },
+    "docGroup": "interaction",
+    "docOrder": 108,
+    "aliases": []
+  },
+  {
+    "slug": "alert-dialog",
+    "name": "AlertDialog",
+    "docPath": "/docs/alert-dialog/",
+    "description": {
+      "zh-CN": "显式确认请求的模态对话框。",
+      "en": "A modal for explicit confirmation requests."
+    },
+    "docGroup": "interaction",
+    "docOrder": 109,
+    "aliases": []
+  },
+  {
+    "slug": "hover-card",
+    "name": "HoverCard",
+    "docPath": "/docs/hover-card/",
+    "description": {
+      "zh-CN": "链接的补充预览层。",
+      "en": "A supplemental link preview."
+    },
+    "docGroup": "interaction",
+    "docOrder": 110,
+    "aliases": []
+  },
+  {
+    "slug": "context-menu",
+    "name": "ContextMenu",
+    "docPath": "/docs/context-menu/",
+    "description": {
+      "zh-CN": "右键、键盘与长按的上下文动作。",
+      "en": "Context actions for right click, keyboard and long press."
+    },
+    "docGroup": "interaction",
+    "docOrder": 111,
+    "aliases": []
+  },
+  {
+    "slug": "skeleton",
+    "name": "Skeleton",
+    "docPath": "/docs/skeleton/",
+    "description": {
+      "zh-CN": "结构相符的静态加载占位。",
+      "en": "Static placeholders matching the final structure."
+    },
+    "docGroup": "interaction",
+    "docOrder": 112,
+    "aliases": []
+  },
+  {
+    "slug": "spinner",
+    "name": "Spinner",
+    "docPath": "/docs/spinner/",
+    "description": {
+      "zh-CN": "附带可读文本的忙碌指示。",
+      "en": "A busy indicator with readable text."
+    },
+    "docGroup": "interaction",
+    "docOrder": 113,
+    "aliases": []
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "docPath": "/docs/empty/",
+    "description": {
+      "zh-CN": "说明空态原因与下一步。",
+      "en": "Explains an empty state and its next action."
+    },
+    "docGroup": "interaction",
+    "docOrder": 114,
+    "aliases": []
+  },
+  {
+    "slug": "alert",
+    "name": "Alert",
+    "docPath": "/docs/alert/",
+    "description": {
+      "zh-CN": "内联信息、警告与错误反馈。",
+      "en": "Inline information, warning and error feedback."
+    },
+    "docGroup": "interaction",
+    "docOrder": 115,
+    "aliases": []
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "docPath": "/docs/progress/",
+    "description": {
+      "zh-CN": "确定或未知总量的任务进度。",
+      "en": "Determinate or indeterminate task progress."
+    },
+    "docGroup": "interaction",
+    "docOrder": 116,
+    "aliases": []
+  },
+  {
+    "slug": "toast",
+    "name": "Toast",
+    "docPath": "/docs/toast/",
+    "description": {
+      "zh-CN": "统一、可更新和关闭的通知体系。",
+      "en": "Unified notifications that can be updated and dismissed."
+    },
+    "docGroup": "interaction",
+    "docOrder": 117,
+    "aliases": []
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "docPath": "/docs/sonner/",
+    "description": {
+      "zh-CN": "复用 Toast 的通知适配入口。",
+      "en": "A notification adapter sharing the Toast system."
+    },
+    "docGroup": "interaction",
+    "docOrder": 118,
+    "aliases": []
+  },
+  {
+    "slug": "date-calendar",
+    "name": "DateCalendar",
+    "docPath": "/docs/date-calendar/",
+    "description": {
+      "zh-CN": "按民用日期键选择单日或范围。",
+      "en": "Select a civil date or date range."
+    },
+    "docGroup": "interaction",
+    "docOrder": 119,
+    "aliases": []
+  },
+  {
+    "slug": "date-picker",
+    "name": "DatePicker",
+    "docPath": "/docs/date-picker/",
+    "description": {
+      "zh-CN": "日期日历与弹出层的组合。",
+      "en": "A date calendar composed with a popover."
+    },
+    "docGroup": "interaction",
+    "docOrder": 120,
+    "aliases": []
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "docPath": "/docs/pagination/",
+    "description": {
+      "zh-CN": "受控分页请求与未知总数导航。",
+      "en": "Controlled pagination with unknown-total navigation."
+    },
+    "docGroup": "interaction",
+    "docOrder": 121,
+    "aliases": []
+  },
+  {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "docPath": "/docs/breadcrumb/",
+    "description": {
+      "zh-CN": "路径层级与当前页面导航。",
+      "en": "Hierarchical path and current-page navigation."
+    },
+    "docGroup": "interaction",
+    "docOrder": 122,
+    "aliases": []
+  },
+  {
+    "slug": "menubar",
+    "name": "Menubar",
+    "docPath": "/docs/menubar/",
+    "description": {
+      "zh-CN": "桌面应用菜单栏与动作菜单。",
+      "en": "An application menubar and action menus."
+    },
+    "docGroup": "interaction",
+    "docOrder": 123,
+    "aliases": []
+  },
+  {
+    "slug": "navigation-menu",
+    "name": "NavigationMenu",
+    "docPath": "/docs/navigation-menu/",
+    "description": {
+      "zh-CN": "站点层级导航与链接浮层。",
+      "en": "Hierarchical navigation with link popups."
+    },
+    "docGroup": "interaction",
+    "docOrder": 124,
+    "aliases": []
+  },
+  {
+    "slug": "direction",
+    "name": "Direction",
+    "docPath": "/docs/direction/",
+    "description": {
+      "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+      "en": "Coordinates DOM and Base UI text direction."
+    },
+    "docGroup": "interaction",
+    "docOrder": 125,
+    "aliases": []
+  },
+  {
+    "slug": "attachment",
+    "name": "Attachment",
+    "docPath": "/docs/attachment/",
+    "description": {
+      "zh-CN": "调用方附件状态与打开、移除操作。",
+      "en": "Caller-owned attachment state with open and remove actions."
+    },
+    "docGroup": "interaction",
+    "docOrder": 126,
+    "aliases": []
+  },
+  {
+    "slug": "marker",
+    "name": "Marker",
+    "docPath": "/docs/marker/",
+    "description": {
+      "zh-CN": "对话时间、章节与事件分隔标记。",
+      "en": "Conversation time, section and event markers."
+    },
+    "docGroup": "interaction",
+    "docOrder": 127,
+    "aliases": []
+  },
+  {
+    "slug": "bubble",
+    "name": "Bubble",
+    "docPath": "/docs/bubble/",
+    "description": {
+      "zh-CN": "独立引用或批注的内容容器。",
+      "en": "A standalone container for quotations and annotations."
+    },
+    "docGroup": "interaction",
+    "docOrder": 129,
+    "aliases": []
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "docPath": "/docs/card/",
+    "description": {
+      "zh-CN": "独立内容、概览和预览容器。",
+      "en": "Independent content, overview and preview container."
+    },
+    "docGroup": "interaction",
+    "docOrder": 130,
+    "aliases": []
+  },
+  {
+    "slug": "aspect-ratio",
+    "name": "AspectRatio",
+    "docPath": "/docs/aspect-ratio/",
+    "description": {
+      "zh-CN": "保留指定纵横比的内容区域。",
+      "en": "A content area with a fixed aspect ratio."
+    },
+    "docGroup": "interaction",
+    "docOrder": 131,
+    "aliases": []
+  },
+  {
+    "slug": "carousel",
+    "name": "Carousel",
+    "docPath": "/docs/carousel/",
+    "description": {
+      "zh-CN": "手动控制、键盘与触摸轮播。",
+      "en": "A manual carousel with keyboard and touch navigation."
+    },
+    "docGroup": "interaction",
+    "docOrder": 132,
+    "aliases": []
+  },
+  {
+    "slug": "form",
+    "name": "Form",
+    "docPath": "/docs/form/",
+    "description": {
+      "zh-CN": "原生表单与 Field 的轻量组合。",
+      "en": "A lightweight native form composed with Field."
+    },
+    "docGroup": "interaction",
+    "docOrder": 134,
+    "aliases": []
+  },
+  {
+    "slug": "resizable",
+    "name": "Resizable",
+    "docPath": "/docs/resizable/",
+    "description": {
+      "zh-CN": "可复用双面板与尺寸调整手柄。",
+      "en": "Reusable two-panel layout and resize handle."
+    },
+    "docGroup": "interaction",
+    "docOrder": 136,
+    "aliases": []
+  },
+  {
+    "slug": "scroll-area",
+    "name": "ScrollArea",
+    "docPath": "/docs/scroll-area/",
+    "description": {
+      "zh-CN": "保留浏览器行为的原生滚动区域。",
+      "en": "A native scroll region preserving browser behavior."
+    },
+    "docGroup": "interaction",
+    "docOrder": 137,
+    "aliases": []
+  },
+  {
+    "slug": "drawer",
+    "name": "Drawer",
+    "docPath": "/docs/drawer/",
+    "description": {
+      "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+      "en": "A Sheet-based drawer with optional swipe dismissal."
+    },
+    "docGroup": "interaction",
+    "docOrder": 139,
+    "aliases": []
+  },
+  {
     "slug": "segment-bar",
     "name": "SegmentBar",
     "docPath": "/docs/segment-bar/",
@@ -211,7 +643,7 @@
       "en": "Segmented quantity display with meter semantics and explicit unknown values."
     },
     "docGroup": "interaction",
-    "docOrder": 122,
+    "docOrder": 162,
     "aliases": []
   },
   {
@@ -223,7 +655,7 @@
       "en": "Miniature bar trends with text alternatives for empty, missing and equal values."
     },
     "docGroup": "interaction",
-    "docOrder": 123,
+    "docOrder": 163,
     "aliases": []
   },
   {
@@ -235,7 +667,7 @@
       "en": "Semantic shortcut display without keyboard registration."
     },
     "docGroup": "interaction",
-    "docOrder": 127,
+    "docOrder": 167,
     "aliases": []
   },
   {
@@ -247,7 +679,7 @@
       "en": "Consistent labels, descriptions and errors while preserving caller drafts."
     },
     "docGroup": "interaction",
-    "docOrder": 128,
+    "docOrder": 168,
     "aliases": []
   },
   {
@@ -259,7 +691,7 @@
       "en": "Controlled or uncontrolled numeric slider with separate change and commit callbacks."
     },
     "docGroup": "interaction",
-    "docOrder": 130,
+    "docOrder": 170,
     "aliases": []
   },
   {
@@ -271,7 +703,7 @@
       "en": "Exclusive segmented selection with radio semantics and arrow keys."
     },
     "docGroup": "interaction",
-    "docOrder": 139,
+    "docOrder": 179,
     "aliases": []
   },
   {
@@ -283,7 +715,7 @@
       "en": "A boundary for host-compatible or isolated themes; portals inherit their instance variables."
     },
     "docGroup": "interaction",
-    "docOrder": 141,
+    "docOrder": 181,
     "aliases": []
   },
   {
@@ -295,7 +727,7 @@
       "en": "Simplified Chinese and English, typed messages, Intl formatting and structured UI feedback."
     },
     "docGroup": "interaction",
-    "docOrder": 142,
+    "docOrder": 182,
     "aliases": []
   },
   {
@@ -307,7 +739,7 @@
       "en": "Read-only information badge with semantic tones, small corners and pill shapes."
     },
     "docGroup": "interaction",
-    "docOrder": 158,
+    "docOrder": 198,
     "aliases": []
   },
   {
@@ -319,7 +751,7 @@
       "en": "Read-only pill category labels, distinct from interactive values."
     },
     "docGroup": "interaction",
-    "docOrder": 159,
+    "docOrder": 199,
     "aliases": []
   },
   {
@@ -331,7 +763,7 @@
       "en": "Controlled selectable, removable pills with sibling main and removal targets."
     },
     "docGroup": "interaction",
-    "docOrder": 160,
+    "docOrder": 200,
     "aliases": []
   },
   {
@@ -343,7 +775,7 @@
       "en": "A shared list row with separate interaction, selection and runtime states, and independent trailing actions."
     },
     "docGroup": "interaction",
-    "docOrder": 166,
+    "docOrder": 206,
     "aliases": []
   },
   {
@@ -455,7 +887,7 @@
       "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
     },
     "docGroup": "data",
-    "docOrder": 100,
+    "docOrder": 140,
     "aliases": []
   },
   {
@@ -467,7 +899,7 @@
       "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
     },
     "docGroup": "data",
-    "docOrder": 101,
+    "docOrder": 141,
     "aliases": []
   },
   {
@@ -479,7 +911,7 @@
       "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
     },
     "docGroup": "data",
-    "docOrder": 102,
+    "docOrder": 142,
     "aliases": []
   },
   {
@@ -491,7 +923,7 @@
       "en": "Complete structured aggregate tables and keyboard drilldown."
     },
     "docGroup": "data",
-    "docOrder": 103,
+    "docOrder": 143,
     "aliases": []
   },
   {
@@ -503,7 +935,7 @@
       "en": "On-demand bar, line, area, donut and scatter rendering."
     },
     "docGroup": "data",
-    "docOrder": 104,
+    "docOrder": 144,
     "aliases": []
   },
   {
@@ -515,7 +947,7 @@
       "en": "Snapshot matching, historical membership explanations and paginated source records."
     },
     "docGroup": "data",
-    "docOrder": 105,
+    "docOrder": 145,
     "aliases": []
   },
   {
@@ -527,7 +959,7 @@
       "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
     },
     "docGroup": "data",
-    "docOrder": 106,
+    "docOrder": 146,
     "aliases": []
   },
   {
@@ -539,7 +971,7 @@
       "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
     },
     "docGroup": "data",
-    "docOrder": 107,
+    "docOrder": 147,
     "aliases": []
   },
   {
@@ -551,7 +983,7 @@
       "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
     },
     "docGroup": "data",
-    "docOrder": 108,
+    "docOrder": 148,
     "aliases": []
   },
   {
@@ -563,7 +995,7 @@
       "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
     },
     "docGroup": "data",
-    "docOrder": 109,
+    "docOrder": 149,
     "aliases": []
   },
   {
@@ -575,7 +1007,7 @@
       "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
     },
     "docGroup": "data",
-    "docOrder": 110,
+    "docOrder": 150,
     "aliases": []
   },
   {
@@ -587,7 +1019,7 @@
       "en": "Avatar images, initials and image-error fallback."
     },
     "docGroup": "data",
-    "docOrder": 121,
+    "docOrder": 161,
     "aliases": []
   },
   {
@@ -599,7 +1031,7 @@
       "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
     },
     "docGroup": "data",
-    "docOrder": 132,
+    "docOrder": 172,
     "aliases": []
   },
   {
@@ -611,7 +1043,7 @@
       "en": "Displays caller-computed metrics with labels, values, units and descriptions."
     },
     "docGroup": "data",
-    "docOrder": 133,
+    "docOrder": 173,
     "aliases": []
   },
   {
@@ -623,7 +1055,7 @@
       "en": "Read-only ratings and half stars with complete text alternatives."
     },
     "docGroup": "data",
-    "docOrder": 134,
+    "docOrder": 174,
     "aliases": []
   },
   {
@@ -635,7 +1067,7 @@
       "en": "Controlled grouped list with per-group read states and unknown totals."
     },
     "docGroup": "data",
-    "docOrder": 193,
+    "docOrder": 233,
     "aliases": []
   },
   {
@@ -647,7 +1079,7 @@
       "en": "List, board and table adapters for the same work item snapshot."
     },
     "docGroup": "data",
-    "docOrder": 198,
+    "docOrder": 238,
     "aliases": []
   },
   {
@@ -659,7 +1091,7 @@
       "en": "List, board and table adapters for the same work item snapshot."
     },
     "docGroup": "data",
-    "docOrder": 199,
+    "docOrder": 239,
     "aliases": []
   },
   {
@@ -671,7 +1103,7 @@
       "en": "List, board and table adapters for the same work item snapshot."
     },
     "docGroup": "data",
-    "docOrder": 200,
+    "docOrder": 240,
     "aliases": []
   },
   {
@@ -683,7 +1115,7 @@
       "en": "Controlled work item detail and quick creation retaining rejected drafts."
     },
     "docGroup": "data",
-    "docOrder": 202,
+    "docOrder": 242,
     "aliases": []
   },
   {
@@ -695,7 +1127,7 @@
       "en": "Business-independent controlled board sharing pointer, touch and keyboard move commands."
     },
     "docGroup": "data",
-    "docOrder": 204,
+    "docOrder": 244,
     "aliases": []
   },
   {
@@ -707,7 +1139,7 @@
       "en": "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces."
     },
     "docGroup": "data",
-    "docOrder": 208,
+    "docOrder": 248,
     "aliases": []
   },
   {
@@ -719,7 +1151,7 @@
       "en": "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces."
     },
     "docGroup": "data",
-    "docOrder": 209,
+    "docOrder": 249,
     "aliases": []
   },
   {
@@ -731,7 +1163,7 @@
       "en": "Business-independent scheduling rows, day snapping and clipped ranges."
     },
     "docGroup": "data",
-    "docOrder": 210,
+    "docOrder": 250,
     "aliases": [
       "时间线",
       "排期"
@@ -746,7 +1178,7 @@
       "en": "Controlled month, week and daily agenda with authoritative date buckets."
     },
     "docGroup": "data",
-    "docOrder": 211,
+    "docOrder": 251,
     "aliases": [
       "日历",
       "日期"
@@ -761,7 +1193,7 @@
       "en": "Controlled schedule anchors, scales, week starts and weekend visibility."
     },
     "docGroup": "data",
-    "docOrder": 212,
+    "docOrder": 252,
     "aliases": []
   },
   {
@@ -773,7 +1205,7 @@
       "en": "Atomic date intentions with field permissions, validation and retained drafts."
     },
     "docGroup": "data",
-    "docOrder": 213,
+    "docOrder": 253,
     "aliases": []
   },
   {
@@ -785,7 +1217,7 @@
       "en": "Deduplicated unscheduled queue and compact work item calendar entries."
     },
     "docGroup": "data",
-    "docOrder": 214,
+    "docOrder": 254,
     "aliases": []
   },
   {
@@ -797,7 +1229,7 @@
       "en": "Work item scheduling with independent shift and endpoint resize capabilities."
     },
     "docGroup": "data",
-    "docOrder": 215,
+    "docOrder": 255,
     "aliases": []
   },
   {
@@ -809,7 +1241,7 @@
       "en": "Due-date-only calendar changes, daily paging and unscheduled work items."
     },
     "docGroup": "data",
-    "docOrder": 216,
+    "docOrder": 256,
     "aliases": []
   },
   {
@@ -897,7 +1329,7 @@
       "en": "Shared run identity, model, duration and source runtime status."
     },
     "docGroup": "agent",
-    "docOrder": 177,
+    "docOrder": 217,
     "aliases": []
   },
   {
@@ -909,7 +1341,7 @@
       "en": "Compact run row with sibling activation and trailing targets."
     },
     "docGroup": "agent",
-    "docOrder": 179,
+    "docOrder": 219,
     "aliases": []
   },
   {
@@ -921,7 +1353,7 @@
       "en": "Independent run card retaining unknown counts."
     },
     "docGroup": "agent",
-    "docOrder": 180,
+    "docOrder": 220,
     "aliases": []
   },
   {
@@ -933,7 +1365,7 @@
       "en": "Read-only grouped list over shared run snapshots."
     },
     "docGroup": "agent",
-    "docOrder": 181,
+    "docOrder": 221,
     "aliases": []
   },
   {
@@ -945,7 +1377,7 @@
       "en": "Read-only run board grouped by source status."
     },
     "docGroup": "agent",
-    "docOrder": 182,
+    "docOrder": 222,
     "aliases": []
   },
   {
@@ -957,7 +1389,7 @@
       "en": "Complete controlled run detail composing requests, traces, artifacts and relationships."
     },
     "docGroup": "agent",
-    "docOrder": 183,
+    "docOrder": 223,
     "aliases": []
   },
   {
@@ -969,7 +1401,7 @@
       "en": "Only explicit source relationships and handoffs."
     },
     "docGroup": "agent",
-    "docOrder": 189,
+    "docOrder": 229,
     "aliases": []
   },
   {
@@ -981,7 +1413,7 @@
       "en": "Deduplicated source usage, coverage and per-currency totals."
     },
     "docGroup": "agent",
-    "docOrder": 190,
+    "docOrder": 230,
     "aliases": []
   },
   {
@@ -993,7 +1425,7 @@
       "en": "Shared run filters and an optional controlled dependency view."
     },
     "docGroup": "agent",
-    "docOrder": 191,
+    "docOrder": 231,
     "aliases": []
   },
   {
@@ -1005,7 +1437,7 @@
       "en": "Controlled Agent workspace; routing, services and persistence belong to callers."
     },
     "docGroup": "agent",
-    "docOrder": 192,
+    "docOrder": 232,
     "aliases": []
   },
   {
@@ -1017,7 +1449,7 @@
       "en": "Source-reported run dependencies in a read-only canvas and accessible list."
     },
     "docGroup": "agent",
-    "docOrder": 205,
+    "docOrder": 245,
     "aliases": []
   },
   {
@@ -1029,7 +1461,7 @@
       "en": "Source interval history; separate runs and currencies with gaps for missing observations."
     },
     "docGroup": "agent",
-    "docOrder": 206,
+    "docOrder": 246,
     "aliases": []
   },
   {
@@ -1041,7 +1473,7 @@
       "en": "Controlled variable-height run list with off-screen focus and explicit loaded scope."
     },
     "docGroup": "agent",
-    "docOrder": 207,
+    "docOrder": 247,
     "aliases": []
   },
   {
@@ -1117,7 +1549,7 @@
       "en": "Controlled service panel for version restoration, discussions, transient presence, environments, sharing and publication receipts."
     },
     "docGroup": "canvas",
-    "docOrder": 143,
+    "docOrder": 183,
     "aliases": []
   },
   {
@@ -1129,7 +1561,7 @@
       "en": "A nested workflow workspace with explicit boundaries and recursion validation, preserving each graph's selection, viewport and local history."
     },
     "docGroup": "canvas",
-    "docOrder": 144,
+    "docOrder": 184,
     "aliases": []
   },
   {
@@ -1141,7 +1573,7 @@
       "en": "Controlled editors for conditions, object schemas, key-value tables, expressions and code."
     },
     "docGroup": "canvas",
-    "docOrder": 145,
+    "docOrder": 185,
     "aliases": []
   },
   {
@@ -1153,7 +1585,7 @@
       "en": "Controlled execution debugging: run, stop requests, approval, redacted output and unknown-outcome reconciliation."
     },
     "docGroup": "canvas",
-    "docOrder": 146,
+    "docOrder": 186,
     "aliases": []
   },
   {
@@ -1165,7 +1597,7 @@
       "en": "A visual workflow group; commands move all member positions together."
     },
     "docGroup": "canvas",
-    "docOrder": 151,
+    "docOrder": 191,
     "aliases": []
   },
   {
@@ -1177,7 +1609,7 @@
       "en": "Workflow notes, independent of execution and discussion threads."
     },
     "docGroup": "canvas",
-    "docOrder": 152,
+    "docOrder": 192,
     "aliases": []
   },
   {
@@ -1189,7 +1621,7 @@
       "en": "Controlled workflow foundations: consistent nodes, named ports, edges, selection and light/dark themes."
     },
     "docGroup": "canvas",
-    "docOrder": 154,
+    "docOrder": 194,
     "aliases": []
   },
   {
@@ -1201,7 +1633,7 @@
       "en": "Controlled workflow foundations: consistent nodes, named ports, edges, selection and light/dark themes."
     },
     "docGroup": "canvas",
-    "docOrder": 155,
+    "docOrder": 195,
     "aliases": []
   },
   {
@@ -1213,7 +1645,7 @@
       "en": "Controlled workflow foundations: consistent nodes, named ports, edges, selection and light/dark themes."
     },
     "docGroup": "canvas",
-    "docOrder": 156,
+    "docOrder": 196,
     "aliases": []
   },
   {
@@ -1266,7 +1698,7 @@
       "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
     },
     "docGroup": "workspace",
-    "docOrder": 111,
+    "docOrder": 151,
     "aliases": []
   },
   {
@@ -1278,7 +1710,7 @@
       "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
     },
     "docGroup": "workspace",
-    "docOrder": 112,
+    "docOrder": 152,
     "aliases": []
   },
   {
@@ -1290,7 +1722,55 @@
       "en": "A/B foundation experiments: adjust radius, spacing, shadows, colors and typography; compare parameters and copy CSS."
     },
     "docGroup": "workspace",
-    "docOrder": 157,
+    "docOrder": 197,
+    "aliases": []
+  },
+  {
+    "slug": "questionnaire",
+    "name": "Questionnaire",
+    "docPath": "/docs/questionnaire/",
+    "description": {
+      "zh-CN": "逐题单选、多选和文本问卷。",
+      "en": "A stepwise single choice, multiple choice and text questionnaire."
+    },
+    "docGroup": "other",
+    "docOrder": 128,
+    "aliases": []
+  },
+  {
+    "slug": "chart",
+    "name": "Chart",
+    "docPath": "/docs/chart/",
+    "description": {
+      "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+      "en": "Lightweight bar and line charts with text alternatives."
+    },
+    "docGroup": "other",
+    "docOrder": 133,
+    "aliases": []
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "docPath": "/docs/sidebar/",
+    "description": {
+      "zh-CN": "受控折叠的独立侧栏布局。",
+      "en": "A standalone sidebar with controlled collapse."
+    },
+    "docGroup": "other",
+    "docOrder": 135,
+    "aliases": []
+  },
+  {
+    "slug": "command",
+    "name": "Command",
+    "docPath": "/docs/command/",
+    "description": {
+      "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+      "en": "An inline command panel sharing CommandPalette."
+    },
+    "docGroup": "other",
+    "docOrder": 138,
     "aliases": []
   },
   {
@@ -1302,7 +1782,7 @@
       "en": "Command search with caller-owned results, keyboard selection and IME support."
     },
     "docGroup": "other",
-    "docOrder": 126,
+    "docOrder": 166,
     "aliases": []
   },
   {
@@ -1314,7 +1794,7 @@
       "en": "Form sections using fieldset and legend."
     },
     "docGroup": "other",
-    "docOrder": 129,
+    "docOrder": 169,
     "aliases": []
   },
   {
@@ -1326,7 +1806,7 @@
       "en": "Local image selection, drop, preview, replacement and failure recovery."
     },
     "docGroup": "other",
-    "docOrder": 131,
+    "docOrder": 171,
     "aliases": []
   },
   {
@@ -1338,7 +1818,7 @@
       "en": "Task waiting, execution, completion and failure at a glance."
     },
     "docGroup": "other",
-    "docOrder": 164,
+    "docOrder": 204,
     "aliases": []
   },
   {
@@ -1350,7 +1830,7 @@
       "en": "Try six scroll interactions: triggered, linked, parallax, sticky, snap and horizontal."
     },
     "docGroup": "other",
-    "docOrder": 165,
+    "docOrder": 205,
     "aliases": []
   },
   {
@@ -1362,7 +1842,7 @@
       "en": "Source stages and bounded step counts without synthetic progress."
     },
     "docGroup": "other",
-    "docOrder": 178,
+    "docOrder": 218,
     "aliases": []
   },
   {
@@ -1374,7 +1854,7 @@
       "en": "Attention ID deduplication with separate request and run counts."
     },
     "docGroup": "other",
-    "docOrder": 184,
+    "docOrder": 224,
     "aliases": []
   },
   {
@@ -1386,7 +1866,7 @@
       "en": "Tool approval composes ToolCall; unknown results require reconciliation."
     },
     "docGroup": "other",
-    "docOrder": 185,
+    "docOrder": 225,
     "aliases": []
   },
   {
@@ -1398,7 +1878,7 @@
       "en": "Artifact links, availability and independent review summaries."
     },
     "docGroup": "other",
-    "docOrder": 186,
+    "docOrder": 226,
     "aliases": []
   },
   {
@@ -1410,7 +1890,7 @@
       "en": "Separate review, business acceptance and PR states."
     },
     "docGroup": "other",
-    "docOrder": 187,
+    "docOrder": 227,
     "aliases": []
   },
   {
@@ -1422,7 +1902,7 @@
       "en": "Observable parent-child steps and redacted tool detail."
     },
     "docGroup": "other",
-    "docOrder": 188,
+    "docOrder": 228,
     "aliases": []
   },
   {
@@ -1434,7 +1914,7 @@
       "en": "Business-independent controlled board sharing pointer, touch and keyboard move commands."
     },
     "docGroup": "other",
-    "docOrder": 194,
+    "docOrder": 234,
     "aliases": []
   }
 ]

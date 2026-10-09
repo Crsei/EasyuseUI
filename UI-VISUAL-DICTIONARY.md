@@ -83,45 +83,45 @@
 | Avatar Chip          | 头像 + 名称的紧凑值                       | 待实现；不等于 AgentRow                                               |
 | Filter Chip          | 一个可开启/关闭的筛选条件                 | 已有 `Chip` 提供受控选择，使用 aria-pressed 表达选中                  |
 | Pill Button          | Button 的胶囊外观，不是新的行为类型       | 没有专用 variant；默认 Button 仍遵循6px圆角                           |
-| Pill Tabs            | Tabs 的胶囊外观                           | 已有 Tabs；可按业务外观调整，保持键盘模型              |
-| Segmented Control    | 一组互斥选项，对应一个设置值或模式        | 已有 Segmented；使用 radio 语义，与 Tabs 区分                                    |
+| Pill Tabs            | Tabs 的胶囊外观                           | 已有 Tabs；可按业务外观调整，保持键盘模型                             |
+| Segmented Control    | 一组互斥选项，对应一个设置值或模式        | 已有 Segmented；使用 radio 语义，与 Tabs 区分                         |
 
 ## 5. Components · 基础组件
 
-| 名称 / 别名             | 中文与外观线索               | 适用 / 避免                                             | 项目对应                                               |
-| ----------------------- | ---------------------------- | ------------------------------------------------------- | ------------------------------------------------------ |
-| Button / Icon Button    | 文字按钮 / 仅图标按钮        | 执行动作；跳转目的地优先链接；图标按钮必须有可访问名称  | 已有 `Button`，内置图标按钮 hover/focus 提示           |
-| Input / Text Field      | 单行输入框                   | 输入短文本；长内容用 Textarea，固定选项用选择控件       | 已有 `Input`                                           |
-| Textarea                | 多行输入框                   | 草稿、描述；避免用单行 Input 承载长对话                 | 内嵌：`ChatComposer`；暂无独立 Textarea                |
-| Checkbox                | 复选框 `☑`                   | 多选，或独立布尔选择；避免表达立即执行的命令            | 内嵌：StyleWorkbench 使用原生 checkbox；独立组件待实现 |
-| Radio Group             | 单选组 `◉ ○ ○`               | 可见的互斥值；避免用它切换页面导航                      | 待实现                                                 |
-| Switch / Toggle Switch  | 开关 `●──`                   | 一个有明确开/关含义的设置；说明何时生效                 | 待实现                                                 |
-| Toggle Button           | 可按下/选中的按钮            | 持续的开关状态；用 `aria-pressed` 区分状态              | 基础：现有 Button 可传 `aria-pressed`，无独立 Toggle   |
+| 名称 / 别名             | 中文与外观线索               | 适用 / 避免                                             | 项目对应                                                |
+| ----------------------- | ---------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| Button / Icon Button    | 文字按钮 / 仅图标按钮        | 执行动作；跳转目的地优先链接；图标按钮必须有可访问名称  | 已有 `Button`，内置图标按钮 hover/focus 提示            |
+| Input / Text Field      | 单行输入框                   | 输入短文本；长内容用 Textarea，固定选项用选择控件       | 已有 `Input`                                            |
+| Textarea                | 多行输入框                   | 草稿、描述；避免用单行 Input 承载长对话                 | 已有 `Textarea`；ChatComposer 保留业务输入              |
+| Checkbox                | 复选框 `☑`                   | 多选，或独立布尔选择；避免表达立即执行的命令            | 已有 `Checkbox`，表单与键盘语义完整                     |
+| Radio Group             | 单选组 `◉ ○ ○`               | 可见的互斥值；避免用它切换页面导航                      | 已有 `RadioGroup` / `RadioGroupItem`                    |
+| Switch / Toggle Switch  | 开关 `●──`                   | 一个有明确开/关含义的设置；说明何时生效                 | 已有 `Switch`                                           |
+| Toggle Button           | 可按下/选中的按钮            | 持续的开关状态；用 `aria-pressed` 区分状态              | 已有 `Toggle` / `ToggleGroup`                           |
 | Select                  | 选择器，展示当前值和展开箭头 | 从固定选项选值；不要放成一串动作菜单                    | 已有 Select；简单表单仍可使用原生 select                |
-| Combobox / Autocomplete | 可输入或搜索的选择框         | 选项多、可搜索；避免自创不完整的键盘和读屏行为          | 已有组件、示例与独立安装路径                                                 |
-| Card / Tile             | 卡片 / 磁贴，独立内容单元    | 独立摘要或目录预览；Session、Agent、日志不要逐层套 Card | 待实现通用 Card；文档预览中的卡片不等于产品列表规范    |
-| Panel / Section         | 面板 / 分区                  | 持续工作区域，用标题、分隔线组织；不必全部有阴影        | 内嵌：WorkspaceShell、Inspector                        |
-| Accordion / Disclosure  | 可展开标题与内容 `▸ Details` | 渐进披露次要详情；不要把必须处理的问题默认藏起来        | 内嵌：ToolCall 的展开详情；暂无通用 Accordion          |
-| Divider / Separator     | 细分隔线                     | 区分邻接内容；装饰线与有语义的 separator 分开           | 基础：主题边框；暂无独立 Separator                     |
+| Combobox / Autocomplete | 可输入或搜索的选择框         | 选项多、可搜索；避免自创不完整的键盘和读屏行为          | 已有组件、示例与独立安装路径                            |
+| Card / Tile             | 卡片 / 磁贴，独立内容单元    | 独立摘要或目录预览；Session、Agent、日志不要逐层套 Card | 已有 `Card`；用于独立内容                               |
+| Panel / Section         | 面板 / 分区                  | 持续工作区域，用标题、分隔线组织；不必全部有阴影        | 内嵌：WorkspaceShell、Inspector                         |
+| Accordion / Disclosure  | 可展开标题与内容 `▸ Details` | 渐进披露次要详情；不要把必须处理的问题默认藏起来        | 已有 `Accordion` / `Collapsible`；ToolCall 保留自身状态 |
+| Divider / Separator     | 细分隔线                     | 区分邻接内容；装饰线与有语义的 separator 分开           | 已有 `Separator`；可选语义或装饰性                      |
 
 ## 6. Navigation · 导航
 
-| 名称 / 别名                    | 中文与外观线索                   | 适用 / 避免                                 | 项目对应                                     |
-| ------------------------------ | -------------------------------- | ------------------------------------------- | -------------------------------------------- |
-| Sidebar / Side Navigation      | 左侧纵向导航                     | 稳定的产品入口；对象元信息放 Inspector      | 内嵌：`WorkspaceShell`，展开256px / 收起48px |
-| Navbar / Navigation Bar        | 顶部或边缘导航条                 | 产品级入口；避免和当前页面工具栏混为一层    | 内嵌：文档站导航；不是可分发通用 Navbar      |
-| Breadcrumb                     | 面包屑 `Project / Session / Run` | 层级位置与返回上级；不要代替对象状态        | 待实现                                       |
-| Tabs / Tab Panel               | 标签页及其关联内容面板           | 同一上下文内切换内容；跨页面导航用链接      | 已有 Tabs；工作台窄屏切换仍保持原兼容接口      |
-| Tree / Tree View               | 层级树 `▸ Project`               | 父子关系、展开/折叠；无层级列表不要强行树化 | 已有 `Tree`，单选、键盘导航、受控移动        |
-| Command Palette / Command Menu | 可搜索的命令面板                 | 快速执行或跳转；重要操作仍应有可发现入口    | 待实现                                       |
-| Toolbar / Command Bar          | 当前内容附近的一排动作           | 当前页面/对象的操作；少用同权重主按钮       | 内嵌：工作台与组件动作区；暂无通用 Toolbar   |
+| 名称 / 别名                    | 中文与外观线索                   | 适用 / 避免                                 | 项目对应                                          |
+| ------------------------------ | -------------------------------- | ------------------------------------------- | ------------------------------------------------- |
+| Sidebar / Side Navigation      | 左侧纵向导航                     | 稳定的产品入口；对象元信息放 Inspector      | 已有 `Sidebar` 和 `WorkspaceShell`；256/48px      |
+| Navbar / Navigation Bar        | 顶部或边缘导航条                 | 产品级入口；避免和当前页面工具栏混为一层    | 内嵌：文档站导航；不是可分发通用 Navbar           |
+| Breadcrumb                     | 面包屑 `Project / Session / Run` | 层级位置与返回上级；不要代替对象状态        | 已有 `Breadcrumb`                                 |
+| Tabs / Tab Panel               | 标签页及其关联内容面板           | 同一上下文内切换内容；跨页面导航用链接      | 已有 Tabs；工作台窄屏切换仍保持原兼容接口         |
+| Tree / Tree View               | 层级树 `▸ Project`               | 父子关系、展开/折叠；无层级列表不要强行树化 | 已有 `Tree`，单选、键盘导航、受控移动             |
+| Command Palette / Command Menu | 可搜索的命令面板                 | 快速执行或跳转；重要操作仍应有可发现入口    | 已有 `CommandPalette`（模态）和 `Command`（内嵌） |
+| Toolbar / Command Bar          | 当前内容附近的一排动作           | 当前页面/对象的操作；少用同权重主按钮       | 内嵌：工作台与组件动作区；暂无通用 Toolbar        |
 
 ## 7. Data Display · 数据展示
 
 | 名称 / 别名                 | 中文与外观线索                     | 适用 / 避免                                          | 项目对应                                            |
 | --------------------------- | ---------------------------------- | ---------------------------------------------------- | --------------------------------------------------- |
 | Item / List Row             | 一行标题、元信息和操作             | 高频扫描、选择对象；主目标与尾部动作必须是兄弟目标   | 已有 `Item`、`SessionRow`、`AgentRow`               |
-| Table                       | 表头 + 对齐的行列                  | 比较固定字段；避免每一格都变嵌套 Card                | 待实现通用 Table；Activity 有列对齐布局             |
+| Table                       | 表头 + 对齐的行列                  | 比较固定字段；避免每一格都变嵌套 Card                | 已有 `Table` 与受控 `DataTable`                     |
 | Data Grid                   | 支持选区、编辑等复杂操作的数据网格 | 类电子表格工作；普通只读表不要引入网格键盘模型       | 待实现                                              |
 | Timeline                    | 时间线，通常沿时间轴排列           | 先后与过程；必须保留来源次序，不凭 UI 猜顺序         | 已有 `ActivityTimeline`                             |
 | Activity Feed               | 活动流，谁在何时做了什么           | 人可读活动摘要；原始完整诊断记录另看日志             | 已有 `ActivityTimeline`，按 eventId 去重            |
@@ -131,31 +131,31 @@
 
 ## 8. Overlays · 浮层
 
-| 名称 / 别名                   | 中文与外观线索                    | 适用 / 避免                                            | 项目对应                                                         |
-| ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------- |
-| Tooltip                       | 短解释，无需进入其中操作          | 图标含义、补充解释；不承载表单、批准或唯一错误信息     | 内嵌：Button 图标提示；非通用 Tooltip API                        |
-| Popover                       | 锚定触发器的小面板                | 短表单或局部补充内容；避免承载长工作流                 | 已有组件、示例与独立安装路径                                                           |
-| Dropdown Menu / Menu          | 按触发器展开的动作菜单            | 当前对象命令；选择一个字段值用 Select/Combobox         | 已有组件、示例与独立安装路径                                                           |
-| Context Menu                  | 右键/上下文动作菜单               | 当前对象快捷动作；必须另有键盘、触摸可达入口           | 待实现                                                           |
-| Dialog                        | 对话框，独立标题、内容、动作      | 专注任务、确认；普通元信息无需每次弹框                 | 已有 `Dialog`                                                    |
-| Modal / Modal Dialog          | 模态 / 模态对话框，背景暂不可操作 | 必须处理的聚焦流程；不是独立形状或所有 Dialog 的同义词 | 已有 Dialog 及 WorkspaceShell 移动浮层采用模态交互               |
-| Drawer / Sheet / Bottom Sheet | 侧边/底部滑出的面板               | 窄屏导航、上下文详情；名称边界随设计系统而异           | 内嵌：WorkspaceShell 窄屏侧栏与 Inspector；暂无通用 Drawer/Sheet |
-| Backdrop / Scrim              | 浮层后的遮罩                      | 表达模态范围、隔开背景；不能只变暗而仍让焦点跑到背景   | 内嵌：Dialog、WorkspaceShell                                     |
+| 名称 / 别名                   | 中文与外观线索                    | 适用 / 避免                                            | 项目对应                                           |
+| ----------------------------- | --------------------------------- | ------------------------------------------------------ | -------------------------------------------------- |
+| Tooltip                       | 短解释，无需进入其中操作          | 图标含义、补充解释；不承载表单、批准或唯一错误信息     | 已有通用 `Tooltip`，Button 图标提示继续适用        |
+| Popover                       | 锚定触发器的小面板                | 短表单或局部补充内容；避免承载长工作流                 | 已有组件、示例与独立安装路径                       |
+| Dropdown Menu / Menu          | 按触发器展开的动作菜单            | 当前对象命令；选择一个字段值用 Select/Combobox         | 已有组件、示例与独立安装路径                       |
+| Context Menu                  | 右键/上下文动作菜单               | 当前对象快捷动作；必须另有键盘、触摸可达入口           | 已有 `ContextMenu`；需提供可见菜单替代             |
+| Dialog                        | 对话框，独立标题、内容、动作      | 专注任务、确认；普通元信息无需每次弹框                 | 已有 `Dialog`                                      |
+| Modal / Modal Dialog          | 模态 / 模态对话框，背景暂不可操作 | 必须处理的聚焦流程；不是独立形状或所有 Dialog 的同义词 | 已有 Dialog 及 WorkspaceShell 移动浮层采用模态交互 |
+| Drawer / Sheet / Bottom Sheet | 侧边/底部滑出的面板               | 窄屏导航、上下文详情；名称边界随设计系统而异           | 已有 `Sheet` 与 `Drawer`；可选底部手柄滑动关闭     |
+| Backdrop / Scrim              | 浮层后的遮罩                      | 表达模态范围、隔开背景；不能只变暗而仍让焦点跑到背景   | 内嵌：Dialog、WorkspaceShell                       |
 
 Dialog 描述内容容器，Modal 描述交互模式，Drawer/Sheet 描述空间呈现方式，Inspector 描述内容职责。同一个 Inspector 可以在桌面停靠，在窄屏以模态侧面板打开。
 
 ## 9. Feedback · 反馈
 
-| 名称 / 别名                 | 中文与外观线索           | 适用 / 避免                                          | 项目对应                                                |
-| --------------------------- | ------------------------ | ---------------------------------------------------- | ------------------------------------------------------- |
-| Alert / Inline Error        | 局部提示或错误区         | 需要用户理解/处理的问题；必须说明下一步              | 内嵌：`DataRegion` 错误区                               |
-| Banner                      | 页面/范围级提示横条      | 离线、过期、权限等持续影响；不要所有普通状态都占横条 | 内嵌：部分数据和刷新提示；暂无通用 Banner               |
-| Toast / Snackbar            | 短暂浮现的反馈条         | 非关键操作回执；关键失败、批准请求需持续可见         | 待实现                                                  |
-| Progress / Progress Bar     | 进度条                   | 有可靠总量才显示百分比；未知总量说明阶段             | 待实现通用 Progress                                     |
-| Spinner / Loading Indicator | 旋转或静态加载图标       | 表达短等待；长等待补阶段、耗时与可用动作             | 内嵌：Button `loading`；不要用 Spinner 代表所有 runtime |
-| Skeleton                    | 与最终布局相似的灰块占位 | 首次无内容加载；刷新不要抹掉已有内容                 | 内嵌：DataRegion 三行占位、Item 加载态                  |
-| Shimmer                     | 占位块上扫过的亮带       | 可选加载动效；减少动态效果时移除                     | 视觉参考：不是单独数据状态，无通用 Shimmer              |
-| Empty State                 | 无内容时的解释与操作     | 区分未创建、无筛选结果、无选择；不能把加载失败写成空 | 已有 `DataRegion` 的 empty 展示                         |
+| 名称 / 别名                 | 中文与外观线索           | 适用 / 避免                                          | 项目对应                                    |
+| --------------------------- | ------------------------ | ---------------------------------------------------- | ------------------------------------------- |
+| Alert / Inline Error        | 局部提示或错误区         | 需要用户理解/处理的问题；必须说明下一步              | 已有 `Alert`；DataRegion 复用               |
+| Banner                      | 页面/范围级提示横条      | 离线、过期、权限等持续影响；不要所有普通状态都占横条 | 内嵌：部分数据和刷新提示；暂无通用 Banner   |
+| Toast / Snackbar            | 短暂浮现的反馈条         | 非关键操作回执；关键失败、批准请求需持续可见         | 已有 `Toast`；`Sonner` 为共用体系的适配入口 |
+| Progress / Progress Bar     | 进度条                   | 有可靠总量才显示百分比；未知总量说明阶段             | 已有 `Progress`；测量用 `Meter`             |
+| Spinner / Loading Indicator | 旋转或静态加载图标       | 表达短等待；长等待补阶段、耗时与可用动作             | 已有 `Spinner`；减少动效时保留静态文字      |
+| Skeleton                    | 与最终布局相似的灰块占位 | 首次无内容加载；刷新不要抹掉已有内容                 | 已有 `Skeleton`；DataRegion 复用            |
+| Shimmer                     | 占位块上扫过的亮带       | 可选加载动效；减少动态效果时移除                     | 视觉参考：不是单独数据状态，无通用 Shimmer  |
+| Empty State                 | 无内容时的解释与操作     | 区分未创建、无筛选结果、无选择；不能把加载失败写成空 | 已有 `Empty`；DataRegion 复用               |
 
 ## 10. Effects · 视觉效果
 
@@ -256,24 +256,28 @@ CanvasConfigEditor 已分发，内部包含 ConditionBuilder、扁平对象 Sche
 
 ## Work Items 增强实现映射
 
-| 术语 | 当前实现 | 边界 |
-| --- | --- | --- |
-| Swimlane / 泳道 | 内嵌：`WorkItemBoard.lanes`，按第二个单值属性分区 | 仅泳道内移动；权威分组/计数由调用方提供 |
-| Sub-items / 子项 | 内嵌：`WorkItemList.hierarchy` | 展开与选择独立，普通列表语义；Table/Board 平铺 |
-| Batch Actions / 批量操作 | 已有：`WorkItemsBatchActions`，Registry `work-items-enhancements` | 状态/优先级；逐项回执，unknown 先查询 |
-| Saved Views / 保存视图 | 已有：`WorkItemsSavedViews`，Registry `work-items-enhancements` | 受控配置与版本接口；无默认持久化 |
+| 术语                     | 当前实现                                                          | 边界                                           |
+| ------------------------ | ----------------------------------------------------------------- | ---------------------------------------------- |
+| Swimlane / 泳道          | 内嵌：`WorkItemBoard.lanes`，按第二个单值属性分区                 | 仅泳道内移动；权威分组/计数由调用方提供        |
+| Sub-items / 子项         | 内嵌：`WorkItemList.hierarchy`                                    | 展开与选择独立，普通列表语义；Table/Board 平铺 |
+| Batch Actions / 批量操作 | 已有：`WorkItemsBatchActions`，Registry `work-items-enhancements` | 状态/优先级；逐项回执，unknown 先查询          |
+| Saved Views / 保存视图   | 已有：`WorkItemsSavedViews`，Registry `work-items-enhancements`   | 受控配置与版本接口；无默认持久化               |
 
 接口与安装见 [WORK-ITEMS.md](./WORK-ITEMS.md)，不将本地保存视图示例视为真实存储服务。
 
 ### 已实现：排期时间线与截止日日历
 
-| 名称 | 语义与真实实现 | 安装/文档 |
-| --- | --- | --- |
-| Timeline / Axis / Row / Bar | 受控排期轴、侧栏、时间条；不同于 Activity 事件历史 | `/docs/timeline/`，`timeline` |
-| Calendar / Header / Day / Agenda | 月/周截止日网格与当日条目；不同于 DatePicker | `/docs/calendar/`，`calendar` |
-| WorkItemTimeline / WorkItemCalendarEntry | 工作项日期意图、字段能力、共享详情与分页 | `work-item-timeline` / `work-item-calendar` |
-| WorkItemDateRangeField | 开始/截止成对校验与精确日期键盘/触摸替代 | `work-item-date-range-field` |
-| ScheduleViewControls / UnscheduledWorkItems | 可控范围/刻度/周末；去重未排期队列 | `schedule-view-controls` / `work-items-schedule` |
+| 名称                                        | 语义与真实实现                                     | 安装/文档                                        |
+| ------------------------------------------- | -------------------------------------------------- | ------------------------------------------------ |
+| Timeline / Axis / Row / Bar                 | 受控排期轴、侧栏、时间条；不同于 Activity 事件历史 | `/docs/timeline/`，`timeline`                    |
+| Calendar / Header / Day / Agenda            | 月/周截止日网格与当日条目；不同于 DatePicker       | `/docs/calendar/`，`calendar`                    |
+| WorkItemTimeline / WorkItemCalendarEntry    | 工作项日期意图、字段能力、共享详情与分页           | `work-item-timeline` / `work-item-calendar`      |
+| WorkItemDateRangeField                      | 开始/截止成对校验与精确日期键盘/触摸替代           | `work-item-date-range-field`                     |
+| ScheduleViewControls / UnscheduledWorkItems | 可控范围/刻度/周末；去重未排期队列                 | `schedule-view-controls` / `work-items-schedule` |
+
+## shadcn 补齐与名称边界
+
+2026-10-09 完整覆盖参考源码的63项职责；逐项源码与复用依据见 [对照表](plans/shadcn-component-coverage.md)。DateCalendar/DatePicker 是日期输入，原 Calendar 是事项视图；Sonner 共用 Toast，Bubble 只用于独立引用，ScrollArea 保留原生滚动。可用状态由真实 Catalog/Registry 决定，不表示兼容另一组件库的全部 props。
 
 ## 工作流分析首版（2026-10-09）
 

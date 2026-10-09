@@ -1,5 +1,445 @@
 [
   {
+    "slug": "button-group",
+    "name": "ButtonGroup",
+    "description": "同组操作的紧凑容器。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/button-group/",
+    "installType": "ui",
+    "registryId": "button-group",
+    "docGroup": "interaction",
+    "docOrder": 100
+  },
+  {
+    "slug": "input-group",
+    "name": "InputGroup",
+    "description": "输入与前后缀、操作的组合。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/input-group/",
+    "installType": "ui",
+    "registryId": "input-group",
+    "docGroup": "interaction",
+    "docOrder": 101
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "description": "支持按下状态的切换按钮。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/toggle/",
+    "installType": "ui",
+    "registryId": "toggle",
+    "docGroup": "interaction",
+    "docOrder": 102
+  },
+  {
+    "slug": "toggle-group",
+    "name": "ToggleGroup",
+    "description": "单选或多选切换组。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/toggle-group/",
+    "installType": "ui",
+    "registryId": "toggle-group",
+    "docGroup": "interaction",
+    "docOrder": 103
+  },
+  {
+    "slug": "input-otp",
+    "name": "InputOTP",
+    "description": "原生一次性验证码输入。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/input-otp/",
+    "installType": "ui",
+    "registryId": "input-otp",
+    "docGroup": "interaction",
+    "docOrder": 104
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "description": "语义或装饰性分隔线。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/separator/",
+    "installType": "ui",
+    "registryId": "separator",
+    "docGroup": "interaction",
+    "docOrder": 105
+  },
+  {
+    "slug": "collapsible",
+    "name": "Collapsible",
+    "description": "受控或非受控内容折叠。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/collapsible/",
+    "installType": "ui",
+    "registryId": "collapsible",
+    "docGroup": "interaction",
+    "docOrder": 106
+  },
+  {
+    "slug": "accordion",
+    "name": "Accordion",
+    "description": "单项或多项展开的手风琴。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/accordion/",
+    "installType": "ui",
+    "registryId": "accordion",
+    "docGroup": "interaction",
+    "docOrder": 107
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip",
+    "description": "支持悬停和焦点的补充提示。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/tooltip/",
+    "installType": "ui",
+    "registryId": "tooltip",
+    "docGroup": "interaction",
+    "docOrder": 108
+  },
+  {
+    "slug": "alert-dialog",
+    "name": "AlertDialog",
+    "description": "显式确认请求的模态对话框。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/alert-dialog/",
+    "installType": "ui",
+    "registryId": "alert-dialog",
+    "docGroup": "interaction",
+    "docOrder": 109
+  },
+  {
+    "slug": "hover-card",
+    "name": "HoverCard",
+    "description": "链接的补充预览层。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/hover-card/",
+    "installType": "ui",
+    "registryId": "hover-card",
+    "docGroup": "interaction",
+    "docOrder": 110
+  },
+  {
+    "slug": "context-menu",
+    "name": "ContextMenu",
+    "description": "右键、键盘与长按的上下文动作。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/context-menu/",
+    "installType": "ui",
+    "registryId": "context-menu",
+    "docGroup": "interaction",
+    "docOrder": 111
+  },
+  {
+    "slug": "skeleton",
+    "name": "Skeleton",
+    "description": "结构相符的静态加载占位。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/skeleton/",
+    "installType": "ui",
+    "registryId": "skeleton",
+    "docGroup": "interaction",
+    "docOrder": 112
+  },
+  {
+    "slug": "spinner",
+    "name": "Spinner",
+    "description": "附带可读文本的忙碌指示。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/spinner/",
+    "installType": "ui",
+    "registryId": "spinner",
+    "docGroup": "interaction",
+    "docOrder": 113
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "description": "说明空态原因与下一步。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/empty/",
+    "installType": "ui",
+    "registryId": "empty",
+    "docGroup": "interaction",
+    "docOrder": 114
+  },
+  {
+    "slug": "alert",
+    "name": "Alert",
+    "description": "内联信息、警告与错误反馈。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/alert/",
+    "installType": "ui",
+    "registryId": "alert",
+    "docGroup": "interaction",
+    "docOrder": 115
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "description": "确定或未知总量的任务进度。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/progress/",
+    "installType": "ui",
+    "registryId": "progress",
+    "docGroup": "interaction",
+    "docOrder": 116
+  },
+  {
+    "slug": "toast",
+    "name": "Toast",
+    "description": "统一、可更新和关闭的通知体系。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/toast/",
+    "installType": "ui",
+    "registryId": "toast",
+    "docGroup": "interaction",
+    "docOrder": 117
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "description": "复用 Toast 的通知适配入口。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/sonner/",
+    "installType": "ui",
+    "registryId": "sonner",
+    "docGroup": "interaction",
+    "docOrder": 118
+  },
+  {
+    "slug": "date-calendar",
+    "name": "DateCalendar",
+    "description": "按民用日期键选择单日或范围。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/date-calendar/",
+    "installType": "ui",
+    "registryId": "date-calendar",
+    "docGroup": "interaction",
+    "docOrder": 119
+  },
+  {
+    "slug": "date-picker",
+    "name": "DatePicker",
+    "description": "日期日历与弹出层的组合。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/date-picker/",
+    "installType": "ui",
+    "registryId": "date-picker",
+    "docGroup": "interaction",
+    "docOrder": 120
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "description": "受控分页请求与未知总数导航。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/pagination/",
+    "installType": "ui",
+    "registryId": "pagination",
+    "docGroup": "interaction",
+    "docOrder": 121
+  },
+  {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "description": "路径层级与当前页面导航。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/breadcrumb/",
+    "installType": "ui",
+    "registryId": "breadcrumb",
+    "docGroup": "interaction",
+    "docOrder": 122
+  },
+  {
+    "slug": "menubar",
+    "name": "Menubar",
+    "description": "桌面应用菜单栏与动作菜单。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/menubar/",
+    "installType": "ui",
+    "registryId": "menubar",
+    "docGroup": "interaction",
+    "docOrder": 123
+  },
+  {
+    "slug": "navigation-menu",
+    "name": "NavigationMenu",
+    "description": "站点层级导航与链接浮层。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/navigation-menu/",
+    "installType": "ui",
+    "registryId": "navigation-menu",
+    "docGroup": "interaction",
+    "docOrder": 124
+  },
+  {
+    "slug": "direction",
+    "name": "Direction",
+    "description": "同步 DOM 与 Base UI 的阅读方向。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/direction/",
+    "installType": "ui",
+    "registryId": "direction",
+    "docGroup": "interaction",
+    "docOrder": 125
+  },
+  {
+    "slug": "attachment",
+    "name": "Attachment",
+    "description": "调用方附件状态与打开、移除操作。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/attachment/",
+    "installType": "ui",
+    "registryId": "attachment",
+    "docGroup": "interaction",
+    "docOrder": 126
+  },
+  {
+    "slug": "marker",
+    "name": "Marker",
+    "description": "对话时间、章节与事件分隔标记。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/marker/",
+    "installType": "ui",
+    "registryId": "marker",
+    "docGroup": "interaction",
+    "docOrder": 127
+  },
+  {
+    "slug": "questionnaire",
+    "name": "Questionnaire",
+    "description": "逐题单选、多选和文本问卷。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/questionnaire/",
+    "installType": "block",
+    "registryId": "questionnaire",
+    "docGroup": "other",
+    "docOrder": 128
+  },
+  {
+    "slug": "bubble",
+    "name": "Bubble",
+    "description": "独立引用或批注的内容容器。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/bubble/",
+    "installType": "ui",
+    "registryId": "bubble",
+    "docGroup": "interaction",
+    "docOrder": 129
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "description": "独立内容、概览和预览容器。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/card/",
+    "installType": "ui",
+    "registryId": "card",
+    "docGroup": "interaction",
+    "docOrder": 130
+  },
+  {
+    "slug": "aspect-ratio",
+    "name": "AspectRatio",
+    "description": "保留指定纵横比的内容区域。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/aspect-ratio/",
+    "installType": "ui",
+    "registryId": "aspect-ratio",
+    "docGroup": "interaction",
+    "docOrder": 131
+  },
+  {
+    "slug": "carousel",
+    "name": "Carousel",
+    "description": "手动控制、键盘与触摸轮播。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/carousel/",
+    "installType": "ui",
+    "registryId": "carousel",
+    "docGroup": "interaction",
+    "docOrder": 132
+  },
+  {
+    "slug": "chart",
+    "name": "Chart",
+    "description": "带完整文本替代的轻量柱图和折线图。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/chart/",
+    "installType": "block",
+    "registryId": "chart",
+    "docGroup": "other",
+    "docOrder": 133
+  },
+  {
+    "slug": "form",
+    "name": "Form",
+    "description": "原生表单与 Field 的轻量组合。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/form/",
+    "installType": "ui",
+    "registryId": "form",
+    "docGroup": "interaction",
+    "docOrder": 134
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "description": "受控折叠的独立侧栏布局。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/sidebar/",
+    "installType": "block",
+    "registryId": "sidebar",
+    "docGroup": "other",
+    "docOrder": 135
+  },
+  {
+    "slug": "resizable",
+    "name": "Resizable",
+    "description": "可复用双面板与尺寸调整手柄。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/resizable/",
+    "installType": "ui",
+    "registryId": "resizable",
+    "docGroup": "interaction",
+    "docOrder": 136
+  },
+  {
+    "slug": "scroll-area",
+    "name": "ScrollArea",
+    "description": "保留浏览器行为的原生滚动区域。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/scroll-area/",
+    "installType": "ui",
+    "registryId": "scroll-area",
+    "docGroup": "interaction",
+    "docOrder": 137
+  },
+  {
+    "slug": "command",
+    "name": "Command",
+    "description": "复用 CommandPalette 的内嵌命令面板。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/command/",
+    "installType": "block",
+    "registryId": "command",
+    "docGroup": "other",
+    "docOrder": 138
+  },
+  {
+    "slug": "drawer",
+    "name": "Drawer",
+    "description": "复用 Sheet 的抽屉与可选滑动关闭。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/drawer/",
+    "installType": "ui",
+    "registryId": "drawer",
+    "docGroup": "interaction",
+    "docOrder": 139
+  },
+  {
     "slug": "analytics-model",
     "name": "AnalyticsModel",
     "description": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
@@ -8,7 +448,7 @@
     "installType": "lib",
     "registryId": "analytics-model",
     "docGroup": "data",
-    "docOrder": 100
+    "docOrder": 140
   },
   {
     "slug": "chart-model",
@@ -19,7 +459,7 @@
     "installType": "lib",
     "registryId": "chart-model",
     "docGroup": "data",
-    "docOrder": 101
+    "docOrder": 141
   },
   {
     "slug": "chart-frame",
@@ -30,7 +470,7 @@
     "installType": "ui",
     "registryId": "chart-frame",
     "docGroup": "data",
-    "docOrder": 102
+    "docOrder": 142
   },
   {
     "slug": "chart-data-table",
@@ -41,7 +481,7 @@
     "installType": "block",
     "registryId": "chart-data-table",
     "docGroup": "data",
-    "docOrder": 103
+    "docOrder": 143
   },
   {
     "slug": "statistical-chart",
@@ -52,7 +492,7 @@
     "installType": "block",
     "registryId": "statistical-chart",
     "docGroup": "data",
-    "docOrder": 104
+    "docOrder": 144
   },
   {
     "slug": "chart-drilldown-panel",
@@ -63,7 +503,7 @@
     "installType": "block",
     "registryId": "chart-drilldown-panel",
     "docGroup": "data",
-    "docOrder": 105
+    "docOrder": 145
   },
   {
     "slug": "workflow-metric",
@@ -74,7 +514,7 @@
     "installType": "block",
     "registryId": "workflow-metric",
     "docGroup": "data",
-    "docOrder": 106
+    "docOrder": 146
   },
   {
     "slug": "workflow-charts",
@@ -85,7 +525,7 @@
     "installType": "block",
     "registryId": "workflow-charts",
     "docGroup": "data",
-    "docOrder": 107
+    "docOrder": 147
   },
   {
     "slug": "risk-evidence-list",
@@ -96,7 +536,7 @@
     "installType": "block",
     "registryId": "risk-evidence-list",
     "docGroup": "data",
-    "docOrder": 108
+    "docOrder": 148
   },
   {
     "slug": "work-traceability-view",
@@ -107,7 +547,7 @@
     "installType": "block",
     "registryId": "work-traceability-view",
     "docGroup": "data",
-    "docOrder": 109
+    "docOrder": 149
   },
   {
     "slug": "work-items-view-adapter",
@@ -118,7 +558,7 @@
     "installType": "block",
     "registryId": "work-items-view-adapter",
     "docGroup": "data",
-    "docOrder": 110
+    "docOrder": 150
   },
   {
     "slug": "dashboard",
@@ -129,7 +569,7 @@
     "installType": "block",
     "registryId": "dashboard",
     "docGroup": "workspace",
-    "docOrder": 111
+    "docOrder": 151
   },
   {
     "slug": "project-overview-dashboard",
@@ -140,7 +580,7 @@
     "installType": "block",
     "registryId": "project-overview-dashboard",
     "docGroup": "workspace",
-    "docOrder": 112
+    "docOrder": 152
   },
   {
     "slug": "textarea",
@@ -239,7 +679,7 @@
     "installType": "ui",
     "registryId": "avatar",
     "docGroup": "data",
-    "docOrder": 121
+    "docOrder": 161
   },
   {
     "slug": "segment-bar",
@@ -250,7 +690,7 @@
     "installType": "ui",
     "registryId": "segment-bar",
     "docGroup": "interaction",
-    "docOrder": 122
+    "docOrder": 162
   },
   {
     "slug": "sparkline",
@@ -261,7 +701,7 @@
     "installType": "ui",
     "registryId": "sparkline",
     "docGroup": "interaction",
-    "docOrder": 123
+    "docOrder": 163
   },
   {
     "slug": "dropdown-menu",
@@ -294,7 +734,7 @@
     "installType": "block",
     "registryId": "command-palette",
     "docGroup": "other",
-    "docOrder": 126
+    "docOrder": 166
   },
   {
     "slug": "kbd",
@@ -305,7 +745,7 @@
     "installType": "ui",
     "registryId": "kbd",
     "docGroup": "interaction",
-    "docOrder": 127
+    "docOrder": 167
   },
   {
     "slug": "field",
@@ -316,7 +756,7 @@
     "installType": "ui",
     "registryId": "field",
     "docGroup": "interaction",
-    "docOrder": 128
+    "docOrder": 168
   },
   {
     "slug": "form-section",
@@ -327,7 +767,7 @@
     "installType": "block",
     "registryId": "form-section",
     "docGroup": "other",
-    "docOrder": 129
+    "docOrder": 169
   },
   {
     "slug": "slider",
@@ -338,7 +778,7 @@
     "installType": "ui",
     "registryId": "slider",
     "docGroup": "interaction",
-    "docOrder": 130
+    "docOrder": 170
   },
   {
     "slug": "image-upload",
@@ -349,7 +789,7 @@
     "installType": "block",
     "registryId": "image-upload",
     "docGroup": "other",
-    "docOrder": 131
+    "docOrder": 171
   },
   {
     "slug": "filter-toolbar",
@@ -360,7 +800,7 @@
     "installType": "block",
     "registryId": "filter-toolbar",
     "docGroup": "data",
-    "docOrder": 132
+    "docOrder": 172
   },
   {
     "slug": "metric-summary",
@@ -371,7 +811,7 @@
     "installType": "block",
     "registryId": "metric-summary",
     "docGroup": "data",
-    "docOrder": 133
+    "docOrder": 173
   },
   {
     "slug": "rating-display",
@@ -382,7 +822,7 @@
     "installType": "ui",
     "registryId": "rating-display",
     "docGroup": "data",
-    "docOrder": 134
+    "docOrder": 174
   },
   {
     "slug": "menu",
@@ -437,7 +877,7 @@
     "installType": "ui",
     "registryId": "segmented",
     "docGroup": "interaction",
-    "docOrder": 139
+    "docOrder": 179
   },
   {
     "slug": "tabs",
@@ -459,7 +899,7 @@
     "installType": "ui",
     "registryId": "theme-boundary",
     "docGroup": "interaction",
-    "docOrder": 141
+    "docOrder": 181
   },
   {
     "slug": "i18n",
@@ -470,7 +910,7 @@
     "installType": "lib",
     "registryId": "i18n",
     "docGroup": "interaction",
-    "docOrder": 142
+    "docOrder": 182
   },
   {
     "slug": "canvas-service-panel",
@@ -481,7 +921,7 @@
     "installType": "block",
     "registryId": "canvas-service-panel",
     "docGroup": "canvas",
-    "docOrder": 143
+    "docOrder": 183
   },
   {
     "slug": "canvas-project-workspace",
@@ -492,7 +932,7 @@
     "installType": "block",
     "registryId": "canvas-project-workspace",
     "docGroup": "canvas",
-    "docOrder": 144
+    "docOrder": 184
   },
   {
     "slug": "canvas-config-editor",
@@ -503,7 +943,7 @@
     "installType": "block",
     "registryId": "canvas-config-editor",
     "docGroup": "canvas",
-    "docOrder": 145
+    "docOrder": 185
   },
   {
     "slug": "canvas-execution-panel",
@@ -514,7 +954,7 @@
     "installType": "block",
     "registryId": "canvas-execution-panel",
     "docGroup": "canvas",
-    "docOrder": 146
+    "docOrder": 186
   },
   {
     "slug": "canvas-workspace",
@@ -569,7 +1009,7 @@
     "installType": "block",
     "registryId": "canvas-frame",
     "docGroup": "canvas",
-    "docOrder": 151
+    "docOrder": 191
   },
   {
     "slug": "canvas-note",
@@ -580,7 +1020,7 @@
     "installType": "block",
     "registryId": "canvas-note",
     "docGroup": "canvas",
-    "docOrder": 152
+    "docOrder": 192
   },
   {
     "slug": "workflow-canvas",
@@ -602,7 +1042,7 @@
     "installType": "ui",
     "registryId": "canvas-node",
     "docGroup": "canvas",
-    "docOrder": 154
+    "docOrder": 194
   },
   {
     "slug": "canvas-port",
@@ -613,7 +1053,7 @@
     "installType": "ui",
     "registryId": "canvas-port",
     "docGroup": "canvas",
-    "docOrder": 155
+    "docOrder": 195
   },
   {
     "slug": "canvas-edge",
@@ -624,7 +1064,7 @@
     "installType": "ui",
     "registryId": "canvas-edge",
     "docGroup": "canvas",
-    "docOrder": 156
+    "docOrder": 196
   },
   {
     "slug": "style-workbench",
@@ -635,7 +1075,7 @@
     "installType": "block",
     "registryId": "style-workbench",
     "docGroup": "workspace",
-    "docOrder": 157
+    "docOrder": 197
   },
   {
     "slug": "badge",
@@ -646,7 +1086,7 @@
     "installType": "ui",
     "registryId": "badge",
     "docGroup": "interaction",
-    "docOrder": 158
+    "docOrder": 198
   },
   {
     "slug": "tag",
@@ -657,7 +1097,7 @@
     "installType": "ui",
     "registryId": "tag",
     "docGroup": "interaction",
-    "docOrder": 159
+    "docOrder": 199
   },
   {
     "slug": "chip",
@@ -668,7 +1108,7 @@
     "installType": "ui",
     "registryId": "chip",
     "docGroup": "interaction",
-    "docOrder": 160
+    "docOrder": 200
   },
   {
     "slug": "button",
@@ -712,7 +1152,7 @@
     "installType": "block",
     "registryId": "task-panel",
     "docGroup": "other",
-    "docOrder": 164
+    "docOrder": 204
   },
   {
     "slug": "scroll-playground",
@@ -723,7 +1163,7 @@
     "installType": "block",
     "registryId": "scroll-playground",
     "docGroup": "other",
-    "docOrder": 165
+    "docOrder": 205
   },
   {
     "slug": "item",
@@ -734,7 +1174,7 @@
     "installType": "ui",
     "registryId": "item",
     "docGroup": "interaction",
-    "docOrder": 166
+    "docOrder": 206
   },
   {
     "slug": "runtime-status-badge",
@@ -855,7 +1295,7 @@
     "installType": "block",
     "registryId": "agent-run-properties",
     "docGroup": "agent",
-    "docOrder": 177
+    "docOrder": 217
   },
   {
     "slug": "run-stage-summary",
@@ -866,7 +1306,7 @@
     "installType": "block",
     "registryId": "run-stage-summary",
     "docGroup": "other",
-    "docOrder": 178
+    "docOrder": 218
   },
   {
     "slug": "agent-run-row",
@@ -877,7 +1317,7 @@
     "installType": "block",
     "registryId": "agent-run-row",
     "docGroup": "agent",
-    "docOrder": 179
+    "docOrder": 219
   },
   {
     "slug": "agent-run-card",
@@ -888,7 +1328,7 @@
     "installType": "block",
     "registryId": "agent-run-card",
     "docGroup": "agent",
-    "docOrder": 180
+    "docOrder": 220
   },
   {
     "slug": "agent-run-list",
@@ -899,7 +1339,7 @@
     "installType": "block",
     "registryId": "agent-run-list",
     "docGroup": "agent",
-    "docOrder": 181
+    "docOrder": 221
   },
   {
     "slug": "agent-run-board",
@@ -910,7 +1350,7 @@
     "installType": "block",
     "registryId": "agent-run-board",
     "docGroup": "agent",
-    "docOrder": 182
+    "docOrder": 222
   },
   {
     "slug": "agent-run-inspector",
@@ -921,7 +1361,7 @@
     "installType": "block",
     "registryId": "agent-run-inspector",
     "docGroup": "agent",
-    "docOrder": 183
+    "docOrder": 223
   },
   {
     "slug": "attention-queue",
@@ -932,7 +1372,7 @@
     "installType": "block",
     "registryId": "attention-queue",
     "docGroup": "other",
-    "docOrder": 184
+    "docOrder": 224
   },
   {
     "slug": "approval-request-panel",
@@ -943,7 +1383,7 @@
     "installType": "block",
     "registryId": "approval-request-panel",
     "docGroup": "other",
-    "docOrder": 185
+    "docOrder": 225
   },
   {
     "slug": "artifact-list",
@@ -954,7 +1394,7 @@
     "installType": "block",
     "registryId": "artifact-list",
     "docGroup": "other",
-    "docOrder": 186
+    "docOrder": 226
   },
   {
     "slug": "review-summary",
@@ -965,7 +1405,7 @@
     "installType": "block",
     "registryId": "review-summary",
     "docGroup": "other",
-    "docOrder": 187
+    "docOrder": 227
   },
   {
     "slug": "execution-trace-tree",
@@ -976,7 +1416,7 @@
     "installType": "block",
     "registryId": "execution-trace-tree",
     "docGroup": "other",
-    "docOrder": 188
+    "docOrder": 228
   },
   {
     "slug": "agent-relationship-list",
@@ -987,7 +1427,7 @@
     "installType": "block",
     "registryId": "agent-relationship-list",
     "docGroup": "agent",
-    "docOrder": 189
+    "docOrder": 229
   },
   {
     "slug": "agent-usage-summary",
@@ -998,7 +1438,7 @@
     "installType": "block",
     "registryId": "agent-usage-summary",
     "docGroup": "agent",
-    "docOrder": 190
+    "docOrder": 230
   },
   {
     "slug": "agent-board-toolbar",
@@ -1009,7 +1449,7 @@
     "installType": "block",
     "registryId": "agent-board-toolbar",
     "docGroup": "agent",
-    "docOrder": 191
+    "docOrder": 231
   },
   {
     "slug": "agent-board-workspace",
@@ -1020,7 +1460,7 @@
     "installType": "block",
     "registryId": "agent-board-workspace",
     "docGroup": "agent",
-    "docOrder": 192
+    "docOrder": 232
   },
   {
     "slug": "grouped-list",
@@ -1031,7 +1471,7 @@
     "installType": "block",
     "registryId": "grouped-list",
     "docGroup": "data",
-    "docOrder": 193
+    "docOrder": 233
   },
   {
     "slug": "item-board",
@@ -1042,7 +1482,7 @@
     "installType": "block",
     "registryId": "item-board",
     "docGroup": "other",
-    "docOrder": 194
+    "docOrder": 234
   },
   {
     "slug": "work-item-properties",
@@ -1086,7 +1526,7 @@
     "installType": "block",
     "registryId": "work-items-views",
     "docGroup": "data",
-    "docOrder": 198
+    "docOrder": 238
   },
   {
     "slug": "work-item-board",
@@ -1097,7 +1537,7 @@
     "installType": "block",
     "registryId": "work-items-views",
     "docGroup": "data",
-    "docOrder": 199
+    "docOrder": 239
   },
   {
     "slug": "work-item-table",
@@ -1108,7 +1548,7 @@
     "installType": "block",
     "registryId": "work-items-views",
     "docGroup": "data",
-    "docOrder": 200
+    "docOrder": 240
   },
   {
     "slug": "work-items-toolbar",
@@ -1130,7 +1570,7 @@
     "installType": "block",
     "registryId": "work-item-detail",
     "docGroup": "data",
-    "docOrder": 202
+    "docOrder": 242
   },
   {
     "slug": "work-items-workspace",
@@ -1152,7 +1592,7 @@
     "installType": "block",
     "registryId": "work-items-board-base",
     "docGroup": "data",
-    "docOrder": 204
+    "docOrder": 244
   },
   {
     "slug": "agent-dependency-graph",
@@ -1163,7 +1603,7 @@
     "installType": "block",
     "registryId": "agent-dependency-graph",
     "docGroup": "agent",
-    "docOrder": 205
+    "docOrder": 245
   },
   {
     "slug": "agent-usage-history",
@@ -1174,7 +1614,7 @@
     "installType": "block",
     "registryId": "agent-usage-history",
     "docGroup": "agent",
-    "docOrder": 206
+    "docOrder": 246
   },
   {
     "slug": "agent-run-virtual-list",
@@ -1185,7 +1625,7 @@
     "installType": "block",
     "registryId": "agent-run-virtual-list",
     "docGroup": "agent",
-    "docOrder": 207
+    "docOrder": 247
   },
   {
     "slug": "work-items-batch-actions",
@@ -1196,7 +1636,7 @@
     "installType": "block",
     "registryId": "work-items-enhancements",
     "docGroup": "data",
-    "docOrder": 208
+    "docOrder": 248
   },
   {
     "slug": "work-items-saved-views",
@@ -1207,7 +1647,7 @@
     "installType": "block",
     "registryId": "work-items-enhancements",
     "docGroup": "data",
-    "docOrder": 209
+    "docOrder": 249
   },
   {
     "slug": "timeline",
@@ -1218,7 +1658,7 @@
     "installType": "block",
     "registryId": "timeline",
     "docGroup": "data",
-    "docOrder": 210
+    "docOrder": 250
   },
   {
     "slug": "calendar",
@@ -1229,7 +1669,7 @@
     "installType": "block",
     "registryId": "calendar",
     "docGroup": "data",
-    "docOrder": 211
+    "docOrder": 251
   },
   {
     "slug": "schedule-view-controls",
@@ -1240,7 +1680,7 @@
     "installType": "block",
     "registryId": "schedule-view-controls",
     "docGroup": "data",
-    "docOrder": 212
+    "docOrder": 252
   },
   {
     "slug": "work-item-date-range-field",
@@ -1251,7 +1691,7 @@
     "installType": "block",
     "registryId": "work-item-date-range-field",
     "docGroup": "data",
-    "docOrder": 213
+    "docOrder": 253
   },
   {
     "slug": "work-items-schedule",
@@ -1262,7 +1702,7 @@
     "installType": "block",
     "registryId": "work-items-schedule",
     "docGroup": "data",
-    "docOrder": 214
+    "docOrder": 254
   },
   {
     "slug": "work-item-timeline",
@@ -1273,7 +1713,7 @@
     "installType": "block",
     "registryId": "work-item-timeline",
     "docGroup": "data",
-    "docOrder": 215
+    "docOrder": 255
   },
   {
     "slug": "work-item-calendar",
@@ -1284,6 +1724,6 @@
     "installType": "block",
     "registryId": "work-item-calendar",
     "docGroup": "data",
-    "docOrder": 216
+    "docOrder": 256
   }
 ]

@@ -1,4 +1,4 @@
-import catalog from "./component-index.json"
+import catalog from "./component-vocabulary.json"
 
 export const dictionaryCategories = [
   { id: "foundations", name: "基础", english: "Foundations" },
@@ -449,10 +449,10 @@ const seeds: Seed[] = [
     "Button 传 aria-pressed。",
     "普通一次性动作不用 aria-pressed。",
     {
-      availability: "embedded",
+      componentSlug: "toggle",
       relatedSlug: "button",
       aliases: ["开关按钮"],
-      code: "<Button aria-pressed={enabled} onClick={() => setEnabled(!enabled)}>模式</Button>",
+      code: "<Toggle pressed={enabled} onPressedChange={setEnabled}>模式</Toggle>",
     },
   ),
   term(
@@ -489,7 +489,7 @@ const seeds: Seed[] = [
     "独立内容摘要或视觉预览单元。",
     "目录预览和独立摘要。",
     "Session、Agent、日志优先列表。",
-    { aliases: ["磁贴", "卡片格子"] },
+    { componentSlug: "card", aliases: ["磁贴", "卡片格子"] },
   ),
   term(
     "panel",
@@ -516,7 +516,7 @@ const seeds: Seed[] = [
     "隐藏次要原始细节；ToolCall 有内嵌实现。",
     "关键错误和待批准信息不能隐藏。",
     {
-      availability: "embedded",
+      componentSlug: "accordion",
       relatedSlug: "tool-call",
       aliases: ["手风琴", "展开折叠"],
     },
@@ -531,9 +531,9 @@ const seeds: Seed[] = [
     "区分装饰线与语义 separator。",
     "避免过多分割造成噪声。",
     {
-      availability: "foundation",
+      componentSlug: "separator",
       aliases: ["横线", "分割线"],
-      code: '<hr className="border-border" />',
+      code: "<Separator decorative={false} />",
     },
   ),
   term(
@@ -546,7 +546,7 @@ const seeds: Seed[] = [
     "复用工作台导航区域。",
     "当前对象属性放 Inspector。",
     {
-      availability: "embedded",
+      componentSlug: "sidebar",
       relatedSlug: "workspace-shell",
       aliases: ["Side Navigation", "侧栏", "左侧菜单"],
     },
@@ -571,7 +571,7 @@ const seeds: Seed[] = [
     "展示层级位置及上级入口。",
     "有真实层级的导航。",
     "不代替对象运行状态。",
-    { aliases: ["路径导航", "面包屑导航"] },
+    { componentSlug: "breadcrumb", aliases: ["路径导航", "面包屑导航"] },
   ),
   term(
     "tabs",
@@ -745,7 +745,7 @@ const seeds: Seed[] = [
     "Button 图标动作已有提示。",
     "不承载表单或唯一错误信息。",
     {
-      availability: "embedded",
+      componentSlug: "tooltip",
       relatedSlug: "button",
       aliases: ["悬停提示", "气泡提示", "小浮窗"],
     },
@@ -810,7 +810,7 @@ const seeds: Seed[] = [
     "WorkspaceShell 已有窄屏侧栏和详情。",
     "这是呈现方式，不改变内容职责。",
     {
-      availability: "embedded",
+      componentSlug: "drawer",
       relatedSlug: "workspace-shell",
       aliases: ["Bottom Sheet", "抽屉", "底部面板", "右侧滑出"],
     },
@@ -840,7 +840,7 @@ const seeds: Seed[] = [
     "DataRegion 已有错误区域。",
     "说明下一步，不只显示红色。",
     {
-      availability: "embedded",
+      componentSlug: "alert",
       relatedSlug: "data-region",
       aliases: ["Inline Error", "告警", "错误提示"],
     },
@@ -869,7 +869,7 @@ const seeds: Seed[] = [
     "角落短暂出现的非关键回执。",
     "已完成的轻量反馈。",
     "关键失败、批准不能只放这里。",
-    { aliases: ["吐司", "角落提示", "消息条"] },
+    { componentSlug: "toast", aliases: ["吐司", "角落提示", "消息条"] },
   ),
   term(
     "progress",
@@ -880,7 +880,7 @@ const seeds: Seed[] = [
     "表达有可靠总量的完成比例。",
     "实际可计算时显示百分比。",
     "未知总量说明阶段，不伪造进度。",
-    { aliases: ["Progress Bar", "进度"] },
+    { componentSlug: "progress", aliases: ["Progress Bar", "进度"] },
   ),
   term(
     "skeleton",
@@ -892,7 +892,7 @@ const seeds: Seed[] = [
     "DataRegion 首次无数据加载。",
     "刷新不能抹掉旧内容。",
     {
-      availability: "embedded",
+      componentSlug: "skeleton",
       relatedSlug: "data-region",
       aliases: ["骨架屏", "灰色占位", "占位块"],
     },
@@ -907,7 +907,7 @@ const seeds: Seed[] = [
     "Button loading 内嵌等待图标。",
     "长等待补阶段、耗时和可用动作。",
     {
-      availability: "embedded",
+      componentSlug: "spinner",
       relatedSlug: "button",
       aliases: ["Loading Indicator", "转圈", "加载图标"],
     },

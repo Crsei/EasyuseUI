@@ -1,8 +1,18 @@
+import {
+  completionRegistryItems,
+  createCompletionConsumer,
+  verifyCompletionConsumer,
+} from "./shadcn-completion-consumer.mjs"
 import { mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import assert from "node:assert/strict"
-import { formPrimitivesRegistryItems, createFormPrimitivesConsumer, verifyFormPrimitivesConsumer } from "./form-primitives-consumer.mjs"
+import {
+  formPrimitivesRegistryItems,
+  createFormPrimitivesConsumer,
+  verifyFormPrimitivesConsumer,
+} from "./form-primitives-consumer.mjs"
 export const commonRegistryItems = [
+  ...completionRegistryItems,
   ...formPrimitivesRegistryItems,
   "checkbox",
   "table",
@@ -23,6 +33,7 @@ export const commonRegistryItems = [
   "rating-display",
 ]
 export async function createCommonConsumer(fixture) {
+  await createCompletionConsumer(fixture)
   await createFormPrimitivesConsumer(fixture)
   await mkdir(path.join(fixture, "app/common"), { recursive: true })
   await writeFile(
@@ -69,6 +80,7 @@ return <ThemeBoundary mode="host" className="p-4"><h1>Installed common component
   )
 }
 export async function verifyCommonConsumer(page, origin) {
+  await verifyCompletionConsumer(page, origin)
   await verifyFormPrimitivesConsumer(page, origin)
   await page.goto(`${origin}/common/`)
   await page

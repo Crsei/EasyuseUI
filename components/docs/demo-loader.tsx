@@ -11,8 +11,68 @@ import {
 import { Button } from "@/components/ui/button"
 import { useSiteI18n } from "@/components/site/site-i18n"
 
+function completionDemo<M extends Record<string, ComponentType>>(
+  load: () => Promise<M>,
+  name: keyof M,
+): () => Promise<ComponentType> {
+  return () => load().then((module) => module[name])
+}
+const loadCompletion0 = () =>
+  import("@/components/examples/control-composition-demo")
+const loadCompletion1 = () => import("@/components/examples/disclosure-demo")
+const loadCompletion2 = () => import("@/components/examples/feedback-demo")
+const loadCompletion3 = () =>
+  import("@/components/examples/date-navigation-demo")
+const loadCompletion4 = () =>
+  import("@/components/examples/conversation-extensions-demo")
+const loadCompletion5 = () => import("@/components/examples/content-chart-demo")
+const loadCompletion6 = () =>
+  import("@/components/examples/layout-integration-demo")
+
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  // BEGIN shadcn completion
+  "button-group": completionDemo(loadCompletion0, "ButtonGroupDemo"),
+  "input-group": completionDemo(loadCompletion0, "InputGroupDemo"),
+  toggle: completionDemo(loadCompletion0, "ToggleDemo"),
+  "toggle-group": completionDemo(loadCompletion0, "ToggleGroupDemo"),
+  "input-otp": completionDemo(loadCompletion0, "InputOTPDemo"),
+  separator: completionDemo(loadCompletion1, "SeparatorDemo"),
+  collapsible: completionDemo(loadCompletion1, "CollapsibleDemo"),
+  accordion: completionDemo(loadCompletion1, "AccordionDemo"),
+  tooltip: completionDemo(loadCompletion1, "TooltipDemo"),
+  "alert-dialog": completionDemo(loadCompletion1, "AlertDialogDemo"),
+  "hover-card": completionDemo(loadCompletion1, "HoverCardDemo"),
+  "context-menu": completionDemo(loadCompletion1, "ContextMenuDemo"),
+  skeleton: completionDemo(loadCompletion2, "SkeletonDemo"),
+  spinner: completionDemo(loadCompletion2, "SpinnerDemo"),
+  empty: completionDemo(loadCompletion2, "EmptyDemo"),
+  alert: completionDemo(loadCompletion2, "AlertDemo"),
+  progress: completionDemo(loadCompletion2, "ProgressDemo"),
+  toast: completionDemo(loadCompletion2, "ToastDemo"),
+  sonner: completionDemo(loadCompletion2, "SonnerDemo"),
+  "date-calendar": completionDemo(loadCompletion3, "DateCalendarDemo"),
+  "date-picker": completionDemo(loadCompletion3, "DatePickerDemo"),
+  pagination: completionDemo(loadCompletion3, "PaginationDemo"),
+  breadcrumb: completionDemo(loadCompletion3, "BreadcrumbDemo"),
+  menubar: completionDemo(loadCompletion3, "MenubarDemo"),
+  "navigation-menu": completionDemo(loadCompletion3, "NavigationMenuDemo"),
+  direction: completionDemo(loadCompletion3, "DirectionDemo"),
+  attachment: completionDemo(loadCompletion4, "AttachmentDemo"),
+  marker: completionDemo(loadCompletion4, "MarkerDemo"),
+  questionnaire: completionDemo(loadCompletion4, "QuestionnaireDemo"),
+  bubble: completionDemo(loadCompletion4, "BubbleDemo"),
+  card: completionDemo(loadCompletion5, "CardDemo"),
+  "aspect-ratio": completionDemo(loadCompletion5, "AspectRatioDemo"),
+  carousel: completionDemo(loadCompletion5, "CarouselDemo"),
+  chart: completionDemo(loadCompletion5, "ChartDemo"),
+  form: completionDemo(loadCompletion6, "FormDemo"),
+  sidebar: completionDemo(loadCompletion6, "SidebarDemo"),
+  resizable: completionDemo(loadCompletion6, "ResizableDemo"),
+  "scroll-area": completionDemo(loadCompletion6, "ScrollAreaDemo"),
+  command: completionDemo(loadCompletion6, "CommandDemo"),
+  drawer: completionDemo(loadCompletion6, "DrawerDemo"),
+  // END shadcn completion
   "analytics-model": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.AnalyticsModelDemo),
   "chart-model": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.AnalyticsModelDemo),
   "chart-frame": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.StatisticalChartDemo),

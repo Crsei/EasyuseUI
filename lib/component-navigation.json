@@ -1,12 +1,372 @@
 [
   {
+    "slug": "button-group",
+    "name": "ButtonGroup",
+    "category": "基础组件",
+    "docPath": "/docs/button-group/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 100
+  },
+  {
+    "slug": "input-group",
+    "name": "InputGroup",
+    "category": "基础组件",
+    "docPath": "/docs/input-group/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 101
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "category": "基础组件",
+    "docPath": "/docs/toggle/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 102
+  },
+  {
+    "slug": "toggle-group",
+    "name": "ToggleGroup",
+    "category": "基础组件",
+    "docPath": "/docs/toggle-group/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 103
+  },
+  {
+    "slug": "input-otp",
+    "name": "InputOTP",
+    "category": "基础组件",
+    "docPath": "/docs/input-otp/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 104
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "category": "基础组件",
+    "docPath": "/docs/separator/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 105
+  },
+  {
+    "slug": "collapsible",
+    "name": "Collapsible",
+    "category": "基础组件",
+    "docPath": "/docs/collapsible/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 106
+  },
+  {
+    "slug": "accordion",
+    "name": "Accordion",
+    "category": "基础组件",
+    "docPath": "/docs/accordion/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 107
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip",
+    "category": "基础组件",
+    "docPath": "/docs/tooltip/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 108
+  },
+  {
+    "slug": "alert-dialog",
+    "name": "AlertDialog",
+    "category": "基础组件",
+    "docPath": "/docs/alert-dialog/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 109
+  },
+  {
+    "slug": "hover-card",
+    "name": "HoverCard",
+    "category": "基础组件",
+    "docPath": "/docs/hover-card/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 110
+  },
+  {
+    "slug": "context-menu",
+    "name": "ContextMenu",
+    "category": "基础组件",
+    "docPath": "/docs/context-menu/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 111
+  },
+  {
+    "slug": "skeleton",
+    "name": "Skeleton",
+    "category": "基础组件",
+    "docPath": "/docs/skeleton/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 112
+  },
+  {
+    "slug": "spinner",
+    "name": "Spinner",
+    "category": "基础组件",
+    "docPath": "/docs/spinner/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 113
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "category": "基础组件",
+    "docPath": "/docs/empty/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 114
+  },
+  {
+    "slug": "alert",
+    "name": "Alert",
+    "category": "基础组件",
+    "docPath": "/docs/alert/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 115
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "category": "基础组件",
+    "docPath": "/docs/progress/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 116
+  },
+  {
+    "slug": "toast",
+    "name": "Toast",
+    "category": "基础组件",
+    "docPath": "/docs/toast/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 117
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "category": "基础组件",
+    "docPath": "/docs/sonner/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 118
+  },
+  {
+    "slug": "date-calendar",
+    "name": "DateCalendar",
+    "category": "基础组件",
+    "docPath": "/docs/date-calendar/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 119
+  },
+  {
+    "slug": "date-picker",
+    "name": "DatePicker",
+    "category": "基础组件",
+    "docPath": "/docs/date-picker/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 120
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "category": "基础组件",
+    "docPath": "/docs/pagination/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 121
+  },
+  {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "category": "基础组件",
+    "docPath": "/docs/breadcrumb/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 122
+  },
+  {
+    "slug": "menubar",
+    "name": "Menubar",
+    "category": "基础组件",
+    "docPath": "/docs/menubar/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 123
+  },
+  {
+    "slug": "navigation-menu",
+    "name": "NavigationMenu",
+    "category": "基础组件",
+    "docPath": "/docs/navigation-menu/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 124
+  },
+  {
+    "slug": "direction",
+    "name": "Direction",
+    "category": "基础组件",
+    "docPath": "/docs/direction/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 125
+  },
+  {
+    "slug": "attachment",
+    "name": "Attachment",
+    "category": "基础组件",
+    "docPath": "/docs/attachment/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 126
+  },
+  {
+    "slug": "marker",
+    "name": "Marker",
+    "category": "基础组件",
+    "docPath": "/docs/marker/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 127
+  },
+  {
+    "slug": "questionnaire",
+    "name": "Questionnaire",
+    "category": "组合模块",
+    "docPath": "/docs/questionnaire/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 128
+  },
+  {
+    "slug": "bubble",
+    "name": "Bubble",
+    "category": "基础组件",
+    "docPath": "/docs/bubble/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 129
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "category": "基础组件",
+    "docPath": "/docs/card/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 130
+  },
+  {
+    "slug": "aspect-ratio",
+    "name": "AspectRatio",
+    "category": "基础组件",
+    "docPath": "/docs/aspect-ratio/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 131
+  },
+  {
+    "slug": "carousel",
+    "name": "Carousel",
+    "category": "基础组件",
+    "docPath": "/docs/carousel/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 132
+  },
+  {
+    "slug": "chart",
+    "name": "Chart",
+    "category": "组合模块",
+    "docPath": "/docs/chart/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 133
+  },
+  {
+    "slug": "form",
+    "name": "Form",
+    "category": "基础组件",
+    "docPath": "/docs/form/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 134
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "category": "组合模块",
+    "docPath": "/docs/sidebar/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 135
+  },
+  {
+    "slug": "resizable",
+    "name": "Resizable",
+    "category": "基础组件",
+    "docPath": "/docs/resizable/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 136
+  },
+  {
+    "slug": "scroll-area",
+    "name": "ScrollArea",
+    "category": "基础组件",
+    "docPath": "/docs/scroll-area/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 137
+  },
+  {
+    "slug": "command",
+    "name": "Command",
+    "category": "组合模块",
+    "docPath": "/docs/command/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 138
+  },
+  {
+    "slug": "drawer",
+    "name": "Drawer",
+    "category": "基础组件",
+    "docPath": "/docs/drawer/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 139
+  },
+  {
     "slug": "analytics-model",
     "name": "AnalyticsModel",
     "category": "组合模块",
     "docPath": "/docs/analytics-model/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 100
+    "docOrder": 140
   },
   {
     "slug": "chart-model",
@@ -15,7 +375,7 @@
     "docPath": "/docs/chart-model/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 101
+    "docOrder": 141
   },
   {
     "slug": "chart-frame",
@@ -24,7 +384,7 @@
     "docPath": "/docs/chart-frame/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 102
+    "docOrder": 142
   },
   {
     "slug": "chart-data-table",
@@ -33,7 +393,7 @@
     "docPath": "/docs/chart-data-table/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 103
+    "docOrder": 143
   },
   {
     "slug": "statistical-chart",
@@ -42,7 +402,7 @@
     "docPath": "/docs/statistical-chart/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 104
+    "docOrder": 144
   },
   {
     "slug": "chart-drilldown-panel",
@@ -51,7 +411,7 @@
     "docPath": "/docs/chart-drilldown-panel/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 105
+    "docOrder": 145
   },
   {
     "slug": "workflow-metric",
@@ -60,7 +420,7 @@
     "docPath": "/docs/workflow-metric/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 106
+    "docOrder": 146
   },
   {
     "slug": "workflow-charts",
@@ -69,7 +429,7 @@
     "docPath": "/docs/workflow-charts/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 107
+    "docOrder": 147
   },
   {
     "slug": "risk-evidence-list",
@@ -78,7 +438,7 @@
     "docPath": "/docs/risk-evidence-list/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 108
+    "docOrder": 148
   },
   {
     "slug": "work-traceability-view",
@@ -87,7 +447,7 @@
     "docPath": "/docs/work-traceability-view/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 109
+    "docOrder": 149
   },
   {
     "slug": "work-items-view-adapter",
@@ -96,7 +456,7 @@
     "docPath": "/docs/work-items-view-adapter/",
     "displayCategory": "workspace",
     "docGroup": "data",
-    "docOrder": 110
+    "docOrder": 150
   },
   {
     "slug": "dashboard",
@@ -105,7 +465,7 @@
     "docPath": "/docs/dashboard/",
     "displayCategory": "workspace",
     "docGroup": "workspace",
-    "docOrder": 111
+    "docOrder": 151
   },
   {
     "slug": "project-overview-dashboard",
@@ -114,7 +474,7 @@
     "docPath": "/docs/project-overview-dashboard/",
     "displayCategory": "workspace",
     "docGroup": "workspace",
-    "docOrder": 112
+    "docOrder": 152
   },
   {
     "slug": "textarea",
@@ -195,7 +555,7 @@
     "docPath": "/docs/avatar/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 121
+    "docOrder": 161
   },
   {
     "slug": "segment-bar",
@@ -204,7 +564,7 @@
     "docPath": "/docs/segment-bar/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 122
+    "docOrder": 162
   },
   {
     "slug": "sparkline",
@@ -213,7 +573,7 @@
     "docPath": "/docs/sparkline/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 123
+    "docOrder": 163
   },
   {
     "slug": "dropdown-menu",
@@ -240,7 +600,7 @@
     "docPath": "/docs/command-palette/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 126
+    "docOrder": 166
   },
   {
     "slug": "kbd",
@@ -249,7 +609,7 @@
     "docPath": "/docs/kbd/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 127
+    "docOrder": 167
   },
   {
     "slug": "field",
@@ -258,7 +618,7 @@
     "docPath": "/docs/field/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 128
+    "docOrder": 168
   },
   {
     "slug": "form-section",
@@ -267,7 +627,7 @@
     "docPath": "/docs/form-section/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 129
+    "docOrder": 169
   },
   {
     "slug": "slider",
@@ -276,7 +636,7 @@
     "docPath": "/docs/slider/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 130
+    "docOrder": 170
   },
   {
     "slug": "image-upload",
@@ -285,7 +645,7 @@
     "docPath": "/docs/image-upload/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 131
+    "docOrder": 171
   },
   {
     "slug": "filter-toolbar",
@@ -294,7 +654,7 @@
     "docPath": "/docs/filter-toolbar/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 132
+    "docOrder": 172
   },
   {
     "slug": "metric-summary",
@@ -303,7 +663,7 @@
     "docPath": "/docs/metric-summary/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 133
+    "docOrder": 173
   },
   {
     "slug": "rating-display",
@@ -312,7 +672,7 @@
     "docPath": "/docs/rating-display/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 134
+    "docOrder": 174
   },
   {
     "slug": "menu",
@@ -357,7 +717,7 @@
     "docPath": "/docs/segmented/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 139
+    "docOrder": 179
   },
   {
     "slug": "tabs",
@@ -375,7 +735,7 @@
     "docPath": "/docs/theme-boundary/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 141
+    "docOrder": 181
   },
   {
     "slug": "i18n",
@@ -384,7 +744,7 @@
     "docPath": "/docs/i18n/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 142
+    "docOrder": 182
   },
   {
     "slug": "canvas-service-panel",
@@ -393,7 +753,7 @@
     "docPath": "/docs/canvas-service-panel/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 143
+    "docOrder": 183
   },
   {
     "slug": "canvas-project-workspace",
@@ -402,7 +762,7 @@
     "docPath": "/docs/canvas-project-workspace/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 144
+    "docOrder": 184
   },
   {
     "slug": "canvas-config-editor",
@@ -411,7 +771,7 @@
     "docPath": "/docs/canvas-config-editor/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 145
+    "docOrder": 185
   },
   {
     "slug": "canvas-execution-panel",
@@ -420,7 +780,7 @@
     "docPath": "/docs/canvas-execution-panel/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 146
+    "docOrder": 186
   },
   {
     "slug": "canvas-workspace",
@@ -465,7 +825,7 @@
     "docPath": "/docs/canvas-frame/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 151
+    "docOrder": 191
   },
   {
     "slug": "canvas-note",
@@ -474,7 +834,7 @@
     "docPath": "/docs/canvas-note/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 152
+    "docOrder": 192
   },
   {
     "slug": "workflow-canvas",
@@ -492,7 +852,7 @@
     "docPath": "/docs/canvas-node/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 154
+    "docOrder": 194
   },
   {
     "slug": "canvas-port",
@@ -501,7 +861,7 @@
     "docPath": "/docs/canvas-port/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 155
+    "docOrder": 195
   },
   {
     "slug": "canvas-edge",
@@ -510,7 +870,7 @@
     "docPath": "/docs/canvas-edge/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 156
+    "docOrder": 196
   },
   {
     "slug": "style-workbench",
@@ -519,7 +879,7 @@
     "docPath": "/docs/style-workbench/",
     "displayCategory": "patterns",
     "docGroup": "workspace",
-    "docOrder": 157
+    "docOrder": 197
   },
   {
     "slug": "badge",
@@ -528,7 +888,7 @@
     "docPath": "/docs/badge/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 158
+    "docOrder": 198
   },
   {
     "slug": "tag",
@@ -537,7 +897,7 @@
     "docPath": "/docs/tag/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 159
+    "docOrder": 199
   },
   {
     "slug": "chip",
@@ -546,7 +906,7 @@
     "docPath": "/docs/chip/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 160
+    "docOrder": 200
   },
   {
     "slug": "button",
@@ -582,7 +942,7 @@
     "docPath": "/docs/task-panel/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 164
+    "docOrder": 204
   },
   {
     "slug": "scroll-playground",
@@ -591,7 +951,7 @@
     "docPath": "/docs/scroll-playground/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 165
+    "docOrder": 205
   },
   {
     "slug": "item",
@@ -600,7 +960,7 @@
     "docPath": "/docs/item/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 166
+    "docOrder": 206
   },
   {
     "slug": "runtime-status-badge",
@@ -699,7 +1059,7 @@
     "docPath": "/docs/agent-run-properties/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 177
+    "docOrder": 217
   },
   {
     "slug": "run-stage-summary",
@@ -708,7 +1068,7 @@
     "docPath": "/docs/run-stage-summary/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 178
+    "docOrder": 218
   },
   {
     "slug": "agent-run-row",
@@ -717,7 +1077,7 @@
     "docPath": "/docs/agent-run-row/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 179
+    "docOrder": 219
   },
   {
     "slug": "agent-run-card",
@@ -726,7 +1086,7 @@
     "docPath": "/docs/agent-run-card/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 180
+    "docOrder": 220
   },
   {
     "slug": "agent-run-list",
@@ -735,7 +1095,7 @@
     "docPath": "/docs/agent-run-list/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 181
+    "docOrder": 221
   },
   {
     "slug": "agent-run-board",
@@ -744,7 +1104,7 @@
     "docPath": "/docs/agent-run-board/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 182
+    "docOrder": 222
   },
   {
     "slug": "agent-run-inspector",
@@ -753,7 +1113,7 @@
     "docPath": "/docs/agent-run-inspector/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 183
+    "docOrder": 223
   },
   {
     "slug": "attention-queue",
@@ -762,7 +1122,7 @@
     "docPath": "/docs/attention-queue/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 184
+    "docOrder": 224
   },
   {
     "slug": "approval-request-panel",
@@ -771,7 +1131,7 @@
     "docPath": "/docs/approval-request-panel/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 185
+    "docOrder": 225
   },
   {
     "slug": "artifact-list",
@@ -780,7 +1140,7 @@
     "docPath": "/docs/artifact-list/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 186
+    "docOrder": 226
   },
   {
     "slug": "review-summary",
@@ -789,7 +1149,7 @@
     "docPath": "/docs/review-summary/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 187
+    "docOrder": 227
   },
   {
     "slug": "execution-trace-tree",
@@ -798,7 +1158,7 @@
     "docPath": "/docs/execution-trace-tree/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 188
+    "docOrder": 228
   },
   {
     "slug": "agent-relationship-list",
@@ -807,7 +1167,7 @@
     "docPath": "/docs/agent-relationship-list/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 189
+    "docOrder": 229
   },
   {
     "slug": "agent-usage-summary",
@@ -816,7 +1176,7 @@
     "docPath": "/docs/agent-usage-summary/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 190
+    "docOrder": 230
   },
   {
     "slug": "agent-board-toolbar",
@@ -825,7 +1185,7 @@
     "docPath": "/docs/agent-board-toolbar/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 191
+    "docOrder": 231
   },
   {
     "slug": "agent-board-workspace",
@@ -834,7 +1194,7 @@
     "docPath": "/docs/agent-board-workspace/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 192
+    "docOrder": 232
   },
   {
     "slug": "grouped-list",
@@ -843,7 +1203,7 @@
     "docPath": "/docs/grouped-list/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 193
+    "docOrder": 233
   },
   {
     "slug": "item-board",
@@ -852,7 +1212,7 @@
     "docPath": "/docs/item-board/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 194
+    "docOrder": 234
   },
   {
     "slug": "work-item-properties",
@@ -888,7 +1248,7 @@
     "docPath": "/docs/work-item-list/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 198
+    "docOrder": 238
   },
   {
     "slug": "work-item-board",
@@ -897,7 +1257,7 @@
     "docPath": "/docs/work-item-board/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 199
+    "docOrder": 239
   },
   {
     "slug": "work-item-table",
@@ -906,7 +1266,7 @@
     "docPath": "/docs/work-item-table/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 200
+    "docOrder": 240
   },
   {
     "slug": "work-items-toolbar",
@@ -924,7 +1284,7 @@
     "docPath": "/docs/work-item-detail/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 202
+    "docOrder": 242
   },
   {
     "slug": "work-items-workspace",
@@ -942,7 +1302,7 @@
     "docPath": "/docs/work-items-board-base/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 204
+    "docOrder": 244
   },
   {
     "slug": "agent-dependency-graph",
@@ -951,7 +1311,7 @@
     "docPath": "/docs/agent-dependency-graph/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 205
+    "docOrder": 245
   },
   {
     "slug": "agent-usage-history",
@@ -960,7 +1320,7 @@
     "docPath": "/docs/agent-usage-history/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 206
+    "docOrder": 246
   },
   {
     "slug": "agent-run-virtual-list",
@@ -969,7 +1329,7 @@
     "docPath": "/docs/agent-run-virtual-list/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 207
+    "docOrder": 247
   },
   {
     "slug": "work-items-batch-actions",
@@ -978,7 +1338,7 @@
     "docPath": "/docs/work-items-batch-actions/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 208
+    "docOrder": 248
   },
   {
     "slug": "work-items-saved-views",
@@ -987,7 +1347,7 @@
     "docPath": "/docs/work-items-saved-views/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 209
+    "docOrder": 249
   },
   {
     "slug": "timeline",
@@ -996,7 +1356,7 @@
     "docPath": "/docs/timeline/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 210
+    "docOrder": 250
   },
   {
     "slug": "calendar",
@@ -1005,7 +1365,7 @@
     "docPath": "/docs/calendar/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 211
+    "docOrder": 251
   },
   {
     "slug": "schedule-view-controls",
@@ -1014,7 +1374,7 @@
     "docPath": "/docs/schedule-view-controls/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 212
+    "docOrder": 252
   },
   {
     "slug": "work-item-date-range-field",
@@ -1023,7 +1383,7 @@
     "docPath": "/docs/work-item-date-range-field/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 213
+    "docOrder": 253
   },
   {
     "slug": "work-items-schedule",
@@ -1032,7 +1392,7 @@
     "docPath": "/docs/work-items-schedule/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 214
+    "docOrder": 254
   },
   {
     "slug": "work-item-timeline",
@@ -1041,7 +1401,7 @@
     "docPath": "/docs/work-item-timeline/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 215
+    "docOrder": 255
   },
   {
     "slug": "work-item-calendar",
@@ -1050,6 +1410,6 @@
     "docPath": "/docs/work-item-calendar/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 216
+    "docOrder": 256
   }
 ]

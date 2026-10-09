@@ -2,7 +2,7 @@
 import { useSiteFeedback, siteMessage } from "@/components/site/site-i18n"
 import { useSiteI18n } from "@/components/site/site-i18n"
 
-import { useState } from "react"
+import { lazy, Suspense, useState } from "react"
 import {
   Conversation,
   ChatComposer,
@@ -11,9 +11,15 @@ import {
 import { ToolCall } from "@/components/blocks/tool-call"
 import { Button } from "@/components/ui/button"
 import { Item } from "@/components/ui/item"
+const ConversationNavigationDemo = lazy(() =>
+  import("./layout-integration-demo").then((module) => ({
+    default: module.ConversationNavigationDemo,
+  })),
+)
 export function ChatMessageDemo() {
   const { t } = useSiteI18n()
 
+  const [navigationOpen, setNavigationOpen] = useState(false)
   const [draft, setDraft] = useState("")
   const [messages, setMessages] = useState<ChatMessageProps[]>([
     {
@@ -170,6 +176,21 @@ export function ChatMessageDemo() {
       <p role="status" className="mt-3 text-xs text-text-secondary">
         {feedback || t("site.localDemoAppendFragmentsWithTheButton")}
       </p>
+      <details
+        className="mt-4"
+        onToggle={(event) => setNavigationOpen(event.currentTarget.open)}
+      >
+        <summary className="cursor-pointer text-sm">
+          {t("site.completion.messageNavigation")}
+        </summary>
+        {navigationOpen && (
+          <Suspense
+            fallback={<p role="status">{t("site.completion.loading")}</p>}
+          >
+            <ConversationNavigationDemo />
+          </Suspense>
+        )}
+      </details>
     </div>
   )
 }

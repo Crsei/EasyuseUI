@@ -3,7 +3,9 @@ import { useI18n } from "@/lib/i18n-provider"
 import { localizeStaticData } from "@/lib/i18n-core"
 import type { UiMessage } from "@/lib/i18n-core"
 import type { ReactNode } from "react"
-import { Inbox } from "lucide-react"
+import { Skeleton } from "./skeleton"
+import { Empty } from "./empty"
+import { Alert } from "./alert"
 import { Button } from "@/components/ui/button"
 import type { DataState, ErrorCategory } from "@/lib/runtime-status"
 import styles from "./data-region.module.css"
@@ -73,11 +75,15 @@ export function DataRegion({
       data-data-state={state}
     >
       {state === "loading" && !hasContent ? (
-        <div aria-label={loadingLabel} className={styles.skeletons}>
+        <div
+          role="group"
+          aria-label={loadingLabel}
+          className={styles.skeletons}
+        >
           {[0, 1, 2].map((key) => (
             <div key={key} style={{ minHeight: rowHeight }}>
-              <span />
-              <span />
+              <Skeleton />
+              <Skeleton />
             </div>
           ))}
         </div>
@@ -89,7 +95,7 @@ export function DataRegion({
             </p>
           )}
           {state === "error" && (
-            <div role="alert" className={styles.error}>
+            <Alert tone="error" className={styles.error}>
               <div>
                 <p>
                   {localizedCategories[error?.category ?? "request"]}：
@@ -119,18 +125,18 @@ export function DataRegion({
                   {t("workspaceShellDemo.retryRead")}
                 </Button>
               )}
-            </div>
+            </Alert>
           )}
           {state === "partial" && (
             <p className={styles.notice}>{partialDescription}</p>
           )}
           {state === "empty" ? (
-            <div className={styles.empty}>
-              <Inbox size={20} aria-hidden="true" />
-              <h3>{emptyTitle}</h3>
-              <p>{emptyDescription}</p>
-              {emptyAction}
-            </div>
+            <Empty
+              title={emptyTitle}
+              description={emptyDescription}
+              action={emptyAction}
+              className={styles.empty}
+            />
           ) : (
             (state !== "error" || hasContent) && children
           )}

@@ -159,3 +159,21 @@ Registry 构建器使用 shadcn 的官方 Schema 验证输出，并从 `styles/t
 ## 流程画布
 
 入口 `/workspace/canvas/`。支持构图、配置、结构化上游变量、分组/便笺、原子撤销重做、只读与脱敏 JSON 导入导出。复用现有 WorkspaceShell / Inspector / Tree / DataRegion。已加入受控运行调试、显式审批、嵌套子流程、Loop/Iteration 约束、高级配置和服务接口。当前示例为本地 fixture，真实运行、保存、协作和发布由消费方提供。用法与安装见 [CANVAS.md](./CANVAS.md)，阶段与证据见 [实施记录](./plans/canvas-implementation-log.md)。
+
+## shadcn 职责补齐（S1–S9）
+
+参考本机 shadcn 63 项的逐项职责、实际导出和复用边界见 [组件对照表](plans/shadcn-component-coverage.md)，执行与验证见 [清单](plans/shadcn-component-completion-plan.md) 和 [记录](plans/shadcn-component-completion-log.md)。新增组件均可在 `/docs/<registry-id>/` 查看示例。
+
+```bash
+pnpm dlx shadcn@4.21.2 add http://localhost:3010/r/date-picker.json
+pnpm dlx shadcn@4.21.2 add http://localhost:3010/r/questionnaire.json
+pnpm dlx shadcn@4.21.2 add http://localhost:3010/r/command.json
+pnpm dlx shadcn@4.21.2 add http://localhost:3010/r/toast.json
+pnpm dlx shadcn@4.21.2 add http://localhost:3010/r/chart.json
+```
+
+日期值为 `YYYY-MM-DD`，使用民用日期的 UTC 运算；DateCalendar/DatePicker 与事项 Calendar 分责。分页由调用方提供总页数或 `hasNext`。Form 复用 Field，不强制表单验证库。Carousel 手动导航；Chart 为有文本数据表的轻量柱图/折线图，最多120项，没有新增图表依赖。
+
+ToastProvider 内放一个 Toaster，通过 `useToastManager` 的 add/update/close 报告已知事实；Sonner 条目导出同一体系，不承诺 `sonner` npm 包的 API 兼容。通知不证明真实操作成功。Attachment 不上传，Questionnaire 不持久化，未知结果由调用方对账。
+
+ScrollArea 使用原生滚动；Resizable 与 Sidebar 的偏好由调用方持有。Drawer 复用 Sheet，仅底部显式手柄可选滑动关闭。Command 与 CommandPalette 共享键盘与受控结果。Conversation 的 `actionsRef.scrollToMessage(id, { focus })` 只定位已经加载的消息，缺失返回 false；`jumpToLatest()` 恢复跟随。Bubble 是独立引用容器，正式 ChatMessage 保持同轴布局。Card 用于独立内容，日志、Session 和 Activity 继续使用列表或表格。

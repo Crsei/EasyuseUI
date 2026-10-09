@@ -1570,6 +1570,3534 @@
       "keywords": "tabs 源码 Source"
     },
     {
+      "id": "button-group",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ButtonGroup",
+        "en": "ButtonGroup"
+      },
+      "summary": {
+        "zh-CN": "同组操作的紧凑容器。",
+        "en": "A compact group of related actions."
+      },
+      "href": "/docs/button-group/",
+      "keywords": "button-group interaction"
+    },
+    {
+      "id": "button-group-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ButtonGroup · 安装",
+        "en": "ButtonGroup · Installation"
+      },
+      "summary": {
+        "zh-CN": "同组操作的紧凑容器。",
+        "en": "A compact group of related actions."
+      },
+      "href": "/docs/button-group/#installation",
+      "keywords": "button-group 安装 Installation"
+    },
+    {
+      "id": "button-group-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ButtonGroup · 使用",
+        "en": "ButtonGroup · Usage"
+      },
+      "summary": {
+        "zh-CN": "同组操作的紧凑容器。",
+        "en": "A compact group of related actions."
+      },
+      "href": "/docs/button-group/#usage",
+      "keywords": "button-group 使用 Usage"
+    },
+    {
+      "id": "button-group-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ButtonGroup · API",
+        "en": "ButtonGroup · API"
+      },
+      "summary": {
+        "zh-CN": "同组操作的紧凑容器。",
+        "en": "A compact group of related actions."
+      },
+      "href": "/docs/button-group/#api",
+      "keywords": "button-group API API"
+    },
+    {
+      "id": "button-group-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ButtonGroup · 状态与交互",
+        "en": "ButtonGroup · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "同组操作的紧凑容器。",
+        "en": "A compact group of related actions."
+      },
+      "href": "/docs/button-group/#states",
+      "keywords": "button-group 状态与交互 States and interaction"
+    },
+    {
+      "id": "button-group-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ButtonGroup · 完整示例",
+        "en": "ButtonGroup · Complete example"
+      },
+      "summary": {
+        "zh-CN": "同组操作的紧凑容器。",
+        "en": "A compact group of related actions."
+      },
+      "href": "/docs/button-group/#example",
+      "keywords": "button-group 完整示例 Complete example"
+    },
+    {
+      "id": "button-group-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ButtonGroup · 源码",
+        "en": "ButtonGroup · Source"
+      },
+      "summary": {
+        "zh-CN": "同组操作的紧凑容器。",
+        "en": "A compact group of related actions."
+      },
+      "href": "/docs/button-group/#source",
+      "keywords": "button-group 源码 Source"
+    },
+    {
+      "id": "input-group",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputGroup",
+        "en": "InputGroup"
+      },
+      "summary": {
+        "zh-CN": "输入与前后缀、操作的组合。",
+        "en": "Input with addons and sibling actions."
+      },
+      "href": "/docs/input-group/",
+      "keywords": "input-group interaction"
+    },
+    {
+      "id": "input-group-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputGroup · 安装",
+        "en": "InputGroup · Installation"
+      },
+      "summary": {
+        "zh-CN": "输入与前后缀、操作的组合。",
+        "en": "Input with addons and sibling actions."
+      },
+      "href": "/docs/input-group/#installation",
+      "keywords": "input-group 安装 Installation"
+    },
+    {
+      "id": "input-group-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputGroup · 使用",
+        "en": "InputGroup · Usage"
+      },
+      "summary": {
+        "zh-CN": "输入与前后缀、操作的组合。",
+        "en": "Input with addons and sibling actions."
+      },
+      "href": "/docs/input-group/#usage",
+      "keywords": "input-group 使用 Usage"
+    },
+    {
+      "id": "input-group-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputGroup · API",
+        "en": "InputGroup · API"
+      },
+      "summary": {
+        "zh-CN": "输入与前后缀、操作的组合。",
+        "en": "Input with addons and sibling actions."
+      },
+      "href": "/docs/input-group/#api",
+      "keywords": "input-group API API"
+    },
+    {
+      "id": "input-group-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputGroup · 状态与交互",
+        "en": "InputGroup · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "输入与前后缀、操作的组合。",
+        "en": "Input with addons and sibling actions."
+      },
+      "href": "/docs/input-group/#states",
+      "keywords": "input-group 状态与交互 States and interaction"
+    },
+    {
+      "id": "input-group-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputGroup · 完整示例",
+        "en": "InputGroup · Complete example"
+      },
+      "summary": {
+        "zh-CN": "输入与前后缀、操作的组合。",
+        "en": "Input with addons and sibling actions."
+      },
+      "href": "/docs/input-group/#example",
+      "keywords": "input-group 完整示例 Complete example"
+    },
+    {
+      "id": "input-group-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputGroup · 源码",
+        "en": "InputGroup · Source"
+      },
+      "summary": {
+        "zh-CN": "输入与前后缀、操作的组合。",
+        "en": "Input with addons and sibling actions."
+      },
+      "href": "/docs/input-group/#source",
+      "keywords": "input-group 源码 Source"
+    },
+    {
+      "id": "toggle",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toggle",
+        "en": "Toggle"
+      },
+      "summary": {
+        "zh-CN": "支持按下状态的切换按钮。",
+        "en": "A button with a pressed state."
+      },
+      "href": "/docs/toggle/",
+      "keywords": "toggle interaction"
+    },
+    {
+      "id": "toggle-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toggle · 安装",
+        "en": "Toggle · Installation"
+      },
+      "summary": {
+        "zh-CN": "支持按下状态的切换按钮。",
+        "en": "A button with a pressed state."
+      },
+      "href": "/docs/toggle/#installation",
+      "keywords": "toggle 安装 Installation"
+    },
+    {
+      "id": "toggle-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toggle · 使用",
+        "en": "Toggle · Usage"
+      },
+      "summary": {
+        "zh-CN": "支持按下状态的切换按钮。",
+        "en": "A button with a pressed state."
+      },
+      "href": "/docs/toggle/#usage",
+      "keywords": "toggle 使用 Usage"
+    },
+    {
+      "id": "toggle-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toggle · API",
+        "en": "Toggle · API"
+      },
+      "summary": {
+        "zh-CN": "支持按下状态的切换按钮。",
+        "en": "A button with a pressed state."
+      },
+      "href": "/docs/toggle/#api",
+      "keywords": "toggle API API"
+    },
+    {
+      "id": "toggle-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toggle · 状态与交互",
+        "en": "Toggle · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "支持按下状态的切换按钮。",
+        "en": "A button with a pressed state."
+      },
+      "href": "/docs/toggle/#states",
+      "keywords": "toggle 状态与交互 States and interaction"
+    },
+    {
+      "id": "toggle-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toggle · 完整示例",
+        "en": "Toggle · Complete example"
+      },
+      "summary": {
+        "zh-CN": "支持按下状态的切换按钮。",
+        "en": "A button with a pressed state."
+      },
+      "href": "/docs/toggle/#example",
+      "keywords": "toggle 完整示例 Complete example"
+    },
+    {
+      "id": "toggle-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toggle · 源码",
+        "en": "Toggle · Source"
+      },
+      "summary": {
+        "zh-CN": "支持按下状态的切换按钮。",
+        "en": "A button with a pressed state."
+      },
+      "href": "/docs/toggle/#source",
+      "keywords": "toggle 源码 Source"
+    },
+    {
+      "id": "toggle-group",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ToggleGroup",
+        "en": "ToggleGroup"
+      },
+      "summary": {
+        "zh-CN": "单选或多选切换组。",
+        "en": "A single or multiple selection toggle group."
+      },
+      "href": "/docs/toggle-group/",
+      "keywords": "toggle-group interaction"
+    },
+    {
+      "id": "toggle-group-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ToggleGroup · 安装",
+        "en": "ToggleGroup · Installation"
+      },
+      "summary": {
+        "zh-CN": "单选或多选切换组。",
+        "en": "A single or multiple selection toggle group."
+      },
+      "href": "/docs/toggle-group/#installation",
+      "keywords": "toggle-group 安装 Installation"
+    },
+    {
+      "id": "toggle-group-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ToggleGroup · 使用",
+        "en": "ToggleGroup · Usage"
+      },
+      "summary": {
+        "zh-CN": "单选或多选切换组。",
+        "en": "A single or multiple selection toggle group."
+      },
+      "href": "/docs/toggle-group/#usage",
+      "keywords": "toggle-group 使用 Usage"
+    },
+    {
+      "id": "toggle-group-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ToggleGroup · API",
+        "en": "ToggleGroup · API"
+      },
+      "summary": {
+        "zh-CN": "单选或多选切换组。",
+        "en": "A single or multiple selection toggle group."
+      },
+      "href": "/docs/toggle-group/#api",
+      "keywords": "toggle-group API API"
+    },
+    {
+      "id": "toggle-group-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ToggleGroup · 状态与交互",
+        "en": "ToggleGroup · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "单选或多选切换组。",
+        "en": "A single or multiple selection toggle group."
+      },
+      "href": "/docs/toggle-group/#states",
+      "keywords": "toggle-group 状态与交互 States and interaction"
+    },
+    {
+      "id": "toggle-group-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ToggleGroup · 完整示例",
+        "en": "ToggleGroup · Complete example"
+      },
+      "summary": {
+        "zh-CN": "单选或多选切换组。",
+        "en": "A single or multiple selection toggle group."
+      },
+      "href": "/docs/toggle-group/#example",
+      "keywords": "toggle-group 完整示例 Complete example"
+    },
+    {
+      "id": "toggle-group-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ToggleGroup · 源码",
+        "en": "ToggleGroup · Source"
+      },
+      "summary": {
+        "zh-CN": "单选或多选切换组。",
+        "en": "A single or multiple selection toggle group."
+      },
+      "href": "/docs/toggle-group/#source",
+      "keywords": "toggle-group 源码 Source"
+    },
+    {
+      "id": "input-otp",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputOTP",
+        "en": "InputOTP"
+      },
+      "summary": {
+        "zh-CN": "原生一次性验证码输入。",
+        "en": "A native one-time-code input."
+      },
+      "href": "/docs/input-otp/",
+      "keywords": "input-otp interaction"
+    },
+    {
+      "id": "input-otp-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputOTP · 安装",
+        "en": "InputOTP · Installation"
+      },
+      "summary": {
+        "zh-CN": "原生一次性验证码输入。",
+        "en": "A native one-time-code input."
+      },
+      "href": "/docs/input-otp/#installation",
+      "keywords": "input-otp 安装 Installation"
+    },
+    {
+      "id": "input-otp-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputOTP · 使用",
+        "en": "InputOTP · Usage"
+      },
+      "summary": {
+        "zh-CN": "原生一次性验证码输入。",
+        "en": "A native one-time-code input."
+      },
+      "href": "/docs/input-otp/#usage",
+      "keywords": "input-otp 使用 Usage"
+    },
+    {
+      "id": "input-otp-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputOTP · API",
+        "en": "InputOTP · API"
+      },
+      "summary": {
+        "zh-CN": "原生一次性验证码输入。",
+        "en": "A native one-time-code input."
+      },
+      "href": "/docs/input-otp/#api",
+      "keywords": "input-otp API API"
+    },
+    {
+      "id": "input-otp-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputOTP · 状态与交互",
+        "en": "InputOTP · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "原生一次性验证码输入。",
+        "en": "A native one-time-code input."
+      },
+      "href": "/docs/input-otp/#states",
+      "keywords": "input-otp 状态与交互 States and interaction"
+    },
+    {
+      "id": "input-otp-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputOTP · 完整示例",
+        "en": "InputOTP · Complete example"
+      },
+      "summary": {
+        "zh-CN": "原生一次性验证码输入。",
+        "en": "A native one-time-code input."
+      },
+      "href": "/docs/input-otp/#example",
+      "keywords": "input-otp 完整示例 Complete example"
+    },
+    {
+      "id": "input-otp-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "InputOTP · 源码",
+        "en": "InputOTP · Source"
+      },
+      "summary": {
+        "zh-CN": "原生一次性验证码输入。",
+        "en": "A native one-time-code input."
+      },
+      "href": "/docs/input-otp/#source",
+      "keywords": "input-otp 源码 Source"
+    },
+    {
+      "id": "separator",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Separator",
+        "en": "Separator"
+      },
+      "summary": {
+        "zh-CN": "语义或装饰性分隔线。",
+        "en": "Semantic or decorative separator."
+      },
+      "href": "/docs/separator/",
+      "keywords": "separator interaction"
+    },
+    {
+      "id": "separator-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Separator · 安装",
+        "en": "Separator · Installation"
+      },
+      "summary": {
+        "zh-CN": "语义或装饰性分隔线。",
+        "en": "Semantic or decorative separator."
+      },
+      "href": "/docs/separator/#installation",
+      "keywords": "separator 安装 Installation"
+    },
+    {
+      "id": "separator-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Separator · 使用",
+        "en": "Separator · Usage"
+      },
+      "summary": {
+        "zh-CN": "语义或装饰性分隔线。",
+        "en": "Semantic or decorative separator."
+      },
+      "href": "/docs/separator/#usage",
+      "keywords": "separator 使用 Usage"
+    },
+    {
+      "id": "separator-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Separator · API",
+        "en": "Separator · API"
+      },
+      "summary": {
+        "zh-CN": "语义或装饰性分隔线。",
+        "en": "Semantic or decorative separator."
+      },
+      "href": "/docs/separator/#api",
+      "keywords": "separator API API"
+    },
+    {
+      "id": "separator-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Separator · 状态与交互",
+        "en": "Separator · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "语义或装饰性分隔线。",
+        "en": "Semantic or decorative separator."
+      },
+      "href": "/docs/separator/#states",
+      "keywords": "separator 状态与交互 States and interaction"
+    },
+    {
+      "id": "separator-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Separator · 完整示例",
+        "en": "Separator · Complete example"
+      },
+      "summary": {
+        "zh-CN": "语义或装饰性分隔线。",
+        "en": "Semantic or decorative separator."
+      },
+      "href": "/docs/separator/#example",
+      "keywords": "separator 完整示例 Complete example"
+    },
+    {
+      "id": "separator-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Separator · 源码",
+        "en": "Separator · Source"
+      },
+      "summary": {
+        "zh-CN": "语义或装饰性分隔线。",
+        "en": "Semantic or decorative separator."
+      },
+      "href": "/docs/separator/#source",
+      "keywords": "separator 源码 Source"
+    },
+    {
+      "id": "collapsible",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Collapsible",
+        "en": "Collapsible"
+      },
+      "summary": {
+        "zh-CN": "受控或非受控内容折叠。",
+        "en": "Controlled or uncontrolled disclosure."
+      },
+      "href": "/docs/collapsible/",
+      "keywords": "collapsible interaction"
+    },
+    {
+      "id": "collapsible-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Collapsible · 安装",
+        "en": "Collapsible · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控或非受控内容折叠。",
+        "en": "Controlled or uncontrolled disclosure."
+      },
+      "href": "/docs/collapsible/#installation",
+      "keywords": "collapsible 安装 Installation"
+    },
+    {
+      "id": "collapsible-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Collapsible · 使用",
+        "en": "Collapsible · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控或非受控内容折叠。",
+        "en": "Controlled or uncontrolled disclosure."
+      },
+      "href": "/docs/collapsible/#usage",
+      "keywords": "collapsible 使用 Usage"
+    },
+    {
+      "id": "collapsible-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Collapsible · API",
+        "en": "Collapsible · API"
+      },
+      "summary": {
+        "zh-CN": "受控或非受控内容折叠。",
+        "en": "Controlled or uncontrolled disclosure."
+      },
+      "href": "/docs/collapsible/#api",
+      "keywords": "collapsible API API"
+    },
+    {
+      "id": "collapsible-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Collapsible · 状态与交互",
+        "en": "Collapsible · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控或非受控内容折叠。",
+        "en": "Controlled or uncontrolled disclosure."
+      },
+      "href": "/docs/collapsible/#states",
+      "keywords": "collapsible 状态与交互 States and interaction"
+    },
+    {
+      "id": "collapsible-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Collapsible · 完整示例",
+        "en": "Collapsible · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控或非受控内容折叠。",
+        "en": "Controlled or uncontrolled disclosure."
+      },
+      "href": "/docs/collapsible/#example",
+      "keywords": "collapsible 完整示例 Complete example"
+    },
+    {
+      "id": "collapsible-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Collapsible · 源码",
+        "en": "Collapsible · Source"
+      },
+      "summary": {
+        "zh-CN": "受控或非受控内容折叠。",
+        "en": "Controlled or uncontrolled disclosure."
+      },
+      "href": "/docs/collapsible/#source",
+      "keywords": "collapsible 源码 Source"
+    },
+    {
+      "id": "accordion",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Accordion",
+        "en": "Accordion"
+      },
+      "summary": {
+        "zh-CN": "单项或多项展开的手风琴。",
+        "en": "An accordion with single or multiple expansion."
+      },
+      "href": "/docs/accordion/",
+      "keywords": "accordion interaction"
+    },
+    {
+      "id": "accordion-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Accordion · 安装",
+        "en": "Accordion · Installation"
+      },
+      "summary": {
+        "zh-CN": "单项或多项展开的手风琴。",
+        "en": "An accordion with single or multiple expansion."
+      },
+      "href": "/docs/accordion/#installation",
+      "keywords": "accordion 安装 Installation"
+    },
+    {
+      "id": "accordion-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Accordion · 使用",
+        "en": "Accordion · Usage"
+      },
+      "summary": {
+        "zh-CN": "单项或多项展开的手风琴。",
+        "en": "An accordion with single or multiple expansion."
+      },
+      "href": "/docs/accordion/#usage",
+      "keywords": "accordion 使用 Usage"
+    },
+    {
+      "id": "accordion-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Accordion · API",
+        "en": "Accordion · API"
+      },
+      "summary": {
+        "zh-CN": "单项或多项展开的手风琴。",
+        "en": "An accordion with single or multiple expansion."
+      },
+      "href": "/docs/accordion/#api",
+      "keywords": "accordion API API"
+    },
+    {
+      "id": "accordion-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Accordion · 状态与交互",
+        "en": "Accordion · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "单项或多项展开的手风琴。",
+        "en": "An accordion with single or multiple expansion."
+      },
+      "href": "/docs/accordion/#states",
+      "keywords": "accordion 状态与交互 States and interaction"
+    },
+    {
+      "id": "accordion-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Accordion · 完整示例",
+        "en": "Accordion · Complete example"
+      },
+      "summary": {
+        "zh-CN": "单项或多项展开的手风琴。",
+        "en": "An accordion with single or multiple expansion."
+      },
+      "href": "/docs/accordion/#example",
+      "keywords": "accordion 完整示例 Complete example"
+    },
+    {
+      "id": "accordion-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Accordion · 源码",
+        "en": "Accordion · Source"
+      },
+      "summary": {
+        "zh-CN": "单项或多项展开的手风琴。",
+        "en": "An accordion with single or multiple expansion."
+      },
+      "href": "/docs/accordion/#source",
+      "keywords": "accordion 源码 Source"
+    },
+    {
+      "id": "tooltip",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Tooltip",
+        "en": "Tooltip"
+      },
+      "summary": {
+        "zh-CN": "支持悬停和焦点的补充提示。",
+        "en": "Supplemental hover and focus tooltip."
+      },
+      "href": "/docs/tooltip/",
+      "keywords": "tooltip interaction"
+    },
+    {
+      "id": "tooltip-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Tooltip · 安装",
+        "en": "Tooltip · Installation"
+      },
+      "summary": {
+        "zh-CN": "支持悬停和焦点的补充提示。",
+        "en": "Supplemental hover and focus tooltip."
+      },
+      "href": "/docs/tooltip/#installation",
+      "keywords": "tooltip 安装 Installation"
+    },
+    {
+      "id": "tooltip-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Tooltip · 使用",
+        "en": "Tooltip · Usage"
+      },
+      "summary": {
+        "zh-CN": "支持悬停和焦点的补充提示。",
+        "en": "Supplemental hover and focus tooltip."
+      },
+      "href": "/docs/tooltip/#usage",
+      "keywords": "tooltip 使用 Usage"
+    },
+    {
+      "id": "tooltip-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Tooltip · API",
+        "en": "Tooltip · API"
+      },
+      "summary": {
+        "zh-CN": "支持悬停和焦点的补充提示。",
+        "en": "Supplemental hover and focus tooltip."
+      },
+      "href": "/docs/tooltip/#api",
+      "keywords": "tooltip API API"
+    },
+    {
+      "id": "tooltip-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Tooltip · 状态与交互",
+        "en": "Tooltip · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "支持悬停和焦点的补充提示。",
+        "en": "Supplemental hover and focus tooltip."
+      },
+      "href": "/docs/tooltip/#states",
+      "keywords": "tooltip 状态与交互 States and interaction"
+    },
+    {
+      "id": "tooltip-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Tooltip · 完整示例",
+        "en": "Tooltip · Complete example"
+      },
+      "summary": {
+        "zh-CN": "支持悬停和焦点的补充提示。",
+        "en": "Supplemental hover and focus tooltip."
+      },
+      "href": "/docs/tooltip/#example",
+      "keywords": "tooltip 完整示例 Complete example"
+    },
+    {
+      "id": "tooltip-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Tooltip · 源码",
+        "en": "Tooltip · Source"
+      },
+      "summary": {
+        "zh-CN": "支持悬停和焦点的补充提示。",
+        "en": "Supplemental hover and focus tooltip."
+      },
+      "href": "/docs/tooltip/#source",
+      "keywords": "tooltip 源码 Source"
+    },
+    {
+      "id": "alert-dialog",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AlertDialog",
+        "en": "AlertDialog"
+      },
+      "summary": {
+        "zh-CN": "显式确认请求的模态对话框。",
+        "en": "A modal for explicit confirmation requests."
+      },
+      "href": "/docs/alert-dialog/",
+      "keywords": "alert-dialog interaction"
+    },
+    {
+      "id": "alert-dialog-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AlertDialog · 安装",
+        "en": "AlertDialog · Installation"
+      },
+      "summary": {
+        "zh-CN": "显式确认请求的模态对话框。",
+        "en": "A modal for explicit confirmation requests."
+      },
+      "href": "/docs/alert-dialog/#installation",
+      "keywords": "alert-dialog 安装 Installation"
+    },
+    {
+      "id": "alert-dialog-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AlertDialog · 使用",
+        "en": "AlertDialog · Usage"
+      },
+      "summary": {
+        "zh-CN": "显式确认请求的模态对话框。",
+        "en": "A modal for explicit confirmation requests."
+      },
+      "href": "/docs/alert-dialog/#usage",
+      "keywords": "alert-dialog 使用 Usage"
+    },
+    {
+      "id": "alert-dialog-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AlertDialog · API",
+        "en": "AlertDialog · API"
+      },
+      "summary": {
+        "zh-CN": "显式确认请求的模态对话框。",
+        "en": "A modal for explicit confirmation requests."
+      },
+      "href": "/docs/alert-dialog/#api",
+      "keywords": "alert-dialog API API"
+    },
+    {
+      "id": "alert-dialog-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AlertDialog · 状态与交互",
+        "en": "AlertDialog · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "显式确认请求的模态对话框。",
+        "en": "A modal for explicit confirmation requests."
+      },
+      "href": "/docs/alert-dialog/#states",
+      "keywords": "alert-dialog 状态与交互 States and interaction"
+    },
+    {
+      "id": "alert-dialog-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AlertDialog · 完整示例",
+        "en": "AlertDialog · Complete example"
+      },
+      "summary": {
+        "zh-CN": "显式确认请求的模态对话框。",
+        "en": "A modal for explicit confirmation requests."
+      },
+      "href": "/docs/alert-dialog/#example",
+      "keywords": "alert-dialog 完整示例 Complete example"
+    },
+    {
+      "id": "alert-dialog-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AlertDialog · 源码",
+        "en": "AlertDialog · Source"
+      },
+      "summary": {
+        "zh-CN": "显式确认请求的模态对话框。",
+        "en": "A modal for explicit confirmation requests."
+      },
+      "href": "/docs/alert-dialog/#source",
+      "keywords": "alert-dialog 源码 Source"
+    },
+    {
+      "id": "hover-card",
+      "kind": "components",
+      "title": {
+        "zh-CN": "HoverCard",
+        "en": "HoverCard"
+      },
+      "summary": {
+        "zh-CN": "链接的补充预览层。",
+        "en": "A supplemental link preview."
+      },
+      "href": "/docs/hover-card/",
+      "keywords": "hover-card interaction"
+    },
+    {
+      "id": "hover-card-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "HoverCard · 安装",
+        "en": "HoverCard · Installation"
+      },
+      "summary": {
+        "zh-CN": "链接的补充预览层。",
+        "en": "A supplemental link preview."
+      },
+      "href": "/docs/hover-card/#installation",
+      "keywords": "hover-card 安装 Installation"
+    },
+    {
+      "id": "hover-card-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "HoverCard · 使用",
+        "en": "HoverCard · Usage"
+      },
+      "summary": {
+        "zh-CN": "链接的补充预览层。",
+        "en": "A supplemental link preview."
+      },
+      "href": "/docs/hover-card/#usage",
+      "keywords": "hover-card 使用 Usage"
+    },
+    {
+      "id": "hover-card-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "HoverCard · API",
+        "en": "HoverCard · API"
+      },
+      "summary": {
+        "zh-CN": "链接的补充预览层。",
+        "en": "A supplemental link preview."
+      },
+      "href": "/docs/hover-card/#api",
+      "keywords": "hover-card API API"
+    },
+    {
+      "id": "hover-card-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "HoverCard · 状态与交互",
+        "en": "HoverCard · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "链接的补充预览层。",
+        "en": "A supplemental link preview."
+      },
+      "href": "/docs/hover-card/#states",
+      "keywords": "hover-card 状态与交互 States and interaction"
+    },
+    {
+      "id": "hover-card-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "HoverCard · 完整示例",
+        "en": "HoverCard · Complete example"
+      },
+      "summary": {
+        "zh-CN": "链接的补充预览层。",
+        "en": "A supplemental link preview."
+      },
+      "href": "/docs/hover-card/#example",
+      "keywords": "hover-card 完整示例 Complete example"
+    },
+    {
+      "id": "hover-card-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "HoverCard · 源码",
+        "en": "HoverCard · Source"
+      },
+      "summary": {
+        "zh-CN": "链接的补充预览层。",
+        "en": "A supplemental link preview."
+      },
+      "href": "/docs/hover-card/#source",
+      "keywords": "hover-card 源码 Source"
+    },
+    {
+      "id": "context-menu",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextMenu",
+        "en": "ContextMenu"
+      },
+      "summary": {
+        "zh-CN": "右键、键盘与长按的上下文动作。",
+        "en": "Context actions for right click, keyboard and long press."
+      },
+      "href": "/docs/context-menu/",
+      "keywords": "context-menu interaction"
+    },
+    {
+      "id": "context-menu-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextMenu · 安装",
+        "en": "ContextMenu · Installation"
+      },
+      "summary": {
+        "zh-CN": "右键、键盘与长按的上下文动作。",
+        "en": "Context actions for right click, keyboard and long press."
+      },
+      "href": "/docs/context-menu/#installation",
+      "keywords": "context-menu 安装 Installation"
+    },
+    {
+      "id": "context-menu-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextMenu · 使用",
+        "en": "ContextMenu · Usage"
+      },
+      "summary": {
+        "zh-CN": "右键、键盘与长按的上下文动作。",
+        "en": "Context actions for right click, keyboard and long press."
+      },
+      "href": "/docs/context-menu/#usage",
+      "keywords": "context-menu 使用 Usage"
+    },
+    {
+      "id": "context-menu-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextMenu · API",
+        "en": "ContextMenu · API"
+      },
+      "summary": {
+        "zh-CN": "右键、键盘与长按的上下文动作。",
+        "en": "Context actions for right click, keyboard and long press."
+      },
+      "href": "/docs/context-menu/#api",
+      "keywords": "context-menu API API"
+    },
+    {
+      "id": "context-menu-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextMenu · 状态与交互",
+        "en": "ContextMenu · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "右键、键盘与长按的上下文动作。",
+        "en": "Context actions for right click, keyboard and long press."
+      },
+      "href": "/docs/context-menu/#states",
+      "keywords": "context-menu 状态与交互 States and interaction"
+    },
+    {
+      "id": "context-menu-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextMenu · 完整示例",
+        "en": "ContextMenu · Complete example"
+      },
+      "summary": {
+        "zh-CN": "右键、键盘与长按的上下文动作。",
+        "en": "Context actions for right click, keyboard and long press."
+      },
+      "href": "/docs/context-menu/#example",
+      "keywords": "context-menu 完整示例 Complete example"
+    },
+    {
+      "id": "context-menu-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ContextMenu · 源码",
+        "en": "ContextMenu · Source"
+      },
+      "summary": {
+        "zh-CN": "右键、键盘与长按的上下文动作。",
+        "en": "Context actions for right click, keyboard and long press."
+      },
+      "href": "/docs/context-menu/#source",
+      "keywords": "context-menu 源码 Source"
+    },
+    {
+      "id": "skeleton",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Skeleton",
+        "en": "Skeleton"
+      },
+      "summary": {
+        "zh-CN": "结构相符的静态加载占位。",
+        "en": "Static placeholders matching the final structure."
+      },
+      "href": "/docs/skeleton/",
+      "keywords": "skeleton interaction"
+    },
+    {
+      "id": "skeleton-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Skeleton · 安装",
+        "en": "Skeleton · Installation"
+      },
+      "summary": {
+        "zh-CN": "结构相符的静态加载占位。",
+        "en": "Static placeholders matching the final structure."
+      },
+      "href": "/docs/skeleton/#installation",
+      "keywords": "skeleton 安装 Installation"
+    },
+    {
+      "id": "skeleton-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Skeleton · 使用",
+        "en": "Skeleton · Usage"
+      },
+      "summary": {
+        "zh-CN": "结构相符的静态加载占位。",
+        "en": "Static placeholders matching the final structure."
+      },
+      "href": "/docs/skeleton/#usage",
+      "keywords": "skeleton 使用 Usage"
+    },
+    {
+      "id": "skeleton-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Skeleton · API",
+        "en": "Skeleton · API"
+      },
+      "summary": {
+        "zh-CN": "结构相符的静态加载占位。",
+        "en": "Static placeholders matching the final structure."
+      },
+      "href": "/docs/skeleton/#api",
+      "keywords": "skeleton API API"
+    },
+    {
+      "id": "skeleton-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Skeleton · 状态与交互",
+        "en": "Skeleton · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "结构相符的静态加载占位。",
+        "en": "Static placeholders matching the final structure."
+      },
+      "href": "/docs/skeleton/#states",
+      "keywords": "skeleton 状态与交互 States and interaction"
+    },
+    {
+      "id": "skeleton-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Skeleton · 完整示例",
+        "en": "Skeleton · Complete example"
+      },
+      "summary": {
+        "zh-CN": "结构相符的静态加载占位。",
+        "en": "Static placeholders matching the final structure."
+      },
+      "href": "/docs/skeleton/#example",
+      "keywords": "skeleton 完整示例 Complete example"
+    },
+    {
+      "id": "skeleton-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Skeleton · 源码",
+        "en": "Skeleton · Source"
+      },
+      "summary": {
+        "zh-CN": "结构相符的静态加载占位。",
+        "en": "Static placeholders matching the final structure."
+      },
+      "href": "/docs/skeleton/#source",
+      "keywords": "skeleton 源码 Source"
+    },
+    {
+      "id": "spinner",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Spinner",
+        "en": "Spinner"
+      },
+      "summary": {
+        "zh-CN": "附带可读文本的忙碌指示。",
+        "en": "A busy indicator with readable text."
+      },
+      "href": "/docs/spinner/",
+      "keywords": "spinner interaction"
+    },
+    {
+      "id": "spinner-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Spinner · 安装",
+        "en": "Spinner · Installation"
+      },
+      "summary": {
+        "zh-CN": "附带可读文本的忙碌指示。",
+        "en": "A busy indicator with readable text."
+      },
+      "href": "/docs/spinner/#installation",
+      "keywords": "spinner 安装 Installation"
+    },
+    {
+      "id": "spinner-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Spinner · 使用",
+        "en": "Spinner · Usage"
+      },
+      "summary": {
+        "zh-CN": "附带可读文本的忙碌指示。",
+        "en": "A busy indicator with readable text."
+      },
+      "href": "/docs/spinner/#usage",
+      "keywords": "spinner 使用 Usage"
+    },
+    {
+      "id": "spinner-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Spinner · API",
+        "en": "Spinner · API"
+      },
+      "summary": {
+        "zh-CN": "附带可读文本的忙碌指示。",
+        "en": "A busy indicator with readable text."
+      },
+      "href": "/docs/spinner/#api",
+      "keywords": "spinner API API"
+    },
+    {
+      "id": "spinner-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Spinner · 状态与交互",
+        "en": "Spinner · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "附带可读文本的忙碌指示。",
+        "en": "A busy indicator with readable text."
+      },
+      "href": "/docs/spinner/#states",
+      "keywords": "spinner 状态与交互 States and interaction"
+    },
+    {
+      "id": "spinner-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Spinner · 完整示例",
+        "en": "Spinner · Complete example"
+      },
+      "summary": {
+        "zh-CN": "附带可读文本的忙碌指示。",
+        "en": "A busy indicator with readable text."
+      },
+      "href": "/docs/spinner/#example",
+      "keywords": "spinner 完整示例 Complete example"
+    },
+    {
+      "id": "spinner-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Spinner · 源码",
+        "en": "Spinner · Source"
+      },
+      "summary": {
+        "zh-CN": "附带可读文本的忙碌指示。",
+        "en": "A busy indicator with readable text."
+      },
+      "href": "/docs/spinner/#source",
+      "keywords": "spinner 源码 Source"
+    },
+    {
+      "id": "empty",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Empty",
+        "en": "Empty"
+      },
+      "summary": {
+        "zh-CN": "说明空态原因与下一步。",
+        "en": "Explains an empty state and its next action."
+      },
+      "href": "/docs/empty/",
+      "keywords": "empty interaction"
+    },
+    {
+      "id": "empty-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Empty · 安装",
+        "en": "Empty · Installation"
+      },
+      "summary": {
+        "zh-CN": "说明空态原因与下一步。",
+        "en": "Explains an empty state and its next action."
+      },
+      "href": "/docs/empty/#installation",
+      "keywords": "empty 安装 Installation"
+    },
+    {
+      "id": "empty-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Empty · 使用",
+        "en": "Empty · Usage"
+      },
+      "summary": {
+        "zh-CN": "说明空态原因与下一步。",
+        "en": "Explains an empty state and its next action."
+      },
+      "href": "/docs/empty/#usage",
+      "keywords": "empty 使用 Usage"
+    },
+    {
+      "id": "empty-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Empty · API",
+        "en": "Empty · API"
+      },
+      "summary": {
+        "zh-CN": "说明空态原因与下一步。",
+        "en": "Explains an empty state and its next action."
+      },
+      "href": "/docs/empty/#api",
+      "keywords": "empty API API"
+    },
+    {
+      "id": "empty-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Empty · 状态与交互",
+        "en": "Empty · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "说明空态原因与下一步。",
+        "en": "Explains an empty state and its next action."
+      },
+      "href": "/docs/empty/#states",
+      "keywords": "empty 状态与交互 States and interaction"
+    },
+    {
+      "id": "empty-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Empty · 完整示例",
+        "en": "Empty · Complete example"
+      },
+      "summary": {
+        "zh-CN": "说明空态原因与下一步。",
+        "en": "Explains an empty state and its next action."
+      },
+      "href": "/docs/empty/#example",
+      "keywords": "empty 完整示例 Complete example"
+    },
+    {
+      "id": "empty-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Empty · 源码",
+        "en": "Empty · Source"
+      },
+      "summary": {
+        "zh-CN": "说明空态原因与下一步。",
+        "en": "Explains an empty state and its next action."
+      },
+      "href": "/docs/empty/#source",
+      "keywords": "empty 源码 Source"
+    },
+    {
+      "id": "alert",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Alert",
+        "en": "Alert"
+      },
+      "summary": {
+        "zh-CN": "内联信息、警告与错误反馈。",
+        "en": "Inline information, warning and error feedback."
+      },
+      "href": "/docs/alert/",
+      "keywords": "alert interaction"
+    },
+    {
+      "id": "alert-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Alert · 安装",
+        "en": "Alert · Installation"
+      },
+      "summary": {
+        "zh-CN": "内联信息、警告与错误反馈。",
+        "en": "Inline information, warning and error feedback."
+      },
+      "href": "/docs/alert/#installation",
+      "keywords": "alert 安装 Installation"
+    },
+    {
+      "id": "alert-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Alert · 使用",
+        "en": "Alert · Usage"
+      },
+      "summary": {
+        "zh-CN": "内联信息、警告与错误反馈。",
+        "en": "Inline information, warning and error feedback."
+      },
+      "href": "/docs/alert/#usage",
+      "keywords": "alert 使用 Usage"
+    },
+    {
+      "id": "alert-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Alert · API",
+        "en": "Alert · API"
+      },
+      "summary": {
+        "zh-CN": "内联信息、警告与错误反馈。",
+        "en": "Inline information, warning and error feedback."
+      },
+      "href": "/docs/alert/#api",
+      "keywords": "alert API API"
+    },
+    {
+      "id": "alert-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Alert · 状态与交互",
+        "en": "Alert · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "内联信息、警告与错误反馈。",
+        "en": "Inline information, warning and error feedback."
+      },
+      "href": "/docs/alert/#states",
+      "keywords": "alert 状态与交互 States and interaction"
+    },
+    {
+      "id": "alert-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Alert · 完整示例",
+        "en": "Alert · Complete example"
+      },
+      "summary": {
+        "zh-CN": "内联信息、警告与错误反馈。",
+        "en": "Inline information, warning and error feedback."
+      },
+      "href": "/docs/alert/#example",
+      "keywords": "alert 完整示例 Complete example"
+    },
+    {
+      "id": "alert-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Alert · 源码",
+        "en": "Alert · Source"
+      },
+      "summary": {
+        "zh-CN": "内联信息、警告与错误反馈。",
+        "en": "Inline information, warning and error feedback."
+      },
+      "href": "/docs/alert/#source",
+      "keywords": "alert 源码 Source"
+    },
+    {
+      "id": "progress",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Progress",
+        "en": "Progress"
+      },
+      "summary": {
+        "zh-CN": "确定或未知总量的任务进度。",
+        "en": "Determinate or indeterminate task progress."
+      },
+      "href": "/docs/progress/",
+      "keywords": "progress interaction"
+    },
+    {
+      "id": "progress-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Progress · 安装",
+        "en": "Progress · Installation"
+      },
+      "summary": {
+        "zh-CN": "确定或未知总量的任务进度。",
+        "en": "Determinate or indeterminate task progress."
+      },
+      "href": "/docs/progress/#installation",
+      "keywords": "progress 安装 Installation"
+    },
+    {
+      "id": "progress-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Progress · 使用",
+        "en": "Progress · Usage"
+      },
+      "summary": {
+        "zh-CN": "确定或未知总量的任务进度。",
+        "en": "Determinate or indeterminate task progress."
+      },
+      "href": "/docs/progress/#usage",
+      "keywords": "progress 使用 Usage"
+    },
+    {
+      "id": "progress-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Progress · API",
+        "en": "Progress · API"
+      },
+      "summary": {
+        "zh-CN": "确定或未知总量的任务进度。",
+        "en": "Determinate or indeterminate task progress."
+      },
+      "href": "/docs/progress/#api",
+      "keywords": "progress API API"
+    },
+    {
+      "id": "progress-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Progress · 状态与交互",
+        "en": "Progress · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "确定或未知总量的任务进度。",
+        "en": "Determinate or indeterminate task progress."
+      },
+      "href": "/docs/progress/#states",
+      "keywords": "progress 状态与交互 States and interaction"
+    },
+    {
+      "id": "progress-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Progress · 完整示例",
+        "en": "Progress · Complete example"
+      },
+      "summary": {
+        "zh-CN": "确定或未知总量的任务进度。",
+        "en": "Determinate or indeterminate task progress."
+      },
+      "href": "/docs/progress/#example",
+      "keywords": "progress 完整示例 Complete example"
+    },
+    {
+      "id": "progress-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Progress · 源码",
+        "en": "Progress · Source"
+      },
+      "summary": {
+        "zh-CN": "确定或未知总量的任务进度。",
+        "en": "Determinate or indeterminate task progress."
+      },
+      "href": "/docs/progress/#source",
+      "keywords": "progress 源码 Source"
+    },
+    {
+      "id": "toast",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toast",
+        "en": "Toast"
+      },
+      "summary": {
+        "zh-CN": "统一、可更新和关闭的通知体系。",
+        "en": "Unified notifications that can be updated and dismissed."
+      },
+      "href": "/docs/toast/",
+      "keywords": "toast interaction"
+    },
+    {
+      "id": "toast-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toast · 安装",
+        "en": "Toast · Installation"
+      },
+      "summary": {
+        "zh-CN": "统一、可更新和关闭的通知体系。",
+        "en": "Unified notifications that can be updated and dismissed."
+      },
+      "href": "/docs/toast/#installation",
+      "keywords": "toast 安装 Installation"
+    },
+    {
+      "id": "toast-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toast · 使用",
+        "en": "Toast · Usage"
+      },
+      "summary": {
+        "zh-CN": "统一、可更新和关闭的通知体系。",
+        "en": "Unified notifications that can be updated and dismissed."
+      },
+      "href": "/docs/toast/#usage",
+      "keywords": "toast 使用 Usage"
+    },
+    {
+      "id": "toast-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toast · API",
+        "en": "Toast · API"
+      },
+      "summary": {
+        "zh-CN": "统一、可更新和关闭的通知体系。",
+        "en": "Unified notifications that can be updated and dismissed."
+      },
+      "href": "/docs/toast/#api",
+      "keywords": "toast API API"
+    },
+    {
+      "id": "toast-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toast · 状态与交互",
+        "en": "Toast · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "统一、可更新和关闭的通知体系。",
+        "en": "Unified notifications that can be updated and dismissed."
+      },
+      "href": "/docs/toast/#states",
+      "keywords": "toast 状态与交互 States and interaction"
+    },
+    {
+      "id": "toast-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toast · 完整示例",
+        "en": "Toast · Complete example"
+      },
+      "summary": {
+        "zh-CN": "统一、可更新和关闭的通知体系。",
+        "en": "Unified notifications that can be updated and dismissed."
+      },
+      "href": "/docs/toast/#example",
+      "keywords": "toast 完整示例 Complete example"
+    },
+    {
+      "id": "toast-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Toast · 源码",
+        "en": "Toast · Source"
+      },
+      "summary": {
+        "zh-CN": "统一、可更新和关闭的通知体系。",
+        "en": "Unified notifications that can be updated and dismissed."
+      },
+      "href": "/docs/toast/#source",
+      "keywords": "toast 源码 Source"
+    },
+    {
+      "id": "sonner",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sonner",
+        "en": "Sonner"
+      },
+      "summary": {
+        "zh-CN": "复用 Toast 的通知适配入口。",
+        "en": "A notification adapter sharing the Toast system."
+      },
+      "href": "/docs/sonner/",
+      "keywords": "sonner interaction"
+    },
+    {
+      "id": "sonner-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sonner · 安装",
+        "en": "Sonner · Installation"
+      },
+      "summary": {
+        "zh-CN": "复用 Toast 的通知适配入口。",
+        "en": "A notification adapter sharing the Toast system."
+      },
+      "href": "/docs/sonner/#installation",
+      "keywords": "sonner 安装 Installation"
+    },
+    {
+      "id": "sonner-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sonner · 使用",
+        "en": "Sonner · Usage"
+      },
+      "summary": {
+        "zh-CN": "复用 Toast 的通知适配入口。",
+        "en": "A notification adapter sharing the Toast system."
+      },
+      "href": "/docs/sonner/#usage",
+      "keywords": "sonner 使用 Usage"
+    },
+    {
+      "id": "sonner-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sonner · API",
+        "en": "Sonner · API"
+      },
+      "summary": {
+        "zh-CN": "复用 Toast 的通知适配入口。",
+        "en": "A notification adapter sharing the Toast system."
+      },
+      "href": "/docs/sonner/#api",
+      "keywords": "sonner API API"
+    },
+    {
+      "id": "sonner-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sonner · 状态与交互",
+        "en": "Sonner · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "复用 Toast 的通知适配入口。",
+        "en": "A notification adapter sharing the Toast system."
+      },
+      "href": "/docs/sonner/#states",
+      "keywords": "sonner 状态与交互 States and interaction"
+    },
+    {
+      "id": "sonner-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sonner · 完整示例",
+        "en": "Sonner · Complete example"
+      },
+      "summary": {
+        "zh-CN": "复用 Toast 的通知适配入口。",
+        "en": "A notification adapter sharing the Toast system."
+      },
+      "href": "/docs/sonner/#example",
+      "keywords": "sonner 完整示例 Complete example"
+    },
+    {
+      "id": "sonner-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sonner · 源码",
+        "en": "Sonner · Source"
+      },
+      "summary": {
+        "zh-CN": "复用 Toast 的通知适配入口。",
+        "en": "A notification adapter sharing the Toast system."
+      },
+      "href": "/docs/sonner/#source",
+      "keywords": "sonner 源码 Source"
+    },
+    {
+      "id": "date-calendar",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DateCalendar",
+        "en": "DateCalendar"
+      },
+      "summary": {
+        "zh-CN": "按民用日期键选择单日或范围。",
+        "en": "Select a civil date or date range."
+      },
+      "href": "/docs/date-calendar/",
+      "keywords": "date-calendar interaction"
+    },
+    {
+      "id": "date-calendar-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DateCalendar · 安装",
+        "en": "DateCalendar · Installation"
+      },
+      "summary": {
+        "zh-CN": "按民用日期键选择单日或范围。",
+        "en": "Select a civil date or date range."
+      },
+      "href": "/docs/date-calendar/#installation",
+      "keywords": "date-calendar 安装 Installation"
+    },
+    {
+      "id": "date-calendar-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DateCalendar · 使用",
+        "en": "DateCalendar · Usage"
+      },
+      "summary": {
+        "zh-CN": "按民用日期键选择单日或范围。",
+        "en": "Select a civil date or date range."
+      },
+      "href": "/docs/date-calendar/#usage",
+      "keywords": "date-calendar 使用 Usage"
+    },
+    {
+      "id": "date-calendar-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DateCalendar · API",
+        "en": "DateCalendar · API"
+      },
+      "summary": {
+        "zh-CN": "按民用日期键选择单日或范围。",
+        "en": "Select a civil date or date range."
+      },
+      "href": "/docs/date-calendar/#api",
+      "keywords": "date-calendar API API"
+    },
+    {
+      "id": "date-calendar-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DateCalendar · 状态与交互",
+        "en": "DateCalendar · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "按民用日期键选择单日或范围。",
+        "en": "Select a civil date or date range."
+      },
+      "href": "/docs/date-calendar/#states",
+      "keywords": "date-calendar 状态与交互 States and interaction"
+    },
+    {
+      "id": "date-calendar-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DateCalendar · 完整示例",
+        "en": "DateCalendar · Complete example"
+      },
+      "summary": {
+        "zh-CN": "按民用日期键选择单日或范围。",
+        "en": "Select a civil date or date range."
+      },
+      "href": "/docs/date-calendar/#example",
+      "keywords": "date-calendar 完整示例 Complete example"
+    },
+    {
+      "id": "date-calendar-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DateCalendar · 源码",
+        "en": "DateCalendar · Source"
+      },
+      "summary": {
+        "zh-CN": "按民用日期键选择单日或范围。",
+        "en": "Select a civil date or date range."
+      },
+      "href": "/docs/date-calendar/#source",
+      "keywords": "date-calendar 源码 Source"
+    },
+    {
+      "id": "date-picker",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DatePicker",
+        "en": "DatePicker"
+      },
+      "summary": {
+        "zh-CN": "日期日历与弹出层的组合。",
+        "en": "A date calendar composed with a popover."
+      },
+      "href": "/docs/date-picker/",
+      "keywords": "date-picker interaction"
+    },
+    {
+      "id": "date-picker-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DatePicker · 安装",
+        "en": "DatePicker · Installation"
+      },
+      "summary": {
+        "zh-CN": "日期日历与弹出层的组合。",
+        "en": "A date calendar composed with a popover."
+      },
+      "href": "/docs/date-picker/#installation",
+      "keywords": "date-picker 安装 Installation"
+    },
+    {
+      "id": "date-picker-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DatePicker · 使用",
+        "en": "DatePicker · Usage"
+      },
+      "summary": {
+        "zh-CN": "日期日历与弹出层的组合。",
+        "en": "A date calendar composed with a popover."
+      },
+      "href": "/docs/date-picker/#usage",
+      "keywords": "date-picker 使用 Usage"
+    },
+    {
+      "id": "date-picker-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DatePicker · API",
+        "en": "DatePicker · API"
+      },
+      "summary": {
+        "zh-CN": "日期日历与弹出层的组合。",
+        "en": "A date calendar composed with a popover."
+      },
+      "href": "/docs/date-picker/#api",
+      "keywords": "date-picker API API"
+    },
+    {
+      "id": "date-picker-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DatePicker · 状态与交互",
+        "en": "DatePicker · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "日期日历与弹出层的组合。",
+        "en": "A date calendar composed with a popover."
+      },
+      "href": "/docs/date-picker/#states",
+      "keywords": "date-picker 状态与交互 States and interaction"
+    },
+    {
+      "id": "date-picker-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DatePicker · 完整示例",
+        "en": "DatePicker · Complete example"
+      },
+      "summary": {
+        "zh-CN": "日期日历与弹出层的组合。",
+        "en": "A date calendar composed with a popover."
+      },
+      "href": "/docs/date-picker/#example",
+      "keywords": "date-picker 完整示例 Complete example"
+    },
+    {
+      "id": "date-picker-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DatePicker · 源码",
+        "en": "DatePicker · Source"
+      },
+      "summary": {
+        "zh-CN": "日期日历与弹出层的组合。",
+        "en": "A date calendar composed with a popover."
+      },
+      "href": "/docs/date-picker/#source",
+      "keywords": "date-picker 源码 Source"
+    },
+    {
+      "id": "pagination",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Pagination",
+        "en": "Pagination"
+      },
+      "summary": {
+        "zh-CN": "受控分页请求与未知总数导航。",
+        "en": "Controlled pagination with unknown-total navigation."
+      },
+      "href": "/docs/pagination/",
+      "keywords": "pagination interaction"
+    },
+    {
+      "id": "pagination-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Pagination · 安装",
+        "en": "Pagination · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控分页请求与未知总数导航。",
+        "en": "Controlled pagination with unknown-total navigation."
+      },
+      "href": "/docs/pagination/#installation",
+      "keywords": "pagination 安装 Installation"
+    },
+    {
+      "id": "pagination-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Pagination · 使用",
+        "en": "Pagination · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控分页请求与未知总数导航。",
+        "en": "Controlled pagination with unknown-total navigation."
+      },
+      "href": "/docs/pagination/#usage",
+      "keywords": "pagination 使用 Usage"
+    },
+    {
+      "id": "pagination-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Pagination · API",
+        "en": "Pagination · API"
+      },
+      "summary": {
+        "zh-CN": "受控分页请求与未知总数导航。",
+        "en": "Controlled pagination with unknown-total navigation."
+      },
+      "href": "/docs/pagination/#api",
+      "keywords": "pagination API API"
+    },
+    {
+      "id": "pagination-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Pagination · 状态与交互",
+        "en": "Pagination · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控分页请求与未知总数导航。",
+        "en": "Controlled pagination with unknown-total navigation."
+      },
+      "href": "/docs/pagination/#states",
+      "keywords": "pagination 状态与交互 States and interaction"
+    },
+    {
+      "id": "pagination-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Pagination · 完整示例",
+        "en": "Pagination · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控分页请求与未知总数导航。",
+        "en": "Controlled pagination with unknown-total navigation."
+      },
+      "href": "/docs/pagination/#example",
+      "keywords": "pagination 完整示例 Complete example"
+    },
+    {
+      "id": "pagination-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Pagination · 源码",
+        "en": "Pagination · Source"
+      },
+      "summary": {
+        "zh-CN": "受控分页请求与未知总数导航。",
+        "en": "Controlled pagination with unknown-total navigation."
+      },
+      "href": "/docs/pagination/#source",
+      "keywords": "pagination 源码 Source"
+    },
+    {
+      "id": "breadcrumb",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Breadcrumb",
+        "en": "Breadcrumb"
+      },
+      "summary": {
+        "zh-CN": "路径层级与当前页面导航。",
+        "en": "Hierarchical path and current-page navigation."
+      },
+      "href": "/docs/breadcrumb/",
+      "keywords": "breadcrumb interaction"
+    },
+    {
+      "id": "breadcrumb-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Breadcrumb · 安装",
+        "en": "Breadcrumb · Installation"
+      },
+      "summary": {
+        "zh-CN": "路径层级与当前页面导航。",
+        "en": "Hierarchical path and current-page navigation."
+      },
+      "href": "/docs/breadcrumb/#installation",
+      "keywords": "breadcrumb 安装 Installation"
+    },
+    {
+      "id": "breadcrumb-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Breadcrumb · 使用",
+        "en": "Breadcrumb · Usage"
+      },
+      "summary": {
+        "zh-CN": "路径层级与当前页面导航。",
+        "en": "Hierarchical path and current-page navigation."
+      },
+      "href": "/docs/breadcrumb/#usage",
+      "keywords": "breadcrumb 使用 Usage"
+    },
+    {
+      "id": "breadcrumb-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Breadcrumb · API",
+        "en": "Breadcrumb · API"
+      },
+      "summary": {
+        "zh-CN": "路径层级与当前页面导航。",
+        "en": "Hierarchical path and current-page navigation."
+      },
+      "href": "/docs/breadcrumb/#api",
+      "keywords": "breadcrumb API API"
+    },
+    {
+      "id": "breadcrumb-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Breadcrumb · 状态与交互",
+        "en": "Breadcrumb · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "路径层级与当前页面导航。",
+        "en": "Hierarchical path and current-page navigation."
+      },
+      "href": "/docs/breadcrumb/#states",
+      "keywords": "breadcrumb 状态与交互 States and interaction"
+    },
+    {
+      "id": "breadcrumb-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Breadcrumb · 完整示例",
+        "en": "Breadcrumb · Complete example"
+      },
+      "summary": {
+        "zh-CN": "路径层级与当前页面导航。",
+        "en": "Hierarchical path and current-page navigation."
+      },
+      "href": "/docs/breadcrumb/#example",
+      "keywords": "breadcrumb 完整示例 Complete example"
+    },
+    {
+      "id": "breadcrumb-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Breadcrumb · 源码",
+        "en": "Breadcrumb · Source"
+      },
+      "summary": {
+        "zh-CN": "路径层级与当前页面导航。",
+        "en": "Hierarchical path and current-page navigation."
+      },
+      "href": "/docs/breadcrumb/#source",
+      "keywords": "breadcrumb 源码 Source"
+    },
+    {
+      "id": "menubar",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Menubar",
+        "en": "Menubar"
+      },
+      "summary": {
+        "zh-CN": "桌面应用菜单栏与动作菜单。",
+        "en": "An application menubar and action menus."
+      },
+      "href": "/docs/menubar/",
+      "keywords": "menubar interaction"
+    },
+    {
+      "id": "menubar-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Menubar · 安装",
+        "en": "Menubar · Installation"
+      },
+      "summary": {
+        "zh-CN": "桌面应用菜单栏与动作菜单。",
+        "en": "An application menubar and action menus."
+      },
+      "href": "/docs/menubar/#installation",
+      "keywords": "menubar 安装 Installation"
+    },
+    {
+      "id": "menubar-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Menubar · 使用",
+        "en": "Menubar · Usage"
+      },
+      "summary": {
+        "zh-CN": "桌面应用菜单栏与动作菜单。",
+        "en": "An application menubar and action menus."
+      },
+      "href": "/docs/menubar/#usage",
+      "keywords": "menubar 使用 Usage"
+    },
+    {
+      "id": "menubar-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Menubar · API",
+        "en": "Menubar · API"
+      },
+      "summary": {
+        "zh-CN": "桌面应用菜单栏与动作菜单。",
+        "en": "An application menubar and action menus."
+      },
+      "href": "/docs/menubar/#api",
+      "keywords": "menubar API API"
+    },
+    {
+      "id": "menubar-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Menubar · 状态与交互",
+        "en": "Menubar · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "桌面应用菜单栏与动作菜单。",
+        "en": "An application menubar and action menus."
+      },
+      "href": "/docs/menubar/#states",
+      "keywords": "menubar 状态与交互 States and interaction"
+    },
+    {
+      "id": "menubar-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Menubar · 完整示例",
+        "en": "Menubar · Complete example"
+      },
+      "summary": {
+        "zh-CN": "桌面应用菜单栏与动作菜单。",
+        "en": "An application menubar and action menus."
+      },
+      "href": "/docs/menubar/#example",
+      "keywords": "menubar 完整示例 Complete example"
+    },
+    {
+      "id": "menubar-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Menubar · 源码",
+        "en": "Menubar · Source"
+      },
+      "summary": {
+        "zh-CN": "桌面应用菜单栏与动作菜单。",
+        "en": "An application menubar and action menus."
+      },
+      "href": "/docs/menubar/#source",
+      "keywords": "menubar 源码 Source"
+    },
+    {
+      "id": "navigation-menu",
+      "kind": "components",
+      "title": {
+        "zh-CN": "NavigationMenu",
+        "en": "NavigationMenu"
+      },
+      "summary": {
+        "zh-CN": "站点层级导航与链接浮层。",
+        "en": "Hierarchical navigation with link popups."
+      },
+      "href": "/docs/navigation-menu/",
+      "keywords": "navigation-menu interaction"
+    },
+    {
+      "id": "navigation-menu-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "NavigationMenu · 安装",
+        "en": "NavigationMenu · Installation"
+      },
+      "summary": {
+        "zh-CN": "站点层级导航与链接浮层。",
+        "en": "Hierarchical navigation with link popups."
+      },
+      "href": "/docs/navigation-menu/#installation",
+      "keywords": "navigation-menu 安装 Installation"
+    },
+    {
+      "id": "navigation-menu-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "NavigationMenu · 使用",
+        "en": "NavigationMenu · Usage"
+      },
+      "summary": {
+        "zh-CN": "站点层级导航与链接浮层。",
+        "en": "Hierarchical navigation with link popups."
+      },
+      "href": "/docs/navigation-menu/#usage",
+      "keywords": "navigation-menu 使用 Usage"
+    },
+    {
+      "id": "navigation-menu-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "NavigationMenu · API",
+        "en": "NavigationMenu · API"
+      },
+      "summary": {
+        "zh-CN": "站点层级导航与链接浮层。",
+        "en": "Hierarchical navigation with link popups."
+      },
+      "href": "/docs/navigation-menu/#api",
+      "keywords": "navigation-menu API API"
+    },
+    {
+      "id": "navigation-menu-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "NavigationMenu · 状态与交互",
+        "en": "NavigationMenu · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "站点层级导航与链接浮层。",
+        "en": "Hierarchical navigation with link popups."
+      },
+      "href": "/docs/navigation-menu/#states",
+      "keywords": "navigation-menu 状态与交互 States and interaction"
+    },
+    {
+      "id": "navigation-menu-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "NavigationMenu · 完整示例",
+        "en": "NavigationMenu · Complete example"
+      },
+      "summary": {
+        "zh-CN": "站点层级导航与链接浮层。",
+        "en": "Hierarchical navigation with link popups."
+      },
+      "href": "/docs/navigation-menu/#example",
+      "keywords": "navigation-menu 完整示例 Complete example"
+    },
+    {
+      "id": "navigation-menu-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "NavigationMenu · 源码",
+        "en": "NavigationMenu · Source"
+      },
+      "summary": {
+        "zh-CN": "站点层级导航与链接浮层。",
+        "en": "Hierarchical navigation with link popups."
+      },
+      "href": "/docs/navigation-menu/#source",
+      "keywords": "navigation-menu 源码 Source"
+    },
+    {
+      "id": "direction",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Direction",
+        "en": "Direction"
+      },
+      "summary": {
+        "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+        "en": "Coordinates DOM and Base UI text direction."
+      },
+      "href": "/docs/direction/",
+      "keywords": "direction interaction"
+    },
+    {
+      "id": "direction-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Direction · 安装",
+        "en": "Direction · Installation"
+      },
+      "summary": {
+        "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+        "en": "Coordinates DOM and Base UI text direction."
+      },
+      "href": "/docs/direction/#installation",
+      "keywords": "direction 安装 Installation"
+    },
+    {
+      "id": "direction-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Direction · 使用",
+        "en": "Direction · Usage"
+      },
+      "summary": {
+        "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+        "en": "Coordinates DOM and Base UI text direction."
+      },
+      "href": "/docs/direction/#usage",
+      "keywords": "direction 使用 Usage"
+    },
+    {
+      "id": "direction-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Direction · API",
+        "en": "Direction · API"
+      },
+      "summary": {
+        "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+        "en": "Coordinates DOM and Base UI text direction."
+      },
+      "href": "/docs/direction/#api",
+      "keywords": "direction API API"
+    },
+    {
+      "id": "direction-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Direction · 状态与交互",
+        "en": "Direction · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+        "en": "Coordinates DOM and Base UI text direction."
+      },
+      "href": "/docs/direction/#states",
+      "keywords": "direction 状态与交互 States and interaction"
+    },
+    {
+      "id": "direction-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Direction · 完整示例",
+        "en": "Direction · Complete example"
+      },
+      "summary": {
+        "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+        "en": "Coordinates DOM and Base UI text direction."
+      },
+      "href": "/docs/direction/#example",
+      "keywords": "direction 完整示例 Complete example"
+    },
+    {
+      "id": "direction-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Direction · 源码",
+        "en": "Direction · Source"
+      },
+      "summary": {
+        "zh-CN": "同步 DOM 与 Base UI 的阅读方向。",
+        "en": "Coordinates DOM and Base UI text direction."
+      },
+      "href": "/docs/direction/#source",
+      "keywords": "direction 源码 Source"
+    },
+    {
+      "id": "attachment",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Attachment",
+        "en": "Attachment"
+      },
+      "summary": {
+        "zh-CN": "调用方附件状态与打开、移除操作。",
+        "en": "Caller-owned attachment state with open and remove actions."
+      },
+      "href": "/docs/attachment/",
+      "keywords": "attachment interaction"
+    },
+    {
+      "id": "attachment-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Attachment · 安装",
+        "en": "Attachment · Installation"
+      },
+      "summary": {
+        "zh-CN": "调用方附件状态与打开、移除操作。",
+        "en": "Caller-owned attachment state with open and remove actions."
+      },
+      "href": "/docs/attachment/#installation",
+      "keywords": "attachment 安装 Installation"
+    },
+    {
+      "id": "attachment-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Attachment · 使用",
+        "en": "Attachment · Usage"
+      },
+      "summary": {
+        "zh-CN": "调用方附件状态与打开、移除操作。",
+        "en": "Caller-owned attachment state with open and remove actions."
+      },
+      "href": "/docs/attachment/#usage",
+      "keywords": "attachment 使用 Usage"
+    },
+    {
+      "id": "attachment-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Attachment · API",
+        "en": "Attachment · API"
+      },
+      "summary": {
+        "zh-CN": "调用方附件状态与打开、移除操作。",
+        "en": "Caller-owned attachment state with open and remove actions."
+      },
+      "href": "/docs/attachment/#api",
+      "keywords": "attachment API API"
+    },
+    {
+      "id": "attachment-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Attachment · 状态与交互",
+        "en": "Attachment · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "调用方附件状态与打开、移除操作。",
+        "en": "Caller-owned attachment state with open and remove actions."
+      },
+      "href": "/docs/attachment/#states",
+      "keywords": "attachment 状态与交互 States and interaction"
+    },
+    {
+      "id": "attachment-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Attachment · 完整示例",
+        "en": "Attachment · Complete example"
+      },
+      "summary": {
+        "zh-CN": "调用方附件状态与打开、移除操作。",
+        "en": "Caller-owned attachment state with open and remove actions."
+      },
+      "href": "/docs/attachment/#example",
+      "keywords": "attachment 完整示例 Complete example"
+    },
+    {
+      "id": "attachment-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Attachment · 源码",
+        "en": "Attachment · Source"
+      },
+      "summary": {
+        "zh-CN": "调用方附件状态与打开、移除操作。",
+        "en": "Caller-owned attachment state with open and remove actions."
+      },
+      "href": "/docs/attachment/#source",
+      "keywords": "attachment 源码 Source"
+    },
+    {
+      "id": "marker",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Marker",
+        "en": "Marker"
+      },
+      "summary": {
+        "zh-CN": "对话时间、章节与事件分隔标记。",
+        "en": "Conversation time, section and event markers."
+      },
+      "href": "/docs/marker/",
+      "keywords": "marker interaction"
+    },
+    {
+      "id": "marker-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Marker · 安装",
+        "en": "Marker · Installation"
+      },
+      "summary": {
+        "zh-CN": "对话时间、章节与事件分隔标记。",
+        "en": "Conversation time, section and event markers."
+      },
+      "href": "/docs/marker/#installation",
+      "keywords": "marker 安装 Installation"
+    },
+    {
+      "id": "marker-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Marker · 使用",
+        "en": "Marker · Usage"
+      },
+      "summary": {
+        "zh-CN": "对话时间、章节与事件分隔标记。",
+        "en": "Conversation time, section and event markers."
+      },
+      "href": "/docs/marker/#usage",
+      "keywords": "marker 使用 Usage"
+    },
+    {
+      "id": "marker-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Marker · API",
+        "en": "Marker · API"
+      },
+      "summary": {
+        "zh-CN": "对话时间、章节与事件分隔标记。",
+        "en": "Conversation time, section and event markers."
+      },
+      "href": "/docs/marker/#api",
+      "keywords": "marker API API"
+    },
+    {
+      "id": "marker-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Marker · 状态与交互",
+        "en": "Marker · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "对话时间、章节与事件分隔标记。",
+        "en": "Conversation time, section and event markers."
+      },
+      "href": "/docs/marker/#states",
+      "keywords": "marker 状态与交互 States and interaction"
+    },
+    {
+      "id": "marker-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Marker · 完整示例",
+        "en": "Marker · Complete example"
+      },
+      "summary": {
+        "zh-CN": "对话时间、章节与事件分隔标记。",
+        "en": "Conversation time, section and event markers."
+      },
+      "href": "/docs/marker/#example",
+      "keywords": "marker 完整示例 Complete example"
+    },
+    {
+      "id": "marker-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Marker · 源码",
+        "en": "Marker · Source"
+      },
+      "summary": {
+        "zh-CN": "对话时间、章节与事件分隔标记。",
+        "en": "Conversation time, section and event markers."
+      },
+      "href": "/docs/marker/#source",
+      "keywords": "marker 源码 Source"
+    },
+    {
+      "id": "bubble",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Bubble",
+        "en": "Bubble"
+      },
+      "summary": {
+        "zh-CN": "独立引用或批注的内容容器。",
+        "en": "A standalone container for quotations and annotations."
+      },
+      "href": "/docs/bubble/",
+      "keywords": "bubble interaction"
+    },
+    {
+      "id": "bubble-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Bubble · 安装",
+        "en": "Bubble · Installation"
+      },
+      "summary": {
+        "zh-CN": "独立引用或批注的内容容器。",
+        "en": "A standalone container for quotations and annotations."
+      },
+      "href": "/docs/bubble/#installation",
+      "keywords": "bubble 安装 Installation"
+    },
+    {
+      "id": "bubble-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Bubble · 使用",
+        "en": "Bubble · Usage"
+      },
+      "summary": {
+        "zh-CN": "独立引用或批注的内容容器。",
+        "en": "A standalone container for quotations and annotations."
+      },
+      "href": "/docs/bubble/#usage",
+      "keywords": "bubble 使用 Usage"
+    },
+    {
+      "id": "bubble-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Bubble · API",
+        "en": "Bubble · API"
+      },
+      "summary": {
+        "zh-CN": "独立引用或批注的内容容器。",
+        "en": "A standalone container for quotations and annotations."
+      },
+      "href": "/docs/bubble/#api",
+      "keywords": "bubble API API"
+    },
+    {
+      "id": "bubble-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Bubble · 状态与交互",
+        "en": "Bubble · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "独立引用或批注的内容容器。",
+        "en": "A standalone container for quotations and annotations."
+      },
+      "href": "/docs/bubble/#states",
+      "keywords": "bubble 状态与交互 States and interaction"
+    },
+    {
+      "id": "bubble-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Bubble · 完整示例",
+        "en": "Bubble · Complete example"
+      },
+      "summary": {
+        "zh-CN": "独立引用或批注的内容容器。",
+        "en": "A standalone container for quotations and annotations."
+      },
+      "href": "/docs/bubble/#example",
+      "keywords": "bubble 完整示例 Complete example"
+    },
+    {
+      "id": "bubble-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Bubble · 源码",
+        "en": "Bubble · Source"
+      },
+      "summary": {
+        "zh-CN": "独立引用或批注的内容容器。",
+        "en": "A standalone container for quotations and annotations."
+      },
+      "href": "/docs/bubble/#source",
+      "keywords": "bubble 源码 Source"
+    },
+    {
+      "id": "card",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Card",
+        "en": "Card"
+      },
+      "summary": {
+        "zh-CN": "独立内容、概览和预览容器。",
+        "en": "Independent content, overview and preview container."
+      },
+      "href": "/docs/card/",
+      "keywords": "card interaction"
+    },
+    {
+      "id": "card-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Card · 安装",
+        "en": "Card · Installation"
+      },
+      "summary": {
+        "zh-CN": "独立内容、概览和预览容器。",
+        "en": "Independent content, overview and preview container."
+      },
+      "href": "/docs/card/#installation",
+      "keywords": "card 安装 Installation"
+    },
+    {
+      "id": "card-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Card · 使用",
+        "en": "Card · Usage"
+      },
+      "summary": {
+        "zh-CN": "独立内容、概览和预览容器。",
+        "en": "Independent content, overview and preview container."
+      },
+      "href": "/docs/card/#usage",
+      "keywords": "card 使用 Usage"
+    },
+    {
+      "id": "card-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Card · API",
+        "en": "Card · API"
+      },
+      "summary": {
+        "zh-CN": "独立内容、概览和预览容器。",
+        "en": "Independent content, overview and preview container."
+      },
+      "href": "/docs/card/#api",
+      "keywords": "card API API"
+    },
+    {
+      "id": "card-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Card · 状态与交互",
+        "en": "Card · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "独立内容、概览和预览容器。",
+        "en": "Independent content, overview and preview container."
+      },
+      "href": "/docs/card/#states",
+      "keywords": "card 状态与交互 States and interaction"
+    },
+    {
+      "id": "card-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Card · 完整示例",
+        "en": "Card · Complete example"
+      },
+      "summary": {
+        "zh-CN": "独立内容、概览和预览容器。",
+        "en": "Independent content, overview and preview container."
+      },
+      "href": "/docs/card/#example",
+      "keywords": "card 完整示例 Complete example"
+    },
+    {
+      "id": "card-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Card · 源码",
+        "en": "Card · Source"
+      },
+      "summary": {
+        "zh-CN": "独立内容、概览和预览容器。",
+        "en": "Independent content, overview and preview container."
+      },
+      "href": "/docs/card/#source",
+      "keywords": "card 源码 Source"
+    },
+    {
+      "id": "aspect-ratio",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AspectRatio",
+        "en": "AspectRatio"
+      },
+      "summary": {
+        "zh-CN": "保留指定纵横比的内容区域。",
+        "en": "A content area with a fixed aspect ratio."
+      },
+      "href": "/docs/aspect-ratio/",
+      "keywords": "aspect-ratio interaction"
+    },
+    {
+      "id": "aspect-ratio-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AspectRatio · 安装",
+        "en": "AspectRatio · Installation"
+      },
+      "summary": {
+        "zh-CN": "保留指定纵横比的内容区域。",
+        "en": "A content area with a fixed aspect ratio."
+      },
+      "href": "/docs/aspect-ratio/#installation",
+      "keywords": "aspect-ratio 安装 Installation"
+    },
+    {
+      "id": "aspect-ratio-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AspectRatio · 使用",
+        "en": "AspectRatio · Usage"
+      },
+      "summary": {
+        "zh-CN": "保留指定纵横比的内容区域。",
+        "en": "A content area with a fixed aspect ratio."
+      },
+      "href": "/docs/aspect-ratio/#usage",
+      "keywords": "aspect-ratio 使用 Usage"
+    },
+    {
+      "id": "aspect-ratio-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AspectRatio · API",
+        "en": "AspectRatio · API"
+      },
+      "summary": {
+        "zh-CN": "保留指定纵横比的内容区域。",
+        "en": "A content area with a fixed aspect ratio."
+      },
+      "href": "/docs/aspect-ratio/#api",
+      "keywords": "aspect-ratio API API"
+    },
+    {
+      "id": "aspect-ratio-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AspectRatio · 状态与交互",
+        "en": "AspectRatio · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "保留指定纵横比的内容区域。",
+        "en": "A content area with a fixed aspect ratio."
+      },
+      "href": "/docs/aspect-ratio/#states",
+      "keywords": "aspect-ratio 状态与交互 States and interaction"
+    },
+    {
+      "id": "aspect-ratio-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AspectRatio · 完整示例",
+        "en": "AspectRatio · Complete example"
+      },
+      "summary": {
+        "zh-CN": "保留指定纵横比的内容区域。",
+        "en": "A content area with a fixed aspect ratio."
+      },
+      "href": "/docs/aspect-ratio/#example",
+      "keywords": "aspect-ratio 完整示例 Complete example"
+    },
+    {
+      "id": "aspect-ratio-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AspectRatio · 源码",
+        "en": "AspectRatio · Source"
+      },
+      "summary": {
+        "zh-CN": "保留指定纵横比的内容区域。",
+        "en": "A content area with a fixed aspect ratio."
+      },
+      "href": "/docs/aspect-ratio/#source",
+      "keywords": "aspect-ratio 源码 Source"
+    },
+    {
+      "id": "carousel",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Carousel",
+        "en": "Carousel"
+      },
+      "summary": {
+        "zh-CN": "手动控制、键盘与触摸轮播。",
+        "en": "A manual carousel with keyboard and touch navigation."
+      },
+      "href": "/docs/carousel/",
+      "keywords": "carousel interaction"
+    },
+    {
+      "id": "carousel-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Carousel · 安装",
+        "en": "Carousel · Installation"
+      },
+      "summary": {
+        "zh-CN": "手动控制、键盘与触摸轮播。",
+        "en": "A manual carousel with keyboard and touch navigation."
+      },
+      "href": "/docs/carousel/#installation",
+      "keywords": "carousel 安装 Installation"
+    },
+    {
+      "id": "carousel-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Carousel · 使用",
+        "en": "Carousel · Usage"
+      },
+      "summary": {
+        "zh-CN": "手动控制、键盘与触摸轮播。",
+        "en": "A manual carousel with keyboard and touch navigation."
+      },
+      "href": "/docs/carousel/#usage",
+      "keywords": "carousel 使用 Usage"
+    },
+    {
+      "id": "carousel-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Carousel · API",
+        "en": "Carousel · API"
+      },
+      "summary": {
+        "zh-CN": "手动控制、键盘与触摸轮播。",
+        "en": "A manual carousel with keyboard and touch navigation."
+      },
+      "href": "/docs/carousel/#api",
+      "keywords": "carousel API API"
+    },
+    {
+      "id": "carousel-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Carousel · 状态与交互",
+        "en": "Carousel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "手动控制、键盘与触摸轮播。",
+        "en": "A manual carousel with keyboard and touch navigation."
+      },
+      "href": "/docs/carousel/#states",
+      "keywords": "carousel 状态与交互 States and interaction"
+    },
+    {
+      "id": "carousel-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Carousel · 完整示例",
+        "en": "Carousel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "手动控制、键盘与触摸轮播。",
+        "en": "A manual carousel with keyboard and touch navigation."
+      },
+      "href": "/docs/carousel/#example",
+      "keywords": "carousel 完整示例 Complete example"
+    },
+    {
+      "id": "carousel-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Carousel · 源码",
+        "en": "Carousel · Source"
+      },
+      "summary": {
+        "zh-CN": "手动控制、键盘与触摸轮播。",
+        "en": "A manual carousel with keyboard and touch navigation."
+      },
+      "href": "/docs/carousel/#source",
+      "keywords": "carousel 源码 Source"
+    },
+    {
+      "id": "form",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Form",
+        "en": "Form"
+      },
+      "summary": {
+        "zh-CN": "原生表单与 Field 的轻量组合。",
+        "en": "A lightweight native form composed with Field."
+      },
+      "href": "/docs/form/",
+      "keywords": "form interaction"
+    },
+    {
+      "id": "form-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Form · 安装",
+        "en": "Form · Installation"
+      },
+      "summary": {
+        "zh-CN": "原生表单与 Field 的轻量组合。",
+        "en": "A lightweight native form composed with Field."
+      },
+      "href": "/docs/form/#installation",
+      "keywords": "form 安装 Installation"
+    },
+    {
+      "id": "form-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Form · 使用",
+        "en": "Form · Usage"
+      },
+      "summary": {
+        "zh-CN": "原生表单与 Field 的轻量组合。",
+        "en": "A lightweight native form composed with Field."
+      },
+      "href": "/docs/form/#usage",
+      "keywords": "form 使用 Usage"
+    },
+    {
+      "id": "form-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Form · API",
+        "en": "Form · API"
+      },
+      "summary": {
+        "zh-CN": "原生表单与 Field 的轻量组合。",
+        "en": "A lightweight native form composed with Field."
+      },
+      "href": "/docs/form/#api",
+      "keywords": "form API API"
+    },
+    {
+      "id": "form-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Form · 状态与交互",
+        "en": "Form · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "原生表单与 Field 的轻量组合。",
+        "en": "A lightweight native form composed with Field."
+      },
+      "href": "/docs/form/#states",
+      "keywords": "form 状态与交互 States and interaction"
+    },
+    {
+      "id": "form-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Form · 完整示例",
+        "en": "Form · Complete example"
+      },
+      "summary": {
+        "zh-CN": "原生表单与 Field 的轻量组合。",
+        "en": "A lightweight native form composed with Field."
+      },
+      "href": "/docs/form/#example",
+      "keywords": "form 完整示例 Complete example"
+    },
+    {
+      "id": "form-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Form · 源码",
+        "en": "Form · Source"
+      },
+      "summary": {
+        "zh-CN": "原生表单与 Field 的轻量组合。",
+        "en": "A lightweight native form composed with Field."
+      },
+      "href": "/docs/form/#source",
+      "keywords": "form 源码 Source"
+    },
+    {
+      "id": "resizable",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Resizable",
+        "en": "Resizable"
+      },
+      "summary": {
+        "zh-CN": "可复用双面板与尺寸调整手柄。",
+        "en": "Reusable two-panel layout and resize handle."
+      },
+      "href": "/docs/resizable/",
+      "keywords": "resizable interaction"
+    },
+    {
+      "id": "resizable-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Resizable · 安装",
+        "en": "Resizable · Installation"
+      },
+      "summary": {
+        "zh-CN": "可复用双面板与尺寸调整手柄。",
+        "en": "Reusable two-panel layout and resize handle."
+      },
+      "href": "/docs/resizable/#installation",
+      "keywords": "resizable 安装 Installation"
+    },
+    {
+      "id": "resizable-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Resizable · 使用",
+        "en": "Resizable · Usage"
+      },
+      "summary": {
+        "zh-CN": "可复用双面板与尺寸调整手柄。",
+        "en": "Reusable two-panel layout and resize handle."
+      },
+      "href": "/docs/resizable/#usage",
+      "keywords": "resizable 使用 Usage"
+    },
+    {
+      "id": "resizable-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Resizable · API",
+        "en": "Resizable · API"
+      },
+      "summary": {
+        "zh-CN": "可复用双面板与尺寸调整手柄。",
+        "en": "Reusable two-panel layout and resize handle."
+      },
+      "href": "/docs/resizable/#api",
+      "keywords": "resizable API API"
+    },
+    {
+      "id": "resizable-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Resizable · 状态与交互",
+        "en": "Resizable · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "可复用双面板与尺寸调整手柄。",
+        "en": "Reusable two-panel layout and resize handle."
+      },
+      "href": "/docs/resizable/#states",
+      "keywords": "resizable 状态与交互 States and interaction"
+    },
+    {
+      "id": "resizable-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Resizable · 完整示例",
+        "en": "Resizable · Complete example"
+      },
+      "summary": {
+        "zh-CN": "可复用双面板与尺寸调整手柄。",
+        "en": "Reusable two-panel layout and resize handle."
+      },
+      "href": "/docs/resizable/#example",
+      "keywords": "resizable 完整示例 Complete example"
+    },
+    {
+      "id": "resizable-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Resizable · 源码",
+        "en": "Resizable · Source"
+      },
+      "summary": {
+        "zh-CN": "可复用双面板与尺寸调整手柄。",
+        "en": "Reusable two-panel layout and resize handle."
+      },
+      "href": "/docs/resizable/#source",
+      "keywords": "resizable 源码 Source"
+    },
+    {
+      "id": "scroll-area",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ScrollArea",
+        "en": "ScrollArea"
+      },
+      "summary": {
+        "zh-CN": "保留浏览器行为的原生滚动区域。",
+        "en": "A native scroll region preserving browser behavior."
+      },
+      "href": "/docs/scroll-area/",
+      "keywords": "scroll-area interaction"
+    },
+    {
+      "id": "scroll-area-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ScrollArea · 安装",
+        "en": "ScrollArea · Installation"
+      },
+      "summary": {
+        "zh-CN": "保留浏览器行为的原生滚动区域。",
+        "en": "A native scroll region preserving browser behavior."
+      },
+      "href": "/docs/scroll-area/#installation",
+      "keywords": "scroll-area 安装 Installation"
+    },
+    {
+      "id": "scroll-area-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ScrollArea · 使用",
+        "en": "ScrollArea · Usage"
+      },
+      "summary": {
+        "zh-CN": "保留浏览器行为的原生滚动区域。",
+        "en": "A native scroll region preserving browser behavior."
+      },
+      "href": "/docs/scroll-area/#usage",
+      "keywords": "scroll-area 使用 Usage"
+    },
+    {
+      "id": "scroll-area-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ScrollArea · API",
+        "en": "ScrollArea · API"
+      },
+      "summary": {
+        "zh-CN": "保留浏览器行为的原生滚动区域。",
+        "en": "A native scroll region preserving browser behavior."
+      },
+      "href": "/docs/scroll-area/#api",
+      "keywords": "scroll-area API API"
+    },
+    {
+      "id": "scroll-area-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ScrollArea · 状态与交互",
+        "en": "ScrollArea · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "保留浏览器行为的原生滚动区域。",
+        "en": "A native scroll region preserving browser behavior."
+      },
+      "href": "/docs/scroll-area/#states",
+      "keywords": "scroll-area 状态与交互 States and interaction"
+    },
+    {
+      "id": "scroll-area-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ScrollArea · 完整示例",
+        "en": "ScrollArea · Complete example"
+      },
+      "summary": {
+        "zh-CN": "保留浏览器行为的原生滚动区域。",
+        "en": "A native scroll region preserving browser behavior."
+      },
+      "href": "/docs/scroll-area/#example",
+      "keywords": "scroll-area 完整示例 Complete example"
+    },
+    {
+      "id": "scroll-area-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ScrollArea · 源码",
+        "en": "ScrollArea · Source"
+      },
+      "summary": {
+        "zh-CN": "保留浏览器行为的原生滚动区域。",
+        "en": "A native scroll region preserving browser behavior."
+      },
+      "href": "/docs/scroll-area/#source",
+      "keywords": "scroll-area 源码 Source"
+    },
+    {
+      "id": "drawer",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Drawer",
+        "en": "Drawer"
+      },
+      "summary": {
+        "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+        "en": "A Sheet-based drawer with optional swipe dismissal."
+      },
+      "href": "/docs/drawer/",
+      "keywords": "drawer interaction"
+    },
+    {
+      "id": "drawer-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Drawer · 安装",
+        "en": "Drawer · Installation"
+      },
+      "summary": {
+        "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+        "en": "A Sheet-based drawer with optional swipe dismissal."
+      },
+      "href": "/docs/drawer/#installation",
+      "keywords": "drawer 安装 Installation"
+    },
+    {
+      "id": "drawer-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Drawer · 使用",
+        "en": "Drawer · Usage"
+      },
+      "summary": {
+        "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+        "en": "A Sheet-based drawer with optional swipe dismissal."
+      },
+      "href": "/docs/drawer/#usage",
+      "keywords": "drawer 使用 Usage"
+    },
+    {
+      "id": "drawer-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Drawer · API",
+        "en": "Drawer · API"
+      },
+      "summary": {
+        "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+        "en": "A Sheet-based drawer with optional swipe dismissal."
+      },
+      "href": "/docs/drawer/#api",
+      "keywords": "drawer API API"
+    },
+    {
+      "id": "drawer-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Drawer · 状态与交互",
+        "en": "Drawer · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+        "en": "A Sheet-based drawer with optional swipe dismissal."
+      },
+      "href": "/docs/drawer/#states",
+      "keywords": "drawer 状态与交互 States and interaction"
+    },
+    {
+      "id": "drawer-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Drawer · 完整示例",
+        "en": "Drawer · Complete example"
+      },
+      "summary": {
+        "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+        "en": "A Sheet-based drawer with optional swipe dismissal."
+      },
+      "href": "/docs/drawer/#example",
+      "keywords": "drawer 完整示例 Complete example"
+    },
+    {
+      "id": "drawer-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Drawer · 源码",
+        "en": "Drawer · Source"
+      },
+      "summary": {
+        "zh-CN": "复用 Sheet 的抽屉与可选滑动关闭。",
+        "en": "A Sheet-based drawer with optional swipe dismissal."
+      },
+      "href": "/docs/drawer/#source",
+      "keywords": "drawer 源码 Source"
+    },
+    {
       "id": "segment-bar",
       "kind": "components",
       "title": {
@@ -10290,6 +13818,398 @@
       },
       "href": "/docs/style-workbench/#source",
       "keywords": "style-workbench 源码 Source"
+    },
+    {
+      "id": "questionnaire",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Questionnaire",
+        "en": "Questionnaire"
+      },
+      "summary": {
+        "zh-CN": "逐题单选、多选和文本问卷。",
+        "en": "A stepwise single choice, multiple choice and text questionnaire."
+      },
+      "href": "/docs/questionnaire/",
+      "keywords": "questionnaire other"
+    },
+    {
+      "id": "questionnaire-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Questionnaire · 安装",
+        "en": "Questionnaire · Installation"
+      },
+      "summary": {
+        "zh-CN": "逐题单选、多选和文本问卷。",
+        "en": "A stepwise single choice, multiple choice and text questionnaire."
+      },
+      "href": "/docs/questionnaire/#installation",
+      "keywords": "questionnaire 安装 Installation"
+    },
+    {
+      "id": "questionnaire-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Questionnaire · 使用",
+        "en": "Questionnaire · Usage"
+      },
+      "summary": {
+        "zh-CN": "逐题单选、多选和文本问卷。",
+        "en": "A stepwise single choice, multiple choice and text questionnaire."
+      },
+      "href": "/docs/questionnaire/#usage",
+      "keywords": "questionnaire 使用 Usage"
+    },
+    {
+      "id": "questionnaire-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Questionnaire · API",
+        "en": "Questionnaire · API"
+      },
+      "summary": {
+        "zh-CN": "逐题单选、多选和文本问卷。",
+        "en": "A stepwise single choice, multiple choice and text questionnaire."
+      },
+      "href": "/docs/questionnaire/#api",
+      "keywords": "questionnaire API API"
+    },
+    {
+      "id": "questionnaire-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Questionnaire · 状态与交互",
+        "en": "Questionnaire · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "逐题单选、多选和文本问卷。",
+        "en": "A stepwise single choice, multiple choice and text questionnaire."
+      },
+      "href": "/docs/questionnaire/#states",
+      "keywords": "questionnaire 状态与交互 States and interaction"
+    },
+    {
+      "id": "questionnaire-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Questionnaire · 完整示例",
+        "en": "Questionnaire · Complete example"
+      },
+      "summary": {
+        "zh-CN": "逐题单选、多选和文本问卷。",
+        "en": "A stepwise single choice, multiple choice and text questionnaire."
+      },
+      "href": "/docs/questionnaire/#example",
+      "keywords": "questionnaire 完整示例 Complete example"
+    },
+    {
+      "id": "questionnaire-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Questionnaire · 源码",
+        "en": "Questionnaire · Source"
+      },
+      "summary": {
+        "zh-CN": "逐题单选、多选和文本问卷。",
+        "en": "A stepwise single choice, multiple choice and text questionnaire."
+      },
+      "href": "/docs/questionnaire/#source",
+      "keywords": "questionnaire 源码 Source"
+    },
+    {
+      "id": "chart",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Chart",
+        "en": "Chart"
+      },
+      "summary": {
+        "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+        "en": "Lightweight bar and line charts with text alternatives."
+      },
+      "href": "/docs/chart/",
+      "keywords": "chart other"
+    },
+    {
+      "id": "chart-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Chart · 安装",
+        "en": "Chart · Installation"
+      },
+      "summary": {
+        "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+        "en": "Lightweight bar and line charts with text alternatives."
+      },
+      "href": "/docs/chart/#installation",
+      "keywords": "chart 安装 Installation"
+    },
+    {
+      "id": "chart-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Chart · 使用",
+        "en": "Chart · Usage"
+      },
+      "summary": {
+        "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+        "en": "Lightweight bar and line charts with text alternatives."
+      },
+      "href": "/docs/chart/#usage",
+      "keywords": "chart 使用 Usage"
+    },
+    {
+      "id": "chart-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Chart · API",
+        "en": "Chart · API"
+      },
+      "summary": {
+        "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+        "en": "Lightweight bar and line charts with text alternatives."
+      },
+      "href": "/docs/chart/#api",
+      "keywords": "chart API API"
+    },
+    {
+      "id": "chart-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Chart · 状态与交互",
+        "en": "Chart · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+        "en": "Lightweight bar and line charts with text alternatives."
+      },
+      "href": "/docs/chart/#states",
+      "keywords": "chart 状态与交互 States and interaction"
+    },
+    {
+      "id": "chart-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Chart · 完整示例",
+        "en": "Chart · Complete example"
+      },
+      "summary": {
+        "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+        "en": "Lightweight bar and line charts with text alternatives."
+      },
+      "href": "/docs/chart/#example",
+      "keywords": "chart 完整示例 Complete example"
+    },
+    {
+      "id": "chart-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Chart · 源码",
+        "en": "Chart · Source"
+      },
+      "summary": {
+        "zh-CN": "带完整文本替代的轻量柱图和折线图。",
+        "en": "Lightweight bar and line charts with text alternatives."
+      },
+      "href": "/docs/chart/#source",
+      "keywords": "chart 源码 Source"
+    },
+    {
+      "id": "sidebar",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sidebar",
+        "en": "Sidebar"
+      },
+      "summary": {
+        "zh-CN": "受控折叠的独立侧栏布局。",
+        "en": "A standalone sidebar with controlled collapse."
+      },
+      "href": "/docs/sidebar/",
+      "keywords": "sidebar other"
+    },
+    {
+      "id": "sidebar-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sidebar · 安装",
+        "en": "Sidebar · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控折叠的独立侧栏布局。",
+        "en": "A standalone sidebar with controlled collapse."
+      },
+      "href": "/docs/sidebar/#installation",
+      "keywords": "sidebar 安装 Installation"
+    },
+    {
+      "id": "sidebar-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sidebar · 使用",
+        "en": "Sidebar · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控折叠的独立侧栏布局。",
+        "en": "A standalone sidebar with controlled collapse."
+      },
+      "href": "/docs/sidebar/#usage",
+      "keywords": "sidebar 使用 Usage"
+    },
+    {
+      "id": "sidebar-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sidebar · API",
+        "en": "Sidebar · API"
+      },
+      "summary": {
+        "zh-CN": "受控折叠的独立侧栏布局。",
+        "en": "A standalone sidebar with controlled collapse."
+      },
+      "href": "/docs/sidebar/#api",
+      "keywords": "sidebar API API"
+    },
+    {
+      "id": "sidebar-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sidebar · 状态与交互",
+        "en": "Sidebar · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控折叠的独立侧栏布局。",
+        "en": "A standalone sidebar with controlled collapse."
+      },
+      "href": "/docs/sidebar/#states",
+      "keywords": "sidebar 状态与交互 States and interaction"
+    },
+    {
+      "id": "sidebar-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sidebar · 完整示例",
+        "en": "Sidebar · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控折叠的独立侧栏布局。",
+        "en": "A standalone sidebar with controlled collapse."
+      },
+      "href": "/docs/sidebar/#example",
+      "keywords": "sidebar 完整示例 Complete example"
+    },
+    {
+      "id": "sidebar-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Sidebar · 源码",
+        "en": "Sidebar · Source"
+      },
+      "summary": {
+        "zh-CN": "受控折叠的独立侧栏布局。",
+        "en": "A standalone sidebar with controlled collapse."
+      },
+      "href": "/docs/sidebar/#source",
+      "keywords": "sidebar 源码 Source"
+    },
+    {
+      "id": "command",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Command",
+        "en": "Command"
+      },
+      "summary": {
+        "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+        "en": "An inline command panel sharing CommandPalette."
+      },
+      "href": "/docs/command/",
+      "keywords": "command other"
+    },
+    {
+      "id": "command-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Command · 安装",
+        "en": "Command · Installation"
+      },
+      "summary": {
+        "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+        "en": "An inline command panel sharing CommandPalette."
+      },
+      "href": "/docs/command/#installation",
+      "keywords": "command 安装 Installation"
+    },
+    {
+      "id": "command-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Command · 使用",
+        "en": "Command · Usage"
+      },
+      "summary": {
+        "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+        "en": "An inline command panel sharing CommandPalette."
+      },
+      "href": "/docs/command/#usage",
+      "keywords": "command 使用 Usage"
+    },
+    {
+      "id": "command-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Command · API",
+        "en": "Command · API"
+      },
+      "summary": {
+        "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+        "en": "An inline command panel sharing CommandPalette."
+      },
+      "href": "/docs/command/#api",
+      "keywords": "command API API"
+    },
+    {
+      "id": "command-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Command · 状态与交互",
+        "en": "Command · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+        "en": "An inline command panel sharing CommandPalette."
+      },
+      "href": "/docs/command/#states",
+      "keywords": "command 状态与交互 States and interaction"
+    },
+    {
+      "id": "command-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Command · 完整示例",
+        "en": "Command · Complete example"
+      },
+      "summary": {
+        "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+        "en": "An inline command panel sharing CommandPalette."
+      },
+      "href": "/docs/command/#example",
+      "keywords": "command 完整示例 Complete example"
+    },
+    {
+      "id": "command-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Command · 源码",
+        "en": "Command · Source"
+      },
+      "summary": {
+        "zh-CN": "复用 CommandPalette 的内嵌命令面板。",
+        "en": "An inline command panel sharing CommandPalette."
+      },
+      "href": "/docs/command/#source",
+      "keywords": "command 源码 Source"
     },
     {
       "id": "command-palette",

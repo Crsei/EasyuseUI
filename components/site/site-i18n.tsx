@@ -8,7 +8,7 @@ import {
 } from "react"
 import { createTranslator, type MessageValues } from "@/lib/i18n-core"
 import { useI18n } from "@/lib/i18n-provider"
-import { siteMessages } from "@/lib/site-i18n-messages"
+import { siteMessages } from "@/lib/site-i18n-runtime"
 
 export type SiteMessageKey = keyof (typeof siteMessages)["zh-CN"]
 const sourceKeys = new Map<string, keyof (typeof siteMessages)["zh-CN"]>(

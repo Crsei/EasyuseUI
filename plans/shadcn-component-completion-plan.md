@@ -1,6 +1,6 @@
 # shadcn 组件对照与补齐执行清单
 
-日期：2026-10-09。状态：S0、S1 已完成；下一阶段 S2，S2–S9 待执行。
+日期：2026-10-09。状态：S0–S9 已完成；工程、完整浏览器回归与独立安装全部通过。
 
 配套记录：[实施记录](./shadcn-component-completion-log.md)。遵循 [设计规则](../Design-rules.md)、[组件契约](../Component-Specification.md)、[国际化](../I18N.md) 和 [既有通用组件计划](./common-components-completion-plan.md)。
 
@@ -26,14 +26,14 @@ DatePicker 是参考文档中的组合示例，单独纳入 S5；DataTable 已�
 | --------------- | ------ | ------ | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | S0              | P0     | 已完成 | 冻结上述 63 项、分层责任与执行顺序，保存共享工作区基线                               | 本清单与配套记录存在；保留并行 CRM/站点改动                                                                                            |
 | S1 基础表单     | P0     | 已完成 | 依次补 Textarea、Label、NativeSelect、Switch、RadioGroup                             | 每项独立示例、Manifest、Registry；受控/非受控、表单值、禁用、标签/错误、键盘、触摸与切语言保留草稿；独立安装验证                       |
-| S2 控件组合     | P1     | 待执行 | ButtonGroup、InputGroup、Toggle、ToggleGroup、InputOTP                               | 单选/多选语义明确；组合目标无嵌套按钮；OTP 粘贴、删除、焦点及表单提交；业务值由调用方持有                                              |
-| S3 折叠与浮层   | P0     | 待执行 | Separator、Collapsible、Accordion、通用 Tooltip、AlertDialog、HoverCard、ContextMenu | 展开与选择分轴；键盘、焦点恢复、触摸替代、ThemeBoundary Portal；确认只调用显式能力，不以 resolve 推断业务完成                          |
-| S4 数据反馈     | P0     | 待执行 | Skeleton、Spinner、Empty、Alert、Progress；Toast/Sonner 统一通知体系                 | 优先提取 DataRegion/TaskPanel 现有能力；meter 与 progress 分开；减少动效、未知进度；通知不充当操作权威；决定统一导出及 Sonner 适配范围 |
-| S5 日期与导航   | P0     | 待执行 | DateCalendar、DatePicker、Pagination、Breadcrumb、Menubar、NavigationMenu、Direction | 日期单选/范围、禁用日期、月导航与时区边界；保留既有事项 Calendar；分页请求受控，不虚构总数；RTL/键盘导航                               |
-| S6 对话扩展     | P1     | 待执行 | Attachment、Marker、Questionnaire；评估 Bubble 的独立示例场景                        | 附件状态与上传能力分责；问卷单选/多选/文本/跳过/回退/提交；聊天消息沿现有同轴契约；不执行上传或外部服务                                |
-| S7 内容与图表   | P2     | 待执行 | Card、AspectRatio、Carousel、Chart                                                   | Card 只用于独立内容；轮播键盘/触摸/减少动效；图表文本替代、空/缺失/负值；评估依赖及安装体积                                            |
-| S8 现有模式整合 | P1     | 待执行 | Form、Sidebar、Resizable、ScrollArea；复核 Command/Drawer/Message/MessageScroller    | Form 以 Field 为基础，业务验证/提交由调用方负责；抽取可复用布局能力；保留原生滚动决策；滑动抽屉、内嵌命令、任意消息定位按实际缺口扩展  |
-| S9 收口         | P1     | 待执行 | 刷新对照表、词典、技能映射与安装说明，完成整体回归                                   | 63 项逐项有实现或明确复用/不新增依据；不存在虚假 available；工程、浏览器与独立安装证据可追溯                                           |
+| S2 控件组合     | P1     | 已完成 | ButtonGroup、InputGroup、Toggle、ToggleGroup、InputOTP                               | 单选/多选语义明确；组合目标无嵌套按钮；OTP 粘贴、删除、焦点及表单提交；业务值由调用方持有                                              |
+| S3 折叠与浮层   | P0     | 已完成 | Separator、Collapsible、Accordion、通用 Tooltip、AlertDialog、HoverCard、ContextMenu | 展开与选择分轴；键盘、焦点恢复、触摸替代、ThemeBoundary Portal；确认只调用显式能力，不以 resolve 推断业务完成                          |
+| S4 数据反馈     | P0     | 已完成 | Skeleton、Spinner、Empty、Alert、Progress；Toast/Sonner 统一通知体系                 | 优先提取 DataRegion/TaskPanel 现有能力；meter 与 progress 分开；减少动效、未知进度；通知不充当操作权威；决定统一导出及 Sonner 适配范围 |
+| S5 日期与导航   | P0     | 已完成 | DateCalendar、DatePicker、Pagination、Breadcrumb、Menubar、NavigationMenu、Direction | 日期单选/范围、禁用日期、月导航与时区边界；保留既有事项 Calendar；分页请求受控，不虚构总数；RTL/键盘导航                               |
+| S6 对话扩展     | P1     | 已完成 | Attachment、Marker、Questionnaire；评估 Bubble 的独立示例场景                        | 附件状态与上传能力分责；问卷单选/多选/文本/跳过/回退/提交；聊天消息沿现有同轴契约；不执行上传或外部服务                                |
+| S7 内容与图表   | P2     | 已完成 | Card、AspectRatio、Carousel、Chart                                                   | Card 只用于独立内容；轮播键盘/触摸/减少动效；图表文本替代、空/缺失/负值；评估依赖及安装体积                                            |
+| S8 现有模式整合 | P1     | 已完成 | Form、Sidebar、Resizable、ScrollArea；复核 Command/Drawer/Message/MessageScroller    | Form 以 Field 为基础，业务验证/提交由调用方负责；抽取可复用布局能力；保留原生滚动决策；滑动抽屉、内嵌命令、任意消息定位按实际缺口扩展  |
+| S9 收口         | P1     | 已完成 | 刷新对照表、词典、技能映射与安装说明，完成整体回归                                   | 63 项逐项有实现或明确复用/不新增依据；不存在虚假 available；工程、浏览器与独立安装证据可追溯                                           |
 
 ## S1 固定接口与检查项
 

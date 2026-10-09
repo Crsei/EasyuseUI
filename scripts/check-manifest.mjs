@@ -3,6 +3,7 @@ import ts from "typescript"
 import fs from "node:fs"
 import path from "node:path"
 import { componentManifest } from "../lib/component-manifest.ts"
+import { siteMessages } from "../lib/site-i18n-messages.ts"
 
 const root = path.resolve(import.meta.dirname, "..")
 const registry = JSON.parse(
@@ -121,7 +122,16 @@ const index = componentManifest.map((entry) => ({
   ),
   notes: entry.notes.slice(0, 1),
 }))
+const messageKeys = Object.keys(siteMessages["zh-CN"])
+assert.deepEqual(messageKeys.toSorted(), Object.keys(siteMessages.en).toSorted())
 const outputs = {
+  "site-i18n-compact.json": {
+    keys: messageKeys,
+    values: {
+      "zh-CN": messageKeys.map((key) => siteMessages["zh-CN"][key]),
+      en: messageKeys.map((key) => siteMessages.en[key]),
+    },
+  },
   "component-index.json": index,
   "component-navigation.json": componentManifest.map(
     ({
@@ -140,6 +150,21 @@ const outputs = {
       displayCategory,
       docGroup,
       docOrder,
+    }),
+  ),
+  "component-preview.json": componentManifest.map(({ slug, widePreview }) => ({
+    slug,
+    ...(widePreview ? { widePreview } : {}),
+  })),
+  "component-vocabulary.json": componentManifest.map(
+    ({ slug, name, category, description, source, usage, notes }) => ({
+      slug,
+      name,
+      category,
+      description,
+      source,
+      usage,
+      notes: notes.slice(0, 1),
     }),
   ),
   "component-directory.json": componentManifest.map(

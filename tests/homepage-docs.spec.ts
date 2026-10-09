@@ -3,6 +3,7 @@ import { expect, test } from "@playwright/test"
 import docs from "../lib/docs-index.json" with { type: "json" }
 import files from "../lib/docs-code-index.json" with { type: "json" }
 import { docGuides } from "../lib/doc-guides"
+import { exampleManifest } from "../lib/example-manifest"
 
 for (const width of [1440, 1280, 768, 390]) {
   for (const theme of ["light", "dark"] as const) {
@@ -90,7 +91,11 @@ test("primary navigation, gallery and generated guides keep canonical routes", a
     page.getByRole("navigation", { name: "主导航" }).getByRole("link"),
   ).toHaveCount(4)
   await page.goto("/examples/")
-  await expect(page.locator("[data-example]")).toHaveCount(3)
+  await expect(page.locator("[data-example]")).toHaveCount(exampleManifest.length)
+  for (const example of exampleManifest)
+    await expect(
+      page.locator(`[data-example="${example.id}"]`).getByRole("link").first(),
+    ).toHaveAttribute("href", example.href)
   await expect(
     page.getByRole("link", { name: "Work Items", exact: true }),
   ).toHaveAttribute("href", "/examples/work-items/")

@@ -1,4 +1,644 @@
 {
+  "button-group": [
+    {
+      "id": "253e3b10f95b4344ef6799571d037a7808821f79975e093d5a7797f7b75794af",
+      "path": "components/ui/button-group.tsx",
+      "kind": "source",
+      "url": "/docs-code/253e3b10f95b4344ef6799571d037a7808821f79975e093d5a7797f7b75794af.json",
+      "lines": 27
+    },
+    {
+      "id": "a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f",
+      "path": "components/examples/control-composition-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f.json",
+      "lines": 149
+    }
+  ],
+  "input-group": [
+    {
+      "id": "31db9d1fd36ce7b5cdf6f6fb9c28c6adb820da732fbf5807006202c9231ac533",
+      "path": "components/ui/input-group.tsx",
+      "kind": "source",
+      "url": "/docs-code/31db9d1fd36ce7b5cdf6f6fb9c28c6adb820da732fbf5807006202c9231ac533.json",
+      "lines": 59
+    },
+    {
+      "id": "a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f",
+      "path": "components/examples/control-composition-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f.json",
+      "lines": 149
+    }
+  ],
+  "toggle": [
+    {
+      "id": "62beebc7a4f5cca1cb06ed9156ee3c67993d4b9acfb9ce2bcf80a458f33706d3",
+      "path": "components/ui/toggle.tsx",
+      "kind": "source",
+      "url": "/docs-code/62beebc7a4f5cca1cb06ed9156ee3c67993d4b9acfb9ce2bcf80a458f33706d3.json",
+      "lines": 22
+    },
+    {
+      "id": "a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f",
+      "path": "components/examples/control-composition-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f.json",
+      "lines": 149
+    }
+  ],
+  "toggle-group": [
+    {
+      "id": "e0a14e4d8fe2c0ffc4f2e24849a0beaebfb1ef17345e6fb3be22c4a82b06947c",
+      "path": "components/ui/toggle-group.tsx",
+      "kind": "source",
+      "url": "/docs-code/e0a14e4d8fe2c0ffc4f2e24849a0beaebfb1ef17345e6fb3be22c4a82b06947c.json",
+      "lines": 26
+    },
+    {
+      "id": "a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f",
+      "path": "components/examples/control-composition-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f.json",
+      "lines": 149
+    }
+  ],
+  "input-otp": [
+    {
+      "id": "ac75ac8d126770f257696f3e3265cfd635a158fb31d8014c9547696505fc1181",
+      "path": "components/ui/input-otp.tsx",
+      "kind": "source",
+      "url": "/docs-code/ac75ac8d126770f257696f3e3265cfd635a158fb31d8014c9547696505fc1181.json",
+      "lines": 38
+    },
+    {
+      "id": "a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f",
+      "path": "components/examples/control-composition-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/a7f5a49cc0bb1549a7ad4e9054fd77fd90fc8362e5d3c1fd6dd1865ad0239e7f.json",
+      "lines": 149
+    }
+  ],
+  "separator": [
+    {
+      "id": "374df0c2d2e61be2f0e21b5609c066ac75bfa7bc2bf536aff9990b116aa28388",
+      "path": "components/ui/separator.tsx",
+      "kind": "source",
+      "url": "/docs-code/374df0c2d2e61be2f0e21b5609c066ac75bfa7bc2bf536aff9990b116aa28388.json",
+      "lines": 26
+    },
+    {
+      "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
+      "path": "components/examples/disclosure-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a.json",
+      "lines": 200
+    }
+  ],
+  "collapsible": [
+    {
+      "id": "c810a9a270f56a52e6a66339d02605643f504cb34c8f78e97f55103c024e4542",
+      "path": "components/ui/collapsible.tsx",
+      "kind": "source",
+      "url": "/docs-code/c810a9a270f56a52e6a66339d02605643f504cb34c8f78e97f55103c024e4542.json",
+      "lines": 14
+    },
+    {
+      "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
+      "path": "components/examples/disclosure-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a.json",
+      "lines": 200
+    }
+  ],
+  "accordion": [
+    {
+      "id": "fd777cd01f5103ec1585b1e3f797a0283a8f56eb86a6ef80b3fa3fbbf10f8d8d",
+      "path": "components/ui/accordion.tsx",
+      "kind": "source",
+      "url": "/docs-code/fd777cd01f5103ec1585b1e3f797a0283a8f56eb86a6ef80b3fa3fbbf10f8d8d.json",
+      "lines": 47
+    },
+    {
+      "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
+      "path": "components/examples/disclosure-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a.json",
+      "lines": 200
+    }
+  ],
+  "tooltip": [
+    {
+      "id": "5eba72d8c3d511afaafcf2945ab2a8fad8dd56da11df4a0e93611c2a528d5994",
+      "path": "components/ui/tooltip.tsx",
+      "kind": "source",
+      "url": "/docs-code/5eba72d8c3d511afaafcf2945ab2a8fad8dd56da11df4a0e93611c2a528d5994.json",
+      "lines": 41
+    },
+    {
+      "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
+      "path": "components/examples/disclosure-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a.json",
+      "lines": 200
+    }
+  ],
+  "alert-dialog": [
+    {
+      "id": "2c5955f722550cf7507d8ba8362cc4d7f349735dc01210826a133d47d6087faa",
+      "path": "components/ui/alert-dialog.tsx",
+      "kind": "source",
+      "url": "/docs-code/2c5955f722550cf7507d8ba8362cc4d7f349735dc01210826a133d47d6087faa.json",
+      "lines": 29
+    },
+    {
+      "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
+      "path": "components/examples/disclosure-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a.json",
+      "lines": 200
+    }
+  ],
+  "hover-card": [
+    {
+      "id": "f38a10c7f5008aeaebe240722aeb35e22c77b01ed2fae85dbdc606151bb44242",
+      "path": "components/ui/hover-card.tsx",
+      "kind": "source",
+      "url": "/docs-code/f38a10c7f5008aeaebe240722aeb35e22c77b01ed2fae85dbdc606151bb44242.json",
+      "lines": 40
+    },
+    {
+      "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
+      "path": "components/examples/disclosure-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a.json",
+      "lines": 200
+    }
+  ],
+  "context-menu": [
+    {
+      "id": "95bed1e056066e23d36d0b2a8941cb63a8f4d11a714843cd284ef7c1e8df9282",
+      "path": "components/ui/context-menu.tsx",
+      "kind": "source",
+      "url": "/docs-code/95bed1e056066e23d36d0b2a8941cb63a8f4d11a714843cd284ef7c1e8df9282.json",
+      "lines": 37
+    },
+    {
+      "id": "155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a",
+      "path": "components/examples/disclosure-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/155d0c5a8db2634dd9b3b9d931f170d7aed0ba20f6f6f888c4abda97acf4f72a.json",
+      "lines": 200
+    }
+  ],
+  "skeleton": [
+    {
+      "id": "74af622ed97c34fedf41d45df422085b96f7900c6630669a8a55bdb3a9533a81",
+      "path": "components/ui/skeleton.tsx",
+      "kind": "source",
+      "url": "/docs-code/74af622ed97c34fedf41d45df422085b96f7900c6630669a8a55bdb3a9533a81.json",
+      "lines": 13
+    },
+    {
+      "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
+      "path": "components/examples/feedback-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691.json",
+      "lines": 131
+    }
+  ],
+  "spinner": [
+    {
+      "id": "0f9dbb3ee84b9db9a5ddd2707f8d6952f8d5aba75cb571ae7f0ee5753c6dd3d1",
+      "path": "components/ui/spinner.tsx",
+      "kind": "source",
+      "url": "/docs-code/0f9dbb3ee84b9db9a5ddd2707f8d6952f8d5aba75cb571ae7f0ee5753c6dd3d1.json",
+      "lines": 40
+    },
+    {
+      "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
+      "path": "components/examples/feedback-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691.json",
+      "lines": 131
+    }
+  ],
+  "empty": [
+    {
+      "id": "e66f4e4c1704dfa665fdb6f4ac48f6b76eeca86358671558a3803fbe81b4ea4f",
+      "path": "components/ui/empty.tsx",
+      "kind": "source",
+      "url": "/docs-code/e66f4e4c1704dfa665fdb6f4ac48f6b76eeca86358671558a3803fbe81b4ea4f.json",
+      "lines": 42
+    },
+    {
+      "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
+      "path": "components/examples/feedback-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691.json",
+      "lines": 131
+    }
+  ],
+  "alert": [
+    {
+      "id": "41ba9869a3cd97c3bbb479d05342796a2d04a3f353683be94529be51c3394042",
+      "path": "components/ui/alert.tsx",
+      "kind": "source",
+      "url": "/docs-code/41ba9869a3cd97c3bbb479d05342796a2d04a3f353683be94529be51c3394042.json",
+      "lines": 40
+    },
+    {
+      "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
+      "path": "components/examples/feedback-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691.json",
+      "lines": 131
+    }
+  ],
+  "progress": [
+    {
+      "id": "81adc23386b575cb7fdb3f7a5dd4fdacba63179e24b33fcbf611aa8787643aa7",
+      "path": "components/ui/progress.tsx",
+      "kind": "source",
+      "url": "/docs-code/81adc23386b575cb7fdb3f7a5dd4fdacba63179e24b33fcbf611aa8787643aa7.json",
+      "lines": 53
+    },
+    {
+      "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
+      "path": "components/examples/feedback-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691.json",
+      "lines": 131
+    }
+  ],
+  "toast": [
+    {
+      "id": "d29fbc3a6c6a64c753bd95400e625a684898085164ab5aafa04692418cca465e",
+      "path": "components/ui/toast.tsx",
+      "kind": "source",
+      "url": "/docs-code/d29fbc3a6c6a64c753bd95400e625a684898085164ab5aafa04692418cca465e.json",
+      "lines": 61
+    },
+    {
+      "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
+      "path": "components/examples/feedback-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691.json",
+      "lines": 131
+    }
+  ],
+  "sonner": [
+    {
+      "id": "2eb901de9a0a2695865d4440d2ada0238c6efc86225de067a9f91fa869d07cb8",
+      "path": "components/ui/sonner.tsx",
+      "kind": "source",
+      "url": "/docs-code/2eb901de9a0a2695865d4440d2ada0238c6efc86225de067a9f91fa869d07cb8.json",
+      "lines": 10
+    },
+    {
+      "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
+      "path": "components/examples/feedback-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691.json",
+      "lines": 131
+    }
+  ],
+  "date-calendar": [
+    {
+      "id": "6c9c45ec2e9ebd3d22f22e95fabaf4bd9212c6f51c8f90e04ec441a5c0359d80",
+      "path": "components/ui/date-calendar.tsx",
+      "kind": "source",
+      "url": "/docs-code/6c9c45ec2e9ebd3d22f22e95fabaf4bd9212c6f51c8f90e04ec441a5c0359d80.json",
+      "lines": 287
+    },
+    {
+      "id": "8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5",
+      "path": "components/examples/date-navigation-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5.json",
+      "lines": 208
+    }
+  ],
+  "date-picker": [
+    {
+      "id": "8b63f337e7ca550e8916d9d5c871a24f4bf226e73a97f2d31297b38a4890eda2",
+      "path": "components/ui/date-picker.tsx",
+      "kind": "source",
+      "url": "/docs-code/8b63f337e7ca550e8916d9d5c871a24f4bf226e73a97f2d31297b38a4890eda2.json",
+      "lines": 73
+    },
+    {
+      "id": "8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5",
+      "path": "components/examples/date-navigation-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5.json",
+      "lines": 208
+    }
+  ],
+  "pagination": [
+    {
+      "id": "baa6820b64f677632310ef0e37a55f9401bc4bdc7b9232331b4c7d602557f4b5",
+      "path": "components/ui/pagination.tsx",
+      "kind": "source",
+      "url": "/docs-code/baa6820b64f677632310ef0e37a55f9401bc4bdc7b9232331b4c7d602557f4b5.json",
+      "lines": 79
+    },
+    {
+      "id": "8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5",
+      "path": "components/examples/date-navigation-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5.json",
+      "lines": 208
+    }
+  ],
+  "breadcrumb": [
+    {
+      "id": "b9f4d2ba417a07ddc86104e5a0c0dc1d9a538f2806b76bae69364c3f98d02394",
+      "path": "components/ui/breadcrumb.tsx",
+      "kind": "source",
+      "url": "/docs-code/b9f4d2ba417a07ddc86104e5a0c0dc1d9a538f2806b76bae69364c3f98d02394.json",
+      "lines": 61
+    },
+    {
+      "id": "8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5",
+      "path": "components/examples/date-navigation-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5.json",
+      "lines": 208
+    }
+  ],
+  "menubar": [
+    {
+      "id": "e87809a69184c767f3d02b581f4c218c2ec974a6239637387c6720d34756afbb",
+      "path": "components/ui/menubar.tsx",
+      "kind": "source",
+      "url": "/docs-code/e87809a69184c767f3d02b581f4c218c2ec974a6239637387c6720d34756afbb.json",
+      "lines": 30
+    },
+    {
+      "id": "8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5",
+      "path": "components/examples/date-navigation-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5.json",
+      "lines": 208
+    }
+  ],
+  "navigation-menu": [
+    {
+      "id": "5b196499e4b17da8110e67d6e748482647c0596d81215e197688ae809941a3d2",
+      "path": "components/ui/navigation-menu.tsx",
+      "kind": "source",
+      "url": "/docs-code/5b196499e4b17da8110e67d6e748482647c0596d81215e197688ae809941a3d2.json",
+      "lines": 73
+    },
+    {
+      "id": "8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5",
+      "path": "components/examples/date-navigation-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5.json",
+      "lines": 208
+    }
+  ],
+  "direction": [
+    {
+      "id": "67b0608336d429f4782f8287f264976187c9f5aa84c3bbb8f29f7eef683713c3",
+      "path": "components/ui/direction.tsx",
+      "kind": "source",
+      "url": "/docs-code/67b0608336d429f4782f8287f264976187c9f5aa84c3bbb8f29f7eef683713c3.json",
+      "lines": 21
+    },
+    {
+      "id": "8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5",
+      "path": "components/examples/date-navigation-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/8615f89baee2bb52cfeec772b0794ed7f4afbd0601e15c26a327470d31252ad5.json",
+      "lines": 208
+    }
+  ],
+  "attachment": [
+    {
+      "id": "0a38e8e1a4a5feba7ec7c3bcc808cd0215fce19e70c9db49995d6a8ab308a3ab",
+      "path": "components/ui/attachment.tsx",
+      "kind": "source",
+      "url": "/docs-code/0a38e8e1a4a5feba7ec7c3bcc808cd0215fce19e70c9db49995d6a8ab308a3ab.json",
+      "lines": 62
+    },
+    {
+      "id": "9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82",
+      "path": "components/examples/conversation-extensions-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82.json",
+      "lines": 115
+    }
+  ],
+  "marker": [
+    {
+      "id": "a6a6ee93f2f22d308cc920ea0878ec25769797d52d3cc60c466efda50aa54ded",
+      "path": "components/ui/marker.tsx",
+      "kind": "source",
+      "url": "/docs-code/a6a6ee93f2f22d308cc920ea0878ec25769797d52d3cc60c466efda50aa54ded.json",
+      "lines": 37
+    },
+    {
+      "id": "9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82",
+      "path": "components/examples/conversation-extensions-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82.json",
+      "lines": 115
+    }
+  ],
+  "questionnaire": [
+    {
+      "id": "500dcfc4ff1cede4bcd4153d0715ca30f902c33ed99a6a2f7550cd0880107dab",
+      "path": "components/blocks/questionnaire.tsx",
+      "kind": "source",
+      "url": "/docs-code/500dcfc4ff1cede4bcd4153d0715ca30f902c33ed99a6a2f7550cd0880107dab.json",
+      "lines": 281
+    },
+    {
+      "id": "9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82",
+      "path": "components/examples/conversation-extensions-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82.json",
+      "lines": 115
+    }
+  ],
+  "bubble": [
+    {
+      "id": "965fe74608695868d3a51a413e59e1bffb037643b52eb3a27415f398e5bee57e",
+      "path": "components/ui/bubble.tsx",
+      "kind": "source",
+      "url": "/docs-code/965fe74608695868d3a51a413e59e1bffb037643b52eb3a27415f398e5bee57e.json",
+      "lines": 32
+    },
+    {
+      "id": "9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82",
+      "path": "components/examples/conversation-extensions-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/9ad46f66969aaeee1598fb591d3fad01365cfa8c515f1bf2801d8d10c2af2f82.json",
+      "lines": 115
+    }
+  ],
+  "card": [
+    {
+      "id": "6c403ae8376dc5ecea4d4128eac16532024270d2c55859cd27f3d620116a70bd",
+      "path": "components/ui/card.tsx",
+      "kind": "source",
+      "url": "/docs-code/6c403ae8376dc5ecea4d4128eac16532024270d2c55859cd27f3d620116a70bd.json",
+      "lines": 45
+    },
+    {
+      "id": "6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a",
+      "path": "components/examples/content-chart-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a.json",
+      "lines": 88
+    }
+  ],
+  "aspect-ratio": [
+    {
+      "id": "768cda75b472f678f08a6495b75afcb2ebaef1602c73a779a85e2b885d38172e",
+      "path": "components/ui/aspect-ratio.tsx",
+      "kind": "source",
+      "url": "/docs-code/768cda75b472f678f08a6495b75afcb2ebaef1602c73a779a85e2b885d38172e.json",
+      "lines": 21
+    },
+    {
+      "id": "6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a",
+      "path": "components/examples/content-chart-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a.json",
+      "lines": 88
+    }
+  ],
+  "carousel": [
+    {
+      "id": "f8d08ae0eaeed82e990dd390a4474abfcc2257da4f84d201373a39dc51fd81ac",
+      "path": "components/ui/carousel.tsx",
+      "kind": "source",
+      "url": "/docs-code/f8d08ae0eaeed82e990dd390a4474abfcc2257da4f84d201373a39dc51fd81ac.json",
+      "lines": 164
+    },
+    {
+      "id": "6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a",
+      "path": "components/examples/content-chart-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a.json",
+      "lines": 88
+    }
+  ],
+  "chart": [
+    {
+      "id": "25209949aba1df1835303a83e832f6cfa3a2c18540e8c6941f24861cfa290ce1",
+      "path": "components/blocks/chart.tsx",
+      "kind": "source",
+      "url": "/docs-code/25209949aba1df1835303a83e832f6cfa3a2c18540e8c6941f24861cfa290ce1.json",
+      "lines": 171
+    },
+    {
+      "id": "6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a",
+      "path": "components/examples/content-chart-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/6487693c1ed191e32c153b1f482a1980820a8d95cb42df94516c5d7b339f7b5a.json",
+      "lines": 88
+    }
+  ],
+  "form": [
+    {
+      "id": "4d0897df4293fe4789a683c6bea0461b53b0489adb8efaae7c4c2dce5bceffce",
+      "path": "components/ui/form.tsx",
+      "kind": "source",
+      "url": "/docs-code/4d0897df4293fe4789a683c6bea0461b53b0489adb8efaae7c4c2dce5bceffce.json",
+      "lines": 8
+    },
+    {
+      "id": "4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94",
+      "path": "components/examples/layout-integration-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94.json",
+      "lines": 229
+    }
+  ],
+  "sidebar": [
+    {
+      "id": "a51f200bc96bf6a1c5862b08cc6e94d90361db4e9fb7b3d8ee4c8acac4776bd3",
+      "path": "components/blocks/sidebar.tsx",
+      "kind": "source",
+      "url": "/docs-code/a51f200bc96bf6a1c5862b08cc6e94d90361db4e9fb7b3d8ee4c8acac4776bd3.json",
+      "lines": 149
+    },
+    {
+      "id": "4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94",
+      "path": "components/examples/layout-integration-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94.json",
+      "lines": 229
+    }
+  ],
+  "resizable": [
+    {
+      "id": "2bbceca44a18a9f344d6b9fc228ad966b5ffb7e2e15edfacee0c6b4faa908f52",
+      "path": "components/ui/resizable.tsx",
+      "kind": "source",
+      "url": "/docs-code/2bbceca44a18a9f344d6b9fc228ad966b5ffb7e2e15edfacee0c6b4faa908f52.json",
+      "lines": 188
+    },
+    {
+      "id": "4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94",
+      "path": "components/examples/layout-integration-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94.json",
+      "lines": 229
+    }
+  ],
+  "scroll-area": [
+    {
+      "id": "e51c2ddbd83030556658f2f0fe51d7e267cca7a0a52b4f125102effdf866731d",
+      "path": "components/ui/scroll-area.tsx",
+      "kind": "source",
+      "url": "/docs-code/e51c2ddbd83030556658f2f0fe51d7e267cca7a0a52b4f125102effdf866731d.json",
+      "lines": 34
+    },
+    {
+      "id": "4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94",
+      "path": "components/examples/layout-integration-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94.json",
+      "lines": 229
+    }
+  ],
+  "command": [
+    {
+      "id": "b6d0657eeb0ac5db8e1164dbf07908da343c08ea5c297314b109222cc132a55b",
+      "path": "components/blocks/command.tsx",
+      "kind": "source",
+      "url": "/docs-code/b6d0657eeb0ac5db8e1164dbf07908da343c08ea5c297314b109222cc132a55b.json",
+      "lines": 11
+    },
+    {
+      "id": "4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94",
+      "path": "components/examples/layout-integration-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94.json",
+      "lines": 229
+    }
+  ],
+  "drawer": [
+    {
+      "id": "2fb749075a25c9befe213b0f714469fa938d9201e8611e4fd40bd7a7caf0aad8",
+      "path": "components/ui/drawer.tsx",
+      "kind": "source",
+      "url": "/docs-code/2fb749075a25c9befe213b0f714469fa938d9201e8611e4fd40bd7a7caf0aad8.json",
+      "lines": 102
+    },
+    {
+      "id": "4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94",
+      "path": "components/examples/layout-integration-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4060d57dfc6d9b7321d3cf9b66b79b494081f87a3898f9936b5bf8487cb3cc94.json",
+      "lines": 229
+    }
+  ],
   "analytics-model": [
     {
       "id": "ad86db404b1c6f81b8ad1481bf6afb2ea30077df549370600c01da5f275b26fe",
@@ -487,11 +1127,11 @@
   ],
   "command-palette": [
     {
-      "id": "c3c1827e2dfbfa8738d630528ec41a42715484fff21dee7a253aa9fd1f03774a",
+      "id": "6ef832af67e9c1a4f5e7c99f765560d5f68eec7208109f1ed0aa451b4cf96442",
       "path": "components/blocks/command-palette.tsx",
       "kind": "source",
-      "url": "/docs-code/c3c1827e2dfbfa8738d630528ec41a42715484fff21dee7a253aa9fd1f03774a.json",
-      "lines": 272
+      "url": "/docs-code/6ef832af67e9c1a4f5e7c99f765560d5f68eec7208109f1ed0aa451b4cf96442.json",
+      "lines": 288
     },
     {
       "id": "8239fe9b649ecce060b19150660d719f1a0534c51be74fcdb657807efdac0d70",
@@ -771,11 +1411,11 @@
       "lines": 135
     },
     {
-      "id": "f38c1d0b104a4f78ef86f24d0b6d01d6fd1f3760a9818cb6b5fb188e37496aaa",
+      "id": "5beb8f5f050e5e5baf9acdd4db99a369950200bd705bb7ecb93e8bef3f8d49b0",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/f38c1d0b104a4f78ef86f24d0b6d01d6fd1f3760a9818cb6b5fb188e37496aaa.json",
-      "lines": 2870
+      "url": "/docs-code/5beb8f5f050e5e5baf9acdd4db99a369950200bd705bb7ecb93e8bef3f8d49b0.json",
+      "lines": 2499
     }
   ],
   "canvas-service-panel": [
@@ -1425,11 +2065,11 @@
   ],
   "workspace-shell": [
     {
-      "id": "70727abdf009641cd7bf9e9bbcfc0e3d766cfc2f45fdd18219d0016f3f119762",
+      "id": "051e7cca101c719883e1e454d8e5a2dfc648db2e2682644ccdc2042694d6455d",
       "path": "components/blocks/workspace-shell.tsx",
       "kind": "source",
-      "url": "/docs-code/70727abdf009641cd7bf9e9bbcfc0e3d766cfc2f45fdd18219d0016f3f119762.json",
-      "lines": 521
+      "url": "/docs-code/051e7cca101c719883e1e454d8e5a2dfc648db2e2682644ccdc2042694d6455d.json",
+      "lines": 486
     },
     {
       "id": "82be09674e5c713d6c6805d6d32223accff8915b154108cf05406ba650b23a0e",
@@ -1462,11 +2102,11 @@
   ],
   "data-region": [
     {
-      "id": "4190f68cb1ac97adfa126470c7392d1914a3eb289be916d3c87944f7edc7f5df",
+      "id": "5f6a120c342e0645d2d051626e6f4f400ff6760ac5351cd736dfadb06df64834",
       "path": "components/ui/data-region.tsx",
       "kind": "source",
-      "url": "/docs-code/4190f68cb1ac97adfa126470c7392d1914a3eb289be916d3c87944f7edc7f5df.json",
-      "lines": 147
+      "url": "/docs-code/5f6a120c342e0645d2d051626e6f4f400ff6760ac5351cd736dfadb06df64834.json",
+      "lines": 153
     },
     {
       "id": "8af263ee2bf6a11be2e7516a9d78d57c5f9134085bc5c6e175fd5da00b237594",
@@ -1575,11 +2215,11 @@
       "lines": 214
     },
     {
-      "id": "5dcc1df3e5e88f369ec2ddecb0b2f069945547f9da1c20d9a3efa09087444ac1",
+      "id": "17192c0225840b1eb029ff9989a4817c083b8143c0fdc263da7836672df5335d",
       "path": "lib/use-follow-tail.ts",
       "kind": "related",
-      "url": "/docs-code/5dcc1df3e5e88f369ec2ddecb0b2f069945547f9da1c20d9a3efa09087444ac1.json",
-      "lines": 157
+      "url": "/docs-code/17192c0225840b1eb029ff9989a4817c083b8143c0fdc263da7836672df5335d.json",
+      "lines": 175
     }
   ],
   "inspector": [
@@ -1607,18 +2247,18 @@
   ],
   "chat-message": [
     {
-      "id": "09f0e5a54441c639a129ffa1096c750479cfda3884691110bb898c8859c2ee75",
+      "id": "95e2fbcdc9549cb5d3d6dfc1f753045495c32308181ab11f2eb27e73d7822646",
       "path": "components/blocks/chat-message.tsx",
       "kind": "source",
-      "url": "/docs-code/09f0e5a54441c639a129ffa1096c750479cfda3884691110bb898c8859c2ee75.json",
-      "lines": 426
+      "url": "/docs-code/95e2fbcdc9549cb5d3d6dfc1f753045495c32308181ab11f2eb27e73d7822646.json",
+      "lines": 445
     },
     {
-      "id": "f8f313002b1e08153899133c888a8c5c5602d43a7ef8c33ca75f6d59ff34d7a7",
+      "id": "04144bef2527c90bc0673a0943f15886be594044dd617ef07d46c49de6a00ccd",
       "path": "components/examples/chat-message-demo.tsx",
       "kind": "example",
-      "url": "/docs-code/f8f313002b1e08153899133c888a8c5c5602d43a7ef8c33ca75f6d59ff34d7a7.json",
-      "lines": 176
+      "url": "/docs-code/04144bef2527c90bc0673a0943f15886be594044dd617ef07d46c49de6a00ccd.json",
+      "lines": 197
     },
     {
       "id": "e074dd0925804c5fdad4675f9a116c7e29ebdef945a27bf744150be5d762249d",
@@ -1628,11 +2268,11 @@
       "lines": 258
     },
     {
-      "id": "5dcc1df3e5e88f369ec2ddecb0b2f069945547f9da1c20d9a3efa09087444ac1",
+      "id": "17192c0225840b1eb029ff9989a4817c083b8143c0fdc263da7836672df5335d",
       "path": "lib/use-follow-tail.ts",
       "kind": "related",
-      "url": "/docs-code/5dcc1df3e5e88f369ec2ddecb0b2f069945547f9da1c20d9a3efa09087444ac1.json",
-      "lines": 157
+      "url": "/docs-code/17192c0225840b1eb029ff9989a4817c083b8143c0fdc263da7836672df5335d.json",
+      "lines": 175
     }
   ],
   "tool-call": [

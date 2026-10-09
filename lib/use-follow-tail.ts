@@ -152,5 +152,23 @@ export function useFollowTail(
     pendingUnread.current = 0
     setUnread(0)
   }
-  return { ref, unread, onScroll, jumpToLatest }
+  function scrollToId(id: string, options: { focus?: boolean } = {}) {
+    const element = ref.current
+    const entry = element?.querySelector<HTMLElement>(
+      `[data-follow-tail-id="${CSS.escape(id)}"]`,
+    )
+    if (!element || !entry) return false
+    following.current = false
+    element.scrollTop +=
+      entry.getBoundingClientRect().top -
+      element.getBoundingClientRect().top -
+      element.clientTop
+    if (options.focus) {
+      entry.tabIndex = -1
+      entry.focus({ preventScroll: true })
+    }
+    rememberAnchor(element)
+    return true
+  }
+  return { ref, unread, onScroll, jumpToLatest, scrollToId }
 }

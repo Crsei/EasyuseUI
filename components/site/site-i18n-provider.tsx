@@ -17,7 +17,7 @@ import {
 import { pageDescriptionKeys } from "@/lib/site-i18n-metadata"
 import type { DocGuide } from "@/lib/doc-guides"
 import blogIndex from "@/lib/blog-index.json"
-import { siteMessages } from "@/lib/site-i18n-messages"
+import { siteMessages } from "@/lib/site-i18n-runtime"
 
 export const localeStorageKey = "easyuseui-locale"
 const localeEvent = "easyuseui:locale"

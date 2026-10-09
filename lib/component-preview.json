@@ -1,0 +1,546 @@
+[
+  {
+    "slug": "button-group"
+  },
+  {
+    "slug": "input-group"
+  },
+  {
+    "slug": "toggle"
+  },
+  {
+    "slug": "toggle-group"
+  },
+  {
+    "slug": "input-otp"
+  },
+  {
+    "slug": "separator"
+  },
+  {
+    "slug": "collapsible"
+  },
+  {
+    "slug": "accordion"
+  },
+  {
+    "slug": "tooltip"
+  },
+  {
+    "slug": "alert-dialog"
+  },
+  {
+    "slug": "hover-card"
+  },
+  {
+    "slug": "context-menu"
+  },
+  {
+    "slug": "skeleton"
+  },
+  {
+    "slug": "spinner"
+  },
+  {
+    "slug": "empty"
+  },
+  {
+    "slug": "alert"
+  },
+  {
+    "slug": "progress"
+  },
+  {
+    "slug": "toast"
+  },
+  {
+    "slug": "sonner"
+  },
+  {
+    "slug": "date-calendar"
+  },
+  {
+    "slug": "date-picker"
+  },
+  {
+    "slug": "pagination"
+  },
+  {
+    "slug": "breadcrumb"
+  },
+  {
+    "slug": "menubar"
+  },
+  {
+    "slug": "navigation-menu"
+  },
+  {
+    "slug": "direction"
+  },
+  {
+    "slug": "attachment"
+  },
+  {
+    "slug": "marker"
+  },
+  {
+    "slug": "questionnaire"
+  },
+  {
+    "slug": "bubble"
+  },
+  {
+    "slug": "card"
+  },
+  {
+    "slug": "aspect-ratio"
+  },
+  {
+    "slug": "carousel"
+  },
+  {
+    "slug": "chart"
+  },
+  {
+    "slug": "form"
+  },
+  {
+    "slug": "sidebar"
+  },
+  {
+    "slug": "resizable"
+  },
+  {
+    "slug": "scroll-area"
+  },
+  {
+    "slug": "command"
+  },
+  {
+    "slug": "drawer"
+  },
+  {
+    "slug": "analytics-model",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-model",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-frame",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-data-table",
+    "widePreview": true
+  },
+  {
+    "slug": "statistical-chart",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-drilldown-panel",
+    "widePreview": true
+  },
+  {
+    "slug": "workflow-metric",
+    "widePreview": true
+  },
+  {
+    "slug": "workflow-charts",
+    "widePreview": true
+  },
+  {
+    "slug": "risk-evidence-list",
+    "widePreview": true
+  },
+  {
+    "slug": "work-traceability-view",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-view-adapter",
+    "widePreview": true
+  },
+  {
+    "slug": "dashboard",
+    "widePreview": true
+  },
+  {
+    "slug": "project-overview-dashboard",
+    "widePreview": true
+  },
+  {
+    "slug": "textarea"
+  },
+  {
+    "slug": "label"
+  },
+  {
+    "slug": "native-select"
+  },
+  {
+    "slug": "switch"
+  },
+  {
+    "slug": "radio-group"
+  },
+  {
+    "slug": "checkbox"
+  },
+  {
+    "slug": "table"
+  },
+  {
+    "slug": "data-table"
+  },
+  {
+    "slug": "avatar"
+  },
+  {
+    "slug": "segment-bar"
+  },
+  {
+    "slug": "sparkline"
+  },
+  {
+    "slug": "dropdown-menu"
+  },
+  {
+    "slug": "sheet"
+  },
+  {
+    "slug": "command-palette"
+  },
+  {
+    "slug": "kbd"
+  },
+  {
+    "slug": "field"
+  },
+  {
+    "slug": "form-section"
+  },
+  {
+    "slug": "slider"
+  },
+  {
+    "slug": "image-upload"
+  },
+  {
+    "slug": "filter-toolbar"
+  },
+  {
+    "slug": "metric-summary"
+  },
+  {
+    "slug": "rating-display"
+  },
+  {
+    "slug": "menu"
+  },
+  {
+    "slug": "popover"
+  },
+  {
+    "slug": "select"
+  },
+  {
+    "slug": "combobox"
+  },
+  {
+    "slug": "segmented"
+  },
+  {
+    "slug": "tabs"
+  },
+  {
+    "slug": "theme-boundary",
+    "widePreview": true
+  },
+  {
+    "slug": "i18n"
+  },
+  {
+    "slug": "canvas-service-panel",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-project-workspace",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-config-editor",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-execution-panel",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-workspace",
+    "widePreview": true
+  },
+  {
+    "slug": "node-palette",
+    "widePreview": true
+  },
+  {
+    "slug": "node-inspector",
+    "widePreview": true
+  },
+  {
+    "slug": "variable-picker",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-frame",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-note",
+    "widePreview": true
+  },
+  {
+    "slug": "workflow-canvas",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-node",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-port",
+    "widePreview": true
+  },
+  {
+    "slug": "canvas-edge",
+    "widePreview": true
+  },
+  {
+    "slug": "style-workbench",
+    "widePreview": true
+  },
+  {
+    "slug": "badge"
+  },
+  {
+    "slug": "tag"
+  },
+  {
+    "slug": "chip"
+  },
+  {
+    "slug": "button"
+  },
+  {
+    "slug": "input"
+  },
+  {
+    "slug": "dialog"
+  },
+  {
+    "slug": "task-panel"
+  },
+  {
+    "slug": "scroll-playground"
+  },
+  {
+    "slug": "item"
+  },
+  {
+    "slug": "runtime-status-badge"
+  },
+  {
+    "slug": "workspace-shell",
+    "widePreview": true
+  },
+  {
+    "slug": "data-region"
+  },
+  {
+    "slug": "tree",
+    "widePreview": true
+  },
+  {
+    "slug": "session-row"
+  },
+  {
+    "slug": "agent-row"
+  },
+  {
+    "slug": "activity-timeline",
+    "widePreview": true
+  },
+  {
+    "slug": "inspector"
+  },
+  {
+    "slug": "chat-message",
+    "widePreview": true
+  },
+  {
+    "slug": "tool-call"
+  },
+  {
+    "slug": "agent-run-properties",
+    "widePreview": true
+  },
+  {
+    "slug": "run-stage-summary",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-run-row",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-run-card",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-run-list",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-run-board",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-run-inspector",
+    "widePreview": true
+  },
+  {
+    "slug": "attention-queue",
+    "widePreview": true
+  },
+  {
+    "slug": "approval-request-panel",
+    "widePreview": true
+  },
+  {
+    "slug": "artifact-list",
+    "widePreview": true
+  },
+  {
+    "slug": "review-summary",
+    "widePreview": true
+  },
+  {
+    "slug": "execution-trace-tree",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-relationship-list",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-usage-summary",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-board-toolbar",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-board-workspace",
+    "widePreview": true
+  },
+  {
+    "slug": "grouped-list",
+    "widePreview": true
+  },
+  {
+    "slug": "item-board",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-properties",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-row",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-card",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-list",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-board",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-table",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-toolbar",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-detail",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-workspace",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-board-base",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-dependency-graph",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-usage-history",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-run-virtual-list",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-batch-actions",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-saved-views",
+    "widePreview": true
+  },
+  {
+    "slug": "timeline",
+    "widePreview": true
+  },
+  {
+    "slug": "calendar",
+    "widePreview": true
+  },
+  {
+    "slug": "schedule-view-controls",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-date-range-field",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-schedule",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-timeline",
+    "widePreview": true
+  },
+  {
+    "slug": "work-item-calendar",
+    "widePreview": true
+  }
+]

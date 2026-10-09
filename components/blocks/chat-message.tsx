@@ -4,7 +4,15 @@ import { uiMessage } from "@/lib/i18n-core"
 import { useI18n } from "@/lib/i18n-provider"
 import { localizeStaticData } from "@/lib/i18n-core"
 
-import { memo, useId, useRef, useState, type ReactNode } from "react"
+import {
+  memo,
+  useId,
+  useRef,
+  useState,
+  useImperativeHandle,
+  type Ref,
+  type ReactNode,
+} from "react"
 import { Bot, Copy, MessageSquare, Square, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DataRegion, type DataRegionProps } from "@/components/ui/data-region"
@@ -144,7 +152,12 @@ export const ChatMessage = memo(function ChatMessage({
   )
 })
 
+export type ConversationActions = {
+  scrollToMessage: (id: string, options?: { focus?: boolean }) => boolean
+  jumpToLatest: () => void
+}
 export type ConversationProps = {
+  actionsRef?: Ref<ConversationActions>
   /** Opt in to browser offscreen layout deferral; records remain in the DOM. */
   deferOffscreen?: boolean
   /** Advance on every append, history edit, deletion, reorder or state change. */
@@ -156,6 +169,7 @@ export type ConversationProps = {
   className?: string
 }
 export function Conversation({
+  actionsRef,
   deferOffscreen = false,
   messages,
   revision,
@@ -176,6 +190,7 @@ export function Conversation({
     unread,
     onScroll,
     jumpToLatest,
+    scrollToId,
   } = useFollowTail(
     unique.map((message) => message.id),
     revision ??
@@ -193,6 +208,10 @@ export function Conversation({
         ]),
       ),
   )
+  useImperativeHandle(actionsRef, () => ({
+    scrollToMessage: scrollToId,
+    jumpToLatest,
+  }))
   return (
     <div className={cn(styles.conversation, className)}>
       {workspace && (

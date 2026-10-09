@@ -14,6 +14,7 @@ import {
 } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { ResizableHandle } from "@/components/ui/resizable"
 import styles from "./workspace-shell.module.css"
 
 function useLayoutValue<T>(
@@ -113,7 +114,6 @@ export function WorkspaceShell({
 
   const sidebarId = useId()
   const sidebarRef = useRef<HTMLElement>(null)
-  const sidebarDrag = useRef<{ x: number; width: number } | null>(null)
   const [requestedSidebarWidth, setSidebarWidth] = useLayoutValue(
     controlledSidebarWidth,
     defaultSidebarWidth,
@@ -284,50 +284,15 @@ export function WorkspaceShell({
           {sidebar}
         </aside>
         {sidebarResizable && !sidebarCollapsed && (
-          <div
-            role="separator"
-            tabIndex={0}
+          <ResizableHandle
+            unstyled
+            label={t("commonComponents.resizeSidebar")}
+            controls={sidebarId}
+            value={sidebarWidth}
+            min={sidebarMin}
+            max={sidebarMax}
+            onValueChange={resizeSidebar}
             className={styles.sidebarResize}
-            aria-label={t("commonComponents.resizeSidebar")}
-            aria-controls={sidebarId}
-            aria-orientation="vertical"
-            aria-valuemin={sidebarMin}
-            aria-valuemax={sidebarMax}
-            aria-valuenow={sidebarWidth}
-            onPointerDown={(event) => {
-              event.currentTarget.focus()
-              event.currentTarget.setPointerCapture(event.pointerId)
-              sidebarDrag.current = {
-                x: event.clientX,
-                width:
-                  sidebarRef.current?.getBoundingClientRect().width ??
-                  sidebarWidth,
-              }
-            }}
-            onPointerMove={(event) => {
-              if (sidebarDrag.current)
-                resizeSidebar(
-                  sidebarDrag.current.width +
-                    event.clientX -
-                    sidebarDrag.current.x,
-                )
-            }}
-            onPointerUp={(event) => {
-              sidebarDrag.current = null
-              event.currentTarget.releasePointerCapture(event.pointerId)
-            }}
-            onPointerCancel={() => {
-              sidebarDrag.current = null
-            }}
-            onKeyDown={(event) => {
-              if (event.key === "ArrowLeft") resizeSidebar(sidebarWidth - 8)
-              else if (event.key === "ArrowRight")
-                resizeSidebar(sidebarWidth + 8)
-              else if (event.key === "Home") resizeSidebar(sidebarMin)
-              else if (event.key === "End") resizeSidebar(sidebarMax)
-              else return
-              event.preventDefault()
-            }}
           />
         )}
         <div className={styles.main}>
