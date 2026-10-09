@@ -1,5 +1,6 @@
 import { execFileSync } from "node:child_process"
 import { createHash } from "node:crypto"
+import { openSync, closeSync } from "node:fs"
 import {
   mkdir,
   copyFile,
@@ -7,6 +8,7 @@ import {
   writeFile,
   symlink,
   mkdtemp,
+  lstat,
 } from "node:fs/promises"
 import path from "node:path"
 const root = path.resolve(import.meta.dirname, "..")
@@ -23,12 +25,22 @@ const names = execFileSync(
   .split("\0")
   .filter(Boolean)
 const files = {}
+const deletedFiles = []
 for (const filename of names) {
   if (
     path.basename(filename).startsWith(".env") ||
-    path.basename(filename) === "github_token.txt"
+    path.basename(filename) === "github_token.txt" ||
+    /^(node_modules|\.next|out|test-results|playwright-report)\//.test(filename)
   )
     continue
+  try {
+    const stat = await lstat(path.join(root, filename))
+    if (!stat.isFile()) continue
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error
+    deletedFiles.push(filename)
+    continue
+  }
   const output = path.join(target, filename)
   await mkdir(path.dirname(output), { recursive: true })
   await copyFile(path.join(root, filename), output)
@@ -54,13 +66,22 @@ const manifest = {
     .digest("hex"),
   capturedAt: new Date().toISOString(),
   files,
+  deletedFiles,
+  status: execFileSync("git", ["status", "--short"], { cwd: root })
+    .toString(),
+  environment: { node: process.version, platform: process.platform },
 }
 await writeFile(
   path.join(target, "source-snapshot.json"),
   JSON.stringify(manifest, null, 2) + "\n",
 )
-await writeFile(
-  path.join(target, "source.patch"),
-  execFileSync("git", ["diff", "--binary"], { cwd: root }),
-)
+const patchFile = openSync(path.join(target, "source.patch"), "w")
+try {
+  execFileSync("git", ["diff", "--binary"], {
+    cwd: root,
+    stdio: ["ignore", patchFile, "pipe"],
+  })
+} finally {
+  closeSync(patchFile)
+}
 console.log(target)
