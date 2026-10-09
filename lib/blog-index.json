@@ -108,5 +108,16 @@
       "zh-CN": "同一份受控快照组合 List、Board、Table、Timeline 与 Calendar；共享字段、选择、详情与日期草稿，保留分页、拒绝和未知结果的真实边界。",
       "en": "Compose List, Board, Table, Timeline and Calendar from one controlled snapshot. Share fields, selection, details and date drafts while retaining pagination, rejection and unknown-result boundaries."
     }
+  },
+  {
+    "slug": "workflow-analytics",
+    "title": {
+      "zh-CN": "从状态分布到同快照工作项下钻",
+      "en": "From status distribution to work-item drilldown at the same snapshot"
+    },
+    "summary": {
+      "zh-CN": "工作流分析首版：固定项目 Dashboard、可解释指标、历史成员与独立统计图表分发。",
+      "en": "A fixed project dashboard, defined metrics, historical membership and portable charts."
+    }
   }
 ]

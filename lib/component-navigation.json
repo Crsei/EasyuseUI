@@ -1,5 +1,122 @@
 [
   {
+    "slug": "analytics-model",
+    "name": "AnalyticsModel",
+    "category": "组合模块",
+    "docPath": "/docs/analytics-model/",
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 100
+  },
+  {
+    "slug": "chart-model",
+    "name": "ChartModel",
+    "category": "组合模块",
+    "docPath": "/docs/chart-model/",
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 101
+  },
+  {
+    "slug": "chart-frame",
+    "name": "ChartFrame",
+    "category": "基础组件",
+    "docPath": "/docs/chart-frame/",
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 102
+  },
+  {
+    "slug": "chart-data-table",
+    "name": "ChartDataTable",
+    "category": "组合模块",
+    "docPath": "/docs/chart-data-table/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 103
+  },
+  {
+    "slug": "statistical-chart",
+    "name": "StatisticalChart",
+    "category": "组合模块",
+    "docPath": "/docs/statistical-chart/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 104
+  },
+  {
+    "slug": "chart-drilldown-panel",
+    "name": "ChartDrilldownPanel",
+    "category": "组合模块",
+    "docPath": "/docs/chart-drilldown-panel/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 105
+  },
+  {
+    "slug": "workflow-metric",
+    "name": "WorkflowMetric",
+    "category": "组合模块",
+    "docPath": "/docs/workflow-metric/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 106
+  },
+  {
+    "slug": "workflow-charts",
+    "name": "WorkflowCharts",
+    "category": "组合模块",
+    "docPath": "/docs/workflow-charts/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 107
+  },
+  {
+    "slug": "risk-evidence-list",
+    "name": "RiskEvidenceList",
+    "category": "组合模块",
+    "docPath": "/docs/risk-evidence-list/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 108
+  },
+  {
+    "slug": "work-traceability-view",
+    "name": "WorkTraceabilityView",
+    "category": "组合模块",
+    "docPath": "/docs/work-traceability-view/",
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 109
+  },
+  {
+    "slug": "work-items-view-adapter",
+    "name": "WorkItemsViewAdapter",
+    "category": "组合模块",
+    "docPath": "/docs/work-items-view-adapter/",
+    "displayCategory": "workspace",
+    "docGroup": "data",
+    "docOrder": 110
+  },
+  {
+    "slug": "dashboard",
+    "name": "Dashboard",
+    "category": "组合模块",
+    "docPath": "/docs/dashboard/",
+    "displayCategory": "workspace",
+    "docGroup": "workspace",
+    "docOrder": 111
+  },
+  {
+    "slug": "project-overview-dashboard",
+    "name": "ProjectOverviewDashboard",
+    "category": "组合模块",
+    "docPath": "/docs/project-overview-dashboard/",
+    "displayCategory": "workspace",
+    "docGroup": "workspace",
+    "docOrder": 112
+  },
+  {
     "slug": "textarea",
     "name": "Textarea",
     "category": "基础组件",
@@ -78,7 +195,7 @@
     "docPath": "/docs/avatar/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 108
+    "docOrder": 121
   },
   {
     "slug": "segment-bar",
@@ -87,7 +204,7 @@
     "docPath": "/docs/segment-bar/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 109
+    "docOrder": 122
   },
   {
     "slug": "sparkline",
@@ -96,7 +213,7 @@
     "docPath": "/docs/sparkline/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 110
+    "docOrder": 123
   },
   {
     "slug": "dropdown-menu",
@@ -123,7 +240,7 @@
     "docPath": "/docs/command-palette/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 113
+    "docOrder": 126
   },
   {
     "slug": "kbd",
@@ -132,7 +249,7 @@
     "docPath": "/docs/kbd/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 114
+    "docOrder": 127
   },
   {
     "slug": "field",
@@ -141,7 +258,7 @@
     "docPath": "/docs/field/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 115
+    "docOrder": 128
   },
   {
     "slug": "form-section",
@@ -150,7 +267,7 @@
     "docPath": "/docs/form-section/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 116
+    "docOrder": 129
   },
   {
     "slug": "slider",
@@ -159,7 +276,7 @@
     "docPath": "/docs/slider/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 117
+    "docOrder": 130
   },
   {
     "slug": "image-upload",
@@ -168,7 +285,7 @@
     "docPath": "/docs/image-upload/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 118
+    "docOrder": 131
   },
   {
     "slug": "filter-toolbar",
@@ -177,7 +294,7 @@
     "docPath": "/docs/filter-toolbar/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 119
+    "docOrder": 132
   },
   {
     "slug": "metric-summary",
@@ -186,7 +303,7 @@
     "docPath": "/docs/metric-summary/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 120
+    "docOrder": 133
   },
   {
     "slug": "rating-display",
@@ -195,7 +312,7 @@
     "docPath": "/docs/rating-display/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 121
+    "docOrder": 134
   },
   {
     "slug": "menu",
@@ -240,7 +357,7 @@
     "docPath": "/docs/segmented/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 126
+    "docOrder": 139
   },
   {
     "slug": "tabs",
@@ -258,7 +375,7 @@
     "docPath": "/docs/theme-boundary/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 128
+    "docOrder": 141
   },
   {
     "slug": "i18n",
@@ -267,7 +384,7 @@
     "docPath": "/docs/i18n/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 129
+    "docOrder": 142
   },
   {
     "slug": "canvas-service-panel",
@@ -276,7 +393,7 @@
     "docPath": "/docs/canvas-service-panel/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 130
+    "docOrder": 143
   },
   {
     "slug": "canvas-project-workspace",
@@ -285,7 +402,7 @@
     "docPath": "/docs/canvas-project-workspace/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 131
+    "docOrder": 144
   },
   {
     "slug": "canvas-config-editor",
@@ -294,7 +411,7 @@
     "docPath": "/docs/canvas-config-editor/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 132
+    "docOrder": 145
   },
   {
     "slug": "canvas-execution-panel",
@@ -303,7 +420,7 @@
     "docPath": "/docs/canvas-execution-panel/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 133
+    "docOrder": 146
   },
   {
     "slug": "canvas-workspace",
@@ -348,7 +465,7 @@
     "docPath": "/docs/canvas-frame/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 138
+    "docOrder": 151
   },
   {
     "slug": "canvas-note",
@@ -357,7 +474,7 @@
     "docPath": "/docs/canvas-note/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 139
+    "docOrder": 152
   },
   {
     "slug": "workflow-canvas",
@@ -375,7 +492,7 @@
     "docPath": "/docs/canvas-node/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 141
+    "docOrder": 154
   },
   {
     "slug": "canvas-port",
@@ -384,7 +501,7 @@
     "docPath": "/docs/canvas-port/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 142
+    "docOrder": 155
   },
   {
     "slug": "canvas-edge",
@@ -393,7 +510,7 @@
     "docPath": "/docs/canvas-edge/",
     "displayCategory": "canvas",
     "docGroup": "canvas",
-    "docOrder": 143
+    "docOrder": 156
   },
   {
     "slug": "style-workbench",
@@ -402,7 +519,7 @@
     "docPath": "/docs/style-workbench/",
     "displayCategory": "patterns",
     "docGroup": "workspace",
-    "docOrder": 144
+    "docOrder": 157
   },
   {
     "slug": "badge",
@@ -411,7 +528,7 @@
     "docPath": "/docs/badge/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 145
+    "docOrder": 158
   },
   {
     "slug": "tag",
@@ -420,7 +537,7 @@
     "docPath": "/docs/tag/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 146
+    "docOrder": 159
   },
   {
     "slug": "chip",
@@ -429,7 +546,7 @@
     "docPath": "/docs/chip/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 147
+    "docOrder": 160
   },
   {
     "slug": "button",
@@ -465,7 +582,7 @@
     "docPath": "/docs/task-panel/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 151
+    "docOrder": 164
   },
   {
     "slug": "scroll-playground",
@@ -474,7 +591,7 @@
     "docPath": "/docs/scroll-playground/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 152
+    "docOrder": 165
   },
   {
     "slug": "item",
@@ -483,7 +600,7 @@
     "docPath": "/docs/item/",
     "displayCategory": "primitives",
     "docGroup": "interaction",
-    "docOrder": 153
+    "docOrder": 166
   },
   {
     "slug": "runtime-status-badge",
@@ -582,7 +699,7 @@
     "docPath": "/docs/agent-run-properties/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 164
+    "docOrder": 177
   },
   {
     "slug": "run-stage-summary",
@@ -591,7 +708,7 @@
     "docPath": "/docs/run-stage-summary/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 165
+    "docOrder": 178
   },
   {
     "slug": "agent-run-row",
@@ -600,7 +717,7 @@
     "docPath": "/docs/agent-run-row/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 166
+    "docOrder": 179
   },
   {
     "slug": "agent-run-card",
@@ -609,7 +726,7 @@
     "docPath": "/docs/agent-run-card/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 167
+    "docOrder": 180
   },
   {
     "slug": "agent-run-list",
@@ -618,7 +735,7 @@
     "docPath": "/docs/agent-run-list/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 168
+    "docOrder": 181
   },
   {
     "slug": "agent-run-board",
@@ -627,7 +744,7 @@
     "docPath": "/docs/agent-run-board/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 169
+    "docOrder": 182
   },
   {
     "slug": "agent-run-inspector",
@@ -636,7 +753,7 @@
     "docPath": "/docs/agent-run-inspector/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 170
+    "docOrder": 183
   },
   {
     "slug": "attention-queue",
@@ -645,7 +762,7 @@
     "docPath": "/docs/attention-queue/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 171
+    "docOrder": 184
   },
   {
     "slug": "approval-request-panel",
@@ -654,7 +771,7 @@
     "docPath": "/docs/approval-request-panel/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 172
+    "docOrder": 185
   },
   {
     "slug": "artifact-list",
@@ -663,7 +780,7 @@
     "docPath": "/docs/artifact-list/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 173
+    "docOrder": 186
   },
   {
     "slug": "review-summary",
@@ -672,7 +789,7 @@
     "docPath": "/docs/review-summary/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 174
+    "docOrder": 187
   },
   {
     "slug": "execution-trace-tree",
@@ -681,7 +798,7 @@
     "docPath": "/docs/execution-trace-tree/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 175
+    "docOrder": 188
   },
   {
     "slug": "agent-relationship-list",
@@ -690,7 +807,7 @@
     "docPath": "/docs/agent-relationship-list/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 176
+    "docOrder": 189
   },
   {
     "slug": "agent-usage-summary",
@@ -699,7 +816,7 @@
     "docPath": "/docs/agent-usage-summary/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 177
+    "docOrder": 190
   },
   {
     "slug": "agent-board-toolbar",
@@ -708,7 +825,7 @@
     "docPath": "/docs/agent-board-toolbar/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 178
+    "docOrder": 191
   },
   {
     "slug": "agent-board-workspace",
@@ -717,7 +834,7 @@
     "docPath": "/docs/agent-board-workspace/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 179
+    "docOrder": 192
   },
   {
     "slug": "grouped-list",
@@ -726,7 +843,7 @@
     "docPath": "/docs/grouped-list/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 180
+    "docOrder": 193
   },
   {
     "slug": "item-board",
@@ -735,7 +852,7 @@
     "docPath": "/docs/item-board/",
     "displayCategory": "patterns",
     "docGroup": "other",
-    "docOrder": 181
+    "docOrder": 194
   },
   {
     "slug": "work-item-properties",
@@ -771,7 +888,7 @@
     "docPath": "/docs/work-item-list/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 185
+    "docOrder": 198
   },
   {
     "slug": "work-item-board",
@@ -780,7 +897,7 @@
     "docPath": "/docs/work-item-board/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 186
+    "docOrder": 199
   },
   {
     "slug": "work-item-table",
@@ -789,7 +906,7 @@
     "docPath": "/docs/work-item-table/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 187
+    "docOrder": 200
   },
   {
     "slug": "work-items-toolbar",
@@ -807,7 +924,7 @@
     "docPath": "/docs/work-item-detail/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 189
+    "docOrder": 202
   },
   {
     "slug": "work-items-workspace",
@@ -825,7 +942,7 @@
     "docPath": "/docs/work-items-board-base/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 191
+    "docOrder": 204
   },
   {
     "slug": "agent-dependency-graph",
@@ -834,7 +951,7 @@
     "docPath": "/docs/agent-dependency-graph/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 192
+    "docOrder": 205
   },
   {
     "slug": "agent-usage-history",
@@ -843,7 +960,7 @@
     "docPath": "/docs/agent-usage-history/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 193
+    "docOrder": 206
   },
   {
     "slug": "agent-run-virtual-list",
@@ -852,7 +969,7 @@
     "docPath": "/docs/agent-run-virtual-list/",
     "displayCategory": "patterns",
     "docGroup": "agent",
-    "docOrder": 194
+    "docOrder": 207
   },
   {
     "slug": "work-items-batch-actions",
@@ -861,7 +978,7 @@
     "docPath": "/docs/work-items-batch-actions/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 195
+    "docOrder": 208
   },
   {
     "slug": "work-items-saved-views",
@@ -870,7 +987,7 @@
     "docPath": "/docs/work-items-saved-views/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 196
+    "docOrder": 209
   },
   {
     "slug": "timeline",
@@ -879,7 +996,7 @@
     "docPath": "/docs/timeline/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 197
+    "docOrder": 210
   },
   {
     "slug": "calendar",
@@ -888,7 +1005,7 @@
     "docPath": "/docs/calendar/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 198
+    "docOrder": 211
   },
   {
     "slug": "schedule-view-controls",
@@ -897,7 +1014,7 @@
     "docPath": "/docs/schedule-view-controls/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 199
+    "docOrder": 212
   },
   {
     "slug": "work-item-date-range-field",
@@ -906,7 +1023,7 @@
     "docPath": "/docs/work-item-date-range-field/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 200
+    "docOrder": 213
   },
   {
     "slug": "work-items-schedule",
@@ -915,7 +1032,7 @@
     "docPath": "/docs/work-items-schedule/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 201
+    "docOrder": 214
   },
   {
     "slug": "work-item-timeline",
@@ -924,7 +1041,7 @@
     "docPath": "/docs/work-item-timeline/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 202
+    "docOrder": 215
   },
   {
     "slug": "work-item-calendar",
@@ -933,6 +1050,6 @@
     "docPath": "/docs/work-item-calendar/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 203
+    "docOrder": 216
   }
 ]

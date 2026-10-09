@@ -7,6 +7,10 @@ import os from "node:os"
 import path from "node:path"
 import assert from "node:assert/strict"
 import { chromium } from "@playwright/test"
+import {
+  createAnalyticsThemeConsumer,
+  verifyAnalyticsThemeConsumer,
+} from "./workflow-analytics-theme-consumer.mjs"
 
 const root = path.resolve(import.meta.dirname, "..")
 const modes = process.argv.slice(2).length
@@ -159,6 +163,7 @@ import {Combobox,ComboboxInput,ComboboxContent,ComboboxList,ComboboxItem} from "
 export default function Page(){const [count,setCount]=useState(0);return <ThemeBoundary mode="${mode}" theme="dark"><Menu><MenuTrigger>Actions</MenuTrigger><MenuContent><MenuItem onClick={()=>setCount(value=>value+1)}>Increment</MenuItem></MenuContent></Menu><output>{count}</output><Popover><PopoverTrigger>Details</PopoverTrigger><PopoverContent><PopoverTitle>Installed popover</PopoverTitle></PopoverContent></Popover><Tabs defaultValue="one"><TabsList aria-label="Installed tabs"><TabsTab value="one">One</TabsTab><TabsTab value="two">Two</TabsTab></TabsList><TabsPanel value="one">First panel</TabsPanel><TabsPanel value="two">Second panel</TabsPanel></Tabs><Segmented defaultValue="list" aria-label="Installed mode"><SegmentedItem value="list">List</SegmentedItem><SegmentedItem value="grid">Grid</SegmentedItem></Segmented><Select defaultValue="alpha"><SelectTrigger aria-label="Installed select"><SelectValue/></SelectTrigger><SelectContent>{["alpha","beta"].map(item=><SelectItem key={item} value={item}><SelectItemText>{item}</SelectItemText></SelectItem>)}</SelectContent></Select><Combobox items={["alpha","beta"]}><ComboboxInput aria-label="Installed search"/><ComboboxContent><ComboboxList>{(item:string)=><ComboboxItem key={item} value={item}>{item}</ComboboxItem>}</ComboboxList></ComboboxContent></Combobox></ThemeBoundary>}
 `,
   )
+  await createAnalyticsThemeConsumer(fixture, mode)
   await run("git", ["init", "--quiet"], fixture)
   await run("pnpm", ["install", "--ignore-scripts"], fixture)
   const registry = createServer(async (req, res) => {
@@ -199,6 +204,7 @@ export default function Page(){const [count,setCount]=useState(0);return <ThemeB
           "segmented",
           "select",
           "combobox",
+          "statistical-chart",
         ].map(
           (name) =>
             `http://127.0.0.1:${registry.address().port}/r/${mode}/${name}.json`,
@@ -411,6 +417,11 @@ export default function Page(){const [count,setCount]=useState(0);return <ThemeB
       path: path.join(fixture, "primitives-proof.png"),
       fullPage: true,
     })
+    await verifyAnalyticsThemeConsumer(
+      page,
+      `http://127.0.0.1:${server.address().port}`,
+    )
+    assert.deepEqual(errors, [])
     reports.push({
       mode,
       fixture,
@@ -423,6 +434,7 @@ export default function Page(){const [count,setCount]=useState(0);return <ThemeB
       canvas: true,
       localeProvider: true,
       runtimeStatusPrivateColor: true,
+      chartPrivateColors: true,
       focusRestored: true,
       primitives: [
         "menu",

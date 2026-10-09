@@ -1,0 +1,18 @@
+{
+  "capturedAt": "2026-10-09T01:41:17.741Z",
+  "method": "fresh production browser contexts; decoded downloaded script bytes; no gzip equivalence",
+  "routes": {
+    "/": {
+      "jsBytes": 1117587,
+      "statisticalEngineLoaded": false
+    },
+    "/docs/button/": {
+      "jsBytes": 1130957,
+      "statisticalEngineLoaded": false
+    },
+    "/examples/workflow-analytics/": {
+      "jsBytes": 1841273,
+      "statisticalEngineLoaded": true
+    }
+  }
+}

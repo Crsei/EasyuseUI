@@ -1,0 +1,84 @@
+{
+  "capturedAt": "2026-10-09T01:51:28.126Z",
+  "registrySnapshotId": "e5c44376888e839cb42042f47f36c08ba6dc790166ef80d512e8cb3eeaf1f76d",
+  "reports": [
+    {
+      "mode": "host",
+      "browser": "138.0.7204.92",
+      "hostBefore": {
+        "background": "rgb(249, 233, 220)",
+        "color": "rgb(35, 21, 23)",
+        "border": "3px solid rgb(119, 49, 83)",
+        "font": "17px / 25.5px Arial, sans-serif",
+        "width": "1440px",
+        "height": "63.5px"
+      },
+      "hostAfter": {
+        "background": "rgb(249, 233, 220)",
+        "color": "rgb(35, 21, 23)",
+        "border": "3px solid rgb(119, 49, 83)",
+        "font": "17px / 25.5px Arial, sans-serif",
+        "width": "1440px",
+        "height": "63.5px"
+      },
+      "scopeBackgrounds": [
+        "rgb(249, 233, 220)",
+        "rgb(249, 233, 220)"
+      ],
+      "hostScreenshotIdentical": true,
+      "portal": true,
+      "canvas": true,
+      "localeProvider": true,
+      "runtimeStatusPrivateColor": true,
+      "chartPrivateColors": true,
+      "focusRestored": true,
+      "primitives": [
+        "menu",
+        "popover",
+        "tabs",
+        "segmented",
+        "select",
+        "combobox"
+      ]
+    },
+    {
+      "mode": "scoped",
+      "browser": "138.0.7204.92",
+      "hostBefore": {
+        "background": "rgb(249, 233, 220)",
+        "color": "rgb(35, 21, 23)",
+        "border": "3px solid rgb(119, 49, 83)",
+        "font": "17px / 25.5px Arial, sans-serif",
+        "width": "1440px",
+        "height": "63.5px"
+      },
+      "hostAfter": {
+        "background": "rgb(249, 233, 220)",
+        "color": "rgb(35, 21, 23)",
+        "border": "3px solid rgb(119, 49, 83)",
+        "font": "17px / 25.5px Arial, sans-serif",
+        "width": "1440px",
+        "height": "63.5px"
+      },
+      "scopeBackgrounds": [
+        "rgb(250, 250, 250)",
+        "rgb(10, 10, 10)"
+      ],
+      "hostScreenshotIdentical": true,
+      "portal": true,
+      "canvas": true,
+      "localeProvider": true,
+      "runtimeStatusPrivateColor": true,
+      "chartPrivateColors": true,
+      "focusRestored": true,
+      "primitives": [
+        "menu",
+        "popover",
+        "tabs",
+        "segmented",
+        "select",
+        "combobox"
+      ]
+    }
+  ]
+}

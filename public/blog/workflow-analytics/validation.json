@@ -1,0 +1,110 @@
+{
+  "capturedAt": "2026-10-09T01:42:00.210Z",
+  "sourceSnapshotId": "3e2b461c82531a3de81e086e61ff7730b25e6d77050b65d7007eded3431c1c88",
+  "baseCommit": "8912c55ebdaa61f843603a9605249fa8320aab5d",
+  "scope": "C0-C2 and corresponding C7; local fixtures and independent consumers, no real service acceptance",
+  "browserTests": {
+    "calculations": 13,
+    "ui": 10,
+    "passed": 23
+  },
+  "checks": [
+    {
+      "name": "lint",
+      "command": "pnpm lint",
+      "exitCode": 0,
+      "logSha256": "050c69da23536758722729aeda55a8d0fb9d557495ef6d33d70873a3b64a71c1"
+    },
+    {
+      "name": "typecheck",
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "logSha256": "f91628e5f165d1a2278226b4dc2bc6fd715c2278dbd03723121e79b585b9e6d1"
+    },
+    {
+      "name": "build",
+      "command": "NEXT_PUBLIC_SITE_URL=http://localhost:3014 EASYUSEUI_LOCAL_BUILD=1 pnpm build",
+      "exitCode": 0,
+      "logSha256": "4c804f68a7baab381e3314f267fa6afae37f4af72fe5335484760fa7949f92ff"
+    },
+    {
+      "name": "i18n",
+      "command": "pnpm check:i18n",
+      "exitCode": 0,
+      "logSha256": "85422bfa604a0383fd0b0d2845ecba171bfdbee469ac5216f680fcbdb5d0d5a6"
+    },
+    {
+      "name": "manifest",
+      "command": "pnpm check:manifest",
+      "exitCode": 0,
+      "logSha256": "80c13c2976603b8cc36f88e982bfc5eb76b7c5a27a4247577b6aba9cbb56bcdc"
+    },
+    {
+      "name": "blog",
+      "command": "pnpm check:blog",
+      "exitCode": 0,
+      "logSha256": "687cc4e9caf7502ae67c1809ef4c95b321d6935c3a34cd3cc41d97789c308975"
+    },
+    {
+      "name": "docs",
+      "command": "node scripts/build-docs.mjs",
+      "exitCode": 0,
+      "logSha256": "bc13276315ebb1d14ca67a22e36d0f1aea502d712a0fc5e17b00205d982f78f2"
+    },
+    {
+      "name": "snippets",
+      "command": "node scripts/check-docs-snippets.mjs",
+      "exitCode": 0,
+      "logSha256": "208a0aaeb15e60f4d343f428a89e454525c03891263e9a4f0ecccab4e6449e42"
+    },
+    {
+      "name": "browser",
+      "command": "pnpm exec playwright test --config=playwright.workflow-analytics.config.ts",
+      "exitCode": 0,
+      "logSha256": "74bdfc89453657ef7bf7bf7f96922ec71e4cb53a224eae494262ace01119c4d4"
+    },
+    {
+      "name": "install",
+      "command": "NEXT_PUBLIC_SITE_URL=http://localhost:3014 pnpm test:install",
+      "exitCode": 0,
+      "logSha256": "afdf916c9702de3111b03d2506ce19b87911afb0653872811d7ca3bfbce68b8c"
+    },
+    {
+      "name": "themes",
+      "command": "pnpm test:install:themes",
+      "exitCode": 0,
+      "logSha256": "1bf4750e1ffe5e90d22c1da187e3017a4d794f0da9e7046448587f0a317fe987"
+    }
+  ],
+  "installationSourceIdentity": {
+    "items": [
+      "analytics-model",
+      "chart-model",
+      "chart-frame",
+      "chart-data-table",
+      "statistical-chart",
+      "chart-drilldown-panel",
+      "workflow-metric",
+      "workflow-charts",
+      "risk-evidence-list",
+      "work-traceability-view",
+      "work-items-view-adapter",
+      "dashboard",
+      "project-overview-dashboard"
+    ],
+    "modes": [
+      "canonical",
+      "host",
+      "scoped"
+    ],
+    "finalRegistryUsed": true,
+    "registryOrigin": "http://localhost:3014",
+    "note": "Independent production consumers use the final registry, including shared transitive sources, locale messages, CSS and dependency versions."
+  },
+  "liveWorkingTreeSmoke": {
+    "origin": "http://localhost:3010",
+    "passed": 2,
+    "scope": "Example gallery, source reading, historical drilldown and five work-item layouts; shared dirty development workspace; no real service acceptance",
+    "logSha256": "3284c604488e4584802870c8f41a2c69b7180731cdc2eb58d55856ff8ec306e2"
+  }
+}

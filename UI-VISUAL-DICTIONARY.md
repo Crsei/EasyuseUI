@@ -274,3 +274,18 @@ CanvasConfigEditor 已分发，内部包含 ConditionBuilder、扁平对象 Sche
 | WorkItemTimeline / WorkItemCalendarEntry | 工作项日期意图、字段能力、共享详情与分页 | `work-item-timeline` / `work-item-calendar` |
 | WorkItemDateRangeField | 开始/截止成对校验与精确日期键盘/触摸替代 | `work-item-date-range-field` |
 | ScheduleViewControls / UnscheduledWorkItems | 可控范围/刻度/周末；去重未排期队列 | `schedule-view-controls` / `work-items-schedule` |
+
+## 工作流分析首版（2026-10-09）
+
+| 名称 | 本仓库安装项 | 语义边界 |
+| --- | --- | --- |
+| Chart Frame / 图表框架 | chart-frame | 标题、口径、范围、权限与数据态，不加载统计引擎 |
+| Statistical Chart / 统计图 | statistical-chart | 柱、线、面积、Donut、散点；不替换现有轻量 Chart/Sparkline |
+| Chart Data Table / 聚合数据表 | chart-data-table | 聚合点表，不冒充工作项来源表 |
+| Drilldown Panel / 来源面板 | chart-drilldown-panel | 同快照成员与分页；历史集合不以当前状态替代 |
+| Workflow Metric / 工作流指标 | workflow-metric | 数值、正式口径、比较基期、完整性与明确下钻 |
+| Risk Evidence / 风险事实 | risk-evidence-list | 可解释规则，不是混合健康分或预测 |
+| Traceability / 工作关联 | work-traceability-view | Idea/WorkItem/Session/Run/Artifact明确关系，不是转化漏斗 |
+| Dashboard / 决策组合 | dashboard / project-overview-dashboard | 固定网格与项目模板，首版无自由编辑/持久化 |
+
+详见 [组件与接入契约](WORKFLOW-ANALYTICS.md)、[本地示例](/examples/workflow-analytics/) 和 [实施证据](plans/workflow-analytics-implementation-log.md)。C3–C6计划中的热图、预测、依赖与构建器不属于本表已实现项。

@@ -1,3 +1,4 @@
+import { workflowAnalyticsRegistryItems, createWorkflowAnalyticsConsumer, verifyWorkflowAnalyticsConsumer } from "./workflow-analytics-consumer.mjs"
 import {
   workItemsRegistryItems,
   createWorkItemsConsumer,
@@ -231,6 +232,7 @@ export default function Consumer() {
 `,
 )
 execFileSync("git", ["init", "--quiet"], { cwd: fixture })
+await createWorkflowAnalyticsConsumer(fixture)
 await createCommonConsumer(fixture)
 await createWorkItemsConsumer(fixture)
 await createAgentBoardConsumer(fixture)
@@ -269,6 +271,7 @@ try {
         "exec",
         "shadcn",
         "add",
+        ...workflowAnalyticsRegistryItems.map((name) => `${site}/r/${name}.json`),
         ...commonRegistryItems.map((name) => `${site}/r/${name}.json`),
         ...workItemsRegistryItems.map((name) => `${site}/r/${name}.json`),
         `${site}/r/agent-board-workspace.json`,
@@ -624,6 +627,7 @@ try {
   await page.getByRole("button", { name: "Switch language" }).click()
   await page.getByText("执行中", { exact: true }).waitFor()
   process.env.COMMON_CONSUMER_EVIDENCE_DIR = fixture
+  await verifyWorkflowAnalyticsConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyCommonConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyAgentBoardConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyWorkItemsConsumer(page, `http://127.0.0.1:${server.address().port}`)

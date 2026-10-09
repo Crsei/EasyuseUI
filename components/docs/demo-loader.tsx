@@ -13,6 +13,19 @@ import { useSiteI18n } from "@/components/site/site-i18n"
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  "analytics-model": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.AnalyticsModelDemo),
+  "chart-model": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.AnalyticsModelDemo),
+  "chart-frame": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.StatisticalChartDemo),
+  "chart-data-table": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ChartDataTableDemo),
+  "statistical-chart": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.StatisticalChartDemo),
+  "chart-drilldown-panel": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ChartDrilldownDemo),
+  "workflow-metric": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.WorkflowMetricDemo),
+  "workflow-charts": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ProjectOverviewDemo),
+  "risk-evidence-list": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.RiskEvidenceDemo),
+  "work-traceability-view": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.WorkTraceabilityDemo),
+  "work-items-view-adapter": () => import("@/components/examples/workflow-analytics/workflow-analytics-demo").then(m => m.WorkflowAnalyticsDemo),
+  "dashboard": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ProjectOverviewDemo),
+  "project-overview-dashboard": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ProjectOverviewDemo),
   "timeline": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.TimelineDemo),
   "calendar": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.CalendarDemo),
   "schedule-view-controls": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.ScheduleViewControlsDemo),

@@ -1,4 +1,5 @@
 export const pageDescriptionKeys = {
+  "/examples/workflow-analytics": "site.examples.workflowAnalyticsDescription",
   "/examples": "site.examples.description",
   "/examples/work-items": "site.examples.workItemsDescription",
   "/workspace/work-items": "site.examples.moved",

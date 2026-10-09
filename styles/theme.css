@@ -37,6 +37,18 @@
 }
 
 :root {
+  --chart-1: #4f46e5;
+  --chart-2: #1d4ed8;
+  --chart-3: #0e7490;
+  --chart-4: #92400e;
+  --chart-5: #7e22ce;
+  --chart-grid: var(--border);
+  --chart-reference: var(--text-secondary);
+  --chart-selected: var(--ring);
+  --chart-backlog: var(--text-muted);
+  --chart-active: var(--info);
+  --chart-completed: var(--success);
+  --chart-cancelled: var(--text-secondary);
   --background: #fafafa;
   --foreground: #18181b;
   --surface: #ffffff;
@@ -112,6 +124,18 @@
 }
 
 .dark {
+  --chart-1: #a5b4fc;
+  --chart-2: #93c5fd;
+  --chart-3: #67e8f9;
+  --chart-4: #fcd34d;
+  --chart-5: #d8b4fe;
+  --chart-grid: var(--border);
+  --chart-reference: var(--text-secondary);
+  --chart-selected: var(--ring);
+  --chart-backlog: var(--text-muted);
+  --chart-active: var(--info);
+  --chart-completed: var(--success);
+  --chart-cancelled: var(--text-secondary);
   --background: #0a0a0a;
   --foreground: rgba(255, 255, 255, 0.92);
   --surface: #0f0f10;

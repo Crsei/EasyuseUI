@@ -22,6 +22,28 @@ const images = (id: string) => ({
 })
 export const exampleManifest: SiteExample[] = [
   {
+    id: "workflow-analytics",
+    title: { "zh-CN": "工作流分析", en: "Workflow analytics" },
+    description: {
+      "zh-CN": "固定项目 Dashboard、明确指标与同快照来源下钻。",
+      en: "A fixed project dashboard, defined metrics and source drilldown at the same snapshot.",
+    },
+    href: "/examples/workflow-analytics/",
+    thumbnail: {
+      light: "/site/scenes/workflow-analytics-desktop-light.png",
+      dark: "/site/scenes/workflow-analytics-desktop-dark.png",
+      mobileLight: "/site/scenes/workflow-analytics-mobile-light.png",
+      mobileDark: "/site/scenes/workflow-analytics-mobile-dark.png",
+    },
+    components: [
+      "statistical-chart",
+      "chart-drilldown-panel",
+      "project-overview-dashboard",
+    ],
+    article: "workflow-analytics",
+    validation: "fixture-verified",
+  },
+  {
     id: "agent",
     title: { "zh-CN": "Agent 工作台", en: "Agent workspace" },
     description: {

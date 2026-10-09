@@ -1,0 +1,133 @@
+{
+  "snapshotId": "3e2b461c82531a3de81e086e61ff7730b25e6d77050b65d7007eded3431c1c88",
+  "capturedAt": "2026-10-09T01:38:56.625Z",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "linux",
+    "arch": "x64"
+  },
+  "method": "5 pure-function samples; medians; no rendering or service capacity claim",
+  "eventMeasurements": [
+    {
+      "count": 500,
+      "samplesMs": [
+        3.3713010000000168,
+        2.835946999999919,
+        2.9216619999999693,
+        2.247887999999989,
+        2.258513999999991
+      ],
+      "medianMs": 2.835946999999919
+    },
+    {
+      "count": 5000,
+      "samplesMs": [
+        29.15677000000005,
+        29.617953000000057,
+        24.81338699999992,
+        26.165481999999997,
+        25.316428000000087
+      ],
+      "medianMs": 26.165481999999997
+    },
+    {
+      "count": 50000,
+      "samplesMs": [
+        299.8942730000001,
+        228.509636,
+        299.894223,
+        278.95206099999996,
+        247.5961299999999
+      ],
+      "medianMs": 278.95206099999996
+    }
+  ],
+  "pointMeasurements": [
+    {
+      "count": 100,
+      "samplesMs": [
+        0.3285350000001017,
+        0.06902399999989939,
+        0.06628500000033455,
+        0.06565099999988888,
+        0.09226600000010876
+      ],
+      "medianMs": 0.06902399999989939
+    },
+    {
+      "count": 1000,
+      "samplesMs": [
+        0.6819900000000416,
+        0.3743450000001758,
+        0.33449200000040946,
+        0.4021020000000135,
+        0.3469359999999142
+      ],
+      "medianMs": 0.3743450000001758
+    },
+    {
+      "count": 10000,
+      "samplesMs": [
+        6.196839000000182,
+        4.331488000000263,
+        4.651304999999866,
+        5.499961999999869,
+        6.431215000000066
+      ],
+      "medianMs": 5.499961999999869
+    }
+  ],
+  "engine": {
+    "version": "3.10.1",
+    "license": "MIT",
+    "umdBytes": 593114,
+    "umdGzipBytes": 155441,
+    "note": "UMD package reference, not the application chunk size"
+  },
+  "references": {
+    "mantine": "f7ab1ef52579366e2310fc12b1a12e88a821053a",
+    "tremor": "ca4d588f47820ff3d514d37fa4ee08a4222dec11",
+    "fluent-ui": "8abb0781d7d8bdb5e7bccaad16a6e4ba7efaf1aa",
+    "chakra-ui": "f799e4d478d31fdae1311fad6c6de7cca47b9d3e",
+    "shadcn-ui": "6ea090075cd537d3b792c6c1a625e2448b6ede26",
+    "hextaui": "daaba0c3dc3f63931540b24b651929d3d1d2c4ea"
+  },
+  "hashes": {
+    "app/examples/workflow-analytics/page.tsx": "808103cf6a305b5722b738854394ae018794cfc60486ddb4e2731ebbfbaa7bb1",
+    "components/blocks/analytics/risk-evidence-list.tsx": "ff52cc2518909dcc06b7d2ce2b5e128695b50414c6989501147d9a9d9d8a05a0",
+    "components/blocks/analytics/work-items-view-adapter.tsx": "fc7e539430d54d904061597f6110313ed397c1aecaa214e6d9afad8779233ef7",
+    "components/blocks/analytics/work-traceability-view.tsx": "400bc35838e4c9c0118c6be6e855a5182b5653f386f560f97fd4636aceddcc51",
+    "components/blocks/analytics/workflow-charts.tsx": "e535176bbd4a96896473591d98e472f01f2b19c1572c2c904c976eb89e53cc37",
+    "components/blocks/analytics/workflow-metric.tsx": "d79817ef5ba6e4a597fe3b3e71572cd17dc9e69530b6b640c72e353e5f35cb83",
+    "components/blocks/charts/chart-data-table.tsx": "59b5cb2631e8c040bada024854491c1abfc91864da8b0a8217d4c53211921b65",
+    "components/blocks/charts/chart-drilldown-panel.tsx": "d62d10e262e37b66e7dba50c916fe85902ad72629add6cc9f009e11096a399db",
+    "components/blocks/charts/statistical-chart.module.css": "33383a24f18fddd01cfb10663ce045f0b81f53a321b3bccb024d233c499c905c",
+    "components/blocks/charts/statistical-chart.tsx": "8d8a8361ee22c28f6b90a5fb5b9fc8f92bc8872dc8bde3237eeabec856bf80b2",
+    "components/blocks/dashboard/dashboard.module.css": "9836969f7faf45e890bd1c558b555f7ec53eac40da3e0eee562355db5f2fc944",
+    "components/blocks/dashboard/dashboard.tsx": "90a91c12974741ed6154a137ba6ad5564889699e47e618c07660c47b661d966d",
+    "components/blocks/dashboard/project-overview-dashboard.tsx": "a5ffb797931f005144fb5e629dd0f1500bea6a8ba5aa1178c11570d2bcca061b",
+    "components/examples/workflow-analytics/component-demos.tsx": "c5c11712510ef90f3cac76c607e735a614c0dc13d7d9a8ff8b5de23ea2b5640a",
+    "components/examples/workflow-analytics/fixtures.ts": "0b6bd4e83dd83cc9296c3755845129a6fe0da51af2df7a7867fb29cf98939699",
+    "components/examples/workflow-analytics/workflow-analytics-demo.tsx": "db3119bb67f666956638d7f90e57d2d5e606da7db4a985e11830875d3e995ca5",
+    "components/ui/chart.module.css": "1764007f4109d96d639899e61b2750a485cc94e612d841707fe0be78c0c20c9c",
+    "components/ui/chart.tsx": "afcfb3ee129f4313014100d819114d7ae3eee35bd848f919a565c1c0a68b7085",
+    "lib/analytics-history.ts": "80dd69a70a56c37c11e8003c61de8537c04112c0f8dc45af22c39d75765df46e",
+    "lib/analytics-metrics.ts": "54711b3c54a494540a777c69d28d529f7f2675f98c803964e52ff0241acb7112",
+    "lib/analytics-model.ts": "8f6beb8452c972ab047c0a300f2abc0e5f70972d83ab1d39a15180736cf239c2",
+    "lib/analytics-query.ts": "c1a0329380d6a08fa14c2ecec5a9226e5ffdbd3ada52e4d6e5340d5edb76d850",
+    "lib/chart-format.ts": "64960fcb1f678d612c8eaf678160594111c597ceb151b943c453f7ddc4ad016c",
+    "lib/chart-model.ts": "c0ffd0fc9a1021ce417e7197cefde242a49660a33d562b07c6f93c083aa97f97",
+    "lib/dashboard-model.ts": "95c0e957b15872572ba87d83b1d68c4dabdc99e61e7ff5c7d2579ccc2efbf946",
+    "lib/example-manifest.ts": "c05d86b6ab961af39ef8e84348dbcbdcfc0c953be402421b3abd5b98a44c543d",
+    "package.json": "181ee366c2edd16bce5619df9d4eac0cf1f640c0885c4e35ff4100d94d103326",
+    "playwright.workflow-analytics.config.ts": "8249afe6f078848fd6d0a0c5514c7b316828063ee743d7b70078bdc93bb3b31d",
+    "pnpm-lock.yaml": "03104ba4ae70dfe3d57b193da01d0be161643200710e9ddc99df8dc094271ae1",
+    "scripts/check-theme-install.mjs": "e1e5314fa26cbcb9a9baa3b2fceb6b4d58abdf1559038d1c426cc7d4b4a42b89",
+    "scripts/measure-workflow-analytics.mjs": "a255257d46aaefb6cc5c45600318aec2d440534104be6a7dd924431503b6cf21",
+    "scripts/workflow-analytics-consumer.mjs": "6b215163a3c76ce4b0f1aafb5d04242824187e61e488929dfe503fe9acdecc34",
+    "scripts/workflow-analytics-theme-consumer.mjs": "6f8bfe7d7e3146e4e5103e2748e72260eb208dd6a1bf11aad9ddd4e36e99a426",
+    "styles/theme.css": "86fdc160be1606a4ca94d394d0c8272f05ede1d908d3c6dc01e13ca9d70e06de",
+    "tests/workflow-analytics-model.spec.ts": "3b98f521f8559045697323617f738694934feef5d9a98af0a475e950d78b3564",
+    "tests/workflow-analytics.spec.ts": "d6d4fb5bdf464c7a41830a85305e676e7f5d1705f9d420cf229281e59343008d"
+  }
+}

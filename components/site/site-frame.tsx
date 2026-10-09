@@ -14,6 +14,8 @@ export function SiteFrame({
 }) {
   const pathname = usePathname()
   if (
+    pathname === "/examples/workflow-analytics" ||
+    pathname === "/examples/workflow-analytics/" ||
     pathname === "/workspace/agents" ||
     pathname.startsWith("/workspace/agents/") ||
     pathname === "/examples/work-items" ||

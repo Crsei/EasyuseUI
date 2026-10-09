@@ -3530,6 +3530,1084 @@
       "keywords": "work-item-card 源码 Source"
     },
     {
+      "id": "analytics-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsModel",
+        "en": "AnalyticsModel"
+      },
+      "summary": {
+        "zh-CN": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+        "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
+      },
+      "href": "/docs/analytics-model/",
+      "keywords": "analytics-model data"
+    },
+    {
+      "id": "analytics-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsModel · 安装",
+        "en": "AnalyticsModel · Installation"
+      },
+      "summary": {
+        "zh-CN": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+        "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
+      },
+      "href": "/docs/analytics-model/#installation",
+      "keywords": "analytics-model 安装 Installation"
+    },
+    {
+      "id": "analytics-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsModel · 使用",
+        "en": "AnalyticsModel · Usage"
+      },
+      "summary": {
+        "zh-CN": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+        "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
+      },
+      "href": "/docs/analytics-model/#usage",
+      "keywords": "analytics-model 使用 Usage"
+    },
+    {
+      "id": "analytics-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsModel · API",
+        "en": "AnalyticsModel · API"
+      },
+      "summary": {
+        "zh-CN": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+        "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
+      },
+      "href": "/docs/analytics-model/#api",
+      "keywords": "analytics-model API API"
+    },
+    {
+      "id": "analytics-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsModel · 状态与交互",
+        "en": "AnalyticsModel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+        "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
+      },
+      "href": "/docs/analytics-model/#states",
+      "keywords": "analytics-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "analytics-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsModel · 完整示例",
+        "en": "AnalyticsModel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+        "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
+      },
+      "href": "/docs/analytics-model/#example",
+      "keywords": "analytics-model 完整示例 Complete example"
+    },
+    {
+      "id": "analytics-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsModel · 源码",
+        "en": "AnalyticsModel · Source"
+      },
+      "summary": {
+        "zh-CN": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+        "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
+      },
+      "href": "/docs/analytics-model/#source",
+      "keywords": "analytics-model 源码 Source"
+    },
+    {
+      "id": "chart-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartModel",
+        "en": "ChartModel"
+      },
+      "summary": {
+        "zh-CN": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+        "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
+      },
+      "href": "/docs/chart-model/",
+      "keywords": "chart-model data"
+    },
+    {
+      "id": "chart-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartModel · 安装",
+        "en": "ChartModel · Installation"
+      },
+      "summary": {
+        "zh-CN": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+        "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
+      },
+      "href": "/docs/chart-model/#installation",
+      "keywords": "chart-model 安装 Installation"
+    },
+    {
+      "id": "chart-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartModel · 使用",
+        "en": "ChartModel · Usage"
+      },
+      "summary": {
+        "zh-CN": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+        "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
+      },
+      "href": "/docs/chart-model/#usage",
+      "keywords": "chart-model 使用 Usage"
+    },
+    {
+      "id": "chart-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartModel · API",
+        "en": "ChartModel · API"
+      },
+      "summary": {
+        "zh-CN": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+        "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
+      },
+      "href": "/docs/chart-model/#api",
+      "keywords": "chart-model API API"
+    },
+    {
+      "id": "chart-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartModel · 状态与交互",
+        "en": "ChartModel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+        "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
+      },
+      "href": "/docs/chart-model/#states",
+      "keywords": "chart-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "chart-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartModel · 完整示例",
+        "en": "ChartModel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+        "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
+      },
+      "href": "/docs/chart-model/#example",
+      "keywords": "chart-model 完整示例 Complete example"
+    },
+    {
+      "id": "chart-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartModel · 源码",
+        "en": "ChartModel · Source"
+      },
+      "summary": {
+        "zh-CN": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+        "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
+      },
+      "href": "/docs/chart-model/#source",
+      "keywords": "chart-model 源码 Source"
+    },
+    {
+      "id": "chart-frame",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartFrame",
+        "en": "ChartFrame"
+      },
+      "summary": {
+        "zh-CN": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+        "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
+      },
+      "href": "/docs/chart-frame/",
+      "keywords": "chart-frame data"
+    },
+    {
+      "id": "chart-frame-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartFrame · 安装",
+        "en": "ChartFrame · Installation"
+      },
+      "summary": {
+        "zh-CN": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+        "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
+      },
+      "href": "/docs/chart-frame/#installation",
+      "keywords": "chart-frame 安装 Installation"
+    },
+    {
+      "id": "chart-frame-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartFrame · 使用",
+        "en": "ChartFrame · Usage"
+      },
+      "summary": {
+        "zh-CN": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+        "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
+      },
+      "href": "/docs/chart-frame/#usage",
+      "keywords": "chart-frame 使用 Usage"
+    },
+    {
+      "id": "chart-frame-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartFrame · API",
+        "en": "ChartFrame · API"
+      },
+      "summary": {
+        "zh-CN": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+        "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
+      },
+      "href": "/docs/chart-frame/#api",
+      "keywords": "chart-frame API API"
+    },
+    {
+      "id": "chart-frame-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartFrame · 状态与交互",
+        "en": "ChartFrame · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+        "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
+      },
+      "href": "/docs/chart-frame/#states",
+      "keywords": "chart-frame 状态与交互 States and interaction"
+    },
+    {
+      "id": "chart-frame-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartFrame · 完整示例",
+        "en": "ChartFrame · Complete example"
+      },
+      "summary": {
+        "zh-CN": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+        "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
+      },
+      "href": "/docs/chart-frame/#example",
+      "keywords": "chart-frame 完整示例 Complete example"
+    },
+    {
+      "id": "chart-frame-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartFrame · 源码",
+        "en": "ChartFrame · Source"
+      },
+      "summary": {
+        "zh-CN": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+        "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
+      },
+      "href": "/docs/chart-frame/#source",
+      "keywords": "chart-frame 源码 Source"
+    },
+    {
+      "id": "chart-data-table",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDataTable",
+        "en": "ChartDataTable"
+      },
+      "summary": {
+        "zh-CN": "聚合点的完整结构化表格与键盘下钻路径。",
+        "en": "Complete structured aggregate tables and keyboard drilldown."
+      },
+      "href": "/docs/chart-data-table/",
+      "keywords": "chart-data-table data"
+    },
+    {
+      "id": "chart-data-table-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDataTable · 安装",
+        "en": "ChartDataTable · Installation"
+      },
+      "summary": {
+        "zh-CN": "聚合点的完整结构化表格与键盘下钻路径。",
+        "en": "Complete structured aggregate tables and keyboard drilldown."
+      },
+      "href": "/docs/chart-data-table/#installation",
+      "keywords": "chart-data-table 安装 Installation"
+    },
+    {
+      "id": "chart-data-table-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDataTable · 使用",
+        "en": "ChartDataTable · Usage"
+      },
+      "summary": {
+        "zh-CN": "聚合点的完整结构化表格与键盘下钻路径。",
+        "en": "Complete structured aggregate tables and keyboard drilldown."
+      },
+      "href": "/docs/chart-data-table/#usage",
+      "keywords": "chart-data-table 使用 Usage"
+    },
+    {
+      "id": "chart-data-table-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDataTable · API",
+        "en": "ChartDataTable · API"
+      },
+      "summary": {
+        "zh-CN": "聚合点的完整结构化表格与键盘下钻路径。",
+        "en": "Complete structured aggregate tables and keyboard drilldown."
+      },
+      "href": "/docs/chart-data-table/#api",
+      "keywords": "chart-data-table API API"
+    },
+    {
+      "id": "chart-data-table-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDataTable · 状态与交互",
+        "en": "ChartDataTable · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "聚合点的完整结构化表格与键盘下钻路径。",
+        "en": "Complete structured aggregate tables and keyboard drilldown."
+      },
+      "href": "/docs/chart-data-table/#states",
+      "keywords": "chart-data-table 状态与交互 States and interaction"
+    },
+    {
+      "id": "chart-data-table-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDataTable · 完整示例",
+        "en": "ChartDataTable · Complete example"
+      },
+      "summary": {
+        "zh-CN": "聚合点的完整结构化表格与键盘下钻路径。",
+        "en": "Complete structured aggregate tables and keyboard drilldown."
+      },
+      "href": "/docs/chart-data-table/#example",
+      "keywords": "chart-data-table 完整示例 Complete example"
+    },
+    {
+      "id": "chart-data-table-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDataTable · 源码",
+        "en": "ChartDataTable · Source"
+      },
+      "summary": {
+        "zh-CN": "聚合点的完整结构化表格与键盘下钻路径。",
+        "en": "Complete structured aggregate tables and keyboard drilldown."
+      },
+      "href": "/docs/chart-data-table/#source",
+      "keywords": "chart-data-table 源码 Source"
+    },
+    {
+      "id": "statistical-chart",
+      "kind": "components",
+      "title": {
+        "zh-CN": "StatisticalChart",
+        "en": "StatisticalChart"
+      },
+      "summary": {
+        "zh-CN": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+        "en": "On-demand bar, line, area, donut and scatter rendering."
+      },
+      "href": "/docs/statistical-chart/",
+      "keywords": "statistical-chart data"
+    },
+    {
+      "id": "statistical-chart-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "StatisticalChart · 安装",
+        "en": "StatisticalChart · Installation"
+      },
+      "summary": {
+        "zh-CN": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+        "en": "On-demand bar, line, area, donut and scatter rendering."
+      },
+      "href": "/docs/statistical-chart/#installation",
+      "keywords": "statistical-chart 安装 Installation"
+    },
+    {
+      "id": "statistical-chart-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "StatisticalChart · 使用",
+        "en": "StatisticalChart · Usage"
+      },
+      "summary": {
+        "zh-CN": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+        "en": "On-demand bar, line, area, donut and scatter rendering."
+      },
+      "href": "/docs/statistical-chart/#usage",
+      "keywords": "statistical-chart 使用 Usage"
+    },
+    {
+      "id": "statistical-chart-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "StatisticalChart · API",
+        "en": "StatisticalChart · API"
+      },
+      "summary": {
+        "zh-CN": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+        "en": "On-demand bar, line, area, donut and scatter rendering."
+      },
+      "href": "/docs/statistical-chart/#api",
+      "keywords": "statistical-chart API API"
+    },
+    {
+      "id": "statistical-chart-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "StatisticalChart · 状态与交互",
+        "en": "StatisticalChart · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+        "en": "On-demand bar, line, area, donut and scatter rendering."
+      },
+      "href": "/docs/statistical-chart/#states",
+      "keywords": "statistical-chart 状态与交互 States and interaction"
+    },
+    {
+      "id": "statistical-chart-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "StatisticalChart · 完整示例",
+        "en": "StatisticalChart · Complete example"
+      },
+      "summary": {
+        "zh-CN": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+        "en": "On-demand bar, line, area, donut and scatter rendering."
+      },
+      "href": "/docs/statistical-chart/#example",
+      "keywords": "statistical-chart 完整示例 Complete example"
+    },
+    {
+      "id": "statistical-chart-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "StatisticalChart · 源码",
+        "en": "StatisticalChart · Source"
+      },
+      "summary": {
+        "zh-CN": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+        "en": "On-demand bar, line, area, donut and scatter rendering."
+      },
+      "href": "/docs/statistical-chart/#source",
+      "keywords": "statistical-chart 源码 Source"
+    },
+    {
+      "id": "chart-drilldown-panel",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDrilldownPanel",
+        "en": "ChartDrilldownPanel"
+      },
+      "summary": {
+        "zh-CN": "快照匹配、历史成员说明与分页来源记录面板。",
+        "en": "Snapshot matching, historical membership explanations and paginated source records."
+      },
+      "href": "/docs/chart-drilldown-panel/",
+      "keywords": "chart-drilldown-panel data"
+    },
+    {
+      "id": "chart-drilldown-panel-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDrilldownPanel · 安装",
+        "en": "ChartDrilldownPanel · Installation"
+      },
+      "summary": {
+        "zh-CN": "快照匹配、历史成员说明与分页来源记录面板。",
+        "en": "Snapshot matching, historical membership explanations and paginated source records."
+      },
+      "href": "/docs/chart-drilldown-panel/#installation",
+      "keywords": "chart-drilldown-panel 安装 Installation"
+    },
+    {
+      "id": "chart-drilldown-panel-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDrilldownPanel · 使用",
+        "en": "ChartDrilldownPanel · Usage"
+      },
+      "summary": {
+        "zh-CN": "快照匹配、历史成员说明与分页来源记录面板。",
+        "en": "Snapshot matching, historical membership explanations and paginated source records."
+      },
+      "href": "/docs/chart-drilldown-panel/#usage",
+      "keywords": "chart-drilldown-panel 使用 Usage"
+    },
+    {
+      "id": "chart-drilldown-panel-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDrilldownPanel · API",
+        "en": "ChartDrilldownPanel · API"
+      },
+      "summary": {
+        "zh-CN": "快照匹配、历史成员说明与分页来源记录面板。",
+        "en": "Snapshot matching, historical membership explanations and paginated source records."
+      },
+      "href": "/docs/chart-drilldown-panel/#api",
+      "keywords": "chart-drilldown-panel API API"
+    },
+    {
+      "id": "chart-drilldown-panel-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDrilldownPanel · 状态与交互",
+        "en": "ChartDrilldownPanel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "快照匹配、历史成员说明与分页来源记录面板。",
+        "en": "Snapshot matching, historical membership explanations and paginated source records."
+      },
+      "href": "/docs/chart-drilldown-panel/#states",
+      "keywords": "chart-drilldown-panel 状态与交互 States and interaction"
+    },
+    {
+      "id": "chart-drilldown-panel-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDrilldownPanel · 完整示例",
+        "en": "ChartDrilldownPanel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "快照匹配、历史成员说明与分页来源记录面板。",
+        "en": "Snapshot matching, historical membership explanations and paginated source records."
+      },
+      "href": "/docs/chart-drilldown-panel/#example",
+      "keywords": "chart-drilldown-panel 完整示例 Complete example"
+    },
+    {
+      "id": "chart-drilldown-panel-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ChartDrilldownPanel · 源码",
+        "en": "ChartDrilldownPanel · Source"
+      },
+      "summary": {
+        "zh-CN": "快照匹配、历史成员说明与分页来源记录面板。",
+        "en": "Snapshot matching, historical membership explanations and paginated source records."
+      },
+      "href": "/docs/chart-drilldown-panel/#source",
+      "keywords": "chart-drilldown-panel 源码 Source"
+    },
+    {
+      "id": "workflow-metric",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowMetric",
+        "en": "WorkflowMetric"
+      },
+      "summary": {
+        "zh-CN": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+        "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
+      },
+      "href": "/docs/workflow-metric/",
+      "keywords": "workflow-metric data"
+    },
+    {
+      "id": "workflow-metric-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowMetric · 安装",
+        "en": "WorkflowMetric · Installation"
+      },
+      "summary": {
+        "zh-CN": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+        "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
+      },
+      "href": "/docs/workflow-metric/#installation",
+      "keywords": "workflow-metric 安装 Installation"
+    },
+    {
+      "id": "workflow-metric-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowMetric · 使用",
+        "en": "WorkflowMetric · Usage"
+      },
+      "summary": {
+        "zh-CN": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+        "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
+      },
+      "href": "/docs/workflow-metric/#usage",
+      "keywords": "workflow-metric 使用 Usage"
+    },
+    {
+      "id": "workflow-metric-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowMetric · API",
+        "en": "WorkflowMetric · API"
+      },
+      "summary": {
+        "zh-CN": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+        "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
+      },
+      "href": "/docs/workflow-metric/#api",
+      "keywords": "workflow-metric API API"
+    },
+    {
+      "id": "workflow-metric-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowMetric · 状态与交互",
+        "en": "WorkflowMetric · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+        "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
+      },
+      "href": "/docs/workflow-metric/#states",
+      "keywords": "workflow-metric 状态与交互 States and interaction"
+    },
+    {
+      "id": "workflow-metric-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowMetric · 完整示例",
+        "en": "WorkflowMetric · Complete example"
+      },
+      "summary": {
+        "zh-CN": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+        "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
+      },
+      "href": "/docs/workflow-metric/#example",
+      "keywords": "workflow-metric 完整示例 Complete example"
+    },
+    {
+      "id": "workflow-metric-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowMetric · 源码",
+        "en": "WorkflowMetric · Source"
+      },
+      "summary": {
+        "zh-CN": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+        "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
+      },
+      "href": "/docs/workflow-metric/#source",
+      "keywords": "workflow-metric 源码 Source"
+    },
+    {
+      "id": "workflow-charts",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowCharts",
+        "en": "WorkflowCharts"
+      },
+      "summary": {
+        "zh-CN": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+        "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
+      },
+      "href": "/docs/workflow-charts/",
+      "keywords": "workflow-charts data"
+    },
+    {
+      "id": "workflow-charts-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowCharts · 安装",
+        "en": "WorkflowCharts · Installation"
+      },
+      "summary": {
+        "zh-CN": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+        "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
+      },
+      "href": "/docs/workflow-charts/#installation",
+      "keywords": "workflow-charts 安装 Installation"
+    },
+    {
+      "id": "workflow-charts-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowCharts · 使用",
+        "en": "WorkflowCharts · Usage"
+      },
+      "summary": {
+        "zh-CN": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+        "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
+      },
+      "href": "/docs/workflow-charts/#usage",
+      "keywords": "workflow-charts 使用 Usage"
+    },
+    {
+      "id": "workflow-charts-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowCharts · API",
+        "en": "WorkflowCharts · API"
+      },
+      "summary": {
+        "zh-CN": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+        "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
+      },
+      "href": "/docs/workflow-charts/#api",
+      "keywords": "workflow-charts API API"
+    },
+    {
+      "id": "workflow-charts-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowCharts · 状态与交互",
+        "en": "WorkflowCharts · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+        "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
+      },
+      "href": "/docs/workflow-charts/#states",
+      "keywords": "workflow-charts 状态与交互 States and interaction"
+    },
+    {
+      "id": "workflow-charts-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowCharts · 完整示例",
+        "en": "WorkflowCharts · Complete example"
+      },
+      "summary": {
+        "zh-CN": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+        "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
+      },
+      "href": "/docs/workflow-charts/#example",
+      "keywords": "workflow-charts 完整示例 Complete example"
+    },
+    {
+      "id": "workflow-charts-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkflowCharts · 源码",
+        "en": "WorkflowCharts · Source"
+      },
+      "summary": {
+        "zh-CN": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+        "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
+      },
+      "href": "/docs/workflow-charts/#source",
+      "keywords": "workflow-charts 源码 Source"
+    },
+    {
+      "id": "risk-evidence-list",
+      "kind": "components",
+      "title": {
+        "zh-CN": "RiskEvidenceList",
+        "en": "RiskEvidenceList"
+      },
+      "summary": {
+        "zh-CN": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+        "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
+      },
+      "href": "/docs/risk-evidence-list/",
+      "keywords": "risk-evidence-list data"
+    },
+    {
+      "id": "risk-evidence-list-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "RiskEvidenceList · 安装",
+        "en": "RiskEvidenceList · Installation"
+      },
+      "summary": {
+        "zh-CN": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+        "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
+      },
+      "href": "/docs/risk-evidence-list/#installation",
+      "keywords": "risk-evidence-list 安装 Installation"
+    },
+    {
+      "id": "risk-evidence-list-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "RiskEvidenceList · 使用",
+        "en": "RiskEvidenceList · Usage"
+      },
+      "summary": {
+        "zh-CN": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+        "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
+      },
+      "href": "/docs/risk-evidence-list/#usage",
+      "keywords": "risk-evidence-list 使用 Usage"
+    },
+    {
+      "id": "risk-evidence-list-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "RiskEvidenceList · API",
+        "en": "RiskEvidenceList · API"
+      },
+      "summary": {
+        "zh-CN": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+        "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
+      },
+      "href": "/docs/risk-evidence-list/#api",
+      "keywords": "risk-evidence-list API API"
+    },
+    {
+      "id": "risk-evidence-list-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "RiskEvidenceList · 状态与交互",
+        "en": "RiskEvidenceList · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+        "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
+      },
+      "href": "/docs/risk-evidence-list/#states",
+      "keywords": "risk-evidence-list 状态与交互 States and interaction"
+    },
+    {
+      "id": "risk-evidence-list-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "RiskEvidenceList · 完整示例",
+        "en": "RiskEvidenceList · Complete example"
+      },
+      "summary": {
+        "zh-CN": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+        "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
+      },
+      "href": "/docs/risk-evidence-list/#example",
+      "keywords": "risk-evidence-list 完整示例 Complete example"
+    },
+    {
+      "id": "risk-evidence-list-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "RiskEvidenceList · 源码",
+        "en": "RiskEvidenceList · Source"
+      },
+      "summary": {
+        "zh-CN": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+        "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
+      },
+      "href": "/docs/risk-evidence-list/#source",
+      "keywords": "risk-evidence-list 源码 Source"
+    },
+    {
+      "id": "work-traceability-view",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkTraceabilityView",
+        "en": "WorkTraceabilityView"
+      },
+      "summary": {
+        "zh-CN": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+        "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
+      },
+      "href": "/docs/work-traceability-view/",
+      "keywords": "work-traceability-view data"
+    },
+    {
+      "id": "work-traceability-view-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkTraceabilityView · 安装",
+        "en": "WorkTraceabilityView · Installation"
+      },
+      "summary": {
+        "zh-CN": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+        "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
+      },
+      "href": "/docs/work-traceability-view/#installation",
+      "keywords": "work-traceability-view 安装 Installation"
+    },
+    {
+      "id": "work-traceability-view-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkTraceabilityView · 使用",
+        "en": "WorkTraceabilityView · Usage"
+      },
+      "summary": {
+        "zh-CN": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+        "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
+      },
+      "href": "/docs/work-traceability-view/#usage",
+      "keywords": "work-traceability-view 使用 Usage"
+    },
+    {
+      "id": "work-traceability-view-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkTraceabilityView · API",
+        "en": "WorkTraceabilityView · API"
+      },
+      "summary": {
+        "zh-CN": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+        "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
+      },
+      "href": "/docs/work-traceability-view/#api",
+      "keywords": "work-traceability-view API API"
+    },
+    {
+      "id": "work-traceability-view-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkTraceabilityView · 状态与交互",
+        "en": "WorkTraceabilityView · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+        "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
+      },
+      "href": "/docs/work-traceability-view/#states",
+      "keywords": "work-traceability-view 状态与交互 States and interaction"
+    },
+    {
+      "id": "work-traceability-view-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkTraceabilityView · 完整示例",
+        "en": "WorkTraceabilityView · Complete example"
+      },
+      "summary": {
+        "zh-CN": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+        "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
+      },
+      "href": "/docs/work-traceability-view/#example",
+      "keywords": "work-traceability-view 完整示例 Complete example"
+    },
+    {
+      "id": "work-traceability-view-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkTraceabilityView · 源码",
+        "en": "WorkTraceabilityView · Source"
+      },
+      "summary": {
+        "zh-CN": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+        "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
+      },
+      "href": "/docs/work-traceability-view/#source",
+      "keywords": "work-traceability-view 源码 Source"
+    },
+    {
+      "id": "work-items-view-adapter",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkItemsViewAdapter",
+        "en": "WorkItemsViewAdapter"
+      },
+      "summary": {
+        "zh-CN": "保留业务能力的分析快照到工作项五布局适配。",
+        "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
+      },
+      "href": "/docs/work-items-view-adapter/",
+      "keywords": "work-items-view-adapter data"
+    },
+    {
+      "id": "work-items-view-adapter-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkItemsViewAdapter · 安装",
+        "en": "WorkItemsViewAdapter · Installation"
+      },
+      "summary": {
+        "zh-CN": "保留业务能力的分析快照到工作项五布局适配。",
+        "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
+      },
+      "href": "/docs/work-items-view-adapter/#installation",
+      "keywords": "work-items-view-adapter 安装 Installation"
+    },
+    {
+      "id": "work-items-view-adapter-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkItemsViewAdapter · 使用",
+        "en": "WorkItemsViewAdapter · Usage"
+      },
+      "summary": {
+        "zh-CN": "保留业务能力的分析快照到工作项五布局适配。",
+        "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
+      },
+      "href": "/docs/work-items-view-adapter/#usage",
+      "keywords": "work-items-view-adapter 使用 Usage"
+    },
+    {
+      "id": "work-items-view-adapter-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkItemsViewAdapter · API",
+        "en": "WorkItemsViewAdapter · API"
+      },
+      "summary": {
+        "zh-CN": "保留业务能力的分析快照到工作项五布局适配。",
+        "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
+      },
+      "href": "/docs/work-items-view-adapter/#api",
+      "keywords": "work-items-view-adapter API API"
+    },
+    {
+      "id": "work-items-view-adapter-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkItemsViewAdapter · 状态与交互",
+        "en": "WorkItemsViewAdapter · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "保留业务能力的分析快照到工作项五布局适配。",
+        "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
+      },
+      "href": "/docs/work-items-view-adapter/#states",
+      "keywords": "work-items-view-adapter 状态与交互 States and interaction"
+    },
+    {
+      "id": "work-items-view-adapter-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkItemsViewAdapter · 完整示例",
+        "en": "WorkItemsViewAdapter · Complete example"
+      },
+      "summary": {
+        "zh-CN": "保留业务能力的分析快照到工作项五布局适配。",
+        "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
+      },
+      "href": "/docs/work-items-view-adapter/#example",
+      "keywords": "work-items-view-adapter 完整示例 Complete example"
+    },
+    {
+      "id": "work-items-view-adapter-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkItemsViewAdapter · 源码",
+        "en": "WorkItemsViewAdapter · Source"
+      },
+      "summary": {
+        "zh-CN": "保留业务能力的分析快照到工作项五布局适配。",
+        "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
+      },
+      "href": "/docs/work-items-view-adapter/#source",
+      "keywords": "work-items-view-adapter 源码 Source"
+    },
+    {
       "id": "avatar",
       "kind": "components",
       "title": {
@@ -8920,6 +9998,202 @@
       "keywords": "inspector 源码 Source"
     },
     {
+      "id": "dashboard",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Dashboard",
+        "en": "Dashboard"
+      },
+      "summary": {
+        "zh-CN": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+        "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
+      },
+      "href": "/docs/dashboard/",
+      "keywords": "dashboard workspace"
+    },
+    {
+      "id": "dashboard-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Dashboard · 安装",
+        "en": "Dashboard · Installation"
+      },
+      "summary": {
+        "zh-CN": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+        "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
+      },
+      "href": "/docs/dashboard/#installation",
+      "keywords": "dashboard 安装 Installation"
+    },
+    {
+      "id": "dashboard-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Dashboard · 使用",
+        "en": "Dashboard · Usage"
+      },
+      "summary": {
+        "zh-CN": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+        "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
+      },
+      "href": "/docs/dashboard/#usage",
+      "keywords": "dashboard 使用 Usage"
+    },
+    {
+      "id": "dashboard-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Dashboard · API",
+        "en": "Dashboard · API"
+      },
+      "summary": {
+        "zh-CN": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+        "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
+      },
+      "href": "/docs/dashboard/#api",
+      "keywords": "dashboard API API"
+    },
+    {
+      "id": "dashboard-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Dashboard · 状态与交互",
+        "en": "Dashboard · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+        "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
+      },
+      "href": "/docs/dashboard/#states",
+      "keywords": "dashboard 状态与交互 States and interaction"
+    },
+    {
+      "id": "dashboard-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Dashboard · 完整示例",
+        "en": "Dashboard · Complete example"
+      },
+      "summary": {
+        "zh-CN": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+        "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
+      },
+      "href": "/docs/dashboard/#example",
+      "keywords": "dashboard 完整示例 Complete example"
+    },
+    {
+      "id": "dashboard-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Dashboard · 源码",
+        "en": "Dashboard · Source"
+      },
+      "summary": {
+        "zh-CN": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+        "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
+      },
+      "href": "/docs/dashboard/#source",
+      "keywords": "dashboard 源码 Source"
+    },
+    {
+      "id": "project-overview-dashboard",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectOverviewDashboard",
+        "en": "ProjectOverviewDashboard"
+      },
+      "summary": {
+        "zh-CN": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+        "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
+      },
+      "href": "/docs/project-overview-dashboard/",
+      "keywords": "project-overview-dashboard workspace"
+    },
+    {
+      "id": "project-overview-dashboard-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectOverviewDashboard · 安装",
+        "en": "ProjectOverviewDashboard · Installation"
+      },
+      "summary": {
+        "zh-CN": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+        "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
+      },
+      "href": "/docs/project-overview-dashboard/#installation",
+      "keywords": "project-overview-dashboard 安装 Installation"
+    },
+    {
+      "id": "project-overview-dashboard-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectOverviewDashboard · 使用",
+        "en": "ProjectOverviewDashboard · Usage"
+      },
+      "summary": {
+        "zh-CN": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+        "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
+      },
+      "href": "/docs/project-overview-dashboard/#usage",
+      "keywords": "project-overview-dashboard 使用 Usage"
+    },
+    {
+      "id": "project-overview-dashboard-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectOverviewDashboard · API",
+        "en": "ProjectOverviewDashboard · API"
+      },
+      "summary": {
+        "zh-CN": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+        "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
+      },
+      "href": "/docs/project-overview-dashboard/#api",
+      "keywords": "project-overview-dashboard API API"
+    },
+    {
+      "id": "project-overview-dashboard-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectOverviewDashboard · 状态与交互",
+        "en": "ProjectOverviewDashboard · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+        "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
+      },
+      "href": "/docs/project-overview-dashboard/#states",
+      "keywords": "project-overview-dashboard 状态与交互 States and interaction"
+    },
+    {
+      "id": "project-overview-dashboard-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectOverviewDashboard · 完整示例",
+        "en": "ProjectOverviewDashboard · Complete example"
+      },
+      "summary": {
+        "zh-CN": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+        "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
+      },
+      "href": "/docs/project-overview-dashboard/#example",
+      "keywords": "project-overview-dashboard 完整示例 Complete example"
+    },
+    {
+      "id": "project-overview-dashboard-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ProjectOverviewDashboard · 源码",
+        "en": "ProjectOverviewDashboard · Source"
+      },
+      "summary": {
+        "zh-CN": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+        "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
+      },
+      "href": "/docs/project-overview-dashboard/#source",
+      "keywords": "project-overview-dashboard 源码 Source"
+    },
+    {
       "id": "style-workbench",
       "kind": "components",
       "title": {
@@ -10460,6 +11734,20 @@
       "keywords": "composing-workspaces"
     },
     {
+      "id": "workflow-analytics",
+      "kind": "examples",
+      "title": {
+        "zh-CN": "工作流分析",
+        "en": "Workflow analytics"
+      },
+      "summary": {
+        "zh-CN": "固定项目 Dashboard、明确指标与同快照来源下钻。",
+        "en": "A fixed project dashboard, defined metrics and source drilldown at the same snapshot."
+      },
+      "href": "/examples/workflow-analytics/",
+      "keywords": "statistical-chart chart-drilldown-panel project-overview-dashboard"
+    },
+    {
       "id": "agent",
       "kind": "examples",
       "title": {
@@ -10640,6 +11928,20 @@
       },
       "href": "/blog/work-items-shared-views/",
       "keywords": "work-items-shared-views"
+    },
+    {
+      "id": "workflow-analytics",
+      "kind": "articles",
+      "title": {
+        "zh-CN": "从状态分布到同快照工作项下钻",
+        "en": "From status distribution to work-item drilldown at the same snapshot"
+      },
+      "summary": {
+        "zh-CN": "工作流分析首版：固定项目 Dashboard、可解释指标、历史成员与独立统计图表分发。",
+        "en": "A fixed project dashboard, defined metrics, historical membership and portable charts."
+      },
+      "href": "/blog/workflow-analytics/",
+      "keywords": "workflow-analytics"
     }
   ]
 }

@@ -1,0 +1,74 @@
+# 工作流分析组件
+
+首版实现范围为计划 C0–C2 与对应 C7。入口为 `/examples/workflow-analytics/`；这是确定性内存 fixture，刷新重置，没有真实历史采集、服务查询、权限授予或业务写入。
+
+## 安装与分层
+
+| 安装项 | 主要导出 | 依赖边界 |
+| --- | --- | --- |
+| analytics-model | AnalyticsEntityRef / AnalyticsQuery / AnalyticsResult / WorkflowEvent / HistoryCoverage；analyticsEntityKey / computeWorkflowMetric / replayWorkflowHistory | 纯模型与可选小数据计算；没有 React、网络或统计引擎 |
+| chart-model | ChartKind / ChartSelection / chartData / chartDrilldown / formatChartValue | 纯图表适配；没有统计引擎 |
+| chart-frame | ChartFrame / ChartHeader / ChartDataState / ChartLegend / ChartTooltip / ChartAxis | 复用 DataRegion 和主题；没有统计引擎 |
+| statistical-chart | StatisticalChart / BarChart / LineChart / AreaChart / DonutChart / ScatterChart / ChartReference | Recharts 3.10.1、react-is 19.3.0；按需引入 |
+| chart-data-table | ChartDataTable | 聚合点的完整数据表，复用 DataTable；独立于引擎 |
+| chart-drilldown-panel | ChartDrilldownPanel | 来源明细、分页和受控 Sheet；独立于引擎 |
+| workflow-metric | WorkflowMetric | MetricSummary、明确口径/比较基期/覆盖与下钻 |
+| workflow-charts | StatusDistribution / CompletionTrend / WorkItemAging / BlockerDistribution | 固定业务模板 |
+| risk-evidence-list | RiskEvidenceList | 规则、阈值、时间、来源和对象入口 |
+| work-traceability-view | WorkTraceabilityView / analyticsRelationsFor | 有类型关系表，不推断转化率或依赖满足 |
+| work-items-view-adapter | WorkItemsViewAdapter | 复用 WorkItemsWorkspace 的五布局与原有业务能力 |
+| dashboard | DashboardShell / Header / FilterBar / Grid / Widget / WidgetActions / WidgetInspector | 固定响应网格与受控工具栏；不保存配置 |
+| project-overview-dashboard | ProjectOverviewDashboard | 项目固定模板；每个图表独立读态 |
+
+Registry 的嵌套文件使用明确 target；模型与组件采用不同 basename。所有安装项均有 Manifest、文档页和按需示例。可以从 `/r/<item>.json` 安装；消费项目有既有主题时选择 `/r/host/` 或 `/r/scoped/`，沿用本库 ThemeBoundary 规则。
+
+```tsx
+import { StatisticalChart } from "@/components/blocks/charts/statistical-chart"
+
+<StatisticalChart
+  widgetId="throughput"
+  kind="line"
+  xType="time"
+  title="实际完成事件"
+  description="同项同桶去重，跨桶可重复；不等于当前完成存量。"
+  query={query}
+  result={result}
+  access={canRead ? "allowed" : "denied"}
+  selection={selection}
+  onSelectionChange={setSelection}
+  onDrilldown={readSnapshotMembers}
+/>
+```
+
+`query` 是纯描述，`result.queryKey` 必须匹配 `analyticsQueryKey(query)`。范围、来源、权限版本变化时，旧结果不渲染；调用方递增 generation，并通过 `acceptAnalyticsResponse` 丢弃迟到结果。不要把调用方可访问的旧数据放进新的查询结果。`access="denied"` 隐藏图、表、旧值、导出和明细；撤权时调用方还需移除对象详情和缓存。
+
+## 指标与历史
+
+- `status-distribution@1`：有效范围内去重工作项，排除 cancelled；各分类来自快照。分母为零时完成率不适用。任务完成与 Run completed、业务验收没有互相推导。
+- `completion-trend@1`：状态转入 completed 的实际历史事件，同实体同桶去重、跨桶允许重复。移出范围、归档、删除和重开不是完成；图中成员保留历史归属。
+- `work-item-aging@1`：未完成工作项的 `asOf-createdAt`，单位 days；缺失创建时间显示缺失、标记部分数据，不借用计划日期。
+- `blocker-distribution@1`：未完成项的明确 blocker 关系，组间可重叠；只用柱图，不假称互斥组成。
+
+`computeWorkflowMetric` 的输入必须显式声明 complete 或 partial；它不能判断一个已加载分页是否代表整个项目。服务端聚合可直接提供 AnalyticsResult，无需使用本地计算器。系列值必须是有限数值或 null；null 与真实 0 分开，连续图默认不跨缺口连线。柱图零基线；Donut 要显式 `composition="exclusive"`，只允许单系列、互斥分组和非负值。
+
+历史需要期初完整快照、baselineAsOf/version、水位、覆盖区间、缺失区间与指标支持声明。事件身份为 sourceId+eventId；冲突重复报错，完全相同的重复去重。correction/retraction 必须引用同源同实体已知事件；修正替换原发生时刻的 payload，撤销移除原事件。只重放期初之后、asOf 之前或当时的事件。occurredAt 用于业务时间，recordedAt 用于采集审计，不能互换。迟到事件由调用方重新计算、推进 snapshotId/水位。
+
+时间范围为 `[from,to)`；日、周、月按 query.timeZone 分桶，周从周一开始。当前未闭合桶带 unfinished。纯 helper 有 10,000 桶边界，超出需调用方聚合；不是生产数据库或事件调度器。首版趋势要求覆盖整个查询范围；无期初或有缺口时显示历史不足，不补造曲线。
+
+## 选择、下钻与恢复
+
+所有鼠标、触屏、数据表与键盘入口都生成稳定 seriesId/bucketId 的 DrilldownSelection。图例只改变系列可见性；分母和其他 Widget 保持不变。点选默认打开来源；只有“应用为筛选”回调才请求改变全局查询。
+
+`ChartDrilldownPanel.response` 必须带 queryKey、snapshotId、seriesId、bucketId、records、totalCount。不匹配时不展示旧记录；2/5 的分页显示为已加载 2/5。小集合可提供 entityRefs，大集合使用受控 predicate/token 并由调用方分页。历史聚合不能用今天的状态重新构造；缺少可重建成员描述时不提供 drilldown，组件展示不可下钻原因。
+
+`WorkItemsViewAdapter` 要求选中集合与工作区 queryKey/snapshotId 一致；调用方按历史成员加载 WorkItemRecord，并保留原始 canEdit/canMove/审批/持久化能力。适配器不从统计点生成写入。关联表区分 trace、contains、blocks、execution-parent 和 idea-link；多对多 Idea 关联数不是转化率。
+
+同权限同查询刷新失败通过 DataRegion 保留旧图与数据时间；单个 Widget 失败不替换其他图。表格是完整替代路径；图内键盘游标用方向键、Home/End、Enter，不给每个散点增加 Tab。图形动画关闭，支持 reduced-motion。局部图表样式使用共享 chart tokens，Tooltip 不脱离主题边界。
+
+CSV 导出是显式回调。`analyticsCsv` 核对 queryKey，并包含快照、指标版本、单位、范围、时区、完整性、覆盖和限制；单元格对公式前缀转义。权限和敏感字段仍由调用方控制。首版没有图像复制、任意图型替换或不可保存的布局编辑按钮。
+
+## 当前边界
+
+C3 资源/执行、C4 迭代进度/布局保存、C5 CFD/周期/预测/任务依赖、C6 通用构建器保留后续范围。DashboardDefinition 仅定义配置类型；尚未提供布局保存或后台查询服务。计算、fixture、截图、安装和真实服务证据分别记录在 [实施记录](plans/workflow-analytics-implementation-log.md)。
+
+底层尺寸和事件 API 按 [Recharts 官方文档](https://recharts.github.io/en-US/api/BarChart/) 与安装版本类型核对，组件业务事件不暴露底层库 payload。参考包只借鉴语义和组织，没有复制其源码；依赖采用 Recharts MIT 许可。
