@@ -91,7 +91,9 @@ test("primary navigation, gallery and generated guides keep canonical routes", a
     page.getByRole("navigation", { name: "主导航" }).getByRole("link"),
   ).toHaveCount(4)
   await page.goto("/examples/")
-  await expect(page.locator("[data-example]")).toHaveCount(exampleManifest.length)
+  await expect(page.locator("[data-example]")).toHaveCount(
+    exampleManifest.length,
+  )
   for (const example of exampleManifest)
     await expect(
       page.locator(`[data-example="${example.id}"]`).getByRole("link").first(),
@@ -162,6 +164,32 @@ test("search loads on demand, accepts aliases, retains query and respects compos
   )
 })
 
+test("search waits for hydration before accepting the first click", async ({
+  page,
+}) => {
+  let release: () => void = () => {}
+  const ready = new Promise<void>((resolve) => {
+    release = resolve
+  })
+  await page.route("**/_next/static/chunks/app/layout-*.js", async (route) => {
+    await ready
+    await route.continue()
+  })
+  try {
+    await page.goto("/", { waitUntil: "commit" })
+    const search = page.getByRole("button", { name: "搜索文档", exact: true })
+    await expect(search).toBeDisabled()
+    release()
+    await expect(search).toBeEnabled()
+    await search.click()
+    const dialog = page.getByRole("dialog")
+    await expect(dialog).toBeVisible()
+    await expect(dialog.getByRole("combobox")).toBeFocused()
+  } finally {
+    release()
+  }
+})
+
 test("failed search index offers retry, empty suggestions and directory fallback", async ({
   page,
 }) => {
@@ -178,8 +206,11 @@ test("failed search index offers retry, empty suggestions and directory fallback
   const dialog = page.getByRole("dialog")
   await expect(dialog.getByRole("alert")).toBeVisible()
   await expect(dialog.getByRole("link")).toHaveAttribute("href", "/components/")
+  const input = dialog.getByRole("combobox")
+  await input.fill("retained recovery query")
   await dialog.getByRole("button", { name: "重试", exact: true }).click()
-  await dialog.getByRole("combobox").fill("unlikely-empty-query-92854")
+  await expect(input).toHaveValue("retained recovery query")
+  await input.fill("unlikely-empty-query-92854")
   await expect(dialog.getByRole("option")).toHaveCount(0)
   await expect(dialog).toContainText("Button")
   await page.keyboard.press("Escape")

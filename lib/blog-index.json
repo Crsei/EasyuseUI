@@ -11,6 +11,17 @@
     }
   },
   {
+    "slug": "agent-workbench-showcase",
+    "title": {
+      "zh-CN": "Agent 网页展示：区域实验室与连续工作流",
+      "en": "Agent showcase: region laboratory and continuous workflows"
+    },
+    "summary": {
+      "zh-CN": "十个区域的可分享场景、三种共享状态的布局，以及项目、审阅、产物与收件箱的连续操作。",
+      "en": "Shareable scenarios in ten regions, three layouts with shared state, and continuous project, review, artifact and inbox interactions."
+    }
+  },
+  {
     "slug": "agent-workbench",
     "title": {
       "zh-CN": "Agent 工作台：从独立区域到三种完整网页",

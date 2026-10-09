@@ -8,10 +8,24 @@ import {
   type ReviewComment,
   type SessionSnapshot,
   type WorkbenchMessage,
+  type ContextReference,
 } from "@/lib/agent-workbench-model"
 import type { AttentionAction } from "@/lib/agent-board-model"
-import { initialWorkbench, makeDraft } from "./fixtures"
+import {
+  initialWorkbench,
+  makeDraft,
+  environments,
+  models,
+  permissions,
+} from "./fixtures"
+import { prepareShowcaseScenario } from "./showcase-model"
 export type ExampleState = WorkbenchState & {
+  scenarioBySession: Record<string, string>
+  creationProjects: Record<string, string>
+  contextRetries: Record<
+    string,
+    { sessionId: string; reference: ContextReference }
+  >
   metadataRequests: Record<
     string,
     {
@@ -37,6 +51,9 @@ export function initialExample(): ExampleState {
     templates: { "session-report": "artifacts" },
     creationTemplates: {},
     metadataRequests: {},
+    scenarioBySession: {},
+    creationProjects: {},
+    contextRetries: {},
   }
 }
 export type ExampleAction =
@@ -47,6 +64,7 @@ export type ExampleAction =
     }
   | { type: "draft"; id: string; draft: DraftState }
   | { type: "panels"; panels: WorkbenchState["panels"] }
+  | { type: "retry-context"; id: string; referenceId: string }
   | {
       type: "session"
       id: string
@@ -70,6 +88,7 @@ export type ExampleAction =
       attentionId?: string
       response?: string
       template?: string
+      projectId?: string
     }
   | {
       type: "settle"
@@ -98,10 +117,87 @@ export function exampleReducer(
   state: ExampleState,
   action: ExampleAction,
 ): ExampleState {
-  if (action.type === "reset") return initialExample()
-  if (action.type === "draft")
-    return { ...state, drafts: { ...state.drafts, [action.id]: action.draft } }
+  if (action.type === "reset") {
+    const initial = initialExample()
+    return {
+      ...initial,
+      panels: {
+        ...state.panels,
+        selectedFileId: initial.panels.selectedFileId,
+      },
+    }
+  }
+  if (action.type === "draft") {
+    const contextRetries = { ...state.contextRetries }
+    for (const [requestId, retry] of Object.entries(contextRetries)) {
+      if (
+        retry.sessionId !== action.id ||
+        !state.drafts[action.id]?.context.includes(retry.reference)
+      )
+        continue
+      const replacement = action.draft.context.find(
+        (r) => r.id === retry.reference.id,
+      )
+      const source = (r: ContextReference) =>
+        JSON.stringify([
+          r.id,
+          r.kind,
+          r.label,
+          r.source,
+          r.version,
+          r.availability,
+          r.range,
+          r.reason,
+          r.usage,
+        ])
+      // Inclusion is a UI choice; source replacement invalidates the original receipt.
+      if (replacement && source(replacement) === source(retry.reference))
+        contextRetries[requestId] = { ...retry, reference: replacement }
+    }
+    return {
+      ...state,
+      contextRetries,
+      drafts: { ...state.drafts, [action.id]: action.draft },
+    }
+  }
   if (action.type === "panels") return { ...state, panels: action.panels }
+  if (action.type === "retry-context") {
+    const draft = state.drafts[action.id]
+    const reference = draft?.context.find((r) => r.id === action.referenceId)
+    const targetId = `${action.id}:${action.referenceId}`
+    if (
+      !reference ||
+      !["failed", "stale", "unknown"].includes(reference.availability) ||
+      activeReceipt(state.receipts, targetId)
+    )
+      return state
+    const requestId = `request-${state.sequence}`
+    const pending: ContextReference = {
+      ...reference,
+      availability: "uploading",
+      reason: "Awaiting fixture source confirmation",
+    }
+    return {
+      ...state,
+      sequence: state.sequence + 1,
+      contextRetries: {
+        ...state.contextRetries,
+        [requestId]: { sessionId: action.id, reference: pending },
+      },
+      receipts: [
+        ...state.receipts,
+        { requestId, targetId, action: "retry-context", state: "pending" },
+      ],
+      drafts: {
+        ...state.drafts,
+        [action.id]: {
+          ...draft,
+          version: draft.version + 1,
+          context: draft.context.map((r) => (r === reference ? pending : r)),
+        },
+      },
+    }
+  }
   if (action.type === "metadata") {
     if (
       !state.sessions.some((session) => session.sessionId === action.id) ||
@@ -154,7 +250,7 @@ export function exampleReducer(
         ],
       }
     }
-    return state
+    return prepareShowcaseScenario(state, action.id, action.scenario)
   }
   if (action.type === "comments")
     return {
@@ -251,6 +347,20 @@ export function exampleReducer(
     )
       return state
     const draft = state.drafts[action.id]
+    if (action.action === "create") {
+      const project = state.projects.find(
+        (p) =>
+          p.projectId === (action.projectId ?? state.projects[0]?.projectId),
+      )
+      if (
+        !project ||
+        project.readOnly ||
+        !environments.some((e) => e.id === draft?.environmentId) ||
+        !models.some((m) => m.id === draft?.modelId && !m.disabledReason) ||
+        !permissions.some((p) => p.id === draft?.permissionId)
+      )
+        return state
+    }
     if (
       ["send", "queue", "steer", "create"].includes(action.action) &&
       !draft?.text.trim()
@@ -293,6 +403,13 @@ export function exampleReducer(
               [requestId]: action.template ?? "coding",
             }
           : state.creationTemplates,
+      creationProjects:
+        action.action === "create"
+          ? {
+              ...state.creationProjects,
+              [requestId]: action.projectId ?? state.projects[0].projectId,
+            }
+          : state.creationProjects,
     }
     return action.attentionId
       ? editSession(next, action.id, (s) => ({
@@ -324,6 +441,41 @@ export function exampleReducer(
       receipts: state.receipts.map((r) =>
         r.requestId === receipt.requestId ? receipt : r,
       ),
+    }
+    if (receipt.action === "retry-context") {
+      const retry = state.contextRetries[receipt.requestId]
+      const draft = retry && next.drafts[retry.sessionId]
+      if (!retry || !draft?.context.includes(retry.reference)) return next
+      const settled: ContextReference = {
+        ...retry.reference,
+        availability:
+          action.state === "confirmed"
+            ? "available"
+            : action.state === "failed"
+              ? "failed"
+              : "unknown",
+        reason:
+          action.state === "confirmed"
+            ? undefined
+            : "Fixture source has not confirmed availability",
+      }
+      return {
+        ...next,
+        contextRetries: {
+          ...next.contextRetries,
+          [receipt.requestId]: { ...retry, reference: settled },
+        },
+        drafts: {
+          ...next.drafts,
+          [retry.sessionId]: {
+            ...draft,
+            version: draft.version + 1,
+            context: draft.context.map((r) =>
+              r === retry.reference ? settled : r,
+            ),
+          },
+        },
+      }
     }
     const s = state.sessions.find(
       (s) =>
@@ -361,8 +513,43 @@ export function exampleReducer(
       const id = `session-created-${receipt.requestId}`
       const base = initialWorkbench().sessions[0]
       const draft = receipt.submittedDraft
+      const projectId =
+        state.creationProjects[receipt.requestId] ?? base.projectId
+      const project = state.projects.find((p) => p.projectId === projectId)
+      const ownerEnvironment = state.sessions.find(
+        (s) => s.projectId === projectId,
+      )?.environment
       const created: SessionSnapshot = {
         ...base,
+        projectId,
+        environment: {
+          ...(ownerEnvironment ?? base.environment),
+          environmentId: draft.environmentId,
+          branch: ownerEnvironment?.branch,
+          name:
+            environments.find((e) => e.id === draft.environmentId)?.label ??
+            draft.environmentId,
+        },
+        changes: {
+          ...structuredClone(base.changes),
+          repositoryId: project?.repositoryId ?? base.changes.repositoryId,
+          files: [],
+        },
+        contextSources: (draft.context.length
+          ? draft.context
+          : projectId === "project-demo"
+            ? base.contextSources
+            : []
+        ).map((r) => ({
+          ...r,
+          included: false,
+          removable: false,
+        })),
+        plan: base.plan.map((p) => ({
+          ...p,
+          ...(p.toolId ? { toolId: `tool-${id}` } : {}),
+        })),
+        output: { ...base.output, text: "Awaiting source result" },
         sessionId: id,
         threadId: `thread-${id}`,
         title: draft.text.slice(0, 70),
@@ -482,7 +669,14 @@ export function exampleReducer(
         drafts: {
           ...state.drafts,
           new: acknowledgeDraft(state.drafts.new, receipt),
-          [id]: { ...makeDraft(id), context: draft.context, mode: "queue" },
+          [id]: {
+            ...makeDraft(id),
+            context: draft.context,
+            environmentId: draft.environmentId,
+            modelId: draft.modelId,
+            permissionId: draft.permissionId,
+            mode: "queue",
+          },
         },
       }
     }
@@ -715,6 +909,12 @@ export function exampleReducer(
       ...editSession(next, action.id, (s) => ({
         ...s,
         status: queued.length ? "running" : "completed",
+        changes: {
+          ...s.changes,
+          files: s.changes.files.length
+            ? s.changes.files
+            : structuredClone(initialWorkbench().sessions[0].changes.files),
+        },
         activeRunId: queued.length
           ? `run-queued-${state.sequence}`
           : s.activeRunId,

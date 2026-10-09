@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -24,7 +24,15 @@ const DocsSearch = dynamic(
     import("@/components/docs/docs-search").then((module) => module.DocsSearch),
   { ssr: false },
 )
+const subscribeHydration = () => () => {}
+const clientHydrated = () => true
+const serverHydrated = () => false
 export function Header() {
+  const hydrated = useSyncExternalStore(
+    subscribeHydration,
+    clientHydrated,
+    serverHydrated,
+  )
   const { t } = useSiteI18n(),
     pathname = usePathname()
   const { resolvedTheme, setTheme } = useTheme()
@@ -116,6 +124,7 @@ export function Header() {
             variant="ghost"
             size="icon"
             aria-label={t("site.redesign.search")}
+            disabled={!hydrated}
             onClick={openSearch}
           >
             <Search size={16} />

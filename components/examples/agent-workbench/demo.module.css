@@ -196,3 +196,31 @@
     min-height: 44px;
   }
 }
+
+.inboxFrame {
+  container-type: inline-size;
+  min-width: 0;
+}
+.inboxGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
+  min-width: 0;
+}
+.inboxGrid > aside {
+  border-left: 1px solid var(--border);
+  min-width: 0;
+  padding: 12px;
+}
+.section [data-tool-target][data-located="true"] {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+@container (max-width: 680px) {
+  .inboxGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .inboxGrid > aside {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+}

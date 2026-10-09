@@ -182,4 +182,4 @@ ScrollArea 使用原生滚动；Resizable 与 Sidebar 的偏好由调用方持�
 
 ### Agent 编码工作台
 
-区域实验室、三种布局与完整编码/产物/任务示例：`/examples/agent-workbench/`。安装及受控服务边界见 [AGENT-WORKBENCH.md](./AGENT-WORKBENCH.md)，本轮验收见 [实施记录](plans/agent-workbench-implementation-log.md)。
+区域实验室、三种布局与完整编码/产物/任务示例：`/examples/agent-workbench/`。安装及受控服务边界见 [AGENT-WORKBENCH.md](./AGENT-WORKBENCH.md)，组件验收见 [实施记录](plans/agent-workbench-implementation-log.md)，网页展示验收见 [展示记录](plans/agent-workbench-showcase-log.md)。

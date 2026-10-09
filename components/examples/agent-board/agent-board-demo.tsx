@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Bot, LayoutGrid } from "lucide-react"
 import styles from "@/components/blocks/agent-board.module.css"
@@ -124,6 +125,14 @@ export function AgentBoardDemo({ page = false }: { page?: boolean }) {
           className={styles.navigation}
           aria-label={en ? "Workspace navigation" : "工作区导航"}
         >
+          {page && (
+            <Link
+              className={styles.navigationLink}
+              href="/examples/agent-workbench/layouts/?layout=tasks"
+            >
+              {en ? "Agent task workbench" : "Agent 任务工作台"}
+            </Link>
+          )}
           <a
             className={styles.navigationLink}
             href="/workspace/"

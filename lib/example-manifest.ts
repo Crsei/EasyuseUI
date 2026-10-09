@@ -31,7 +31,7 @@ export const exampleManifest: SiteExample[] = [
     href: "/examples/agent-workbench/app/?template=coding&page=home",
     thumbnail: images("agent-coding-workbench"),
     components: ["session-navigator", "agent-conversation", "agent-composer", "context-panel", "change-review-panel"],
-    article: "agent-workbench",
+    article: "agent-workbench-showcase",
     validation: "fixture-verified",
   },
   {
@@ -44,7 +44,7 @@ export const exampleManifest: SiteExample[] = [
     href: "/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
     thumbnail: images("agent-artifacts-workbench"),
     components: ["context-panel", "message-content", "artifact-list", "preview-panel", "agent-composer"],
-    article: "agent-workbench",
+    article: "agent-workbench-showcase",
     validation: "fixture-verified",
   },
   {
@@ -57,7 +57,7 @@ export const exampleManifest: SiteExample[] = [
     href: "/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
     thumbnail: images("agent-console-workbench"),
     components: ["task-inbox", "attention-queue", "agent-run-list", "execution-trace-tree", "agent-workbench"],
-    article: "agent-workbench",
+    article: "agent-workbench-showcase",
     validation: "fixture-verified",
   },
 

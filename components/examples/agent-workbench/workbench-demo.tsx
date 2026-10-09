@@ -1,11 +1,13 @@
 "use client"
 import Link from "next/link"
+import { Info } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useCallback, useRef, useState, type ReactNode } from "react"
 import { useTheme } from "next-themes"
 import {
   AgentWorkbench,
   SessionNavigator,
+  ProjectSwitcher,
   SessionHeader,
   AgentConversation,
   AgentComposer,
@@ -19,8 +21,10 @@ import {
   TaskInbox,
   type WorkbenchPanelDescriptor,
 } from "@/components/blocks/agent-workbench"
+import { AgentRunInspector } from "@/components/blocks/agent-run-inspector"
 import { ApprovalRequestPanel } from "@/components/blocks/approval-request-panel"
 import { ArtifactList } from "@/components/blocks/artifact-list"
+import type { ConversationActions } from "@/components/blocks/chat-message"
 import { ExecutionTraceTree } from "@/components/blocks/execution-trace-tree"
 import { ToolCall } from "@/components/blocks/tool-call"
 import { CommandPalette } from "@/components/blocks/command-palette"
@@ -36,14 +40,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { runtimeStatusMeta, type RuntimeStatus } from "@/lib/runtime-status"
 import { useI18n } from "@/lib/i18n-provider"
 import {
-  parseWorkbenchQuery,
-  workbenchRegions,
   workbenchLayouts,
   workbenchTemplates,
   workbenchPages,
-  workbenchScenarios,
   workbenchPanels,
   sessionRun,
   type SessionSnapshot,
@@ -51,6 +53,7 @@ import {
   type WorkbenchPanelId,
   type DraftState,
   type MessagePart,
+  type ContextReference,
 } from "@/lib/agent-workbench-model"
 import { useWorkbenchExample } from "./provider"
 import {
@@ -61,6 +64,14 @@ import {
   reportBody,
 } from "./fixtures"
 import { exampleMessages } from "./messages"
+import { RegionLab } from "./region-lab"
+import {
+  parseShowcaseQuery,
+  showcaseHref,
+  showcaseScenarios,
+  commonScenarios,
+  regionDefinitions,
+} from "./showcase-model"
 import styles from "./demo.module.css"
 
 export function WorkbenchDemo({
@@ -68,40 +79,79 @@ export function WorkbenchDemo({
 }: {
   level?: "overview" | "regions" | "layouts" | "app"
 }) {
-  const { state, dispatch } = useWorkbenchExample()
-  const { locale, setLocale, t } = useI18n()
+  const { state, dispatch, clearPanelPreferences } = useWorkbenchExample()
+  const { locale, setLocale, t, builtIn } = useI18n()
   const x = exampleMessages[locale]
   const { theme, setTheme } = useTheme()
   const router = useRouter()
   const params = useSearchParams()
-  const query = parseWorkbenchQuery(
+  const query = parseShowcaseQuery(
     params,
     state.sessions.map((s) => s.sessionId),
+    state.projects.map((p) => p.projectId),
   )
   const current =
     state.sessions.find((s) => s.sessionId === query.session) ??
     state.sessions[0]
   const [searchOpen, setSearchOpen] = useState(false)
-  const [projectOverride, setProjectOverride] = useState<string>()
-  const projectId = projectOverride ?? current.projectId
+  const [openedContext, setOpenedContext] = useState<{
+    sessionId: string
+    reference: ContextReference
+  } | null>(null)
+  const projectId = query.project || current.projectId
+  const project = state.projects.find((p) => p.projectId === projectId)
+  const visibleProjects = query.scenario === "no-projects" ? [] : state.projects
+  const readOnly = Boolean(project?.readOnly || query.scenario === "readonly")
   const [narrow, setNarrow] = useState(false)
   const [mode, setMode] = useState<"unified" | "split">("unified")
   const [attentionDrafts, setAttentionDrafts] = useState<
     Record<string, string>
   >({})
   const [kind, setKind] = useState("")
+  const [sort, setSort] = useState("updated")
+  const [projectStatus, setProjectStatus] = useState("all")
+  const [selectedArtifacts, setSelectedArtifacts] = useState<
+    Record<string, string>
+  >({})
+  const [outputPreview, setOutputPreview] = useState("report")
+  const [locatedTool, setLocatedTool] = useState("")
+  const toolTargets = useRef<Record<string, HTMLDivElement | null>>({})
+  const conversationActions = useRef<ConversationActions | null>(null)
+  const pendingMessage = useRef<{
+    sessionId: string
+    messageId: string
+  } | null>(null)
   const created = useRef<string>(
     state.receipts.findLast(
       (r) => r.targetId === "new" && r.state === "confirmed",
     )?.requestId ?? "",
   )
   const composerRef = useRef<HTMLDivElement>(null)
-  const activePanel = (params.get("panel") ??
+  const activePanel = (params.get("panel") ||
     state.panels.activePanel) as WorkbenchPanelId
+  const navigationSnapshot = useRef<URLSearchParams | null>(null)
+  const parameterKey = params.toString()
+  useEffect(() => {
+    navigationSnapshot.current = new URLSearchParams(parameterKey)
+  }, [parameterKey])
   const navigate = useCallback(
     (patch: Record<string, string>, replace = false) => {
-      const next = new URLSearchParams(params.toString())
+      const next = new URLSearchParams(
+        [...(navigationSnapshot.current ?? params)].filter(([key]) =>
+          [
+            "region",
+            "layout",
+            "template",
+            "page",
+            "session",
+            "panel",
+            "scenario",
+            "project",
+          ].includes(key),
+        ),
+      )
       for (const [key, value] of Object.entries(patch)) next.set(key, value)
+      navigationSnapshot.current = next
       const url = `?${next}`
       if (replace) router.replace(url, { scroll: false })
       else router.push(url, { scroll: false })
@@ -109,7 +159,12 @@ export function WorkbenchDemo({
     [params, router],
   )
   const openReference = useCallback(
-    (part: MessagePart) =>
+    (part: MessagePart) => {
+      if (part.kind === "artifact")
+        setSelectedArtifacts((before) => ({
+          ...before,
+          [current.sessionId]: part.referenceId,
+        }))
       navigate({
         layout: "review",
         panel:
@@ -118,21 +173,59 @@ export function WorkbenchDemo({
             : part.kind === "plan"
               ? "plan"
               : "files",
-      }),
-    [navigate],
+      })
+    },
+    [navigate, current.sessionId, setSelectedArtifacts],
   )
+  const createTask = useCallback(() => {
+    dispatch({
+      type: "begin",
+      id: "new",
+      action: "create",
+      template: query.template,
+      projectId: navigationSnapshot.current?.get("project") || projectId,
+    })
+  }, [dispatch, query.template, projectId])
+  const locateMessage = useCallback(
+    (sessionId: string, messageId: string) => {
+      pendingMessage.current = { sessionId, messageId }
+      navigate({
+        page: "session",
+        layout: "conversation",
+        panel: "context",
+        ...(level === "regions" ? { region: "conversation" } : {}),
+      })
+    },
+    [navigate, level],
+  )
+  const retryRead = useCallback(() => {
+    dispatch({
+      type: "session",
+      id: current.sessionId,
+      patch: { dataState: "success", error: undefined },
+    })
+    navigate({ scenario: "default" })
+  }, [dispatch, current.sessionId, navigate])
   function openAppPage(page: string) {
     if (level === "app") navigate({ page })
     else
       router.push(
-        `/examples/agent-workbench/app/?template=${query.template}&page=${page}&session=${current.sessionId}`,
+        showcaseHref("app", {
+          template: query.template,
+          page,
+          session: current.sessionId,
+          project: projectId,
+          scenario: query.scenario,
+        }),
         { scroll: false },
       )
   }
   function openSession(id: string, page = "session") {
-    setProjectOverride(undefined)
+    const owner =
+      state.sessions.find((s) => s.sessionId === id)?.projectId ?? projectId
     navigate({
       session: id,
+      project: owner,
       page,
       ...(page === "session" ? { layout: "conversation" } : {}),
     })
@@ -141,20 +234,54 @@ export function WorkbenchDemo({
     const receipt = state.receipts.findLast(
       (r) => r.targetId === "new" && r.state === "confirmed",
     )
-    if (receipt && created.current !== receipt.requestId) {
+    if (!receipt) {
+      created.current = ""
+      return
+    }
+    if (created.current !== receipt.requestId) {
       const id = `session-created-${receipt.requestId}`
       created.current = receipt.requestId
-      const next = new URLSearchParams(params.toString())
+      if (
+        level !== "app" ||
+        !["home", "new"].includes(
+          navigationSnapshot.current?.get("page") || query.page,
+        )
+      )
+        return
+      const next = new URLSearchParams(
+        [...params].filter(([key]) =>
+          [
+            "region",
+            "layout",
+            "template",
+            "page",
+            "session",
+            "panel",
+            "scenario",
+            "project",
+          ].includes(key),
+        ),
+      )
       next.set("session", id)
+      const owner = state.sessions.find((s) => s.sessionId === id)?.projectId
+      if (owner) next.set("project", owner)
       next.set("page", "session")
       router.push(`?${next}`, { scroll: false })
     }
-  }, [state.receipts, params, router])
+  }, [state.receipts, state.sessions, params, router, level, query.page])
   const queryErrorKey = query.errors.join(",")
   useEffect(() => {
     if (
       !queryErrorKey &&
-      (query.scenario === "long" || query.scenario === "unknown")
+      ![
+        "default",
+        "loading",
+        "empty",
+        "partial",
+        "error",
+        "disconnected",
+        "limited",
+      ].includes(query.scenario)
     )
       dispatch({
         type: "scenario",
@@ -162,21 +289,54 @@ export function WorkbenchDemo({
         scenario: query.scenario,
       })
   }, [dispatch, current.sessionId, query.scenario, queryErrorKey])
+  useEffect(() => {
+    const target = pendingMessage.current
+    if (
+      target?.sessionId === current.sessionId &&
+      (query.page === "session" ||
+        (level === "regions" && query.region === "conversation")) &&
+      conversationActions.current?.scrollToMessage(target.messageId, {
+        focus: true,
+      })
+    )
+      pendingMessage.current = null
+  }, [
+    current.sessionId,
+    query.page,
+    query.layout,
+    query.region,
+    level,
+    activePanel,
+  ])
+  useEffect(() => {
+    if (!locatedTool || activePanel !== "activity") return
+    const frame = requestAnimationFrame(() => {
+      const target = toolTargets.current[locatedTool]
+      target?.scrollIntoView({ block: "nearest" })
+      target?.focus({ preventScroll: true })
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [locatedTool, activePanel, query.region])
   const session: SessionSnapshot = {
     ...current,
     dataState: ["loading", "empty", "partial", "error"].includes(query.scenario)
       ? (query.scenario as SessionSnapshot["dataState"])
       : current.dataState,
     error: query.scenario === "error" ? x.readError : current.error,
-    messages: query.scenario === "empty" ? [] : current.messages,
+    messages: ["empty", "loading"].includes(query.scenario)
+      ? []
+      : current.messages,
     environment:
       query.scenario === "disconnected"
         ? { ...current.environment, connection: "disconnected" }
         : current.environment,
     capabilities:
-      query.scenario === "limited"
+      query.scenario === "limited" ||
+      readOnly ||
+      !state.drafts[current.sessionId].modelId ||
+      !state.drafts[current.sessionId].environmentId
         ? { send: false, queue: false, steer: false, interrupt: false }
-        : current.capabilities,
+        : { ...current.capabilities, contextLimit: 1200 },
   }
   const draft = state.drafts[current.sessionId]
   const setDraft = (draft: DraftState) =>
@@ -206,7 +366,7 @@ export function WorkbenchDemo({
       </div>
       <ContextPanel
         references={
-          query.scenario === "empty"
+          ["empty", "loading"].includes(query.scenario)
             ? []
             : [
                 ...new Map(
@@ -222,8 +382,10 @@ export function WorkbenchDemo({
               ]
         }
         data={{
-          state: session.dataState,
-          onRetry: () => navigate({ scenario: "default" }),
+          ...(session.dataState === "success"
+            ? {}
+            : { state: session.dataState }),
+          onRetry: retryRead,
           error: session.error
             ? {
                 category: "network",
@@ -251,38 +413,174 @@ export function WorkbenchDemo({
             version: draft.version + 1,
           })
         }}
-        onRetry={(id) =>
-          setDraft({
-            ...draft,
-            context: draft.context.map((r) =>
-              r.id === id
-                ? { ...r, availability: "available", version: "b1" }
-                : r,
-            ),
-            version: draft.version + 1,
-          })
-        }
-        onOpen={(r) => {
-          navigate({
-            panel:
-              r.kind === "file" || r.kind === "selection" ? "files" : "context",
-          })
-          dispatch({
-            type: "panels",
-            panels: {
-              ...state.panels,
-              selectedFileId: "file-filter",
-              activePanel:
-                r.kind === "file" || r.kind === "selection"
-                  ? "files"
-                  : "context",
-            },
-          })
+        onRetry={(id) => {
+          const receipt = state.receipts.findLast(
+            (r) =>
+              r.targetId === `${session.sessionId}:${id}` &&
+              r.state === "unknown",
+          )
+          if (receipt)
+            dispatch({
+              type: "settle",
+              requestId: receipt.requestId,
+              state: "confirmed",
+            })
+          else
+            dispatch({
+              type: "retry-context",
+              id: session.sessionId,
+              referenceId: id,
+            })
         }}
+        onOpen={(reference) =>
+          setOpenedContext({ sessionId: session.sessionId, reference })
+        }
         limit={1200}
       />
     </>
   )
+  const relatedFile = session.changes.files.find(
+    (f) =>
+      openedContext &&
+      (f.path === openedContext.reference.source ||
+        f.path === openedContext.reference.label ||
+        openedContext.reference.source?.startsWith(`${f.path}:`)),
+  )
+  const sourceSheet = (
+    <Sheet
+      open={openedContext?.sessionId === session.sessionId}
+      onOpenChange={(open) => {
+        if (!open) setOpenedContext(null)
+      }}
+    >
+      <SheetContent side="right">
+        <SheetTitle>{x.contextSource}</SheetTitle>
+        {openedContext && (
+          <div className={styles.section}>
+            <p className={styles.meta}>{openedContext.reference.label}</p>
+            <dl>
+              <dt>{x.sourcePath}</dt>
+              <dd className={styles.meta}>
+                {openedContext.reference.source ?? "—"}
+              </dd>
+              <dt>{x.sourceVersion}</dt>
+              <dd>{openedContext.reference.version ?? "—"}</dd>
+              <dt>{x.sourceAvailability}</dt>
+              <dd>{t(`workbench.${openedContext.reference.availability}`)}</dd>
+              {openedContext.reference.range && (
+                <>
+                  <dt>{x.sourceRange}</dt>
+                  <dd>
+                    {openedContext.reference.range.start}–
+                    {openedContext.reference.range.end}
+                  </dd>
+                </>
+              )}
+            </dl>
+            <p>{x.sourceBodyUnavailable}</p>
+            {relatedFile && (
+              <Button
+                variant="secondary"
+                disabled={openedContext.reference.availability !== "available"}
+                onClick={() => {
+                  setOpenedContext(null)
+                  dispatch({
+                    type: "panels",
+                    panels: {
+                      ...state.panels,
+                      selectedFileId: relatedFile.fileId,
+                      activePanel: "changes",
+                    },
+                  })
+                  navigate({
+                    panel: "changes",
+                    ...(level === "regions" ? { region: "files" } : {}),
+                  })
+                }}
+              >
+                {x.relatedChanges}
+              </Button>
+            )}
+          </div>
+        )}
+      </SheetContent>
+    </Sheet>
+  )
+  function environmentDetails(iconOnly = false) {
+    const detailsSession =
+      level === "app" && !["session", "review"].includes(query.page)
+        ? state.sessions.find((s) => s.projectId === projectId)
+        : session
+    const environment = detailsSession?.environment
+    return (
+      <Sheet>
+        <SheetTrigger
+          render={
+            <Button
+              size={iconOnly ? "icon" : "sm"}
+              variant="ghost"
+              aria-label={x.environmentDetails}
+            />
+          }
+        >
+          {iconOnly ? (
+            <Info size={16} aria-hidden="true" />
+          ) : (
+            x.environmentDetails
+          )}
+        </SheetTrigger>
+        <SheetContent side="right">
+          <SheetTitle>{x.environmentDetails}</SheetTitle>
+          <dl className={styles.section}>
+            <dt>{t("workbench.project")}</dt>
+            <dd>{project?.name ?? x.noProjects}</dd>
+            <dt>{t("workbench.environment")}</dt>
+            <dd>
+              {environment?.name || x.noEnvironment} ·{" "}
+              {environment?.connection ?? "unknown"}
+            </dd>
+            <dt>{x.branch}</dt>
+            <dd>{environment?.branch ?? "—"}</dd>
+            <dt>{x.capabilities}</dt>
+            <dd>{environment?.capabilities.join(", ") || x.noService}</dd>
+          </dl>
+          <p className={styles.meta}>{x.noService}</p>
+        </SheetContent>
+      </Sheet>
+    )
+  }
+  function preview() {
+    const available =
+      query.scenario !== "preview-unavailable" &&
+      session.artifacts.some(
+        (a) =>
+          a.availability === "available" &&
+          ["summary.md", "analysis-report.md", "filter-report.md"].includes(
+            a.name,
+          ),
+      )
+    return (
+      <div>
+        <label className={styles.label}>
+          {x.previewMode}
+          <select
+            value={outputPreview}
+            onChange={(e) => setOutputPreview(e.target.value)}
+          >
+            <option value="report">{x.previewSource}</option>
+            <option value="browser">{t("workbench.browser")}</option>
+          </select>
+        </label>
+        <PreviewPanel>
+          {available && outputPreview === "report" ? (
+            <MessageContent content={reportBody} />
+          ) : (
+            <p>{outputPreview === "browser" ? x.noService : x.noPreview}</p>
+          )}
+        </PreviewPanel>
+      </div>
+    )
+  }
   const composer = (
     <div ref={composerRef} className={styles.composerMount}>
       <AgentComposer
@@ -349,17 +647,32 @@ export function WorkbenchDemo({
   )
   const navigation = (
     <SessionNavigator
-      projects={query.scenario === "empty" ? [] : state.projects}
-      sessions={query.scenario === "empty" ? [] : state.sessions}
+      projects={query.scenario === "empty" ? [] : visibleProjects}
+      sessions={
+        ["empty", "loading", "no-projects", "no-sessions"].includes(
+          query.scenario,
+        )
+          ? []
+          : state.sessions
+      }
       projectId={projectId}
       selectedId={session.sessionId}
       onProjectChange={(id) => {
-        setProjectOverride(id)
-        navigate({ page: "project" })
+        navigate({
+          page: "project",
+          project: id,
+          session:
+            state.sessions.find((s) => s.projectId === id)?.sessionId ??
+            current.sessionId,
+        })
       }}
       onSelect={(id) => openSession(id)}
       onNew={() => openAppPage("new")}
-      onUpdate={(id, patch) => dispatch({ type: "metadata", id, patch })}
+      onUpdate={
+        readOnly
+          ? undefined
+          : (id, patch) => dispatch({ type: "metadata", id, patch })
+      }
       receipts={state.receipts}
       onReconcile={(receipt) =>
         dispatch({
@@ -369,8 +682,12 @@ export function WorkbenchDemo({
         })
       }
       data={{
-        state: session.dataState,
-        onRetry: () => navigate({ scenario: "default" }),
+        ...(["no-sessions", "no-projects"].includes(query.scenario)
+          ? { state: "empty" as const }
+          : session.dataState === "success"
+            ? {}
+            : { state: session.dataState }),
+        onRetry: retryRead,
         error: session.error
           ? { category: "network", message: session.error, reason: x.readError }
           : undefined,
@@ -402,11 +719,13 @@ export function WorkbenchDemo({
               {
                 id: "sessions",
                 label: t("workbench.recent"),
-                items: state.sessions.map((s) => ({
-                  id: s.sessionId,
-                  label: s.title,
-                  description: s.status,
-                })),
+                items: state.sessions
+                  .filter((s) => s.projectId === projectId)
+                  .map((s) => ({
+                    id: s.sessionId,
+                    label: s.title,
+                    description: s.status,
+                  })),
               },
             ]}
             onSelect={(item) => openSession(item.id)}
@@ -421,15 +740,24 @@ export function WorkbenchDemo({
       <div className={styles.section}>
         {!approvalOnly &&
           session.tools.map((tool) => (
-            <ToolCall
+            <div
               key={tool.id}
-              call={tool}
-              onReconcile={
-                tool.outcome === "unknown"
-                  ? () => dispatch({ type: "advance", id: session.sessionId })
-                  : undefined
-              }
-            />
+              tabIndex={-1}
+              data-tool-target={tool.id}
+              data-located={locatedTool === tool.id}
+              ref={(node) => {
+                toolTargets.current[tool.id] = node
+              }}
+            >
+              <ToolCall
+                call={tool}
+                onReconcile={
+                  tool.outcome === "unknown"
+                    ? () => dispatch({ type: "advance", id: session.sessionId })
+                    : undefined
+                }
+              />
+            </div>
           ))}
         {session.attention.map((request) => (
           <ApprovalRequestPanel
@@ -453,26 +781,30 @@ export function WorkbenchDemo({
               })
             }
             canReconcile
-            onAction={async (action) => {
-              if (action === "reconcile") {
-                const receipt = state.receipts.findLast(
-                  (r) => r.targetId === request.attentionId,
-                )
-                if (receipt)
-                  dispatch({
-                    type: "settle",
-                    requestId: receipt.requestId,
-                    state: "confirmed",
-                  })
-              } else
-                dispatch({
-                  type: "begin",
-                  id: session.sessionId,
-                  attentionId: request.attentionId,
-                  action,
-                  response: attentionDrafts[request.attentionId],
-                })
-            }}
+            onAction={
+              readOnly || query.scenario === "limited"
+                ? undefined
+                : async (action) => {
+                    if (action === "reconcile") {
+                      const receipt = state.receipts.findLast(
+                        (r) => r.targetId === request.attentionId,
+                      )
+                      if (receipt)
+                        dispatch({
+                          type: "settle",
+                          requestId: receipt.requestId,
+                          state: "confirmed",
+                        })
+                    } else
+                      dispatch({
+                        type: "begin",
+                        id: session.sessionId,
+                        attentionId: request.attentionId,
+                        action,
+                        response: attentionDrafts[request.attentionId],
+                      })
+                  }
+            }
           />
         ))}
       </div>
@@ -513,31 +845,102 @@ export function WorkbenchDemo({
     )
   }
   function artifacts() {
+    if (level === "app" && session.projectId !== projectId) {
+      const owned = state.sessions.filter((s) => s.projectId === projectId)
+      return (
+        <section className={styles.section}>
+          <h1 className={styles.title}>{x.artifacts}</h1>
+          <p>{owned.length ? x.chooseProjectSession : x.noTasks}</p>
+          {owned.map((s) => (
+            <Item
+              key={s.sessionId}
+              title={s.title}
+              description={s.artifacts.map((a) => a.name).join(", ") || "—"}
+              onSelect={() => openSession(s.sessionId, "artifacts")}
+            />
+          ))}
+        </section>
+      )
+    }
+    const records = query.scenario === "empty" ? [] : session.artifacts
+    const selected =
+      records.find(
+        (a) => a.artifactId === selectedArtifacts[session.sessionId],
+      ) ?? records[0]
+    const body =
+      selected?.availability === "available" &&
+      ["summary.md", "analysis-report.md", "filter-report.md"].includes(
+        selected.name,
+      )
+        ? reportBody
+        : undefined
+    const source = session.messages.find((m) =>
+      m.parts.some(
+        (part) =>
+          part.kind === "artifact" && part.referenceId === selected?.artifactId,
+      ),
+    )
     return (
       <div className={styles.section}>
-        <ArtifactList
-          records={query.scenario === "empty" ? [] : session.artifacts}
-        />
-        {session.artifacts.length > 0 && (
+        {records.length > 1 && (
+          <label className={styles.label}>
+            {x.artifactSelection}
+            <select
+              value={selected?.artifactId ?? ""}
+              onChange={(e) =>
+                setSelectedArtifacts((before) => ({
+                  ...before,
+                  [session.sessionId]: e.target.value,
+                }))
+              }
+            >
+              {records.map((a) => (
+                <option key={a.artifactId} value={a.artifactId}>
+                  {a.name}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+        <ArtifactList records={records} />
+        {selected && (
           <>
             <PreviewPanel>
               <h3>{x.previewSource}</h3>
-              <MessageContent content={reportBody} />
+              {body !== undefined ? (
+                <MessageContent content={body} />
+              ) : (
+                <p>
+                  {selected.availability === "available"
+                    ? x.unsupportedArtifact
+                    : `${x.noPreview} · ${t(`agentBoard.${selected.availability}`)}`}
+                </p>
+              )}
             </PreviewPanel>
             <div className={styles.row}>
               <Button
                 size="sm"
                 variant="secondary"
+                disabled={!source}
                 onClick={() => {
-                  pick(references[0])
-                  navigate({
-                    page: "session",
-                    layout: "conversation",
-                    panel: "context",
-                  })
+                  if (source) locateMessage(session.sessionId, source.messageId)
                 }}
               >
                 {x.sourceLink}
+              </Button>
+              <Button
+                size="sm"
+                variant="secondary"
+                onClick={() =>
+                  navigate({
+                    page: "review",
+                    layout: "review",
+                    panel: "changes",
+                    ...(level === "regions" ? { region: "files" } : {}),
+                  })
+                }
+              >
+                {x.reviewFiles}
               </Button>
               <Button
                 size="sm"
@@ -557,13 +960,26 @@ export function WorkbenchDemo({
               <Button
                 size="sm"
                 variant="ghost"
+                disabled={body === undefined}
+                onClick={async () => {
+                  if (body !== undefined)
+                    await navigator.clipboard.writeText(body).catch(() => {})
+                }}
+              >
+                {t("workbench.copy")}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                disabled={body === undefined}
                 onClick={() => {
+                  if (body === undefined) return
                   const url = URL.createObjectURL(
-                    new Blob([reportBody], { type: "text/markdown" }),
+                    new Blob([body], { type: "text/markdown" }),
                   )
                   const a = document.createElement("a")
                   a.href = url
-                  a.download = "fixture-report.md"
+                  a.download = selected.name
                   a.click()
                   URL.revokeObjectURL(url)
                 }}
@@ -579,12 +995,20 @@ export function WorkbenchDemo({
   function plan() {
     return (
       <section className={styles.section}>
+        {!session.plan.length && <p>{x.noPlan}</p>}
         {session.plan.map((step) => (
           <Item
             key={step.id}
             title={step.title}
             description={<RuntimeStatusBadge status={step.status} />}
-            onSelect={() => navigate({ panel: "activity" })}
+            onSelect={() => {
+              if (!step.toolId) return
+              setLocatedTool(step.toolId)
+              navigate({
+                panel: "activity",
+                ...(level === "regions" ? { region: "tools" } : {}),
+              })
+            }}
           />
         ))}
         <ExecutionTraceTree
@@ -618,6 +1042,7 @@ export function WorkbenchDemo({
                   })
                 }
               >
+                <option value="">{x.chooseModel}</option>
                 {models.map((m) => (
                   <option
                     key={m.id}
@@ -630,6 +1055,32 @@ export function WorkbenchDemo({
               </select>
             )}
           </Field>
+          <Field label={t("workbench.environment")}>
+            {(props) => (
+              <select
+                {...props}
+                className="h-8 border rounded-md px-2"
+                value={draft.environmentId}
+                onChange={(e) =>
+                  setDraft({
+                    ...draft,
+                    environmentId: e.target.value,
+                    version: draft.version + 1,
+                  })
+                }
+              >
+                <option value="">{x.noEnvironment}</option>
+                {environments.map((env) => (
+                  <option key={env.id} value={env.id}>
+                    {env.label}
+                  </option>
+                ))}
+              </select>
+            )}
+          </Field>
+          {(!draft.environmentId || !draft.modelId) && (
+            <p role="status">{x.invalidConfig}</p>
+          )}
           <Field label={t("workbench.permission")}>
             {(props) => (
               <select
@@ -652,7 +1103,22 @@ export function WorkbenchDemo({
               </select>
             )}
           </Field>
+          <p>{session.environment.capabilities.join(", ") || x.noService}</p>
           <p>{x.noService}</p>
+          {session.dataState === "error" && (
+            <DataRegion
+              state="error"
+              hasContent
+              error={{
+                category: "network",
+                message: session.error || x.readError,
+                reason: x.readError,
+              }}
+              onRetry={retryRead}
+            >
+              <p>{x.settingsRetained}</p>
+            </DataRegion>
+          )}
         </FormSection>
         {preferences()}
         <label className={styles.label}>
@@ -677,7 +1143,17 @@ export function WorkbenchDemo({
             ))}
           </select>
         </label>
-        <Button variant="secondary" onClick={() => dispatch({ type: "reset" })}>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            dispatch({ type: "reset" })
+            navigate({
+              session: "session-filter",
+              project: "project-demo",
+              scenario: "default",
+            })
+          }}
+        >
           {x.reset}
         </Button>
       </section>
@@ -710,7 +1186,7 @@ export function WorkbenchDemo({
           variant="ghost"
           size="sm"
           onClick={() => {
-            localStorage.removeItem("easyuseui-workbench-panels")
+            clearPanelPreferences()
             setTheme("light")
             setLocale("zh-CN")
           }}
@@ -747,11 +1223,7 @@ export function WorkbenchDemo({
             onReconnect={() => navigate({ scenario: "default" })}
           />
         ) : (
-          <PreviewPanel>
-            {session.artifacts.length ? (
-              <MessageContent content={reportBody} />
-            ) : undefined}
-          </PreviewPanel>
+          preview()
         ),
     }),
   )
@@ -769,54 +1241,200 @@ export function WorkbenchDemo({
     />
   )
   function inbox() {
+    const scoped = ["empty", "no-attention"].includes(query.scenario)
+      ? []
+      : state.sessions.filter((s) => s.projectId === projectId)
+    const filtered = scoped.filter(
+      (s) =>
+        !kind ||
+        (kind === "review"
+          ? s.artifacts.some((a) => a.review?.state === "unreviewed")
+          : s.attention.some((a) => a.kind === kind)),
+    )
+    const sorted = [...filtered].sort((a, b) =>
+      sort === "title"
+        ? a.title.localeCompare(b.title)
+        : (b.updatedAt ?? "").localeCompare(a.updatedAt ?? "") ||
+          a.sessionId.localeCompare(b.sessionId),
+    )
     return (
       <>
-        <label className={styles.top}>
-          {x.filter}
+        <div className={styles.top}>
+          <label className={styles.label}>
+            {x.filter}
+            <select value={kind} onChange={(e) => setKind(e.target.value)}>
+              {["", "approval", "input", "failure", "review"].map((k) => (
+                <option key={k} value={k}>
+                  {k
+                    ? x[k as "approval" | "input" | "failure" | "review"]
+                    : x.all}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className={styles.label}>
+            {x.sort}
+            <select value={sort} onChange={(e) => setSort(e.target.value)}>
+              <option value="updated">{x.sortUpdated}</option>
+              <option value="title">{x.sortTitle}</option>
+            </select>
+          </label>
+          <Link href="/workspace/agents/">{x.agentBoard}</Link>
+        </div>
+        <div className={styles.inboxFrame}>
+          <div className={styles.inboxGrid}>
+            <TaskInbox
+              runs={sorted.map(sessionRun)}
+              attention={scoped
+                .flatMap((s) => s.attention)
+                .filter((a) => !kind || a.kind === kind)}
+              selectedRunId={
+                sorted.some((s) => s.activeRunId === session.activeRunId)
+                  ? session.activeRunId
+                  : undefined
+              }
+              onSelect={(runId) => {
+                const s = scoped.find((s) => s.activeRunId === runId)
+                if (s) navigate({ session: s.sessionId })
+              }}
+              onEnter={(runId) => {
+                const s = scoped.find((s) => s.activeRunId === runId)
+                if (s) openSession(s.sessionId)
+              }}
+            />
+            {sorted.some((s) => s.sessionId === current.sessionId) && (
+              <aside aria-label={x.taskDetails}>
+                <AgentRunInspector
+                  snapshot={{
+                    run: sessionRun(current),
+                    attention: current.attention,
+                    artifacts: current.artifacts,
+                    steps: current.plan.map((p) => ({
+                      stepId: p.id,
+                      name: p.title,
+                      status: p.status,
+                      tool: current.tools.find((t) => t.id === p.toolId),
+                    })),
+                    relationships: [],
+                    events: [],
+                  }}
+                />
+              </aside>
+            )}
+          </div>
+        </div>
+      </>
+    )
+  }
+  function projectView() {
+    const owned =
+      query.scenario === "no-sessions"
+        ? []
+        : state.sessions.filter((s) => s.projectId === projectId)
+    const environment = owned[0]?.environment
+    return (
+      <section className={styles.section}>
+        <h1 className={styles.title}>{project?.name ?? x.noProjects}</h1>
+        <p className={styles.meta}>
+          {project?.directory ?? "—"} · {environment?.branch ?? "—"} ·{" "}
+          {environment?.name ?? x.noEnvironment}
+        </p>
+        {environmentDetails()}
+        {readOnly && <p>{x.readOnly}</p>}
+        <label className={styles.label}>
+          {x.runtimeFilter}
           <select
-            className="h-8 border rounded-md px-2"
-            value={kind}
-            onChange={(e) => setKind(e.target.value)}
+            value={projectStatus}
+            onChange={(e) => setProjectStatus(e.target.value)}
           >
-            {["", "approval", "input", "failure"].map((k) => (
-              <option key={k} value={k}>
-                {k ? x[k as "approval" | "input" | "failure"] : x.all}
+            {[
+              "all",
+              "running",
+              "waiting",
+              "failed",
+              "completed",
+              "cancelled",
+            ].map((status) => (
+              <option key={status} value={status}>
+                {status === "all"
+                  ? x.all
+                  : builtIn(runtimeStatusMeta[status as RuntimeStatus].label)}
               </option>
             ))}
           </select>
         </label>
-        <TaskInbox
-          runs={state.sessions
-            .filter((s) => s.projectId === projectId)
-            .map(sessionRun)}
-          attention={state.sessions
-            .flatMap((s) => s.attention)
-            .filter((a) => !kind || a.kind === kind)}
-          selectedRunId={session.activeRunId}
-          onSelect={(runId) => {
-            const s = state.sessions.find((s) => s.activeRunId === runId)
-            if (s) navigate({ session: s.sessionId })
-          }}
-          onEnter={(runId) => {
-            const s = state.sessions.find((s) => s.activeRunId === runId)
-            if (s) openSession(s.sessionId)
-          }}
-        />
-      </>
+        {owned
+          .filter((s) => projectStatus === "all" || s.status === projectStatus)
+          .map((s) => (
+            <Item
+              key={s.sessionId}
+              title={s.title}
+              description={<RuntimeStatusBadge status={s.status} />}
+              onSelect={() => openSession(s.sessionId)}
+            />
+          ))}
+        {!owned.filter(
+          (s) => projectStatus === "all" || s.status === projectStatus,
+        ).length && <p>{owned.length ? x.noMatchingTasks : x.noTasks}</p>}
+        <Button
+          disabled={readOnly || !visibleProjects.length}
+          onClick={() => navigate({ page: "new" })}
+        >
+          {x.new}
+        </Button>
+        <h2>{x.artifacts}</h2>
+        {owned
+          .filter((s) => s.artifacts.length)
+          .map((s) => (
+            <Item
+              key={s.sessionId}
+              title={s.artifacts.map((a) => a.name).join(", ")}
+              description={s.title}
+              onSelect={() => openSession(s.sessionId, "artifacts")}
+            />
+          ))}
+      </section>
     )
   }
   function home() {
     const newDraft = state.drafts.new
-    const newSession = { ...session, status: "completed" }
-    const readOnly = state.projects.find(
-      (p) => p.projectId === projectId,
-    )?.readOnly
+    const unavailable =
+      readOnly ||
+      !visibleProjects.length ||
+      !newDraft.environmentId ||
+      !newDraft.modelId ||
+      query.scenario === "no-environment" ||
+      query.scenario === "invalid-config"
+    const newSession = {
+      ...session,
+      projectId,
+      status: "completed",
+      environment: {
+        ...session.environment,
+        connection: unavailable ? ("unknown" as const) : ("connected" as const),
+      },
+      capabilities: { ...session.capabilities, send: !unavailable },
+    }
     return (
       <section className={styles.section}>
         <h1 className={styles.title}>{x.overview}</h1>
         <p className={styles.meta}>
           {x.local} · {x.createPending}
         </p>
+        <ProjectSwitcher
+          projects={visibleProjects}
+          value={projectId}
+          onChange={(project) => navigate({ project })}
+        />
+        {unavailable && (
+          <p role="status">
+            {!visibleProjects.length
+              ? x.noProjects
+              : readOnly
+                ? x.readOnly
+                : x.invalidConfig}
+          </p>
+        )}
         {readOnly ? (
           <p>{x.readOnly}</p>
         ) : (
@@ -835,14 +1453,7 @@ export function WorkbenchDemo({
                   ? { ...r, targetId: session.sessionId }
                   : r,
               )}
-              onSubmit={() =>
-                dispatch({
-                  type: "begin",
-                  id: "new",
-                  action: "create",
-                  template: query.template,
-                })
-              }
+              onSubmit={createTask}
               onReconcile={(r) =>
                 dispatch({
                   type: "settle",
@@ -882,12 +1493,22 @@ export function WorkbenchDemo({
         <p className={styles.meta}>{x.sourceOnly}</p>
         <div className={styles.row}>
           <Link
-            href={`/examples/agent-workbench/regions/?region=sidebar&session=${session.sessionId}`}
+            href={showcaseHref("regions", {
+              region: "sidebar",
+              session: session.sessionId,
+              scenario: query.scenario,
+              project: projectId,
+            })}
           >
             {x.regions}
           </Link>
           <Link
-            href={`/examples/agent-workbench/layouts/?layout=conversation&session=${session.sessionId}`}
+            href={showcaseHref("layouts", {
+              layout: "conversation",
+              session: session.sessionId,
+              scenario: query.scenario,
+              project: projectId,
+            })}
           >
             {x.layouts}
           </Link>
@@ -899,14 +1520,25 @@ export function WorkbenchDemo({
             value={query.scenario}
             onChange={(e) => {
               const scenario = e.target.value
-              if (scenario === "long")
-                dispatch({ type: "long", id: session.sessionId })
               navigate({ scenario })
             }}
           >
-            {workbenchScenarios.map((s) => (
-              <option key={s}>{s}</option>
-            ))}
+            {showcaseScenarios
+              .filter(
+                (s) =>
+                  level !== "regions" ||
+                  commonScenarios.includes(s.id) ||
+                  (
+                    regionDefinitions.find((r) => r.id === query.region)
+                      ?.cases as readonly string[] | undefined
+                  )?.includes(s.id) ||
+                  s.id === query.scenario,
+              )
+              .map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.label[locale]}
+                </option>
+              ))}
           </select>
         </label>
         <label className={styles.row}>
@@ -985,7 +1617,12 @@ export function WorkbenchDemo({
           onClick={() => {
             dispatch({ type: "reset" })
             navigate(
-              { session: "session-filter", scenario: "default", page: "home" },
+              {
+                session: "session-filter",
+                project: "project-demo",
+                scenario: "default",
+                page: "home",
+              },
               true,
             )
           }}
@@ -1099,17 +1736,33 @@ export function WorkbenchDemo({
     <>
       <Link href="/examples/agent-workbench/">{x.overview}</Link>
       <Link
-        href={`/examples/agent-workbench/regions/?region=${query.region}&session=${session.sessionId}&scenario=${query.scenario}`}
+        href={showcaseHref("regions", {
+          region: query.region,
+          session: session.sessionId,
+          scenario: query.scenario,
+          project: projectId,
+        })}
       >
         {x.regions}
       </Link>
       <Link
-        href={`/examples/agent-workbench/layouts/?layout=conversation&session=${session.sessionId}&scenario=${query.scenario}`}
+        href={showcaseHref("layouts", {
+          layout: "conversation",
+          session: session.sessionId,
+          scenario: query.scenario,
+          project: projectId,
+        })}
       >
         {x.layouts}
       </Link>
       <Link
-        href={`/examples/agent-workbench/app/?template=${query.template}&page=home&session=${session.sessionId}`}
+        href={showcaseHref("app", {
+          template: query.template,
+          page: "home",
+          session: session.sessionId,
+          scenario: query.scenario,
+          project: projectId,
+        })}
       >
         {x.app}
       </Link>
@@ -1160,6 +1813,8 @@ export function WorkbenchDemo({
         <h1 className={styles.title}>{x.overview}</h1>
         <p>{x.contractBody}</p>
         <p className={styles.meta}>{x.noService}</p>
+        <p>{x.showcaseStatus}</p>
+        <Link href="/blog/agent-workbench-showcase/">{x.verification}</Link>
         <div className={styles.overview}>
           <Link href="/examples/agent-workbench/regions/?region=sidebar">
             <strong>{x.regions}</strong>
@@ -1188,30 +1843,52 @@ export function WorkbenchDemo({
       </main>
     )
   const regionViews: Record<string, ReactNode> = {
-    sidebar: <div style={{ width: 256, maxWidth: "100%" }}>{navigation}</div>,
+    sidebar: (
+      <div style={{ width: 256, maxWidth: "100%" }}>
+        <Button
+          size="sm"
+          variant="ghost"
+          aria-expanded={!state.panels.sidebarCollapsed}
+          onClick={() =>
+            onPanels({
+              ...state.panels,
+              sidebarCollapsed: !state.panels.sidebarCollapsed,
+            })
+          }
+        >
+          {state.panels.sidebarCollapsed ? x.expandSidebar : x.collapseSidebar}
+        </Button>
+        <div hidden={state.panels.sidebarCollapsed}>{navigation}</div>
+      </div>
+    ),
     context: contextPanel,
     conversation: (
       <AgentConversation
         session={session}
+        actionsRef={conversationActions}
         onLoadHistory={() =>
           dispatch({ type: "history", id: session.sessionId })
         }
         deferOffscreen
-        onRetry={() => navigate({ scenario: "default" })}
+        onRetry={retryRead}
         onOpenReference={() => navigate({ panel: "artifacts" })}
       />
     ),
     composer,
     header: (
       <div className={styles.section}>
+        {readOnly && <p>{x.readOnly}</p>}
         <SessionHeader
           session={session}
-          onRename={(title) =>
-            dispatch({
-              type: "metadata",
-              id: session.sessionId,
-              patch: { title },
-            })
+          onRename={
+            readOnly
+              ? undefined
+              : (title) =>
+                  dispatch({
+                    type: "metadata",
+                    id: session.sessionId,
+                    patch: { title },
+                  })
           }
           onInterrupt={() =>
             dispatch({
@@ -1219,6 +1896,25 @@ export function WorkbenchDemo({
               id: session.sessionId,
               action: "interrupt",
             })
+          }
+          actions={
+            <div className={styles.row}>
+              {environmentDetails()}
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => navigate({ panel: "context" })}
+              >
+                {t("workbench.context")}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => navigate({ panel: "changes" })}
+              >
+                {x.reviewFiles}
+              </Button>
+            </div>
           }
         />
       </div>
@@ -1230,8 +1926,21 @@ export function WorkbenchDemo({
         <ExecutionOutputPanel
           {...session.output}
           connected={session.environment.connection === "connected"}
+          onReconnect={() => {
+            dispatch({
+              type: "session",
+              id: session.sessionId,
+              patch: {
+                environment: {
+                  ...current.environment,
+                  connection: "connected",
+                },
+              },
+            })
+            navigate({ scenario: "default" })
+          }}
         />
-        <PreviewPanel />
+        {preview()}
       </>
     ),
     artifacts: (
@@ -1249,130 +1958,71 @@ export function WorkbenchDemo({
   }
   if (level === "regions")
     return (
-      <main className={styles.root}>
-        <div className={styles.top}>
-          {links}
-          <span className={styles.meta}>{x.local}</span>
-          {controls}
-        </div>
-        <div className={styles.mobileSelect}>
-          <label className={styles.label}>
-            {x.regions}
-            <select
-              value={query.region}
-              onChange={(e) => navigate({ region: e.target.value })}
-            >
-              {workbenchRegions.map((r, i) => (
-                <option key={r} value={r}>
-                  R{i + 1} {r}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div className={styles.region}>
-          <nav className={styles.directory} aria-label={x.regions}>
-            {workbenchRegions.map((r, i) => (
-              <Button
-                key={r}
-                variant="ghost"
-                aria-current={query.region === r ? "page" : undefined}
-                onClick={() => navigate({ region: r })}
+      <>
+        <RegionLab
+          region={query.region}
+          scenario={query.scenario}
+          narrow={narrow}
+          navigation={links}
+          controls={sourceControls()}
+          onRegionChange={(region) => navigate({ region })}
+          layoutHref={showcaseHref("layouts", {
+            layout: "conversation",
+            session: session.sessionId,
+            scenario: query.scenario,
+            project: projectId,
+          })}
+          preview={
+            ["sidebar", "context", "conversation"].includes(query.region) ? (
+              regionViews[query.region]
+            ) : (
+              <DataRegion
+                state={session.dataState}
+                hasContent={!["empty", "loading"].includes(query.scenario)}
+                error={
+                  session.error
+                    ? {
+                        category: "network",
+                        message: session.error,
+                        reason: x.readError,
+                      }
+                    : undefined
+                }
+                onRetry={retryRead}
               >
-                R{i + 1} {r}
-              </Button>
-            ))}
-          </nav>
-          <section className={styles.preview}>
-            <div className={styles.top}>
-              <span>{query.region}</span>
-              <Link
-                href={`/examples/agent-workbench/layouts/?layout=conversation&session=${session.sessionId}&scenario=${query.scenario}`}
-              >
-                {x.openLayout}
-              </Link>
-            </div>
-            <div className={styles.previewInner} data-narrow={narrow}>
-              {["sidebar", "context", "conversation"].includes(query.region) ? (
-                regionViews[query.region]
-              ) : (
-                <DataRegion
-                  state={session.dataState}
-                  hasContent={query.scenario !== "empty"}
-                  error={
-                    session.error
-                      ? {
-                          category: "network",
-                          message: session.error,
-                          reason: x.readError,
-                        }
-                      : undefined
-                  }
-                  onRetry={() => navigate({ scenario: "default" })}
-                >
-                  {regionViews[query.region]}
-                </DataRegion>
-              )}
-            </div>
-          </section>
-        </div>
-        <details className={styles.contract}>
-          <summary>{x.contract}</summary>
-          <p>{x.contractBody}</p>
-          <Link href="/docs/agent-workbench/">AgentWorkbench API</Link>
-        </details>
-      </main>
+                {regionViews[query.region]}
+              </DataRegion>
+            )
+          }
+        />
+        {sourceSheet}
+      </>
     )
   const isSession =
     level === "layouts" || ["session", "review"].includes(query.page)
   const selectedLayout = (
     query.page === "review"
       ? "review"
-      : (params.get("layout") ??
+      : params.get("layout") ||
         (query.template === "console" && query.page !== "session"
           ? "tasks"
           : query.template === "artifacts"
             ? "review"
-            : "conversation"))
+            : "conversation")
   ) as WorkbenchLayout
-  const main = isSession ? (
-    selectedLayout === "tasks" ? (
-      inbox()
-    ) : (
-      workspace
-    )
-  ) : query.page === "inbox" ? (
-    inbox()
-  ) : query.page === "settings" ? (
-    settings()
-  ) : query.page === "artifacts" ? (
-    artifacts()
-  ) : query.page === "project" ? (
-    <section className={styles.section}>
-      <h1 className={styles.title}>
-        {state.projects.find((p) => p.projectId === projectId)?.name}
-      </h1>
-      <p className={styles.meta}>
-        {session.environment.branch} · {session.environment.name}
-      </p>
-      {state.sessions
-        .filter((s) => s.projectId === projectId)
-        .map((s) => (
-          <Item
-            key={s.sessionId}
-            title={s.title}
-            description={<RuntimeStatusBadge status={s.status} />}
-            onSelect={() => openSession(s.sessionId)}
-          />
-        ))}
-      {state.sessions.every((s) => s.projectId !== projectId) && (
-        <p>{x.noTasks}</p>
-      )}
-      <Button onClick={() => navigate({ page: "new" })}>{x.new}</Button>
-    </section>
-  ) : (
-    home()
-  )
+  const main = isSession
+    ? selectedLayout === "tasks"
+      ? inbox()
+      : workspace
+    : query.page === "inbox"
+      ? inbox()
+      : query.page === "settings"
+        ? settings()
+        : query.page === "artifacts"
+          ? artifacts()
+          : query.page === "project"
+            ? projectView()
+            : home()
   return (
     <main
       className={styles.root}
@@ -1380,6 +2030,7 @@ export function WorkbenchDemo({
       data-workbench-page={query.page}
       data-session-id={session.sessionId}
     >
+      {sourceSheet}
       <div className={styles.top}>
         {level === "app" ? (
           <Link href="/examples/agent-workbench/">EasyuseUI · Agent</Link>
@@ -1437,30 +2088,24 @@ export function WorkbenchDemo({
                 ))}
             </div>
           }
-          headerActions={
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() =>
-                navigate({ page: "review", layout: "review", panel: "changes" })
-              }
-            >
-              {x.review}
-            </Button>
-          }
-          onRename={(title) =>
-            dispatch({
-              type: "metadata",
-              id: session.sessionId,
-              patch: { title },
-            })
+          headerActions={environmentDetails(true)}
+          onRename={
+            readOnly
+              ? undefined
+              : (title) =>
+                  dispatch({
+                    type: "metadata",
+                    id: session.sessionId,
+                    patch: { title },
+                  })
           }
           conversation={{
+            actionsRef: conversationActions,
             attention: tools(true),
             deferOffscreen: true,
             onLoadHistory: () =>
               dispatch({ type: "history", id: session.sessionId }),
-            onRetry: () => navigate({ scenario: "default" }),
+            onRetry: retryRead,
             onOpenReference: openReference,
           }}
         />

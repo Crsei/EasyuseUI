@@ -1,0 +1,230 @@
+{
+  "capturedAt": "2026-10-09T06:43:03.875041+00:00",
+  "status": "verified",
+  "baselineCommit": "4daa7879f0f5c5fa7406581fb7aafac7e9e1d7a2",
+  "sourceSnapshotId": "476017e821453b9e770a5e0109f19cf1b487e9f8eb37ab66dcf2e5c0251e766c",
+  "scope": "Showcase examples and site adapters on an isolated formal candidate; excludes concurrent shared-workspace CRM changes. No real runtime or business acceptance proof.",
+  "environment": {
+    "node": "24.21.0",
+    "chrome": "138",
+    "build": "Next 16.3.8 Webpack static export; WASM SWC fallback on GLIBC 2.28",
+    "origin": "http://localhost:3010",
+    "previewPorts": [
+      3017,
+      3018,
+      3019
+    ],
+    "sharedDevProcess": "3010 PID 6853 retained"
+  },
+  "coverage": {
+    "regions": 10,
+    "layouts": 3,
+    "templates": 3,
+    "scenarios": 57,
+    "screenshots": 64,
+    "runtimeSourceFiles": 23,
+    "viewports": [
+      [
+        1440,
+        900
+      ],
+      [
+        1280,
+        800
+      ],
+      [
+        1024,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "additional": [
+      "200% effective layout",
+      "coarse pointer",
+      "reduced motion",
+      "English",
+      "light/dark",
+      "keyboard/focus",
+      "IME"
+    ]
+  },
+  "workbench": {
+    "startTime": "2026-10-09T05:33:15.800Z",
+    "duration": 198627.618,
+    "expected": 174,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "checks": [
+    {
+      "id": "workbench-browser-r6",
+      "command": "pnpm exec playwright test --config playwright.showcase.config.ts tests/agent-workbench-model.spec.ts tests/agent-workbench.spec.ts tests/agent-workbench-showcase-model.spec.ts tests/agent-workbench-showcase.spec.ts --reporter=line,json",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "search-recovery",
+      "command": "pnpm exec playwright test --config playwright.showcase.config.ts tests/homepage-docs.spec.ts --reporter=line,json",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "search-cold",
+      "command": "pnpm exec playwright test --config playwright.showcase.config.ts tests/homepage-docs.spec.ts -g search --repeat-each=10 --reporter=line,json",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "install",
+      "command": "pnpm test:install",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "payload-compare",
+      "command": "python3 compare-payload.py (843 Registry file.content payloads, same origin)",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "registry-current",
+      "command": "pnpm registry:build",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "blog-current",
+      "command": "pnpm blog:build && pnpm check:blog",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "docs-current",
+      "command": "pnpm docs:build && pnpm check:docs",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "i18n-current",
+      "command": "pnpm check:i18n",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "manifest-current",
+      "command": "pnpm check:manifest",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "ui-contracts-current",
+      "command": "pnpm check:ui-contracts",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "lint-current",
+      "command": "pnpm lint",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "typecheck-current",
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "build-current",
+      "command": "pnpm build",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "full-current",
+      "command": "pnpm exec playwright test --config playwright.showcase.config.ts --reporter=line,json",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "lint-publish",
+      "command": "pnpm lint",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "typecheck-publish",
+      "command": "pnpm typecheck",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "blog-publish",
+      "command": "pnpm blog:build && pnpm check:blog",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "docs-publish",
+      "command": "pnpm docs:build && pnpm check:docs",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "build-publish",
+      "command": "pnpm build",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "publication-browser",
+      "command": "pnpm exec playwright test --config playwright.showcase.config.ts tests/agent-workbench-showcase-blog.spec.ts tests/blog.spec.ts tests/homepage-docs.spec.ts tests/agent-workbench-showcase-model.spec.ts tests/agent-workbench-showcase.spec.ts tests/agent-workbench.spec.ts --reporter=line,json",
+      "exitCode": 0,
+      "result": "passed"
+    },
+    {
+      "id": "captures",
+      "command": "PORT=3018 node scripts/capture-agent-workbench-showcase.mjs <isolated-build> <evidence-dir>",
+      "result": "passed",
+      "sampleCount": 64
+    }
+  ],
+  "servicesConnected": [],
+  "limitations": [
+    "Local fixtures reset on refresh; only locale/theme/panel preferences persist.",
+    "Models, file writes, Git, PTY, browser control, authorization and business persistence require separate M6 integration.",
+    "Source test/log/report fixtures are separate from project test results.",
+    "Captures record stable initial cases; action/model checks cover other scenarios."
+  ],
+  "corrections": [
+    "Context retry waits for its receipt and binds confirmation to the reference version.",
+    "Project navigation retains the latest user selection during rapid query updates.",
+    "Late creation confirmation cannot redirect a different open session.",
+    "Artifact download is gated by real local content and tested against its bytes.",
+    "The mobile environment action uses an icon target to retain the composer under reduced height."
+  ],
+  "regression": {
+    "startTime": "2026-10-09T06:22:34.861Z",
+    "duration": 787925.2220000001,
+    "expected": 674,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "publication": {
+    "startTime": "2026-10-09T06:38:32.149Z",
+    "duration": 245897.71899999998,
+    "expected": 212,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

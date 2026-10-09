@@ -36,7 +36,7 @@ export function DocsSearch({
     [error, setError] = useState(false),
     [attempt, setAttempt] = useState(0)
   useEffect(() => {
-    if (!open || index) return
+    if (!open || index || error) return
     const controller = new AbortController()
     fetch("/docs-search.json", { signal: controller.signal })
       .then(async (response) => {
@@ -58,7 +58,7 @@ export function DocsSearch({
           setError(true)
       })
     return () => controller.abort()
-  }, [open, index, attempt])
+  }, [open, index, attempt, error])
   const groups = useMemo(() => {
     const tokens = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean)
     return (["components", "guides", "examples", "articles"] as const).map(
@@ -98,18 +98,40 @@ export function DocsSearch({
       }),
     )
   }, [index, query, locale, t])
-  if (error)
-    return (
-      <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent finalFocus={finalFocus}>
-          <DialogTitle>{t("site.redesign.search")}</DialogTitle>
-          <DialogDescription>
-            {t("site.redesign.searchError")}
-          </DialogDescription>
-          <p role="alert" className="my-4 text-sm">
-            {t("site.redesign.searchError")}
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent
+        finalFocus={finalFocus}
+        className="p-0 [&_section]:rounded-none [&_section]:border-0"
+      >
+        <DialogTitle className="sr-only">
+          {t("site.redesign.search")}
+        </DialogTitle>
+        <DialogDescription className="sr-only">
+          {t("site.redesign.searchHint")}
+        </DialogDescription>
+        <CommandPalette
+          presentation="inline"
+          title={t("site.redesign.search")}
+          description={t("site.redesign.searchHint")}
+          query={query}
+          onQueryChange={setQuery}
+          groups={groups}
+          loading={!index && !error}
+          error={error ? t("site.redesign.searchError") : undefined}
+          emptyMessage={t("site.redesign.searchEmpty")}
+          onSelect={(item) => {
+            const entry = index?.find(
+              (entry) => entry.kind + ":" + entry.id === item.id,
+            )
+            if (entry) {
+              onOpenChange(false)
+              router.push(entry.href)
+            }
+          }}
+        />
+        {error && (
+          <div className="flex flex-wrap items-center gap-4 px-4 pb-3">
             <Button
               onClick={() => {
                 setError(false)
@@ -127,27 +149,8 @@ export function DocsSearch({
               {t("site.redesign.browseAll")}
             </Link>
           </div>
-        </DialogContent>
-      </Dialog>
-    )
-  return (
-    <CommandPalette
-      open={open}
-      onOpenChange={onOpenChange}
-      finalFocus={finalFocus}
-      title={t("site.redesign.search")}
-      description={t("site.redesign.searchHint")}
-      query={query}
-      onQueryChange={setQuery}
-      groups={groups}
-      loading={!index}
-      emptyMessage={t("site.redesign.searchEmpty")}
-      onSelect={(item) => {
-        const entry = index?.find(
-          (entry) => entry.kind + ":" + entry.id === item.id,
-        )
-        if (entry) router.push(entry.href)
-      }}
-    />
+        )}
+      </DialogContent>
+    </Dialog>
   )
 }

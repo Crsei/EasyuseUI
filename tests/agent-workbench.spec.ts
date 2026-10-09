@@ -223,6 +223,10 @@ test("send failure, invalid context and local attachment availability keep the d
     .click()
   await expect(
     page.getByRole("button", { name: "发送", exact: true }),
+  ).toBeDisabled()
+  await source(page)
+  await expect(
+    page.getByRole("button", { name: "发送", exact: true }),
   ).toBeEnabled()
   await page.locator('input[type="file"]').setInputFiles({
     name: "fixture.txt",

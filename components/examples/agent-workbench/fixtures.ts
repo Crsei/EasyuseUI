@@ -299,6 +299,55 @@ export function initialWorkbench(): WorkbenchState {
       "failed",
     ),
   ]
+  sessions[1].tools = [
+    {
+      ...sessions[1].tools[0],
+      name: "write_report",
+      target: "reports/summary.md",
+      arguments: { path: "reports/summary.md" },
+      output: "Source has not confirmed report generation",
+    },
+  ]
+  sessions[1].plan = [
+    {
+      id: "plan-analysis",
+      title: "Analyze source references",
+      status: "completed",
+    },
+    {
+      id: "plan-report",
+      title: "Generate report artifact",
+      status: "waiting",
+      toolId: sessions[1].tools[0].id,
+    },
+    {
+      id: "plan-report-review",
+      title: "Review source citations",
+      status: "idle",
+    },
+  ]
+  sessions[1].messages[1].parts = [
+    {
+      partId: "part-session-report-2",
+      sequence: 1,
+      revision: 1,
+      kind: "text",
+      text: "Analyze supplied sources, draft a report, then review citations. No code execution is requested.",
+    },
+    {
+      partId: "part-session-report-plan",
+      sequence: 2,
+      revision: 1,
+      kind: "plan",
+      referenceId: "plan-analysis",
+      label: "Review report plan",
+    },
+  ]
+  sessions[1].output = {
+    ...sessions[1].output,
+    text: "Awaiting report source confirmation",
+    source: "Local fixture report output",
+  }
   sessions[1].attention = [
     {
       attentionId: "approval-report",
@@ -354,6 +403,24 @@ export function initialWorkbench(): WorkbenchState {
       },
     },
   ]
+  sessions[1].messages.push({
+    messageId: "artifact-source-session-report",
+    turnId: "turn-session-report-1",
+    sequence: 3,
+    revision: 1,
+    role: "agent",
+    state: "completed",
+    parts: [
+      {
+        partId: "artifact-source-part",
+        sequence: 1,
+        revision: 1,
+        kind: "artifact",
+        referenceId: "artifact-report",
+        label: "summary.md",
+      },
+    ],
+  })
   const drafts = Object.fromEntries(
     sessions.map((s) => [s.sessionId, makeDraft(s.sessionId)]),
   )
@@ -373,6 +440,12 @@ export function initialWorkbench(): WorkbenchState {
         name: "Empty project",
         repositoryId: "repo-empty",
         readOnly: true,
+      },
+      {
+        projectId: "project-new",
+        name: "New research project",
+        repositoryId: "repo-new",
+        directory: "fixture/research",
       },
     ],
     sessions,
