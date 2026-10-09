@@ -1,5 +1,14 @@
 "use client"
-import { useId } from "react"
+import { useId, useState } from "react"
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogBody,
+  DialogFooter,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { DataRegion, type DataRegionProps } from "@/components/ui/data-region"
 import { Item } from "@/components/ui/item"
@@ -9,12 +18,123 @@ import styles from "./workbench.module.css"
 export function ContextPicker({
   references,
   onPick,
+  onPickMany,
+  searchable = false,
+  open,
+  onOpenChange,
 }: {
   references: readonly ContextReference[]
   onPick: (reference: ContextReference) => void
+  onPickMany?: (references: ContextReference[]) => void
+  searchable?: boolean
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }) {
   const { t } = useI18n()
   const id = useId()
+  const [internalOpen, setOpen] = useState(false)
+  const [search, setSearch] = useState("")
+  const [kind, setKind] = useState("")
+  const [selected, setSelected] = useState<string[]>([])
+  const changeOpen = (value: boolean) => {
+    setOpen(value)
+    onOpenChange?.(value)
+    if (!value) setSelected([])
+  }
+  if (searchable) {
+    const filtered = references.filter(
+      (r) =>
+        (!kind || r.kind === kind) &&
+        `${r.label} ${r.source ?? ""}`
+          .toLowerCase()
+          .includes(search.toLowerCase()),
+    )
+    return (
+      <>
+        <Button
+          variant="secondary"
+          size="sm"
+          aria-expanded={open ?? internalOpen}
+          onClick={() => changeOpen(true)}
+        >
+          {t("workbench.addContext")}
+        </Button>
+        <Dialog open={open ?? internalOpen} onOpenChange={changeOpen}>
+          <DialogContent>
+            <DialogTitle>{t("resource.chooseContext")}</DialogTitle>
+            <DialogDescription>{t("resource.selectionOnly")}</DialogDescription>
+            <DialogBody>
+              <Input
+                aria-label={t("resource.search")}
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+              />
+              <label className={styles.label}>
+                {t("resource.all")}
+                <select
+                  className={styles.select}
+                  value={kind}
+                  onChange={(event) => setKind(event.target.value)}
+                >
+                  <option value="">{t("resource.all")}</option>
+                  {["file", "selection", "rule", "skill", "link", "image"].map(
+                    (value) => (
+                      <option key={value}>{value}</option>
+                    ),
+                  )}
+                </select>
+              </label>
+              <DataRegion
+                state={filtered.length ? "success" : "empty"}
+                hasContent={filtered.length > 0}
+              >
+                {filtered.map((r) => (
+                  <label key={r.id} className={styles.context}>
+                    <input
+                      type="checkbox"
+                      checked={selected.includes(r.id)}
+                      disabled={r.availability === "denied"}
+                      onChange={(event) =>
+                        setSelected(
+                          event.target.checked
+                            ? [...selected, r.id]
+                            : selected.filter((value) => value !== r.id),
+                        )
+                      }
+                    />{" "}
+                    {r.label}{" "}
+                    <span className={styles.meta}>
+                      {r.source} @{r.version ?? "—"} ·{" "}
+                      {t(`workbench.${r.availability}`)}
+                    </span>
+                  </label>
+                ))}
+              </DataRegion>
+            </DialogBody>
+            <DialogFooter>
+              <Button variant="ghost" onClick={() => changeOpen(false)}>
+                {t("resource.cancel")}
+              </Button>
+              <Button
+                disabled={!selected.length}
+                onClick={() => {
+                  const picked = references.filter(
+                    (r) =>
+                      selected.includes(r.id) && r.availability !== "denied",
+                  )
+                  if (onPickMany) onPickMany(picked)
+                  else picked.forEach(onPick)
+                  changeOpen(false)
+                }}
+              >
+                {t("resource.addSelected")}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </>
+    )
+  }
   return (
     <label className={styles.label} htmlFor={id}>
       {t("workbench.pickReference")}
@@ -75,7 +195,7 @@ export function ContextPanel({
       <p className={styles.status}>
         {usage === undefined
           ? t("workbench.usageUnknown")
-          : `${t("workbench.usage")}: ${usage}${limit === undefined ? "" : ` / ${limit}`}`}
+          : `${t("resource.referenceUsage")}: ${usage}${limit === undefined ? "" : ` / ${limit}`}`}
         {included.some((r) => r.usage?.estimated) &&
           ` · ${t("workbench.estimated")}`}
         {usage !== undefined && limit !== undefined && usage > limit && (

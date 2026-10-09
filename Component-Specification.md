@@ -399,7 +399,7 @@ Canvas 性能与整理补充：索引按实际 nodes/frames/edges/definitions/is
 
 `WorkflowCanvas.onMeasurementsChange` 输出临时引擎尺寸，不能写入图文档或撤销历史。`CanvasWorkspace.fixedNodeIds` 是调用方的自动布局约束，不增加业务权限或节点锁定字段。“更多工具”提供当前作用域 DAG 整理、JSON 和帮助；整理使用实际尺寸，缺失尺寸按端口数量估算，保留固定节点和分组边界。计算可取消，结果绑定完整源对象、定义与固定节点输入；旧结果不应用。预览不提交，应用只发出一次 `move` 坐标命令；循环、子流程、无效图和分组空间不足保留原图并说明原因。布局不承诺连线无交叉。既有 500 节点/1000 连线导入与命令限制继续有效；1000 节点压力样例仅探测显示容量。
 
-WorkspaceShell 同时支持 `value/defaultValue/onChange` 配对（具体属性为 `sidebarCollapsed/defaultSidebarCollapsed/onSidebarCollapsedChange`、`inspectorOpen`、`inspectorWidth`、`bottomPanelOpen`、`bottomPanelHeight` 及各自 default/onChange）。受控模式由调用方回传；Inspector 宽度限定 300–360px，底部高度 200–400px。`inspectorOverlayOpen` 是独立的窄屏浮层状态；响应式测量不回写桌面偏好。原 `bottomPanelCollapsed` 接口继续兼容。组件不读取 localStorage；`/workspace/layout/` 展示按 workspace ID 保存、校验和重置偏好的适配器。
+WorkspaceShell 同时支持 `value/defaultValue/onChange` 配对（具体属性为 `sidebarCollapsed/defaultSidebarCollapsed/onSidebarCollapsedChange`、`inspectorOpen`、`inspectorWidth`、`bottomPanelOpen`、`bottomPanelHeight` 及各自 default/onChange）。受控模式由调用方回传；Inspector 宽度限定 280–360px，底部高度 200–400px。`inspectorOverlayOpen` 是独立的窄屏浮层状态；响应式测量不回写桌面偏好。原 `bottomPanelCollapsed` 接口继续兼容。组件不读取 localStorage；`/workspace/layout/` 展示按 workspace ID 保存、校验和重置偏好的适配器。
 
 Conversation 与 ActivityTimeline 可选 `revision: string | number`。调用方须在追加、历史修订、删除、重排和状态变化时推进；省略时继续检测完整相关字段。输入使用不可变记录；去重保留首次位置和最后 payload。未变化的消息/事件行跳过重复渲染，64px 跟随阈值与补历史锚点继续生效。未默认启用窗口化，浏览器全文查找和复制仍覆盖全部记录。`deferOffscreen` 默认 false，开启后使用浏览器 content-visibility 延迟屏外布局，记录仍保留在 DOM；不支持该 CSS 的浏览器回退完整布局。
 

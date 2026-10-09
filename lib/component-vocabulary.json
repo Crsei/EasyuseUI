@@ -1,5 +1,60 @@
 [
   {
+    "slug": "workbench-resource-model",
+    "name": "WorkbenchResourceModel",
+    "category": "组合模块",
+    "description": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+    "source": "lib/workbench-resource-model.ts",
+    "usage": "import { resourceKey, openDocument } from \"@/lib/workbench-resource-model\"",
+    "notes": [
+      "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+    ]
+  },
+  {
+    "slug": "workbench-file-preview",
+    "name": "WorkbenchFilePreview",
+    "category": "组合模块",
+    "description": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+    "source": "components/blocks/workbench-file-preview.tsx",
+    "usage": "import { WorkbenchFilePreview } from \"@/components/blocks/workbench-file-preview\"",
+    "notes": [
+      "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+    ]
+  },
+  {
+    "slug": "workbench-document-tabs",
+    "name": "WorkbenchDocumentTabs",
+    "category": "组合模块",
+    "description": "临时预览与固定标签分离；关闭不删除来源文件。",
+    "source": "components/blocks/workbench-file-preview.tsx",
+    "usage": "import { WorkbenchDocumentTabs } from \"@/components/blocks/workbench-file-preview\"",
+    "notes": [
+      "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+    ]
+  },
+  {
+    "slug": "workbench-resource-content",
+    "name": "WorkbenchResourceContent",
+    "category": "组合模块",
+    "description": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+    "source": "components/blocks/workbench-file-preview.tsx",
+    "usage": "import { WorkbenchResourceContent } from \"@/components/blocks/workbench-file-preview\"",
+    "notes": [
+      "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+    ]
+  },
+  {
+    "slug": "execution-session-list",
+    "name": "ExecutionSessionList",
+    "category": "组合模块",
+    "description": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+    "source": "components/blocks/agent-workbench/panels.tsx",
+    "usage": "import { ExecutionSessionList } from \"@/components/blocks/agent-workbench/panels\"",
+    "notes": [
+      "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+    ]
+  },
+  {
     "slug": "session-navigator",
     "name": "SessionNavigator",
     "category": "组合模块",

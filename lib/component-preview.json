@@ -1,5 +1,25 @@
 [
   {
+    "slug": "workbench-resource-model",
+    "widePreview": true
+  },
+  {
+    "slug": "workbench-file-preview",
+    "widePreview": true
+  },
+  {
+    "slug": "workbench-document-tabs",
+    "widePreview": true
+  },
+  {
+    "slug": "workbench-resource-content",
+    "widePreview": true
+  },
+  {
+    "slug": "execution-session-list",
+    "widePreview": true
+  },
+  {
     "slug": "session-navigator"
   },
   {

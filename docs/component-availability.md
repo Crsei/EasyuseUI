@@ -4,6 +4,11 @@
 
 | 组件 | 源码 | 示例 | Registry | 文档 |
 | --- | --- | --- | --- | --- |
+| WorkbenchResourceModel | [源码](../lib/workbench-resource-model.ts) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | workbench-resource-model | /docs/workbench-resource-model/ |
+| WorkbenchFilePreview | [源码](../components/blocks/workbench-file-preview.tsx) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | workbench-file-preview | /docs/workbench-file-preview/ |
+| WorkbenchDocumentTabs | [源码](../components/blocks/workbench-file-preview.tsx) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | workbench-file-preview | /docs/workbench-document-tabs/ |
+| WorkbenchResourceContent | [源码](../components/blocks/workbench-file-preview.tsx) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | workbench-file-preview | /docs/workbench-resource-content/ |
+| ExecutionSessionList | [源码](../components/blocks/agent-workbench/panels.tsx) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | agent-workbench-panels | /docs/execution-session-list/ |
 | SessionNavigator | [源码](../components/blocks/agent-workbench/navigation.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-navigation | /docs/session-navigator/ |
 | ProjectSwitcher | [源码](../components/blocks/agent-workbench/navigation.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-navigation | /docs/project-switcher/ |
 | SessionHeader | [源码](../components/blocks/agent-workbench/navigation.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-navigation | /docs/session-header/ |

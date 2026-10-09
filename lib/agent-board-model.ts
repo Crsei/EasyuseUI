@@ -90,6 +90,8 @@ export type AgentBoardCapabilities = {
 }
 export type ArtifactRecord = {
   artifactId: string
+  /** Optional host resource identity for a typed preview adapter. */
+  resourceId?: string
   runId: string
   name: string
   kind: string

@@ -2,12 +2,12 @@
 import type { Dispatch, SetStateAction } from "react"
 import { ArtifactList } from "@/components/blocks/artifact-list"
 import { PreviewPanel } from "@/components/blocks/agent-workbench/panels"
-import { MessageContent } from "@/components/blocks/agent-workbench/conversation"
+import { WorkbenchResourceContent } from "@/components/blocks/workbench-file-preview"
+import type { ResourceSnapshot } from "@/lib/workbench-resource-model"
 import { Button } from "@/components/ui/button"
 import { Item } from "@/components/ui/item"
 import { useI18n } from "@/lib/i18n-provider"
 import { useWorkbenchExample } from "./provider"
-import { reportBody } from "./fixtures"
 import { exampleMessages } from "./messages"
 import type { WorkbenchViewProps } from "./view-props"
 import styles from "./demo.module.css"
@@ -24,7 +24,11 @@ export function ArtifactsView({
   setSelectedArtifacts,
   openSession,
   locateMessage,
+  resources,
+  onOpenResource,
 }: WorkbenchViewProps & {
+  resources: readonly ResourceSnapshot[]
+  onOpenResource: (resource: ResourceSnapshot) => void
   projectId: string
   level: "overview" | "regions" | "layouts" | "app"
   selectedArtifacts: Record<string, string>
@@ -58,13 +62,9 @@ export function ArtifactsView({
     records.find(
       (a) => a.artifactId === selectedArtifacts[session.sessionId],
     ) ?? records[0]
+  const resource = resources.find((r) => r.resourceId === selected?.artifactId)
   const body =
-    selected?.availability === "available" &&
-    ["summary.md", "analysis-report.md", "filter-report.md"].includes(
-      selected.name,
-    )
-      ? reportBody
-      : undefined
+    selected?.availability === "available" ? resource?.text : undefined
   const source = session.messages.find((m) =>
     m.parts.some(
       (part) =>
@@ -98,8 +98,9 @@ export function ArtifactsView({
         <>
           <PreviewPanel>
             <h3>{x.previewSource}</h3>
-            {body !== undefined ? (
-              <MessageContent content={body} />
+            {selected.availability !== "available" ? <p>{x.noPreview}</p> : resource?.renderer === "unsupported" && !resource.download ? <p>{x.unsupportedArtifact}</p> : null}
+            {resource ? (
+              <WorkbenchResourceContent resource={resource} />
             ) : (
               <p>
                 {selected.availability === "available"
@@ -109,6 +110,15 @@ export function ArtifactsView({
             )}
           </PreviewPanel>
           <div className={styles.row}>
+            {resource && (
+              <Button
+                size="sm"
+                variant="secondary"
+                onClick={() => onOpenResource(resource)}
+              >
+                {t("workbench.preview")}
+              </Button>
+            )}
             <Button
               size="sm"
               variant="secondary"
@@ -162,12 +172,12 @@ export function ArtifactsView({
             <Button
               size="sm"
               variant="ghost"
-              disabled={body === undefined}
-              onClick={() => {
-                if (body === undefined) return
-                const url = URL.createObjectURL(
-                  new Blob([body], { type: "text/markdown" }),
-                )
+              disabled={
+                selected.availability !== "available" || !resource?.download
+              }
+              onClick={async () => {
+                if (!resource?.download) return
+                const url = URL.createObjectURL(await resource.download())
                 const a = document.createElement("a")
                 a.href = url
                 a.download = selected.name

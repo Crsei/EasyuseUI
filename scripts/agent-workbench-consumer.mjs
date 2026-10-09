@@ -1,7 +1,9 @@
-import { mkdir, writeFile } from "node:fs/promises"
+import { mkdir, writeFile, readFile } from "node:fs/promises"
 import path from "node:path"
 import assert from "node:assert/strict"
 export const workbenchRegistryItems = [
+  "workbench-resource-model",
+  "workbench-file-preview",
   "agent-workbench",
   "agent-workbench-model",
   "session-navigator",
@@ -37,6 +39,19 @@ function Preview(){const {locale,setLocale}=useI18n();const [draft,setDraft]=use
 return <><div><button onClick={()=>setLocale(locale==="en"?"zh-CN":"en")}>Consumer locale</button><button onClick={()=>setLayout(layout==="conversation"?"review":"conversation")}>Consumer layout</button><button onClick={()=>setReceipt("unknown")}>Consumer lose receipt</button><button onClick={()=>setChange({...change,head:"consumer-next-head"})}>Consumer change head</button></div><div style={{height:700}}><AgentWorkbench session={snapshot} layout={layout} panelState={panels} onPanelStateChange={setPanels} navigation={<SessionNavigator projects={[{projectId:"consumer-project",repositoryId:"consumer-repo",name:"Consumer project"}]} sessions={[snapshot]} projectId="consumer-project" onProjectChange={()=>{}} onSelect={()=>{}} onNew={()=>setDraft({...draft,text:"New consumer task",version:draft.version+1})}/>} composer={composer} workspace={<ChangeReviewPanel changes={change} selectedFileId="consumer-file" onSelectFile={()=>{}} comments={comments} onCommentsChange={setComments} onFeedback={text=>setDraft({...draft,text:draft.text ? draft.text + "\n\n" + text : text,version:draft.version+1})}/>} inspector={<><ContextPicker references={[{id:"consumer-ref",kind:"file",label:"src/example.ts",availability:"available",included:true,removable:true}]} onPick={reference=>setDraft({...draft,context:[reference],version:draft.version+1})}/><ContextPanel references={draft.context} onRemove={()=>setDraft({...draft,context:[],version:draft.version+1})}/></>} bottom={<ExecutionOutputPanel {...snapshot.output}/>}/></div><PreviewPanel><MessageContent content="Caller report preview"/></PreviewPanel><output data-consumer-draft>{draft.text}</output><output data-consumer-receipt>{receipt}</output></>}
 export default function Page(){return <I18nProvider><Preview/></I18nProvider>}
 `,
+  )
+  await mkdir(path.join(fixture, "app/workbench-resource"), { recursive: true })
+  await writeFile(
+    path.join(fixture, "app/workbench-resource/page.tsx"),
+    String.raw`"use client"
+import { useState } from "react"
+import { I18nProvider, useI18n } from "@/lib/i18n-provider"
+import { WorkbenchFilePreview, WorkbenchDocumentTabs } from "@/components/blocks/workbench-file-preview"
+import { ExecutionSessionList } from "@/components/blocks/agent-workbench/panels"
+import { openDocument, closeDocument, type ResourceSnapshot, type WorkbenchDocuments } from "@/lib/workbench-resource-model"
+const resource: ResourceSnapshot = { projectId:"p",sessionId:"s",resourceId:"portable-json",revision:"v1",name:"installed.json",path:"fixture/installed.json",mediaType:"application/json",renderer:"json",availability:"available",dataState:"success",text:'{"installed":true,"token":"private-value"}',complete:true,download:()=>new Blob(['{"installed":true,"token":"[REDACTED]"}'],{type:"application/json"}) }
+function Preview(){const {locale,setLocale}=useI18n();const [open,setOpen]=useState(false);const [docs,setDocs]=useState<WorkbenchDocuments>({documents:[]});return <><button onClick={()=>setLocale(locale==="en"?"zh-CN":"en")}>Portable locale</button><button onClick={()=>{setDocs(openDocument(docs,resource));setOpen(true)}}>Portable preview</button><WorkbenchFilePreview open={open} onOpenChange={setOpen} resource={resource} onPin={r=>{setDocs(openDocument(docs,r,true));setOpen(false)}}/><WorkbenchDocumentTabs state={docs} onSelect={activeKey=>setDocs({...docs,activeKey})} onClose={key=>setDocs(closeDocument(docs,key))} onPin={r=>setDocs(openDocument(docs,r,true))}/><ExecutionSessionList commands={[{commandId:"cmd",sessionId:"s",runId:"r",command:"installed command",cwd:"fixture",status:"waiting",startedAt:"2026-10-09",outcome:"unknown",connection:"disconnected",output:{text:"token=private-output",source:"fixture",timestamp:"2026-10-09"}}]} onSelect={()=>{}}/></>}
+export default function Page(){return <I18nProvider><Preview/></I18nProvider>}`,
   )
 }
 export async function verifyWorkbenchConsumer(page, origin) {
@@ -115,5 +130,43 @@ export async function verifyWorkbenchConsumer(page, origin) {
   assert.equal(await page.locator("article script").count(), 0)
   console.log(
     "PASS: independently installed Agent workbench regions, draft version guards, unknown reconciliation, locale/layout retention and revision-bound review feedback",
+  )
+  await page.goto(origin + "/workbench-resource/")
+  await page
+    .getByRole("button", { name: "Portable preview", exact: true })
+    .click()
+  let preview = page.getByRole("dialog")
+  assert.ok((await preview.textContent()).includes("[REDACTED]"))
+  assert.ok(!(await preview.textContent()).includes("private-value"))
+  const downloadWait = page.waitForEvent("download")
+  await preview.getByRole("button", { name: "下载源文件", exact: true }).click()
+  const download = await downloadWait
+  assert.ok(
+    (await readFile(await download.path(), "utf8")).includes(
+      '"installed":true',
+    ),
+  )
+  await preview.getByRole("button", { name: "固定标签", exact: true }).click()
+  assert.equal(
+    await page.getByRole("tab", { name: /installed.json @v1/ }).count(),
+    1,
+  )
+  await page
+    .getByRole("button", { name: "Portable locale", exact: true })
+    .click()
+  await page
+    .getByRole("button", { name: "Portable preview", exact: true })
+    .click()
+  preview = page.getByRole("dialog")
+  await preview.getByRole("button", { name: "Close", exact: true }).click()
+  assert.ok(
+    (await page.locator('[data-command-id="cmd"]').textContent()).includes(
+      "Outcome unconfirmed",
+    ),
+  )
+  assert.ok(
+    !(await page.locator('[data-command-id="cmd"]').textContent()).includes(
+      "private-output",
+    ),
   )
 }

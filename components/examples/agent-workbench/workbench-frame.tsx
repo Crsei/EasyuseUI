@@ -36,6 +36,7 @@ export function WorkbenchFrame({
       className={styles.shell}
       title={props.header}
       sidebar={props.navigation}
+      activityBar={props.activityBar}
       sidebarCollapsed={panels.sidebarCollapsed}
       onSidebarCollapsedChange={(sidebarCollapsed) =>
         patch({ sidebarCollapsed })

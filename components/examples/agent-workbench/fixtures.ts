@@ -78,6 +78,28 @@ export const references: ContextReference[] = [
     reason: "Caller does not grant read access",
   },
 ]
+references.push(
+  {
+    id: "ref-skill",
+    kind: "skill",
+    label: "Review guidance",
+    source: "skills/review/SKILL.md",
+    version: "fixture-1",
+    availability: "available",
+    included: true,
+    removable: true,
+  },
+  {
+    id: "ref-image",
+    kind: "image",
+    label: "pixel.png",
+    source: "fixtures/pixel.png",
+    version: "fixture-1",
+    availability: "available",
+    included: true,
+    removable: true,
+  },
+)
 export const changes: ChangeSet = {
   repositoryId: "repo-demo",
   scope: "Local fixture changes",
@@ -242,6 +264,22 @@ function session(id: string, title: string, status: string): SessionSnapshot {
             referenceId: "plan-1",
             label: "Review the plan",
           },
+          {
+            partId: `tool-part-${id}`,
+            sequence: 3,
+            revision: 1,
+            kind: "tool",
+            referenceId: `tool-${id}`,
+            label: "run_tests",
+          },
+          {
+            partId: `file-part-${id}`,
+            sequence: 4,
+            revision: 1,
+            kind: "citation",
+            referenceId: "file-filter",
+            label: "src/filter.ts",
+          },
         ],
       },
     ],
@@ -403,6 +441,33 @@ export function initialWorkbench(): WorkbenchState {
       },
     },
   ]
+  sessions[1].artifacts.push(
+    ...[
+      {
+        artifactId: "artifact-code",
+        resourceId: "file-filter",
+        name: "filter.ts",
+        kind: "code",
+      },
+      {
+        artifactId: "artifact-table",
+        resourceId: "resource-csv",
+        name: "results.csv",
+        kind: "table",
+      },
+      {
+        artifactId: "artifact-image",
+        resourceId: "resource-image",
+        name: "pixel.png",
+        kind: "image",
+      },
+    ].map((artifact) => ({
+      ...artifact,
+      runId: sessions[1].activeRunId,
+      availability: "available" as const,
+      review: { state: "unreviewed" as const, acceptance: "pending" as const },
+    })),
+  )
   sessions[1].messages.push({
     messageId: "artifact-source-session-report",
     turnId: "turn-session-report-1",

@@ -37,6 +37,11 @@ export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
   "command-toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.CommandToolbarDemo),
   "data-table-controls": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
   "data-table-model": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
+  "workbench-resource-model": () => import("@/components/examples/agent-workbench/resource-preview-demo").then((m) => m.ResourcePreviewDemo),
+  "workbench-file-preview": () => import("@/components/examples/agent-workbench/resource-preview-demo").then((m) => m.ResourcePreviewDemo),
+  "workbench-document-tabs": () => import("@/components/examples/agent-workbench/resource-preview-demo").then((m) => m.ResourcePreviewDemo),
+  "workbench-resource-content": () => import("@/components/examples/agent-workbench/resource-preview-demo").then((m) => m.ResourcePreviewDemo),
+  "execution-session-list": () => import("@/components/examples/agent-workbench/resource-preview-demo").then((m) => m.ResourcePreviewDemo),
   // BEGIN agent workbench
   "session-navigator": () =>
     import("@/components/examples/agent-workbench/component-demos").then(

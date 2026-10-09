@@ -1,4 +1,105 @@
 {
+  "workbench-resource-model": [
+    {
+      "id": "58badcbf0b5c6f5fdef868d8642dff467cb1dad39ee014b808b33004426f2e57",
+      "path": "lib/workbench-resource-model.ts",
+      "kind": "source",
+      "url": "/docs-code/58badcbf0b5c6f5fdef868d8642dff467cb1dad39ee014b808b33004426f2e57.json",
+      "lines": 272
+    },
+    {
+      "id": "4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78",
+      "path": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78.json",
+      "lines": 68
+    }
+  ],
+  "workbench-file-preview": [
+    {
+      "id": "0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62",
+      "path": "components/blocks/workbench-file-preview.tsx",
+      "kind": "source",
+      "url": "/docs-code/0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62.json",
+      "lines": 476
+    },
+    {
+      "id": "4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78",
+      "path": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78.json",
+      "lines": 68
+    },
+    {
+      "id": "9f91222bfd6e8c170534ba912d32d0817a0a9f0482688f2dc514f686df6c0f7a",
+      "path": "components/blocks/workbench-file-preview.module.css",
+      "kind": "related",
+      "url": "/docs-code/9f91222bfd6e8c170534ba912d32d0817a0a9f0482688f2dc514f686df6c0f7a.json",
+      "lines": 50
+    }
+  ],
+  "workbench-document-tabs": [
+    {
+      "id": "0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62",
+      "path": "components/blocks/workbench-file-preview.tsx",
+      "kind": "source",
+      "url": "/docs-code/0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62.json",
+      "lines": 476
+    },
+    {
+      "id": "4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78",
+      "path": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78.json",
+      "lines": 68
+    },
+    {
+      "id": "9f91222bfd6e8c170534ba912d32d0817a0a9f0482688f2dc514f686df6c0f7a",
+      "path": "components/blocks/workbench-file-preview.module.css",
+      "kind": "related",
+      "url": "/docs-code/9f91222bfd6e8c170534ba912d32d0817a0a9f0482688f2dc514f686df6c0f7a.json",
+      "lines": 50
+    }
+  ],
+  "workbench-resource-content": [
+    {
+      "id": "0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62",
+      "path": "components/blocks/workbench-file-preview.tsx",
+      "kind": "source",
+      "url": "/docs-code/0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62.json",
+      "lines": 476
+    },
+    {
+      "id": "4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78",
+      "path": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78.json",
+      "lines": 68
+    },
+    {
+      "id": "9f91222bfd6e8c170534ba912d32d0817a0a9f0482688f2dc514f686df6c0f7a",
+      "path": "components/blocks/workbench-file-preview.module.css",
+      "kind": "related",
+      "url": "/docs-code/9f91222bfd6e8c170534ba912d32d0817a0a9f0482688f2dc514f686df6c0f7a.json",
+      "lines": 50
+    }
+  ],
+  "execution-session-list": [
+    {
+      "id": "1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6",
+      "path": "components/blocks/agent-workbench/panels.tsx",
+      "kind": "source",
+      "url": "/docs-code/1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6.json",
+      "lines": 311
+    },
+    {
+      "id": "4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78",
+      "path": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/4cb0d6fc0ede9678a1168ef6acf11eeee3dda15e1ac895915fe9824aaaab2d78.json",
+      "lines": 68
+    }
+  ],
   "session-navigator": [
     {
       "id": "25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926",
@@ -49,11 +150,11 @@
   ],
   "context-panel": [
     {
-      "id": "01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85",
+      "id": "82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b",
       "path": "components/blocks/agent-workbench/context.tsx",
       "kind": "source",
-      "url": "/docs-code/01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85.json",
-      "lines": 153
+      "url": "/docs-code/82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b.json",
+      "lines": 273
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -65,11 +166,11 @@
   ],
   "context-picker": [
     {
-      "id": "01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85",
+      "id": "82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b",
       "path": "components/blocks/agent-workbench/context.tsx",
       "kind": "source",
-      "url": "/docs-code/01f63a0ee93c58c2ac5c44b6d0a2cd363e4f57a64781d9df8dc021e53138bb85.json",
-      "lines": 153
+      "url": "/docs-code/82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b.json",
+      "lines": 273
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -81,11 +182,11 @@
   ],
   "message-content": [
     {
-      "id": "29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c",
+      "id": "e071ff4ca8c30aa5a8a575618b0ab051baf7cc84b1014486904e6a8b96bf2b29",
       "path": "components/blocks/agent-workbench/conversation.tsx",
       "kind": "source",
-      "url": "/docs-code/29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c.json",
-      "lines": 206
+      "url": "/docs-code/e071ff4ca8c30aa5a8a575618b0ab051baf7cc84b1014486904e6a8b96bf2b29.json",
+      "lines": 252
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -97,11 +198,11 @@
   ],
   "agent-conversation": [
     {
-      "id": "29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c",
+      "id": "e071ff4ca8c30aa5a8a575618b0ab051baf7cc84b1014486904e6a8b96bf2b29",
       "path": "components/blocks/agent-workbench/conversation.tsx",
       "kind": "source",
-      "url": "/docs-code/29798b94f4a1843285d9ee9efdda053a173a62c7f3d52abc511fff4ad3cd1b3c.json",
-      "lines": 206
+      "url": "/docs-code/e071ff4ca8c30aa5a8a575618b0ab051baf7cc84b1014486904e6a8b96bf2b29.json",
+      "lines": 252
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -113,11 +214,11 @@
   ],
   "composer-controls": [
     {
-      "id": "95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc",
+      "id": "a27b064b8e7c57eb580858997991abe75797416c111edb5fa5ee6ecbd8f5f25a",
       "path": "components/blocks/agent-workbench/composer.tsx",
       "kind": "source",
-      "url": "/docs-code/95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc.json",
-      "lines": 271
+      "url": "/docs-code/a27b064b8e7c57eb580858997991abe75797416c111edb5fa5ee6ecbd8f5f25a.json",
+      "lines": 356
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -129,11 +230,11 @@
   ],
   "agent-composer": [
     {
-      "id": "95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc",
+      "id": "a27b064b8e7c57eb580858997991abe75797416c111edb5fa5ee6ecbd8f5f25a",
       "path": "components/blocks/agent-workbench/composer.tsx",
       "kind": "source",
-      "url": "/docs-code/95dcc2da6f3e4316ce8405c4c1f00b3768fe0ad1e18bdf40756c0655149565bc.json",
-      "lines": 271
+      "url": "/docs-code/a27b064b8e7c57eb580858997991abe75797416c111edb5fa5ee6ecbd8f5f25a.json",
+      "lines": 356
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -145,11 +246,11 @@
   ],
   "file-viewer": [
     {
-      "id": "88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f",
+      "id": "05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f.json",
-      "lines": 405
+      "url": "/docs-code/05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726.json",
+      "lines": 425
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -161,11 +262,11 @@
   ],
   "diff-viewer": [
     {
-      "id": "88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f",
+      "id": "05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f.json",
-      "lines": 405
+      "url": "/docs-code/05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726.json",
+      "lines": 425
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -177,11 +278,11 @@
   ],
   "change-review-panel": [
     {
-      "id": "88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f",
+      "id": "05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/88303350e9363f6bcc503a2b0243ace3a5166d3bf68ede1458c9a1cf032cf42f.json",
-      "lines": 405
+      "url": "/docs-code/05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726.json",
+      "lines": 425
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -193,11 +294,11 @@
   ],
   "workbench-panel-tabs": [
     {
-      "id": "1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898",
+      "id": "1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6",
       "path": "components/blocks/agent-workbench/panels.tsx",
       "kind": "source",
-      "url": "/docs-code/1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898.json",
-      "lines": 186
+      "url": "/docs-code/1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6.json",
+      "lines": 311
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -209,11 +310,11 @@
   ],
   "execution-output-panel": [
     {
-      "id": "1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898",
+      "id": "1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6",
       "path": "components/blocks/agent-workbench/panels.tsx",
       "kind": "source",
-      "url": "/docs-code/1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898.json",
-      "lines": 186
+      "url": "/docs-code/1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6.json",
+      "lines": 311
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -225,11 +326,11 @@
   ],
   "preview-panel": [
     {
-      "id": "1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898",
+      "id": "1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6",
       "path": "components/blocks/agent-workbench/panels.tsx",
       "kind": "source",
-      "url": "/docs-code/1a94b2848bbaa092a884733d9d25e0bccf70ea5d23f590a3ec0f1bc919603898.json",
-      "lines": 186
+      "url": "/docs-code/1599be0999d7ad27fe9d9706ef1e206f1677ff96aaccc19bc6a61999bf3d14c6.json",
+      "lines": 311
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -241,11 +342,11 @@
   ],
   "agent-workbench": [
     {
-      "id": "4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff",
+      "id": "fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff.json",
-      "lines": 197
+      "url": "/docs-code/fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca.json",
+      "lines": 210
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -257,11 +358,11 @@
   ],
   "task-inbox": [
     {
-      "id": "4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff",
+      "id": "fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/4727015af42029a80b76722f1b62efdc024aaa499ff4a2b2ec30bbb48b0701ff.json",
-      "lines": 197
+      "url": "/docs-code/fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca.json",
+      "lines": 210
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -1020,11 +1121,11 @@
   ],
   "spinner": [
     {
-      "id": "0f9dbb3ee84b9db9a5ddd2707f8d6952f8d5aba75cb571ae7f0ee5753c6dd3d1",
+      "id": "dfca355642ff5cfc63261821dd9d5eefade603795fa9c5d85c7d9f4722245bcf",
       "path": "components/ui/spinner.tsx",
       "kind": "source",
-      "url": "/docs-code/0f9dbb3ee84b9db9a5ddd2707f8d6952f8d5aba75cb571ae7f0ee5753c6dd3d1.json",
-      "lines": 40
+      "url": "/docs-code/dfca355642ff5cfc63261821dd9d5eefade603795fa9c5d85c7d9f4722245bcf.json",
+      "lines": 30
     },
     {
       "id": "2e1c4e95b9c6c9487b8e48b1c11feb34014dac74d8b41862c55e9afdcf29c691",
@@ -1850,11 +1951,11 @@
   ],
   "select": [
     {
-      "id": "92075fd03cc5a45720fbbf609461b4496bf3dc3661591fa7619baeaf87f4a029",
+      "id": "92944f50c8499a4753f3b032a9fa9cd0148e4c94ffc3cf23c1c9b87ce9d38b63",
       "path": "components/ui/select.tsx",
       "kind": "source",
-      "url": "/docs-code/92075fd03cc5a45720fbbf609461b4496bf3dc3661591fa7619baeaf87f4a029.json",
-      "lines": 105
+      "url": "/docs-code/92944f50c8499a4753f3b032a9fa9cd0148e4c94ffc3cf23c1c9b87ce9d38b63.json",
+      "lines": 97
     },
     {
       "id": "192a00394265c19981458476d0285bcb3ba14b921c2aa75afa5c7f781a38479c",
@@ -1866,11 +1967,11 @@
   ],
   "combobox": [
     {
-      "id": "b5b1f02e08333dcb0d04dee9b04ee7535bf15bf8086f2fa4821b94845facd566",
+      "id": "6d0c4872add53a8c87d9c48f96f47376aef0695302d29d94fca52ae301b2a64c",
       "path": "components/ui/combobox.tsx",
       "kind": "source",
-      "url": "/docs-code/b5b1f02e08333dcb0d04dee9b04ee7535bf15bf8086f2fa4821b94845facd566.json",
-      "lines": 85
+      "url": "/docs-code/6d0c4872add53a8c87d9c48f96f47376aef0695302d29d94fca52ae301b2a64c.json",
+      "lines": 77
     },
     {
       "id": "ac0800a7d5564e78909d484cdb15ef01edd9177c3f98da71e1f8512f09759e62",
@@ -1958,11 +2059,11 @@
       "lines": 135
     },
     {
-      "id": "db7eeafa39ea7a1ed3f5bddbbdcb1cde11489bf398f2080596a0d9dde1220f02",
+      "id": "4b7b89f6a3e6072f96ac3e7e1f750a37c5d6ebb221bbffa5481c07738a051ae0",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/db7eeafa39ea7a1ed3f5bddbbdcb1cde11489bf398f2080596a0d9dde1220f02.json",
-      "lines": 3557
+      "url": "/docs-code/4b7b89f6a3e6072f96ac3e7e1f750a37c5d6ebb221bbffa5481c07738a051ae0.json",
+      "lines": 3645
     }
   ],
   "canvas-service-panel": [
@@ -2449,11 +2550,11 @@
   ],
   "chip": [
     {
-      "id": "3b833e0fe5110c981d65672b79da5ff66bd4ea19c6a3e8bdd33814908b4739be",
+      "id": "5204a69f311912b66fccb55cfeb1d21d80a9854aa5ae166b7050ef913e02cd94",
       "path": "components/ui/chip.tsx",
       "kind": "source",
-      "url": "/docs-code/3b833e0fe5110c981d65672b79da5ff66bd4ea19c6a3e8bdd33814908b4739be.json",
-      "lines": 104
+      "url": "/docs-code/5204a69f311912b66fccb55cfeb1d21d80a9854aa5ae166b7050ef913e02cd94.json",
+      "lines": 95
     },
     {
       "id": "338a957a5a95111fee311fad2d67d7dd65b8b1700eff466f84dc82e8e4bbe6fd",
@@ -2472,11 +2573,11 @@
   ],
   "button": [
     {
-      "id": "65e72fdabbcac660c1e8a72ad37244a2cdfcc5aa8e51aea0349bdfecad628023",
+      "id": "714a992598dd12c07ba3ddccd4710f8eb065cfb12d42f771db93c15d67c38f28",
       "path": "components/ui/button.tsx",
       "kind": "source",
-      "url": "/docs-code/65e72fdabbcac660c1e8a72ad37244a2cdfcc5aa8e51aea0349bdfecad628023.json",
-      "lines": 89
+      "url": "/docs-code/714a992598dd12c07ba3ddccd4710f8eb065cfb12d42f771db93c15d67c38f28.json",
+      "lines": 74
     },
     {
       "id": "3af35a3ca5186df7cb69a26995872457460285b4aedbcd14a3d382e14f39125a",
@@ -2511,11 +2612,11 @@
   ],
   "dialog": [
     {
-      "id": "d2090a1a0268f3ff4f19b6297e3aaa9fc3aaf12133debe30e187beec64a88ab3",
+      "id": "52e2a8693425a6a753fb9822925dd4d71a6f258d90aa90cd5ad5602f7f12cb5f",
       "path": "components/ui/dialog.tsx",
       "kind": "source",
-      "url": "/docs-code/d2090a1a0268f3ff4f19b6297e3aaa9fc3aaf12133debe30e187beec64a88ab3.json",
-      "lines": 152
+      "url": "/docs-code/52e2a8693425a6a753fb9822925dd4d71a6f258d90aa90cd5ad5602f7f12cb5f.json",
+      "lines": 143
     },
     {
       "id": "9fb30f2d4bd6aca555dd962b850f930ccde3654b7a3b8e1078357bf074ba8203",
@@ -2612,11 +2713,11 @@
   ],
   "workspace-shell": [
     {
-      "id": "fc4b557ae352dda403ded838a50df88527c2c168f0d13084bf93fc9bbee94d3a",
+      "id": "ccdf49e06f1b4373391929def7e47efd6cddabb75fd7dcc733b0275295ca06a2",
       "path": "components/blocks/workspace-shell.tsx",
       "kind": "source",
-      "url": "/docs-code/fc4b557ae352dda403ded838a50df88527c2c168f0d13084bf93fc9bbee94d3a.json",
-      "lines": 423
+      "url": "/docs-code/ccdf49e06f1b4373391929def7e47efd6cddabb75fd7dcc733b0275295ca06a2.json",
+      "lines": 498
     },
     {
       "id": "82be09674e5c713d6c6805d6d32223accff8915b154108cf05406ba650b23a0e",
@@ -2633,11 +2734,11 @@
       "lines": 150
     },
     {
-      "id": "4cc5fabce55a8eb0837fc99969338dd3ae3c2e11684736f31027675c33b7eb58",
+      "id": "28e13164d1e7def69ed2146c598ece0a4076d8e622a1789b67f2856acf41e751",
       "path": "components/blocks/workspace-shell.module.css",
       "kind": "related",
-      "url": "/docs-code/4cc5fabce55a8eb0837fc99969338dd3ae3c2e11684736f31027675c33b7eb58.json",
-      "lines": 243
+      "url": "/docs-code/28e13164d1e7def69ed2146c598ece0a4076d8e622a1789b67f2856acf41e751.json",
+      "lines": 281
     },
     {
       "id": "19269f7c115860370f6fff139e98a84c4a05a8e63f77b84d685ca659c693700d",

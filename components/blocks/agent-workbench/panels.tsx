@@ -3,6 +3,7 @@ import { useId, useState, type ReactNode } from "react"
 import { Tabs, TabsList, TabsTab } from "@/components/ui/tabs"
 import { Tabs as BaseTabs } from "@base-ui/react/tabs"
 import { Button } from "@/components/ui/button"
+import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
 import { Input } from "@/components/ui/input"
 import { uiMessage } from "@/lib/i18n-core"
 import { useUiFeedback } from "@/lib/i18n-provider"
@@ -180,6 +181,130 @@ export function PreviewPanel({
               t(url ? "workbench.previewBlocked" : "workbench.noPreview")}
           </p>
         ))}
+    </section>
+  )
+}
+
+/** Selection only observes a host-owned command. Closing output never stops its process. */
+export function ExecutionSessionList({
+  commands,
+  selectedId,
+  onSelect,
+  onOpenTool,
+  onOpenResource,
+  onSource,
+  onReconnect,
+  terminal,
+}: {
+  commands: readonly import("@/lib/workbench-resource-model").CommandRecord[]
+  selectedId?: string
+  onSelect: (id: string) => void
+  onOpenTool?: (id: string) => void
+  onOpenResource?: (id: string) => void
+  onSource?: (messageId: string) => void
+  onReconnect?: (id: string) => void
+  terminal?: (commandId: string) => ReactNode
+}) {
+  const { t } = useI18n()
+  const selected =
+    commands.find((c) => c.commandId === selectedId) ?? commands[0]
+  return (
+    <section
+      className={styles.commandPanel}
+      aria-label={t("resource.commands")}
+    >
+      <div className={styles.commandList}>
+        {commands.map((c) => (
+          <Button
+            key={c.commandId}
+            variant="ghost"
+            aria-pressed={c === selected}
+            onClick={() => onSelect(c.commandId)}
+          >
+            {redact(c.command)} · <RuntimeStatusBadge status={c.status} />
+            {c.outcome === "unknown" && ` · ${t("workbench.unknown")}`}
+          </Button>
+        ))}
+      </div>
+      {!selected && <p>{t("workbench.emptyOutput")}</p>}
+      {commands.map((c) => (
+        <div
+          hidden={c !== selected}
+          key={c.commandId}
+          data-command-id={c.commandId}
+          className={styles.commandOutput}
+        >
+          <dl className={styles.meta}>
+            <dt>{t("resource.cwd")}</dt>
+            <dd>{redact(c.cwd)}</dd>
+            <dt>Run / Tool</dt>
+            <dd>
+              {c.runId} / {c.toolCallId ?? "—"}
+            </dd>
+            <dt>{t("resource.exitCode")}</dt>
+            <dd data-command-exit>{c.exitCode ?? "—"}</dd>
+            <dt>{t("resource.duration")}</dt>
+            <dd>{c.durationMs === undefined ? "—" : `${c.durationMs} ms`}</dd>
+            <dt>{t("workbench.source")}</dt>
+            <dd>
+              {c.startedAt} → {c.endedAt ?? "—"}
+            </dd>
+          </dl>
+          {c.outcome === "unknown" && (
+            <p role="status">{t("resource.outcomeUnknown")}</p>
+          )}
+          {!c.output.text && (
+            <p>
+              {t(
+                ["running", "starting", "queued"].includes(c.status)
+                  ? "resource.runningNoOutput"
+                  : "resource.endedNoOutput",
+              )}
+            </p>
+          )}
+          <div className={styles.row}>
+            {c.toolCallId && onOpenTool && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onOpenTool(c.toolCallId!)}
+              >
+                {t("resource.toolGroup")}
+              </Button>
+            )}
+            {c.messageId && onSource && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => onSource(c.messageId!)}
+              >
+                {t("resource.locateSource")}
+              </Button>
+            )}
+            {c.resourceIds?.map(
+              (id) =>
+                onOpenResource && (
+                  <Button
+                    key={id}
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => onOpenResource(id)}
+                  >
+                    {t("workbench.files")} · {id}
+                  </Button>
+                ),
+            )}
+          </div>
+          <ExecutionOutputPanel
+            {...c.output}
+            connected={c.connection === "connected"}
+            onReconnect={
+              onReconnect ? () => onReconnect(c.commandId) : undefined
+            }
+            terminal={terminal?.(c.commandId)}
+          />
+        </div>
+      ))}
     </section>
   )
 }

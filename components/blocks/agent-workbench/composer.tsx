@@ -1,5 +1,12 @@
 "use client"
 import { useEffect, useId, useRef, type ReactNode } from "react"
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { ChatComposer } from "@/components/blocks/chat-message"
 import { useI18n } from "@/lib/i18n-provider"
@@ -19,6 +26,7 @@ export type ComposerControlsProps = {
   permissions: readonly WorkbenchChoice[]
   environments: readonly WorkbenchChoice[]
   session: SessionSnapshot
+  compact?: boolean
 }
 export function ComposerControls({
   draft,
@@ -27,6 +35,7 @@ export function ComposerControls({
   permissions,
   environments,
   session,
+  compact = false,
 }: ComposerControlsProps) {
   const { t } = useI18n()
   const id = useId()
@@ -44,33 +53,64 @@ export function ComposerControls({
     },
   ] as const
   return (
-    <div className={styles.controls}>
+    <div className={styles.controls} data-compact={compact || undefined}>
       {fields.map((f) => (
         <label className={styles.label} key={f.key} htmlFor={`${id}-${f.key}`}>
           {f.label}
-          <select
-            className={styles.select}
-            id={`${id}-${f.key}`}
-            value={draft[f.key]}
-            onChange={(e) =>
-              onChange({
-                ...draft,
-                [f.key]: e.target.value,
-                version: draft.version + 1,
-              })
-            }
-          >
-            {f.choices.map((choice) => (
-              <option
-                key={choice.id}
-                value={choice.id}
-                disabled={Boolean(choice.disabledReason)}
-              >
-                {choice.label}
-                {choice.disabledReason ? ` · ${choice.disabledReason}` : ""}
-              </option>
-            ))}
-          </select>
+          {compact ? (
+            <Select
+              items={f.choices.map((c) => ({ value: c.id, label: c.label }))}
+              value={draft[f.key]}
+              onValueChange={(value) => {
+                if (value)
+                  onChange({
+                    ...draft,
+                    [f.key]: value,
+                    version: draft.version + 1,
+                  })
+              }}
+            >
+              <SelectTrigger id={`${id}-${f.key}`} aria-label={f.label}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {f.choices.map((c) => (
+                  <SelectItem
+                    key={c.id}
+                    value={c.id}
+                    disabled={Boolean(c.disabledReason)}
+                  >
+                    {c.label}
+                    {c.disabledReason ? ` · ${c.disabledReason}` : ""}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          ) : (
+            <select
+              className={styles.select}
+              id={`${id}-${f.key}`}
+              value={draft[f.key]}
+              onChange={(e) =>
+                onChange({
+                  ...draft,
+                  [f.key]: e.target.value,
+                  version: draft.version + 1,
+                })
+              }
+            >
+              {f.choices.map((choice) => (
+                <option
+                  key={choice.id}
+                  value={choice.id}
+                  disabled={Boolean(choice.disabledReason)}
+                >
+                  {choice.label}
+                  {choice.disabledReason ? ` · ${choice.disabledReason}` : ""}
+                </option>
+              ))}
+            </select>
+          )}
         </label>
       ))}
       <label className={styles.label} htmlFor={`${id}-mode`}>
@@ -108,6 +148,11 @@ export type AgentComposerProps = ComposerControlsProps & {
   onReconcile?: (receipt: OperationReceipt) => void
   onFiles?: (files: File[]) => void
   attachments?: ReactNode
+  quickControls?: boolean
+  referenceStrip?: ReactNode
+  onOpenContext?: () => void
+  onCommandMenu?: () => void
+  onOpenSettings?: () => void
 }
 export function AgentComposer({
   draft,
@@ -122,6 +167,11 @@ export function AgentComposer({
   onReconcile,
   onFiles,
   attachments,
+  quickControls = false,
+  referenceStrip,
+  onOpenContext,
+  onCommandMenu,
+  onOpenSettings,
 }: AgentComposerProps) {
   const { t } = useI18n()
   const rootRef = useRef<HTMLElement>(null)
@@ -177,6 +227,32 @@ export function AgentComposer({
       aria-label={t("workbench.inputMode")}
       data-draft-id={draft.draftId}
     >
+      {referenceStrip}
+      {quickControls && (
+        <>
+          <ComposerControls
+            {...{ draft, onChange, models, permissions, environments, session }}
+            compact
+          />
+          <div className={styles.toolbar}>
+            {onOpenContext && (
+              <Button variant="ghost" size="sm" onClick={onOpenContext}>
+                @ {t("workbench.addContext")}
+              </Button>
+            )}
+            {onCommandMenu && (
+              <Button variant="ghost" size="sm" onClick={onCommandMenu}>
+                / {t("resource.commandMenu")}
+              </Button>
+            )}
+            {onOpenSettings && (
+              <Button variant="ghost" size="sm" onClick={onOpenSettings}>
+                {t("resource.settings")}
+              </Button>
+            )}
+          </div>
+        </>
+      )}
       <details className={styles.composerSettings} data-composer-settings>
         <summary>
           {t("workbench.composerSettings")}
@@ -186,9 +262,18 @@ export function AgentComposer({
           </span>
         </summary>
         <div className={styles.composerOptions}>
-          <ComposerControls
-            {...{ draft, onChange, models, permissions, environments, session }}
-          />
+          {!quickControls && (
+            <ComposerControls
+              {...{
+                draft,
+                onChange,
+                models,
+                permissions,
+                environments,
+                session,
+              }}
+            />
+          )}
           {attachments}
           {onFiles && (
             <label className={styles.attachmentInput}>

@@ -95,6 +95,8 @@ export type AgentConversationProps = {
   actionsRef?: Ref<ConversationActions>
   deferOffscreen?: boolean
   onRetry?: () => void
+  onOpenTool?: (toolCallId: string) => void
+  groupTools?: boolean
 }
 export function AgentConversation({
   session,
@@ -105,6 +107,8 @@ export function AgentConversation({
   actionsRef,
   deferOffscreen,
   onRetry,
+  onOpenTool,
+  groupTools = false,
 }: AgentConversationProps) {
   const { t } = useI18n()
   const messages = useMemo(
@@ -118,43 +122,85 @@ export function AgentConversation({
           .join("\n"),
         renderContent: () => (
           <>
-            {m.parts.map((part) => (
-              <div className={styles.messagePart} key={part.partId}>
-                {part.kind === "text" ? (
-                  <MessageContent content={part.text} />
-                ) : part.kind === "code" ? (
-                  <MessageContent
-                    content={`\`\`\`${part.language ?? ""}\n${part.text}\n\`\`\``}
-                  />
-                ) : part.kind === "tool" ? (
-                  (() => {
+            {groupTools && m.parts.some((p) => p.kind === "tool") && (
+              <details className={styles.toolGroup}>
+                <summary>
+                  {t("resource.toolGroup")} ·{" "}
+                  {m.parts.filter((p) => p.kind === "tool").length}
+                </summary>
+                {m.parts
+                  .filter((p) => p.kind === "tool")
+                  .map((part) => {
                     const tool = session.tools.find(
-                      (tool) => tool.id === part.referenceId,
+                      (call) =>
+                        call.id ===
+                        (part as { referenceId: string }).referenceId,
                     )
                     return tool ? (
-                      <ToolCall call={tool} />
+                      <div key={part.partId}>
+                        <ToolCall call={tool} />
+                        {onOpenTool && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => onOpenTool(tool.id)}
+                          >
+                            {t("resource.commands")}
+                          </Button>
+                        )}
+                      </div>
                     ) : (
-                      <p className={styles.meta}>
-                        {part.label} · {t("workbench.unavailable")}
-                      </p>
+                      <p key={part.partId}>{t("workbench.unavailable")}</p>
                     )
-                  })()
-                ) : (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => onOpenReference?.(part)}
-                    disabled={!onOpenReference}
-                  >
-                    {part.label}
-                  </Button>
-                )}
-              </div>
-            ))}
+                  })}
+              </details>
+            )}
+            {m.parts
+              .filter((part) => !groupTools || part.kind !== "tool")
+              .map((part) => (
+                <div className={styles.messagePart} key={part.partId}>
+                  {part.kind === "text" ? (
+                    <MessageContent content={part.text} />
+                  ) : part.kind === "code" ? (
+                    <MessageContent
+                      content={`\`\`\`${part.language ?? ""}\n${part.text}\n\`\`\``}
+                    />
+                  ) : part.kind === "tool" ? (
+                    (() => {
+                      const tool = session.tools.find(
+                        (tool) => tool.id === part.referenceId,
+                      )
+                      return tool ? (
+                        <ToolCall call={tool} />
+                      ) : (
+                        <p className={styles.meta}>
+                          {part.label} · {t("workbench.unavailable")}
+                        </p>
+                      )
+                    })()
+                  ) : (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => onOpenReference?.(part)}
+                      disabled={!onOpenReference}
+                    >
+                      {part.label}
+                    </Button>
+                  )}
+                </div>
+              ))}
           </>
         ),
       })),
-    [session.messages, session.tools, onOpenReference, t],
+    [
+      session.messages,
+      session.tools,
+      onOpenReference,
+      onOpenTool,
+      groupTools,
+      t,
+    ],
   )
   const displayed = useMemo(
     () =>

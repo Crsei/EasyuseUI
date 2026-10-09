@@ -1,10 +1,11 @@
 "use client"
 import Link from "next/link"
-import { Info } from "lucide-react"
+import { Info, X } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
 import {
   useEffect,
   useCallback,
+  useMemo,
   useRef,
   useState,
   type ReactNode,
@@ -29,6 +30,35 @@ import { CommandPalette } from "@/components/blocks/command-palette"
 import { Button } from "@/components/ui/button"
 import { Item } from "@/components/ui/item"
 import { DataRegion } from "@/components/ui/data-region"
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog"
+import { Kbd } from "@/components/ui/kbd"
+import {
+  WorkbenchFilePreview,
+  WorkbenchDocumentTabs,
+} from "@/components/blocks/workbench-file-preview"
+import { ExecutionSessionList } from "@/components/blocks/agent-workbench/panels"
+import {
+  openDocument,
+  closeDocument,
+  resourceKey,
+  acceptResourceRead,
+  type ResourceSnapshot,
+  type WorkbenchDocuments,
+} from "@/lib/workbench-resource-model"
+import { ActivityNavigation, type ActivityArea } from "./activity-navigation"
+import { FileNavigation } from "./file-navigation"
+import { SettingsDialog } from "./settings-dialog"
+import {
+  workbenchResourceFixtures,
+  resourceForReference,
+  commandFixtures,
+} from "./resource-fixtures"
+import enhancementStyles from "./enhancement.module.css"
 import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
 import {
   Sheet,
@@ -41,7 +71,6 @@ import { useI18n } from "@/lib/i18n-provider"
 import {
   workbenchLayouts,
   workbenchTemplates,
-  workbenchPages,
   workbenchPanels,
   sessionRun,
   type SessionSnapshot,
@@ -89,15 +118,6 @@ const TaskInbox = lazyExample<
 >("inbox", () =>
   import("@/components/blocks/agent-workbench").then((module) => ({
     default: module.TaskInbox,
-  })),
-)
-const ExecutionOutputPanel = lazyExample<
-  ComponentProps<
-    typeof import("@/components/blocks/agent-workbench/panels").ExecutionOutputPanel
-  >
->("output", () =>
-  import("@/components/blocks/agent-workbench/panels").then((module) => ({
-    default: module.ExecutionOutputPanel,
   })),
 )
 const PreviewPanel = lazyExample<
@@ -179,6 +199,127 @@ export function WorkbenchDemo({
     state.sessions.find((s) => s.sessionId === query.session) ??
     state.sessions[0]
   const [searchOpen, setSearchOpen] = useState(false)
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const [contextOpen, setContextOpen] = useState(false)
+  const [commandOpen, setCommandOpen] = useState(false)
+  const [helpOpen, setHelpOpen] = useState(false)
+  const [area, setArea] = useState<ActivityArea>("sessions")
+  const viewKey = JSON.stringify([current.sessionId, query.page, params.get("layout")])
+  const [paneSelection, setPaneSelection] = useState<{ key: string; view: "conversation" | "workspace" }>()
+  const activeView = paneSelection?.key === viewKey
+    ? paneSelection.view
+    : query.page === "review" || params.get("layout") === "review" ? "workspace" : "conversation"
+  const setActiveView = useCallback((view: "conversation" | "workspace") => setPaneSelection({ key: viewKey, view }), [viewKey])
+  const [openedResources, setOpenedResources] = useState<
+    Record<string, ResourceSnapshot | undefined>
+  >({})
+  const [documentStates, setDocumentStates] = useState<
+    Record<string, WorkbenchDocuments>
+  >({})
+  const [selectedCommands, setSelectedCommands] = useState<
+    Record<string, string>
+  >({})
+  const mainRef = useRef<HTMLElement>(null)
+  const previewFocus = useRef<HTMLElement | null>(null)
+  const resourceReadSequence = useRef(0)
+  const resourceReadScope = useRef(current.sessionId)
+  const settingsFocus = useRef<HTMLElement | null>(null)
+  useEffect(() => {
+    resourceReadSequence.current++
+    resourceReadScope.current = current.sessionId
+  }, [current.sessionId])
+  const resources = useMemo(() => workbenchResourceFixtures(current), [current])
+  const documentState = documentStates[current.sessionId] ?? { documents: [] }
+  const openedResource = openedResources[current.sessionId]
+  const [resourceRanges, setResourceRanges] = useState<
+    Record<string, { start: number; end: number } | undefined>
+  >({})
+  const openResource = useCallback(
+    (resource: ResourceSnapshot, range?: { start: number; end: number }) => {
+      if (
+        resource.sessionId !== current.sessionId ||
+        resource.projectId !== current.projectId
+      )
+        return
+      previewFocus.current =
+        document.activeElement instanceof HTMLElement
+          ? document.activeElement
+          : mainRef.current
+      setResourceRanges((before) => ({ ...before, [current.sessionId]: range }))
+      const sequence = ++resourceReadSequence.current
+      const scope = current.sessionId
+      setOpenedResources((before) => ({
+        ...before,
+        [scope]: {
+          ...resource,
+          text: undefined,
+          image: undefined,
+          diff: undefined,
+          dataState: "loading",
+        },
+      }))
+      // Fixture read delays exercise the same identity/cancellation gate as a host adapter.
+      setTimeout(
+        () => {
+          if (
+            sequence !== resourceReadSequence.current ||
+            resourceReadScope.current !== scope
+          )
+            return
+          setOpenedResources((before) => ({
+            ...before,
+            [scope]: acceptResourceRead(resource, resource, before[scope]),
+          }))
+        },
+        resource.resourceId === "file-filter" ? 120 : 20,
+      )
+      setDocumentStates((before) => ({
+        ...before,
+        [current.sessionId]: openDocument(
+          before[current.sessionId] ?? { documents: [] },
+          resource,
+          false,
+          range,
+        ),
+      }))
+    },
+    [current.sessionId, current.projectId],
+  )
+  function dockResource(resource: ResourceSnapshot, pinned = true) {
+    // The fixture source already has bytes; never pin the delayed quick-look loading shell.
+    resource = resources.find((candidate) => resourceKey(candidate) === resourceKey(resource)) ?? resource
+    resourceReadSequence.current++
+    if (!previewFocus.current?.isConnected)
+      previewFocus.current = mainRef.current
+    setDocumentStates((before) => ({
+      ...before,
+      [current.sessionId]: openDocument(
+        before[current.sessionId] ?? { documents: [] },
+        resource,
+        pinned,
+        resourceRanges[current.sessionId],
+      ),
+    }))
+    setOpenedResources((before) => ({
+      ...before,
+      [current.sessionId]: undefined,
+    }))
+    setActiveView("workspace")
+    navigate({
+      page: "session",
+      layout: "review",
+      panel: "files",
+      ...(level === "regions" ? { region: "files" } : {}),
+    })
+  }
+  function openSettings() {
+    settingsFocus.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : mainRef.current
+    setSettingsOpen(true)
+  }
+
   const [openedContext, setOpenedContext] = useState<{
     sessionId: string
     reference: ContextReference
@@ -212,6 +353,24 @@ export function WorkbenchDemo({
     )?.requestId ?? "",
   )
   const composerRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    let frame = 0
+    const revealEditor = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const editor = document.activeElement
+        if (editor instanceof HTMLTextAreaElement && composerRef.current?.contains(editor))
+          editor.scrollIntoView({ block: "nearest", inline: "nearest" })
+      })
+    }
+    window.addEventListener("resize", revealEditor)
+    window.visualViewport?.addEventListener("resize", revealEditor)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener("resize", revealEditor)
+      window.visualViewport?.removeEventListener("resize", revealEditor)
+    }
+  }, [])
   const [bottomVisited, setBottomVisited] = useState(state.panels.bottomOpen)
   if (state.panels.bottomOpen && !bottomVisited) setBottomVisited(true)
   const activePanel = (params.get("panel") ||
@@ -238,6 +397,7 @@ export function WorkbenchDemo({
         ),
       )
       for (const [key, value] of Object.entries(patch)) next.set(key, value)
+      if ("page" in patch || "layout" in patch) setPaneSelection(undefined)
       navigationSnapshot.current = next
       const url = `?${next}`
       if (replace) router.replace(url, { scroll: false })
@@ -245,25 +405,25 @@ export function WorkbenchDemo({
     },
     [params, router],
   )
-  const openReference = useCallback(
-    (part: MessagePart) => {
-      if (part.kind === "artifact")
-        setSelectedArtifacts((before) => ({
-          ...before,
-          [current.sessionId]: part.referenceId,
-        }))
+  function openReference(part: MessagePart) {
+    if (part.kind === "plan") {
+      setActiveView("workspace")
+      navigate({ panel: "plan", layout: "review" })
+      return
+    }
+    const resource = resources.find(
+      (resource) =>
+        resource.resourceId === ("referenceId" in part ? part.referenceId : ""),
+    )
+    if (resource) openResource(resource)
+    else {
+      setActiveView("workspace")
       navigate({
+        panel: part.kind === "artifact" ? "artifacts" : "files",
         layout: "review",
-        panel:
-          part.kind === "artifact"
-            ? "artifacts"
-            : part.kind === "plan"
-              ? "plan"
-              : "files",
       })
-    },
-    [navigate, current.sessionId, setSelectedArtifacts],
-  )
+    }
+  }
   const createTask = useCallback(() => {
     dispatch({
       type: "begin",
@@ -276,14 +436,16 @@ export function WorkbenchDemo({
   const locateMessage = useCallback(
     (sessionId: string, messageId: string) => {
       pendingMessage.current = { sessionId, messageId }
+      setActiveView("conversation")
       navigate({
+        session: sessionId,
         page: "session",
         layout: "conversation",
         panel: "context",
         ...(level === "regions" ? { region: "conversation" } : {}),
       })
     },
-    [navigate, level],
+    [navigate, level, setActiveView],
   )
   const retryRead = useCallback(() => {
     dispatch({
@@ -436,27 +598,134 @@ export function WorkbenchDemo({
   const draft = state.drafts[current.sessionId]
   const setDraft = (draft: DraftState) =>
     dispatch({ type: "draft", id: current.sessionId, draft })
-  const onPanels = (panels: typeof state.panels) => {
-    dispatch({ type: "panels", panels })
-    if (panels.activePanel !== activePanel)
-      navigate({ panel: panels.activePanel })
-  }
-  const pick = (reference: (typeof references)[number]) => {
-    if (!draft.context.some((r) => r.id === reference.id))
+  const onPanels = useCallback(
+    (panels: typeof state.panels) => {
+      dispatch({ type: "panels", panels })
+      if (panels.activePanel !== activePanel)
+        navigate({ panel: panels.activePanel })
+    },
+    [dispatch, activePanel, navigate, state],
+  )
+  const referenceIdentity = (r: ContextReference) =>
+    JSON.stringify([r.kind, r.source ?? r.id, r.version, r.range])
+  const pickMany = (picked: ContextReference[]) => {
+    const identities = new Set(draft.context.map(referenceIdentity))
+    const added = picked.filter((reference) => {
+      const key = referenceIdentity(reference)
+      if (identities.has(key)) return false
+      identities.add(key)
+      return true
+    })
+    if (added.length)
       setDraft({
         ...draft,
-        context: [...draft.context, structuredClone(reference)],
+        context: [
+          ...draft.context,
+          ...added.map((r) => ({
+            ...structuredClone(r),
+            included: true,
+            removable: true,
+          })),
+        ],
         version: draft.version + 1,
       })
   }
+  const pick = (reference: ContextReference) => pickMany([reference])
+  const availableReferences = [
+    ...references,
+    ...resources.flatMap((resource) =>
+      resource.context ? [resource.context] : [],
+    ),
+  ].filter(
+    (r, index, all) =>
+      all.findIndex(
+        (other) => referenceIdentity(other) === referenceIdentity(r),
+      ) === index &&
+      !draft.context.some((c) => referenceIdentity(c) === referenceIdentity(r)),
+  )
+  function openContextReference(reference: ContextReference) {
+    const resource = resourceForReference(resources, reference)
+    if (resource && reference.availability === "available")
+      openResource(resource, reference.range)
+    else setOpenedContext({ sessionId: session.sessionId, reference })
+  }
+  function sourceForResource(resource: ResourceSnapshot) {
+    resourceReadSequence.current++
+    if (resource.source?.messageId) {
+      setOpenedResources((before) => ({
+        ...before,
+        [session.sessionId]: undefined,
+      }))
+      locateMessage(session.sessionId, resource.source.messageId)
+    } else if (resource.source?.toolCallId) {
+      setOpenedResources((before) => ({
+        ...before,
+        [session.sessionId]: undefined,
+      }))
+      setLocatedTool(resource.source.toolCallId)
+      setActiveView("workspace")
+      navigate({ panel: "activity", layout: "review" })
+    }
+  }
+  const fileDocuments = (
+    <WorkbenchDocumentTabs
+      state={documentState}
+      onSelect={(key) =>
+        setDocumentStates((before) => ({
+          ...before,
+          [session.sessionId]: { ...documentState, activeKey: key },
+        }))
+      }
+      onClose={(key) =>
+        setDocumentStates((before) => ({
+          ...before,
+          [session.sessionId]: closeDocument(documentState, key),
+        }))
+      }
+      onPin={(resource) =>
+        setDocumentStates((before) => ({
+          ...before,
+          [session.sessionId]: openDocument(documentState, resource, true),
+        }))
+      }
+    />
+  )
+  const commands = commandFixtures(session)
+  const commandOutput = (
+    <ExecutionSessionList
+      commands={commands}
+      selectedId={selectedCommands[session.sessionId]}
+      onSelect={(id) =>
+        setSelectedCommands((before) => ({
+          ...before,
+          [session.sessionId]: id,
+        }))
+      }
+      onOpenTool={(id) => {
+        setLocatedTool(id)
+        setActiveView("workspace")
+        navigate({
+          panel: "activity",
+          layout: "review",
+          ...(level === "regions" ? { region: "tools" } : {}),
+        })
+      }}
+      onOpenResource={(id) => {
+        const resource = resources.find((r) => r.resourceId === id)
+        if (resource) openResource(resource)
+      }}
+      onSource={(messageId) => locateMessage(session.sessionId, messageId)}
+      onReconnect={() => retryRead()}
+    />
+  )
   const contextPanel = (
     <>
       <div className={styles.top}>
         <ContextPicker
-          references={references.filter(
-            (r) => !draft.context.some((c) => c.id === r.id),
-          )}
+          references={availableReferences}
           onPick={pick}
+          onPickMany={pickMany}
+          searchable
         />
       </div>
       <ContextPanel
@@ -527,9 +796,7 @@ export function WorkbenchDemo({
               referenceId: id,
             })
         }}
-        onOpen={(reference) =>
-          setOpenedContext({ sessionId: session.sessionId, reference })
-        }
+        onOpen={openContextReference}
         limit={1200}
       />
     </>
@@ -682,6 +949,46 @@ export function WorkbenchDemo({
         session={session}
         draft={draft}
         onChange={setDraft}
+        quickControls
+        onOpenContext={() => setContextOpen(true)}
+        onCommandMenu={() => setCommandOpen(true)}
+        onOpenSettings={openSettings}
+        referenceStrip={
+          <div className={enhancementStyles.referenceStrip} data-composer-references>
+            {draft.context.map((reference) => (
+              <div
+                key={reference.id}
+                className={enhancementStyles.reference}
+                data-invalid={reference.availability !== "available"}
+              >
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => openContextReference(reference)}
+                >
+                  {reference.label} · {t(`workbench.${reference.availability}`)}
+                </Button>
+                <Button
+                  size="icon-sm"
+                  variant="ghost"
+                  aria-label={`${t("workbench.remove")} ${reference.label}`}
+                  disabled={!reference.removable}
+                  onClick={() =>
+                    setDraft({
+                      ...draft,
+                      context: draft.context.filter(
+                        (r) => r.id !== reference.id,
+                      ),
+                      version: draft.version + 1,
+                    })
+                  }
+                >
+                  <X />
+                </Button>
+              </div>
+            ))}
+          </div>
+        }
         models={models}
         permissions={permissions}
         environments={environments}
@@ -729,6 +1036,7 @@ export function WorkbenchDemo({
                 (r) => !draft.context.some((c) => c.id === r.id),
               )}
               onPick={pick}
+              onPickMany={pickMany}
             />
             <span className={styles.meta}>
               {draft.context.length} {t("workbench.context")}
@@ -740,7 +1048,7 @@ export function WorkbenchDemo({
       />
     </div>
   )
-  const navigation = (
+  const sessionNavigation = (
     <SessionNavigator
       projects={query.scenario === "empty" ? [] : visibleProjects}
       sessions={
@@ -788,123 +1096,155 @@ export function WorkbenchDemo({
           : undefined,
       }}
       footer={
-        <div className={styles.row}>
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => openAppPage("inbox")}
-          >
-            {x.inbox}
-          </Button>
-          <Button
-            size="sm"
-            variant="ghost"
-            onClick={() => openAppPage("settings")}
-          >
-            {x.settings}
-          </Button>
-          <Button size="sm" variant="ghost" onClick={() => setSearchOpen(true)}>
-            {t("workbench.searchSessions")}
-          </Button>
-          <CommandPalette
-            open={searchOpen}
-            onOpenChange={setSearchOpen}
-            title={t("workbench.searchSessions")}
-            groups={[
-              {
-                id: "sessions",
-                label: t("workbench.recent"),
-                items: state.sessions
-                  .filter((s) => s.projectId === projectId)
-                  .map((s) => ({
-                    id: s.sessionId,
-                    label: s.title,
-                    description: s.status,
-                  })),
-              },
-            ]}
-            onSelect={(item) => openSession(item.id)}
-            shortcut={{ key: "k", mod: true }}
-          />
-        </div>
+        level === "app" ? (
+          <div className={styles.row}>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => openAppPage("home")}
+            >
+              {x.home}
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => openAppPage("project")}
+            >
+              {x.project}
+            </Button>
+          </div>
+        ) : (
+          <div className={styles.row}>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => openAppPage("inbox")}
+            >
+              {x.inbox}
+            </Button>
+            <Button size="sm" variant="ghost" onClick={openSettings}>
+              {x.settings}
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => setSearchOpen(true)}
+            >
+              {t("workbench.searchSessions")}
+            </Button>
+          </div>
+        )
       }
     />
   )
-  function tools(approvalOnly = false) {
-    return (
-      <div className={styles.section}>
-        {!approvalOnly &&
-          session.tools.map((tool) => (
-            <div
-              key={tool.id}
-              tabIndex={-1}
-              data-tool-target={tool.id}
-              data-located={locatedTool === tool.id}
-              ref={(node) => {
-                toolTargets.current[tool.id] = node
-              }}
-            >
-              <ToolCall
-                call={tool}
-                onReconcile={
-                  tool.outcome === "unknown"
-                    ? () => dispatch({ type: "advance", id: session.sessionId })
-                    : undefined
-                }
-              />
-            </div>
-          ))}
-        {session.attention.map((request) => (
-          <ApprovalRequestPanel
-            key={request.attentionId}
-            request={{
-              ...request,
-              tool: request.tool
-                ? {
-                    ...request.tool,
-                    ...session.tools.find(
-                      (tool) => tool.id === request.tool?.id,
-                    ),
-                  }
-                : undefined,
-            }}
-            draft={attentionDrafts[request.attentionId] ?? ""}
-            onDraftChange={(value) =>
-              setAttentionDrafts({
-                ...attentionDrafts,
-                [request.attentionId]: value,
+  const toolRecords = (
+    <div className={styles.section}>
+      {session.tools.map((tool) => (
+        <div
+          key={tool.id}
+          tabIndex={-1}
+          data-tool-target={tool.id}
+          data-located={locatedTool === tool.id}
+          ref={(node) => {
+            toolTargets.current[tool.id] = node
+          }}
+        >
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              setSelectedCommands((before) => ({
+                ...before,
+                [session.sessionId]: `command-${tool.id}`,
+              }))
+              dispatch({
+                type: "panels",
+                panels: { ...state.panels, bottomOpen: true },
               })
-            }
-            canReconcile
-            onAction={
-              readOnly || query.scenario === "limited"
-                ? undefined
-                : async (action) => {
-                    if (action === "reconcile") {
-                      const receipt = state.receipts.findLast(
-                        (r) => r.targetId === request.attentionId,
-                      )
-                      if (receipt)
-                        dispatch({
-                          type: "settle",
-                          requestId: receipt.requestId,
-                          state: "confirmed",
-                        })
-                    } else
-                      dispatch({
-                        type: "begin",
-                        id: session.sessionId,
-                        attentionId: request.attentionId,
-                        action,
-                        response: attentionDrafts[request.attentionId],
-                      })
-                  }
+            }}
+          >
+            {t("resource.commands")}
+          </Button>
+          {resources
+            .filter((r) => r.source?.toolCallId === tool.id)
+            .map((r) => (
+              <Button
+                key={r.resourceId}
+                variant="ghost"
+                size="sm"
+                onClick={() => openResource(r)}
+              >
+                {r.name}
+              </Button>
+            ))}
+          <ToolCall
+            call={tool}
+            onReconcile={
+              tool.outcome === "unknown"
+                ? () => dispatch({ type: "advance", id: session.sessionId })
+                : undefined
             }
           />
-        ))}
-      </div>
-    )
-  }
+        </div>
+      ))}
+    </div>
+  )
+  const attentionRecords = (
+    <div className={styles.section}>
+      {session.attention.map((request) => (
+        <ApprovalRequestPanel
+          key={request.attentionId}
+          request={{
+            ...request,
+            tool: request.tool
+              ? {
+                  ...request.tool,
+                  ...session.tools.find((tool) => tool.id === request.tool?.id),
+                }
+              : undefined,
+          }}
+          draft={attentionDrafts[request.attentionId] ?? ""}
+          onDraftChange={(value) =>
+            setAttentionDrafts({
+              ...attentionDrafts,
+              [request.attentionId]: value,
+            })
+          }
+          canReconcile
+          onAction={
+            readOnly || query.scenario === "limited"
+              ? undefined
+              : async (action) => {
+                  if (action === "reconcile") {
+                    const receipt = state.receipts.findLast(
+                      (r) => r.targetId === request.attentionId,
+                    )
+                    if (receipt)
+                      dispatch({
+                        type: "settle",
+                        requestId: receipt.requestId,
+                        state: "confirmed",
+                      })
+                  } else
+                    dispatch({
+                      type: "begin",
+                      id: session.sessionId,
+                      attentionId: request.attentionId,
+                      action,
+                      response: attentionDrafts[request.attentionId],
+                    })
+                }
+          }
+        />
+      ))}
+    </div>
+  )
+  const toolRegion = (
+    <>
+      {toolRecords}
+      {attentionRecords}
+    </>
+  )
   function review(fileOnly = false) {
     return (
       <ReviewView
@@ -933,6 +1273,8 @@ export function WorkbenchDemo({
         setSelectedArtifacts={setSelectedArtifacts}
         openSession={openSession}
         locateMessage={locateMessage}
+        resources={resources}
+        onOpenResource={openResource}
       />
     )
   }
@@ -1024,32 +1366,30 @@ export function WorkbenchDemo({
       reason: `${t("workbench.noCapability")} · ${id}`,
       badge: id === "artifacts" ? session.artifacts.length : undefined,
       render: () =>
-        id === "context" ? (
-          contextPanel
-        ) : id === "files" ? (
-          review(true)
-        ) : id === "changes" ? (
-          review()
-        ) : id === "artifacts" ? (
-          artifacts()
-        ) : id === "plan" ? (
-          plan()
-        ) : id === "activity" ? (
-          tools()
-        ) : id === "terminal" ? (
-          <ExecutionOutputPanel
-            {...session.output}
-            connected={session.environment.connection === "connected"}
-            onReconnect={() => navigate({ scenario: "default" })}
-          />
-        ) : (
-          preview()
-        ),
+        id === "context"
+          ? contextPanel
+          : id === "files"
+            ? fileDocuments
+            : id === "changes"
+              ? review()
+              : id === "artifacts"
+                ? artifacts()
+                : id === "plan"
+                  ? plan()
+                  : id === "activity"
+                    ? toolRegion
+                    : id === "terminal"
+                      ? commandOutput
+                      : preview(),
     }),
   )
   const workspace = (
     <DeferredWorkbenchPanels
-      panels={panelDescriptors}
+      panels={
+        level === "app"
+          ? panelDescriptors.filter((panel) => panel.id === activePanel)
+          : panelDescriptors
+      }
       value={activePanel}
       onChange={(id) => {
         dispatch({
@@ -1378,27 +1718,243 @@ export function WorkbenchDemo({
       </Link>
     </>
   )
-  const pageNav = (
-    <nav className={styles.pageNav} aria-label={x.app}>
-      {workbenchPages.map((page) => (
-        <Button
-          key={page}
-          variant="ghost"
-          size="sm"
-          aria-current={query.page === page ? "page" : undefined}
-          onClick={() =>
-            navigate({
-              page,
-              ...(page === "review"
-                ? { layout: "review", panel: "changes" }
-                : {}),
-            })
+  const navigation =
+    area === "files" ? (
+      <FileNavigation
+        resources={resources}
+        selectedId={
+          documentState.documents.find(
+            (d) => resourceKey(d.resource) === documentState.activeKey,
+          )?.resource.resourceId
+        }
+        onOpen={openResource}
+        onPin={(resource) => dockResource(resource)}
+      />
+    ) : (
+      sessionNavigation
+    )
+  const activityBar = (
+    <ActivityNavigation
+      area={area}
+      page={query.page}
+      href={(page) =>
+        showcaseHref("app", {
+          template: query.template,
+          page,
+          session: session.sessionId,
+          project: projectId,
+          scenario: query.scenario,
+          ...(page === "review" ? { layout: "review", panel: "changes" } : {}),
+        })
+      }
+      onNavigate={(page) => {
+        navigate({
+          page,
+          ...(page === "review"
+            ? { layout: "review", panel: "changes" }
+            : page === "session"
+              ? { layout: "conversation" }
+              : {}),
+        })
+      }}
+      onArea={(value) => {
+        setArea(value)
+        onPanels({ ...state.panels, sidebarCollapsed: false })
+        if (value === "files") {
+          setActiveView("workspace")
+          navigate({ page: "session", layout: "review", panel: "files" })
+        }
+      }}
+      onSearch={() => setCommandOpen(true)}
+      onSettings={openSettings}
+      onHelp={() => setHelpOpen(true)}
+      settingsOpen={settingsOpen}
+      taskCount={
+        session.attention.filter((a) => a.operation?.state !== "confirmed")
+          .length
+      }
+      changeCount={session.changes.files.length}
+      artifactCount={session.artifacts.length}
+    />
+  )
+  const overlays = (
+    <>
+      <SettingsDialog
+        session={session}
+        draft={draft}
+        setDraft={setDraft}
+        query={query}
+        navigate={navigate}
+        preferences={preferences()}
+        open={settingsOpen}
+        onOpenChange={(value) => {
+          if (!value && !settingsFocus.current?.isConnected)
+            settingsFocus.current = mainRef.current
+          setSettingsOpen(value)
+        }}
+        finalFocus={settingsFocus}
+      />
+      <WorkbenchFilePreview
+        resource={openedResource}
+        range={resourceRanges[session.sessionId]}
+        open={Boolean(openedResource)}
+        onOpenChange={(value) => {
+          if (!value) {
+            resourceReadSequence.current++
+            if (!previewFocus.current?.isConnected)
+              previewFocus.current = mainRef.current
+            setOpenedResources((before) => ({
+              ...before,
+              [session.sessionId]: undefined,
+            }))
           }
-        >
-          {x[page]}
-        </Button>
-      ))}
-    </nav>
+        }}
+        onPin={dockResource}
+        onExpand={(resource) => dockResource(resource, false)}
+        onAddContext={(resource) => {
+          if (resource.context) pick(resource.context)
+        }}
+        onSource={sourceForResource}
+        latestRevision={
+          resources.find(
+            (resource) => resource.resourceId === openedResource?.resourceId,
+          )?.revision
+        }
+        onReview={
+          openedResource &&
+          session.changes.files.some(
+            (file) => file.path === openedResource.path,
+          )
+            ? () => {
+                resourceReadSequence.current++
+                setOpenedResources((before) => ({
+                  ...before,
+                  [session.sessionId]: undefined,
+                }))
+                dispatch({
+                  type: "panels",
+                  panels: {
+                    ...state.panels,
+                    selectedFileId: session.changes.files.find(
+                      (file) => file.path === openedResource.path,
+                    )?.fileId,
+                    activePanel: "changes",
+                  },
+                })
+                setActiveView("workspace")
+                navigate({ page: "review", layout: "review", panel: "changes" })
+              }
+            : undefined
+        }
+        finalFocus={previewFocus}
+      />
+      <CommandPalette
+        open={searchOpen}
+        onOpenChange={setSearchOpen}
+        title={t("workbench.searchSessions")}
+        groups={[
+          {
+            id: "sessions",
+            label: t("workbench.recent"),
+            items: state.sessions
+              .filter((s) => s.projectId === projectId)
+              .map((s) => ({
+                id: s.sessionId,
+                label: s.title,
+                description: s.status,
+              })),
+          },
+        ]}
+        onSelect={(item) => openSession(item.id)}
+        shortcut={{ key: "k", mod: true }}
+        finalFocus={mainRef}
+      />
+      <CommandPalette
+        open={commandOpen}
+        onOpenChange={setCommandOpen}
+        title={t("resource.commandMenu")}
+        groups={[
+          {
+            id: "files",
+            label: t("workbench.files"),
+            items: resources.map((r) => ({
+              id: `file:${r.resourceId}`,
+              label: r.path,
+              description: r.revision,
+            })),
+          },
+          {
+            id: "sessions",
+            label: t("workbench.searchSessions"),
+            items: state.sessions
+              .filter((s) => s.projectId === projectId)
+              .map((s) => ({ id: `session:${s.sessionId}`, label: s.title })),
+          },
+          {
+            id: "commands",
+            label: t("resource.commands"),
+            items: commands.map((c) => ({
+              id: `command:${c.commandId}`,
+              label: c.command,
+              description: c.status,
+            })),
+          },
+          {
+            id: "actions",
+            label: t("workbench.details"),
+            items: [
+              { id: "settings", label: t("resource.settings") },
+              { id: "plan", label: t("workbench.plan") },
+              { id: "context", label: t("workbench.context") },
+            ],
+          },
+        ]}
+        onSelect={(item) => {
+          if (item.id.startsWith("file:")) {
+            const resource = resources.find(
+              (r) => r.resourceId === item.id.slice(5),
+            )
+            if (resource) openResource(resource)
+          } else if (item.id.startsWith("session:"))
+            openSession(item.id.slice(8))
+          else if (item.id.startsWith("command:")) {
+            setSelectedCommands((before) => ({
+              ...before,
+              [session.sessionId]: item.id.slice(8),
+            }))
+            onPanels({ ...state.panels, bottomOpen: true })
+          } else if (item.id === "settings") openSettings()
+          else {
+            setActiveView("workspace")
+            navigate({ panel: item.id, layout: "review" })
+          }
+        }}
+        finalFocus={mainRef}
+      />
+      <Dialog open={helpOpen} onOpenChange={setHelpOpen}>
+        <DialogContent>
+          <DialogTitle>
+            {locale === "en" ? "Keyboard shortcuts" : "快捷键说明"}
+          </DialogTitle>
+          <DialogDescription>
+            <Kbd>Mod+K</Kbd> {t("workbench.searchSessions")} · <Kbd>Escape</Kbd>{" "}
+            {locale === "en" ? "Close the topmost overlay" : "关闭最上层弹窗"}
+          </DialogDescription>
+        </DialogContent>
+      </Dialog>
+      <div hidden={!contextOpen}>
+        {contextOpen && (
+          <ContextPicker
+            references={availableReferences}
+            onPick={pick}
+            onPickMany={pickMany}
+            searchable
+            open={contextOpen}
+            onOpenChange={setContextOpen}
+          />
+        )}
+      </div>
+    </>
   )
   if (query.errors.length)
     return (
@@ -1538,27 +2094,21 @@ export function WorkbenchDemo({
         />
       </div>
     ),
-    tools: tools(),
-    files: review(),
+    tools: toolRegion,
+    files: (
+      <>
+        <FileNavigation
+          resources={resources}
+          onOpen={openResource}
+          onPin={(resource) => dockResource(resource)}
+        />
+        {fileDocuments}
+        {review()}
+      </>
+    ),
     output: (
       <>
-        <ExecutionOutputPanel
-          {...session.output}
-          connected={session.environment.connection === "connected"}
-          onReconnect={() => {
-            dispatch({
-              type: "session",
-              id: session.sessionId,
-              patch: {
-                environment: {
-                  ...current.environment,
-                  connection: "connected",
-                },
-              },
-            })
-            navigate({ scenario: "default" })
-          }}
-        />
+        {commandOutput}
         {preview()}
       </>
     ),
@@ -1615,6 +2165,7 @@ export function WorkbenchDemo({
           }
         />
         {sourceSheet}
+        {overlays}
       </>
     )
   const isSession =
@@ -1645,12 +2196,15 @@ export function WorkbenchDemo({
   return (
     <main
       id="main-content"
+      ref={mainRef}
+      tabIndex={-1}
       className={styles.root}
       data-workbench-template={query.template}
       data-workbench-page={query.page}
       data-session-id={session.sessionId}
     >
       {sourceSheet}
+      {overlays}
       <div className={styles.top}>
         {level === "app" ? (
           <Link prefetch={false} href="/examples/agent-workbench/">
@@ -1662,7 +2216,6 @@ export function WorkbenchDemo({
         <span className={styles.meta}>{x.local}</span>
         {controls}
       </div>
-      {level === "app" && <div className={styles.top}>{pageNav}</div>}
       <div className={styles.product}>
         <WorkbenchFrame
           sessionActive={isSession}
@@ -1679,20 +2232,44 @@ export function WorkbenchDemo({
           panelState={{ ...state.panels, activePanel }}
           onPanelStateChange={onPanels}
           navigation={navigation}
+          activityBar={activityBar}
+          activeView={query.page === "review" ? "workspace" : activeView}
+          showViewSwitch={level !== "app"}
+          onActiveViewChange={setActiveView}
           composer={composer}
           workspace={main}
           inspector={contextPanel}
           bottom={
-            bottomVisited || state.panels.bottomOpen ? (
-              <ExecutionOutputPanel {...session.output} />
-            ) : (
-              <></>
-            )
+            bottomVisited || state.panels.bottomOpen ? commandOutput : <></>
           }
           toolbar={
             <div className={styles.row}>
+              {isSession && (
+                <>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => {
+                      setActiveView("workspace")
+                      navigate({ panel: "context", layout: "review" })
+                    }}
+                  >
+                    {t("workbench.context")}
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => {
+                      setActiveView("workspace")
+                      navigate({ panel: "plan", layout: "review" })
+                    }}
+                  >
+                    {t("workbench.plan")}
+                  </Button>
+                </>
+              )}
               {isSession &&
-                workbenchLayouts.map((layout) => (
+                workbenchLayouts.filter((layout) => level !== "app" || layout === "conversation").map((layout) => (
                   <Button
                     key={layout}
                     size="sm"
@@ -1730,12 +2307,20 @@ export function WorkbenchDemo({
           }
           conversation={{
             actionsRef: retainConversationActions,
-            attention: tools(true),
+            attention: attentionRecords,
             deferOffscreen: true,
             onLoadHistory: () =>
               dispatch({ type: "history", id: session.sessionId }),
             onRetry: retryRead,
             onOpenReference: openReference,
+            groupTools: true,
+            onOpenTool: (id) => {
+              setSelectedCommands((before) => ({
+                ...before,
+                [session.sessionId]: `command-${id}`,
+              }))
+              onPanels({ ...state.panels, bottomOpen: true })
+            },
           }}
         />
       </div>

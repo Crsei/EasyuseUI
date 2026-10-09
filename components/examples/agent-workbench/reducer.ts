@@ -19,7 +19,20 @@ import {
   permissions,
 } from "./fixtures"
 import { prepareShowcaseScenario } from "./showcase-model"
+export type SettingsConfiguration = Pick<
+  DraftState,
+  "modelId" | "permissionId" | "environmentId"
+>
+export type SettingsDraft = {
+  configuration: SettingsConfiguration
+  version: number
+}
 export type ExampleState = WorkbenchState & {
+  settingsDrafts: Record<string, SettingsDraft>
+  settingsRequests: Record<
+    string,
+    { sessionId: string; draft: SettingsDraft; base: SettingsConfiguration }
+  >
   scenarioBySession: Record<string, string>
   creationProjects: Record<string, string>
   contextRetries: Record<
@@ -44,6 +57,8 @@ export type ExampleState = WorkbenchState & {
 export function initialExample(): ExampleState {
   return {
     ...initialWorkbench(),
+    settingsDrafts: {},
+    settingsRequests: {},
     comments: {},
     sequence: 1,
     phases: {},
@@ -57,6 +72,9 @@ export function initialExample(): ExampleState {
   }
 }
 export type ExampleAction =
+  | { type: "settings-draft"; id: string; configuration: SettingsConfiguration }
+  | { type: "settings-cancel"; id: string }
+  | { type: "settings-save"; id: string }
   | {
       type: "metadata"
       id: string
@@ -125,6 +143,75 @@ export function exampleReducer(
         ...state.panels,
         selectedFileId: initial.panels.selectedFileId,
       },
+    }
+  }
+  if (action.type === "settings-draft")
+    return {
+      ...state,
+      settingsDrafts: {
+        ...state.settingsDrafts,
+        [action.id]: {
+          configuration: {
+            modelId: action.configuration.modelId,
+            permissionId: action.configuration.permissionId,
+            environmentId: action.configuration.environmentId,
+          },
+          version: (state.settingsDrafts[action.id]?.version ?? 0) + 1,
+        },
+      },
+    }
+  if (action.type === "settings-cancel") {
+    if (activeReceipt(state.receipts, `${action.id}:settings`)) return state
+    const settingsDrafts = { ...state.settingsDrafts }
+    delete settingsDrafts[action.id]
+    return { ...state, settingsDrafts }
+  }
+  if (action.type === "settings-save") {
+    const draft = state.settingsDrafts[action.id],
+      effective = state.drafts[action.id]
+    const owner = state.sessions.find(
+      (session) => session.sessionId === action.id,
+    )
+    const config = draft?.configuration
+    if (
+      !config ||
+      !effective ||
+      !owner ||
+      state.projects.find((p) => p.projectId === owner.projectId)?.readOnly ||
+      owner.environment.connection !== "connected" ||
+      activeReceipt(state.receipts, `${action.id}:settings`) ||
+      !models.some(
+        (choice) => choice.id === config.modelId && !choice.disabledReason,
+      ) ||
+      !environments.some((choice) => choice.id === config.environmentId) ||
+      !permissions.some((choice) => choice.id === config.permissionId)
+    )
+      return state
+    const requestId = `request-${state.sequence}`
+    return {
+      ...state,
+      sequence: state.sequence + 1,
+      settingsRequests: {
+        ...state.settingsRequests,
+        [requestId]: {
+          sessionId: action.id,
+          draft: structuredClone(draft),
+          base: {
+            modelId: effective.modelId,
+            permissionId: effective.permissionId,
+            environmentId: effective.environmentId,
+          },
+        },
+      },
+      receipts: [
+        ...state.receipts,
+        {
+          requestId,
+          targetId: `${action.id}:settings`,
+          action: "save-settings",
+          state: "pending",
+        },
+      ],
     }
   }
   if (action.type === "draft") {
@@ -441,6 +528,45 @@ export function exampleReducer(
       receipts: state.receipts.map((r) =>
         r.requestId === receipt.requestId ? receipt : r,
       ),
+    }
+    if (receipt.action === "save-settings") {
+      const request = state.settingsRequests[receipt.requestId]
+      if (action.state !== "confirmed" || !request) return next
+      const effective = next.drafts[request.sessionId]
+      if (
+        !effective ||
+        (Object.keys(request.base) as (keyof SettingsConfiguration)[]).some(
+          (key) => effective[key] !== request.base[key],
+        )
+      )
+        return {
+          ...next,
+          receipts: next.receipts.map((r) =>
+            r.requestId === receipt.requestId
+              ? {
+                  ...r,
+                  state: "failed",
+                  reason:
+                    "Configuration changed while confirmation was pending",
+                }
+              : r,
+          ),
+        }
+      const settingsDrafts = { ...next.settingsDrafts }
+      if (settingsDrafts[request.sessionId]?.version === request.draft.version)
+        delete settingsDrafts[request.sessionId]
+      return {
+        ...next,
+        settingsDrafts,
+        drafts: {
+          ...next.drafts,
+          [request.sessionId]: {
+            ...effective,
+            ...request.draft.configuration,
+            version: effective.version + 1,
+          },
+        },
+      }
     }
     if (receipt.action === "retry-context") {
       const retry = state.contextRetries[receipt.requestId]

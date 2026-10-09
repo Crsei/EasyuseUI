@@ -2,7 +2,7 @@
 
 入口：[/examples/agent-workbench/](/examples/agent-workbench/)。区域实验室 → 三种布局 → 编码、产物审阅、多任务三种完整示例。
 
-后续改造见 [编码工作台增强计划](plans/agent-coding-workbench-enhancement-plan.md)：侧边工具入口、设置对话框、上下文、命令输出与多类型文件小窗的组件清单和 E0–E6 验收安排；该计划尚待实施。
+后续改造见 [编码工作台增强计划](plans/agent-coding-workbench-enhancement-plan.md)：侧边工具入口、设置对话框、上下文、命令输出与多类型文件小窗的组件清单和 E0–E6 验收安排；E0–E5 本轮实施，结果见 [增强实施记录](plans/agent-coding-workbench-enhancement-log.md)；E6真实服务能力另行接入。
 
 ## 安装与分层
 
@@ -86,3 +86,19 @@ ExecutionOutputPanel 脱敏后再筛选、展示和复制，最多200行/32KiB�
 示例适配器仅保存外观、语言和面板开关/尺寸；面板设置使用 `easyuseui-workbench-panels`。读取时白名单校验并限制尺寸，存储失败仍可继续操作。“清除本地偏好”保留未发送草稿；刷新重置业务数据。上下文重试有独立回执，来源替换后的旧确认不能覆盖新引用。
 
 本轮 S0–S6 记录见 [展示实施记录](plans/agent-workbench-showcase-log.md)，文章与截图入口为 `/blog/agent-workbench-showcase/`。前一轮组件建设记录与截图保留原版本；真实服务按 M6 单独验收。
+
+## 编码增强 API
+
+`AgentWorkbench.activityBar`传入可选活动入口；`activeView/onActiveViewChange`控制窄主区的对话/详情选择，默认旧调用仍保留内部选择。WorkspaceShell是唯一布局所有者，活动栏与辅助侧栏展开共304px；窄屏辅助导航使用Sheet。
+
+`AgentComposer.quickControls`启用常驻模型/权限/环境/调度栏；`referenceStrip/onOpenContext/onCommandMenu/onOpenSettings`由宿主提供。旧简化调用和原生选择方式保持可用。`ContextPicker.searchable`启用搜索多选Dialog，`onPickMany`一次提交选择集合；取消不改变引用。仅引用用量不代表模型全部上下文预算。
+
+```tsx
+import { WorkbenchFilePreview, WorkbenchDocumentTabs, WorkbenchResourceContent } from "@/components/blocks/workbench-file-preview"
+import { ExecutionSessionList } from "@/components/blocks/agent-workbench/panels"
+import { resourceKey, openDocument, acceptResourceRead } from "@/lib/workbench-resource-model"
+```
+
+可单独安装`workbench-file-preview`/`workbench-resource-model`/`execution-session-list`，或安装对应Catalog别名。来源renderer、availability、dataState、完整字节下载能力由宿主提供；资源名不选择renderer。字段、格式与边界见增强记录。设置组合仍在示例层，不将fixture表单发布成可执行服务设置。
+
+`AgentWorkbench.showViewSwitch` 默认保留内置视图切换；关闭时调用方负责提供对话/主区入口。应用示例通过活动栏和紧凑工具栏承担导航。窄屏常驻配置行使用原生横向滚动，选择器文案截断但可访问标签保留；触摸目标仍至少44px。

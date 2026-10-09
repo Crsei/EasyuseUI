@@ -10,45 +10,61 @@ import type {
   ReviewComment,
 } from "@/lib/agent-workbench-model"
 import styles from "./workbench.module.css"
+import { redactText } from "@/lib/redact"
+import type { ResourceSnapshot } from "@/lib/workbench-resource-model"
 import { reviewCommentIsCurrent } from "@/lib/agent-workbench-model"
 export function FileViewer({
   file,
+  resource,
+  range,
   revision,
   maximumLines = 1000,
 }: {
   file?: ChangedFile
+  resource?: Pick<ResourceSnapshot, "path" | "text" | "complete">
+  range?: { start: number; end: number }
   revision: string
   maximumLines?: number
 }) {
   const { t } = useI18n()
-  if (!file) return <p className={styles.section}>{t("workbench.noFile")}</p>
-  const lines = (
-    file.content ??
-    file.lines
-      .filter((l) => l.kind !== "remove")
-      .map((l) => l.text)
-      .join("\n")
+  if (!file && !resource)
+    return <p className={styles.section}>{t("workbench.noFile")}</p>
+  const path = resource?.path ?? file!.path
+  const lines = redactText(
+    resource?.text ??
+      file!.content ??
+      file!.lines
+        .filter((l) => l.kind !== "remove")
+        .map((l) => l.text)
+        .join("\n"),
   ).split("\n")
   const maximum = Math.max(1, Math.min(5000, maximumLines))
   return (
-    <section className={styles.section} aria-label={file.path}>
-      <h3 className={styles.heading}>{file.path}</h3>
+    <section className={styles.section} aria-label={path}>
+      <h3 className={styles.heading}>{path}</h3>
       <p className={styles.meta}>
         {t("workbench.revision")}: {revision} · {t("workbench.readOnly")}
       </p>
-      {file.kind === "binary" ? (
+      {file?.kind === "binary" ? (
         <p>{t("workbench.binary")}</p>
       ) : (
         <pre className={styles.code} tabIndex={0}>
           {lines.slice(0, maximum).map((text, i) => (
-            <div key={i}>
+            <div
+              key={i}
+              data-file-line={i + 1}
+              data-highlighted={Boolean(
+                range && i + 1 >= range.start && i + 1 <= range.end,
+              )}
+            >
               <span aria-hidden="true">{String(i + 1).padStart(4, " ")} </span>
               {text.slice(0, 8192)}
             </div>
           ))}
         </pre>
       )}
-      {(file.truncated ||
+      {(file?.truncated ||
+        (resource && !resource.complete) ||
         lines.length > maximum ||
         lines.some((l) => l.length > 8192)) && (
         <p role="status">{t("workbench.truncated")}</p>
@@ -89,10 +105,14 @@ export function DiffViewer({
                 {mode === "split" ? (
                   <>
                     <td>
-                      {line.kind !== "add" ? line.text.slice(0, 8192) : ""}
+                      {line.kind !== "add"
+                        ? redactText(line.text).slice(0, 8192)
+                        : ""}
                     </td>
                     <td data-new>
-                      {line.kind !== "remove" ? line.text.slice(0, 8192) : ""}
+                      {line.kind !== "remove"
+                        ? redactText(line.text).slice(0, 8192)
+                        : ""}
                     </td>
                   </>
                 ) : (
@@ -102,7 +122,7 @@ export function DiffViewer({
                       : line.kind === "remove"
                         ? "−"
                         : " "}{" "}
-                    {line.text.slice(0, 8192)}
+                    {redactText(line.text).slice(0, 8192)}
                   </td>
                 )}
                 <td>

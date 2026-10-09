@@ -63,6 +63,10 @@ export type AgentWorkbenchProps = {
   panelState: PanelState
   onPanelStateChange: (state: PanelState) => void
   navigation: ReactNode
+  activityBar?: ReactNode
+  activeView?: "conversation" | "workspace"
+  showViewSwitch?: boolean
+  onActiveViewChange?: (view: "conversation" | "workspace") => void
   workspace: ReactNode
   inspector?: ReactNode
   bottom?: ReactNode
@@ -81,6 +85,10 @@ export function AgentWorkbench({
   panelState,
   onPanelStateChange,
   navigation,
+  activityBar,
+  activeView,
+  showViewSwitch = true,
+  onActiveViewChange,
   workspace,
   inspector,
   bottom,
@@ -97,7 +105,8 @@ export function AgentWorkbench({
     layout: WorkbenchLayout
     view: "conversation" | "workspace"
   }>({ layout, view: "conversation" })
-  const view = pane.layout === layout ? pane.view : "conversation"
+  const view =
+    activeView ?? (pane.layout === layout ? pane.view : "conversation")
   const patch = (value: Partial<PanelState>) =>
     onPanelStateChange({ ...panelState, ...value })
   return (
@@ -113,6 +122,7 @@ export function AgentWorkbench({
         )
       }
       sidebar={navigation}
+      activityBar={activityBar}
       sidebarCollapsed={panelState.sidebarCollapsed}
       onSidebarCollapsedChange={(sidebarCollapsed) =>
         patch({ sidebarCollapsed })
@@ -161,21 +171,24 @@ export function AgentWorkbench({
       }
     >
       <div className={styles.body}>
-        <div className={cn(styles.toolbar, styles.viewSwitch)}>
+        {showViewSwitch && <div className={cn(styles.toolbar, styles.viewSwitch)}>
           {(["conversation", "workspace"] as const).map((v) => (
             <Button
               key={v}
               size="sm"
               variant="ghost"
               aria-pressed={view === v}
-              onClick={() => setPane({ layout, view: v })}
+              onClick={() => {
+                setPane({ layout, view: v })
+                onActiveViewChange?.(v)
+              }}
             >
               {v === "conversation"
                 ? t("workbench.conversation")
                 : t("workbench.details")}
             </Button>
           ))}
-        </div>
+        </div>}
         <div
           className={styles.panes}
           data-layout={layout}

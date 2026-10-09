@@ -55,7 +55,7 @@ test("artifact navigation scopes a previous session to the newly selected projec
     .getByRole("combobox", { name: "项目", exact: true })
     .selectOption("project-new")
   await expect(page).toHaveURL(/project=project-new/)
-  await page.getByRole("button", { name: "产物", exact: true }).first().click()
+  await page.getByRole("link", { name: "产物", exact: true }).first().click()
   await expect(page).toHaveURL(/page=artifacts/)
   await expect(page.getByText("此项目尚无任务", { exact: true })).toBeVisible()
   await expect(
@@ -306,7 +306,7 @@ test("project scope, review filtering and sort retain selection without approvin
     .getByRole("combobox", { name: "项目", exact: true })
     .selectOption("project-empty")
   await page
-    .getByRole("button", { name: "收件箱", exact: true })
+    .getByRole("link", { name: "任务", exact: true })
     .first()
     .click()
   await expect(
@@ -340,7 +340,7 @@ test("plan locates the specific tool without starting a request", async ({
   page,
 }) => {
   await page.goto(`${root}/app/?page=session&panel=plan`)
-  await page.getByRole("button", { name: "对象属性", exact: true }).click()
+  await page.getByRole("button", { name: "计划", exact: true }).click()
   await page
     .getByRole("button", { name: /Run focused tests/ })
     .filter({ visible: true })
@@ -469,35 +469,23 @@ test("output reconnect and preview switch perform local read navigation and reta
     "真实模型、文件、Git、PTY 和浏览器服务尚未连接。",
   )
 })
-test("settings retry retains configuration and enables a valid next request without sending it", async ({
-  page,
-}) => {
+test("settings retry retains effective configuration and validates unapplied drafts without sending", async ({ page }) => {
   await page.goto(`${root}/app/?page=settings&scenario=refresh-error`)
-  const model = page
-    .getByRole("combobox", { name: "模型（下次发送）", exact: true })
-    .filter({ visible: true })
-  await expect(model).toHaveValue("fixture-model")
-  await page
-    .getByRole("button", { name: /重试/ })
-    .filter({ visible: true })
-    .first()
-    .click()
-  await expect(model).toHaveValue("fixture-model")
+  const model = page.getByRole("combobox", { name: "模型（下次发送）", exact: true }).filter({ visible: true })
+  await expect(model).toHaveText("Local demonstration model")
+  await page.getByRole("button", { name: /重试/ }).filter({ visible: true }).first().click()
+  await expect(model).toHaveText("Local demonstration model")
   await expect(page.getByText("request-1", { exact: false })).toHaveCount(0)
-  await page
-    .getByRole("combobox", { name: "环境（下次发送）", exact: true })
-    .filter({ visible: true })
-    .selectOption("")
-  await expect(
-    page.getByText("请配置有效的模型和环境后再提交", { exact: true }),
-  ).toBeVisible()
-  await page
-    .getByRole("combobox", { name: "环境（下次发送）", exact: true })
-    .filter({ visible: true })
-    .selectOption("local-demo")
-  await expect(
-    page.getByText("请配置有效的模型和环境后再提交", { exact: true }),
-  ).toHaveCount(0)
+  await page.getByRole("button", { name: "项目与环境", exact: true }).click()
+  const environment = page.getByRole("combobox", { name: "环境（下次发送）", exact: true }).filter({ visible: true })
+  await environment.click()
+  await page.getByRole("option", { name: "未配置", exact: true }).click()
+  await expect(page.getByText("请配置有效的模型和环境后再提交", { exact: true })).toBeVisible()
+  await expect(page.getByText("已生效值: local-demo", { exact: true })).toBeVisible()
+  await environment.click()
+  await page.getByRole("option", { name: "Local fixture", exact: true }).click()
+  await expect(page.getByText("请配置有效的模型和环境后再提交", { exact: true })).toHaveCount(0)
+  await expect(page.getByText("request-1", { exact: false })).toHaveCount(0)
 })
 
 test("late creation confirmation updates its project without redirecting a different open session", async ({

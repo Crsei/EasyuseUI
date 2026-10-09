@@ -12350,6 +12350,496 @@
       "keywords": "activity-timeline 源码 Source"
     },
     {
+      "id": "workbench-resource-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceModel",
+        "en": "WorkbenchResourceModel"
+      },
+      "summary": {
+        "zh-CN": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+        "en": "Portable resource identities, revisions, bounded content, document tabs and command snapshots."
+      },
+      "href": "/docs/workbench-resource-model/",
+      "keywords": "workbench-resource-model agent"
+    },
+    {
+      "id": "workbench-resource-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceModel · 安装",
+        "en": "WorkbenchResourceModel · Installation"
+      },
+      "summary": {
+        "zh-CN": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+        "en": "Portable resource identities, revisions, bounded content, document tabs and command snapshots."
+      },
+      "href": "/docs/workbench-resource-model/#installation",
+      "keywords": "workbench-resource-model 安装 Installation"
+    },
+    {
+      "id": "workbench-resource-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceModel · 使用",
+        "en": "WorkbenchResourceModel · Usage"
+      },
+      "summary": {
+        "zh-CN": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+        "en": "Portable resource identities, revisions, bounded content, document tabs and command snapshots."
+      },
+      "href": "/docs/workbench-resource-model/#usage",
+      "keywords": "workbench-resource-model 使用 Usage"
+    },
+    {
+      "id": "workbench-resource-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceModel · API",
+        "en": "WorkbenchResourceModel · API"
+      },
+      "summary": {
+        "zh-CN": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+        "en": "Portable resource identities, revisions, bounded content, document tabs and command snapshots."
+      },
+      "href": "/docs/workbench-resource-model/#api",
+      "keywords": "workbench-resource-model API API"
+    },
+    {
+      "id": "workbench-resource-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceModel · 状态与交互",
+        "en": "WorkbenchResourceModel · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+        "en": "Portable resource identities, revisions, bounded content, document tabs and command snapshots."
+      },
+      "href": "/docs/workbench-resource-model/#states",
+      "keywords": "workbench-resource-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "workbench-resource-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceModel · 完整示例",
+        "en": "WorkbenchResourceModel · Complete example"
+      },
+      "summary": {
+        "zh-CN": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+        "en": "Portable resource identities, revisions, bounded content, document tabs and command snapshots."
+      },
+      "href": "/docs/workbench-resource-model/#example",
+      "keywords": "workbench-resource-model 完整示例 Complete example"
+    },
+    {
+      "id": "workbench-resource-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceModel · 源码",
+        "en": "WorkbenchResourceModel · Source"
+      },
+      "summary": {
+        "zh-CN": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+        "en": "Portable resource identities, revisions, bounded content, document tabs and command snapshots."
+      },
+      "href": "/docs/workbench-resource-model/#source",
+      "keywords": "workbench-resource-model 源码 Source"
+    },
+    {
+      "id": "workbench-file-preview",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchFilePreview",
+        "en": "WorkbenchFilePreview"
+      },
+      "summary": {
+        "zh-CN": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+        "en": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks."
+      },
+      "href": "/docs/workbench-file-preview/",
+      "keywords": "workbench-file-preview agent"
+    },
+    {
+      "id": "workbench-file-preview-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchFilePreview · 安装",
+        "en": "WorkbenchFilePreview · Installation"
+      },
+      "summary": {
+        "zh-CN": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+        "en": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks."
+      },
+      "href": "/docs/workbench-file-preview/#installation",
+      "keywords": "workbench-file-preview 安装 Installation"
+    },
+    {
+      "id": "workbench-file-preview-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchFilePreview · 使用",
+        "en": "WorkbenchFilePreview · Usage"
+      },
+      "summary": {
+        "zh-CN": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+        "en": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks."
+      },
+      "href": "/docs/workbench-file-preview/#usage",
+      "keywords": "workbench-file-preview 使用 Usage"
+    },
+    {
+      "id": "workbench-file-preview-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchFilePreview · API",
+        "en": "WorkbenchFilePreview · API"
+      },
+      "summary": {
+        "zh-CN": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+        "en": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks."
+      },
+      "href": "/docs/workbench-file-preview/#api",
+      "keywords": "workbench-file-preview API API"
+    },
+    {
+      "id": "workbench-file-preview-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchFilePreview · 状态与交互",
+        "en": "WorkbenchFilePreview · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+        "en": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks."
+      },
+      "href": "/docs/workbench-file-preview/#states",
+      "keywords": "workbench-file-preview 状态与交互 States and interaction"
+    },
+    {
+      "id": "workbench-file-preview-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchFilePreview · 完整示例",
+        "en": "WorkbenchFilePreview · Complete example"
+      },
+      "summary": {
+        "zh-CN": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+        "en": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks."
+      },
+      "href": "/docs/workbench-file-preview/#example",
+      "keywords": "workbench-file-preview 完整示例 Complete example"
+    },
+    {
+      "id": "workbench-file-preview-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchFilePreview · 源码",
+        "en": "WorkbenchFilePreview · Source"
+      },
+      "summary": {
+        "zh-CN": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+        "en": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks."
+      },
+      "href": "/docs/workbench-file-preview/#source",
+      "keywords": "workbench-file-preview 源码 Source"
+    },
+    {
+      "id": "workbench-document-tabs",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchDocumentTabs",
+        "en": "WorkbenchDocumentTabs"
+      },
+      "summary": {
+        "zh-CN": "临时预览与固定标签分离；关闭不删除来源文件。",
+        "en": "Separate transient previews from pinned documents; closing a tab does not delete its source."
+      },
+      "href": "/docs/workbench-document-tabs/",
+      "keywords": "workbench-document-tabs agent"
+    },
+    {
+      "id": "workbench-document-tabs-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchDocumentTabs · 安装",
+        "en": "WorkbenchDocumentTabs · Installation"
+      },
+      "summary": {
+        "zh-CN": "临时预览与固定标签分离；关闭不删除来源文件。",
+        "en": "Separate transient previews from pinned documents; closing a tab does not delete its source."
+      },
+      "href": "/docs/workbench-document-tabs/#installation",
+      "keywords": "workbench-document-tabs 安装 Installation"
+    },
+    {
+      "id": "workbench-document-tabs-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchDocumentTabs · 使用",
+        "en": "WorkbenchDocumentTabs · Usage"
+      },
+      "summary": {
+        "zh-CN": "临时预览与固定标签分离；关闭不删除来源文件。",
+        "en": "Separate transient previews from pinned documents; closing a tab does not delete its source."
+      },
+      "href": "/docs/workbench-document-tabs/#usage",
+      "keywords": "workbench-document-tabs 使用 Usage"
+    },
+    {
+      "id": "workbench-document-tabs-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchDocumentTabs · API",
+        "en": "WorkbenchDocumentTabs · API"
+      },
+      "summary": {
+        "zh-CN": "临时预览与固定标签分离；关闭不删除来源文件。",
+        "en": "Separate transient previews from pinned documents; closing a tab does not delete its source."
+      },
+      "href": "/docs/workbench-document-tabs/#api",
+      "keywords": "workbench-document-tabs API API"
+    },
+    {
+      "id": "workbench-document-tabs-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchDocumentTabs · 状态与交互",
+        "en": "WorkbenchDocumentTabs · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "临时预览与固定标签分离；关闭不删除来源文件。",
+        "en": "Separate transient previews from pinned documents; closing a tab does not delete its source."
+      },
+      "href": "/docs/workbench-document-tabs/#states",
+      "keywords": "workbench-document-tabs 状态与交互 States and interaction"
+    },
+    {
+      "id": "workbench-document-tabs-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchDocumentTabs · 完整示例",
+        "en": "WorkbenchDocumentTabs · Complete example"
+      },
+      "summary": {
+        "zh-CN": "临时预览与固定标签分离；关闭不删除来源文件。",
+        "en": "Separate transient previews from pinned documents; closing a tab does not delete its source."
+      },
+      "href": "/docs/workbench-document-tabs/#example",
+      "keywords": "workbench-document-tabs 完整示例 Complete example"
+    },
+    {
+      "id": "workbench-document-tabs-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchDocumentTabs · 源码",
+        "en": "WorkbenchDocumentTabs · Source"
+      },
+      "summary": {
+        "zh-CN": "临时预览与固定标签分离；关闭不删除来源文件。",
+        "en": "Separate transient previews from pinned documents; closing a tab does not delete its source."
+      },
+      "href": "/docs/workbench-document-tabs/#source",
+      "keywords": "workbench-document-tabs 源码 Source"
+    },
+    {
+      "id": "workbench-resource-content",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceContent",
+        "en": "WorkbenchResourceContent"
+      },
+      "summary": {
+        "zh-CN": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+        "en": "Render bounded content using the source renderer; filenames do not select the format."
+      },
+      "href": "/docs/workbench-resource-content/",
+      "keywords": "workbench-resource-content agent"
+    },
+    {
+      "id": "workbench-resource-content-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceContent · 安装",
+        "en": "WorkbenchResourceContent · Installation"
+      },
+      "summary": {
+        "zh-CN": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+        "en": "Render bounded content using the source renderer; filenames do not select the format."
+      },
+      "href": "/docs/workbench-resource-content/#installation",
+      "keywords": "workbench-resource-content 安装 Installation"
+    },
+    {
+      "id": "workbench-resource-content-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceContent · 使用",
+        "en": "WorkbenchResourceContent · Usage"
+      },
+      "summary": {
+        "zh-CN": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+        "en": "Render bounded content using the source renderer; filenames do not select the format."
+      },
+      "href": "/docs/workbench-resource-content/#usage",
+      "keywords": "workbench-resource-content 使用 Usage"
+    },
+    {
+      "id": "workbench-resource-content-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceContent · API",
+        "en": "WorkbenchResourceContent · API"
+      },
+      "summary": {
+        "zh-CN": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+        "en": "Render bounded content using the source renderer; filenames do not select the format."
+      },
+      "href": "/docs/workbench-resource-content/#api",
+      "keywords": "workbench-resource-content API API"
+    },
+    {
+      "id": "workbench-resource-content-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceContent · 状态与交互",
+        "en": "WorkbenchResourceContent · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+        "en": "Render bounded content using the source renderer; filenames do not select the format."
+      },
+      "href": "/docs/workbench-resource-content/#states",
+      "keywords": "workbench-resource-content 状态与交互 States and interaction"
+    },
+    {
+      "id": "workbench-resource-content-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceContent · 完整示例",
+        "en": "WorkbenchResourceContent · Complete example"
+      },
+      "summary": {
+        "zh-CN": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+        "en": "Render bounded content using the source renderer; filenames do not select the format."
+      },
+      "href": "/docs/workbench-resource-content/#example",
+      "keywords": "workbench-resource-content 完整示例 Complete example"
+    },
+    {
+      "id": "workbench-resource-content-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkbenchResourceContent · 源码",
+        "en": "WorkbenchResourceContent · Source"
+      },
+      "summary": {
+        "zh-CN": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+        "en": "Render bounded content using the source renderer; filenames do not select the format."
+      },
+      "href": "/docs/workbench-resource-content/#source",
+      "keywords": "workbench-resource-content 源码 Source"
+    },
+    {
+      "id": "execution-session-list",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionSessionList",
+        "en": "ExecutionSessionList"
+      },
+      "summary": {
+        "zh-CN": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+        "en": "Link commands, tools, source messages and files; unknown outcomes and connections are independent."
+      },
+      "href": "/docs/execution-session-list/",
+      "keywords": "execution-session-list agent"
+    },
+    {
+      "id": "execution-session-list-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionSessionList · 安装",
+        "en": "ExecutionSessionList · Installation"
+      },
+      "summary": {
+        "zh-CN": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+        "en": "Link commands, tools, source messages and files; unknown outcomes and connections are independent."
+      },
+      "href": "/docs/execution-session-list/#installation",
+      "keywords": "execution-session-list 安装 Installation"
+    },
+    {
+      "id": "execution-session-list-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionSessionList · 使用",
+        "en": "ExecutionSessionList · Usage"
+      },
+      "summary": {
+        "zh-CN": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+        "en": "Link commands, tools, source messages and files; unknown outcomes and connections are independent."
+      },
+      "href": "/docs/execution-session-list/#usage",
+      "keywords": "execution-session-list 使用 Usage"
+    },
+    {
+      "id": "execution-session-list-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionSessionList · API",
+        "en": "ExecutionSessionList · API"
+      },
+      "summary": {
+        "zh-CN": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+        "en": "Link commands, tools, source messages and files; unknown outcomes and connections are independent."
+      },
+      "href": "/docs/execution-session-list/#api",
+      "keywords": "execution-session-list API API"
+    },
+    {
+      "id": "execution-session-list-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionSessionList · 状态与交互",
+        "en": "ExecutionSessionList · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+        "en": "Link commands, tools, source messages and files; unknown outcomes and connections are independent."
+      },
+      "href": "/docs/execution-session-list/#states",
+      "keywords": "execution-session-list 状态与交互 States and interaction"
+    },
+    {
+      "id": "execution-session-list-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionSessionList · 完整示例",
+        "en": "ExecutionSessionList · Complete example"
+      },
+      "summary": {
+        "zh-CN": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+        "en": "Link commands, tools, source messages and files; unknown outcomes and connections are independent."
+      },
+      "href": "/docs/execution-session-list/#example",
+      "keywords": "execution-session-list 完整示例 Complete example"
+    },
+    {
+      "id": "execution-session-list-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ExecutionSessionList · 源码",
+        "en": "ExecutionSessionList · Source"
+      },
+      "summary": {
+        "zh-CN": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+        "en": "Link commands, tools, source messages and files; unknown outcomes and connections are independent."
+      },
+      "href": "/docs/execution-session-list/#source",
+      "keywords": "execution-session-list 源码 Source"
+    },
+    {
       "id": "session-navigator",
       "kind": "components",
       "title": {

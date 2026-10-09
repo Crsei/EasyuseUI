@@ -49,6 +49,44 @@
 .sidebarToggle {
   display: none;
 }
+.activity {
+  flex: 0 0 48px;
+  width: 48px;
+  overflow: auto;
+  border-right: 1px solid var(--border);
+  background: var(--background);
+}
+.shell[data-activity-bar] .sidebarToggle {
+  display: inline-flex;
+}
+.shell[data-activity-bar][data-sidebar-collapsed="true"] .sidebar {
+  display: none;
+}
+.navigationDrawer {
+  inset: 0 auto 0 0;
+  border-left: 0;
+  border-right: 1px solid var(--border);
+}
+.navigationDrawer[data-starting-style],
+.navigationDrawer[data-ending-style] {
+  transform: translateX(-100%);
+}
+@container workspace-shell (max-width: 767px) {
+  .shell[data-activity-bar] .layout {
+    flex-direction: column;
+  }
+  .shell[data-activity-bar] .activity {
+    flex: 0 0 48px;
+    width: 100%;
+    height: 48px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .shell[data-activity-bar] .main {
+    height: auto;
+    width: 100%;
+  }
+}
 .main {
   display: flex;
   flex-direction: column;

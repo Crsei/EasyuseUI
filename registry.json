@@ -237,7 +237,7 @@
       "name": "data-region",
       "type": "registry:ui",
       "title": "DataRegion",
-      "description": "\u7edf\u4e00\u6570\u636e\u533a\u57df\uff1a\u9996\u6b21\u9aa8\u67b6\u3001\u7a7a\u72b6\u6001\u3001\u90e8\u5206\u6570\u636e\u4e0e\u4fdd\u7559\u65e7\u5185\u5bb9\u7684\u9519\u8bef\u53cd\u9988\u3002",
+      "description": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -267,7 +267,7 @@
       "name": "tree",
       "type": "registry:ui",
       "title": "Tree",
-      "description": "\u5b8c\u6574\u6811\u952e\u76d8\u6a21\u578b\u3001Idea \u2192 Session \u2192 Run \u5c42\u7ea7\u4e0e\u53d7\u63a7\u8282\u70b9\u79fb\u52a8\u3002",
+      "description": "完整树键盘模型、Idea → Session → Run 层级与受控节点移动。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -296,7 +296,7 @@
       "name": "session-row",
       "type": "registry:block",
       "title": "SessionRow",
-      "description": "Session \u53cc\u884c\u7ed3\u6784\uff0c\u9009\u62e9\u4e0e\u8fd0\u884c\u72b6\u6001\u72ec\u7acb\uff0c\u64cd\u4f5c\u7531\u663e\u5f0f\u80fd\u529b\u5f00\u653e\u3002",
+      "description": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -323,7 +323,7 @@
       "name": "agent-row",
       "type": "registry:block",
       "title": "AgentRow",
-      "description": "Agent \u8eab\u4efd\u3001\u6a21\u578b\u3001\u8fde\u63a5\u72b6\u6001\u3001\u6c47\u603b\u8d1f\u8f7d\u548c\u7edf\u4e00\u8fd0\u884c\u72b6\u6001\u3002",
+      "description": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -350,7 +350,7 @@
       "name": "activity-timeline",
       "type": "registry:block",
       "title": "ActivityTimeline",
-      "description": "Runtime \u65f6\u95f4\u7ebf\uff1a\u5e73\u94fa\u4e8b\u4ef6\u3001\u8be6\u60c5\u5c55\u5f00\u3001\u53bb\u91cd\u3001\u6eda\u52a8\u8ddf\u968f\u53ca\u65b0\u4e8b\u4ef6\u63d0\u793a\u3002",
+      "description": "Runtime 时间线：平铺事件、详情展开、去重、滚动跟随及新事件提示。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -380,7 +380,7 @@
       "name": "inspector",
       "type": "registry:block",
       "title": "Inspector",
-      "description": "\u5f53\u524d\u5bf9\u8c61\u7684\u53d7\u63a7\u8be6\u60c5\uff0c\u7edf\u4e00 Metadata\u3001\u7f3a\u5931\u5b57\u6bb5\u4e0e\u590d\u5236\u53cd\u9988\u3002",
+      "description": "当前对象的受控详情，统一 Metadata、缺失字段与复制反馈。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -408,7 +408,7 @@
       "name": "chat-message",
       "type": "registry:block",
       "title": "ChatMessage",
-      "description": "\u540c\u8f74\u6d88\u606f\u3001\u72ec\u7acb\u5de5\u5177\u69fd\u3001\u53ef\u4e2d\u65ad\u8f93\u51fa\u3001\u5bf9\u8bdd/\u5de5\u4f5c\u533a\u5206\u680f\u4e0e IME \u5b89\u5168\u8f93\u5165\u3002",
+      "description": "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -437,7 +437,7 @@
       "name": "tool-call",
       "type": "registry:block",
       "title": "ToolCall",
-      "description": "\u72ec\u7acb\u5de5\u5177\u6267\u884c\u8bb0\u5f55\uff1a\u53c2\u6570/\u8f93\u51fa\u3001\u622a\u65ad\u3001\u8131\u654f\u3001\u6743\u9650\u8bf7\u6c42\u548c\u672a\u786e\u8ba4\u7ed3\u679c\u3002",
+      "description": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
       "dependencies": [
         "lucide-react@^0.577.0"
       ],
@@ -1549,7 +1549,7 @@
       "name": "agent-run-properties",
       "type": "registry:block",
       "title": "AgentRunProperties",
-      "description": "\u5171\u4eab\u8fd0\u884c\u8eab\u4efd\u3001\u6a21\u578b\u3001\u8017\u65f6\u4e0e\u539f\u59cb\u72b6\u6001\u3002",
+      "description": "共享运行身份、模型、耗时与原始状态。",
       "registryDependencies": [
         "theme",
         "runtime-status-badge",
@@ -1573,7 +1573,7 @@
       "name": "run-stage-summary",
       "type": "registry:block",
       "title": "RunStageSummary",
-      "description": "\u6765\u6e90\u9636\u6bb5\u4e0e\u6709\u660e\u786e\u5206\u6bcd\u7684\u6b65\u9aa4\u8ba1\u6570\uff0c\u4e0d\u751f\u6210\u5047\u8fdb\u5ea6\u3002",
+      "description": "来源阶段与有明确分母的步骤计数，不生成假进度。",
       "registryDependencies": [
         "theme",
         "agent-board-model",
@@ -1596,7 +1596,7 @@
       "name": "agent-run-row",
       "type": "registry:block",
       "title": "AgentRunRow",
-      "description": "\u7d27\u51d1\u8fd0\u884c\u884c\uff1b\u67e5\u770b\u4e0e\u5c3e\u90e8\u64cd\u4f5c\u4f7f\u7528\u5144\u5f1f\u76ee\u6807\u3002",
+      "description": "紧凑运行行；查看与尾部操作使用兄弟目标。",
       "registryDependencies": [
         "theme",
         "item",
@@ -1623,7 +1623,7 @@
       "name": "agent-run-card",
       "type": "registry:block",
       "title": "AgentRunCard",
-      "description": "\u72ec\u7acb\u8fd0\u884c\u5361\u7247\uff1b\u7f3a\u5931\u8ba1\u6570\u4fdd\u7559\u4e3a\u672a\u77e5\u3002",
+      "description": "独立运行卡片；缺失计数保留为未知。",
       "registryDependencies": [
         "theme",
         "agent-run-properties",
@@ -1648,7 +1648,7 @@
       "name": "agent-run-list",
       "type": "registry:block",
       "title": "AgentRunList",
-      "description": "\u540c\u4e00\u8fd0\u884c\u96c6\u5408\u7684\u53ea\u8bfb\u5206\u7ec4\u5217\u8868\u3002",
+      "description": "同一运行集合的只读分组列表。",
       "registryDependencies": [
         "theme",
         "agent-run-row",
@@ -1672,7 +1672,7 @@
       "name": "agent-run-board",
       "type": "registry:block",
       "title": "AgentRunBoard",
-      "description": "\u6309\u6765\u6e90\u72b6\u6001\u6d3e\u751f\u5206\u5217\u7684\u53ea\u8bfb\u8fd0\u884c\u770b\u677f\u3002",
+      "description": "按来源状态派生分列的只读运行看板。",
       "registryDependencies": [
         "theme",
         "item-board",
@@ -1698,7 +1698,7 @@
       "name": "agent-run-inspector",
       "type": "registry:block",
       "title": "AgentRunInspector",
-      "description": "\u5b8c\u6574\u53d7\u63a7\u8fd0\u884c\u8be6\u60c5\uff0c\u7ec4\u5408\u8bf7\u6c42\u3001\u6267\u884c\u3001\u4ea7\u7269\u4e0e\u5173\u8054\u3002",
+      "description": "完整受控运行详情，组合请求、执行、产物与关联。",
       "registryDependencies": [
         "theme",
         "inspector",
@@ -1731,7 +1731,7 @@
       "name": "attention-queue",
       "type": "registry:block",
       "title": "AttentionQueue",
-      "description": "\u6309\u5173\u6ce8 ID \u53bb\u91cd\uff1b\u8bf7\u6c42\u6570\u4e0e\u8fd0\u884c\u6570\u5206\u522b\u8868\u8fbe\u3002",
+      "description": "按关注 ID 去重；请求数与运行数分别表达。",
       "registryDependencies": [
         "theme",
         "item",
@@ -1757,7 +1757,7 @@
       "name": "approval-request-panel",
       "type": "registry:block",
       "title": "ApprovalRequestPanel",
-      "description": "\u5de5\u5177\u5ba1\u6279\u590d\u7528 ToolCall\uff1b\u672a\u77e5\u7ed3\u679c\u5fc5\u987b\u5148\u6838\u5bf9\u3002",
+      "description": "工具审批复用 ToolCall；未知结果必须先核对。",
       "registryDependencies": [
         "theme",
         "button",
@@ -1783,7 +1783,7 @@
       "name": "artifact-list",
       "type": "registry:block",
       "title": "ArtifactList",
-      "description": "\u4ea7\u7269\u5165\u53e3\u3001\u53ef\u7528\u72b6\u6001\u4e0e\u72ec\u7acb\u5ba1\u9605\u6458\u8981\u3002",
+      "description": "产物入口、可用状态与独立审阅摘要。",
       "registryDependencies": [
         "theme",
         "item",
@@ -1808,7 +1808,7 @@
       "name": "review-summary",
       "type": "registry:block",
       "title": "ReviewSummary",
-      "description": "\u5ba1\u9605\u3001\u4e1a\u52a1\u9a8c\u6536\u4e0e PR \u72b6\u6001\u5206\u522b\u5448\u73b0\u3002",
+      "description": "审阅、业务验收与 PR 状态分别呈现。",
       "registryDependencies": [
         "artifact-list",
         "i18n"
@@ -1825,7 +1825,7 @@
       "name": "execution-trace-tree",
       "type": "registry:block",
       "title": "ExecutionTraceTree",
-      "description": "\u53ef\u89c2\u6d4b\u7236\u5b50\u6267\u884c\u6b65\u9aa4\u4e0e\u8131\u654f\u5de5\u5177\u8be6\u60c5\u3002",
+      "description": "可观测父子执行步骤与脱敏工具详情。",
       "registryDependencies": [
         "theme",
         "tree",
@@ -1852,7 +1852,7 @@
       "name": "agent-relationship-list",
       "type": "registry:block",
       "title": "AgentRelationshipList",
-      "description": "\u4ec5\u5c55\u793a\u6765\u6e90\u660e\u786e\u7684\u8fd0\u884c\u5173\u8054\u4e0e\u4ea4\u63a5\u3002",
+      "description": "仅展示来源明确的运行关联与交接。",
       "registryDependencies": [
         "theme",
         "item",
@@ -1877,7 +1877,7 @@
       "name": "agent-usage-summary",
       "type": "registry:block",
       "title": "AgentUsageSummary",
-      "description": "\u6765\u6e90\u7528\u91cf\u53bb\u91cd\u3001\u8986\u76d6\u8bf4\u660e\u4e0e\u5206\u5e01\u79cd\u5408\u8ba1\u3002",
+      "description": "来源用量去重、覆盖说明与分币种合计。",
       "registryDependencies": [
         "theme",
         "metric-summary",
@@ -1903,7 +1903,7 @@
       "name": "agent-board-toolbar",
       "type": "registry:block",
       "title": "AgentBoardToolbar",
-      "description": "\u5171\u4eab\u8fd0\u884c\u7b5b\u9009\u4e0e\u56db\u89c6\u56fe\u53d7\u63a7\u5207\u6362\u3002",
+      "description": "共享运行筛选与四视图受控切换。",
       "registryDependencies": [
         "theme",
         "input",
@@ -1930,7 +1930,7 @@
       "name": "agent-board-workspace",
       "type": "registry:block",
       "title": "AgentBoardWorkspace",
-      "description": "\u53d7\u63a7 Agent \u5de5\u4f5c\u53f0\uff1b\u8def\u7531\u3001\u670d\u52a1\u4e0e\u6301\u4e45\u5316\u5f52\u8c03\u7528\u65b9\u3002",
+      "description": "受控 Agent 工作台；路由、服务与持久化归调用方。",
       "registryDependencies": [
         "theme",
         "workspace-shell",
@@ -2255,7 +2255,7 @@
       "name": "agent-dependency-graph",
       "type": "registry:block",
       "title": "AgentDependencyGraph",
-      "description": "\u4ec5\u5c55\u793a\u6765\u6e90\u660e\u786e\u7684\u8fd0\u884c\u4f9d\u8d56\uff1b\u53ea\u8bfb\u753b\u5e03\u4e0e\u53ef\u8bbf\u95ee\u5217\u8868\u540c\u6b65\u3002",
+      "description": "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
       "registryDependencies": [
         "theme",
         "workflow-canvas",
@@ -2281,7 +2281,7 @@
       "name": "agent-usage-history",
       "type": "registry:block",
       "title": "AgentUsageHistory",
-      "description": "\u6765\u6e90\u533a\u95f4\u5386\u53f2\uff1b\u8fd0\u884c\u4e0e\u5e01\u79cd\u72ec\u7acb\uff0c\u7f3a\u5931\u89c2\u6d4b\u4fdd\u7559\u65ad\u70b9\u3002",
+      "description": "来源区间历史；运行与币种独立，缺失观测保留断点。",
       "registryDependencies": [
         "theme",
         "segmented",
@@ -2307,7 +2307,7 @@
       "name": "agent-run-virtual-list",
       "type": "registry:block",
       "title": "AgentRunVirtualList",
-      "description": "\u53ef\u53d8\u884c\u9ad8\u7684\u53d7\u63a7\u8fd0\u884c\u5217\u8868\uff0c\u4fdd\u7559\u79bb\u5c4f\u7126\u70b9\u548c\u5b8c\u6574\u52a0\u8f7d\u53e3\u5f84\u3002",
+      "description": "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
       "registryDependencies": [
         "theme",
         "agent-run-row",
@@ -3658,7 +3658,9 @@
         "agent-workbench-model",
         "button",
         "data-region",
-        "item"
+        "item",
+        "dialog",
+        "input"
       ],
       "files": [
         {
@@ -3751,7 +3753,8 @@
         "i18n",
         "agent-workbench-model",
         "button",
-        "chat-message"
+        "chat-message",
+        "select"
       ],
       "files": [
         {
@@ -3798,7 +3801,9 @@
         "agent-workbench-model",
         "tree",
         "button",
-        "data-region"
+        "data-region",
+        "redact",
+        "workbench-resource-model"
       ],
       "files": [
         {
@@ -3858,7 +3863,9 @@
         "tabs",
         "button",
         "input",
-        "redact"
+        "redact",
+        "runtime-status-badge",
+        "workbench-resource-model"
       ],
       "files": [
         {
@@ -3952,7 +3959,7 @@
       "name": "analytics-resource-model",
       "type": "registry:lib",
       "title": "analytics-resource-model",
-      "description": "\u663e\u5f0f\u8d44\u6e90\u4efd\u989d\u3001\u5bb9\u91cf\u4e0e\u6267\u884c\u533a\u95f4\uff1b\u7236\u5b50\u7528\u91cf\u53bb\u91cd\u5e76\u4fdd\u7559\u5e01\u79cd\u3002",
+      "description": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
       "dependencies": [],
       "registryDependencies": [
         "analytics-model",
@@ -3975,7 +3982,7 @@
       "name": "analytics-history-metrics",
       "type": "registry:lib",
       "title": "analytics-history-metrics",
-      "description": "\u5386\u53f2\u71c3\u5c3d\u3001\u71c3\u8d77\u3001\u901f\u5ea6\u3001\u7d2f\u79ef\u6d41\u3001\u5468\u671f\u65f6\u95f4\u4e0e\u6761\u4ef6\u5316\u9884\u6d4b\u6a21\u578b\u3002",
+      "description": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
       "dependencies": [],
       "registryDependencies": [
         "analytics-model"
@@ -3997,7 +4004,7 @@
       "name": "analytics-builder-model",
       "type": "registry:lib",
       "title": "analytics-builder-model",
-      "description": "\u6309\u6307\u6807\u7248\u672c\u6821\u9a8c\u7ef4\u5ea6\u3001\u5206\u6bb5\u3001\u5355\u4f4d\u4e0e\u56fe\u578b\uff0c\u56fa\u5b9a\u8c03\u7528\u65b9\u6743\u9650\u8303\u56f4\u3002",
+      "description": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
       "dependencies": [],
       "registryDependencies": [
         "analytics-model",
@@ -4015,7 +4022,7 @@
       "name": "dashboard-edit-session",
       "type": "registry:lib",
       "title": "dashboard-edit-session",
-      "description": "\u53ef\u4fdd\u7559\u7684\u5e03\u5c40\u8349\u7a3f\u4e0e\u5e26\u64cd\u4f5c\u7f16\u53f7\u3001\u7248\u672c\u7684\u4fdd\u5b58\u56de\u6267\uff1bunknown \u5148\u6838\u5bf9\u3002",
+      "description": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
       "dependencies": [],
       "registryDependencies": [
         "dashboard",
@@ -4033,7 +4040,7 @@
       "name": "analytics-image-export",
       "type": "registry:lib",
       "title": "analytics-image-export",
-      "description": "\u7531\u8c03\u7528\u65b9\u89e6\u53d1\uff0c\u5bfc\u51fa\u5f53\u524d\u6388\u6743\u805a\u5408 SVG \u53ca\u53e3\u5f84\u548c\u6a21\u62df\u6807\u8bb0\u3002",
+      "description": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
       "dependencies": [],
       "registryDependencies": [
         "analytics-model"
@@ -4050,7 +4057,7 @@
       "name": "heatmap",
       "type": "registry:block",
       "title": "heatmap",
-      "description": "\u8d44\u6e90\u70ed\u56fe\u4e0e HeatmapLegend\uff1b\u5df2\u77e5\u3001\u672a\u77e5\u3001\u96f6\u5bb9\u91cf\u4e0e\u8d85\u8f7d\u5206\u79bb\u3002",
+      "description": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
       "dependencies": [],
       "registryDependencies": [
         "theme",
@@ -4076,7 +4083,7 @@
       "name": "resource-allocation-view",
       "type": "registry:block",
       "title": "resource-allocation-view",
-      "description": "\u4eba\u5458\u65e5\u671f\u5355\u5143\u5230\u663e\u5f0f\u5206\u914d\u6e05\u5355\u4e0e\u6392\u671f\u56de\u8c03\u3002",
+      "description": "人员日期单元到显式分配清单与排期回调。",
       "dependencies": [],
       "registryDependencies": [
         "heatmap",
@@ -4096,7 +4103,7 @@
       "name": "agent-execution-timeline",
       "type": "registry:block",
       "title": "agent-execution-timeline",
-      "description": "\u5b9e\u9645\u65f6\u95f4\u6233\u533a\u95f4\u4e0e\u53ef\u8bbf\u95ee\u6570\u636e\u8868\uff0c\u8fd0\u884c\u548c\u9a8c\u6536\u72b6\u6001\u5206\u79bb\u3002",
+      "description": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
       "dependencies": [],
       "registryDependencies": [
         "timeline",
@@ -4123,7 +4130,7 @@
       "name": "workflow-history-charts",
       "type": "registry:block",
       "title": "workflow-history-charts",
-      "description": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost \u6a21\u677f\uff0c\u4fdd\u7559\u4e13\u4e1a\u53e3\u5f84\u3002",
+      "description": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
       "dependencies": [],
       "registryDependencies": [
         "statistical-chart",
@@ -4142,7 +4149,7 @@
       "name": "forecast-chart",
       "type": "registry:block",
       "title": "forecast-chart",
-      "description": "\u6761\u4ef6\u5316\u5206\u4f4d\u533a\u95f4\u3001\u6a21\u578b\u7248\u672c\u3001\u6837\u672c\u4e0e\u6eda\u52a8\u56de\u6d4b\uff1b\u4ec5\u4e0b\u94bb\u5386\u53f2\u6216\u5f85\u5b8c\u6210\u9879\u3002",
+      "description": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
       "dependencies": [],
       "registryDependencies": [
         "data-table",
@@ -4162,7 +4169,7 @@
       "name": "agent-operations-dashboard",
       "type": "registry:block",
       "title": "agent-operations-dashboard",
-      "description": "\u6267\u884c\u533a\u95f4\u3001\u9a8c\u6536\u4e0e\u6388\u6743\u7528\u91cf\u7684\u53ea\u8bfb\u7ec4\u5408\u3002",
+      "description": "执行区间、验收与授权用量的只读组合。",
       "dependencies": [],
       "registryDependencies": [
         "agent-execution-timeline",
@@ -4181,7 +4188,7 @@
       "name": "work-dependency-view",
       "type": "registry:block",
       "title": "work-dependency-view",
-      "description": "\u590d\u7528\u53ea\u8bfb Canvas \u4e0e\u5b8c\u6574\u5173\u7cfb\u8868\uff1b\u663e\u5f0f\u4e1a\u52a1\u4f9d\u8d56\uff0c\u5f3a\u8fde\u901a\u5206\u91cf\u68c0\u6d4b\u771f\u5b9e\u73af\u8def\u3002",
+      "description": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
       "dependencies": [],
       "registryDependencies": [
         "workflow-canvas",
@@ -4207,7 +4214,7 @@
       "name": "dashboard-layout-editor",
       "type": "registry:block",
       "title": "dashboard-layout-editor",
-      "description": "\u53d7\u63a7\u5e03\u5c40\u7f16\u8f91\u4e0e WidgetPicker\uff0c\u952e\u76d8\u91cd\u6392\u3001\u6709\u9650\u5c3a\u5bf8\u3001\u53ef\u6838\u5bf9\u4fdd\u5b58\u3002",
+      "description": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
       "dependencies": [],
       "registryDependencies": [
         "dashboard-edit-session",
@@ -4227,7 +4234,7 @@
       "name": "analytics-builder",
       "type": "registry:block",
       "title": "analytics-builder",
-      "description": "\u53d7\u63a7\u7c7b\u578b\u5316\u67e5\u8be2\u914d\u7f6e\uff0c\u5339\u914d\u9884\u89c8\u540e\u5e94\u7528\uff0c\u53d6\u6d88\u4fdd\u7559\u5df2\u5e94\u7528\u5206\u6790\u3002",
+      "description": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
       "dependencies": [],
       "registryDependencies": [
         "analytics-builder-model",
@@ -4247,7 +4254,7 @@
       "name": "toolbar",
       "type": "registry:ui",
       "title": "Toolbar",
-      "description": "\u5355\u4e2aTab\u5165\u53e3\u3001\u65b9\u5411\u952e\u5bfc\u822a\u4e0e\u8f93\u5165\u6846\u5149\u6807\u517c\u5bb9\u7684\u547d\u4ee4\u5de5\u5177\u680f\u3002",
+      "description": "单个Tab入口、方向键导航与输入框光标兼容的命令工具栏。",
       "registryDependencies": [
         "button",
         "input",
@@ -4264,7 +4271,7 @@
       "name": "command-toolbar",
       "type": "registry:block",
       "title": "CommandToolbar",
-      "description": "\u6309\u53ef\u7528\u5bbd\u5ea6\u4e0e\u4f18\u5148\u7ea7\u6536\u7eb3\u547d\u4ee4\uff0c\u4fdd\u7559\u83dc\u5355\u53ef\u53d1\u73b0\u6027\u53ca\u7126\u70b9\u3002",
+      "description": "按可用宽度与优先级收纳命令，保留菜单可发现性及焦点。",
       "registryDependencies": [
         "toolbar",
         "menu",
@@ -4283,7 +4290,7 @@
       "name": "data-table-controls",
       "type": "registry:block",
       "title": "DataTableControls",
-      "description": "\u53d7\u63a7\u5217\u663e\u9690\u3001\u987a\u5e8f\u4e0e\u5bbd\u5ea6\u914d\u7f6e\uff0c\u5168\u90e8\u64cd\u4f5c\u6709\u952e\u76d8\u5165\u53e3\u3002",
+      "description": "受控列显隐、顺序与宽度配置，全部操作有键盘入口。",
       "registryDependencies": [
         "button",
         "checkbox",
@@ -4303,7 +4310,7 @@
       "name": "data-table-model",
       "type": "registry:lib",
       "title": "DataTableModel",
-      "description": "\u5217\u914d\u7f6e\u4e0e\u53ea\u8bfb\u67e5\u8be2\u4f1a\u8bdd\uff1a\u7ed1\u5b9a\u5b8c\u6574\u67e5\u8be2\u8eab\u4efd\u5e76\u4e22\u5f03\u8fdf\u5230\u54cd\u5e94\u3002",
+      "description": "列配置与只读查询会话：绑定完整查询身份并丢弃迟到响应。",
       "registryDependencies": [],
       "files": [
         {
@@ -4331,6 +4338,50 @@
         {
           "path": "lib/command-toolbar-model.ts",
           "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "workbench-resource-model",
+      "type": "registry:lib",
+      "title": "Workbench resource model",
+      "registryDependencies": [
+        "agent-workbench-model",
+        "runtime-status",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "lib/workbench-resource-model.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "workbench-file-preview",
+      "type": "registry:block",
+      "title": "WorkbenchFilePreview",
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "button",
+        "dialog",
+        "data-region",
+        "tabs",
+        "data-table",
+        "agent-workbench-review",
+        "agent-workbench-conversation",
+        "workbench-resource-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/workbench-file-preview.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "components/blocks/workbench-file-preview.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/workbench-file-preview.module.css"
         }
       ]
     }

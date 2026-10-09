@@ -4,6 +4,11 @@
 
 | 组件 | 变体编译入口 | 浏览器或模型场景 |
 | --- | --- | --- |
+| WorkbenchResourceModel | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| WorkbenchFilePreview | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| WorkbenchDocumentTabs | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| WorkbenchResourceContent | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
+| ExecutionSessionList | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
 | SessionNavigator | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
 | ProjectSwitcher | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |
 | SessionHeader | 不适用：Manifest 未声明可选文档变体；入口由 typecheck 验证 | 本索引未覆盖专属浏览器场景；既有测试保留，不能据此宣称整体验收 |

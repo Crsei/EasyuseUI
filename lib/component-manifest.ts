@@ -32,6 +32,264 @@ export type ComponentManifestEntry = {
 }
 
 const sourceManifest: ComponentManifestEntry[] = [
+{
+  "slug": "workbench-resource-model",
+  "docPath": "/docs/workbench-resource-model/",
+  "registryId": "workbench-resource-model",
+  "registryDependencies": [
+    "agent-workbench-model",
+    "runtime-status",
+    "redact"
+  ],
+  "installType": "lib",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkbenchResourceModel",
+  "category": "组合模块",
+  "description": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
+  "source": "lib/workbench-resource-model.ts",
+  "relatedSources": [],
+  "example": "components/examples/agent-workbench/resource-preview-demo.tsx",
+  "usage": "import { resourceKey, openDocument } from \"@/lib/workbench-resource-model\"",
+  "props": [
+    {
+      "name": "ResourceSnapshot",
+      "type": "ResourceIdentity & renderer / content / capabilities",
+      "description": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。"
+    },
+    {
+      "name": "WorkbenchDocuments",
+      "type": "documents / activeKey",
+      "description": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。"
+    },
+    {
+      "name": "CommandRecord",
+      "type": "command / source / outcome / connection",
+      "description": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent"
+},
+{
+  "slug": "workbench-file-preview",
+  "docPath": "/docs/workbench-file-preview/",
+  "registryId": "workbench-file-preview",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "button",
+    "dialog",
+    "data-region",
+    "tabs",
+    "data-table",
+    "agent-workbench-review",
+    "agent-workbench-conversation",
+    "workbench-resource-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkbenchFilePreview",
+  "category": "组合模块",
+  "description": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
+  "source": "components/blocks/workbench-file-preview.tsx",
+  "relatedSources": [
+    "components/blocks/workbench-file-preview.module.css"
+  ],
+  "example": "components/examples/agent-workbench/resource-preview-demo.tsx",
+  "usage": "import { WorkbenchFilePreview } from \"@/components/blocks/workbench-file-preview\"",
+  "props": [
+    {
+      "name": "resource",
+      "type": "ResourceSnapshot | undefined",
+      "description": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。"
+    },
+    {
+      "name": "open / onOpenChange",
+      "type": "boolean / (open: boolean) => void",
+      "description": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。"
+    },
+    {
+      "name": "onPin / onExpand / onAddContext / onSource",
+      "type": "(resource: ResourceSnapshot) => void",
+      "description": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。"
+    },
+    {
+      "name": "allowedImageOrigins",
+      "type": "readonly string[]",
+      "description": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent"
+},
+{
+  "slug": "workbench-document-tabs",
+  "docPath": "/docs/workbench-document-tabs/",
+  "registryId": "workbench-file-preview",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "button",
+    "dialog",
+    "data-region",
+    "tabs",
+    "data-table",
+    "agent-workbench-review",
+    "agent-workbench-conversation",
+    "workbench-resource-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkbenchDocumentTabs",
+  "category": "组合模块",
+  "description": "临时预览与固定标签分离；关闭不删除来源文件。",
+  "source": "components/blocks/workbench-file-preview.tsx",
+  "relatedSources": [
+    "components/blocks/workbench-file-preview.module.css"
+  ],
+  "example": "components/examples/agent-workbench/resource-preview-demo.tsx",
+  "usage": "import { WorkbenchDocumentTabs } from \"@/components/blocks/workbench-file-preview\"",
+  "props": [
+    {
+      "name": "state",
+      "type": "WorkbenchDocuments",
+      "description": "临时预览与固定标签分离；关闭不删除来源文件。"
+    },
+    {
+      "name": "onSelect / onClose",
+      "type": "(key: string) => void",
+      "description": "临时预览与固定标签分离；关闭不删除来源文件。"
+    },
+    {
+      "name": "onPin",
+      "type": "(resource: ResourceSnapshot) => void",
+      "description": "临时预览与固定标签分离；关闭不删除来源文件。"
+    },
+    {
+      "name": "render",
+      "type": "(resource: ResourceSnapshot) => ReactNode",
+      "description": "临时预览与固定标签分离；关闭不删除来源文件。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent"
+},
+{
+  "slug": "workbench-resource-content",
+  "docPath": "/docs/workbench-resource-content/",
+  "registryId": "workbench-file-preview",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "button",
+    "dialog",
+    "data-region",
+    "tabs",
+    "data-table",
+    "agent-workbench-review",
+    "agent-workbench-conversation",
+    "workbench-resource-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkbenchResourceContent",
+  "category": "组合模块",
+  "description": "按来源 renderer 渲染有界内容；资源名不决定格式。",
+  "source": "components/blocks/workbench-file-preview.tsx",
+  "relatedSources": [
+    "components/blocks/workbench-file-preview.module.css"
+  ],
+  "example": "components/examples/agent-workbench/resource-preview-demo.tsx",
+  "usage": "import { WorkbenchResourceContent } from \"@/components/blocks/workbench-file-preview\"",
+  "props": [
+    {
+      "name": "resource",
+      "type": "ResourceSnapshot",
+      "description": "按来源 renderer 渲染有界内容；资源名不决定格式。"
+    },
+    {
+      "name": "range",
+      "type": "{ start: number; end: number }",
+      "description": "按来源 renderer 渲染有界内容；资源名不决定格式。"
+    },
+    {
+      "name": "allowedImageOrigins",
+      "type": "readonly string[]",
+      "description": "按来源 renderer 渲染有界内容；资源名不决定格式。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent"
+},
+{
+  "slug": "execution-session-list",
+  "docPath": "/docs/execution-session-list/",
+  "registryId": "agent-workbench-panels",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "agent-workbench-model",
+    "tabs",
+    "button",
+    "input",
+    "redact",
+    "runtime-status-badge",
+    "workbench-resource-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ExecutionSessionList",
+  "category": "组合模块",
+  "description": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。",
+  "source": "components/blocks/agent-workbench/panels.tsx",
+  "relatedSources": [],
+  "example": "components/examples/agent-workbench/resource-preview-demo.tsx",
+  "usage": "import { ExecutionSessionList } from \"@/components/blocks/agent-workbench/panels\"",
+  "props": [
+    {
+      "name": "commands",
+      "type": "readonly CommandRecord[]",
+      "description": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。"
+    },
+    {
+      "name": "selectedId / onSelect",
+      "type": "string / (commandId: string) => void",
+      "description": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。"
+    },
+    {
+      "name": "onOpenTool / onOpenResource / onSource",
+      "type": "(id: string) => void",
+      "description": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。"
+    },
+    {
+      "name": "terminal",
+      "type": "(commandId: string) => ReactNode",
+      "description": "关联命令、工具、来源消息与文件；结果未知与连接状态独立。"
+    }
+  ],
+  "notes": [
+    "本地 fixture 仅证明交互和真实示例字节；服务读取、下载授权、PTY 和业务验收由宿主提供。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent"
+},
   // BEGIN agent workbench
 {
   "slug": "session-navigator",
@@ -238,8 +496,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "agent-workbench-model",
     "button",
     "data-region",
-    "item"
-  ],
+    "item",
+    "dialog",
+    "input"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -306,8 +566,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "agent-workbench-model",
     "button",
     "data-region",
-    "item"
-  ],
+    "item",
+    "dialog",
+    "input"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -464,8 +726,9 @@ const sourceManifest: ComponentManifestEntry[] = [
     "i18n",
     "agent-workbench-model",
     "button",
-    "chat-message"
-  ],
+    "chat-message",
+    "select"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -526,8 +789,9 @@ const sourceManifest: ComponentManifestEntry[] = [
     "i18n",
     "agent-workbench-model",
     "button",
-    "chat-message"
-  ],
+    "chat-message",
+    "select"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -619,8 +883,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "agent-workbench-model",
     "tree",
     "button",
-    "data-region"
-  ],
+    "data-region",
+    "redact",
+    "workbench-resource-model"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -667,8 +933,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "agent-workbench-model",
     "tree",
     "button",
-    "data-region"
-  ],
+    "data-region",
+    "redact",
+    "workbench-resource-model"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -720,8 +988,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "agent-workbench-model",
     "tree",
     "button",
-    "data-region"
-  ],
+    "data-region",
+    "redact",
+    "workbench-resource-model"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -804,8 +1074,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "tabs",
     "button",
     "input",
-    "redact"
-  ],
+    "redact",
+    "runtime-status-badge",
+    "workbench-resource-model"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -853,8 +1125,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "tabs",
     "button",
     "input",
-    "redact"
-  ],
+    "redact",
+    "runtime-status-badge",
+    "workbench-resource-model"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",
@@ -922,8 +1196,10 @@ const sourceManifest: ComponentManifestEntry[] = [
     "tabs",
     "button",
     "input",
-    "redact"
-  ],
+    "redact",
+    "runtime-status-badge",
+    "workbench-resource-model"
+],
   "installType": "block",
   "displayCategory": "patterns",
   "availability": "available",

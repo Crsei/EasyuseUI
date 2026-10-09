@@ -61,6 +61,8 @@ export type WorkspaceShellProps = {
   defaultBottomPanelHeight?: number
   onBottomPanelHeightChange?: (height: number) => void
   title: ReactNode
+  /** Optional 48px activity rail. Without it, the original navigation layout is retained. */
+  activityBar?: ReactNode
   sidebar: ReactNode
   children: ReactNode
   toolbar?: ReactNode
@@ -75,6 +77,7 @@ export type WorkspaceShellProps = {
 
 export function WorkspaceShell({
   title,
+  activityBar,
   sidebar,
   children,
   toolbar,
@@ -115,6 +118,7 @@ export function WorkspaceShell({
 
   const sidebarId = useId()
   const sidebarRef = useRef<HTMLElement>(null)
+  const navigationOpenerRef = useRef<HTMLButtonElement>(null)
   const [requestedSidebarWidth, setSidebarWidth] = useLayoutValue(
     controlledSidebarWidth,
     defaultSidebarWidth,
@@ -140,6 +144,8 @@ export function WorkspaceShell({
   const openerRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLElement>(null)
   const [wide, setWide] = useState(false)
+  const [sidebarInline, setSidebarInline] = useState(false)
+  const [navigationOpen, setNavigationOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useLayoutValue(
     controlledSidebar,
     defaultSidebarCollapsed,
@@ -186,6 +192,7 @@ export function WorkspaceShell({
     const observer = new ResizeObserver(([entry]) => {
       const isWide = entry.contentRect.width >= 1280
       setWide(isWide)
+      setSidebarInline(entry.contentRect.width >= 1024)
       if (ref.current) {
         const css = getComputedStyle(ref.current)
         setLimits({
@@ -230,6 +237,7 @@ export function WorkspaceShell({
       ref={ref}
       className={cn(styles.shell, className)}
       data-sidebar-collapsed={sidebarCollapsed}
+      data-activity-bar={activityBar !== undefined || undefined}
       style={
         {
           ...(inspectorWidth === null
@@ -244,12 +252,22 @@ export function WorkspaceShell({
           variant="ghost"
           size="icon"
           className={styles.sidebarToggle}
+          ref={navigationOpenerRef}
           aria-label={
             sidebarCollapsed
               ? t("workspaceShell.expandSidebar")
               : t("workspaceShell.collapseSidebar")
           }
-          onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+          aria-expanded={
+            activityBar !== undefined && !sidebarInline
+              ? navigationOpen
+              : !sidebarCollapsed
+          }
+          onClick={() =>
+            activityBar !== undefined && !sidebarInline
+              ? setNavigationOpen(true)
+              : setSidebarCollapsed(!sidebarCollapsed)
+          }
         >
           {sidebarCollapsed ? <PanelLeftOpen /> : <PanelLeftClose />}
         </Button>
@@ -274,15 +292,20 @@ export function WorkspaceShell({
         )}
       </header>
       <div className={styles.layout}>
-        <aside
-          id={sidebarId}
-          ref={sidebarRef}
-          className={styles.sidebar}
-          aria-label={t("workspaceShell.workspaceNavigation")}
+        {activityBar !== undefined && (
+          <div className={styles.activity}>{activityBar}</div>
+        )}
+        {(activityBar === undefined || sidebarInline) && (
+          <aside
+            id={sidebarId}
+            ref={sidebarRef}
+            className={styles.sidebar}
+            aria-label={t("workspaceShell.workspaceNavigation")}
             tabIndex={0}
-        >
-          {sidebar}
-        </aside>
+          >
+            {sidebar}
+          </aside>
+        )}
         {sidebarResizable && !sidebarCollapsed && (
           <ResizableHandle
             unstyled
@@ -337,6 +360,58 @@ export function WorkspaceShell({
           </aside>
         )}
       </div>
+      {activityBar !== undefined && (
+        <Dialog.Root
+          open={!sidebarInline && navigationOpen}
+          onOpenChange={setNavigationOpen}
+        >
+          <OverlayLayer>
+            {(layerStyle) => (
+              <Dialog.Portal container={portalContainer}>
+                <Dialog.Backdrop
+                  style={layerStyle}
+                  className={styles.backdrop}
+                />
+                <Dialog.Popup
+                  style={layerStyle}
+                  className={cn(styles.drawer, styles.navigationDrawer)}
+                  finalFocus={navigationOpenerRef}
+                >
+                  <div className={styles.inspectorHeader}>
+                    <Dialog.Title>
+                      {t("workspaceShell.workspaceNavigation")}
+                    </Dialog.Title>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      aria-label={t("dialog.closeDialog")}
+                      onClick={() => setNavigationOpen(false)}
+                    >
+                      <X />
+                    </Button>
+                  </div>
+                  <Dialog.Description className="sr-only">
+                    {t("workspaceShell.workspaceNavigation")}
+                  </Dialog.Description>
+                  <div
+                    className={styles.inspectorBody}
+                    onClick={(event) => {
+                      if (
+                        (event.target as HTMLElement).closest(
+                          "[data-navigation-close]",
+                        )
+                      )
+                        setNavigationOpen(false)
+                    }}
+                  >
+                    {sidebar}
+                  </div>
+                </Dialog.Popup>
+              </Dialog.Portal>
+            )}
+          </OverlayLayer>
+        </Dialog.Root>
+      )}
       {bottomPanel && (
         <section
           className={styles.bottom}

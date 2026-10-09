@@ -3,6 +3,19 @@ import AxeBuilder from "@axe-core/playwright"
 const root = "/examples/agent-workbench"
 const input = (page: Page) =>
   page.getByRole("textbox", { name: "消息输入", exact: true })
+async function openReview(page: import("@playwright/test").Page, keyboard = false) {
+  const link = page.getByRole("link", { name: "变更", exact: true }).filter({ visible: true })
+  if (await link.isVisible()) {
+    if (keyboard) { await link.focus(); await page.keyboard.press("Enter") }
+    else await link.click()
+  } else {
+    await page.getByRole("button", { name: "更多工作台工具", exact: true }).click()
+    const entry = page.getByRole("menuitem", { name: /^变更/ })
+    if (keyboard) { await entry.focus(); await page.keyboard.press("Enter") }
+    else await entry.click()
+  }
+  await expect(page).toHaveURL(/page=review/)
+}
 test("complete templates retain accessible controls on desktop and mobile", async ({
   page,
 }) => {
@@ -107,10 +120,10 @@ test("session drafts and references survive navigation, locale and layout withou
     .getByRole("combobox", { name: "选择来源引用", exact: true })
     .last()
     .selectOption("ref-filter")
-  await page.locator('[data-workbench-layout="review"]').click()
+  await page.getByRole("link", { name: "变更", exact: true }).click()
   await expect(
-    page.locator('[data-workbench-layout="review"]'),
-  ).toHaveAttribute("aria-pressed", "true", { timeout: 15000 })
+    page.getByRole("link", { name: "变更", exact: true }),
+  ).toHaveAttribute("aria-current", "page", { timeout: 15000 })
   await expect(input(page)).toHaveValue("第一会话的用户草稿")
   await expect(input(page)).toHaveAttribute("data-instance", "retained")
   await page.locator('[data-workbench-layout="conversation"]').click()
@@ -307,10 +320,8 @@ test("new coding task proceeds through approval, failed evidence, correction and
   await expect(
     page.getByText(/Fixture source reports focused tests passed/),
   ).toBeVisible()
-  await page.locator('[data-workbench-layout="review"]').click()
-  await expect(
-    page.locator('[data-workbench-layout="review"]'),
-  ).toHaveAttribute("aria-pressed", "true", { timeout: 15000 })
+  await openReview(page)
+  await expect(page).toHaveURL(/layout=review/)
   await page
     .getByRole("button", { name: "添加行反馈 2", exact: true })
     .last()
@@ -372,7 +383,7 @@ test("artifact template generates a report, locates a reference and brings revie
   await source(page)
   await advance(page)
   await input(page).fill("Preserved report draft")
-  await page.getByRole("button", { name: "产物", exact: true }).first().click()
+  await page.getByRole("link", { name: "产物", exact: true }).first().click()
   await expect(
     page.getByText("analysis-report.md", { exact: true }),
   ).toBeVisible()
@@ -386,7 +397,7 @@ test("artifact template generates a report, locates a reference and brings revie
       .filter({ visible: true })
       .first(),
   ).toBeVisible()
-  await page.getByRole("button", { name: "产物", exact: true }).first().click()
+  await page.getByRole("link", { name: "产物", exact: true }).first().click()
   await page
     .getByRole("button", { name: "将审阅意见带回对话", exact: true })
     .click()
@@ -487,10 +498,8 @@ test("1000 history records and a long Diff report actual mounted counts and pres
   expect(await history.evaluate((el) => el.scrollTop)).toBeLessThanOrEqual(
     top + 8,
   )
-  await page.locator('[data-workbench-layout="review"]').click()
-  await expect(
-    page.locator('[data-workbench-layout="review"]'),
-  ).toHaveAttribute("aria-pressed", "true", { timeout: 15000 })
+  await openReview(page)
+  await expect(page).toHaveURL(/layout=review/)
   await expect(page.locator("[data-line-id]")).toHaveCount(1000)
   await expect(
     page
@@ -529,17 +538,14 @@ for (const width of [390, 768, 1024, 1280, 1440])
     await expect(
       page.getByRole("button", { name: "发送", exact: true }),
     ).toBeInViewport({ ratio: 1 })
-    await page.locator('[data-workbench-layout="review"]').click()
-    await expect(
-      page.locator('[data-workbench-layout="review"]'),
-    ).toHaveAttribute("aria-pressed", "true", { timeout: 15000 })
+    await openReview(page)
+    await expect(page).toHaveURL(/layout=review/)
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true)
     if (width < 1024) {
-      await page.getByRole("button", { name: "对象属性", exact: true }).click()
       await expect(
         page.getByRole("tab", { name: "变更", exact: true }),
       ).toBeVisible()
@@ -586,9 +592,7 @@ test.describe("200 percent effective layout", () => {
   }, info) => {
     await page.goto(`${root}/app/?page=session`)
     await input(page).fill("Zoomed layout draft")
-    await page.locator('[data-workbench-layout="review"]').focus()
-    await page.keyboard.press("Enter")
-    await page.getByRole("button", { name: "对象属性", exact: true }).click()
+    await openReview(page, true)
     await expect(
       page.getByRole("tab", { name: "变更", exact: true }),
     ).toBeVisible()
