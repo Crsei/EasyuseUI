@@ -113,7 +113,8 @@
       "title": "Button",
       "dependencies": [
         "@base-ui/react@^1.8.0",
-        "class-variance-authority@^0.7.1"
+        "class-variance-authority@^0.7.1",
+        "lucide-react@^0.577.0"
       ],
       "registryDependencies": [
         "theme",
@@ -152,7 +153,8 @@
       "type": "registry:ui",
       "title": "Dialog",
       "dependencies": [
-        "@base-ui/react@^1.8.0"
+        "@base-ui/react@^1.8.0",
+        "lucide-react@^0.577.0"
       ],
       "registryDependencies": [
         "theme",
@@ -500,6 +502,9 @@
       "name": "chip",
       "type": "registry:ui",
       "title": "Chip",
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "utils",
@@ -1106,7 +1111,8 @@
       "type": "registry:ui",
       "title": "Select",
       "dependencies": [
-        "@base-ui/react@1.8.0"
+        "@base-ui/react@1.8.0",
+        "lucide-react@^0.577.0"
       ],
       "registryDependencies": [
         "theme",
@@ -1126,7 +1132,8 @@
       "type": "registry:ui",
       "title": "Combobox",
       "dependencies": [
-        "@base-ui/react@1.8.0"
+        "@base-ui/react@1.8.0",
+        "lucide-react@^0.577.0"
       ],
       "registryDependencies": [
         "theme",
@@ -2809,6 +2816,9 @@
     {
       "name": "spinner",
       "type": "registry:ui",
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
       "registryDependencies": [
         "theme",
         "utils",

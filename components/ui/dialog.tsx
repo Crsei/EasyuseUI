@@ -9,6 +9,7 @@ import { ThemePortalScope, useThemePortalContainer } from "./theme-boundary"
 import { useI18n } from "@/lib/i18n-provider"
 
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog"
+import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function Dialog<Payload = unknown>({
@@ -64,17 +65,7 @@ export function DialogContent({
               aria-label={t("dialog.closeDialog")}
               className="absolute top-4 right-4 flex size-8 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground [@media(pointer:coarse)]:size-11"
             >
-              <svg
-                aria-hidden="true"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-              >
-                <path d="m6 6 12 12M18 6 6 18" />
-              </svg>
+              <X aria-hidden="true" size={16} strokeWidth={1.8} />
             </DialogPrimitive.Close>
           </DialogPrimitive.Popup>
         </DialogPrimitive.Portal>

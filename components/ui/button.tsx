@@ -1,6 +1,7 @@
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { ButtonTooltip } from "./button-tooltip"
 import { cva, type VariantProps } from "class-variance-authority"
+import { LoaderCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export const buttonVariants = cva(
@@ -57,27 +58,11 @@ export function Button({
       className={cn(buttonVariants({ variant, size }), className)}
     >
       {loading && (
-        <svg
+        <LoaderCircle
           aria-hidden="true"
           className="animate-spin motion-reduce:animate-none"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <circle
-            cx="12"
-            cy="12"
-            r="9"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            opacity="0.25"
-          />
-          <path
-            d="M12 3a9 9 0 0 1 9 9"
-            stroke="currentColor"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-          />
-        </svg>
+          strokeWidth={1.75}
+        />
       )}
       {children}
     </ButtonPrimitive>

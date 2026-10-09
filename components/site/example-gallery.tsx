@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 import { exampleManifest } from "@/lib/example-manifest"
 import { componentManifest } from "@/lib/component-manifest"
 import { SiteLocalized } from "./site-localized"
@@ -42,8 +43,17 @@ export function ExampleGallery() {
                   </Link>
                 )
               })}
-              <Link prefetch={false} href={`/blog/${example.article}/`}>
-                <SiteText messageKey="site.redesign.readArticle" /> ↗
+              <Link
+                prefetch={false}
+                href={`/blog/${example.article}/`}
+                className="gap-1"
+              >
+                <SiteText messageKey="site.redesign.readArticle" />
+                <ArrowUpRight
+                  aria-hidden="true"
+                  size={16}
+                  className="shrink-0"
+                />
               </Link>
             </div>
           </div>

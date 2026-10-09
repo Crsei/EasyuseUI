@@ -1,6 +1,9 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.iconReuse.spinner": "与 Button 复用 Lucide LoaderCircle 图元；Spinner 独立负责 status 与可读文案。",
+    "site.iconReuse.chip": "Check / X 复用 Lucide，12px 图形槽保持独立于 Button 的默认图标尺寸。",
+    "site.iconReuse.button": "加载图元与 Spinner 统一为 Lucide LoaderCircle；Button 不依赖 Spinner 的 status 或文案。",
     "site.examples.salesCrmDescription": "本地示例；刷新页面后重置。未连接 CRM 服务。",
     "workbenchCatalog.description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
     "workbenchCatalog.snapshot": "稳定对象标识、版本、能力与独立操作回执。",
@@ -2826,6 +2829,9 @@ export const siteMessages = {
 "site.gapAudit.detail5":"交互单元格使用separate，避免嵌套按钮。"
 },
   en: {
+    "site.iconReuse.spinner": "Shares the Lucide LoaderCircle graphic with Button; Spinner owns its status and readable text.",
+    "site.iconReuse.chip": "Check / X use Lucide in a 12px slot independent of Button's default icon size.",
+    "site.iconReuse.button": "Uses the same Lucide LoaderCircle graphic as Spinner without depending on Spinner's status or text.",
     "site.examples.salesCrmDescription": "Local demo; refresh resets data. No CRM service is connected.",
     "workbenchCatalog.description": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation.",
     "workbenchCatalog.snapshot": "Stable object identity, revisions, capabilities and separate operation receipts.",

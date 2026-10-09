@@ -2889,7 +2889,8 @@ const sourceManifest: ComponentManifestEntry[] = [
     }
   ],
   "notes": [
-    "减少动效时停止旋转，保持状态文字。"
+    "减少动效时停止旋转，保持状态文字。",
+    "与 Button 复用 Lucide LoaderCircle 图元；Spinner 独立负责 status 与可读文案。"
   ]
 },
 {
@@ -5120,6 +5121,7 @@ const sourceManifest: ComponentManifestEntry[] = [
       "主操作和移除按钮是兄弟目标，Enter/Space 激活；选中状态通过 aria-pressed 表达。",
       "默认高32px；粗指针下每个操作目标至少44×44，支持减少动态效果。",
       "不自行修改数据、不提交网络请求；移除后由调用方恢复合理焦点。",
+      "Check / X 复用 Lucide，12px 图形槽保持独立于 Button 的默认图标尺寸。",
     ],
   },
   {
@@ -5170,6 +5172,7 @@ const sourceManifest: ComponentManifestEntry[] = [
       "继承 Base UI Button 的其他属性，包括 render、onClick 和 ref。",
       "纯图标按钮需要 aria-label，自动提供 hover / focus Tooltip。加载状态保留文字，并通过 aria-busy 表达。",
       "切换按钮用 aria-pressed；错误用 aria-invalid 并关联说明。尺寸和状态遵守 Component-Specification.md。",
+      "加载图元与 Spinner 统一为 Lucide LoaderCircle；Button 不依赖 Spinner 的 status 或文案。",
     ],
   },
   {

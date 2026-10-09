@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 import { ExampleGallery } from "@/components/site/example-gallery"
 import { SiteText } from "@/components/site/site-i18n"
 import styles from "@/components/site/site.module.css"
@@ -17,13 +18,21 @@ export default function ExamplesPage() {
         <SiteText messageKey="site.redesign.exampleGalleryIntro" />
       </p>
       <ExampleGallery />
-      <Link href="/examples/component-contracts/" prefetch={false} className="mt-8 flex min-h-11 items-center text-sm text-primary"><SiteText messageKey="site.gap.contracts" /> ↗</Link>
+      <Link
+        href="/examples/component-contracts/"
+        prefetch={false}
+        className="mt-8 flex min-h-11 items-center gap-1 text-sm text-primary"
+      >
+        <SiteText messageKey="site.gap.contracts" />
+        <ArrowUpRight aria-hidden="true" size={16} className="shrink-0" />
+      </Link>
       <Link
         href="/components/"
         prefetch={false}
-        className="mt-8 inline-flex min-h-11 items-center text-sm text-primary"
+        className="mt-8 inline-flex min-h-11 items-center gap-1 text-sm text-primary"
       >
-        <SiteText messageKey="site.redesign.browseAll" /> ↗
+        <SiteText messageKey="site.redesign.browseAll" />
+        <ArrowUpRight aria-hidden="true" size={16} className="shrink-0" />
       </Link>
     </main>
   )

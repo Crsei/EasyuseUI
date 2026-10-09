@@ -1,5 +1,5 @@
 "use client"
-import { Download, Plus } from "lucide-react"
+import { Download, Plus, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { FilterToolbar } from "@/components/blocks/filter-toolbar"
 import { owners, STAGES } from "./fixtures"
@@ -98,7 +98,7 @@ export function SalesCrmToolbar({
                 onFilters({ owner: "all", stage: "any", activity: 90 })
               }
             >
-              ×
+              <X aria-hidden="true" />
             </Button>
           )}
         </>

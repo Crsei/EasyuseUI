@@ -2,6 +2,7 @@
 import { useI18n } from "@/lib/i18n-provider"
 
 import { useId } from "react"
+import { Check, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "./button"
 import styles from "./chip.module.css"
@@ -53,15 +54,12 @@ export function Chip({
           onClick={() => onSelectedChange(!selected)}
         >
           {selected && (
-            <svg
+            <Check
               aria-hidden="true"
-              viewBox="0 0 16 16"
-              width="12"
-              height="12"
-              fill="none"
-            >
-              <path d="m3 8 3 3 7-7" stroke="currentColor" strokeWidth="1.75" />
-            </svg>
+              size={12}
+              strokeWidth={2.625}
+              className="shrink-0"
+            />
           )}
           {label}
         </button>
@@ -78,19 +76,12 @@ export function Chip({
           disabled={unavailable}
           onClick={onRemove}
         >
-          <svg
+          <X
             aria-hidden="true"
-            viewBox="0 0 16 16"
-            width="12"
-            height="12"
-            fill="none"
-          >
-            <path
-              d="m4 4 8 8m0-8-8 8"
-              stroke="currentColor"
-              strokeWidth="1.75"
-            />
-          </svg>
+            size={12}
+            strokeWidth={2.625}
+            className="size-3! stroke-[2.625]!"
+          />
         </Button>
       )}
       {busy && (

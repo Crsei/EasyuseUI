@@ -1,6 +1,7 @@
 "use client"
 import { OverlayLayer } from "@/lib/overlay-layer"
 import { Combobox as ComboboxPrimitive } from "@base-ui/react/combobox"
+import { Check } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useThemePortalContainer } from "./theme-boundary"
 
@@ -54,16 +55,7 @@ export function ComboboxItem({
     >
       {children}
       <ComboboxPrimitive.ItemIndicator className="ml-auto" aria-hidden="true">
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 16 16"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-        >
-          <path d="m3 8 3 3 7-7" />
-        </svg>
+        <Check aria-hidden="true" size={14} strokeWidth={2.7} />
       </ComboboxPrimitive.ItemIndicator>
     </ComboboxPrimitive.Item>
   )

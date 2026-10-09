@@ -1,6 +1,9 @@
 {
   "prefix": "site.",
   "keys": [
+    "iconReuse.spinner",
+    "iconReuse.chip",
+    "iconReuse.button",
     "examples.salesCrmDescription",
     "!workbenchCatalog.description",
     "!workbenchCatalog.snapshot",
@@ -2206,6 +2209,9 @@
   ],
   "values": {
     "zh-CN": [
+      "与 Button 复用 Lucide LoaderCircle 图元；Spinner 独立负责 status 与可读文案。",
+      "Check / X 复用 Lucide，12px 图形槽保持独立于 Button 的默认图标尺寸。",
+      "加载图元与 Spinner 统一为 Lucide LoaderCircle；Button 不依赖 Spinner 的 status 或文案。",
       "本地示例；刷新页面后重置。未连接 CRM 服务。",
       "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
       "稳定对象标识、版本、能力与独立操作回执。",
@@ -4410,6 +4416,9 @@
       "交互单元格使用separate，避免嵌套按钮。"
     ],
     "en": [
+      "Shares the Lucide LoaderCircle graphic with Button; Spinner owns its status and readable text.",
+      "Check / X use Lucide in a 12px slot independent of Button's default icon size.",
+      "Uses the same Lucide LoaderCircle graphic as Spinner without depending on Spinner's status or text.",
       "Local demo; refresh resets data. No CRM service is connected.",
       "Controlled Agent workbench regions; the caller owns services, permission and source confirmation.",
       "Stable object identity, revisions, capabilities and separate operation receipts.",
