@@ -157,6 +157,158 @@
     ]
   },
   {
+    "slug": "svg-canvas",
+    "docPath": "/docs/svg-canvas/",
+    "registryId": "svg-canvas",
+    "registryDependencies": [
+      "theme",
+      "i18n",
+      "svg-workbench-model",
+      "svg-workbench-styles"
+    ],
+    "installType": "block",
+    "displayCategory": "workspace",
+    "availability": "available",
+    "name": "SvgCanvas",
+    "category": "组合模块",
+    "description": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+    "source": "components/blocks/svg-canvas.tsx",
+    "example": "components/examples/svg-workbench/workbench-demo.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgCanvas } from \"@/components/blocks/svg-canvas\"\nexport function Example(props: ComponentProps<typeof SvgCanvas>) {\n  return <SvgCanvas {...props} />\n}",
+    "widePreview": true,
+    "docGroup": "workspace",
+    "related": [
+      "svg-icon-library",
+      "svg-properties",
+      "svg-workbench"
+    ],
+    "docOrder": 105,
+    "aliases": [],
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
+    "slug": "svg-icon-library",
+    "docPath": "/docs/svg-icon-library/",
+    "registryId": "svg-icon-library",
+    "registryDependencies": [
+      "theme",
+      "i18n",
+      "svg-workbench-model",
+      "svg-workbench-styles",
+      "svg-canvas",
+      "button",
+      "input",
+      "field",
+      "native-select",
+      "item",
+      "data-region"
+    ],
+    "installType": "block",
+    "displayCategory": "workspace",
+    "availability": "available",
+    "name": "SvgIconLibrary",
+    "category": "组合模块",
+    "description": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+    "source": "components/blocks/svg-icon-library.tsx",
+    "example": "components/examples/svg-workbench/workbench-demo.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgIconLibrary } from \"@/components/blocks/svg-icon-library\"\nexport function Example(props: ComponentProps<typeof SvgIconLibrary>) {\n  return <SvgIconLibrary {...props} />\n}",
+    "widePreview": false,
+    "docGroup": "workspace",
+    "related": [
+      "svg-canvas",
+      "svg-properties",
+      "svg-workbench"
+    ],
+    "docOrder": 106,
+    "aliases": [],
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
+    "slug": "svg-properties",
+    "docPath": "/docs/svg-properties/",
+    "registryId": "svg-properties",
+    "registryDependencies": [
+      "theme",
+      "i18n",
+      "svg-workbench-model",
+      "svg-workbench-styles",
+      "button",
+      "field",
+      "input",
+      "textarea"
+    ],
+    "installType": "block",
+    "displayCategory": "workspace",
+    "availability": "available",
+    "name": "SvgProperties",
+    "category": "组合模块",
+    "description": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+    "source": "components/blocks/svg-properties.tsx",
+    "example": "components/examples/svg-workbench/workbench-demo.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgProperties } from \"@/components/blocks/svg-properties\"\nexport function Example(props: ComponentProps<typeof SvgProperties>) {\n  return <SvgProperties {...props} />\n}",
+    "widePreview": false,
+    "docGroup": "workspace",
+    "related": [
+      "svg-canvas",
+      "svg-icon-library",
+      "svg-workbench"
+    ],
+    "docOrder": 107,
+    "aliases": [],
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
+    "slug": "svg-workbench",
+    "docPath": "/docs/svg-workbench/",
+    "registryId": "svg-workbench",
+    "registryDependencies": [
+      "theme",
+      "i18n",
+      "svg-workbench-model",
+      "svg-workbench-styles",
+      "svg-canvas",
+      "svg-icon-library",
+      "svg-properties",
+      "workspace-shell",
+      "button",
+      "tabs",
+      "tree",
+      "textarea",
+      "native-select",
+      "field",
+      "slider",
+      "dialog",
+      "sheet"
+    ],
+    "installType": "block",
+    "displayCategory": "workspace",
+    "availability": "available",
+    "name": "SvgWorkbench",
+    "category": "组合模块",
+    "description": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+    "source": "components/blocks/svg-workbench.tsx",
+    "example": "components/examples/svg-workbench/workbench-demo.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgWorkbench } from \"@/components/blocks/svg-workbench\"\nexport function Example(props: ComponentProps<typeof SvgWorkbench>) {\n  return <SvgWorkbench {...props} />\n}",
+    "widePreview": true,
+    "docGroup": "workspace",
+    "related": [
+      "svg-canvas",
+      "svg-icon-library",
+      "svg-properties"
+    ],
+    "docOrder": 108,
+    "aliases": [],
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
     "slug": "session-navigator",
     "docPath": "/docs/session-navigator/",
     "registryId": "agent-workbench-navigation",
@@ -185,7 +337,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 105,
+    "docOrder": 109,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -220,7 +372,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 106,
+    "docOrder": 110,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -255,7 +407,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 107,
+    "docOrder": 111,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -290,7 +442,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 108,
+    "docOrder": 112,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -325,7 +477,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 109,
+    "docOrder": 113,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -358,7 +510,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 110,
+    "docOrder": 114,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -391,7 +543,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 111,
+    "docOrder": 115,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -424,7 +576,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 112,
+    "docOrder": 116,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -457,7 +609,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 113,
+    "docOrder": 117,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -492,7 +644,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 114,
+    "docOrder": 118,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -527,7 +679,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 115,
+    "docOrder": 119,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -562,7 +714,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 116,
+    "docOrder": 120,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -598,7 +750,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 117,
+    "docOrder": 121,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -634,7 +786,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 118,
+    "docOrder": 122,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -670,7 +822,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 119,
+    "docOrder": 123,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -713,7 +865,7 @@
       "agent-composer",
       "change-review-panel"
     ],
-    "docOrder": 120,
+    "docOrder": 124,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -755,7 +907,7 @@
       "agent-workbench",
       "agent-workbench-model"
     ],
-    "docOrder": 121,
+    "docOrder": 125,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -785,7 +937,7 @@
       "agent-composer",
       "change-review-panel"
     ],
-    "docOrder": 122,
+    "docOrder": 126,
     "aliases": [],
     "notes": [
       "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -816,7 +968,7 @@
         "code": "import { analyticsEntityKey } from \"@/lib/analytics-model\"\nexport const identity = analyticsEntityKey({\n  kind: \"workItem\", sourceId: \"service\", projectId: \"project-1\", entityId: \"item-1\",\n})"
       }
     ],
-    "docOrder": 123,
+    "docOrder": 127,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -849,7 +1001,7 @@
         "code": "import { chartSeriesColor } from \"@/lib/chart-model\"\nexport const seriesColor = chartSeriesColor(\"1\")\nexport const completedColor = chartSeriesColor(\"1\", \"completed\")"
       }
     ],
-    "docOrder": 124,
+    "docOrder": 128,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -887,7 +1039,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartFrame } from \"@/components/ui/chart\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartFrame>) {\n  return <ChartFrame {...props} />\n}"
       }
     ],
-    "docOrder": 125,
+    "docOrder": 129,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -925,7 +1077,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartDataTable } from \"@/components/blocks/charts/chart-data-table\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartDataTable>) {\n  return <ChartDataTable {...props} />\n}"
       }
     ],
-    "docOrder": 126,
+    "docOrder": 130,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -964,7 +1116,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { StatisticalChart } from \"@/components/blocks/charts/statistical-chart\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof StatisticalChart>) {\n  return <StatisticalChart {...props} />\n}"
       }
     ],
-    "docOrder": 127,
+    "docOrder": 131,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1003,7 +1155,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartDrilldownPanel } from \"@/components/blocks/charts/chart-drilldown-panel\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartDrilldownPanel>) {\n  return <ChartDrilldownPanel {...props} />\n}"
       }
     ],
-    "docOrder": 128,
+    "docOrder": 132,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1040,7 +1192,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkflowMetric } from \"@/components/blocks/analytics/workflow-metric\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkflowMetric>) {\n  return <WorkflowMetric {...props} />\n}"
       }
     ],
-    "docOrder": 129,
+    "docOrder": 133,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1075,7 +1227,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { StatusDistribution } from \"@/components/blocks/analytics/workflow-charts\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof StatusDistribution>) {\n  return <StatusDistribution {...props} />\n}"
       }
     ],
-    "docOrder": 130,
+    "docOrder": 134,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1112,7 +1264,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { RiskEvidenceList } from \"@/components/blocks/analytics/risk-evidence-list\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof RiskEvidenceList>) {\n  return <RiskEvidenceList {...props} />\n}"
       }
     ],
-    "docOrder": 131,
+    "docOrder": 135,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1150,7 +1302,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkTraceabilityView } from \"@/components/blocks/analytics/work-traceability-view\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkTraceabilityView>) {\n  return <WorkTraceabilityView {...props} />\n}"
       }
     ],
-    "docOrder": 132,
+    "docOrder": 136,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1186,7 +1338,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkItemsViewAdapter } from \"@/components/blocks/analytics/work-items-view-adapter\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkItemsViewAdapter>) {\n  return <WorkItemsViewAdapter {...props} />\n}"
       }
     ],
-    "docOrder": 133,
+    "docOrder": 137,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1226,7 +1378,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { DashboardGrid } from \"@/components/blocks/dashboard/dashboard\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof DashboardGrid>) {\n  return <DashboardGrid {...props} />\n}"
       }
     ],
-    "docOrder": 134,
+    "docOrder": 138,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1267,7 +1419,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ProjectOverviewDashboard } from \"@/components/blocks/dashboard/project-overview-dashboard\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ProjectOverviewDashboard>) {\n  return <ProjectOverviewDashboard {...props} />\n}"
       }
     ],
-    "docOrder": 135,
+    "docOrder": 139,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。"
@@ -1301,7 +1453,7 @@
         "code": "import { computeWorkload } from \"@/lib/analytics-resource-model\"\nexport const api = computeWorkload"
       }
     ],
-    "docOrder": 136,
+    "docOrder": 140,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1334,7 +1486,7 @@
         "code": "import { computeHistoricalMetric } from \"@/lib/analytics-history-metrics\"\nexport const api = computeHistoricalMetric"
       }
     ],
-    "docOrder": 137,
+    "docOrder": 141,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1368,7 +1520,7 @@
         "code": "import { validateAnalyticsBuilder } from \"@/lib/analytics-builder-model\"\nexport const api = validateAnalyticsBuilder"
       }
     ],
-    "docOrder": 138,
+    "docOrder": 142,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1402,7 +1554,7 @@
         "code": "import { DashboardEditSession } from \"@/lib/dashboard-edit-session\"\nexport const api = DashboardEditSession"
       }
     ],
-    "docOrder": 139,
+    "docOrder": 143,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1435,7 +1587,7 @@
         "code": "import { analyticsSvgExport } from \"@/lib/analytics-image-export\"\nexport const api = analyticsSvgExport"
       }
     ],
-    "docOrder": 140,
+    "docOrder": 144,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1472,7 +1624,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { Heatmap } from \"@/components/blocks/charts/heatmap\"\nexport function Example(props: ComponentProps<typeof Heatmap>) {\n  return <Heatmap {...props} />\n}"
       }
     ],
-    "docOrder": 141,
+    "docOrder": 145,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1508,7 +1660,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ResourceAllocationView } from \"@/components/blocks/analytics/resource-allocation-view\"\nexport function Example(props: ComponentProps<typeof ResourceAllocationView>) {\n  return <ResourceAllocationView {...props} />\n}"
       }
     ],
-    "docOrder": 142,
+    "docOrder": 146,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1546,7 +1698,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AgentExecutionTimeline } from \"@/components/blocks/analytics/agent-execution-timeline\"\nexport function Example(props: ComponentProps<typeof AgentExecutionTimeline>) {\n  return <AgentExecutionTimeline {...props} />\n}"
       }
     ],
-    "docOrder": 143,
+    "docOrder": 147,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1581,7 +1733,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { BurndownChart } from \"@/components/blocks/charts/workflow-history-charts\"\nexport function Example(props: ComponentProps<typeof BurndownChart>) {\n  return <BurndownChart {...props} />\n}"
       }
     ],
-    "docOrder": 144,
+    "docOrder": 148,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1617,7 +1769,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ForecastChart } from \"@/components/blocks/charts/forecast-chart\"\nexport function Example(props: ComponentProps<typeof ForecastChart>) {\n  return <ForecastChart {...props} />\n}"
       }
     ],
-    "docOrder": 145,
+    "docOrder": 149,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1652,7 +1804,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AgentOperationsDashboard } from \"@/components/blocks/analytics/agent-operations-dashboard\"\nexport function Example(props: ComponentProps<typeof AgentOperationsDashboard>) {\n  return <AgentOperationsDashboard {...props} />\n}"
       }
     ],
-    "docOrder": 146,
+    "docOrder": 150,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1689,7 +1841,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkDependencyView } from \"@/components/blocks/analytics/work-dependency-view\"\nexport function Example(props: ComponentProps<typeof WorkDependencyView>) {\n  return <WorkDependencyView {...props} />\n}"
       }
     ],
-    "docOrder": 147,
+    "docOrder": 151,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1725,7 +1877,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { DashboardLayoutEditor } from \"@/components/blocks/dashboard/dashboard-layout-editor\"\nexport function Example(props: ComponentProps<typeof DashboardLayoutEditor>) {\n  return <DashboardLayoutEditor {...props} />\n}"
       }
     ],
-    "docOrder": 148,
+    "docOrder": 152,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1761,7 +1913,7 @@
         "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AnalyticsBuilder } from \"@/components/blocks/analytics/analytics-builder\"\nexport function Example(props: ComponentProps<typeof AnalyticsBuilder>) {\n  return <AnalyticsBuilder {...props} />\n}"
       }
     ],
-    "docOrder": 149,
+    "docOrder": 153,
     "aliases": [],
     "notes": [
       "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
@@ -1785,7 +1937,7 @@
     "example": "components/examples/control-composition-demo.tsx",
     "usage": "import { ButtonGroup } from \"@/components/ui/button-group\"",
     "docGroup": "interaction",
-    "docOrder": 150,
+    "docOrder": 154,
     "aliases": [],
     "notes": [
       "只组合兄弟操作目标，不引入选中状态。"
@@ -1811,7 +1963,7 @@
     "example": "components/examples/control-composition-demo.tsx",
     "usage": "import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupTextarea } from \"@/components/ui/input-group\"",
     "docGroup": "interaction",
-    "docOrder": 151,
+    "docOrder": 155,
     "aliases": [],
     "notes": [
       "标签由原生输入负责；附加操作保持独立。"
@@ -1835,7 +1987,7 @@
     "example": "components/examples/control-composition-demo.tsx",
     "usage": "import { Toggle } from \"@/components/ui/toggle\"",
     "docGroup": "interaction",
-    "docOrder": 152,
+    "docOrder": 156,
     "aliases": [],
     "notes": [
       "按下与焦点独立；值由调用方持有。"
@@ -1860,7 +2012,7 @@
     "example": "components/examples/control-composition-demo.tsx",
     "usage": "import { ToggleGroup, ToggleGroupItem } from \"@/components/ui/toggle-group\"",
     "docGroup": "interaction",
-    "docOrder": 153,
+    "docOrder": 157,
     "aliases": [],
     "notes": [
       "值始终为数组；方向键移动焦点。"
@@ -1884,7 +2036,7 @@
     "example": "components/examples/control-composition-demo.tsx",
     "usage": "import { InputOTP } from \"@/components/ui/input-otp\"",
     "docGroup": "interaction",
-    "docOrder": 154,
+    "docOrder": 158,
     "aliases": [],
     "notes": [
       "保留原生粘贴、选择、删除、自动填充及表单行为；验证由调用方负责。"
@@ -1908,7 +2060,7 @@
     "example": "components/examples/disclosure-demo.tsx",
     "usage": "import { Separator } from \"@/components/ui/separator\"",
     "docGroup": "interaction",
-    "docOrder": 155,
+    "docOrder": 159,
     "aliases": [],
     "notes": [
       "装饰性分隔默认不进入无障碍树。"
@@ -1932,7 +2084,7 @@
     "example": "components/examples/disclosure-demo.tsx",
     "usage": "import { Collapsible, CollapsibleTrigger, CollapsibleContent } from \"@/components/ui/collapsible\"",
     "docGroup": "interaction",
-    "docOrder": 156,
+    "docOrder": 160,
     "aliases": [],
     "notes": [
       "展开与业务选择分开；触发器保持键盘与焦点关联。"
@@ -1956,7 +2108,7 @@
     "example": "components/examples/disclosure-demo.tsx",
     "usage": "import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from \"@/components/ui/accordion\"",
     "docGroup": "interaction",
-    "docOrder": 157,
+    "docOrder": 161,
     "aliases": [],
     "notes": [
       "每个标题有独立触发器；禁用项不展开。"
@@ -1982,7 +2134,7 @@
     "example": "components/examples/disclosure-demo.tsx",
     "usage": "import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from \"@/components/ui/tooltip\"",
     "docGroup": "interaction",
-    "docOrder": 158,
+    "docOrder": 162,
     "aliases": [],
     "notes": [
       "提示不承担关键操作；浮层进入当前主题边界。"
@@ -2008,7 +2160,7 @@
     "example": "components/examples/disclosure-demo.tsx",
     "usage": "import { AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogTitle, AlertDialogDescription, AlertDialogCancel } from \"@/components/ui/alert-dialog\"",
     "docGroup": "interaction",
-    "docOrder": 159,
+    "docOrder": 163,
     "aliases": [],
     "notes": [
       "确认按钮由调用方提供；请求返回不代表操作完成。"
@@ -2033,7 +2185,7 @@
     "example": "components/examples/disclosure-demo.tsx",
     "usage": "import { HoverCard, HoverCardTrigger, HoverCardContent } from \"@/components/ui/hover-card\"",
     "docGroup": "interaction",
-    "docOrder": 160,
+    "docOrder": 164,
     "aliases": [],
     "notes": [
       "重要内容需通过链接或可见按钮到达；预览不是唯一入口。"
@@ -2060,7 +2212,7 @@
     "example": "components/examples/disclosure-demo.tsx",
     "usage": "import { ContextMenu, ContextMenuTrigger, ContextMenuContent, ContextMenuItem } from \"@/components/ui/context-menu\"",
     "docGroup": "interaction",
-    "docOrder": 161,
+    "docOrder": 165,
     "aliases": [],
     "notes": [
       "提供可见菜单替代以支持触摸；动作仅由回调触发。"
@@ -2084,7 +2236,7 @@
     "example": "components/examples/feedback-demo.tsx",
     "usage": "import { Skeleton } from \"@/components/ui/skeleton\"",
     "docGroup": "interaction",
-    "docOrder": 162,
+    "docOrder": 166,
     "aliases": [],
     "notes": [
       "加载语义由外层区域负责；减少动效下无闪烁。"
@@ -2109,7 +2261,7 @@
     "example": "components/examples/feedback-demo.tsx",
     "usage": "import { Spinner } from \"@/components/ui/spinner\"",
     "docGroup": "interaction",
-    "docOrder": 163,
+    "docOrder": 167,
     "aliases": [],
     "notes": [
       "减少动效时停止旋转，保持状态文字。"
@@ -2134,7 +2286,7 @@
     "example": "components/examples/feedback-demo.tsx",
     "usage": "import { Empty } from \"@/components/ui/empty\"",
     "docGroup": "interaction",
-    "docOrder": 164,
+    "docOrder": 168,
     "aliases": [],
     "notes": [
       "操作由调用方提供；不把错误展示为空数据。"
@@ -2158,7 +2310,7 @@
     "example": "components/examples/feedback-demo.tsx",
     "usage": "import { Alert, AlertTitle, AlertDescription } from \"@/components/ui/alert\"",
     "docGroup": "interaction",
-    "docOrder": 165,
+    "docOrder": 169,
     "aliases": [],
     "notes": [
       "即时错误用 alert，常规通知用 status；不改变运行状态。"
@@ -2183,7 +2335,7 @@
     "example": "components/examples/feedback-demo.tsx",
     "usage": "import { Progress, Meter } from \"@/components/ui/progress\"",
     "docGroup": "interaction",
-    "docOrder": 166,
+    "docOrder": 170,
     "aliases": [],
     "notes": [
       "未知进度不提供伪造百分比；测量值使用 Meter。"
@@ -2210,7 +2362,7 @@
     "example": "components/examples/feedback-demo.tsx",
     "usage": "import { ToastProvider, Toaster, useToastManager, createToastManager } from \"@/components/ui/toast\"",
     "docGroup": "interaction",
-    "docOrder": 167,
+    "docOrder": 171,
     "aliases": [],
     "notes": [
       "通知仅表达调用方已知事实，不根据请求返回推断业务完成。"
@@ -2233,7 +2385,7 @@
     "example": "components/examples/feedback-demo.tsx",
     "usage": "import { ToastProvider, Toaster, useToastManager } from \"@/components/ui/sonner\"",
     "docGroup": "interaction",
-    "docOrder": 168,
+    "docOrder": 172,
     "aliases": [],
     "notes": [
       "使用同一 Provider 与 Toaster；不承诺 Sonner 包的 API 兼容。"
@@ -2259,7 +2411,7 @@
     "example": "components/examples/date-navigation-demo.tsx",
     "usage": "import { DateCalendar } from \"@/components/ui/date-calendar\"",
     "docGroup": "interaction",
-    "docOrder": 169,
+    "docOrder": 173,
     "aliases": [],
     "notes": [
       "使用 YYYY-MM-DD 与 UTC 日历运算；禁用日期不可选择，范围内禁用日会阻止完成。"
@@ -2285,7 +2437,7 @@
     "example": "components/examples/date-navigation-demo.tsx",
     "usage": "import { DatePicker } from \"@/components/ui/date-picker\"",
     "docGroup": "interaction",
-    "docOrder": 170,
+    "docOrder": 174,
     "aliases": [],
     "notes": [
       "单日或完整范围选择后关闭并恢复焦点；日期值不因语言或时区变化。"
@@ -2311,7 +2463,7 @@
     "example": "components/examples/date-navigation-demo.tsx",
     "usage": "import { Pagination } from \"@/components/ui/pagination\"",
     "docGroup": "interaction",
-    "docOrder": 171,
+    "docOrder": 175,
     "aliases": [],
     "notes": [
       "只请求页码变化；未知总数依赖 hasNext，不推断最后一页。"
@@ -2336,7 +2488,7 @@
     "example": "components/examples/date-navigation-demo.tsx",
     "usage": "import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from \"@/components/ui/breadcrumb\"",
     "docGroup": "interaction",
-    "docOrder": 172,
+    "docOrder": 176,
     "aliases": [],
     "notes": [
       "导航使用链接；当前页面使用 aria-current。"
@@ -2362,7 +2514,7 @@
     "example": "components/examples/date-navigation-demo.tsx",
     "usage": "import { Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem } from \"@/components/ui/menubar\"",
     "docGroup": "interaction",
-    "docOrder": 173,
+    "docOrder": 177,
     "aliases": [],
     "notes": [
       "键盘跨菜单导航由 Base UI 管理；禁用动作不执行。"
@@ -2387,7 +2539,7 @@
     "example": "components/examples/date-navigation-demo.tsx",
     "usage": "import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuViewport } from \"@/components/ui/navigation-menu\"",
     "docGroup": "interaction",
-    "docOrder": 174,
+    "docOrder": 178,
     "aliases": [],
     "notes": [
       "保留链接和键盘语义；主题浮层通过 Viewport 分发。"
@@ -2408,7 +2560,7 @@
     "example": "components/examples/date-navigation-demo.tsx",
     "usage": "import { DirectionProvider } from \"@/components/ui/direction\"",
     "docGroup": "interaction",
-    "docOrder": 175,
+    "docOrder": 179,
     "aliases": [],
     "notes": [
       "方向边界不翻译调用方内容，值与服务请求保持不变。"
@@ -2435,7 +2587,7 @@
     "example": "components/examples/conversation-extensions-demo.tsx",
     "usage": "import { Attachment } from \"@/components/ui/attachment\"",
     "docGroup": "interaction",
-    "docOrder": 176,
+    "docOrder": 180,
     "aliases": [],
     "notes": [
       "不读取或上传文件；未知结果和忙碌状态阻止再次写入。"
@@ -2459,7 +2611,7 @@
     "example": "components/examples/conversation-extensions-demo.tsx",
     "usage": "import { Marker, MarkerIcon, MarkerContent } from \"@/components/ui/marker\"",
     "docGroup": "interaction",
-    "docOrder": 177,
+    "docOrder": 181,
     "aliases": [],
     "notes": [
       "只读标记无交互悬停；调用方内容保持原样。"
@@ -2488,7 +2640,7 @@
     "example": "components/examples/conversation-extensions-demo.tsx",
     "usage": "import { Questionnaire } from \"@/components/blocks/questionnaire\"",
     "docGroup": "other",
-    "docOrder": 178,
+    "docOrder": 182,
     "aliases": [],
     "notes": [
       "答案受控；支持跳过、回退和错误保留；提交结果由调用方确认。"
@@ -2512,7 +2664,7 @@
     "example": "components/examples/conversation-extensions-demo.tsx",
     "usage": "import { Bubble, BubbleContent, BubbleAttribution } from \"@/components/ui/bubble\"",
     "docGroup": "interaction",
-    "docOrder": 179,
+    "docOrder": 183,
     "aliases": [],
     "notes": [
       "用于独立引用示例，不改变 ChatMessage 的同轴对话布局。"
@@ -2536,7 +2688,7 @@
     "example": "components/examples/content-chart-demo.tsx",
     "usage": "import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from \"@/components/ui/card\"",
     "docGroup": "interaction",
-    "docOrder": 180,
+    "docOrder": 184,
     "aliases": [],
     "notes": [
       "普通会话、日志和列表继续使用 Item、list 或 table。"
@@ -2560,7 +2712,7 @@
     "example": "components/examples/content-chart-demo.tsx",
     "usage": "import { AspectRatio } from \"@/components/ui/aspect-ratio\"",
     "docGroup": "interaction",
-    "docOrder": 181,
+    "docOrder": 185,
     "aliases": [],
     "notes": [
       "比例必须为有限正数；无效输入回退 16:9。"
@@ -2587,7 +2739,7 @@
     "example": "components/examples/content-chart-demo.tsx",
     "usage": "import { Carousel } from \"@/components/ui/carousel\"",
     "docGroup": "interaction",
-    "docOrder": 182,
+    "docOrder": 186,
     "aliases": [],
     "notes": [
       "不自动播放；隐藏页保留草稿并离开 Tab 顺序；方向随 RTL 调整。"
@@ -2615,7 +2767,7 @@
     "example": "components/examples/content-chart-demo.tsx",
     "usage": "import { Chart } from \"@/components/blocks/chart\"",
     "docGroup": "other",
-    "docOrder": 183,
+    "docOrder": 187,
     "aliases": [],
     "notes": [
       "最多展示最近120项；空、缺失、负值和零值分开，未增加图表依赖。"
@@ -2640,7 +2792,7 @@
     "example": "components/examples/layout-integration-demo.tsx",
     "usage": "import { Form, FormField } from \"@/components/ui/form\"",
     "docGroup": "interaction",
-    "docOrder": 184,
+    "docOrder": 188,
     "aliases": [],
     "notes": [
       "调用方拥有验证、提交、错误和持久化；不要求特定表单库。"
@@ -2666,7 +2818,7 @@
     "example": "components/examples/layout-integration-demo.tsx",
     "usage": "import { Sidebar, SidebarHeader, SidebarTrigger, SidebarContent, SidebarFooter, SidebarLink } from \"@/components/blocks/sidebar\"",
     "docGroup": "other",
-    "docOrder": 185,
+    "docOrder": 189,
     "aliases": [],
     "notes": [
       "默认宽256、折叠48；标签和当前链接保留；不持久化偏好。"
@@ -2690,7 +2842,7 @@
     "example": "components/examples/layout-integration-demo.tsx",
     "usage": "import { Resizable, ResizableHandle } from \"@/components/ui/resizable\"",
     "docGroup": "interaction",
-    "docOrder": 186,
+    "docOrder": 190,
     "aliases": [],
     "notes": [
       "支持指针、键盘、RTL、边界和取消；像素值由调用方持有。"
@@ -2714,7 +2866,7 @@
     "example": "components/examples/layout-integration-demo.tsx",
     "usage": "import { ScrollArea } from \"@/components/ui/scroll-area\"",
     "docGroup": "interaction",
-    "docOrder": 187,
+    "docOrder": 191,
     "aliases": [],
     "notes": [
       "无需模拟滚动条；保留键盘、选择、查找与 ref。"
@@ -2737,7 +2889,7 @@
     "example": "components/examples/layout-integration-demo.tsx",
     "usage": "import { Command } from \"@/components/blocks/command\"",
     "docGroup": "other",
-    "docOrder": 188,
+    "docOrder": 192,
     "aliases": [],
     "notes": [
       "结果、过滤和激活由调用方提供；不默认监听全局快捷键。"
@@ -2762,7 +2914,7 @@
     "example": "components/examples/layout-integration-demo.tsx",
     "usage": "import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle, DrawerHeader, DrawerBody, DrawerFooter, DrawerClose } from \"@/components/ui/drawer\"",
     "docGroup": "interaction",
-    "docOrder": 189,
+    "docOrder": 193,
     "aliases": [],
     "notes": [
       "仅底部显式手柄支持滑动；正文原生滚动，焦点恢复沿用 Sheet。"
@@ -3008,7 +3160,7 @@
     "example": "components/examples/avatar-demo.tsx",
     "usage": "import { Avatar } from \"@/components/ui/avatar\"",
     "docGroup": "data",
-    "docOrder": 198,
+    "docOrder": 202,
     "aliases": [],
     "notes": [
       "name提供可访问名称；图片失败后显示缩写，src变化允许重新读取。"
@@ -3032,7 +3184,7 @@
     "example": "components/examples/segment-bar-demo.tsx",
     "usage": "import { SegmentBar } from \"@/components/ui/segment-bar\"",
     "docGroup": "interaction",
-    "docOrder": 199,
+    "docOrder": 203,
     "aliases": [],
     "notes": [
       "有限值限制在声明范围，分段数1–50；未知值不补零，不用作任务进度。"
@@ -3056,7 +3208,7 @@
     "example": "components/examples/sparkline-demo.tsx",
     "usage": "import { Sparkline } from \"@/components/ui/sparkline\"",
     "docGroup": "interaction",
-    "docOrder": 200,
+    "docOrder": 204,
     "aliases": [],
     "notes": [
       "最多显示最近120个点；缺失值不画柱，零值有基线，负值从零线向下。"
@@ -3139,7 +3291,7 @@
     "example": "components/examples/command-palette-demo.tsx",
     "usage": "import { CommandPalette } from \"@/components/blocks/command-palette\"",
     "docGroup": "other",
-    "docOrder": 203,
+    "docOrder": 207,
     "aliases": [],
     "notes": [
       "默认不注册全局快捷键；可配置scope，忽略编辑器、Canvas及已处理事件；选择不执行内置服务。"
@@ -3163,7 +3315,7 @@
     "example": "components/examples/kbd-demo.tsx",
     "usage": "import { Kbd } from \"@/components/ui/kbd\"",
     "docGroup": "interaction",
-    "docOrder": 204,
+    "docOrder": 208,
     "aliases": [],
     "notes": [
       "修饰键符号需要调用方提供适合读屏的名称。"
@@ -3186,7 +3338,7 @@
     "example": "components/examples/field-demo.tsx",
     "usage": "import { Field } from \"@/components/ui/field\"",
     "docGroup": "interaction",
-    "docOrder": 205,
+    "docOrder": 209,
     "aliases": [],
     "notes": [
       "通过render函数传递id、aria-describedby、aria-invalid和required；校验属于调用方。"
@@ -3210,7 +3362,7 @@
     "example": "components/examples/form-section-demo.tsx",
     "usage": "import { FormSection } from \"@/components/blocks/form-section\"",
     "docGroup": "other",
-    "docOrder": 206,
+    "docOrder": 210,
     "aliases": [],
     "notes": [
       "不嵌套创建form，不拥有保存或校验逻辑。"
@@ -3233,7 +3385,7 @@
     "example": "components/examples/slider-demo.tsx",
     "usage": "import { Slider } from \"@/components/ui/slider\"",
     "docGroup": "interaction",
-    "docOrder": 207,
+    "docOrder": 211,
     "aliases": [],
     "notes": [
       "复用Base UI键盘与触摸行为；无效边界和数值有确定回退，不创建业务持久化。"
@@ -3260,7 +3412,7 @@
     "example": "components/examples/image-upload-demo.tsx",
     "usage": "import { ImageUpload } from \"@/components/blocks/image-upload\"",
     "docGroup": "other",
-    "docOrder": 208,
+    "docOrder": 212,
     "aliases": [],
     "notes": [
       "替换失败保留旧File；迟到读取丢弃，卸载取消读取；上传及远程结果由调用方负责。"
@@ -3286,7 +3438,7 @@
     "example": "components/examples/filter-toolbar-demo.tsx",
     "usage": "import { FilterToolbar } from \"@/components/blocks/filter-toolbar\"",
     "docGroup": "data",
-    "docOrder": 209,
+    "docOrder": 213,
     "aliases": [],
     "notes": [
       "筛选值由调用方持有；切换布局只挂载一组筛选控件，避免重复ID。"
@@ -3309,7 +3461,7 @@
     "example": "components/examples/metric-summary-demo.tsx",
     "usage": "import { MetricSummary } from \"@/components/blocks/metric-summary\"",
     "docGroup": "data",
-    "docOrder": 210,
+    "docOrder": 214,
     "aliases": [],
     "notes": [
       "使用dl语义和稳定ID，不从业务记录推导指标，不增加只读hover。"
@@ -3333,7 +3485,7 @@
     "example": "components/examples/rating-display-demo.tsx",
     "usage": "import { RatingDisplay } from \"@/components/ui/rating-display\"",
     "docGroup": "data",
-    "docOrder": 211,
+    "docOrder": 215,
     "aliases": [],
     "notes": [
       "max为1–10，value限制范围并四舍五入到半星；缺失值保持未知。"
@@ -3461,7 +3613,7 @@
     "example": "components/examples/segmented-demo.tsx",
     "usage": "import { Segmented, SegmentedItem } from \"@/components/ui/segmented\"",
     "docGroup": "interaction",
-    "docOrder": 216,
+    "docOrder": 220,
     "aliases": [],
     "notes": [
       "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
@@ -3507,7 +3659,7 @@
     "widePreview": true,
     "usage": "import { ThemeBoundary } from \"@/components/ui/theme-boundary\"\n\n<ThemeBoundary mode=\"scoped\" theme=\"dark\">{children}</ThemeBoundary>",
     "docGroup": "interaction",
-    "docOrder": 218,
+    "docOrder": 222,
     "aliases": [],
     "notes": [
       "默认安装保持 legacy；host 和 scoped Registry 路径需要显式选择并包裹 ThemeBoundary。"
@@ -3528,7 +3680,7 @@
     "example": "components/examples/i18n-demo.tsx",
     "usage": "import { I18nProvider } from \"@/lib/i18n-provider\"\n\n<I18nProvider defaultLocale=\"en\">{children}</I18nProvider>",
     "docGroup": "interaction",
-    "docOrder": 219,
+    "docOrder": 223,
     "aliases": [],
     "notes": [
       "未提供 Provider 时默认中文。组件不依赖 Next、路由或浏览器存储。"
@@ -3558,7 +3710,7 @@
     "example": "components/examples/canvas-services-demo.tsx",
     "usage": "<CanvasServicePanel {...sourceSnapshotAndCapabilities} />",
     "docGroup": "canvas",
-    "docOrder": 220,
+    "docOrder": 224,
     "aliases": [],
     "notes": [
       "保存适配器使用 CAS 与服务回执；unknown 不自动重试，冲突不自动覆盖。"
@@ -3589,7 +3741,7 @@
     "example": "components/examples/canvas-project-demo.tsx",
     "usage": "<CanvasProjectWorkspace project={project} definitions={definitions} onChange={setProject} />",
     "docGroup": "canvas",
-    "docOrder": 221,
+    "docOrder": 225,
     "aliases": [],
     "notes": [
       "同一子流程可复用，禁止递归引用；Loop / Iteration 仅包装有界独立作用域。"
@@ -3617,7 +3769,7 @@
     "example": "components/examples/canvas-project-demo.tsx",
     "usage": "<CanvasConfigEditor kind=\"condition\" id=\"rules\" label=\"条件\" value={json} onChange={setJson} />",
     "docGroup": "canvas",
-    "docOrder": 222,
+    "docOrder": 226,
     "aliases": [],
     "notes": [
       "通过 NodeInspector 的字段 kind 使用。高级示例选择 Advanced Config 或 Switch。"
@@ -3650,7 +3802,7 @@
     "example": "components/examples/canvas-workspace-demo.tsx",
     "usage": "const runtime = useCanvasRuntime(document, definitions, adapter)\n<CanvasWorkspace {...editor} definitions={definitions} runtime={runtime} />",
     "docGroup": "canvas",
-    "docOrder": 223,
+    "docOrder": 227,
     "aliases": [],
     "notes": [
       "同条目导出 CanvasRunControls 和 CanvasExecutionInspector。"
@@ -3812,7 +3964,7 @@
     "example": "components/examples/canvas-components-demo.tsx",
     "usage": "import { CanvasFrame } from \"@/components/blocks/canvas-frame\"\n\n<CanvasFrame frame={frame} selected={selected} />",
     "docGroup": "canvas",
-    "docOrder": 228,
+    "docOrder": 232,
     "aliases": [],
     "notes": [
       "仅视觉组织；删除分组默认解组，保留成员。"
@@ -3839,7 +3991,7 @@
     "example": "components/examples/canvas-components-demo.tsx",
     "usage": "import { CanvasNote } from \"@/components/blocks/canvas-note\"\n\n<CanvasNote note={note} selected={selected} />",
     "docGroup": "canvas",
-    "docOrder": 229,
+    "docOrder": 233,
     "aliases": [],
     "notes": [
       "正文在展示前脱敏，最多4000字符；持久化由消费方负责。"
@@ -3925,7 +4077,7 @@
     "example": "components/examples/workflow-canvas-demo.tsx",
     "usage": "import { CanvasNode } from \"@/components/ui/canvas-node\"\n\n// 在 React Flow 的自定义节点渲染器中使用。\n<CanvasNode node={record} definition={definition} selected={selected} readOnly={readOnly} />",
     "docGroup": "canvas",
-    "docOrder": 231,
+    "docOrder": 235,
     "aliases": [],
     "notes": [
       "示例为本地数据，不运行模型或工具。"
@@ -3951,7 +4103,7 @@
     "example": "components/examples/workflow-canvas-demo.tsx",
     "usage": "import { CanvasPort } from \"@/components/ui/canvas-port\"\n\n// 在 React Flow 自定义节点上下文中使用。\n<CanvasPort port={portDefinition} readOnly={readOnly} />",
     "docGroup": "canvas",
-    "docOrder": 232,
+    "docOrder": 236,
     "aliases": [],
     "notes": [
       "示例为本地数据，不运行模型或工具。"
@@ -3977,7 +4129,7 @@
     "example": "components/examples/workflow-canvas-demo.tsx",
     "usage": "import { CanvasEdge } from \"@/components/ui/canvas-edge\"\nimport { ReactFlow } from \"@xyflow/react\"\n\n<ReactFlow edgeTypes={{ canvas: CanvasEdge }} nodes={nodes} edges={edges} />",
     "docGroup": "canvas",
-    "docOrder": 233,
+    "docOrder": 237,
     "aliases": [],
     "notes": [
       "示例为本地数据，不运行模型或工具。"
@@ -4010,7 +4162,7 @@
     "example": "components/examples/style-workbench-demo.tsx",
     "usage": "import { StyleWorkbench } from \"@/components/blocks/style-workbench\"\n\n<StyleWorkbench initialSection=\"shadow\" />",
     "docGroup": "workspace",
-    "docOrder": 234,
+    "docOrder": 238,
     "aliases": [],
     "notes": [
       "A 从当前主题与未修改的局部探针读取；B 的修改只影响预览，不改全局 token。"
@@ -4034,7 +4186,7 @@
     "example": "components/examples/badge-demo.tsx",
     "usage": "import { Badge } from \"@/components/ui/badge\"\n\n<Badge tone=\"info\" shape=\"pill\">只读信息</Badge>",
     "docGroup": "interaction",
-    "docOrder": 235,
+    "docOrder": 239,
     "aliases": [],
     "notes": [
       "只读 span，无点击、焦点或 hover 行为，不承载操作。"
@@ -4057,7 +4209,7 @@
     "example": "components/examples/tag-demo.tsx",
     "usage": "import { Tag } from \"@/components/ui/tag\"\n\n<Tag leading=\"#\">TypeScript</Tag>",
     "docGroup": "interaction",
-    "docOrder": 236,
+    "docOrder": 240,
     "aliases": [],
     "notes": [
       "固定中性色和胶囊外观，不进入 Tab 顺序，不接受点击行为。"
@@ -4083,7 +4235,7 @@
     "example": "components/examples/chip-demo.tsx",
     "usage": "import { Chip } from \"@/components/ui/chip\"\n\n<Chip label=\"TypeScript\" selected={selected}\n  onSelectedChange={setSelected} onRemove={removeValue} />",
     "docGroup": "interaction",
-    "docOrder": 237,
+    "docOrder": 241,
     "aliases": [],
     "notes": [
       "主操作和移除按钮是兄弟目标，Enter/Space 激活；选中状态通过 aria-pressed 表达。"
@@ -4216,7 +4368,7 @@
     "example": "components/examples/task-panel-demo.tsx",
     "usage": "import { TaskPanel } from \"@/components/blocks/task-panel\"\n\n<TaskPanel\n  title=\"发布进度\"\n  tasks={[\n    { id: \"build\", title: \"构建应用\", status: \"completed\" },\n    { id: \"deploy\", title: \"部署应用\", status: \"failed\" },\n  ]}\n  onRetry={(id) => retryTask(id)}\n/>",
     "docGroup": "other",
-    "docOrder": 241,
+    "docOrder": 245,
     "aliases": [],
     "notes": [
       "空数组显示空状态；进度按已完成数量计算。"
@@ -4240,7 +4392,7 @@
     "example": "components/examples/scroll-playground-demo.tsx",
     "usage": "import { ScrollPlayground } from \"@/components/blocks/scroll-playground\"\n\n// 展示全部六种交互\n<ScrollPlayground />\n\n// 也可以只展示其中一种\n<ScrollPlayground pattern=\"parallax\" />",
     "docGroup": "other",
-    "docOrder": 242,
+    "docOrder": 246,
     "aliases": [],
     "notes": [
       "每个演示区独立滚动，支持滚轮、触屏以及聚焦后的方向键和 Page Down；右上角按钮可重置体验。"
@@ -4265,7 +4417,7 @@
     "example": "components/examples/item-demo.tsx",
     "usage": "import { Item } from \"@/components/ui/item\"\n\n<Item title=\"整理组件规范\" description=\"Session · 刚刚更新\" selected={selected} onSelect={() => selectSession()} />",
     "docGroup": "interaction",
-    "docOrder": 243,
+    "docOrder": 247,
     "aliases": [],
     "notes": [
       "Item不设置listitem角色，由调用方提供ul/li等集合结构。"
@@ -4597,7 +4749,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunProperties } from \"@/components/blocks/agent-run-properties\"",
     "docGroup": "agent",
-    "docOrder": 254,
+    "docOrder": 258,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4623,7 +4775,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { RunStageSummary } from \"@/components/blocks/run-stage-summary\"",
     "docGroup": "other",
-    "docOrder": 255,
+    "docOrder": 259,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4653,7 +4805,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunRow } from \"@/components/blocks/agent-run-row\"",
     "docGroup": "agent",
-    "docOrder": 256,
+    "docOrder": 260,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4681,7 +4833,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunCard } from \"@/components/blocks/agent-run-card\"",
     "docGroup": "agent",
-    "docOrder": 257,
+    "docOrder": 261,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4708,7 +4860,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunList } from \"@/components/blocks/agent-run-list\"",
     "docGroup": "agent",
-    "docOrder": 258,
+    "docOrder": 262,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4737,7 +4889,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunBoard } from \"@/components/blocks/agent-run-board\"",
     "docGroup": "agent",
-    "docOrder": 259,
+    "docOrder": 263,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4773,7 +4925,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunInspector } from \"@/components/blocks/agent-run-inspector\"",
     "docGroup": "agent",
-    "docOrder": 260,
+    "docOrder": 264,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4802,7 +4954,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AttentionQueue } from \"@/components/blocks/attention-queue\"",
     "docGroup": "other",
-    "docOrder": 261,
+    "docOrder": 265,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4831,7 +4983,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ApprovalRequestPanel } from \"@/components/blocks/approval-request-panel\"",
     "docGroup": "other",
-    "docOrder": 262,
+    "docOrder": 266,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4859,7 +5011,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ArtifactList } from \"@/components/blocks/artifact-list\"",
     "docGroup": "other",
-    "docOrder": 263,
+    "docOrder": 267,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4884,7 +5036,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ReviewSummary } from \"@/components/blocks/artifact-list\"",
     "docGroup": "other",
-    "docOrder": 264,
+    "docOrder": 268,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4914,7 +5066,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ExecutionTraceTree } from \"@/components/blocks/execution-trace-tree\"",
     "docGroup": "other",
-    "docOrder": 265,
+    "docOrder": 269,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4942,7 +5094,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRelationshipList } from \"@/components/blocks/agent-relationship-list\"",
     "docGroup": "agent",
-    "docOrder": 266,
+    "docOrder": 270,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -4971,7 +5123,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentUsageSummary } from \"@/components/blocks/agent-usage-summary\"",
     "docGroup": "agent",
-    "docOrder": 267,
+    "docOrder": 271,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -5001,7 +5153,7 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentBoardToolbar } from \"@/components/blocks/agent-board-toolbar\"",
     "docGroup": "agent",
-    "docOrder": 268,
+    "docOrder": 272,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -5039,7 +5191,7 @@
     "example": "components/examples/agent-board/agent-board-demo.tsx",
     "usage": "import { AgentBoardWorkspace } from \"@/components/blocks/agent-board-workspace\"",
     "docGroup": "agent",
-    "docOrder": 269,
+    "docOrder": 273,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -5067,7 +5219,7 @@
     "usage": "import { GroupedList } from \"@/components/blocks/grouped-list\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 270,
+    "docOrder": 274,
     "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
@@ -5096,7 +5248,7 @@
     "usage": "import { Board } from \"@/components/blocks/item-board\"",
     "widePreview": true,
     "docGroup": "other",
-    "docOrder": 271,
+    "docOrder": 275,
     "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
@@ -5224,7 +5376,7 @@
     "usage": "import { WorkItemList } from \"@/components/blocks/work-items-views\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 275,
+    "docOrder": 279,
     "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
@@ -5258,7 +5410,7 @@
     "usage": "import { WorkItemBoard } from \"@/components/blocks/work-items-views\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 276,
+    "docOrder": 280,
     "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
@@ -5292,7 +5444,7 @@
     "usage": "import { WorkItemTable } from \"@/components/blocks/work-items-views\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 277,
+    "docOrder": 281,
     "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
@@ -5359,7 +5511,7 @@
     "usage": "import { WorkItemDetail } from \"@/components/blocks/work-item-detail\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 279,
+    "docOrder": 283,
     "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
@@ -5453,7 +5605,7 @@
     "usage": "import { Board } from \"@/components/blocks/work-items-board-base\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 281,
+    "docOrder": 285,
     "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
@@ -5482,7 +5634,7 @@
     "usage": "import { AgentDependencyGraph } from \"@/components/blocks/agent-dependency-graph\"",
     "widePreview": true,
     "docGroup": "agent",
-    "docOrder": 282,
+    "docOrder": 286,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -5511,7 +5663,7 @@
     "usage": "import { AgentUsageHistory } from \"@/components/blocks/agent-usage-history\"",
     "widePreview": true,
     "docGroup": "agent",
-    "docOrder": 283,
+    "docOrder": 287,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -5540,7 +5692,7 @@
     "usage": "import { AgentRunVirtualList } from \"@/components/blocks/agent-run-virtual-list\"",
     "widePreview": true,
     "docGroup": "agent",
-    "docOrder": 284,
+    "docOrder": 288,
     "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
@@ -5574,7 +5726,7 @@
     "usage": "import { WorkItemsBatchActions } from \"@/components/blocks/work-items-enhancements\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 285,
+    "docOrder": 289,
     "aliases": [],
     "notes": [
       "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
@@ -5608,7 +5760,7 @@
     "usage": "import { WorkItemsSavedViews } from \"@/components/blocks/work-items-enhancements\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 286,
+    "docOrder": 290,
     "aliases": [],
     "notes": [
       "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
@@ -5635,7 +5787,7 @@
     "usage": "import { Timeline } from \"@/components/blocks/timeline\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 287,
+    "docOrder": 291,
     "aliases": [
       "时间线",
       "排期"
@@ -5666,7 +5818,7 @@
     "usage": "import { Calendar } from \"@/components/blocks/calendar\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 288,
+    "docOrder": 292,
     "aliases": [
       "日历",
       "日期"
@@ -5697,7 +5849,7 @@
     "usage": "import { ScheduleViewControls } from \"@/components/blocks/schedule-view-controls\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 289,
+    "docOrder": 293,
     "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
@@ -5728,7 +5880,7 @@
     "usage": "import { WorkItemDateRangeField } from \"@/components/blocks/work-item-date-range-field\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 290,
+    "docOrder": 294,
     "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
@@ -5761,7 +5913,7 @@
     "usage": "import { UnscheduledWorkItems } from \"@/components/blocks/work-items-schedule\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 291,
+    "docOrder": 295,
     "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
@@ -5793,7 +5945,7 @@
     "usage": "import { WorkItemTimeline } from \"@/components/blocks/work-item-timeline\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 292,
+    "docOrder": 296,
     "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
@@ -5822,7 +5974,7 @@
     "usage": "import { WorkItemCalendar } from \"@/components/blocks/work-item-calendar\"",
     "widePreview": true,
     "docGroup": "data",
-    "docOrder": 293,
+    "docOrder": 297,
     "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
@@ -5847,7 +5999,7 @@
     "example": "components/examples/gap-audit-demo.tsx",
     "usage": "import { Toolbar, ToolbarButton } from \"@/components/ui/toolbar\"\nexport function Commands() { return <Toolbar aria-label=\"Commands\"><ToolbarButton>Save</ToolbarButton></Toolbar> }",
     "docGroup": "interaction",
-    "docOrder": 294,
+    "docOrder": 298,
     "aliases": [],
     "notes": [
       "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
@@ -5874,7 +6026,7 @@
     "example": "components/examples/gap-audit-demo.tsx",
     "usage": "import { CommandToolbar } from \"@/components/blocks/command-toolbar\"\nexport function Commands() { return <CommandToolbar label=\"Commands\" actions={[{id:\"save\",label:\"Save\",onInvoke:()=>{}}]} /> }",
     "docGroup": "interaction",
-    "docOrder": 295,
+    "docOrder": 299,
     "aliases": [],
     "notes": [
       "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
@@ -5902,7 +6054,7 @@
     "example": "components/examples/gap-audit-demo.tsx",
     "usage": "import { DataTableControls } from \"@/components/blocks/data-table-controls\"\nexport function Columns() { return <DataTableControls columns={[{id:\"title\",label:\"Title\"}]} value={{}} onValueChange={()=>{}} /> }",
     "docGroup": "data",
-    "docOrder": 296,
+    "docOrder": 300,
     "aliases": [],
     "notes": [
       "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
@@ -5923,7 +6075,7 @@
     "example": "components/examples/gap-audit-demo.tsx",
     "usage": "import { dataTableQueryKey } from \"@/lib/data-table-model\"\nexport const key = dataTableQueryKey({scope:\"local\",filter:\"\",sort:null,page:1,pageSize:20})",
     "docGroup": "data",
-    "docOrder": 297,
+    "docOrder": 301,
     "aliases": [],
     "notes": [
       "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"

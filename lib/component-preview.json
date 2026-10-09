@@ -20,6 +20,20 @@
     "widePreview": true
   },
   {
+    "slug": "svg-canvas",
+    "widePreview": true
+  },
+  {
+    "slug": "svg-icon-library"
+  },
+  {
+    "slug": "svg-properties"
+  },
+  {
+    "slug": "svg-workbench",
+    "widePreview": true
+  },
+  {
     "slug": "session-navigator"
   },
   {

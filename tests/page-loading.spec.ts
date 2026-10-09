@@ -48,17 +48,21 @@ for (const route of ["/", "/components/", "/docs/button/", app]) {
     if (route === app) {
       await input(page).fill("retained task draft")
       await page
-        .getByRole("navigation", { name: "完整工作台", exact: true })
-        .getByRole("button", { name: "设置", exact: true })
+        .getByRole("navigation", { name: "工作台工具", exact: true })
+        .getByRole("button", { name: "工作台设置", exact: true })
+        .click()
+      await page
+        .getByRole("dialog")
+        .getByRole("button", { name: "外观与布局", exact: true })
         .click()
       await page
         .getByRole("combobox", { name: "语言", exact: true })
         .selectOption("en")
       await expect(page.locator("html")).toHaveAttribute("lang", "en")
-      await page
-        .getByRole("navigation", { name: "Complete workbench", exact: true })
-        .getByRole("button", { name: "Home", exact: true })
-        .click()
+      await page.keyboard.press("Escape")
+      await expect(page.getByRole("dialog")).toBeHidden()
+      await page.keyboard.press("Tab")
+      await page.getByRole("button", { name: "Home", exact: true }).click()
       await expect(
         page
           .getByRole("textbox", { name: "Message input", exact: true })
@@ -110,8 +114,8 @@ test("unopened panels stay unloaded; visited editors and drafts survive navigati
     ),
   ).toBe(false)
   await page
-    .getByRole("navigation", { name: "完整工作台", exact: true })
-    .getByRole("button", { name: "会话", exact: true })
+    .getByRole("navigation", { name: "工作台工具", exact: true })
+    .getByRole("link", { name: "会话", exact: true })
     .click()
   // The old page stays editable until Next commits the requested URL state.
   await expect(page.locator("main[data-workbench-page]")).toHaveAttribute(
@@ -125,8 +129,8 @@ test("unopened panels stay unloaded; visited editors and drafts survive navigati
   await expect(page.locator('[data-workbench-view="review"]')).toHaveCount(0)
   await expect(page.locator('[data-workbench-view="artifacts"]')).toHaveCount(0)
   await page
-    .getByRole("navigation", { name: "完整工作台", exact: true })
-    .getByRole("button", { name: "审阅", exact: true })
+    .getByRole("navigation", { name: "工作台工具", exact: true })
+    .getByRole("link", { name: "变更", exact: true })
     .click()
   await expect(
     page
@@ -134,16 +138,23 @@ test("unopened panels stay unloaded; visited editors and drafts survive navigati
       .getByRole("button", { name: "并排差异", exact: true }),
   ).toBeVisible()
   await page
-    .getByRole("navigation", { name: "完整工作台", exact: true })
-    .getByRole("button", { name: "设置", exact: true })
+    .getByRole("navigation", { name: "工作台工具", exact: true })
+    .getByRole("button", { name: "工作台设置", exact: true })
+    .click()
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "外观与布局", exact: true })
     .click()
   await page
     .getByRole("combobox", { name: "语言", exact: true })
     .selectOption("en")
   await expect(page.locator("html")).toHaveAttribute("lang", "en")
+  await page.keyboard.press("Escape")
+  await expect(page.getByRole("dialog")).toBeHidden()
+  await page.keyboard.press("Tab")
   await page
-    .getByRole("navigation", { name: "Complete workbench", exact: true })
-    .getByRole("button", { name: "Session", exact: true })
+    .getByRole("navigation", { name: "Workbench tools", exact: true })
+    .getByRole("link", { name: "Sessions", exact: true })
     .click()
   const englishInput = page
     .getByRole("textbox", { name: "Message input", exact: true })
@@ -154,14 +165,11 @@ test("unopened panels stay unloaded; visited editors and drafts survive navigati
   await page.goBack()
   await expect(page.locator("main[data-workbench-page]")).toHaveAttribute(
     "data-workbench-page",
-    "settings",
+    "review",
   )
   await page.goForward()
   await expect(englishInput).toHaveAttribute("data-instance", "retained")
-  await page
-    .getByRole("navigation", { name: "Complete workbench", exact: true })
-    .getByRole("button", { name: "Home", exact: true })
-    .click()
+  await page.getByRole("button", { name: "Home", exact: true }).click()
   await expect(englishInput).toHaveValue("home draft")
 })
 
@@ -194,8 +202,8 @@ test("a failed review module retries locally without clearing the session draft"
   await page.goto(`${app}?page=session`)
   await input(page).fill("retained after load failure")
   await page
-    .getByRole("navigation", { name: "完整工作台", exact: true })
-    .getByRole("button", { name: "审阅", exact: true })
+    .getByRole("navigation", { name: "工作台工具", exact: true })
+    .getByRole("link", { name: "变更", exact: true })
     .click()
   await expect(
     page
@@ -210,8 +218,8 @@ test("a failed review module retries locally without clearing the session draft"
       .getByRole("button", { name: "并排差异", exact: true }),
   ).toBeVisible()
   await page
-    .getByRole("navigation", { name: "完整工作台", exact: true })
-    .getByRole("button", { name: "会话", exact: true })
+    .getByRole("navigation", { name: "工作台工具", exact: true })
+    .getByRole("link", { name: "会话", exact: true })
     .click()
   await expect(input(page)).toHaveValue("retained after load failure")
 })

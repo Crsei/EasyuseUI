@@ -4,6 +4,7 @@ import fs from "node:fs"
 import path from "node:path"
 import { componentManifest } from "../lib/component-manifest.ts"
 import { siteMessages } from "../lib/site-i18n-messages.ts"
+import { componentMessages } from "../lib/i18n-messages.ts"
 import { pageTitles, pageDescriptionKeys } from "../lib/site-i18n-metadata.ts"
 
 const root = path.resolve(import.meta.dirname, "..")
@@ -124,6 +125,28 @@ const index = componentManifest.map((entry) => ({
   notes: entry.notes.slice(0, 1),
 }))
 const messageKeys = Object.keys(siteMessages["zh-CN"])
+// The portable dictionary is already loaded by the site provider. Reference
+// only pairs that match both locales exactly; keep all public site keys.
+const portablePairs = new Map(
+  Object.entries(componentMessages["zh-CN"])
+    .filter(
+      ([key, value]) =>
+        typeof value === "string" &&
+        typeof componentMessages.en[key] === "string",
+    )
+    .map(([key, value]) => [
+      JSON.stringify([value, componentMessages.en[key]]),
+      key,
+    ]),
+)
+const sharedMessages = Object.fromEntries(
+  messageKeys.flatMap((key, index) => {
+    const shared = portablePairs.get(
+      JSON.stringify([siteMessages["zh-CN"][key], siteMessages.en[key]]),
+    )
+    return shared ? [[index, shared]] : []
+  }),
+)
 const messageKeyPrefix = "site."
 const compactKeys = messageKeys.map((key) => {
   const suffix = key.startsWith(messageKeyPrefix)
@@ -185,9 +208,14 @@ const outputs = {
   "site-i18n-compact.json": {
     prefix: messageKeyPrefix,
     keys: compactKeys,
+    shared: sharedMessages,
     values: {
-      "zh-CN": messageKeys.map((key) => siteMessages["zh-CN"][key]),
-      en: messageKeys.map((key) => siteMessages.en[key]),
+      "zh-CN": messageKeys.map((key, index) =>
+        sharedMessages[index] ? null : siteMessages["zh-CN"][key],
+      ),
+      en: messageKeys.map((key, index) =>
+        sharedMessages[index] ? null : siteMessages.en[key],
+      ),
     },
   },
   "component-index.json": index,

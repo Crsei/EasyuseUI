@@ -29,7 +29,10 @@
     "docs:build": "node scripts/build-docs.mjs --write",
     "check:docs": "node scripts/build-docs.mjs && node scripts/check-docs-snippets.mjs",
     "ui-contracts:build": "node scripts/check-ui-contracts.mjs --write",
-    "check:ui-contracts": "node scripts/check-ui-contracts.mjs"
+    "check:ui-contracts": "node scripts/check-ui-contracts.mjs",
+    "svg:assets": "node scripts/build-svg-assets.mjs",
+    "test:svg:model": "node scripts/test-svg-workbench.mjs",
+    "svg:tsx": "node scripts/svg-to-tsx.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",
@@ -43,12 +46,16 @@
     "react-dom": "19.3.0",
     "react-is": "19.3.0",
     "recharts": "3.10.1",
+    "saxes": "6.0.0",
     "shiki": "4.5.0",
+    "svgo": "4.0.0",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "^1.58.2",
+    "@svgr/core": "8.1.0",
+    "@svgr/plugin-jsx": "8.1.0",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^24",
     "@types/react": "^19",

@@ -29,6 +29,8 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     pathname === "/examples/work-items" ||
     pathname === "/examples/work-items/" ||
     pathname === "/workspace/canvas" ||
+    pathname === "/workspace/svg" ||
+    pathname.startsWith("/workspace/svg/") ||
     pathname.startsWith("/workspace/canvas/") ||
     pathname === "/examples/sales-crm" ||
     pathname === "/examples/sales-crm/"

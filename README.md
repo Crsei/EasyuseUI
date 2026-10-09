@@ -26,6 +26,8 @@ Agent 可按任务读取 [UI Skills 分类与入口](./skills/README.md)：视�
 
 打开 http://localhost:3010/style-workbench/ 使用样式工作台。A 从当前主题与样例探针读取基准，B 实时调整圆角、控件高度、间距、边框、内外阴影、颜色与透明度、背景模糊、字体等24个参数；两侧共享内容与交互状态，差异表显示改动及数值差。支持四种预设、将 B 固定为新基准、重置和复制局部 CSS / A/B 参数 JSON。未固定 A 时主题切换更新未修改参数；实验保留在当前页面，刷新后恢复默认。详细操作与参数范围见 [样式工作台指南](./STYLE-WORKBENCH.md)，组件文档在 `/docs/style-workbench/`。
 
+打开 http://localhost:3010/workspace/svg/ 使用 SVG 工作台：60 个固定来源素材、基本绘图、图层/属性/源码编辑、可撤销优化，以及 SVG、独立 TSX 与来源清单导出。仅本地处理，刷新前导出；指南见 [SVG-WORKBENCH.md](./SVG-WORKBENCH.md)。
+
 打开 http://localhost:3010/workspace/ 查看按规范初始化的工作台。可切换五种数据状态与十种运行状态、选择对象、折叠侧栏、打开/关闭和调整 Inspector，以及在 Chat 添加本地消息。页面使用内存 fixture，不连接模型或 Agent 服务。
 
 | 层级             | 已实现内容                                                                                                                                          |

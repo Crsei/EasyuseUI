@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "collection": "lucide",
+      "commit": "55b9969b82776bb1412e29fc5cdc7535bfd69533",
+      "count": 32,
+      "bytes": 246830,
+      "verifiedImports": 31,
+      "license": "ISC + MIT (Feather-derived assets)",
+      "assetPaths": [
+        "icons/check.svg",
+        "icons/x.svg",
+        "icons/arrow-up-right.svg",
+        "icons/search.svg",
+        "icons/plus.svg",
+        "icons/minus.svg",
+        "icons/circle.svg",
+        "icons/square.svg",
+        "icons/triangle.svg",
+        "icons/move.svg",
+        "icons/copy.svg",
+        "icons/download.svg",
+        "icons/upload.svg",
+        "icons/folder.svg",
+        "icons/file.svg",
+        "icons/settings.svg",
+        "icons/heart.svg",
+        "icons/star.svg",
+        "icons/house.svg",
+        "icons/menu.svg",
+        "icons/eye.svg",
+        "icons/lock.svg",
+        "icons/lock-open.svg",
+        "icons/trash.svg",
+        "icons/undo.svg",
+        "icons/redo.svg",
+        "icons/zoom-in.svg",
+        "icons/zoom-out.svg",
+        "icons/code.svg",
+        "icons/image.svg",
+        "icons/chevron-left.svg",
+        "icons/chevron-right.svg"
+      ]
+    },
+    {
+      "collection": "tabler",
+      "commit": "a4ce1404bc6d24d3c365afe7b258d6bf6f48d62d",
+      "count": 8,
+      "bytes": 26210,
+      "verifiedImports": 0,
+      "license": "MIT",
+      "assetPaths": [
+        "icons/outline/check.svg",
+        "icons/outline/x.svg",
+        "icons/outline/search.svg",
+        "icons/outline/plus.svg",
+        "icons/outline/circle.svg",
+        "icons/outline/square.svg",
+        "icons/outline/heart.svg",
+        "icons/outline/star.svg"
+      ]
+    },
+    {
+      "collection": "phosphor",
+      "commit": "2b75f3ad12b420c9504ef05df8d2564a28f8500e",
+      "count": 8,
+      "bytes": 25408,
+      "verifiedImports": 0,
+      "license": "MIT",
+      "assetPaths": [
+        "assets/regular/check.svg",
+        "assets/regular/x.svg",
+        "assets/regular/magnifying-glass.svg",
+        "assets/regular/plus.svg",
+        "assets/regular/circle.svg",
+        "assets/regular/square.svg",
+        "assets/regular/heart.svg",
+        "assets/regular/star.svg"
+      ]
+    },
+    {
+      "collection": "simple-icons",
+      "commit": "98820a4dc8c363ca72fa2c0d294ea4a0a9bba75d",
+      "count": 4,
+      "bytes": 62199,
+      "verifiedImports": 0,
+      "license": "CC0-1.0",
+      "assetPaths": [
+        "icons/github.svg",
+        "icons/figma.svg",
+        "icons/react.svg",
+        "icons/typescript.svg"
+      ]
+    },
+    {
+      "collection": "lobe",
+      "commit": "c385b2b8d1f9e19aa86e628d4e23c91ee1111a47",
+      "count": 4,
+      "bytes": 20557,
+      "verifiedImports": 0,
+      "license": "MIT",
+      "assetPaths": [
+        "packages/static-svg/icons/openai.svg",
+        "packages/static-svg/icons/claude-color.svg",
+        "packages/static-svg/icons/deepseek-color.svg",
+        "packages/static-svg/icons/gemini-color.svg"
+      ]
+    },
+    {
+      "collection": "iconify-lucide",
+      "commit": "160026b3241486e814353df6399cec97b60af02f",
+      "count": 4,
+      "bytes": 29888,
+      "verifiedImports": 0,
+      "license": "ISC + MIT (Lucide upstream notice retained)",
+      "assetPaths": [
+        "json/lucide.json#check",
+        "json/lucide.json#x",
+        "json/lucide.json#search",
+        "json/lucide.json#plus"
+      ]
+    }
+  ]
+}

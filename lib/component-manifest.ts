@@ -290,6 +290,230 @@ const sourceManifest: ComponentManifestEntry[] = [
   "widePreview": true,
   "docGroup": "agent"
 },
+  // BEGIN SVG Workbench
+{
+  "slug": "svg-canvas",
+  "docPath": "/docs/svg-canvas/",
+  "registryId": "svg-canvas",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "svg-workbench-model",
+    "svg-workbench-styles"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "SvgCanvas",
+  "category": "组合模块",
+  "description": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+  "source": "components/blocks/svg-canvas.tsx",
+  "example": "components/examples/svg-workbench/workbench-demo.tsx",
+  "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgCanvas } from \"@/components/blocks/svg-canvas\"\nexport function Example(props: ComponentProps<typeof SvgCanvas>) {\n  return <SvgCanvas {...props} />\n}",
+  "props": [
+    {
+      "name": "document",
+      "type": "SvgDocument",
+      "description": "已通过 V1 校验的完整文档快照；修改通过命令回调提交。"
+    },
+    {
+      "name": "selectedIds",
+      "type": "string[]",
+      "description": "稳定图层 ID；选择与编辑命令分离。"
+    },
+    {
+      "name": "onCommand",
+      "type": "(command: EditCommand) => void",
+      "description": "调用方提交命令与撤销事务，持久化和上传由适配层负责。"
+    }
+  ],
+  "notes": [
+    "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。",
+    "支持 V1 白名单；脚本、外链与未知元素被拒绝，草稿保留。",
+    "原库片段只提供经过实际安装版本比对且未修改的图标。"
+  ],
+  "widePreview": true,
+  "docGroup": "workspace",
+  "related": [
+    "svg-icon-library",
+    "svg-properties",
+    "svg-workbench"
+  ]
+},
+{
+  "slug": "svg-icon-library",
+  "docPath": "/docs/svg-icon-library/",
+  "registryId": "svg-icon-library",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "svg-workbench-model",
+    "svg-workbench-styles",
+    "svg-canvas",
+    "button",
+    "input",
+    "field",
+    "native-select",
+    "item",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "SvgIconLibrary",
+  "category": "组合模块",
+  "description": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+  "source": "components/blocks/svg-icon-library.tsx",
+  "example": "components/examples/svg-workbench/workbench-demo.tsx",
+  "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgIconLibrary } from \"@/components/blocks/svg-icon-library\"\nexport function Example(props: ComponentProps<typeof SvgIconLibrary>) {\n  return <SvgIconLibrary {...props} />\n}",
+  "props": [
+    {
+      "name": "assets / state / onRetry",
+      "type": "SvgIconAsset[] / DataState / () => void",
+      "description": "按来源懒加载的素材、数据态和重试回调。"
+    }
+  ],
+  "notes": [
+    "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。",
+    "支持 V1 白名单；脚本、外链与未知元素被拒绝，草稿保留。",
+    "原库片段只提供经过实际安装版本比对且未修改的图标。"
+  ],
+  "widePreview": false,
+  "docGroup": "workspace",
+  "related": [
+    "svg-canvas",
+    "svg-properties",
+    "svg-workbench"
+  ]
+},
+{
+  "slug": "svg-properties",
+  "docPath": "/docs/svg-properties/",
+  "registryId": "svg-properties",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "svg-workbench-model",
+    "svg-workbench-styles",
+    "button",
+    "field",
+    "input",
+    "textarea"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "SvgProperties",
+  "category": "组合模块",
+  "description": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+  "source": "components/blocks/svg-properties.tsx",
+  "example": "components/examples/svg-workbench/workbench-demo.tsx",
+  "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgProperties } from \"@/components/blocks/svg-properties\"\nexport function Example(props: ComponentProps<typeof SvgProperties>) {\n  return <SvgProperties {...props} />\n}",
+  "props": [
+    {
+      "name": "document",
+      "type": "SvgDocument",
+      "description": "已通过 V1 校验的完整文档快照；修改通过命令回调提交。"
+    },
+    {
+      "name": "selectedIds",
+      "type": "string[]",
+      "description": "稳定图层 ID；选择与编辑命令分离。"
+    },
+    {
+      "name": "onCommand",
+      "type": "(command: EditCommand) => void",
+      "description": "调用方提交命令与撤销事务，持久化和上传由适配层负责。"
+    }
+  ],
+  "notes": [
+    "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。",
+    "支持 V1 白名单；脚本、外链与未知元素被拒绝，草稿保留。",
+    "原库片段只提供经过实际安装版本比对且未修改的图标。"
+  ],
+  "widePreview": false,
+  "docGroup": "workspace",
+  "related": [
+    "svg-canvas",
+    "svg-icon-library",
+    "svg-workbench"
+  ]
+},
+{
+  "slug": "svg-workbench",
+  "docPath": "/docs/svg-workbench/",
+  "registryId": "svg-workbench",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "svg-workbench-model",
+    "svg-workbench-styles",
+    "svg-canvas",
+    "svg-icon-library",
+    "svg-properties",
+    "workspace-shell",
+    "button",
+    "tabs",
+    "tree",
+    "textarea",
+    "native-select",
+    "field",
+    "slider",
+    "dialog",
+    "sheet"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "SvgWorkbench",
+  "category": "组合模块",
+  "description": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+  "source": "components/blocks/svg-workbench.tsx",
+  "example": "components/examples/svg-workbench/workbench-demo.tsx",
+  "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgWorkbench } from \"@/components/blocks/svg-workbench\"\nexport function Example(props: ComponentProps<typeof SvgWorkbench>) {\n  return <SvgWorkbench {...props} />\n}",
+  "props": [
+    {
+      "name": "document",
+      "type": "SvgDocument",
+      "description": "已通过 V1 校验的完整文档快照；修改通过命令回调提交。"
+    },
+    {
+      "name": "selectedIds",
+      "type": "string[]",
+      "description": "稳定图层 ID；选择与编辑命令分离。"
+    },
+    {
+      "name": "onCommand",
+      "type": "(command: EditCommand) => void",
+      "description": "调用方提交命令与撤销事务，持久化和上传由适配层负责。"
+    },
+    {
+      "name": "library",
+      "type": "Omit<SvgIconLibraryProps, \"onInsert\">",
+      "description": "按来源懒加载的素材、数据态和重试回调。"
+    },
+    {
+      "name": "layout",
+      "type": "\"fill\" | \"preview\"",
+      "default": "\"preview\"",
+      "description": "正式工具填满父容器；文档预览使用固定演示高度。"
+    }
+  ],
+  "notes": [
+    "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。",
+    "支持 V1 白名单；脚本、外链与未知元素被拒绝，草稿保留。",
+    "原库片段只提供经过实际安装版本比对且未修改的图标。"
+  ],
+  "widePreview": true,
+  "docGroup": "workspace",
+  "related": [
+    "svg-canvas",
+    "svg-icon-library",
+    "svg-properties"
+  ]
+},
+  // END SVG Workbench
+
   // BEGIN agent workbench
 {
   "slug": "session-navigator",
@@ -491,14 +715,14 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/context-panel/",
   "registryId": "agent-workbench-context",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "button",
-    "data-region",
-    "item",
-    "dialog",
-    "input"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "button",
+  "data-region",
+  "item",
+  "dialog",
+  "input"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -561,14 +785,14 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/context-picker/",
   "registryId": "agent-workbench-context",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "button",
-    "data-region",
-    "item",
-    "dialog",
-    "input"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "button",
+  "data-region",
+  "item",
+  "dialog",
+  "input"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -722,12 +946,12 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/composer-controls/",
   "registryId": "agent-workbench-composer",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "button",
-    "chat-message",
-    "select"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "button",
+  "chat-message",
+  "select"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -785,12 +1009,12 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/agent-composer/",
   "registryId": "agent-workbench-composer",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "button",
-    "chat-message",
-    "select"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "button",
+  "chat-message",
+  "select"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -878,14 +1102,14 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/file-viewer/",
   "registryId": "agent-workbench-review",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "tree",
-    "button",
-    "data-region",
-    "redact",
-    "workbench-resource-model"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "tree",
+  "button",
+  "data-region",
+  "redact",
+  "workbench-resource-model"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -928,14 +1152,14 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/diff-viewer/",
   "registryId": "agent-workbench-review",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "tree",
-    "button",
-    "data-region",
-    "redact",
-    "workbench-resource-model"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "tree",
+  "button",
+  "data-region",
+  "redact",
+  "workbench-resource-model"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -983,14 +1207,14 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/change-review-panel/",
   "registryId": "agent-workbench-review",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "tree",
-    "button",
-    "data-region",
-    "redact",
-    "workbench-resource-model"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "tree",
+  "button",
+  "data-region",
+  "redact",
+  "workbench-resource-model"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1068,15 +1292,15 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/workbench-panel-tabs/",
   "registryId": "agent-workbench-panels",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "tabs",
-    "button",
-    "input",
-    "redact",
-    "runtime-status-badge",
-    "workbench-resource-model"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "tabs",
+  "button",
+  "input",
+  "redact",
+  "runtime-status-badge",
+  "workbench-resource-model"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1119,15 +1343,15 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/execution-output-panel/",
   "registryId": "agent-workbench-panels",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "tabs",
-    "button",
-    "input",
-    "redact",
-    "runtime-status-badge",
-    "workbench-resource-model"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "tabs",
+  "button",
+  "input",
+  "redact",
+  "runtime-status-badge",
+  "workbench-resource-model"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1190,15 +1414,15 @@ const sourceManifest: ComponentManifestEntry[] = [
   "docPath": "/docs/preview-panel/",
   "registryId": "agent-workbench-panels",
   "registryDependencies": [
-    "theme",
-    "i18n",
-    "agent-workbench-model",
-    "tabs",
-    "button",
-    "input",
-    "redact",
-    "runtime-status-badge",
-    "workbench-resource-model"
+  "theme",
+  "i18n",
+  "agent-workbench-model",
+  "tabs",
+  "button",
+  "input",
+  "redact",
+  "runtime-status-badge",
+  "workbench-resource-model"
 ],
   "installType": "block",
   "displayCategory": "patterns",

@@ -4,6 +4,50 @@
   "homepage": "http://localhost:3010",
   "items": [
     {
+      "name": "workbench-resource-model",
+      "type": "registry:lib",
+      "title": "Workbench resource model",
+      "registryDependencies": [
+        "agent-workbench-model",
+        "runtime-status",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "lib/workbench-resource-model.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "workbench-file-preview",
+      "type": "registry:block",
+      "title": "WorkbenchFilePreview",
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "button",
+        "dialog",
+        "data-region",
+        "tabs",
+        "data-table",
+        "agent-workbench-review",
+        "agent-workbench-conversation",
+        "workbench-resource-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/workbench-file-preview.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "components/blocks/workbench-file-preview.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/workbench-file-preview.module.css"
+        }
+      ]
+    },
+    {
       "name": "runtime-status",
       "type": "registry:lib",
       "title": "Runtime Status Contract",
@@ -4342,46 +4386,203 @@
       ]
     },
     {
-      "name": "workbench-resource-model",
+      "name": "svg-workbench-model",
       "type": "registry:lib",
-      "title": "Workbench resource model",
-      "registryDependencies": [
-        "agent-workbench-model",
-        "runtime-status",
-        "redact"
+      "title": "SVG document, validation and local editor adapter",
+      "dependencies": [
+        "saxes@6.0.0",
+        "svgo@4.0.0"
       ],
       "files": [
         {
-          "path": "lib/workbench-resource-model.ts",
-          "type": "registry:lib"
+          "path": "lib/svg-workbench-model.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-workbench-model.ts"
+        },
+        {
+          "path": "lib/svg-workbench-parse.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-workbench-parse.ts"
+        },
+        {
+          "path": "lib/svg-workbench-task.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-workbench-task.ts"
+        },
+        {
+          "path": "lib/svg-workbench-worker.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-workbench-worker.ts"
+        },
+        {
+          "path": "lib/svg-workbench-assets.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-workbench-assets.ts"
+        },
+        {
+          "path": "lib/use-svg-workbench-editor.ts",
+          "type": "registry:lib",
+          "target": "lib/use-svg-workbench-editor.ts"
+        },
+        {
+          "path": "lib/svg-assets/iconify-lucide.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-assets/iconify-lucide.ts"
+        },
+        {
+          "path": "lib/svg-assets/lobe.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-assets/lobe.ts"
+        },
+        {
+          "path": "lib/svg-assets/lucide.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-assets/lucide.ts"
+        },
+        {
+          "path": "lib/svg-assets/phosphor.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-assets/phosphor.ts"
+        },
+        {
+          "path": "lib/svg-assets/simple-icons.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-assets/simple-icons.ts"
+        },
+        {
+          "path": "lib/svg-assets/tabler.ts",
+          "type": "registry:lib",
+          "target": "lib/svg-assets/tabler.ts"
+        },
+        {
+          "path": "lib/i18n-svg.ts",
+          "type": "registry:lib",
+          "target": "lib/i18n-svg.ts"
+        },
+        {
+          "path": "lib/i18n-svg-messages.ts",
+          "type": "registry:lib",
+          "target": "lib/i18n-svg-messages.ts"
+        }
+      ],
+      "registryDependencies": [
+        "i18n"
+      ]
+    },
+    {
+      "name": "svg-workbench-styles",
+      "type": "registry:lib",
+      "title": "SVG Workbench styles",
+      "registryDependencies": [
+        "theme"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/svg-workbench.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/svg-workbench.module.css"
         }
       ]
     },
     {
-      "name": "workbench-file-preview",
+      "name": "svg-canvas",
       "type": "registry:block",
-      "title": "WorkbenchFilePreview",
+      "title": "SvgCanvas",
+      "dependencies": [],
       "registryDependencies": [
         "theme",
         "i18n",
-        "button",
-        "dialog",
-        "data-region",
-        "tabs",
-        "data-table",
-        "agent-workbench-review",
-        "agent-workbench-conversation",
-        "workbench-resource-model"
+        "svg-workbench-model",
+        "svg-workbench-styles"
       ],
       "files": [
         {
-          "path": "components/blocks/workbench-file-preview.tsx",
-          "type": "registry:block"
-        },
+          "path": "components/blocks/svg-canvas.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/svg-canvas.tsx"
+        }
+      ]
+    },
+    {
+      "name": "svg-icon-library",
+      "type": "registry:block",
+      "title": "SvgIconLibrary",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "svg-workbench-model",
+        "svg-workbench-styles",
+        "svg-canvas",
+        "button",
+        "input",
+        "field",
+        "native-select",
+        "item",
+        "data-region"
+      ],
+      "files": [
         {
-          "path": "components/blocks/workbench-file-preview.module.css",
-          "type": "registry:file",
-          "target": "components/blocks/workbench-file-preview.module.css"
+          "path": "components/blocks/svg-icon-library.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/svg-icon-library.tsx"
+        }
+      ]
+    },
+    {
+      "name": "svg-properties",
+      "type": "registry:block",
+      "title": "SvgProperties",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "svg-workbench-model",
+        "svg-workbench-styles",
+        "button",
+        "field",
+        "input",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/svg-properties.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/svg-properties.tsx"
+        }
+      ]
+    },
+    {
+      "name": "svg-workbench",
+      "type": "registry:block",
+      "title": "SvgWorkbench",
+      "dependencies": [
+        "lucide-react@^0.577.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "svg-workbench-model",
+        "svg-workbench-styles",
+        "svg-canvas",
+        "svg-icon-library",
+        "svg-properties",
+        "workspace-shell",
+        "button",
+        "tabs",
+        "tree",
+        "textarea",
+        "native-select",
+        "field",
+        "slider",
+        "dialog",
+        "sheet"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/svg-workbench.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/svg-workbench.tsx"
         }
       ]
     }

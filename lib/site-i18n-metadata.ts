@@ -1,4 +1,5 @@
 export const pageDescriptionKeys = {
+  "/workspace/svg": "site.svg.pageDescription",
   "/blog": "site.optimization.blogIntro",
   "/examples/workflow-analytics": "site.examples.workflowAnalyticsDescription",
   "/examples": "site.examples.description",
@@ -14,6 +15,7 @@ export const pageDescriptionKeys = {
 
 // Site-owned static routes only. Object pages provide their own current metadata.
 export const pageTitles = {
+  "/workspace/svg": "SVG 工作台",
   "/examples": "组件示例",
   "/examples/work-items": "Work Items 组件示例",
   "/workspace/work-items": "Work Items 组件示例",

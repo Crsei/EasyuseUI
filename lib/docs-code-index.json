@@ -100,6 +100,70 @@
       "lines": 68
     }
   ],
+  "svg-canvas": [
+    {
+      "id": "8d757da22d2eef7e02fc24ef5a96c2a59a44a4aea265ff1de5aa854ef7353de9",
+      "path": "components/blocks/svg-canvas.tsx",
+      "kind": "source",
+      "url": "/docs-code/8d757da22d2eef7e02fc24ef5a96c2a59a44a4aea265ff1de5aa854ef7353de9.json",
+      "lines": 539
+    },
+    {
+      "id": "d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a",
+      "path": "components/examples/svg-workbench/workbench-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a.json",
+      "lines": 126
+    }
+  ],
+  "svg-icon-library": [
+    {
+      "id": "d3af0db1e8cf39fea303991cb249bb25d1887237988b6afb342c9139fd9f648b",
+      "path": "components/blocks/svg-icon-library.tsx",
+      "kind": "source",
+      "url": "/docs-code/d3af0db1e8cf39fea303991cb249bb25d1887237988b6afb342c9139fd9f648b.json",
+      "lines": 232
+    },
+    {
+      "id": "d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a",
+      "path": "components/examples/svg-workbench/workbench-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a.json",
+      "lines": 126
+    }
+  ],
+  "svg-properties": [
+    {
+      "id": "eaa6803d6f2eb15e654ce5649e44249a5223825affa2c1360c3f4611789668ff",
+      "path": "components/blocks/svg-properties.tsx",
+      "kind": "source",
+      "url": "/docs-code/eaa6803d6f2eb15e654ce5649e44249a5223825affa2c1360c3f4611789668ff.json",
+      "lines": 303
+    },
+    {
+      "id": "d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a",
+      "path": "components/examples/svg-workbench/workbench-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a.json",
+      "lines": 126
+    }
+  ],
+  "svg-workbench": [
+    {
+      "id": "57372afc50fe1d18b830c515f245c6094c1825fd9ded7838bbb62bfe2d9ceda8",
+      "path": "components/blocks/svg-workbench.tsx",
+      "kind": "source",
+      "url": "/docs-code/57372afc50fe1d18b830c515f245c6094c1825fd9ded7838bbb62bfe2d9ceda8.json",
+      "lines": 1072
+    },
+    {
+      "id": "d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a",
+      "path": "components/examples/svg-workbench/workbench-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/d576e9e29206881737ebec3b48072e56a1a24902e47699487e3c93513b417c4a.json",
+      "lines": 126
+    }
+  ],
   "session-navigator": [
     {
       "id": "25b4a7f61d314dfe7e8b25e7eca496db0be9810f30af543ac91ce272052ae926",

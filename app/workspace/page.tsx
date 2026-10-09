@@ -29,6 +29,7 @@ export default function WorkspacePage() {
         </Link>
       </div>
       <Link href="/workspace/agents/" className="mb-4 inline-flex text-sm text-primary">Agent Board / 运行看板</Link>
+      <Link href="/workspace/svg/" className="mb-4 ml-4 inline-flex text-sm text-primary"><SiteText messageKey="site.svg.pageTitle" /></Link>
       <WorkspaceShellDemo />
     </main>
   )

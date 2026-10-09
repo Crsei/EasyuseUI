@@ -17544,6 +17544,398 @@
       "keywords": "inspector 源码 Source"
     },
     {
+      "id": "svg-canvas",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgCanvas",
+        "en": "SvgCanvas"
+      },
+      "summary": {
+        "zh-CN": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+        "en": "SVG node canvas with selection, temporary drag previews, keyboard movement and basic shape drawing."
+      },
+      "href": "/docs/svg-canvas/",
+      "keywords": "svg-canvas workspace"
+    },
+    {
+      "id": "svg-canvas-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgCanvas · 安装",
+        "en": "SvgCanvas · Installation"
+      },
+      "summary": {
+        "zh-CN": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+        "en": "SVG node canvas with selection, temporary drag previews, keyboard movement and basic shape drawing."
+      },
+      "href": "/docs/svg-canvas/#installation",
+      "keywords": "svg-canvas 安装 Installation"
+    },
+    {
+      "id": "svg-canvas-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgCanvas · 使用",
+        "en": "SvgCanvas · Usage"
+      },
+      "summary": {
+        "zh-CN": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+        "en": "SVG node canvas with selection, temporary drag previews, keyboard movement and basic shape drawing."
+      },
+      "href": "/docs/svg-canvas/#usage",
+      "keywords": "svg-canvas 使用 Usage"
+    },
+    {
+      "id": "svg-canvas-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgCanvas · API",
+        "en": "SvgCanvas · API"
+      },
+      "summary": {
+        "zh-CN": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+        "en": "SVG node canvas with selection, temporary drag previews, keyboard movement and basic shape drawing."
+      },
+      "href": "/docs/svg-canvas/#api",
+      "keywords": "svg-canvas API API"
+    },
+    {
+      "id": "svg-canvas-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgCanvas · 状态与交互",
+        "en": "SvgCanvas · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+        "en": "SVG node canvas with selection, temporary drag previews, keyboard movement and basic shape drawing."
+      },
+      "href": "/docs/svg-canvas/#states",
+      "keywords": "svg-canvas 状态与交互 States and interaction"
+    },
+    {
+      "id": "svg-canvas-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgCanvas · 完整示例",
+        "en": "SvgCanvas · Complete example"
+      },
+      "summary": {
+        "zh-CN": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+        "en": "SVG node canvas with selection, temporary drag previews, keyboard movement and basic shape drawing."
+      },
+      "href": "/docs/svg-canvas/#example",
+      "keywords": "svg-canvas 完整示例 Complete example"
+    },
+    {
+      "id": "svg-canvas-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgCanvas · 源码",
+        "en": "SvgCanvas · Source"
+      },
+      "summary": {
+        "zh-CN": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+        "en": "SVG node canvas with selection, temporary drag previews, keyboard movement and basic shape drawing."
+      },
+      "href": "/docs/svg-canvas/#source",
+      "keywords": "svg-canvas 源码 Source"
+    },
+    {
+      "id": "svg-icon-library",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgIconLibrary",
+        "en": "SvgIconLibrary"
+      },
+      "summary": {
+        "zh-CN": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+        "en": "Offline curated assets with paginated search, frozen provenance, licenses and explicit copy insertion."
+      },
+      "href": "/docs/svg-icon-library/",
+      "keywords": "svg-icon-library workspace"
+    },
+    {
+      "id": "svg-icon-library-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgIconLibrary · 安装",
+        "en": "SvgIconLibrary · Installation"
+      },
+      "summary": {
+        "zh-CN": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+        "en": "Offline curated assets with paginated search, frozen provenance, licenses and explicit copy insertion."
+      },
+      "href": "/docs/svg-icon-library/#installation",
+      "keywords": "svg-icon-library 安装 Installation"
+    },
+    {
+      "id": "svg-icon-library-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgIconLibrary · 使用",
+        "en": "SvgIconLibrary · Usage"
+      },
+      "summary": {
+        "zh-CN": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+        "en": "Offline curated assets with paginated search, frozen provenance, licenses and explicit copy insertion."
+      },
+      "href": "/docs/svg-icon-library/#usage",
+      "keywords": "svg-icon-library 使用 Usage"
+    },
+    {
+      "id": "svg-icon-library-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgIconLibrary · API",
+        "en": "SvgIconLibrary · API"
+      },
+      "summary": {
+        "zh-CN": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+        "en": "Offline curated assets with paginated search, frozen provenance, licenses and explicit copy insertion."
+      },
+      "href": "/docs/svg-icon-library/#api",
+      "keywords": "svg-icon-library API API"
+    },
+    {
+      "id": "svg-icon-library-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgIconLibrary · 状态与交互",
+        "en": "SvgIconLibrary · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+        "en": "Offline curated assets with paginated search, frozen provenance, licenses and explicit copy insertion."
+      },
+      "href": "/docs/svg-icon-library/#states",
+      "keywords": "svg-icon-library 状态与交互 States and interaction"
+    },
+    {
+      "id": "svg-icon-library-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgIconLibrary · 完整示例",
+        "en": "SvgIconLibrary · Complete example"
+      },
+      "summary": {
+        "zh-CN": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+        "en": "Offline curated assets with paginated search, frozen provenance, licenses and explicit copy insertion."
+      },
+      "href": "/docs/svg-icon-library/#example",
+      "keywords": "svg-icon-library 完整示例 Complete example"
+    },
+    {
+      "id": "svg-icon-library-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgIconLibrary · 源码",
+        "en": "SvgIconLibrary · Source"
+      },
+      "summary": {
+        "zh-CN": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+        "en": "Offline curated assets with paginated search, frozen provenance, licenses and explicit copy insertion."
+      },
+      "href": "/docs/svg-icon-library/#source",
+      "keywords": "svg-icon-library 源码 Source"
+    },
+    {
+      "id": "svg-properties",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgProperties",
+        "en": "SvgProperties"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+        "en": "Controlled SVG properties for dimensions, geometry, paint, transforms and provenance."
+      },
+      "href": "/docs/svg-properties/",
+      "keywords": "svg-properties workspace"
+    },
+    {
+      "id": "svg-properties-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgProperties · 安装",
+        "en": "SvgProperties · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+        "en": "Controlled SVG properties for dimensions, geometry, paint, transforms and provenance."
+      },
+      "href": "/docs/svg-properties/#installation",
+      "keywords": "svg-properties 安装 Installation"
+    },
+    {
+      "id": "svg-properties-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgProperties · 使用",
+        "en": "SvgProperties · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+        "en": "Controlled SVG properties for dimensions, geometry, paint, transforms and provenance."
+      },
+      "href": "/docs/svg-properties/#usage",
+      "keywords": "svg-properties 使用 Usage"
+    },
+    {
+      "id": "svg-properties-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgProperties · API",
+        "en": "SvgProperties · API"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+        "en": "Controlled SVG properties for dimensions, geometry, paint, transforms and provenance."
+      },
+      "href": "/docs/svg-properties/#api",
+      "keywords": "svg-properties API API"
+    },
+    {
+      "id": "svg-properties-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgProperties · 状态与交互",
+        "en": "SvgProperties · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+        "en": "Controlled SVG properties for dimensions, geometry, paint, transforms and provenance."
+      },
+      "href": "/docs/svg-properties/#states",
+      "keywords": "svg-properties 状态与交互 States and interaction"
+    },
+    {
+      "id": "svg-properties-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgProperties · 完整示例",
+        "en": "SvgProperties · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+        "en": "Controlled SVG properties for dimensions, geometry, paint, transforms and provenance."
+      },
+      "href": "/docs/svg-properties/#example",
+      "keywords": "svg-properties 完整示例 Complete example"
+    },
+    {
+      "id": "svg-properties-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgProperties · 源码",
+        "en": "SvgProperties · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+        "en": "Controlled SVG properties for dimensions, geometry, paint, transforms and provenance."
+      },
+      "href": "/docs/svg-properties/#source",
+      "keywords": "svg-properties 源码 Source"
+    },
+    {
+      "id": "svg-workbench",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgWorkbench",
+        "en": "SvgWorkbench"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+        "en": "Controlled SVG workbench with library copies, drawing, validated source, optimization and independent exports."
+      },
+      "href": "/docs/svg-workbench/",
+      "keywords": "svg-workbench workspace"
+    },
+    {
+      "id": "svg-workbench-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgWorkbench · 安装",
+        "en": "SvgWorkbench · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+        "en": "Controlled SVG workbench with library copies, drawing, validated source, optimization and independent exports."
+      },
+      "href": "/docs/svg-workbench/#installation",
+      "keywords": "svg-workbench 安装 Installation"
+    },
+    {
+      "id": "svg-workbench-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgWorkbench · 使用",
+        "en": "SvgWorkbench · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+        "en": "Controlled SVG workbench with library copies, drawing, validated source, optimization and independent exports."
+      },
+      "href": "/docs/svg-workbench/#usage",
+      "keywords": "svg-workbench 使用 Usage"
+    },
+    {
+      "id": "svg-workbench-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgWorkbench · API",
+        "en": "SvgWorkbench · API"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+        "en": "Controlled SVG workbench with library copies, drawing, validated source, optimization and independent exports."
+      },
+      "href": "/docs/svg-workbench/#api",
+      "keywords": "svg-workbench API API"
+    },
+    {
+      "id": "svg-workbench-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgWorkbench · 状态与交互",
+        "en": "SvgWorkbench · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+        "en": "Controlled SVG workbench with library copies, drawing, validated source, optimization and independent exports."
+      },
+      "href": "/docs/svg-workbench/#states",
+      "keywords": "svg-workbench 状态与交互 States and interaction"
+    },
+    {
+      "id": "svg-workbench-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgWorkbench · 完整示例",
+        "en": "SvgWorkbench · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+        "en": "Controlled SVG workbench with library copies, drawing, validated source, optimization and independent exports."
+      },
+      "href": "/docs/svg-workbench/#example",
+      "keywords": "svg-workbench 完整示例 Complete example"
+    },
+    {
+      "id": "svg-workbench-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "SvgWorkbench · 源码",
+        "en": "SvgWorkbench · Source"
+      },
+      "summary": {
+        "zh-CN": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+        "en": "Controlled SVG workbench with library copies, drawing, validated source, optimization and independent exports."
+      },
+      "href": "/docs/svg-workbench/#source",
+      "keywords": "svg-workbench 源码 Source"
+    },
+    {
       "id": "dashboard",
       "kind": "components",
       "title": {

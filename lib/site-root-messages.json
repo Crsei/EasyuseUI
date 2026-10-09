@@ -1,6 +1,7 @@
 {
   "zh-CN": {
     "titles": {
+      "/workspace/svg": "SVG 工作台",
       "/examples": "组件示例",
       "/examples/work-items": "Work Items 组件示例",
       "/workspace/work-items": "Work Items 组件示例",
@@ -18,6 +19,7 @@
       "/workspace/canvas/stress": "压力图"
     },
     "descriptions": {
+      "/workspace/svg": "离线 SVG 素材浏览、绘制、源码校验与独立 SVG/React 导出。",
       "/blog": "了解每项优化的问题、方案、前后证据与适用范围。测量与实施状态分别记录。",
       "/examples/workflow-analytics": "固定项目 Dashboard、历史口径图表与同快照工作项下钻。",
       "/examples": "通过完整交互示例了解组件如何组合；每个示例使用本地数据，便于探索布局与状态。",
@@ -33,6 +35,7 @@
   },
   "en": {
     "titles": {
+      "/workspace/svg": "SVG Workbench",
       "/examples": "Component examples",
       "/examples/work-items": "Work Items component example",
       "/workspace/work-items": "Work Items component example",
@@ -50,6 +53,7 @@
       "/workspace/canvas/stress": "Stress graph"
     },
     "descriptions": {
+      "/workspace/svg": "Offline SVG asset browsing, drawing, source validation and independent SVG/React export.",
       "/blog": "Explore the problem, approach, before and after evidence, and scope of each improvement. Measurement and implementation status are recorded separately.",
       "/examples/workflow-analytics": "A fixed project dashboard, historical metrics and work-item drilldown at the same snapshot.",
       "/examples": "Explore how components fit together in interactive examples. Each example uses local data to demonstrate layouts and states.",

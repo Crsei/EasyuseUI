@@ -29,12 +29,45 @@ function resources(file) {
   return literal(initializer)
 }
 const core = resources("lib/i18n-messages.ts")
+const svg = resources("lib/i18n-svg-messages.ts")
 const site = resources("lib/site-i18n-messages.ts")
 const crm = resources("lib/site-crm-messages.ts")
+const compact = JSON.parse(read("lib/site-i18n-compact.json"))
+const decoded = Object.fromEntries(
+  ["zh-CN", "en"].map((locale) => [
+    locale,
+    Object.fromEntries(
+      compact.keys.map((key, index) => [
+        key.startsWith("!") ? key.slice(1) : compact.prefix + key,
+        compact.values[locale][index] ?? core[locale][compact.shared[index]],
+      ]),
+    ),
+  ]),
+)
+assert.deepEqual(
+  decoded,
+  site,
+  "Compact site dictionary must restore every key and locale exactly",
+)
+for (const [index, key] of Object.entries(compact.shared)) {
+  for (const locale of ["zh-CN", "en"]) {
+    assert.equal(
+      typeof core[locale][key],
+      "string",
+      `Invalid shared portable key: ${key}`,
+    )
+    assert.equal(
+      compact.values[locale][index],
+      null,
+      `Shared value must be absent: ${index}`,
+    )
+  }
+}
 const placeholders = (value) =>
   [...value.matchAll(/\{(\w+)\}/g)].map((match) => match[1]).sort()
 for (const [name, messages] of [
   ["components", core],
+  ["SVG components", svg],
   ["site", site],
   ["CRM example", crm],
 ]) {
@@ -131,12 +164,17 @@ for (const item of registry.items) {
       const key = node.arguments[0]
       if (key && ts.isStringLiteralLike(key))
         assert.ok(
-          Object.hasOwn(core["zh-CN"], key.text),
+          Object.hasOwn(
+            source.includes('from "@/lib/i18n-svg"')
+              ? svg["zh-CN"]
+              : core["zh-CN"],
+            key.text,
+          ),
           `${file.path}: unknown component key ${key.text}`,
         )
     })
   }
 }
 console.log(
-  `i18n checked: ${Object.keys(core.en).length} portable + ${Object.keys(site.en).length} site + ${Object.keys(crm.en).length} CRM messages, Catalog, dictionary and Registry closure.`,
+  `i18n checked: ${Object.keys(core.en).length} portable + ${Object.keys(svg.en).length} scoped SVG + ${Object.keys(site.en).length} site + ${Object.keys(crm.en).length} CRM messages, Catalog, dictionary and Registry closure.`,
 )

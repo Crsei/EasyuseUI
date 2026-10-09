@@ -55,6 +55,50 @@
     ]
   },
   {
+    "slug": "svg-canvas",
+    "name": "SvgCanvas",
+    "category": "组合模块",
+    "description": "SVG 节点画布：选择、临时拖动预览、键盘移动与基本形状绘制。",
+    "source": "components/blocks/svg-canvas.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgCanvas } from \"@/components/blocks/svg-canvas\"\nexport function Example(props: ComponentProps<typeof SvgCanvas>) {\n  return <SvgCanvas {...props} />\n}",
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
+    "slug": "svg-icon-library",
+    "name": "SvgIconLibrary",
+    "category": "组合模块",
+    "description": "离线精选素材浏览：分页检索、固定来源、许可证和显式插入副本。",
+    "source": "components/blocks/svg-icon-library.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgIconLibrary } from \"@/components/blocks/svg-icon-library\"\nexport function Example(props: ComponentProps<typeof SvgIconLibrary>) {\n  return <SvgIconLibrary {...props} />\n}",
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
+    "slug": "svg-properties",
+    "name": "SvgProperties",
+    "category": "组合模块",
+    "description": "受控 SVG 属性：尺寸、几何、填充描边、变换与来源说明。",
+    "source": "components/blocks/svg-properties.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgProperties } from \"@/components/blocks/svg-properties\"\nexport function Example(props: ComponentProps<typeof SvgProperties>) {\n  return <SvgProperties {...props} />\n}",
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
+    "slug": "svg-workbench",
+    "name": "SvgWorkbench",
+    "category": "组合模块",
+    "description": "受控 SVG 工作台：素材副本、基本绘图、源码校验、优化与独立导出。",
+    "source": "components/blocks/svg-workbench.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { SvgWorkbench } from \"@/components/blocks/svg-workbench\"\nexport function Example(props: ComponentProps<typeof SvgWorkbench>) {\n  return <SvgWorkbench {...props} />\n}",
+    "notes": [
+      "内存示例不持久化；刷新前导出。未校验的原始 SVG 不进入页面 DOM。"
+    ]
+  },
+  {
     "slug": "session-navigator",
     "name": "SessionNavigator",
     "category": "组合模块",
