@@ -76,14 +76,16 @@ export function WorkbenchFrame({
       toolbar={
         <>
           {props.toolbar}
-          <Button
-            size="sm"
-            variant="ghost"
-            aria-pressed={panels.bottomOpen}
-            onClick={() => patch({ bottomOpen: !panels.bottomOpen })}
-          >
-            {t("workbench.bottom")}
-          </Button>
+          {props.bottom && (
+            <Button
+              size="sm"
+              variant="ghost"
+              aria-pressed={panels.bottomOpen}
+              onClick={() => patch({ bottomOpen: !panels.bottomOpen })}
+            >
+              {t("workbench.bottom")}
+            </Button>
+          )}
         </>
       }
     >

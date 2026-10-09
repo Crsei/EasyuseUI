@@ -199,7 +199,15 @@ test("command-to-tool-to-file navigation keeps unknown exit codes and disconnect
   page,
 }) => {
   await page.goto(root)
+  await input(page).fill("Keep the draft while viewing commands")
+  await input(page).evaluate((node) => node.setAttribute("data-instance", "retained"))
   await command(page, "fixture watch")
+  await expect(page).toHaveURL(/panel=terminal/)
+  await expect(
+    page.getByRole("region", { name: "底部工作面板", exact: true }),
+  ).toHaveCount(0)
+  await expect(input(page)).toHaveValue("Keep the draft while viewing commands")
+  await expect(input(page)).toHaveAttribute("data-instance", "retained")
   let output = page.locator('[data-command-id="command-running-empty"]')
   await expect(output).toContainText("运行中，尚无输出")
   await expect(output.locator("[data-command-exit]")).toHaveText("—")
@@ -221,6 +229,28 @@ test("command-to-tool-to-file navigation keeps unknown exit codes and disconnect
   output = page.locator('[data-command-id="command-tool-session-filter"]')
   await output.getByRole("button", { name: /文件 · file-filter/ }).click()
   await expect(page.getByRole("dialog")).toContainText("item.toLowerCase()")
+})
+test("conversation and tool command links open main output without restoring the bottom panel", async ({
+  page,
+}) => {
+  await page.goto(root)
+  await page.locator("details").filter({ has: page.locator("summary", { hasText: "本轮工具记录" }) }).locator("summary").click()
+  await page.getByRole("button", { name: "命令记录", exact: true }).click()
+  await expect(page).toHaveURL(/panel=terminal/)
+  const output = page.locator('[data-command-id="command-tool-session-filter"]')
+  await expect(output).toBeVisible()
+  await output.getByRole("button", { name: "本轮工具记录", exact: true }).click()
+  await expect(page).toHaveURL(/panel=activity/)
+  await page
+    .locator('[data-tool-target="tool-session-filter"]')
+    .getByRole("button", { name: "命令记录", exact: true })
+    .click()
+  await expect(page).toHaveURL(/panel=terminal/)
+  await expect(output).toBeVisible()
+  await expect(
+    page.getByRole("region", { name: "底部工作面板", exact: true }),
+  ).toHaveCount(0)
+  await expect(page.locator("[data-request-id]")).toHaveCount(0)
 })
 for (const [width, height] of [
   [1440, 900],

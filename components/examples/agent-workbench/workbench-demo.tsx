@@ -371,8 +371,6 @@ export function WorkbenchDemo({
       window.visualViewport?.removeEventListener("resize", revealEditor)
     }
   }, [])
-  const [bottomVisited, setBottomVisited] = useState(state.panels.bottomOpen)
-  if (state.panels.bottomOpen && !bottomVisited) setBottomVisited(true)
   const activePanel = (params.get("panel") ||
     state.panels.activePanel) as WorkbenchPanelId
   const navigationSnapshot = useRef<URLSearchParams | null>(null)
@@ -691,6 +689,19 @@ export function WorkbenchDemo({
     />
   )
   const commands = commandFixtures(session)
+  function openCommandOutput(commandId: string) {
+    setSelectedCommands((before) => ({
+      ...before,
+      [session.sessionId]: commandId,
+    }))
+    setActiveView("workspace")
+    navigate({
+      panel: "terminal",
+      layout: "review",
+      ...(level === "app" ? { page: "session" } : {}),
+      ...(level === "regions" ? { region: "output" } : {}),
+    })
+  }
   const commandOutput = (
     <ExecutionSessionList
       commands={commands}
@@ -1152,16 +1163,7 @@ export function WorkbenchDemo({
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => {
-              setSelectedCommands((before) => ({
-                ...before,
-                [session.sessionId]: `command-${tool.id}`,
-              }))
-              dispatch({
-                type: "panels",
-                panels: { ...state.panels, bottomOpen: true },
-              })
-            }}
+            onClick={() => openCommandOutput(`command-${tool.id}`)}
           >
             {t("resource.commands")}
           </Button>
@@ -1917,13 +1919,9 @@ export function WorkbenchDemo({
             if (resource) openResource(resource)
           } else if (item.id.startsWith("session:"))
             openSession(item.id.slice(8))
-          else if (item.id.startsWith("command:")) {
-            setSelectedCommands((before) => ({
-              ...before,
-              [session.sessionId]: item.id.slice(8),
-            }))
-            onPanels({ ...state.panels, bottomOpen: true })
-          } else if (item.id === "settings") openSettings()
+          else if (item.id.startsWith("command:"))
+            openCommandOutput(item.id.slice(8))
+          else if (item.id === "settings") openSettings()
           else {
             setActiveView("workspace")
             navigate({ panel: item.id, layout: "review" })
@@ -2239,9 +2237,6 @@ export function WorkbenchDemo({
           composer={composer}
           workspace={main}
           inspector={contextPanel}
-          bottom={
-            bottomVisited || state.panels.bottomOpen ? commandOutput : <></>
-          }
           toolbar={
             <div className={styles.row}>
               {isSession && (
@@ -2314,13 +2309,7 @@ export function WorkbenchDemo({
             onRetry: retryRead,
             onOpenReference: openReference,
             groupTools: true,
-            onOpenTool: (id) => {
-              setSelectedCommands((before) => ({
-                ...before,
-                [session.sessionId]: `command-${id}`,
-              }))
-              onPanels({ ...state.panels, bottomOpen: true })
-            },
+            onOpenTool: (id) => openCommandOutput(`command-${id}`),
           }}
         />
       </div>

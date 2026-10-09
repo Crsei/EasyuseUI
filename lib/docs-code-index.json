@@ -406,11 +406,11 @@
   ],
   "agent-workbench": [
     {
-      "id": "fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca",
+      "id": "7e86050d0752807e639a5fc2074f558f658fa95ac8083309b649a1d66d04d7ff",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca.json",
-      "lines": 210
+      "url": "/docs-code/7e86050d0752807e639a5fc2074f558f658fa95ac8083309b649a1d66d04d7ff.json",
+      "lines": 212
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -422,11 +422,11 @@
   ],
   "task-inbox": [
     {
-      "id": "fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca",
+      "id": "7e86050d0752807e639a5fc2074f558f658fa95ac8083309b649a1d66d04d7ff",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/fd706196bafd38268e63daacd2d7720095e82566726b383c34b1daeca99bacca.json",
-      "lines": 210
+      "url": "/docs-code/7e86050d0752807e639a5fc2074f558f658fa95ac8083309b649a1d66d04d7ff.json",
+      "lines": 212
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",

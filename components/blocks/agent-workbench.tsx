@@ -159,14 +159,16 @@ export function AgentWorkbench({
       toolbar={
         <>
           {toolbar}
-          <Button
-            size="sm"
-            variant="ghost"
-            aria-pressed={panelState.bottomOpen}
-            onClick={() => patch({ bottomOpen: !panelState.bottomOpen })}
-          >
-            {t("workbench.bottom")}
-          </Button>
+          {bottom && (
+            <Button
+              size="sm"
+              variant="ghost"
+              aria-pressed={panelState.bottomOpen}
+              onClick={() => patch({ bottomOpen: !panelState.bottomOpen })}
+            >
+              {t("workbench.bottom")}
+            </Button>
+          )}
         </>
       }
     >

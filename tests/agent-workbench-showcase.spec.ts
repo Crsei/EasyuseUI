@@ -352,17 +352,48 @@ test("plan locates the specific tool without starting a request", async ({
   ).toBeFocused()
   await expect(page.getByText("request-1", { exact: false })).toHaveCount(0)
 })
+for (const width of [1440, 390]) {
+  test(`bottom execution panel stays hidden with legacy preferences at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 })
+    await page.addInitScript(() => {
+      localStorage.setItem(
+        "easyuseui-workbench-panels",
+        JSON.stringify({ bottomOpen: true, bottomHeight: 400 }),
+      )
+    })
+    for (const route of [
+      "app/?page=home",
+      "app/?page=session",
+      "app/?page=review&panel=changes",
+      "layouts/?layout=conversation",
+    ]) {
+      await page.goto(`${root}/${route}`)
+      await expect(page.locator("main[data-session-id]")).toBeVisible()
+      await expect(
+        page.getByRole("button", { name: "运行面板", exact: true }),
+      ).toHaveCount(0)
+      await expect(
+        page.getByRole("region", { name: "底部工作面板", exact: true }),
+      ).toHaveCount(0)
+      await expect(
+        page.getByRole("button", { name: /^(展开|收起)底部面板$/ }),
+      ).toHaveCount(0)
+    }
+  })
+}
 test("preferences retain panels through refresh and clear safely without clearing drafts", async ({
   page,
 }) => {
   await page.goto(`${root}/app/?page=session`)
   await input(page).fill("Do not persist this draft")
-  await page.getByRole("button", { name: "运行面板", exact: true }).click()
+  await page.getByRole("button", { name: "折叠侧栏", exact: true }).click()
   await expect
     .poll(() =>
       page.evaluate(() => localStorage.getItem("easyuseui-workbench-panels")),
     )
-    .toContain('"bottomOpen":true')
+    .toContain('"sidebarCollapsed":true')
   expect(await page.evaluate(() => JSON.stringify(localStorage))).not.toContain(
     "Do not persist",
   )
@@ -376,8 +407,8 @@ test("preferences retain panels through refresh and clear safely without clearin
   await page.reload()
   await expect(input(page)).toHaveValue("")
   await expect(
-    page.getByRole("button", { name: "运行面板", exact: true }),
-  ).toHaveAttribute("aria-pressed", "false")
+    page.getByRole("button", { name: "折叠侧栏", exact: true }),
+  ).toBeVisible()
 })
 test("English, dark mode, zoom, reduced motion and coarse targets remain accessible", async ({
   browser,
