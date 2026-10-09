@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "scope": "Isolated local static-site and fixture acceptance; not remote CI or public deployment",
+  "sourceSnapshotId": "8aab330d0eb24d917d34c90f3397d806aab3d1fc6d18d23c2f65afe724d46cc8",
+  "updatedAt": "2026-10-09T01:27:18.508172+00:00",
+  "productionObservations": {
+    "routes": 8,
+    "samplesPerRoute": 3,
+    "samples": 24,
+    "screenshotsBefore": 32,
+    "screenshotsAfter": 32,
+    "engineInitiallyDownloaded": false
+  },
+  "publicationBuild": {
+    "status": "passed",
+    "mode": "Webpack static export; EASYUSEUI_LOCAL_BUILD=1; 127.0.0.1:3011",
+    "initialJsGzipEstimates": [
+      {
+        "route": "/components/",
+        "estimatedGzipBytes": 374358,
+        "budget": 380000
+      },
+      {
+        "route": "/dictionary/",
+        "estimatedGzipBytes": 393987,
+        "budget": 400000
+      },
+      {
+        "route": "/docs/button/",
+        "estimatedGzipBytes": 357020,
+        "budget": 360000
+      },
+      {
+        "route": "/blog/",
+        "estimatedGzipBytes": 367649,
+        "budget": 375000
+      },
+      {
+        "route": "/blog/on-demand-demos/",
+        "estimatedGzipBytes": 356448,
+        "budget": 365000
+      },
+      {
+        "route": "/",
+        "estimatedGzipBytes": 357503,
+        "budget": 380000
+      },
+      {
+        "route": "/examples/",
+        "estimatedGzipBytes": 346939,
+        "budget": 380000
+      }
+    ]
+  },
+  "browserRegression": {
+    "status": "passed",
+    "workers": 4,
+    "startTime": "2026-10-09T01:20:42.670Z",
+    "duration": 269149.062,
+    "expected": 318,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "priorFailures": [
+    "Legacy source-heading and resource-menu navigation selectors required migration.",
+    "System root volume ENOSPC invalidated the preceding full regression; its logs and traces are retained separately.",
+    "Long temporary path crashed Chrome; a short symlink to the data volume passed the launch check.",
+    "Initial dark-theme picture attributes retained light SSR image during hydration; corrected and verified against actual image source in all screenshot matrix cases."
+  ],
+  "limitations": [
+    "Shared-host observations are not stable CI or p95 performance certification.",
+    "Measurements froze before final evidence update; the final publication build is checked separately.",
+    "All scenes use local fixtures; no service authorization, model execution, persistence or collaboration acceptance is implied."
+  ],
+  "startedAt": "2026-10-09T01:18:50.955442+00:00",
+  "engineeringChecks": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "check:i18n": "passed",
+    "check:manifest": "passed",
+    "check:blog": "passed",
+    "check:docs": "passed"
+  },
+  "documentation": {
+    "formalComponents": 104,
+    "guides": 5,
+    "lazySourceResources": 201,
+    "searchEntries": 760,
+    "compiledSnippets": 19
+  },
+  "performanceObservations": {
+    "status": "passed",
+    "profile": "shared-host-observation",
+    "workers": 1,
+    "startTime": "2026-10-09T01:25:25.263Z",
+    "duration": 112940.709,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "timingCertification": false
+  },
+  "mergedWorkingTree": {
+    "typecheck": "passed",
+    "components": 157,
+    "guides": 5,
+    "lazySourceResources": 271,
+    "searchEntries": 1133,
+    "scope": "Preserved parallel uncommitted work; excluded from this task commit and formal production acceptance"
+  }
+}

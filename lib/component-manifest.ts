@@ -1,3 +1,5 @@
+export type DocGroup = "interaction" | "data" | "agent" | "canvas" | "workspace" | "other"
+export type DocVariant = { title: { "zh-CN": string; en: string }; code: string }
 type Prop = {
   name: string
   type: string
@@ -5,6 +7,11 @@ type Prop = {
   description: string
 }
 export type ComponentManifestEntry = {
+  docGroup?: DocGroup
+  docOrder?: number
+  aliases?: string[]
+  variants?: DocVariant[]
+  related?: string[]
   widePreview?: boolean
   slug: string
   docPath: string
@@ -24,7 +31,7 @@ export type ComponentManifestEntry = {
   relatedSources?: string[]
 }
 
-export const componentManifest: ComponentManifestEntry[] = [
+const sourceManifest: ComponentManifestEntry[] = [
   {
     slug: "textarea",
     docPath: "/docs/textarea/",
@@ -3918,3 +3925,114 @@ export const componentManifest: ComponentManifestEntry[] = [
   "widePreview": true
 },
 ]
+
+// Documentation metadata is derived from this inventory, independently of install type.
+function inferDocGroup(entry: ComponentManifestEntry): DocGroup {
+  if (entry.displayCategory === "canvas" || /^(canvas|workflow|node-|variable-)/.test(entry.slug)) return "canvas"
+  if (/^(agent|session|activity|chat|conversation|tool-call|runtime-status)/.test(entry.slug)) return "agent"
+  if (entry.displayCategory === "workspace" || /^(workspace|inspector|style-workbench)/.test(entry.slug)) return "workspace"
+  if (/^(work-item|grouped|board|timeline|calendar|schedule|data-|table|tree|filter|metric|rating|avatar|property)/.test(entry.slug)) return "data"
+  return entry.displayCategory === "primitives" ? "interaction" : "other"
+}
+const aliases: Record<string, string[]> = {
+  button: ["按钮", "action"], input: ["输入框", "text field"], dialog: ["对话框", "弹窗"],
+  "data-table": ["数据表格", "排序", "selection"], "tool-call": ["工具调用", "审批", "approval"],
+  "work-items-workspace": ["任务", "工作项", "日历", "时间线"], "workflow-canvas": ["流程画布", "节点", "工作流"],
+  "calendar": ["日历", "日期"], "timeline": ["时间线", "排期"], "sheet": ["抽屉"],
+}
+const docUsage: Record<string, string> = {
+  "button": "\"use client\"\nimport { Button } from \"@/components/ui/button\"\nexport function SaveButton() {\n  return <Button onClick={() => console.log(\"save\")}>Save</Button>\n}",
+  "data-table": "\"use client\"\nimport { DataTable } from \"@/components/blocks/data-table\"\nconst rows = [{ id: \"task-1\", title: \"Review changes\" }]\nexport function Tasks() {\n  return <DataTable rows={rows} caption=\"Tasks\"\n    getRowId={row => row.id} getRowLabel={row => row.title}\n    columns={[{ id: \"title\", header: \"Title\", cell: row => row.title }]} />\n}",
+  "tool-call": "import { ToolCall } from \"@/components/blocks/tool-call\"\nexport function ToolResult() {\n  return <ToolCall call={{ id: \"read-1\", name: \"read_file\",\n    target: \"README.md\", status: \"completed\",\n    arguments: { path: \"README.md\" }, output: \"Local preview\" }} />\n}",
+  "work-items-workspace": "\"use client\"\nimport { WorkItemsWorkspace, type WorkItemsWorkspaceProps } from \"@/components/blocks/work-items-workspace\"\n// The caller supplies the complete controlled snapshot and callbacks.\nexport function WorkItemsPage(props: WorkItemsWorkspaceProps) {\n  return <WorkItemsWorkspace {...props} />\n}",
+  "workflow-canvas": "\"use client\"\nimport { WorkflowCanvas, type WorkflowCanvasProps } from \"@/components/blocks/workflow-canvas\"\n// The caller supplies the graph, selection and command callbacks.\nexport function Graph(props: WorkflowCanvasProps) {\n  return <div style={{ height: 400 }}><WorkflowCanvas {...props} /></div>\n}"
+}
+const docVariants: Record<string, DocVariant[]> = {
+  "button": [
+    {
+      "title": {
+        "zh-CN": "禁用操作",
+        "en": "Disabled action"
+      },
+      "code": "import { Button } from \"@/components/ui/button\"\nexport function DisabledAction() {\n  return <Button disabled>Save</Button>\n}"
+    },
+    {
+      "title": {
+        "zh-CN": "等待调用方结果",
+        "en": "Waiting for a caller result"
+      },
+      "code": "import { Button } from \"@/components/ui/button\"\nexport function PendingAction() {\n  return <Button loading>Save</Button>\n}"
+    }
+  ],
+  "data-table": [
+    {
+      "title": {
+        "zh-CN": "只读行",
+        "en": "Read-only rows"
+      },
+      "code": "\"use client\"\nimport { DataTable } from \"@/components/blocks/data-table\"\nconst rows = [{ id: \"task-1\", title: \"Review changes\" }]\nexport function Tasks() {\n  return <DataTable rows={rows} caption=\"Tasks\"\n    getRowId={row => row.id} getRowLabel={row => row.title}\n    columns={[{ id: \"title\", header: \"Title\", cell: row => row.title }]} />\n}"
+    },
+    {
+      "title": {
+        "zh-CN": "受控选择",
+        "en": "Controlled selection"
+      },
+      "code": "\"use client\"\nimport { useState } from \"react\"\nimport { DataTable } from \"@/components/blocks/data-table\"\nconst rows = [{ id: \"task-1\", title: \"Review changes\" }]\nexport function SelectableTasks() {\n  const [selectedIds, setSelectedIds] = useState<string[]>([])\n  return <DataTable rows={rows} caption=\"Tasks\" getRowId={row => row.id}\n    getRowLabel={row => row.title} selectedIds={selectedIds} onSelectionChange={setSelectedIds}\n    columns={[{ id: \"title\", header: \"Title\", cell: row => row.title }]} />\n}"
+    }
+  ],
+  "tool-call": [
+    {
+      "title": {
+        "zh-CN": "已确认结果",
+        "en": "Confirmed result"
+      },
+      "code": "import { ToolCall } from \"@/components/blocks/tool-call\"\nexport function ToolResult() {\n  return <ToolCall call={{ id: \"read-1\", name: \"read_file\",\n    target: \"README.md\", status: \"completed\",\n    arguments: { path: \"README.md\" }, output: \"Local preview\" }} />\n}"
+    },
+    {
+      "title": {
+        "zh-CN": "未知结果先对账",
+        "en": "Reconcile an unknown result"
+      },
+      "code": "import { ToolCall } from \"@/components/blocks/tool-call\"\nexport function UnknownResult({ queryReceipt }: { queryReceipt: () => Promise<void> }) {\n  return <ToolCall onReconcile={queryReceipt} call={{ id: \"write-1\", name: \"write_file\",\n    target: \"output.txt\", status: \"waiting\", outcome: \"unknown\" }} />\n}"
+    }
+  ],
+  "work-items-workspace": [
+    {
+      "title": {
+        "zh-CN": "列表布局",
+        "en": "List layout"
+      },
+      "code": "\"use client\"\nimport { WorkItemsWorkspace, type WorkItemsWorkspaceProps } from \"@/components/blocks/work-items-workspace\"\nexport function TaskList(props: WorkItemsWorkspaceProps) {\n  return <WorkItemsWorkspace {...props} view={{ ...props.view, layout: \"list\" }} />\n}"
+    },
+    {
+      "title": {
+        "zh-CN": "看板布局",
+        "en": "Board layout"
+      },
+      "code": "\"use client\"\nimport { WorkItemsWorkspace, type WorkItemsWorkspaceProps } from \"@/components/blocks/work-items-workspace\"\nexport function TaskBoard(props: WorkItemsWorkspaceProps) {\n  return <WorkItemsWorkspace {...props} view={{ ...props.view, layout: \"board\" }} />\n}"
+    }
+  ],
+  "workflow-canvas": [
+    {
+      "title": {
+        "zh-CN": "只读图",
+        "en": "Read-only graph"
+      },
+      "code": "\"use client\"\nimport { WorkflowCanvas, type WorkflowCanvasProps } from \"@/components/blocks/workflow-canvas\"\nexport function ReadOnlyGraph(props: WorkflowCanvasProps) {\n  return <div style={{ height: 400 }}><WorkflowCanvas {...props} readOnly /></div>\n}"
+    },
+    {
+      "title": {
+        "zh-CN": "调用方控制编辑",
+        "en": "Caller-controlled editing"
+      },
+      "code": "\"use client\"\nimport { WorkflowCanvas, type WorkflowCanvasProps } from \"@/components/blocks/workflow-canvas\"\n// The caller supplies the graph, selection and command callbacks.\nexport function Graph(props: WorkflowCanvasProps) {\n  return <div style={{ height: 400 }}><WorkflowCanvas {...props} /></div>\n}"
+    }
+  ]
+}
+const readingOrder = ["button", "input", "label", "textarea", "native-select", "select", "combobox", "checkbox", "radio-group", "switch", "dialog", "sheet", "popover", "menu", "dropdown-menu", "tabs", "data-region", "data-table", "table", "tree", "work-items-workspace", "work-items-toolbar", "work-item-properties", "work-item-row", "work-item-card", "runtime-status-badge", "agent-row", "session-row", "chat-message", "conversation", "chat-composer", "tool-call", "activity-timeline", "workflow-canvas", "canvas-workspace", "node-palette", "node-inspector", "variable-picker", "workspace-shell", "inspector"]
+export const componentManifest: ComponentManifestEntry[] = sourceManifest.map((entry, index) => ({
+  ...entry, docGroup: entry.docGroup ?? inferDocGroup(entry), docOrder: entry.docOrder ?? (readingOrder.includes(entry.slug) ? readingOrder.indexOf(entry.slug) : 100 + index),
+  aliases: entry.aliases ?? aliases[entry.slug] ?? [],
+  related: entry.related ?? ({button:["input","dialog","field"],"data-table":["data-region","checkbox","table"],"tool-call":["runtime-status-badge","chat-message","activity-timeline"],"work-items-workspace":["work-item-list","work-item-board","work-item-calendar"],"workflow-canvas":["canvas-workspace","node-palette","node-inspector"]} as Record<string,string[]>)[entry.slug],
+  usage: docUsage[entry.slug] ?? entry.usage, variants: docVariants[entry.slug] ?? entry.variants,
+}))

@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { DataRegion } from "@/components/ui/data-region"
+import { ComponentThumbnail } from "@/components/site/home/component-thumbnail"
 import { DemoLoader } from "./demo-loader"
 
 const categories = [
@@ -35,10 +36,13 @@ export function ComponentBrowser() {
   const { params, update } = useSiteQuery()
   const query = params.get("q") ?? ""
   const category = params.get("category") ?? "all"
+  const display = params.get("display") === "list" ? "list" : "grid"
+  const group = params.get("group") ?? "all"
   const preview = params.get("preview") ?? undefined
   const filtered = componentIndex.filter(
     (entry) =>
       (category === "all" || entry.displayCategory === category) &&
+      (group === "all" || entry.docGroup === group) &&
       `${entry.name} ${entry.slug} ${entry.description} ${text(entry.description)}`
         .toLowerCase()
         .includes(query.toLowerCase().trim()),
@@ -68,6 +72,57 @@ export function ComponentBrowser() {
             ))}
           </select>
         </label>
+        <label className="flex items-center gap-2 text-sm">
+          {t("site.redesign.purpose")}
+          <select
+            aria-label={t("site.redesign.purpose")}
+            value={group}
+            onChange={(event) =>
+              update({
+                group:
+                  event.target.value === "all" ? undefined : event.target.value,
+              })
+            }
+            className="h-8 max-w-full rounded-md border bg-background px-2 [@media(pointer:coarse)]:min-h-11"
+          >
+            <option value="all">{t("site.optimization.category.all")}</option>
+            {[
+              "interaction",
+              "data",
+              "agent",
+              "canvas",
+              "workspace",
+              "other",
+            ].map((group) => (
+              <option key={group} value={group}>
+                {t(
+                  `site.redesign.group.${group}` as "site.redesign.group.interaction",
+                )}
+              </option>
+            ))}
+          </select>
+        </label>
+        <div
+          role="group"
+          aria-label={t("site.redesign.display")}
+          className="flex gap-1"
+        >
+          {["grid", "list"].map((value) => (
+            <Button
+              key={value}
+              variant="ghost"
+              size="sm"
+              aria-pressed={display === value}
+              onClick={() =>
+                update({ display: value === "grid" ? undefined : value })
+              }
+            >
+              {t(
+                value === "grid" ? "site.redesign.grid" : "site.redesign.list",
+              )}
+            </Button>
+          ))}
+        </div>
         <span
           role="status"
           className="self-center text-xs text-muted-foreground"
@@ -82,25 +137,53 @@ export function ComponentBrowser() {
           <Button
             variant="outline"
             onClick={() => {
-              update({ q: undefined, category: undefined })
+              update({ q: undefined, category: undefined, group: undefined })
             }}
           >
             {t("site.clearFilters")}
           </Button>
         }
       >
-        <div className="mt-8 divide-y border-y">
+        <div
+          className={
+            display === "grid"
+              ? "mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+              : "mt-8 divide-y border-y"
+          }
+        >
           {filtered.map((entry) => {
             const Icon = icons[entry.displayCategory as keyof typeof icons]
             return (
               <article
                 key={entry.slug}
                 data-component-entry={entry.slug}
-                className="py-5"
+                className={
+                  display === "grid"
+                    ? `min-w-0 overflow-hidden rounded-xl border ${preview === entry.slug ? "md:col-span-2 xl:col-span-3" : ""}`
+                    : "py-5"
+                }
               >
-                <div className="flex items-start gap-4">
+                {display === "grid" && (
+                  <div>
+                    <span className="sr-only">
+                      {t("site.redesign.thumbnail")}
+                    </span>
+                    <ComponentThumbnail slug={entry.slug} />
+                  </div>
+                )}
+                <div
+                  className={
+                    display === "grid"
+                      ? "flex flex-wrap items-start gap-3 border-t p-4"
+                      : "flex items-start gap-4"
+                  }
+                >
                   <div
-                    className="flex size-12 shrink-0 items-center justify-center rounded-lg border bg-muted/20 text-muted-foreground"
+                    className={
+                      display === "grid"
+                        ? "hidden"
+                        : "flex size-12 shrink-0 items-center justify-center rounded-lg border bg-muted/20 text-muted-foreground"
+                    }
                     aria-hidden="true"
                   >
                     <Icon size={22} />
@@ -149,7 +232,7 @@ export function ComponentBrowser() {
                   </Button>
                 </div>
                 {preview === entry.slug && (
-                  <div className="mt-4 overflow-hidden rounded-lg border p-4">
+                  <div className="m-4 overflow-hidden rounded-lg border p-4">
                     <DemoLoader slug={entry.slug} autoLoad />
                   </div>
                 )}

@@ -1,9 +1,3 @@
-import componentIndex from "./component-navigation.json"
-
-export const componentPageTitles: Record<string, string> = Object.fromEntries(
-  componentIndex.map((entry) => [entry.docPath.replace(/\/$/, ""), entry.name]),
-)
-
 export const pageDescriptionKeys = {
   "/examples": "site.examples.description",
   "/examples/work-items": "site.examples.workItemsDescription",

@@ -9,8 +9,8 @@
     "node": ">=22.18.0"
   },
   "scripts": {
-    "dev": "pnpm registry:build && pnpm blog:build && next dev --webpack --port 3010",
-    "build": "pnpm registry:build && pnpm blog:build && next build --webpack",
+    "dev": "pnpm registry:build && pnpm blog:build && pnpm docs:build && next dev --webpack --port 3010",
+    "build": "node scripts/validate-site-url.mjs && pnpm registry:build && pnpm blog:build && pnpm docs:build && next build --webpack",
     "preview": "node scripts/preview.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -25,7 +25,9 @@
     "check:blog": "node scripts/check-blog.mjs",
     "check:release": "node scripts/check-blog.mjs --release",
     "test:install:themes": "node scripts/check-theme-install.mjs",
-    "registry:snapshot": "node scripts/snapshot-registry.mjs"
+    "registry:snapshot": "node scripts/snapshot-registry.mjs",
+    "docs:build": "node scripts/build-docs.mjs --write",
+    "check:docs": "node scripts/build-docs.mjs && node scripts/check-docs-snippets.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",

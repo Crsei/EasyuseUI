@@ -1,0 +1,1284 @@
+[
+  {
+    "slug": "button",
+    "name": "Button",
+    "docPath": "/docs/button/",
+    "description": {
+      "zh-CN": "清楚地表达操作，给等待一个确定的反馈。",
+      "en": "Clear actions and definite feedback while waiting."
+    },
+    "docGroup": "interaction",
+    "docOrder": 0,
+    "aliases": [
+      "按钮",
+      "action"
+    ]
+  },
+  {
+    "slug": "input",
+    "name": "Input",
+    "docPath": "/docs/input/",
+    "description": {
+      "zh-CN": "从填写到校验，保持简单而清晰。",
+      "en": "Simple, clear input and validation."
+    },
+    "docGroup": "interaction",
+    "docOrder": 1,
+    "aliases": [
+      "输入框",
+      "text field"
+    ]
+  },
+  {
+    "slug": "label",
+    "name": "Label",
+    "docPath": "/docs/label/",
+    "description": {
+      "zh-CN": "独立字段标签，沿用原生 htmlFor 与 ref。",
+      "en": "A standalone field label with native htmlFor and ref support."
+    },
+    "docGroup": "interaction",
+    "docOrder": 2,
+    "aliases": []
+  },
+  {
+    "slug": "textarea",
+    "name": "Textarea",
+    "docPath": "/docs/textarea/",
+    "description": {
+      "zh-CN": "多行文本输入，保留原生表单、引用与草稿语义。",
+      "en": "Multiline input with native form, ref, and draft semantics."
+    },
+    "docGroup": "interaction",
+    "docOrder": 3,
+    "aliases": []
+  },
+  {
+    "slug": "native-select",
+    "name": "NativeSelect",
+    "docPath": "/docs/native-select/",
+    "description": {
+      "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
+      "en": "Native select, options, and groups with the mobile system picker."
+    },
+    "docGroup": "interaction",
+    "docOrder": 4,
+    "aliases": []
+  },
+  {
+    "slug": "select",
+    "name": "Select",
+    "docPath": "/docs/select/",
+    "description": {
+      "zh-CN": "有限选项单选，支持受控值与键盘选择。",
+      "en": "Finite single selection with controlled values and keyboard selection."
+    },
+    "docGroup": "interaction",
+    "docOrder": 5,
+    "aliases": []
+  },
+  {
+    "slug": "combobox",
+    "name": "Combobox",
+    "docPath": "/docs/combobox/",
+    "description": {
+      "zh-CN": "可输入筛选的选值控件，保留空结果和键盘导航。",
+      "en": "Searchable selection with empty results and keyboard navigation."
+    },
+    "docGroup": "interaction",
+    "docOrder": 6,
+    "aliases": []
+  },
+  {
+    "slug": "checkbox",
+    "name": "Checkbox",
+    "docPath": "/docs/checkbox/",
+    "description": {
+      "zh-CN": "原生表单关联的三态复选框，选择与焦点分离。",
+      "en": "Form-associated three-state checkbox with distinct selection and focus."
+    },
+    "docGroup": "interaction",
+    "docOrder": 7,
+    "aliases": []
+  },
+  {
+    "slug": "radio-group",
+    "name": "RadioGroup",
+    "docPath": "/docs/radio-group/",
+    "description": {
+      "zh-CN": "常规单选组，键盘选择、焦点与表单值由 Base UI 管理。",
+      "en": "A standard radio group with Base UI keyboard navigation, focus, and form values."
+    },
+    "docGroup": "interaction",
+    "docOrder": 8,
+    "aliases": []
+  },
+  {
+    "slug": "switch",
+    "name": "Switch",
+    "docPath": "/docs/switch/",
+    "description": {
+      "zh-CN": "受控或非受控开关，保留原生表单与只读状态。",
+      "en": "A controlled or uncontrolled switch with form and read-only support."
+    },
+    "docGroup": "interaction",
+    "docOrder": 9,
+    "aliases": []
+  },
+  {
+    "slug": "dialog",
+    "name": "Dialog",
+    "docPath": "/docs/dialog/",
+    "description": {
+      "zh-CN": "让用户专注于眼前的一件事。",
+      "en": "Help users focus on one task."
+    },
+    "docGroup": "interaction",
+    "docOrder": 10,
+    "aliases": [
+      "对话框",
+      "弹窗"
+    ]
+  },
+  {
+    "slug": "sheet",
+    "name": "Sheet",
+    "docPath": "/docs/sheet/",
+    "description": {
+      "zh-CN": "左右及底部抽屉，固定首尾、正文滚动与嵌套焦点管理。",
+      "en": "Left, right and bottom sheets with fixed header/footer, scrolling body and nested focus management."
+    },
+    "docGroup": "interaction",
+    "docOrder": 11,
+    "aliases": [
+      "抽屉"
+    ]
+  },
+  {
+    "slug": "popover",
+    "name": "Popover",
+    "docPath": "/docs/popover/",
+    "description": {
+      "zh-CN": "带主题继承的辅助信息浮层，不伪造业务反馈。",
+      "en": "Themed supplementary popover with caller-owned business feedback."
+    },
+    "docGroup": "interaction",
+    "docOrder": 12,
+    "aliases": []
+  },
+  {
+    "slug": "menu",
+    "name": "Menu",
+    "docPath": "/docs/menu/",
+    "description": {
+      "zh-CN": "动作菜单，沿用方向键、禁用与 Escape 焦点恢复。",
+      "en": "Action menu with arrow keys, disabled items and Escape focus recovery."
+    },
+    "docGroup": "interaction",
+    "docOrder": 13,
+    "aliases": []
+  },
+  {
+    "slug": "dropdown-menu",
+    "name": "DropdownMenu",
+    "docPath": "/docs/dropdown-menu/",
+    "description": {
+      "zh-CN": "复用Menu的动作、复选及单选菜单，支持键盘定位。",
+      "en": "Actions, checkbox and radio menus built on Menu with keyboard navigation."
+    },
+    "docGroup": "interaction",
+    "docOrder": 14,
+    "aliases": []
+  },
+  {
+    "slug": "tabs",
+    "name": "Tabs",
+    "docPath": "/docs/tabs/",
+    "description": {
+      "zh-CN": "内容面板切换，选中与焦点分开并支持方向键。",
+      "en": "Content tabs with separate selection and focus plus arrow keys."
+    },
+    "docGroup": "interaction",
+    "docOrder": 15,
+    "aliases": []
+  },
+  {
+    "slug": "segment-bar",
+    "name": "SegmentBar",
+    "docPath": "/docs/segment-bar/",
+    "description": {
+      "zh-CN": "分段量值显示，使用meter语义并明确未知值。",
+      "en": "Segmented quantity display with meter semantics and explicit unknown values."
+    },
+    "docGroup": "interaction",
+    "docOrder": 109,
+    "aliases": []
+  },
+  {
+    "slug": "sparkline",
+    "name": "Sparkline",
+    "docPath": "/docs/sparkline/",
+    "description": {
+      "zh-CN": "带文本替代的微型柱状趋势，覆盖空值、缺失和等值。",
+      "en": "Miniature bar trends with text alternatives for empty, missing and equal values."
+    },
+    "docGroup": "interaction",
+    "docOrder": 110,
+    "aliases": []
+  },
+  {
+    "slug": "kbd",
+    "name": "Kbd",
+    "docPath": "/docs/kbd/",
+    "description": {
+      "zh-CN": "语义化快捷键呈现，不注册键盘事件。",
+      "en": "Semantic shortcut display without keyboard registration."
+    },
+    "docGroup": "interaction",
+    "docOrder": 114,
+    "aliases": []
+  },
+  {
+    "slug": "field",
+    "name": "Field",
+    "docPath": "/docs/field/",
+    "description": {
+      "zh-CN": "统一标签、描述与错误关联，保留调用方输入草稿。",
+      "en": "Consistent labels, descriptions and errors while preserving caller drafts."
+    },
+    "docGroup": "interaction",
+    "docOrder": 115,
+    "aliases": []
+  },
+  {
+    "slug": "slider",
+    "name": "Slider",
+    "docPath": "/docs/slider/",
+    "description": {
+      "zh-CN": "受控或非受控数值滑块，连续变化与提交回调分离。",
+      "en": "Controlled or uncontrolled numeric slider with separate change and commit callbacks."
+    },
+    "docGroup": "interaction",
+    "docOrder": 117,
+    "aliases": []
+  },
+  {
+    "slug": "segmented",
+    "name": "Segmented",
+    "docPath": "/docs/segmented/",
+    "description": {
+      "zh-CN": "互斥选值分段控件，使用 radio 语义与方向键。",
+      "en": "Exclusive segmented selection with radio semantics and arrow keys."
+    },
+    "docGroup": "interaction",
+    "docOrder": 126,
+    "aliases": []
+  },
+  {
+    "slug": "theme-boundary",
+    "name": "ThemeBoundary",
+    "docPath": "/docs/theme-boundary/",
+    "description": {
+      "zh-CN": "兼容宿主或隔离主题的作用域，Portal 继承对应实例的变量。",
+      "en": "A boundary for host-compatible or isolated themes; portals inherit their instance variables."
+    },
+    "docGroup": "interaction",
+    "docOrder": 128,
+    "aliases": []
+  },
+  {
+    "slug": "i18n",
+    "name": "I18nProvider",
+    "docPath": "/docs/i18n/",
+    "description": {
+      "zh-CN": "提供简体中文与英文、类型化消息、Intl 格式化和结构化界面反馈。",
+      "en": "Simplified Chinese and English, typed messages, Intl formatting and structured UI feedback."
+    },
+    "docGroup": "interaction",
+    "docOrder": 129,
+    "aliases": []
+  },
+  {
+    "slug": "badge",
+    "name": "Badge",
+    "docPath": "/docs/badge/",
+    "description": {
+      "zh-CN": "只读的信息徽标，支持语义色、小圆角和胶囊外观。",
+      "en": "Read-only information badge with semantic tones, small corners and pill shapes."
+    },
+    "docGroup": "interaction",
+    "docOrder": 145,
+    "aliases": []
+  },
+  {
+    "slug": "tag",
+    "name": "Tag",
+    "docPath": "/docs/tag/",
+    "description": {
+      "zh-CN": "胶囊外观的只读分类标签，区分分类与交互值。",
+      "en": "Read-only pill category labels, distinct from interactive values."
+    },
+    "docGroup": "interaction",
+    "docOrder": 146,
+    "aliases": []
+  },
+  {
+    "slug": "chip",
+    "name": "Chip",
+    "docPath": "/docs/chip/",
+    "description": {
+      "zh-CN": "可选择、移除的受控胶囊，主操作与删除是兄弟目标。",
+      "en": "Controlled selectable, removable pills with sibling main and removal targets."
+    },
+    "docGroup": "interaction",
+    "docOrder": 147,
+    "aliases": []
+  },
+  {
+    "slug": "item",
+    "name": "Item",
+    "docPath": "/docs/item/",
+    "description": {
+      "zh-CN": "统一列表行。交互、选中和运行状态分开表达，尾部操作独立。",
+      "en": "A shared list row with separate interaction, selection and runtime states, and independent trailing actions."
+    },
+    "docGroup": "interaction",
+    "docOrder": 153,
+    "aliases": []
+  },
+  {
+    "slug": "data-region",
+    "name": "DataRegion",
+    "docPath": "/docs/data-region/",
+    "description": {
+      "zh-CN": "统一数据区域：首次骨架、空状态、部分数据与保留旧内容的错误反馈。",
+      "en": "Shared data region: initial skeletons, empty and partial states, and errors that preserve existing content."
+    },
+    "docGroup": "data",
+    "docOrder": 16,
+    "aliases": []
+  },
+  {
+    "slug": "data-table",
+    "name": "DataTable",
+    "docPath": "/docs/data-table/",
+    "description": {
+      "zh-CN": "受控通用表格，勾选、查看与排序请求分别建模。",
+      "en": "Controlled generic table separating selection, activation and sorting requests."
+    },
+    "docGroup": "data",
+    "docOrder": 17,
+    "aliases": [
+      "数据表格",
+      "排序",
+      "selection"
+    ]
+  },
+  {
+    "slug": "table",
+    "name": "Table",
+    "docPath": "/docs/table/",
+    "description": {
+      "zh-CN": "原生表格结构，保留表头、单元格、标题和滚动语义。",
+      "en": "Native table structure preserving headers, cells, caption and scrolling semantics."
+    },
+    "docGroup": "data",
+    "docOrder": 18,
+    "aliases": []
+  },
+  {
+    "slug": "tree",
+    "name": "Tree",
+    "docPath": "/docs/tree/",
+    "description": {
+      "zh-CN": "完整树键盘模型、Idea → Session → Run 层级与受控节点移动。",
+      "en": "Complete tree keyboard model, Idea → Session → Run hierarchy and controlled node movement."
+    },
+    "docGroup": "data",
+    "docOrder": 19,
+    "aliases": []
+  },
+  {
+    "slug": "work-items-toolbar",
+    "name": "WorkItemsToolbar",
+    "docPath": "/docs/work-items-toolbar/",
+    "description": {
+      "zh-CN": "工作项搜索、筛选、布局、排序与显示设置。",
+      "en": "Work item search, filters, layout, sorting and display options."
+    },
+    "docGroup": "data",
+    "docOrder": 21,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-properties",
+    "name": "WorkItemProperties",
+    "docPath": "/docs/work-item-properties/",
+    "description": {
+      "zh-CN": "工作项共享属性与选择器，业务状态独立于运行状态。",
+      "en": "Shared work item properties and pickers, with business state separate from runtime."
+    },
+    "docGroup": "data",
+    "docOrder": 22,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-row",
+    "name": "WorkItemRow",
+    "docPath": "/docs/work-item-row/",
+    "description": {
+      "zh-CN": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+      "en": "Work item rows and cards with sibling activation, selection and property targets."
+    },
+    "docGroup": "data",
+    "docOrder": 23,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-card",
+    "name": "WorkItemCard",
+    "docPath": "/docs/work-item-card/",
+    "description": {
+      "zh-CN": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
+      "en": "Work item rows and cards with sibling activation, selection and property targets."
+    },
+    "docGroup": "data",
+    "docOrder": 24,
+    "aliases": []
+  },
+  {
+    "slug": "avatar",
+    "name": "Avatar",
+    "docPath": "/docs/avatar/",
+    "description": {
+      "zh-CN": "头像图片、姓名缩写与读取失败回退。",
+      "en": "Avatar images, initials and image-error fallback."
+    },
+    "docGroup": "data",
+    "docOrder": 108,
+    "aliases": []
+  },
+  {
+    "slug": "filter-toolbar",
+    "name": "FilterToolbar",
+    "docPath": "/docs/filter-toolbar/",
+    "description": {
+      "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+      "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+    },
+    "docGroup": "data",
+    "docOrder": 119,
+    "aliases": []
+  },
+  {
+    "slug": "metric-summary",
+    "name": "MetricSummary",
+    "docPath": "/docs/metric-summary/",
+    "description": {
+      "zh-CN": "使用名称、值、单位和说明展示调用方计算的指标。",
+      "en": "Displays caller-computed metrics with labels, values, units and descriptions."
+    },
+    "docGroup": "data",
+    "docOrder": 120,
+    "aliases": []
+  },
+  {
+    "slug": "rating-display",
+    "name": "RatingDisplay",
+    "docPath": "/docs/rating-display/",
+    "description": {
+      "zh-CN": "只读评分与半星显示，提供完整文本替代。",
+      "en": "Read-only ratings and half stars with complete text alternatives."
+    },
+    "docGroup": "data",
+    "docOrder": 121,
+    "aliases": []
+  },
+  {
+    "slug": "grouped-list",
+    "name": "GroupedList",
+    "docPath": "/docs/grouped-list/",
+    "description": {
+      "zh-CN": "受控分组列表，保留分组读取状态与未知总数。",
+      "en": "Controlled grouped list with per-group read states and unknown totals."
+    },
+    "docGroup": "data",
+    "docOrder": 180,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-list",
+    "name": "WorkItemList",
+    "docPath": "/docs/work-item-list/",
+    "description": {
+      "zh-CN": "同一工作项快照的列表、看板和表格适配。",
+      "en": "List, board and table adapters for the same work item snapshot."
+    },
+    "docGroup": "data",
+    "docOrder": 185,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-board",
+    "name": "WorkItemBoard",
+    "docPath": "/docs/work-item-board/",
+    "description": {
+      "zh-CN": "同一工作项快照的列表、看板和表格适配。",
+      "en": "List, board and table adapters for the same work item snapshot."
+    },
+    "docGroup": "data",
+    "docOrder": 186,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-table",
+    "name": "WorkItemTable",
+    "docPath": "/docs/work-item-table/",
+    "description": {
+      "zh-CN": "同一工作项快照的列表、看板和表格适配。",
+      "en": "List, board and table adapters for the same work item snapshot."
+    },
+    "docGroup": "data",
+    "docOrder": 187,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-detail",
+    "name": "WorkItemDetail / WorkItemQuickCreate",
+    "docPath": "/docs/work-item-detail/",
+    "description": {
+      "zh-CN": "受控工作项详情及保留失败草稿的快速创建。",
+      "en": "Controlled work item detail and quick creation retaining rejected drafts."
+    },
+    "docGroup": "data",
+    "docOrder": 189,
+    "aliases": []
+  },
+  {
+    "slug": "work-items-board-base",
+    "name": "Board",
+    "docPath": "/docs/work-items-board-base/",
+    "description": {
+      "zh-CN": "通用受控看板，指针、触屏与键盘移动共享命令。",
+      "en": "Business-independent controlled board sharing pointer, touch and keyboard move commands."
+    },
+    "docGroup": "data",
+    "docOrder": 191,
+    "aliases": []
+  },
+  {
+    "slug": "work-items-batch-actions",
+    "name": "WorkItemsBatchActions",
+    "docPath": "/docs/work-items-batch-actions/",
+    "description": {
+      "zh-CN": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+      "en": "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces."
+    },
+    "docGroup": "data",
+    "docOrder": 195,
+    "aliases": []
+  },
+  {
+    "slug": "work-items-saved-views",
+    "name": "WorkItemsSavedViews",
+    "docPath": "/docs/work-items-saved-views/",
+    "description": {
+      "zh-CN": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+      "en": "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces."
+    },
+    "docGroup": "data",
+    "docOrder": 196,
+    "aliases": []
+  },
+  {
+    "slug": "timeline",
+    "name": "Timeline",
+    "docPath": "/docs/timeline/",
+    "description": {
+      "zh-CN": "业务无关的排期行、按日吸附与区间裁切。",
+      "en": "Business-independent scheduling rows, day snapping and clipped ranges."
+    },
+    "docGroup": "data",
+    "docOrder": 197,
+    "aliases": [
+      "时间线",
+      "排期"
+    ]
+  },
+  {
+    "slug": "calendar",
+    "name": "Calendar",
+    "docPath": "/docs/calendar/",
+    "description": {
+      "zh-CN": "受控月、周与当日Agenda，消费权威按日快照。",
+      "en": "Controlled month, week and daily agenda with authoritative date buckets."
+    },
+    "docGroup": "data",
+    "docOrder": 198,
+    "aliases": [
+      "日历",
+      "日期"
+    ]
+  },
+  {
+    "slug": "schedule-view-controls",
+    "name": "ScheduleViewControls",
+    "docPath": "/docs/schedule-view-controls/",
+    "description": {
+      "zh-CN": "受控排期锚点、刻度、每周首日与周末显隐。",
+      "en": "Controlled schedule anchors, scales, week starts and weekend visibility."
+    },
+    "docGroup": "data",
+    "docOrder": 199,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-date-range-field",
+    "name": "WorkItemDateRangeField",
+    "docPath": "/docs/work-item-date-range-field/",
+    "description": {
+      "zh-CN": "成对日期意图、字段权限、校验与失败草稿保留。",
+      "en": "Atomic date intentions with field permissions, validation and retained drafts."
+    },
+    "docGroup": "data",
+    "docOrder": 200,
+    "aliases": []
+  },
+  {
+    "slug": "work-items-schedule",
+    "name": "UnscheduledWorkItems",
+    "docPath": "/docs/work-items-schedule/",
+    "description": {
+      "zh-CN": "去重未排期队列与紧凑工作项日历条目。",
+      "en": "Deduplicated unscheduled queue and compact work item calendar entries."
+    },
+    "docGroup": "data",
+    "docOrder": 201,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-timeline",
+    "name": "WorkItemTimeline",
+    "docPath": "/docs/work-item-timeline/",
+    "description": {
+      "zh-CN": "工作项排期，平移与两端调整使用独立字段能力。",
+      "en": "Work item scheduling with independent shift and endpoint resize capabilities."
+    },
+    "docGroup": "data",
+    "docOrder": 202,
+    "aliases": []
+  },
+  {
+    "slug": "work-item-calendar",
+    "name": "WorkItemCalendar",
+    "docPath": "/docs/work-item-calendar/",
+    "description": {
+      "zh-CN": "仅修改截止日的日历、逐日分页与未排期工作项。",
+      "en": "Due-date-only calendar changes, daily paging and unscheduled work items."
+    },
+    "docGroup": "data",
+    "docOrder": 203,
+    "aliases": []
+  },
+  {
+    "slug": "runtime-status-badge",
+    "name": "RuntimeStatusBadge",
+    "docPath": "/docs/runtime-status-badge/",
+    "description": {
+      "zh-CN": "Session、Agent、Activity与Tool Call共用的十种运行状态语言。",
+      "en": "The ten runtime states shared by Session, Agent, Activity and Tool Call."
+    },
+    "docGroup": "agent",
+    "docOrder": 25,
+    "aliases": []
+  },
+  {
+    "slug": "agent-row",
+    "name": "AgentRow",
+    "docPath": "/docs/agent-row/",
+    "description": {
+      "zh-CN": "Agent 身份、模型、连接状态、汇总负载和统一运行状态。",
+      "en": "Agent identity, model, connectivity, aggregate load and shared runtime status."
+    },
+    "docGroup": "agent",
+    "docOrder": 26,
+    "aliases": []
+  },
+  {
+    "slug": "session-row",
+    "name": "SessionRow",
+    "docPath": "/docs/session-row/",
+    "description": {
+      "zh-CN": "Session 双行结构，选择与运行状态独立，操作由显式能力开放。",
+      "en": "Two-line Session rows with independent selection/runtime states and explicit action capabilities."
+    },
+    "docGroup": "agent",
+    "docOrder": 27,
+    "aliases": []
+  },
+  {
+    "slug": "chat-message",
+    "name": "ChatMessage",
+    "docPath": "/docs/chat-message/",
+    "description": {
+      "zh-CN": "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
+      "en": "Same-axis messages, independent tool slots, interruptible output, conversation/workspace panes and IME-safe input."
+    },
+    "docGroup": "agent",
+    "docOrder": 28,
+    "aliases": []
+  },
+  {
+    "slug": "tool-call",
+    "name": "ToolCall",
+    "docPath": "/docs/tool-call/",
+    "description": {
+      "zh-CN": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
+      "en": "Independent tool execution records with arguments/output, truncation, redaction, permission requests and unconfirmed results."
+    },
+    "docGroup": "agent",
+    "docOrder": 31,
+    "aliases": [
+      "工具调用",
+      "审批",
+      "approval"
+    ]
+  },
+  {
+    "slug": "activity-timeline",
+    "name": "ActivityTimeline",
+    "docPath": "/docs/activity-timeline/",
+    "description": {
+      "zh-CN": "Runtime 时间线：平铺事件、详情展开、去重、滚动跟随及新事件提示。",
+      "en": "Runtime timeline with flat events, expandable details, deduplication, scroll following and new-event indicators."
+    },
+    "docGroup": "agent",
+    "docOrder": 32,
+    "aliases": []
+  },
+  {
+    "slug": "agent-run-properties",
+    "name": "AgentRunProperties",
+    "docPath": "/docs/agent-run-properties/",
+    "description": {
+      "zh-CN": "共享运行身份、模型、耗时与原始状态。",
+      "en": "Shared run identity, model, duration and source runtime status."
+    },
+    "docGroup": "agent",
+    "docOrder": 164,
+    "aliases": []
+  },
+  {
+    "slug": "agent-run-row",
+    "name": "AgentRunRow",
+    "docPath": "/docs/agent-run-row/",
+    "description": {
+      "zh-CN": "紧凑运行行；查看与尾部操作使用兄弟目标。",
+      "en": "Compact run row with sibling activation and trailing targets."
+    },
+    "docGroup": "agent",
+    "docOrder": 166,
+    "aliases": []
+  },
+  {
+    "slug": "agent-run-card",
+    "name": "AgentRunCard",
+    "docPath": "/docs/agent-run-card/",
+    "description": {
+      "zh-CN": "独立运行卡片；缺失计数保留为未知。",
+      "en": "Independent run card retaining unknown counts."
+    },
+    "docGroup": "agent",
+    "docOrder": 167,
+    "aliases": []
+  },
+  {
+    "slug": "agent-run-list",
+    "name": "AgentRunList",
+    "docPath": "/docs/agent-run-list/",
+    "description": {
+      "zh-CN": "同一运行集合的只读分组列表。",
+      "en": "Read-only grouped list over shared run snapshots."
+    },
+    "docGroup": "agent",
+    "docOrder": 168,
+    "aliases": []
+  },
+  {
+    "slug": "agent-run-board",
+    "name": "AgentRunBoard",
+    "docPath": "/docs/agent-run-board/",
+    "description": {
+      "zh-CN": "按来源状态派生分列的只读运行看板。",
+      "en": "Read-only run board grouped by source status."
+    },
+    "docGroup": "agent",
+    "docOrder": 169,
+    "aliases": []
+  },
+  {
+    "slug": "agent-run-inspector",
+    "name": "AgentRunInspector",
+    "docPath": "/docs/agent-run-inspector/",
+    "description": {
+      "zh-CN": "完整受控运行详情，组合请求、执行、产物与关联。",
+      "en": "Complete controlled run detail composing requests, traces, artifacts and relationships."
+    },
+    "docGroup": "agent",
+    "docOrder": 170,
+    "aliases": []
+  },
+  {
+    "slug": "agent-relationship-list",
+    "name": "AgentRelationshipList",
+    "docPath": "/docs/agent-relationship-list/",
+    "description": {
+      "zh-CN": "仅展示来源明确的运行关联与交接。",
+      "en": "Only explicit source relationships and handoffs."
+    },
+    "docGroup": "agent",
+    "docOrder": 176,
+    "aliases": []
+  },
+  {
+    "slug": "agent-usage-summary",
+    "name": "AgentUsageSummary",
+    "docPath": "/docs/agent-usage-summary/",
+    "description": {
+      "zh-CN": "来源用量去重、覆盖说明与分币种合计。",
+      "en": "Deduplicated source usage, coverage and per-currency totals."
+    },
+    "docGroup": "agent",
+    "docOrder": 177,
+    "aliases": []
+  },
+  {
+    "slug": "agent-board-toolbar",
+    "name": "AgentBoardToolbar",
+    "docPath": "/docs/agent-board-toolbar/",
+    "description": {
+      "zh-CN": "共享运行筛选与可选依赖视图受控切换。",
+      "en": "Shared run filters and an optional controlled dependency view."
+    },
+    "docGroup": "agent",
+    "docOrder": 178,
+    "aliases": []
+  },
+  {
+    "slug": "agent-board-workspace",
+    "name": "AgentBoardWorkspace",
+    "docPath": "/docs/agent-board-workspace/",
+    "description": {
+      "zh-CN": "受控 Agent 工作台；路由、服务与持久化归调用方。",
+      "en": "Controlled Agent workspace; routing, services and persistence belong to callers."
+    },
+    "docGroup": "agent",
+    "docOrder": 179,
+    "aliases": []
+  },
+  {
+    "slug": "agent-dependency-graph",
+    "name": "AgentDependencyGraph",
+    "docPath": "/docs/agent-dependency-graph/",
+    "description": {
+      "zh-CN": "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
+      "en": "Source-reported run dependencies in a read-only canvas and accessible list."
+    },
+    "docGroup": "agent",
+    "docOrder": 192,
+    "aliases": []
+  },
+  {
+    "slug": "agent-usage-history",
+    "name": "AgentUsageHistory",
+    "docPath": "/docs/agent-usage-history/",
+    "description": {
+      "zh-CN": "来源区间历史；运行与币种独立，缺失观测保留断点。",
+      "en": "Source interval history; separate runs and currencies with gaps for missing observations."
+    },
+    "docGroup": "agent",
+    "docOrder": 193,
+    "aliases": []
+  },
+  {
+    "slug": "agent-run-virtual-list",
+    "name": "AgentRunVirtualList",
+    "docPath": "/docs/agent-run-virtual-list/",
+    "description": {
+      "zh-CN": "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
+      "en": "Controlled variable-height run list with off-screen focus and explicit loaded scope."
+    },
+    "docGroup": "agent",
+    "docOrder": 194,
+    "aliases": []
+  },
+  {
+    "slug": "workflow-canvas",
+    "name": "WorkflowCanvas",
+    "docPath": "/docs/workflow-canvas/",
+    "description": {
+      "zh-CN": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+      "en": "Controlled workflow foundations: consistent nodes, named ports, edges, selection and light/dark themes."
+    },
+    "docGroup": "canvas",
+    "docOrder": 33,
+    "aliases": [
+      "流程画布",
+      "节点",
+      "工作流"
+    ]
+  },
+  {
+    "slug": "canvas-workspace",
+    "name": "CanvasWorkspace",
+    "docPath": "/docs/canvas-workspace/",
+    "description": {
+      "zh-CN": "可编辑流程工作台：构图、配置、变量、校验、撤销和导入导出。",
+      "en": "An editable workflow workspace for graph editing, configuration, variables, validation, undo and import/export."
+    },
+    "docGroup": "canvas",
+    "docOrder": 34,
+    "aliases": []
+  },
+  {
+    "slug": "node-palette",
+    "name": "NodePalette",
+    "docPath": "/docs/node-palette/",
+    "description": {
+      "zh-CN": "按分类和名称查找节点，支持点击新增与拖放目录。",
+      "en": "Find nodes by category and name; add by clicking or dragging from the palette."
+    },
+    "docGroup": "canvas",
+    "docOrder": 35,
+    "aliases": []
+  },
+  {
+    "slug": "node-inspector",
+    "name": "NodeInspector",
+    "docPath": "/docs/node-inspector/",
+    "description": {
+      "zh-CN": "复用 Inspector 的受控节点配置，保留无效草稿并校验后应用。",
+      "en": "Controlled node configuration reuses Inspector, preserves invalid drafts and validates before applying."
+    },
+    "docGroup": "canvas",
+    "docOrder": 36,
+    "aliases": []
+  },
+  {
+    "slug": "variable-picker",
+    "name": "VariablePicker",
+    "docPath": "/docs/variable-picker/",
+    "description": {
+      "zh-CN": "复用单选 Tree，选择可达上游的兼容输出并生成结构化引用。",
+      "en": "Reuses single-selection Tree to choose compatible, reachable upstream outputs and create structured references."
+    },
+    "docGroup": "canvas",
+    "docOrder": 37,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-service-panel",
+    "name": "CanvasServicePanel",
+    "docPath": "/docs/canvas-service-panel/",
+    "description": {
+      "zh-CN": "受控服务面板：版本恢复、讨论、临时 Presence、环境、分享和发布回执。",
+      "en": "Controlled service panel for version restoration, discussions, transient presence, environments, sharing and publication receipts."
+    },
+    "docGroup": "canvas",
+    "docOrder": 130,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-project-workspace",
+    "name": "CanvasProjectWorkspace",
+    "docPath": "/docs/canvas-project-workspace/",
+    "description": {
+      "zh-CN": "显式边界与递归校验的嵌套流程工作台，保留每个子图的选择、视口和本地历史。",
+      "en": "A nested workflow workspace with explicit boundaries and recursion validation, preserving each graph's selection, viewport and local history."
+    },
+    "docGroup": "canvas",
+    "docOrder": 131,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-config-editor",
+    "name": "CanvasConfigEditor",
+    "docPath": "/docs/canvas-config-editor/",
+    "description": {
+      "zh-CN": "条件、对象 Schema、键值表、表达式和代码的受控编辑器。",
+      "en": "Controlled editors for conditions, object schemas, key-value tables, expressions and code."
+    },
+    "docGroup": "canvas",
+    "docOrder": 132,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-execution-panel",
+    "name": "CanvasExecutionPanel",
+    "docPath": "/docs/canvas-execution-panel/",
+    "description": {
+      "zh-CN": "受控执行调试：运行、停止请求、审批、脱敏输出和未知结果对账。",
+      "en": "Controlled execution debugging: run, stop requests, approval, redacted output and unknown-outcome reconciliation."
+    },
+    "docGroup": "canvas",
+    "docOrder": 133,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-frame",
+    "name": "CanvasFrame",
+    "docPath": "/docs/canvas-frame/",
+    "description": {
+      "zh-CN": "流程图的视觉分组；移动由命令整体更新成员位置。",
+      "en": "A visual workflow group; commands move all member positions together."
+    },
+    "docGroup": "canvas",
+    "docOrder": 138,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-note",
+    "name": "CanvasNote",
+    "docPath": "/docs/canvas-note/",
+    "description": {
+      "zh-CN": "流程说明便笺，独立于执行与讨论线程。",
+      "en": "Workflow notes, independent of execution and discussion threads."
+    },
+    "docGroup": "canvas",
+    "docOrder": 139,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-node",
+    "name": "CanvasNode",
+    "docPath": "/docs/canvas-node/",
+    "description": {
+      "zh-CN": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+      "en": "Controlled workflow foundations: consistent nodes, named ports, edges, selection and light/dark themes."
+    },
+    "docGroup": "canvas",
+    "docOrder": 141,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-port",
+    "name": "CanvasPort",
+    "docPath": "/docs/canvas-port/",
+    "description": {
+      "zh-CN": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+      "en": "Controlled workflow foundations: consistent nodes, named ports, edges, selection and light/dark themes."
+    },
+    "docGroup": "canvas",
+    "docOrder": 142,
+    "aliases": []
+  },
+  {
+    "slug": "canvas-edge",
+    "name": "CanvasEdge",
+    "docPath": "/docs/canvas-edge/",
+    "description": {
+      "zh-CN": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
+      "en": "Controlled workflow foundations: consistent nodes, named ports, edges, selection and light/dark themes."
+    },
+    "docGroup": "canvas",
+    "docOrder": 143,
+    "aliases": []
+  },
+  {
+    "slug": "work-items-workspace",
+    "name": "WorkItemsWorkspace",
+    "docPath": "/docs/work-items-workspace/",
+    "description": {
+      "zh-CN": "组合三种工作项布局与详情，路由和服务由调用方持有。",
+      "en": "Three work item layouts and detail composition; caller owns routing and services."
+    },
+    "docGroup": "workspace",
+    "docOrder": 20,
+    "aliases": [
+      "任务",
+      "工作项",
+      "日历",
+      "时间线"
+    ]
+  },
+  {
+    "slug": "workspace-shell",
+    "name": "WorkspaceShell",
+    "docPath": "/docs/workspace-shell/",
+    "description": {
+      "zh-CN": "紧凑Agent工作台骨架：Sidebar、Main、可调整的Inspector与可选底部面板。",
+      "en": "A compact Agent workspace shell with Sidebar, Main, resizable Inspector and optional bottom panel."
+    },
+    "docGroup": "workspace",
+    "docOrder": 38,
+    "aliases": []
+  },
+  {
+    "slug": "inspector",
+    "name": "Inspector",
+    "docPath": "/docs/inspector/",
+    "description": {
+      "zh-CN": "当前对象的受控详情，统一 Metadata、缺失字段与复制反馈。",
+      "en": "Controlled object details with shared Metadata, missing-field and copy feedback."
+    },
+    "docGroup": "workspace",
+    "docOrder": 39,
+    "aliases": []
+  },
+  {
+    "slug": "style-workbench",
+    "name": "StyleWorkbench",
+    "docPath": "/docs/style-workbench/",
+    "description": {
+      "zh-CN": "A/B 样式实验：实时修改圆角、间距、阴影、颜色和字体，比较参数并复制 CSS。",
+      "en": "A/B foundation experiments: adjust radius, spacing, shadows, colors and typography; compare parameters and copy CSS."
+    },
+    "docGroup": "workspace",
+    "docOrder": 144,
+    "aliases": []
+  },
+  {
+    "slug": "command-palette",
+    "name": "CommandPalette",
+    "docPath": "/docs/command-palette/",
+    "description": {
+      "zh-CN": "调用方提供结果的命令搜索，支持键盘选择与IME。",
+      "en": "Command search with caller-owned results, keyboard selection and IME support."
+    },
+    "docGroup": "other",
+    "docOrder": 113,
+    "aliases": []
+  },
+  {
+    "slug": "form-section",
+    "name": "FormSection",
+    "docPath": "/docs/form-section/",
+    "description": {
+      "zh-CN": "使用fieldset和legend组织表单分组。",
+      "en": "Form sections using fieldset and legend."
+    },
+    "docGroup": "other",
+    "docOrder": 116,
+    "aliases": []
+  },
+  {
+    "slug": "image-upload",
+    "name": "ImageUpload",
+    "docPath": "/docs/image-upload/",
+    "description": {
+      "zh-CN": "本地图片选择、拖放、预览、替换与失败恢复。",
+      "en": "Local image selection, drop, preview, replacement and failure recovery."
+    },
+    "docGroup": "other",
+    "docOrder": 118,
+    "aliases": []
+  },
+  {
+    "slug": "task-panel",
+    "name": "TaskPanel",
+    "docPath": "/docs/task-panel/",
+    "description": {
+      "zh-CN": "把任务的等待、执行、完成和失败，一眼说清。",
+      "en": "Task waiting, execution, completion and failure at a glance."
+    },
+    "docGroup": "other",
+    "docOrder": 151,
+    "aliases": []
+  },
+  {
+    "slug": "scroll-playground",
+    "name": "ScrollPlayground",
+    "docPath": "/docs/scroll-playground/",
+    "description": {
+      "zh-CN": "六种滚动交互，亲手体验：触发、联动、视差、吸顶、吸附与横向展开。",
+      "en": "Try six scroll interactions: triggered, linked, parallax, sticky, snap and horizontal."
+    },
+    "docGroup": "other",
+    "docOrder": 152,
+    "aliases": []
+  },
+  {
+    "slug": "run-stage-summary",
+    "name": "RunStageSummary",
+    "docPath": "/docs/run-stage-summary/",
+    "description": {
+      "zh-CN": "来源阶段与有明确分母的步骤计数，不生成假进度。",
+      "en": "Source stages and bounded step counts without synthetic progress."
+    },
+    "docGroup": "other",
+    "docOrder": 165,
+    "aliases": []
+  },
+  {
+    "slug": "attention-queue",
+    "name": "AttentionQueue",
+    "docPath": "/docs/attention-queue/",
+    "description": {
+      "zh-CN": "按关注 ID 去重；请求数与运行数分别表达。",
+      "en": "Attention ID deduplication with separate request and run counts."
+    },
+    "docGroup": "other",
+    "docOrder": 171,
+    "aliases": []
+  },
+  {
+    "slug": "approval-request-panel",
+    "name": "ApprovalRequestPanel",
+    "docPath": "/docs/approval-request-panel/",
+    "description": {
+      "zh-CN": "工具审批复用 ToolCall；未知结果必须先核对。",
+      "en": "Tool approval composes ToolCall; unknown results require reconciliation."
+    },
+    "docGroup": "other",
+    "docOrder": 172,
+    "aliases": []
+  },
+  {
+    "slug": "artifact-list",
+    "name": "ArtifactList",
+    "docPath": "/docs/artifact-list/",
+    "description": {
+      "zh-CN": "产物入口、可用状态与独立审阅摘要。",
+      "en": "Artifact links, availability and independent review summaries."
+    },
+    "docGroup": "other",
+    "docOrder": 173,
+    "aliases": []
+  },
+  {
+    "slug": "review-summary",
+    "name": "ReviewSummary",
+    "docPath": "/docs/review-summary/",
+    "description": {
+      "zh-CN": "审阅、业务验收与 PR 状态分别呈现。",
+      "en": "Separate review, business acceptance and PR states."
+    },
+    "docGroup": "other",
+    "docOrder": 174,
+    "aliases": []
+  },
+  {
+    "slug": "execution-trace-tree",
+    "name": "ExecutionTraceTree",
+    "docPath": "/docs/execution-trace-tree/",
+    "description": {
+      "zh-CN": "可观测父子执行步骤与脱敏工具详情。",
+      "en": "Observable parent-child steps and redacted tool detail."
+    },
+    "docGroup": "other",
+    "docOrder": 175,
+    "aliases": []
+  },
+  {
+    "slug": "item-board",
+    "name": "Board",
+    "docPath": "/docs/item-board/",
+    "description": {
+      "zh-CN": "通用受控看板，指针、触屏与键盘移动共享命令。",
+      "en": "Business-independent controlled board sharing pointer, touch and keyboard move commands."
+    },
+    "docGroup": "other",
+    "docOrder": 181,
+    "aliases": []
+  }
+]

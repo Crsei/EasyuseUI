@@ -4,727 +4,935 @@
     "name": "Textarea",
     "category": "基础组件",
     "docPath": "/docs/textarea/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 3
   },
   {
     "slug": "label",
     "name": "Label",
     "category": "基础组件",
     "docPath": "/docs/label/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 2
   },
   {
     "slug": "native-select",
     "name": "NativeSelect",
     "category": "基础组件",
     "docPath": "/docs/native-select/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 4
   },
   {
     "slug": "switch",
     "name": "Switch",
     "category": "基础组件",
     "docPath": "/docs/switch/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 9
   },
   {
     "slug": "radio-group",
     "name": "RadioGroup",
     "category": "基础组件",
     "docPath": "/docs/radio-group/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 8
   },
   {
     "slug": "checkbox",
     "name": "Checkbox",
     "category": "基础组件",
     "docPath": "/docs/checkbox/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 7
   },
   {
     "slug": "table",
     "name": "Table",
     "category": "基础组件",
     "docPath": "/docs/table/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 18
   },
   {
     "slug": "data-table",
     "name": "DataTable",
     "category": "组合模块",
     "docPath": "/docs/data-table/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 17
   },
   {
     "slug": "avatar",
     "name": "Avatar",
     "category": "基础组件",
     "docPath": "/docs/avatar/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 108
   },
   {
     "slug": "segment-bar",
     "name": "SegmentBar",
     "category": "基础组件",
     "docPath": "/docs/segment-bar/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 109
   },
   {
     "slug": "sparkline",
     "name": "Sparkline",
     "category": "基础组件",
     "docPath": "/docs/sparkline/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 110
   },
   {
     "slug": "dropdown-menu",
     "name": "DropdownMenu",
     "category": "基础组件",
     "docPath": "/docs/dropdown-menu/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 14
   },
   {
     "slug": "sheet",
     "name": "Sheet",
     "category": "基础组件",
     "docPath": "/docs/sheet/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 11
   },
   {
     "slug": "command-palette",
     "name": "CommandPalette",
     "category": "组合模块",
     "docPath": "/docs/command-palette/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 113
   },
   {
     "slug": "kbd",
     "name": "Kbd",
     "category": "基础组件",
     "docPath": "/docs/kbd/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 114
   },
   {
     "slug": "field",
     "name": "Field",
     "category": "基础组件",
     "docPath": "/docs/field/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 115
   },
   {
     "slug": "form-section",
     "name": "FormSection",
     "category": "组合模块",
     "docPath": "/docs/form-section/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 116
   },
   {
     "slug": "slider",
     "name": "Slider",
     "category": "基础组件",
     "docPath": "/docs/slider/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 117
   },
   {
     "slug": "image-upload",
     "name": "ImageUpload",
     "category": "组合模块",
     "docPath": "/docs/image-upload/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 118
   },
   {
     "slug": "filter-toolbar",
     "name": "FilterToolbar",
     "category": "组合模块",
     "docPath": "/docs/filter-toolbar/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 119
   },
   {
     "slug": "metric-summary",
     "name": "MetricSummary",
     "category": "组合模块",
     "docPath": "/docs/metric-summary/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 120
   },
   {
     "slug": "rating-display",
     "name": "RatingDisplay",
     "category": "基础组件",
     "docPath": "/docs/rating-display/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 121
   },
   {
     "slug": "menu",
     "name": "Menu",
     "category": "基础组件",
     "docPath": "/docs/menu/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 13
   },
   {
     "slug": "popover",
     "name": "Popover",
     "category": "基础组件",
     "docPath": "/docs/popover/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 12
   },
   {
     "slug": "select",
     "name": "Select",
     "category": "基础组件",
     "docPath": "/docs/select/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 5
   },
   {
     "slug": "combobox",
     "name": "Combobox",
     "category": "基础组件",
     "docPath": "/docs/combobox/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 6
   },
   {
     "slug": "segmented",
     "name": "Segmented",
     "category": "基础组件",
     "docPath": "/docs/segmented/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 126
   },
   {
     "slug": "tabs",
     "name": "Tabs",
     "category": "基础组件",
     "docPath": "/docs/tabs/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 15
   },
   {
     "slug": "theme-boundary",
     "name": "ThemeBoundary",
     "category": "基础组件",
     "docPath": "/docs/theme-boundary/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 128
   },
   {
     "slug": "i18n",
     "name": "I18nProvider",
     "category": "基础组件",
     "docPath": "/docs/i18n/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 129
   },
   {
     "slug": "canvas-service-panel",
     "name": "CanvasServicePanel",
     "category": "组合模块",
     "docPath": "/docs/canvas-service-panel/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 130
   },
   {
     "slug": "canvas-project-workspace",
     "name": "CanvasProjectWorkspace",
     "category": "组合模块",
     "docPath": "/docs/canvas-project-workspace/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 131
   },
   {
     "slug": "canvas-config-editor",
     "name": "CanvasConfigEditor",
     "category": "组合模块",
     "docPath": "/docs/canvas-config-editor/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 132
   },
   {
     "slug": "canvas-execution-panel",
     "name": "CanvasExecutionPanel",
     "category": "组合模块",
     "docPath": "/docs/canvas-execution-panel/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 133
   },
   {
     "slug": "canvas-workspace",
     "name": "CanvasWorkspace",
     "category": "组合模块",
     "docPath": "/docs/canvas-workspace/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 34
   },
   {
     "slug": "node-palette",
     "name": "NodePalette",
     "category": "组合模块",
     "docPath": "/docs/node-palette/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 35
   },
   {
     "slug": "node-inspector",
     "name": "NodeInspector",
     "category": "组合模块",
     "docPath": "/docs/node-inspector/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 36
   },
   {
     "slug": "variable-picker",
     "name": "VariablePicker",
     "category": "组合模块",
     "docPath": "/docs/variable-picker/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 37
   },
   {
     "slug": "canvas-frame",
     "name": "CanvasFrame",
     "category": "组合模块",
     "docPath": "/docs/canvas-frame/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 138
   },
   {
     "slug": "canvas-note",
     "name": "CanvasNote",
     "category": "组合模块",
     "docPath": "/docs/canvas-note/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 139
   },
   {
     "slug": "workflow-canvas",
     "name": "WorkflowCanvas",
     "category": "组合模块",
     "docPath": "/docs/workflow-canvas/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 33
   },
   {
     "slug": "canvas-node",
     "name": "CanvasNode",
     "category": "基础组件",
     "docPath": "/docs/canvas-node/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 141
   },
   {
     "slug": "canvas-port",
     "name": "CanvasPort",
     "category": "基础组件",
     "docPath": "/docs/canvas-port/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 142
   },
   {
     "slug": "canvas-edge",
     "name": "CanvasEdge",
     "category": "基础组件",
     "docPath": "/docs/canvas-edge/",
-    "displayCategory": "canvas"
+    "displayCategory": "canvas",
+    "docGroup": "canvas",
+    "docOrder": 143
   },
   {
     "slug": "style-workbench",
     "name": "StyleWorkbench",
     "category": "组合模块",
     "docPath": "/docs/style-workbench/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "workspace",
+    "docOrder": 144
   },
   {
     "slug": "badge",
     "name": "Badge",
     "category": "基础组件",
     "docPath": "/docs/badge/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 145
   },
   {
     "slug": "tag",
     "name": "Tag",
     "category": "基础组件",
     "docPath": "/docs/tag/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 146
   },
   {
     "slug": "chip",
     "name": "Chip",
     "category": "基础组件",
     "docPath": "/docs/chip/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 147
   },
   {
     "slug": "button",
     "name": "Button",
     "category": "基础组件",
     "docPath": "/docs/button/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 0
   },
   {
     "slug": "input",
     "name": "Input",
     "category": "基础组件",
     "docPath": "/docs/input/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 1
   },
   {
     "slug": "dialog",
     "name": "Dialog",
     "category": "基础组件",
     "docPath": "/docs/dialog/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 10
   },
   {
     "slug": "task-panel",
     "name": "TaskPanel",
     "category": "组合模块",
     "docPath": "/docs/task-panel/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 151
   },
   {
     "slug": "scroll-playground",
     "name": "ScrollPlayground",
     "category": "组合模块",
     "docPath": "/docs/scroll-playground/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 152
   },
   {
     "slug": "item",
     "name": "Item",
     "category": "基础组件",
     "docPath": "/docs/item/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 153
   },
   {
     "slug": "runtime-status-badge",
     "name": "RuntimeStatusBadge",
     "category": "基础组件",
     "docPath": "/docs/runtime-status-badge/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "agent",
+    "docOrder": 25
   },
   {
     "slug": "workspace-shell",
     "name": "WorkspaceShell",
     "category": "组合模块",
     "docPath": "/docs/workspace-shell/",
-    "displayCategory": "workspace"
+    "displayCategory": "workspace",
+    "docGroup": "workspace",
+    "docOrder": 38
   },
   {
     "slug": "data-region",
     "name": "DataRegion",
     "category": "基础组件",
     "docPath": "/docs/data-region/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 16
   },
   {
     "slug": "tree",
     "name": "Tree",
     "category": "基础组件",
     "docPath": "/docs/tree/",
-    "displayCategory": "primitives"
+    "displayCategory": "primitives",
+    "docGroup": "data",
+    "docOrder": 19
   },
   {
     "slug": "session-row",
     "name": "SessionRow",
     "category": "组合模块",
     "docPath": "/docs/session-row/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 27
   },
   {
     "slug": "agent-row",
     "name": "AgentRow",
     "category": "组合模块",
     "docPath": "/docs/agent-row/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 26
   },
   {
     "slug": "activity-timeline",
     "name": "ActivityTimeline",
     "category": "组合模块",
     "docPath": "/docs/activity-timeline/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 32
   },
   {
     "slug": "inspector",
     "name": "Inspector",
     "category": "组合模块",
     "docPath": "/docs/inspector/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "workspace",
+    "docOrder": 39
   },
   {
     "slug": "chat-message",
     "name": "ChatMessage",
     "category": "组合模块",
     "docPath": "/docs/chat-message/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 28
   },
   {
     "slug": "tool-call",
     "name": "ToolCall",
     "category": "组合模块",
     "docPath": "/docs/tool-call/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 31
   },
   {
     "slug": "agent-run-properties",
     "name": "AgentRunProperties",
     "category": "组合模块",
     "docPath": "/docs/agent-run-properties/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 164
   },
   {
     "slug": "run-stage-summary",
     "name": "RunStageSummary",
     "category": "组合模块",
     "docPath": "/docs/run-stage-summary/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 165
   },
   {
     "slug": "agent-run-row",
     "name": "AgentRunRow",
     "category": "组合模块",
     "docPath": "/docs/agent-run-row/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 166
   },
   {
     "slug": "agent-run-card",
     "name": "AgentRunCard",
     "category": "组合模块",
     "docPath": "/docs/agent-run-card/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 167
   },
   {
     "slug": "agent-run-list",
     "name": "AgentRunList",
     "category": "组合模块",
     "docPath": "/docs/agent-run-list/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 168
   },
   {
     "slug": "agent-run-board",
     "name": "AgentRunBoard",
     "category": "组合模块",
     "docPath": "/docs/agent-run-board/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 169
   },
   {
     "slug": "agent-run-inspector",
     "name": "AgentRunInspector",
     "category": "组合模块",
     "docPath": "/docs/agent-run-inspector/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 170
   },
   {
     "slug": "attention-queue",
     "name": "AttentionQueue",
     "category": "组合模块",
     "docPath": "/docs/attention-queue/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 171
   },
   {
     "slug": "approval-request-panel",
     "name": "ApprovalRequestPanel",
     "category": "组合模块",
     "docPath": "/docs/approval-request-panel/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 172
   },
   {
     "slug": "artifact-list",
     "name": "ArtifactList",
     "category": "组合模块",
     "docPath": "/docs/artifact-list/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 173
   },
   {
     "slug": "review-summary",
     "name": "ReviewSummary",
     "category": "组合模块",
     "docPath": "/docs/review-summary/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 174
   },
   {
     "slug": "execution-trace-tree",
     "name": "ExecutionTraceTree",
     "category": "组合模块",
     "docPath": "/docs/execution-trace-tree/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 175
   },
   {
     "slug": "agent-relationship-list",
     "name": "AgentRelationshipList",
     "category": "组合模块",
     "docPath": "/docs/agent-relationship-list/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 176
   },
   {
     "slug": "agent-usage-summary",
     "name": "AgentUsageSummary",
     "category": "组合模块",
     "docPath": "/docs/agent-usage-summary/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 177
   },
   {
     "slug": "agent-board-toolbar",
     "name": "AgentBoardToolbar",
     "category": "组合模块",
     "docPath": "/docs/agent-board-toolbar/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 178
   },
   {
     "slug": "agent-board-workspace",
     "name": "AgentBoardWorkspace",
     "category": "组合模块",
     "docPath": "/docs/agent-board-workspace/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 179
   },
   {
     "slug": "grouped-list",
     "name": "GroupedList",
     "category": "组合模块",
     "docPath": "/docs/grouped-list/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 180
   },
   {
     "slug": "item-board",
     "name": "Board",
     "category": "组合模块",
     "docPath": "/docs/item-board/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 181
   },
   {
     "slug": "work-item-properties",
     "name": "WorkItemProperties",
     "category": "组合模块",
     "docPath": "/docs/work-item-properties/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 22
   },
   {
     "slug": "work-item-row",
     "name": "WorkItemRow",
     "category": "组合模块",
     "docPath": "/docs/work-item-row/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 23
   },
   {
     "slug": "work-item-card",
     "name": "WorkItemCard",
     "category": "组合模块",
     "docPath": "/docs/work-item-card/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 24
   },
   {
     "slug": "work-item-list",
     "name": "WorkItemList",
     "category": "组合模块",
     "docPath": "/docs/work-item-list/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 185
   },
   {
     "slug": "work-item-board",
     "name": "WorkItemBoard",
     "category": "组合模块",
     "docPath": "/docs/work-item-board/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 186
   },
   {
     "slug": "work-item-table",
     "name": "WorkItemTable",
     "category": "组合模块",
     "docPath": "/docs/work-item-table/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 187
   },
   {
     "slug": "work-items-toolbar",
     "name": "WorkItemsToolbar",
     "category": "组合模块",
     "docPath": "/docs/work-items-toolbar/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 21
   },
   {
     "slug": "work-item-detail",
     "name": "WorkItemDetail / WorkItemQuickCreate",
     "category": "组合模块",
     "docPath": "/docs/work-item-detail/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 189
   },
   {
     "slug": "work-items-workspace",
     "name": "WorkItemsWorkspace",
     "category": "组合模块",
     "docPath": "/docs/work-items-workspace/",
-    "displayCategory": "workspace"
+    "displayCategory": "workspace",
+    "docGroup": "workspace",
+    "docOrder": 20
   },
   {
     "slug": "work-items-board-base",
     "name": "Board",
     "category": "组合模块",
     "docPath": "/docs/work-items-board-base/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 191
   },
   {
     "slug": "agent-dependency-graph",
     "name": "AgentDependencyGraph",
     "category": "组合模块",
     "docPath": "/docs/agent-dependency-graph/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 192
   },
   {
     "slug": "agent-usage-history",
     "name": "AgentUsageHistory",
     "category": "组合模块",
     "docPath": "/docs/agent-usage-history/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 193
   },
   {
     "slug": "agent-run-virtual-list",
     "name": "AgentRunVirtualList",
     "category": "组合模块",
     "docPath": "/docs/agent-run-virtual-list/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "agent",
+    "docOrder": 194
   },
   {
     "slug": "work-items-batch-actions",
     "name": "WorkItemsBatchActions",
     "category": "组合模块",
     "docPath": "/docs/work-items-batch-actions/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 195
   },
   {
     "slug": "work-items-saved-views",
     "name": "WorkItemsSavedViews",
     "category": "组合模块",
     "docPath": "/docs/work-items-saved-views/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 196
   },
   {
     "slug": "timeline",
     "name": "Timeline",
     "category": "组合模块",
     "docPath": "/docs/timeline/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 197
   },
   {
     "slug": "calendar",
     "name": "Calendar",
     "category": "组合模块",
     "docPath": "/docs/calendar/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 198
   },
   {
     "slug": "schedule-view-controls",
     "name": "ScheduleViewControls",
     "category": "组合模块",
     "docPath": "/docs/schedule-view-controls/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 199
   },
   {
     "slug": "work-item-date-range-field",
     "name": "WorkItemDateRangeField",
     "category": "组合模块",
     "docPath": "/docs/work-item-date-range-field/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 200
   },
   {
     "slug": "work-items-schedule",
     "name": "UnscheduledWorkItems",
     "category": "组合模块",
     "docPath": "/docs/work-items-schedule/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 201
   },
   {
     "slug": "work-item-timeline",
     "name": "WorkItemTimeline",
     "category": "组合模块",
     "docPath": "/docs/work-item-timeline/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 202
   },
   {
     "slug": "work-item-calendar",
     "name": "WorkItemCalendar",
     "category": "组合模块",
     "docPath": "/docs/work-item-calendar/",
-    "displayCategory": "patterns"
+    "displayCategory": "patterns",
+    "docGroup": "data",
+    "docOrder": 203
   }
 ]

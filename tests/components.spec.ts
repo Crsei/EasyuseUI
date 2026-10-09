@@ -7,7 +7,7 @@ test("navigation leads to the component and its source documentation", async ({
   page.on("pageerror", (error) => errors.push(error.message))
   await page.goto("/")
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "变成默认",
+    "完整的工作界面",
   )
   await page
     .getByRole("navigation", { name: "主导航" })
@@ -20,7 +20,7 @@ test("navigation leads to the component and its source documentation", async ({
     .click()
   await expect(page).toHaveURL(/\/docs\/button\/$/)
   await expect(
-    page.getByRole("heading", { name: "组件源码", exact: true }),
+    page.getByRole("heading", { name: "源码文件", exact: true }),
   ).toBeVisible()
   expect(errors).toEqual([])
 })

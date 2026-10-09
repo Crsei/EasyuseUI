@@ -1,0 +1,178 @@
+{
+  "source": {
+    "version": "804756e3f7b390f44821a689eb54c20d928e3262",
+    "files": {
+      "app/page.tsx": "2b5495aa9591080cbbdda52c3844d1d368f41eff1689b88b802ef45337dd650e",
+      "app/docs/[slug]/page.tsx": "147b50af581615772c6d025b3528f2e52a6524115f9aa5a68063cc034ffa9e57",
+      "app/docs/layout.tsx": "5f5060dce22f39ee99e4c851f20a8ff57dfd732e415dc7e4b5a4b4d8ed081679",
+      "components/site/header.tsx": "53b5fe908e506467c4864190256c415dc7e786418aec456f560560608990f625",
+      "components/docs/sidebar.tsx": "8fda650b9c3303fe34ace0dd81bd4c648e9d539e30836ffda869bc88a459fb9e",
+      "components/docs/component-browser.tsx": "a6a0e8c1c0f2b007bbfd9a91dc608bc5a414d945073608dd85c33cb0e757b00c",
+      "lib/component-manifest.ts": "c825e2a99429de0cc107e2dd51409053afafb95d01e874d3b4973549ad8a3ff7",
+      "components/examples/agent-board/agent-board-demo.tsx": "1516d08d1071d68394e04ee68e8de8354a5db269d038bf6b685b05a9b22a326a",
+      "components/examples/work-items/work-items-demo.tsx": "7cccbe932cba97ac6869eaec8efec59d8e9e978470aa29f3f437c4ecf54dc99f",
+      "components/examples/work-items/fixtures.ts": "4d866ac57f0b83b7f3244f69d1ac669d93a5e3ae9a9db2c935ac1a4a597f867a",
+      "components/examples/canvas-workspace-demo.tsx": "9c126549191c02fc32cd950f1af09a8b133c4cab70d934e17b42055c621efeff",
+      "styles/theme.css": "d6ed7b786ebe9aa802da95b68ef2e06b34db18a48de8b0ecce89d1a36c2f1a8d"
+    },
+    "id": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+  },
+  "scenes": [
+    {
+      "file": "agent-desktop-light.jpg",
+      "route": "/workspace/agents/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "agent-desktop-dark.jpg",
+      "route": "/workspace/agents/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "agent-mobile-light.jpg",
+      "route": "/workspace/agents/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "agent-mobile-dark.jpg",
+      "route": "/workspace/agents/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "work-items-desktop-light.jpg",
+      "route": "/examples/work-items/?layout=board",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "work-items-desktop-dark.jpg",
+      "route": "/examples/work-items/?layout=board",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "work-items-mobile-light.jpg",
+      "route": "/examples/work-items/?layout=board",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "work-items-mobile-dark.jpg",
+      "route": "/examples/work-items/?layout=board",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "canvas-desktop-light.jpg",
+      "route": "/workspace/canvas/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "canvas-desktop-dark.jpg",
+      "route": "/workspace/canvas/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "canvas-mobile-light.jpg",
+      "route": "/workspace/canvas/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    },
+    {
+      "file": "canvas-mobile-dark.jpg",
+      "route": "/workspace/canvas/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "fixture": "committed local example; default state",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a",
+      "capturedAt": "2026-10-09T00:21:32.842Z"
+    }
+  ]
+}

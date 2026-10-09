@@ -44,6 +44,17 @@
     }
   },
   {
+    "slug": "homepage-and-docs",
+    "title": {
+      "zh-CN": "从组件目录到场景入口：重做首页与文档",
+      "en": "From catalog to workspace: redesigning the home and docs"
+    },
+    "summary": {
+      "zh-CN": "收敛导航，用真实工作台展示组件组合，并让文档搜索、预览和源码按需读取。",
+      "en": "Focused navigation, real workspace scenes, and documentation search, previews and source loaded on demand."
+    }
+  },
+  {
     "slug": "long-session-anchor",
     "title": {
       "zh-CN": "长会话如何保留阅读位置",

@@ -20,6 +20,7 @@ import type { CanvasDocument, CanvasExecutionVisuals } from "@/lib/canvas-model"
 import type { CanvasRuntimeController } from "@/lib/use-canvas-runtime"
 import type { createCanvasRuntimeFixture } from "./canvas-runtime-fixture"
 import styles from "./canvas-playback.module.css"
+import { useDemoVisibility } from "./demo-visibility"
 
 type Fixture = ReturnType<typeof createCanvasRuntimeFixture>
 function subscribeVisibility(notify: () => void) {
@@ -43,11 +44,10 @@ export function useCanvasPlayback(
   const [edgeEffect, setEdgeEffect] = useState<"flow" | "particles" | "none">(
     "flow",
   )
-  const isVisible = useSyncExternalStore(
-    subscribeVisibility,
-    visible,
-    () => true,
-  )
+  const previewVisible = useDemoVisibility()
+  const isVisible =
+    useSyncExternalStore(subscribeVisibility, visible, () => true) &&
+    previewVisible
   const { state } = runtime,
     snapshot = state.snapshot
   const paused = pause.runId === snapshot?.runId && pause.paused

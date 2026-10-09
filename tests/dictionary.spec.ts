@@ -43,7 +43,7 @@ test("dictionary searches Chinese aliases, filters availability, and opens real 
   await detail.getByRole("link", { name: "打开组件文档与源码" }).click()
   await expect(page).toHaveURL(/\/docs\/chip\/$/)
   await expect(
-    page.getByRole("heading", { name: "组件源码", exact: true }),
+    page.getByRole("heading", { name: "源码文件", exact: true }),
   ).toBeVisible()
   expect(errors).toEqual([])
 })

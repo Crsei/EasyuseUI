@@ -69,7 +69,8 @@ pnpm check:i18n     # 双语资源、文档覆盖与 Registry 依赖
 pnpm lint           # ESLint
 pnpm typecheck      # 路由类型生成和 TypeScript 检查
 pnpm registry:build # 生成 public/r/*.json
-pnpm build          # Registry + 静态网站，输出 out/
+pnpm build          # 必须配置 NEXT_PUBLIC_SITE_URL；Registry + 文档索引 + 静态网站，输出 out/
+pnpm check:docs     # 指南、分组、搜索和按文件源码资源校验
 pnpm preview        # 预览 out/，默认 http://127.0.0.1:3011
 pnpm test           # 测试已构建产物，自动启动预览服务
 pnpm test:install   # 开发服务运行时，在临时独立项目中验证 CLI 安装和类型
@@ -149,7 +150,7 @@ WorkspaceShell 和 Item 会一起复制同目录的 CSS Module；RuntimeStatusBa
 NEXT_PUBLIC_SITE_URL=https://ui.example.com pnpm build
 ```
 
-将 `out/` 托管到支持静态文件和目录索引的服务器，例如 Cloudflare Pages。无需 Node.js 后端。也可以在 `.env.local` 设置 `NEXT_PUBLIC_SITE_URL`，参考 `.env.example`。
+将 `out/` 托管到支持静态文件和目录索引的服务器，例如 Cloudflare Pages。无需 Node.js 后端。也可以在 `.env.local` 设置 `NEXT_PUBLIC_SITE_URL`，参考 `.env.example`。公开构建拒绝缺失地址或 localhost Registry；仅验证本机生产产物时显式使用 `NEXT_PUBLIC_SITE_URL=http://127.0.0.1:3011 EASYUSEUI_LOCAL_BUILD=1 pnpm build`。不要将本机验证产物当作公开部署。
 
 Registry 构建器使用 shadcn 的官方 Schema 验证输出，并从 `styles/theme.css` 提取深浅主题，避免重复维护颜色。
 

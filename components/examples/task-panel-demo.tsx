@@ -2,6 +2,7 @@
 import { useSiteI18n } from "@/components/site/site-i18n"
 
 import { useEffect, useState } from "react"
+import { useDemoVisibility } from "./demo-visibility"
 import { TaskPanel, type Task } from "@/components/blocks/task-panel"
 
 const initialTasks: Task[] = [
@@ -28,11 +29,12 @@ const initialTasks: Task[] = [
 export function TaskPanelDemo() {
   const { t, text } = useSiteI18n()
 
+  const active = useDemoVisibility()
   const [tasks, setTasks] = useState(initialTasks)
   const runningId = tasks.find((task) => task.status === "running")?.id
 
   useEffect(() => {
-    if (!runningId) return
+    if (!runningId || !active) return
     const timer = setTimeout(
       () =>
         setTasks((current) =>
@@ -49,7 +51,7 @@ export function TaskPanelDemo() {
       1000,
     )
     return () => clearTimeout(timer)
-  }, [runningId])
+  }, [runningId, active])
 
   return (
     <TaskPanel

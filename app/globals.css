@@ -32,10 +32,25 @@
   line-height: 1.85;
   border-radius: 0.75rem;
 }
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
 .dark .shiki,
 .dark .shiki span {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
+}
+
+/* The upstream orange parameter color is below AA on a white code surface. */
+.shiki [style*="--shiki-light:#E36209"] {
+  --shiki-light: var(--foreground) !important;
+}
+
+/* GitHub dark comments need the site's AA text token on our neutral surface. */
+.dark .shiki [style*="--shiki-dark:#6A737D"] {
+  --shiki-dark: var(--muted-foreground) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

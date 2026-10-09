@@ -54,6 +54,21 @@ for (const [route, budget] of Object.entries(
       contentType: "application/json",
     })
     expect(estimatedGzipBytes).toBeLessThanOrEqual(budget)
+    if (route === "/") {
+      await page
+        .getByRole("button", { name: "Search documentation", exact: true })
+        .click()
+      await page.getByRole("dialog").getByRole("combobox").fill("Canvas")
+      await expect(page.getByRole("option").first()).toBeVisible()
+      await page.waitForLoadState("networkidle")
+      await Promise.all(pending)
+      expect(
+        engine(),
+        "Opening static search must not download the Canvas engine",
+      ).toHaveLength(0)
+      await expect(page.locator(".react-flow")).toHaveCount(0)
+    }
+
     if (route === "/components/") {
       await page
         .getByRole("textbox", { name: "Search components", exact: true })

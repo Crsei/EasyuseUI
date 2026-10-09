@@ -12,8 +12,9 @@ test("scroll lab is reachable and page progress follows document scrolling", asy
   const errors: string[] = []
   page.on("pageerror", (error) => errors.push(error.message))
   await page.goto("/")
+  await page.locator("[data-site-header] summary").click()
   await page
-    .getByRole("navigation", { name: "主导航" })
+    .getByRole("navigation", { name: "资源", exact: true })
     .getByRole("link", { name: "滚动实验室" })
     .click()
   await expect(page).toHaveURL(/\/scroll\/$/)

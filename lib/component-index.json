@@ -16,6 +16,9 @@
     "source": "components/ui/textarea.tsx",
     "example": "components/examples/form-primitives-demo.tsx",
     "usage": "import { Textarea } from \"@/components/ui/textarea\"",
+    "docGroup": "interaction",
+    "docOrder": 3,
+    "aliases": [],
     "notes": [
       "支持受控和非受控值；错误不会清空草稿。"
     ]
@@ -37,6 +40,9 @@
     "source": "components/ui/label.tsx",
     "example": "components/examples/form-primitives-demo.tsx",
     "usage": "import { Label } from \"@/components/ui/label\"",
+    "docGroup": "interaction",
+    "docOrder": 2,
+    "aliases": [],
     "notes": [
       "只负责标签关联；完整说明与错误关联使用 Field。"
     ]
@@ -58,6 +64,9 @@
     "source": "components/ui/native-select.tsx",
     "example": "components/examples/form-primitives-demo.tsx",
     "usage": "import { NativeSelect, NativeSelectOption, NativeSelectOptGroup } from \"@/components/ui/native-select\"",
+    "docGroup": "interaction",
+    "docOrder": 4,
+    "aliases": [],
     "notes": [
       "显示标签与提交值分开，支持多选和原生表单属性。"
     ]
@@ -79,6 +88,9 @@
     "source": "components/ui/switch.tsx",
     "example": "components/examples/form-primitives-demo.tsx",
     "usage": "import { Switch } from \"@/components/ui/switch\"",
+    "docGroup": "interaction",
+    "docOrder": 9,
+    "aliases": [],
     "notes": [
       "32px操作目标、粗指针44px；回调只报告设置值变化。"
     ]
@@ -100,6 +112,9 @@
     "source": "components/ui/radio-group.tsx",
     "example": "components/examples/form-primitives-demo.tsx",
     "usage": "import { RadioGroup, RadioGroupItem } from \"@/components/ui/radio-group\"",
+    "docGroup": "interaction",
+    "docOrder": 8,
+    "aliases": [],
     "notes": [
       "单选值受控或非受控；协议值不随显示语言改变。"
     ]
@@ -121,6 +136,9 @@
     "source": "components/ui/checkbox.tsx",
     "example": "components/examples/checkbox-demo.tsx",
     "usage": "import { Checkbox } from \"@/components/ui/checkbox\"",
+    "docGroup": "interaction",
+    "docOrder": 7,
+    "aliases": [],
     "notes": [
       "indeterminate只表达部分选择，不提交第三种业务值。"
     ]
@@ -142,6 +160,9 @@
     "source": "components/ui/table.tsx",
     "example": "components/examples/table-demo.tsx",
     "usage": "import { Table } from \"@/components/ui/table\"",
+    "docGroup": "data",
+    "docOrder": 18,
+    "aliases": [],
     "notes": [
       "TableContainer负责横向滚动，Table不拥有数据请求或行选择。"
     ]
@@ -166,7 +187,35 @@
     "description": "受控通用表格，勾选、查看与排序请求分别建模。",
     "source": "components/blocks/data-table.tsx",
     "example": "components/examples/data-table-demo.tsx",
-    "usage": "import { DataTable } from \"@/components/blocks/data-table\"",
+    "usage": "\"use client\"\nimport { DataTable } from \"@/components/blocks/data-table\"\nconst rows = [{ id: \"task-1\", title: \"Review changes\" }]\nexport function Tasks() {\n  return <DataTable rows={rows} caption=\"Tasks\"\n    getRowId={row => row.id} getRowLabel={row => row.title}\n    columns={[{ id: \"title\", header: \"Title\", cell: row => row.title }]} />\n}",
+    "docGroup": "data",
+    "docOrder": 17,
+    "aliases": [
+      "数据表格",
+      "排序",
+      "selection"
+    ],
+    "related": [
+      "data-region",
+      "checkbox",
+      "table"
+    ],
+    "variants": [
+      {
+        "title": {
+          "zh-CN": "只读行",
+          "en": "Read-only rows"
+        },
+        "code": "\"use client\"\nimport { DataTable } from \"@/components/blocks/data-table\"\nconst rows = [{ id: \"task-1\", title: \"Review changes\" }]\nexport function Tasks() {\n  return <DataTable rows={rows} caption=\"Tasks\"\n    getRowId={row => row.id} getRowLabel={row => row.title}\n    columns={[{ id: \"title\", header: \"Title\", cell: row => row.title }]} />\n}"
+      },
+      {
+        "title": {
+          "zh-CN": "受控选择",
+          "en": "Controlled selection"
+        },
+        "code": "\"use client\"\nimport { useState } from \"react\"\nimport { DataTable } from \"@/components/blocks/data-table\"\nconst rows = [{ id: \"task-1\", title: \"Review changes\" }]\nexport function SelectableTasks() {\n  const [selectedIds, setSelectedIds] = useState<string[]>([])\n  return <DataTable rows={rows} caption=\"Tasks\" getRowId={row => row.id}\n    getRowLabel={row => row.title} selectedIds={selectedIds} onSelectionChange={setSelectedIds}\n    columns={[{ id: \"title\", header: \"Title\", cell: row => row.title }]} />\n}"
+      }
+    ],
     "notes": [
       "全选只修改当前可选行并保留隐藏选择；调用方提供排序后的数据与汇总。"
     ]
@@ -188,6 +237,9 @@
     "source": "components/ui/avatar.tsx",
     "example": "components/examples/avatar-demo.tsx",
     "usage": "import { Avatar } from \"@/components/ui/avatar\"",
+    "docGroup": "data",
+    "docOrder": 108,
+    "aliases": [],
     "notes": [
       "name提供可访问名称；图片失败后显示缩写，src变化允许重新读取。"
     ]
@@ -209,6 +261,9 @@
     "source": "components/ui/segment-bar.tsx",
     "example": "components/examples/segment-bar-demo.tsx",
     "usage": "import { SegmentBar } from \"@/components/ui/segment-bar\"",
+    "docGroup": "interaction",
+    "docOrder": 109,
+    "aliases": [],
     "notes": [
       "有限值限制在声明范围，分段数1–50；未知值不补零，不用作任务进度。"
     ]
@@ -230,6 +285,9 @@
     "source": "components/ui/sparkline.tsx",
     "example": "components/examples/sparkline-demo.tsx",
     "usage": "import { Sparkline } from \"@/components/ui/sparkline\"",
+    "docGroup": "interaction",
+    "docOrder": 110,
+    "aliases": [],
     "notes": [
       "最多显示最近120个点；缺失值不画柱，零值有基线，负值从零线向下。"
     ]
@@ -252,6 +310,9 @@
     "source": "components/ui/dropdown-menu.tsx",
     "example": "components/examples/dropdown-menu-demo.tsx",
     "usage": "import { DropdownMenu } from \"@/components/ui/dropdown-menu\"",
+    "docGroup": "interaction",
+    "docOrder": 14,
+    "aliases": [],
     "notes": [
       "不创建第二套菜单基础；菜单选项不替代普通表单Select。"
     ]
@@ -276,6 +337,11 @@
     "source": "components/ui/sheet.tsx",
     "example": "components/examples/sheet-demo.tsx",
     "usage": "import { Sheet } from \"@/components/ui/sheet\"",
+    "docGroup": "interaction",
+    "docOrder": 11,
+    "aliases": [
+      "抽屉"
+    ],
     "notes": [
       "复用Dialog语义；Portal继承ThemeBoundary，支持指定转场后的焦点目标。"
     ]
@@ -301,6 +367,9 @@
     "source": "components/blocks/command-palette.tsx",
     "example": "components/examples/command-palette-demo.tsx",
     "usage": "import { CommandPalette } from \"@/components/blocks/command-palette\"",
+    "docGroup": "other",
+    "docOrder": 113,
+    "aliases": [],
     "notes": [
       "默认不注册全局快捷键；可配置scope，忽略编辑器、Canvas及已处理事件；选择不执行内置服务。"
     ]
@@ -322,6 +391,9 @@
     "source": "components/ui/kbd.tsx",
     "example": "components/examples/kbd-demo.tsx",
     "usage": "import { Kbd } from \"@/components/ui/kbd\"",
+    "docGroup": "interaction",
+    "docOrder": 114,
+    "aliases": [],
     "notes": [
       "修饰键符号需要调用方提供适合读屏的名称。"
     ]
@@ -342,6 +414,9 @@
     "source": "components/ui/field.tsx",
     "example": "components/examples/field-demo.tsx",
     "usage": "import { Field } from \"@/components/ui/field\"",
+    "docGroup": "interaction",
+    "docOrder": 115,
+    "aliases": [],
     "notes": [
       "通过render函数传递id、aria-describedby、aria-invalid和required；校验属于调用方。"
     ]
@@ -363,6 +438,9 @@
     "source": "components/blocks/form-section.tsx",
     "example": "components/examples/form-section-demo.tsx",
     "usage": "import { FormSection } from \"@/components/blocks/form-section\"",
+    "docGroup": "other",
+    "docOrder": 116,
+    "aliases": [],
     "notes": [
       "不嵌套创建form，不拥有保存或校验逻辑。"
     ]
@@ -383,6 +461,9 @@
     "source": "components/ui/slider.tsx",
     "example": "components/examples/slider-demo.tsx",
     "usage": "import { Slider } from \"@/components/ui/slider\"",
+    "docGroup": "interaction",
+    "docOrder": 117,
+    "aliases": [],
     "notes": [
       "复用Base UI键盘与触摸行为；无效边界和数值有确定回退，不创建业务持久化。"
     ]
@@ -407,6 +488,9 @@
     "source": "components/blocks/image-upload.tsx",
     "example": "components/examples/image-upload-demo.tsx",
     "usage": "import { ImageUpload } from \"@/components/blocks/image-upload\"",
+    "docGroup": "other",
+    "docOrder": 118,
+    "aliases": [],
     "notes": [
       "替换失败保留旧File；迟到读取丢弃，卸载取消读取；上传及远程结果由调用方负责。"
     ]
@@ -430,6 +514,9 @@
     "source": "components/blocks/filter-toolbar.tsx",
     "example": "components/examples/filter-toolbar-demo.tsx",
     "usage": "import { FilterToolbar } from \"@/components/blocks/filter-toolbar\"",
+    "docGroup": "data",
+    "docOrder": 119,
+    "aliases": [],
     "notes": [
       "筛选值由调用方持有；切换布局只挂载一组筛选控件，避免重复ID。"
     ]
@@ -450,6 +537,9 @@
     "source": "components/blocks/metric-summary.tsx",
     "example": "components/examples/metric-summary-demo.tsx",
     "usage": "import { MetricSummary } from \"@/components/blocks/metric-summary\"",
+    "docGroup": "data",
+    "docOrder": 120,
+    "aliases": [],
     "notes": [
       "使用dl语义和稳定ID，不从业务记录推导指标，不增加只读hover。"
     ]
@@ -471,6 +561,9 @@
     "source": "components/ui/rating-display.tsx",
     "example": "components/examples/rating-display-demo.tsx",
     "usage": "import { RatingDisplay } from \"@/components/ui/rating-display\"",
+    "docGroup": "data",
+    "docOrder": 121,
+    "aliases": [],
     "notes": [
       "max为1–10，value限制范围并四舍五入到半星；缺失值保持未知。"
     ]
@@ -493,6 +586,9 @@
     "source": "components/ui/menu.tsx",
     "example": "components/examples/menu-demo.tsx",
     "usage": "import { Menu, MenuTrigger, MenuContent, MenuItem } from \"@/components/ui/menu\"",
+    "docGroup": "interaction",
+    "docOrder": 13,
+    "aliases": [],
     "notes": [
       "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
     ]
@@ -515,6 +611,9 @@
     "source": "components/ui/popover.tsx",
     "example": "components/examples/popover-demo.tsx",
     "usage": "import { Popover, PopoverTrigger, PopoverContent, PopoverTitle, PopoverDescription, PopoverClose } from \"@/components/ui/popover\"",
+    "docGroup": "interaction",
+    "docOrder": 12,
+    "aliases": [],
     "notes": [
       "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
     ]
@@ -537,6 +636,9 @@
     "source": "components/ui/select.tsx",
     "example": "components/examples/select-demo.tsx",
     "usage": "import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectItemText } from \"@/components/ui/select\"",
+    "docGroup": "interaction",
+    "docOrder": 5,
+    "aliases": [],
     "notes": [
       "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
     ]
@@ -559,6 +661,9 @@
     "source": "components/ui/combobox.tsx",
     "example": "components/examples/combobox-demo.tsx",
     "usage": "import { Combobox, ComboboxInput, ComboboxContent, ComboboxEmpty, ComboboxList, ComboboxItem } from \"@/components/ui/combobox\"",
+    "docGroup": "interaction",
+    "docOrder": 6,
+    "aliases": [],
     "notes": [
       "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
     ]
@@ -580,6 +685,9 @@
     "source": "components/ui/segmented.tsx",
     "example": "components/examples/segmented-demo.tsx",
     "usage": "import { Segmented, SegmentedItem } from \"@/components/ui/segmented\"",
+    "docGroup": "interaction",
+    "docOrder": 126,
+    "aliases": [],
     "notes": [
       "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
     ]
@@ -601,6 +709,9 @@
     "source": "components/ui/tabs.tsx",
     "example": "components/examples/tabs-demo.tsx",
     "usage": "import { Tabs, TabsList, TabsTab, TabsPanel } from \"@/components/ui/tabs\"",
+    "docGroup": "interaction",
+    "docOrder": 15,
+    "aliases": [],
     "notes": [
       "导航、选值和动作使用不同语义；支持键盘、触摸、Escape 与焦点恢复。"
     ]
@@ -620,6 +731,9 @@
     "example": "components/examples/theme-boundary-demo.tsx",
     "widePreview": true,
     "usage": "import { ThemeBoundary } from \"@/components/ui/theme-boundary\"\n\n<ThemeBoundary mode=\"scoped\" theme=\"dark\">{children}</ThemeBoundary>",
+    "docGroup": "interaction",
+    "docOrder": 128,
+    "aliases": [],
     "notes": [
       "默认安装保持 legacy；host 和 scoped Registry 路径需要显式选择并包裹 ThemeBoundary。"
     ]
@@ -638,6 +752,9 @@
     "source": "lib/i18n-provider.tsx",
     "example": "components/examples/i18n-demo.tsx",
     "usage": "import { I18nProvider } from \"@/lib/i18n-provider\"\n\n<I18nProvider defaultLocale=\"en\">{children}</I18nProvider>",
+    "docGroup": "interaction",
+    "docOrder": 129,
+    "aliases": [],
     "notes": [
       "未提供 Provider 时默认中文。组件不依赖 Next、路由或浏览器存储。"
     ]
@@ -665,6 +782,9 @@
     "source": "components/blocks/canvas-service-panel.tsx",
     "example": "components/examples/canvas-services-demo.tsx",
     "usage": "<CanvasServicePanel {...sourceSnapshotAndCapabilities} />",
+    "docGroup": "canvas",
+    "docOrder": 130,
+    "aliases": [],
     "notes": [
       "保存适配器使用 CAS 与服务回执；unknown 不自动重试，冲突不自动覆盖。"
     ]
@@ -693,6 +813,9 @@
     "source": "components/blocks/canvas-project-workspace.tsx",
     "example": "components/examples/canvas-project-demo.tsx",
     "usage": "<CanvasProjectWorkspace project={project} definitions={definitions} onChange={setProject} />",
+    "docGroup": "canvas",
+    "docOrder": 131,
+    "aliases": [],
     "notes": [
       "同一子流程可复用，禁止递归引用；Loop / Iteration 仅包装有界独立作用域。"
     ]
@@ -718,6 +841,9 @@
     "source": "components/blocks/canvas-config-editor.tsx",
     "example": "components/examples/canvas-project-demo.tsx",
     "usage": "<CanvasConfigEditor kind=\"condition\" id=\"rules\" label=\"条件\" value={json} onChange={setJson} />",
+    "docGroup": "canvas",
+    "docOrder": 132,
+    "aliases": [],
     "notes": [
       "通过 NodeInspector 的字段 kind 使用。高级示例选择 Advanced Config 或 Switch。"
     ]
@@ -748,6 +874,9 @@
     "source": "components/blocks/canvas-execution-panel.tsx",
     "example": "components/examples/canvas-workspace-demo.tsx",
     "usage": "const runtime = useCanvasRuntime(document, definitions, adapter)\n<CanvasWorkspace {...editor} definitions={definitions} runtime={runtime} />",
+    "docGroup": "canvas",
+    "docOrder": 133,
+    "aliases": [],
     "notes": [
       "同条目导出 CanvasRunControls 和 CanvasExecutionInspector。"
     ]
@@ -787,6 +916,9 @@
     "source": "components/blocks/canvas-workspace.tsx",
     "example": "components/examples/canvas-workspace-demo.tsx",
     "usage": "import { CanvasWorkspace } from \"@/components/blocks/canvas-workspace\"\nimport { useCanvasEditor } from \"@/lib/use-canvas-editor\"\n\nconst editor = useCanvasEditor(initialDocument, definitions)\n<CanvasWorkspace {...editor} definitions={definitions} />",
+    "docGroup": "canvas",
+    "docOrder": 34,
+    "aliases": [],
     "notes": [
       "layout=fill 填满有明确高度的父容器，底部默认收起；默认 preview 用于文档演示。底部标签可展开面板，收起保留高度与内容。"
     ]
@@ -813,6 +945,9 @@
     "source": "components/blocks/node-palette.tsx",
     "example": "components/examples/canvas-components-demo.tsx",
     "usage": "import { NodePalette } from \"@/components/blocks/node-palette\"\n\n<NodePalette definitions={definitions} onAdd={addNode} />",
+    "docGroup": "canvas",
+    "docOrder": 35,
+    "aliases": [],
     "notes": [
       "Quick Add 与侧栏共享同一目录；新增请求交给调用方命令。"
     ]
@@ -843,6 +978,9 @@
     "source": "components/blocks/node-inspector.tsx",
     "example": "components/examples/canvas-components-demo.tsx",
     "usage": "import { NodeInspector } from \"@/components/blocks/node-inspector\"\n\n<NodeInspector document={document} definitions={definitions} nodeId={selectedId} onCommand={onCommand} />",
+    "docGroup": "canvas",
+    "docOrder": 36,
+    "aliases": [],
     "notes": [
       "每个对象独立保留草稿，应用前不会写入图文档。"
     ]
@@ -870,6 +1008,9 @@
     "source": "components/blocks/variable-picker.tsx",
     "example": "components/examples/canvas-components-demo.tsx",
     "usage": "import { VariablePicker } from \"@/components/blocks/variable-picker\"\n\n<VariablePicker document={document} definitions={definitions} targetId={targetId} expectedType=\"string\" onInsert={setReference} />",
+    "docGroup": "canvas",
+    "docOrder": 37,
+    "aliases": [],
     "notes": [
       "nodeId、portId 和 path 关联变量；修改显示名称不影响绑定。"
     ]
@@ -894,6 +1035,9 @@
     "source": "components/blocks/canvas-frame.tsx",
     "example": "components/examples/canvas-components-demo.tsx",
     "usage": "import { CanvasFrame } from \"@/components/blocks/canvas-frame\"\n\n<CanvasFrame frame={frame} selected={selected} />",
+    "docGroup": "canvas",
+    "docOrder": 138,
+    "aliases": [],
     "notes": [
       "仅视觉组织；删除分组默认解组，保留成员。"
     ]
@@ -918,6 +1062,9 @@
     "source": "components/blocks/canvas-note.tsx",
     "example": "components/examples/canvas-components-demo.tsx",
     "usage": "import { CanvasNote } from \"@/components/blocks/canvas-note\"\n\n<CanvasNote note={note} selected={selected} />",
+    "docGroup": "canvas",
+    "docOrder": 139,
+    "aliases": [],
     "notes": [
       "正文在展示前脱敏，最多4000字符；持久化由消费方负责。"
     ]
@@ -947,7 +1094,35 @@
     "description": "受控流程图基础：统一节点、具名端口、连线、选择和深浅主题。",
     "source": "components/blocks/workflow-canvas.tsx",
     "example": "components/examples/workflow-canvas-demo.tsx",
-    "usage": "import { WorkflowCanvas } from \"@/components/blocks/workflow-canvas\"\n\n<div style={{ height: 400 }}><WorkflowCanvas document={document} definitions={definitions} selection={selection} onSelectionChange={setSelection} onCommand={onCommand} /></div>",
+    "usage": "\"use client\"\nimport { WorkflowCanvas, type WorkflowCanvasProps } from \"@/components/blocks/workflow-canvas\"\n// The caller supplies the graph, selection and command callbacks.\nexport function Graph(props: WorkflowCanvasProps) {\n  return <div style={{ height: 400 }}><WorkflowCanvas {...props} /></div>\n}",
+    "docGroup": "canvas",
+    "docOrder": 33,
+    "aliases": [
+      "流程画布",
+      "节点",
+      "工作流"
+    ],
+    "related": [
+      "canvas-workspace",
+      "node-palette",
+      "node-inspector"
+    ],
+    "variants": [
+      {
+        "title": {
+          "zh-CN": "只读图",
+          "en": "Read-only graph"
+        },
+        "code": "\"use client\"\nimport { WorkflowCanvas, type WorkflowCanvasProps } from \"@/components/blocks/workflow-canvas\"\nexport function ReadOnlyGraph(props: WorkflowCanvasProps) {\n  return <div style={{ height: 400 }}><WorkflowCanvas {...props} readOnly /></div>\n}"
+      },
+      {
+        "title": {
+          "zh-CN": "调用方控制编辑",
+          "en": "Caller-controlled editing"
+        },
+        "code": "\"use client\"\nimport { WorkflowCanvas, type WorkflowCanvasProps } from \"@/components/blocks/workflow-canvas\"\n// The caller supplies the graph, selection and command callbacks.\nexport function Graph(props: WorkflowCanvasProps) {\n  return <div style={{ height: 400 }}><WorkflowCanvas {...props} /></div>\n}"
+      }
+    ],
     "notes": [
       "示例为本地数据，不运行模型或工具。"
     ]
@@ -973,6 +1148,9 @@
     "source": "components/ui/canvas-node.tsx",
     "example": "components/examples/workflow-canvas-demo.tsx",
     "usage": "import { CanvasNode } from \"@/components/ui/canvas-node\"\n\n// 在 React Flow 的自定义节点渲染器中使用。\n<CanvasNode node={record} definition={definition} selected={selected} readOnly={readOnly} />",
+    "docGroup": "canvas",
+    "docOrder": 141,
+    "aliases": [],
     "notes": [
       "示例为本地数据，不运行模型或工具。"
     ]
@@ -996,6 +1174,9 @@
     "source": "components/ui/canvas-port.tsx",
     "example": "components/examples/workflow-canvas-demo.tsx",
     "usage": "import { CanvasPort } from \"@/components/ui/canvas-port\"\n\n// 在 React Flow 自定义节点上下文中使用。\n<CanvasPort port={portDefinition} readOnly={readOnly} />",
+    "docGroup": "canvas",
+    "docOrder": 142,
+    "aliases": [],
     "notes": [
       "示例为本地数据，不运行模型或工具。"
     ]
@@ -1019,6 +1200,9 @@
     "source": "components/ui/canvas-edge.tsx",
     "example": "components/examples/workflow-canvas-demo.tsx",
     "usage": "import { CanvasEdge } from \"@/components/ui/canvas-edge\"\nimport { ReactFlow } from \"@xyflow/react\"\n\n<ReactFlow edgeTypes={{ canvas: CanvasEdge }} nodes={nodes} edges={edges} />",
+    "docGroup": "canvas",
+    "docOrder": 143,
+    "aliases": [],
     "notes": [
       "示例为本地数据，不运行模型或工具。"
     ]
@@ -1049,6 +1233,9 @@
     "source": "components/blocks/style-workbench.tsx",
     "example": "components/examples/style-workbench-demo.tsx",
     "usage": "import { StyleWorkbench } from \"@/components/blocks/style-workbench\"\n\n<StyleWorkbench initialSection=\"shadow\" />",
+    "docGroup": "workspace",
+    "docOrder": 144,
+    "aliases": [],
     "notes": [
       "A 从当前主题与未修改的局部探针读取；B 的修改只影响预览，不改全局 token。"
     ]
@@ -1070,6 +1257,9 @@
     "source": "components/ui/badge.tsx",
     "example": "components/examples/badge-demo.tsx",
     "usage": "import { Badge } from \"@/components/ui/badge\"\n\n<Badge tone=\"info\" shape=\"pill\">只读信息</Badge>",
+    "docGroup": "interaction",
+    "docOrder": 145,
+    "aliases": [],
     "notes": [
       "只读 span，无点击、焦点或 hover 行为，不承载操作。"
     ]
@@ -1090,6 +1280,9 @@
     "source": "components/ui/tag.tsx",
     "example": "components/examples/tag-demo.tsx",
     "usage": "import { Tag } from \"@/components/ui/tag\"\n\n<Tag leading=\"#\">TypeScript</Tag>",
+    "docGroup": "interaction",
+    "docOrder": 146,
+    "aliases": [],
     "notes": [
       "固定中性色和胶囊外观，不进入 Tab 顺序，不接受点击行为。"
     ]
@@ -1113,6 +1306,9 @@
     "source": "components/ui/chip.tsx",
     "example": "components/examples/chip-demo.tsx",
     "usage": "import { Chip } from \"@/components/ui/chip\"\n\n<Chip label=\"TypeScript\" selected={selected}\n  onSelectedChange={setSelected} onRemove={removeValue} />",
+    "docGroup": "interaction",
+    "docOrder": 147,
+    "aliases": [],
     "notes": [
       "主操作和移除按钮是兄弟目标，Enter/Space 激活；选中状态通过 aria-pressed 表达。"
     ]
@@ -1134,7 +1330,34 @@
     "description": "清楚地表达操作，给等待一个确定的反馈。",
     "source": "components/ui/button.tsx",
     "example": "components/examples/button-demo.tsx",
-    "usage": "import { Button } from \"@/components/ui/button\"\n\n<Button variant=\"default\" loading={saving} onClick={save}>\n  保存更改\n</Button>",
+    "usage": "\"use client\"\nimport { Button } from \"@/components/ui/button\"\nexport function SaveButton() {\n  return <Button onClick={() => console.log(\"save\")}>Save</Button>\n}",
+    "docGroup": "interaction",
+    "docOrder": 0,
+    "aliases": [
+      "按钮",
+      "action"
+    ],
+    "related": [
+      "input",
+      "dialog",
+      "field"
+    ],
+    "variants": [
+      {
+        "title": {
+          "zh-CN": "禁用操作",
+          "en": "Disabled action"
+        },
+        "code": "import { Button } from \"@/components/ui/button\"\nexport function DisabledAction() {\n  return <Button disabled>Save</Button>\n}"
+      },
+      {
+        "title": {
+          "zh-CN": "等待调用方结果",
+          "en": "Waiting for a caller result"
+        },
+        "code": "import { Button } from \"@/components/ui/button\"\nexport function PendingAction() {\n  return <Button loading>Save</Button>\n}"
+      }
+    ],
     "notes": [
       "继承 Base UI Button 的其他属性，包括 render、onClick 和 ref。"
     ]
@@ -1156,6 +1379,12 @@
     "source": "components/ui/input.tsx",
     "example": "components/examples/input-demo.tsx",
     "usage": "import { Input } from \"@/components/ui/input\"\n\n<label htmlFor=\"project-name\">项目名称</label>\n<Input id=\"project-name\" placeholder=\"我的工作台\" />",
+    "docGroup": "interaction",
+    "docOrder": 1,
+    "aliases": [
+      "输入框",
+      "text field"
+    ],
     "notes": [
       "继承原生 input 属性和 ref，无额外业务依赖。"
     ]
@@ -1179,6 +1408,12 @@
     "source": "components/ui/dialog.tsx",
     "example": "components/examples/dialog-demo.tsx",
     "usage": "import { Button } from \"@/components/ui/button\"\nimport { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from \"@/components/ui/dialog\"\n\n<Dialog>\n  <DialogTrigger render={<Button />}>打开弹窗</DialogTrigger>\n  <DialogContent>\n    <DialogTitle>项目设置</DialogTitle>\n    <DialogDescription>在这里更新项目信息。</DialogDescription>\n  </DialogContent>\n</Dialog>",
+    "docGroup": "interaction",
+    "docOrder": 10,
+    "aliases": [
+      "对话框",
+      "弹窗"
+    ],
     "notes": [
       "用 DialogTitle 和 DialogDescription 命名弹窗和说明用途。"
     ]
@@ -1202,6 +1437,9 @@
     "source": "components/blocks/task-panel.tsx",
     "example": "components/examples/task-panel-demo.tsx",
     "usage": "import { TaskPanel } from \"@/components/blocks/task-panel\"\n\n<TaskPanel\n  title=\"发布进度\"\n  tasks={[\n    { id: \"build\", title: \"构建应用\", status: \"completed\" },\n    { id: \"deploy\", title: \"部署应用\", status: \"failed\" },\n  ]}\n  onRetry={(id) => retryTask(id)}\n/>",
+    "docGroup": "other",
+    "docOrder": 151,
+    "aliases": [],
     "notes": [
       "空数组显示空状态；进度按已完成数量计算。"
     ]
@@ -1223,6 +1461,9 @@
     "source": "components/blocks/scroll-playground.tsx",
     "example": "components/examples/scroll-playground-demo.tsx",
     "usage": "import { ScrollPlayground } from \"@/components/blocks/scroll-playground\"\n\n// 展示全部六种交互\n<ScrollPlayground />\n\n// 也可以只展示其中一种\n<ScrollPlayground pattern=\"parallax\" />",
+    "docGroup": "other",
+    "docOrder": 152,
+    "aliases": [],
     "notes": [
       "每个演示区独立滚动，支持滚轮、触屏以及聚焦后的方向键和 Page Down；右上角按钮可重置体验。"
     ]
@@ -1245,6 +1486,9 @@
     "source": "components/ui/item.tsx",
     "example": "components/examples/item-demo.tsx",
     "usage": "import { Item } from \"@/components/ui/item\"\n\n<Item title=\"整理组件规范\" description=\"Session · 刚刚更新\" selected={selected} onSelect={() => selectSession()} />",
+    "docGroup": "interaction",
+    "docOrder": 153,
+    "aliases": [],
     "notes": [
       "Item不设置listitem角色，由调用方提供ul/li等集合结构。"
     ]
@@ -1268,6 +1512,9 @@
     "source": "components/ui/runtime-status-badge.tsx",
     "example": "components/examples/runtime-status-badge-demo.tsx",
     "usage": "import { RuntimeStatusBadge } from \"@/components/ui/runtime-status-badge\"\n\n<RuntimeStatusBadge status=\"running\" />",
+    "docGroup": "agent",
+    "docOrder": 25,
+    "aliases": [],
     "notes": [
       "每个状态同时显示图标与文字，颜色不是唯一信息。"
     ]
@@ -1293,6 +1540,9 @@
     "source": "components/blocks/workspace-shell.tsx",
     "example": "components/examples/workspace-shell-demo.tsx",
     "usage": "import { WorkspaceShell } from \"@/components/blocks/workspace-shell\"\n\n<WorkspaceShell title=\"Agent Workspace\" sidebar={<Navigation />} inspector={<ObjectDetails />} inspectorTitle=\"Session\">\n  <SessionList />\n</WorkspaceShell>",
+    "docGroup": "workspace",
+    "docOrder": 38,
+    "aliases": [],
     "notes": [
       "完整基础页在/workspace/；窄容器的Inspector改为带焦点约束的抽屉。"
     ]
@@ -1316,6 +1566,9 @@
     "source": "components/ui/data-region.tsx",
     "example": "components/examples/data-region-demo.tsx",
     "usage": "<DataRegion state=\"error\" hasContent error={{ category: \"network\", message: \"刷新失败\", reason: \"连接中断\" }} onRetry={reload}>\n  <SessionList />\n</DataRegion>",
+    "docGroup": "data",
+    "docOrder": 16,
+    "aliases": [],
     "notes": [
       "首次 loading 展示三个同尺寸骨架；已有数据时更新中不替换列表。"
     ]
@@ -1342,6 +1595,9 @@
     "source": "components/ui/tree.tsx",
     "example": "components/examples/tree-demo.tsx",
     "usage": "<Tree label=\"Sessions\" nodes={nodes} selectedId={selectedId} onSelect={node => setSelectedId(node.id)} defaultExpandedIds={[\"idea\"]} onMove={move => setNodes(current => moveTreeNode(current, move))} />",
+    "docGroup": "data",
+    "docOrder": 19,
+    "aliases": [],
     "notes": [
       "方向键、Home/End、Enter/Space、前缀定位与单一节点 tab stop。"
     ]
@@ -1365,6 +1621,9 @@
     "source": "components/blocks/session-row.tsx",
     "example": "components/examples/session-row-demo.tsx",
     "usage": "<SessionRow session={session} selected={selectedId === session.id} onSelect={() => select(session.id)} action={{ label: \"继续\", onAction: resume }} />",
+    "docGroup": "agent",
+    "docOrder": 27,
+    "aliases": [],
     "notes": [
       "点击行仅选择；尾部操作是独立按钮，不会触发选择。"
     ]
@@ -1388,6 +1647,9 @@
     "source": "components/blocks/agent-row.tsx",
     "example": "components/examples/agent-row-demo.tsx",
     "usage": "<AgentRow agent={agent} selected={selectedId === agent.id} onSelect={() => select(agent.id)} />",
+    "docGroup": "agent",
+    "docOrder": 26,
+    "aliases": [],
     "notes": [
       "未配置模型明确提示；idle 不表示离线，断线保留最后已知运行状态。"
     ]
@@ -1415,6 +1677,9 @@
     "source": "components/blocks/activity-timeline.tsx",
     "example": "components/examples/activity-timeline-demo.tsx",
     "usage": "<ActivityTimeline events={events} selectedId={selectedId} onSelect={event => inspect(event.id)} data={{ state: \"success\" }} />",
+    "docGroup": "agent",
+    "docOrder": 32,
+    "aliases": [],
     "notes": [
       "按 eventId 去重，保留来源顺序；只在距离底部不超过64px时跟随。"
     ]
@@ -1439,6 +1704,9 @@
     "source": "components/blocks/inspector.tsx",
     "example": "components/examples/inspector-demo.tsx",
     "usage": "<WorkspaceShell title=\"Workspace\" sidebar={<Navigation />} inspector={<Inspector object={selectedObject} state=\"success\" />}>\n  <SessionList />\n</WorkspaceShell>",
+    "docGroup": "workspace",
+    "docOrder": 39,
+    "aliases": [],
     "notes": [
       "Inspector 是详情内容；停靠、抽屉、resize 与焦点约束由 WorkspaceShell 提供。"
     ]
@@ -1465,6 +1733,9 @@
     "source": "components/blocks/chat-message.tsx",
     "example": "components/examples/chat-message-demo.tsx",
     "usage": "<Conversation messages={messages} workspace={<Files />} composer={<ChatComposer value={draft} onChange={setDraft} onSend={send} />} />",
+    "docGroup": "agent",
+    "docOrder": 28,
+    "aliases": [],
     "notes": [
       "只跟随距底部64px以内的阅读位置；加载旧历史保留锚点，状态边界播报而非每个 token。"
     ]
@@ -1489,7 +1760,35 @@
     "description": "独立工具执行记录：参数/输出、截断、脱敏、权限请求和未确认结果。",
     "source": "components/blocks/tool-call.tsx",
     "example": "components/examples/tool-call-demo.tsx",
-    "usage": "<ToolCall call={call} permission={{ scope: \"写入指定文件\", risk: \"覆盖已有内容\", onApprove: approve, onReject: reject }} onReconcile={reconcile} />",
+    "usage": "import { ToolCall } from \"@/components/blocks/tool-call\"\nexport function ToolResult() {\n  return <ToolCall call={{ id: \"read-1\", name: \"read_file\",\n    target: \"README.md\", status: \"completed\",\n    arguments: { path: \"README.md\" }, output: \"Local preview\" }} />\n}",
+    "docGroup": "agent",
+    "docOrder": 31,
+    "aliases": [
+      "工具调用",
+      "审批",
+      "approval"
+    ],
+    "related": [
+      "runtime-status-badge",
+      "chat-message",
+      "activity-timeline"
+    ],
+    "variants": [
+      {
+        "title": {
+          "zh-CN": "已确认结果",
+          "en": "Confirmed result"
+        },
+        "code": "import { ToolCall } from \"@/components/blocks/tool-call\"\nexport function ToolResult() {\n  return <ToolCall call={{ id: \"read-1\", name: \"read_file\",\n    target: \"README.md\", status: \"completed\",\n    arguments: { path: \"README.md\" }, output: \"Local preview\" }} />\n}"
+      },
+      {
+        "title": {
+          "zh-CN": "未知结果先对账",
+          "en": "Reconcile an unknown result"
+        },
+        "code": "import { ToolCall } from \"@/components/blocks/tool-call\"\nexport function UnknownResult({ queryReceipt }: { queryReceipt: () => Promise<void> }) {\n  return <ToolCall onReconcile={queryReceipt} call={{ id: \"write-1\", name: \"write_file\",\n    target: \"output.txt\", status: \"waiting\", outcome: \"unknown\" }} />\n}"
+      }
+    ],
     "notes": [
       "参数/输出在展示、复制和导出前按敏感键与常见凭据格式脱敏；业务特殊凭据需调用方预处理。"
     ]
@@ -1514,6 +1813,9 @@
     "source": "components/blocks/agent-run-properties.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunProperties } from \"@/components/blocks/agent-run-properties\"",
+    "docGroup": "agent",
+    "docOrder": 164,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1537,6 +1839,9 @@
     "source": "components/blocks/run-stage-summary.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { RunStageSummary } from \"@/components/blocks/run-stage-summary\"",
+    "docGroup": "other",
+    "docOrder": 165,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1564,6 +1869,9 @@
     "source": "components/blocks/agent-run-row.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunRow } from \"@/components/blocks/agent-run-row\"",
+    "docGroup": "agent",
+    "docOrder": 166,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1589,6 +1897,9 @@
     "source": "components/blocks/agent-run-card.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunCard } from \"@/components/blocks/agent-run-card\"",
+    "docGroup": "agent",
+    "docOrder": 167,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1613,6 +1924,9 @@
     "source": "components/blocks/agent-run-list.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunList } from \"@/components/blocks/agent-run-list\"",
+    "docGroup": "agent",
+    "docOrder": 168,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1639,6 +1953,9 @@
     "source": "components/blocks/agent-run-board.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunBoard } from \"@/components/blocks/agent-run-board\"",
+    "docGroup": "agent",
+    "docOrder": 169,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1672,6 +1989,9 @@
     "source": "components/blocks/agent-run-inspector.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRunInspector } from \"@/components/blocks/agent-run-inspector\"",
+    "docGroup": "agent",
+    "docOrder": 170,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1698,6 +2018,9 @@
     "source": "components/blocks/attention-queue.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AttentionQueue } from \"@/components/blocks/attention-queue\"",
+    "docGroup": "other",
+    "docOrder": 171,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1724,6 +2047,9 @@
     "source": "components/blocks/approval-request-panel.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ApprovalRequestPanel } from \"@/components/blocks/approval-request-panel\"",
+    "docGroup": "other",
+    "docOrder": 172,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1749,6 +2075,9 @@
     "source": "components/blocks/artifact-list.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ArtifactList } from \"@/components/blocks/artifact-list\"",
+    "docGroup": "other",
+    "docOrder": 173,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1771,6 +2100,9 @@
     "source": "components/blocks/artifact-list.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ReviewSummary } from \"@/components/blocks/artifact-list\"",
+    "docGroup": "other",
+    "docOrder": 174,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1798,6 +2130,9 @@
     "source": "components/blocks/execution-trace-tree.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { ExecutionTraceTree } from \"@/components/blocks/execution-trace-tree\"",
+    "docGroup": "other",
+    "docOrder": 175,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1823,6 +2158,9 @@
     "source": "components/blocks/agent-relationship-list.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentRelationshipList } from \"@/components/blocks/agent-relationship-list\"",
+    "docGroup": "agent",
+    "docOrder": 176,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1849,6 +2187,9 @@
     "source": "components/blocks/agent-usage-summary.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentUsageSummary } from \"@/components/blocks/agent-usage-summary\"",
+    "docGroup": "agent",
+    "docOrder": 177,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1876,6 +2217,9 @@
     "source": "components/blocks/agent-board-toolbar.tsx",
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { AgentBoardToolbar } from \"@/components/blocks/agent-board-toolbar\"",
+    "docGroup": "agent",
+    "docOrder": 178,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1911,6 +2255,9 @@
     "source": "components/blocks/agent-board-workspace.tsx",
     "example": "components/examples/agent-board/agent-board-demo.tsx",
     "usage": "import { AgentBoardWorkspace } from \"@/components/blocks/agent-board-workspace\"",
+    "docGroup": "agent",
+    "docOrder": 179,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -1936,6 +2283,9 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { GroupedList } from \"@/components/blocks/grouped-list\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 180,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -1962,6 +2312,9 @@
     "example": "components/examples/agent-board/component-demos.tsx",
     "usage": "import { Board } from \"@/components/blocks/item-board\"",
     "widePreview": true,
+    "docGroup": "other",
+    "docOrder": 181,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -1993,6 +2346,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemProperties } from \"@/components/blocks/work-item-properties\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 22,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2020,6 +2376,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemRow } from \"@/components/blocks/work-item\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 23,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2047,6 +2406,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemCard } from \"@/components/blocks/work-item\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 24,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2078,6 +2440,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemList } from \"@/components/blocks/work-items-views\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 185,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2109,6 +2474,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemBoard } from \"@/components/blocks/work-items-views\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 186,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2140,6 +2508,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemTable } from \"@/components/blocks/work-items-views\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 187,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2171,6 +2542,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemsToolbar } from \"@/components/blocks/work-items-toolbar\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 21,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2201,6 +2575,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { WorkItemDetail } from \"@/components/blocks/work-item-detail\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 189,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2235,8 +2612,37 @@
     "description": "组合三种工作项布局与详情，路由和服务由调用方持有。",
     "source": "components/blocks/work-items-workspace.tsx",
     "example": "components/examples/work-items-components-demo.tsx",
-    "usage": "import { WorkItemsWorkspace } from \"@/components/blocks/work-items-workspace\"",
+    "usage": "\"use client\"\nimport { WorkItemsWorkspace, type WorkItemsWorkspaceProps } from \"@/components/blocks/work-items-workspace\"\n// The caller supplies the complete controlled snapshot and callbacks.\nexport function WorkItemsPage(props: WorkItemsWorkspaceProps) {\n  return <WorkItemsWorkspace {...props} />\n}",
     "widePreview": true,
+    "docGroup": "workspace",
+    "docOrder": 20,
+    "aliases": [
+      "任务",
+      "工作项",
+      "日历",
+      "时间线"
+    ],
+    "related": [
+      "work-item-list",
+      "work-item-board",
+      "work-item-calendar"
+    ],
+    "variants": [
+      {
+        "title": {
+          "zh-CN": "列表布局",
+          "en": "List layout"
+        },
+        "code": "\"use client\"\nimport { WorkItemsWorkspace, type WorkItemsWorkspaceProps } from \"@/components/blocks/work-items-workspace\"\nexport function TaskList(props: WorkItemsWorkspaceProps) {\n  return <WorkItemsWorkspace {...props} view={{ ...props.view, layout: \"list\" }} />\n}"
+      },
+      {
+        "title": {
+          "zh-CN": "看板布局",
+          "en": "Board layout"
+        },
+        "code": "\"use client\"\nimport { WorkItemsWorkspace, type WorkItemsWorkspaceProps } from \"@/components/blocks/work-items-workspace\"\nexport function TaskBoard(props: WorkItemsWorkspaceProps) {\n  return <WorkItemsWorkspace {...props} view={{ ...props.view, layout: \"board\" }} />\n}"
+      }
+    ],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2263,6 +2669,9 @@
     "example": "components/examples/work-items-components-demo.tsx",
     "usage": "import { Board } from \"@/components/blocks/work-items-board-base\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 191,
+    "aliases": [],
     "notes": [
       "调用方负责权威快照、权限、写入、分页与未知结果对账。"
     ]
@@ -2289,6 +2698,9 @@
     "example": "components/examples/agent-board/p2-demos.tsx",
     "usage": "import { AgentDependencyGraph } from \"@/components/blocks/agent-dependency-graph\"",
     "widePreview": true,
+    "docGroup": "agent",
+    "docOrder": 192,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -2315,6 +2727,9 @@
     "example": "components/examples/agent-board/p2-demos.tsx",
     "usage": "import { AgentUsageHistory } from \"@/components/blocks/agent-usage-history\"",
     "widePreview": true,
+    "docGroup": "agent",
+    "docOrder": 193,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -2341,6 +2756,9 @@
     "example": "components/examples/agent-board/p2-demos.tsx",
     "usage": "import { AgentRunVirtualList } from \"@/components/blocks/agent-run-virtual-list\"",
     "widePreview": true,
+    "docGroup": "agent",
+    "docOrder": 194,
+    "aliases": [],
     "notes": [
       "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。"
     ]
@@ -2372,6 +2790,9 @@
     "example": "components/examples/work-items-enhancements-demo.tsx",
     "usage": "import { WorkItemsBatchActions } from \"@/components/blocks/work-items-enhancements\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 195,
+    "aliases": [],
     "notes": [
       "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
     ]
@@ -2403,6 +2824,9 @@
     "example": "components/examples/work-items-enhancements-demo.tsx",
     "usage": "import { WorkItemsSavedViews } from \"@/components/blocks/work-items-enhancements\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 196,
+    "aliases": [],
     "notes": [
       "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。"
     ]
@@ -2427,6 +2851,12 @@
     "example": "components/examples/work-items-schedule-demo.tsx",
     "usage": "import { Timeline } from \"@/components/blocks/timeline\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 197,
+    "aliases": [
+      "时间线",
+      "排期"
+    ],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
     ]
@@ -2452,6 +2882,12 @@
     "example": "components/examples/work-items-schedule-demo.tsx",
     "usage": "import { Calendar } from \"@/components/blocks/calendar\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 198,
+    "aliases": [
+      "日历",
+      "日期"
+    ],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
     ]
@@ -2477,6 +2913,9 @@
     "example": "components/examples/work-items-schedule-demo.tsx",
     "usage": "import { ScheduleViewControls } from \"@/components/blocks/schedule-view-controls\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 199,
+    "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
     ]
@@ -2505,6 +2944,9 @@
     "example": "components/examples/work-items-schedule-demo.tsx",
     "usage": "import { WorkItemDateRangeField } from \"@/components/blocks/work-item-date-range-field\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 200,
+    "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
     ]
@@ -2535,6 +2977,9 @@
     "example": "components/examples/work-items-schedule-demo.tsx",
     "usage": "import { UnscheduledWorkItems } from \"@/components/blocks/work-items-schedule\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 201,
+    "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
     ]
@@ -2564,6 +3009,9 @@
     "example": "components/examples/work-items-schedule-demo.tsx",
     "usage": "import { WorkItemTimeline } from \"@/components/blocks/work-item-timeline\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 202,
+    "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
     ]
@@ -2590,6 +3038,9 @@
     "example": "components/examples/work-items-schedule-demo.tsx",
     "usage": "import { WorkItemCalendar } from \"@/components/blocks/work-item-calendar\"",
     "widePreview": true,
+    "docGroup": "data",
+    "docOrder": 203,
+    "aliases": [],
     "notes": [
       "本地示例刷新清除；真实服务仍由调用方接入。"
     ]

@@ -6,7 +6,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/textarea/",
     "installType": "ui",
-    "registryId": "textarea"
+    "registryId": "textarea",
+    "docGroup": "interaction",
+    "docOrder": 3
   },
   {
     "slug": "label",
@@ -15,7 +17,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/label/",
     "installType": "ui",
-    "registryId": "label"
+    "registryId": "label",
+    "docGroup": "interaction",
+    "docOrder": 2
   },
   {
     "slug": "native-select",
@@ -24,7 +28,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/native-select/",
     "installType": "ui",
-    "registryId": "native-select"
+    "registryId": "native-select",
+    "docGroup": "interaction",
+    "docOrder": 4
   },
   {
     "slug": "switch",
@@ -33,7 +39,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/switch/",
     "installType": "ui",
-    "registryId": "switch"
+    "registryId": "switch",
+    "docGroup": "interaction",
+    "docOrder": 9
   },
   {
     "slug": "radio-group",
@@ -42,7 +50,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/radio-group/",
     "installType": "ui",
-    "registryId": "radio-group"
+    "registryId": "radio-group",
+    "docGroup": "interaction",
+    "docOrder": 8
   },
   {
     "slug": "checkbox",
@@ -51,7 +61,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/checkbox/",
     "installType": "ui",
-    "registryId": "checkbox"
+    "registryId": "checkbox",
+    "docGroup": "interaction",
+    "docOrder": 7
   },
   {
     "slug": "table",
@@ -60,7 +72,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/table/",
     "installType": "ui",
-    "registryId": "table"
+    "registryId": "table",
+    "docGroup": "data",
+    "docOrder": 18
   },
   {
     "slug": "data-table",
@@ -69,7 +83,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/data-table/",
     "installType": "block",
-    "registryId": "data-table"
+    "registryId": "data-table",
+    "docGroup": "data",
+    "docOrder": 17
   },
   {
     "slug": "avatar",
@@ -78,7 +94,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/avatar/",
     "installType": "ui",
-    "registryId": "avatar"
+    "registryId": "avatar",
+    "docGroup": "data",
+    "docOrder": 108
   },
   {
     "slug": "segment-bar",
@@ -87,7 +105,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/segment-bar/",
     "installType": "ui",
-    "registryId": "segment-bar"
+    "registryId": "segment-bar",
+    "docGroup": "interaction",
+    "docOrder": 109
   },
   {
     "slug": "sparkline",
@@ -96,7 +116,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/sparkline/",
     "installType": "ui",
-    "registryId": "sparkline"
+    "registryId": "sparkline",
+    "docGroup": "interaction",
+    "docOrder": 110
   },
   {
     "slug": "dropdown-menu",
@@ -105,7 +127,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/dropdown-menu/",
     "installType": "ui",
-    "registryId": "dropdown-menu"
+    "registryId": "dropdown-menu",
+    "docGroup": "interaction",
+    "docOrder": 14
   },
   {
     "slug": "sheet",
@@ -114,7 +138,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/sheet/",
     "installType": "ui",
-    "registryId": "sheet"
+    "registryId": "sheet",
+    "docGroup": "interaction",
+    "docOrder": 11
   },
   {
     "slug": "command-palette",
@@ -123,7 +149,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/command-palette/",
     "installType": "block",
-    "registryId": "command-palette"
+    "registryId": "command-palette",
+    "docGroup": "other",
+    "docOrder": 113
   },
   {
     "slug": "kbd",
@@ -132,7 +160,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/kbd/",
     "installType": "ui",
-    "registryId": "kbd"
+    "registryId": "kbd",
+    "docGroup": "interaction",
+    "docOrder": 114
   },
   {
     "slug": "field",
@@ -141,7 +171,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/field/",
     "installType": "ui",
-    "registryId": "field"
+    "registryId": "field",
+    "docGroup": "interaction",
+    "docOrder": 115
   },
   {
     "slug": "form-section",
@@ -150,7 +182,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/form-section/",
     "installType": "block",
-    "registryId": "form-section"
+    "registryId": "form-section",
+    "docGroup": "other",
+    "docOrder": 116
   },
   {
     "slug": "slider",
@@ -159,7 +193,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/slider/",
     "installType": "ui",
-    "registryId": "slider"
+    "registryId": "slider",
+    "docGroup": "interaction",
+    "docOrder": 117
   },
   {
     "slug": "image-upload",
@@ -168,7 +204,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/image-upload/",
     "installType": "block",
-    "registryId": "image-upload"
+    "registryId": "image-upload",
+    "docGroup": "other",
+    "docOrder": 118
   },
   {
     "slug": "filter-toolbar",
@@ -177,7 +215,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/filter-toolbar/",
     "installType": "block",
-    "registryId": "filter-toolbar"
+    "registryId": "filter-toolbar",
+    "docGroup": "data",
+    "docOrder": 119
   },
   {
     "slug": "metric-summary",
@@ -186,7 +226,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/metric-summary/",
     "installType": "block",
-    "registryId": "metric-summary"
+    "registryId": "metric-summary",
+    "docGroup": "data",
+    "docOrder": 120
   },
   {
     "slug": "rating-display",
@@ -195,7 +237,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/rating-display/",
     "installType": "ui",
-    "registryId": "rating-display"
+    "registryId": "rating-display",
+    "docGroup": "data",
+    "docOrder": 121
   },
   {
     "slug": "menu",
@@ -204,7 +248,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/menu/",
     "installType": "ui",
-    "registryId": "menu"
+    "registryId": "menu",
+    "docGroup": "interaction",
+    "docOrder": 13
   },
   {
     "slug": "popover",
@@ -213,7 +259,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/popover/",
     "installType": "ui",
-    "registryId": "popover"
+    "registryId": "popover",
+    "docGroup": "interaction",
+    "docOrder": 12
   },
   {
     "slug": "select",
@@ -222,7 +270,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/select/",
     "installType": "ui",
-    "registryId": "select"
+    "registryId": "select",
+    "docGroup": "interaction",
+    "docOrder": 5
   },
   {
     "slug": "combobox",
@@ -231,7 +281,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/combobox/",
     "installType": "ui",
-    "registryId": "combobox"
+    "registryId": "combobox",
+    "docGroup": "interaction",
+    "docOrder": 6
   },
   {
     "slug": "segmented",
@@ -240,7 +292,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/segmented/",
     "installType": "ui",
-    "registryId": "segmented"
+    "registryId": "segmented",
+    "docGroup": "interaction",
+    "docOrder": 126
   },
   {
     "slug": "tabs",
@@ -249,7 +303,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/tabs/",
     "installType": "ui",
-    "registryId": "tabs"
+    "registryId": "tabs",
+    "docGroup": "interaction",
+    "docOrder": 15
   },
   {
     "slug": "theme-boundary",
@@ -258,7 +314,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/theme-boundary/",
     "installType": "ui",
-    "registryId": "theme-boundary"
+    "registryId": "theme-boundary",
+    "docGroup": "interaction",
+    "docOrder": 128
   },
   {
     "slug": "i18n",
@@ -267,7 +325,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/i18n/",
     "installType": "lib",
-    "registryId": "i18n"
+    "registryId": "i18n",
+    "docGroup": "interaction",
+    "docOrder": 129
   },
   {
     "slug": "canvas-service-panel",
@@ -276,7 +336,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-service-panel/",
     "installType": "block",
-    "registryId": "canvas-service-panel"
+    "registryId": "canvas-service-panel",
+    "docGroup": "canvas",
+    "docOrder": 130
   },
   {
     "slug": "canvas-project-workspace",
@@ -285,7 +347,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-project-workspace/",
     "installType": "block",
-    "registryId": "canvas-project-workspace"
+    "registryId": "canvas-project-workspace",
+    "docGroup": "canvas",
+    "docOrder": 131
   },
   {
     "slug": "canvas-config-editor",
@@ -294,7 +358,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-config-editor/",
     "installType": "block",
-    "registryId": "canvas-config-editor"
+    "registryId": "canvas-config-editor",
+    "docGroup": "canvas",
+    "docOrder": 132
   },
   {
     "slug": "canvas-execution-panel",
@@ -303,7 +369,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-execution-panel/",
     "installType": "block",
-    "registryId": "canvas-execution-panel"
+    "registryId": "canvas-execution-panel",
+    "docGroup": "canvas",
+    "docOrder": 133
   },
   {
     "slug": "canvas-workspace",
@@ -312,7 +380,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-workspace/",
     "installType": "block",
-    "registryId": "canvas-workspace"
+    "registryId": "canvas-workspace",
+    "docGroup": "canvas",
+    "docOrder": 34
   },
   {
     "slug": "node-palette",
@@ -321,7 +391,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/node-palette/",
     "installType": "block",
-    "registryId": "node-palette"
+    "registryId": "node-palette",
+    "docGroup": "canvas",
+    "docOrder": 35
   },
   {
     "slug": "node-inspector",
@@ -330,7 +402,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/node-inspector/",
     "installType": "block",
-    "registryId": "node-inspector"
+    "registryId": "node-inspector",
+    "docGroup": "canvas",
+    "docOrder": 36
   },
   {
     "slug": "variable-picker",
@@ -339,7 +413,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/variable-picker/",
     "installType": "block",
-    "registryId": "variable-picker"
+    "registryId": "variable-picker",
+    "docGroup": "canvas",
+    "docOrder": 37
   },
   {
     "slug": "canvas-frame",
@@ -348,7 +424,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-frame/",
     "installType": "block",
-    "registryId": "canvas-frame"
+    "registryId": "canvas-frame",
+    "docGroup": "canvas",
+    "docOrder": 138
   },
   {
     "slug": "canvas-note",
@@ -357,7 +435,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-note/",
     "installType": "block",
-    "registryId": "canvas-note"
+    "registryId": "canvas-note",
+    "docGroup": "canvas",
+    "docOrder": 139
   },
   {
     "slug": "workflow-canvas",
@@ -366,7 +446,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/workflow-canvas/",
     "installType": "block",
-    "registryId": "workflow-canvas"
+    "registryId": "workflow-canvas",
+    "docGroup": "canvas",
+    "docOrder": 33
   },
   {
     "slug": "canvas-node",
@@ -375,7 +457,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-node/",
     "installType": "ui",
-    "registryId": "canvas-node"
+    "registryId": "canvas-node",
+    "docGroup": "canvas",
+    "docOrder": 141
   },
   {
     "slug": "canvas-port",
@@ -384,7 +468,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-port/",
     "installType": "ui",
-    "registryId": "canvas-port"
+    "registryId": "canvas-port",
+    "docGroup": "canvas",
+    "docOrder": 142
   },
   {
     "slug": "canvas-edge",
@@ -393,7 +479,9 @@
     "displayCategory": "canvas",
     "docPath": "/docs/canvas-edge/",
     "installType": "ui",
-    "registryId": "canvas-edge"
+    "registryId": "canvas-edge",
+    "docGroup": "canvas",
+    "docOrder": 143
   },
   {
     "slug": "style-workbench",
@@ -402,7 +490,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/style-workbench/",
     "installType": "block",
-    "registryId": "style-workbench"
+    "registryId": "style-workbench",
+    "docGroup": "workspace",
+    "docOrder": 144
   },
   {
     "slug": "badge",
@@ -411,7 +501,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/badge/",
     "installType": "ui",
-    "registryId": "badge"
+    "registryId": "badge",
+    "docGroup": "interaction",
+    "docOrder": 145
   },
   {
     "slug": "tag",
@@ -420,7 +512,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/tag/",
     "installType": "ui",
-    "registryId": "tag"
+    "registryId": "tag",
+    "docGroup": "interaction",
+    "docOrder": 146
   },
   {
     "slug": "chip",
@@ -429,7 +523,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/chip/",
     "installType": "ui",
-    "registryId": "chip"
+    "registryId": "chip",
+    "docGroup": "interaction",
+    "docOrder": 147
   },
   {
     "slug": "button",
@@ -438,7 +534,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/button/",
     "installType": "ui",
-    "registryId": "button"
+    "registryId": "button",
+    "docGroup": "interaction",
+    "docOrder": 0
   },
   {
     "slug": "input",
@@ -447,7 +545,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/input/",
     "installType": "ui",
-    "registryId": "input"
+    "registryId": "input",
+    "docGroup": "interaction",
+    "docOrder": 1
   },
   {
     "slug": "dialog",
@@ -456,7 +556,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/dialog/",
     "installType": "ui",
-    "registryId": "dialog"
+    "registryId": "dialog",
+    "docGroup": "interaction",
+    "docOrder": 10
   },
   {
     "slug": "task-panel",
@@ -465,7 +567,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/task-panel/",
     "installType": "block",
-    "registryId": "task-panel"
+    "registryId": "task-panel",
+    "docGroup": "other",
+    "docOrder": 151
   },
   {
     "slug": "scroll-playground",
@@ -474,7 +578,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/scroll-playground/",
     "installType": "block",
-    "registryId": "scroll-playground"
+    "registryId": "scroll-playground",
+    "docGroup": "other",
+    "docOrder": 152
   },
   {
     "slug": "item",
@@ -483,7 +589,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/item/",
     "installType": "ui",
-    "registryId": "item"
+    "registryId": "item",
+    "docGroup": "interaction",
+    "docOrder": 153
   },
   {
     "slug": "runtime-status-badge",
@@ -492,7 +600,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/runtime-status-badge/",
     "installType": "ui",
-    "registryId": "runtime-status-badge"
+    "registryId": "runtime-status-badge",
+    "docGroup": "agent",
+    "docOrder": 25
   },
   {
     "slug": "workspace-shell",
@@ -501,7 +611,9 @@
     "displayCategory": "workspace",
     "docPath": "/docs/workspace-shell/",
     "installType": "block",
-    "registryId": "workspace-shell"
+    "registryId": "workspace-shell",
+    "docGroup": "workspace",
+    "docOrder": 38
   },
   {
     "slug": "data-region",
@@ -510,7 +622,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/data-region/",
     "installType": "ui",
-    "registryId": "data-region"
+    "registryId": "data-region",
+    "docGroup": "data",
+    "docOrder": 16
   },
   {
     "slug": "tree",
@@ -519,7 +633,9 @@
     "displayCategory": "primitives",
     "docPath": "/docs/tree/",
     "installType": "ui",
-    "registryId": "tree"
+    "registryId": "tree",
+    "docGroup": "data",
+    "docOrder": 19
   },
   {
     "slug": "session-row",
@@ -528,7 +644,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/session-row/",
     "installType": "block",
-    "registryId": "session-row"
+    "registryId": "session-row",
+    "docGroup": "agent",
+    "docOrder": 27
   },
   {
     "slug": "agent-row",
@@ -537,7 +655,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-row/",
     "installType": "block",
-    "registryId": "agent-row"
+    "registryId": "agent-row",
+    "docGroup": "agent",
+    "docOrder": 26
   },
   {
     "slug": "activity-timeline",
@@ -546,7 +666,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/activity-timeline/",
     "installType": "block",
-    "registryId": "activity-timeline"
+    "registryId": "activity-timeline",
+    "docGroup": "agent",
+    "docOrder": 32
   },
   {
     "slug": "inspector",
@@ -555,7 +677,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/inspector/",
     "installType": "block",
-    "registryId": "inspector"
+    "registryId": "inspector",
+    "docGroup": "workspace",
+    "docOrder": 39
   },
   {
     "slug": "chat-message",
@@ -564,7 +688,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/chat-message/",
     "installType": "block",
-    "registryId": "chat-message"
+    "registryId": "chat-message",
+    "docGroup": "agent",
+    "docOrder": 28
   },
   {
     "slug": "tool-call",
@@ -573,7 +699,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/tool-call/",
     "installType": "block",
-    "registryId": "tool-call"
+    "registryId": "tool-call",
+    "docGroup": "agent",
+    "docOrder": 31
   },
   {
     "slug": "agent-run-properties",
@@ -582,7 +710,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-run-properties/",
     "installType": "block",
-    "registryId": "agent-run-properties"
+    "registryId": "agent-run-properties",
+    "docGroup": "agent",
+    "docOrder": 164
   },
   {
     "slug": "run-stage-summary",
@@ -591,7 +721,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/run-stage-summary/",
     "installType": "block",
-    "registryId": "run-stage-summary"
+    "registryId": "run-stage-summary",
+    "docGroup": "other",
+    "docOrder": 165
   },
   {
     "slug": "agent-run-row",
@@ -600,7 +732,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-run-row/",
     "installType": "block",
-    "registryId": "agent-run-row"
+    "registryId": "agent-run-row",
+    "docGroup": "agent",
+    "docOrder": 166
   },
   {
     "slug": "agent-run-card",
@@ -609,7 +743,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-run-card/",
     "installType": "block",
-    "registryId": "agent-run-card"
+    "registryId": "agent-run-card",
+    "docGroup": "agent",
+    "docOrder": 167
   },
   {
     "slug": "agent-run-list",
@@ -618,7 +754,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-run-list/",
     "installType": "block",
-    "registryId": "agent-run-list"
+    "registryId": "agent-run-list",
+    "docGroup": "agent",
+    "docOrder": 168
   },
   {
     "slug": "agent-run-board",
@@ -627,7 +765,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-run-board/",
     "installType": "block",
-    "registryId": "agent-run-board"
+    "registryId": "agent-run-board",
+    "docGroup": "agent",
+    "docOrder": 169
   },
   {
     "slug": "agent-run-inspector",
@@ -636,7 +776,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-run-inspector/",
     "installType": "block",
-    "registryId": "agent-run-inspector"
+    "registryId": "agent-run-inspector",
+    "docGroup": "agent",
+    "docOrder": 170
   },
   {
     "slug": "attention-queue",
@@ -645,7 +787,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/attention-queue/",
     "installType": "block",
-    "registryId": "attention-queue"
+    "registryId": "attention-queue",
+    "docGroup": "other",
+    "docOrder": 171
   },
   {
     "slug": "approval-request-panel",
@@ -654,7 +798,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/approval-request-panel/",
     "installType": "block",
-    "registryId": "approval-request-panel"
+    "registryId": "approval-request-panel",
+    "docGroup": "other",
+    "docOrder": 172
   },
   {
     "slug": "artifact-list",
@@ -663,7 +809,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/artifact-list/",
     "installType": "block",
-    "registryId": "artifact-list"
+    "registryId": "artifact-list",
+    "docGroup": "other",
+    "docOrder": 173
   },
   {
     "slug": "review-summary",
@@ -672,7 +820,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/review-summary/",
     "installType": "block",
-    "registryId": "review-summary"
+    "registryId": "review-summary",
+    "docGroup": "other",
+    "docOrder": 174
   },
   {
     "slug": "execution-trace-tree",
@@ -681,7 +831,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/execution-trace-tree/",
     "installType": "block",
-    "registryId": "execution-trace-tree"
+    "registryId": "execution-trace-tree",
+    "docGroup": "other",
+    "docOrder": 175
   },
   {
     "slug": "agent-relationship-list",
@@ -690,7 +842,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-relationship-list/",
     "installType": "block",
-    "registryId": "agent-relationship-list"
+    "registryId": "agent-relationship-list",
+    "docGroup": "agent",
+    "docOrder": 176
   },
   {
     "slug": "agent-usage-summary",
@@ -699,7 +853,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-usage-summary/",
     "installType": "block",
-    "registryId": "agent-usage-summary"
+    "registryId": "agent-usage-summary",
+    "docGroup": "agent",
+    "docOrder": 177
   },
   {
     "slug": "agent-board-toolbar",
@@ -708,7 +864,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-board-toolbar/",
     "installType": "block",
-    "registryId": "agent-board-toolbar"
+    "registryId": "agent-board-toolbar",
+    "docGroup": "agent",
+    "docOrder": 178
   },
   {
     "slug": "agent-board-workspace",
@@ -717,7 +875,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-board-workspace/",
     "installType": "block",
-    "registryId": "agent-board-workspace"
+    "registryId": "agent-board-workspace",
+    "docGroup": "agent",
+    "docOrder": 179
   },
   {
     "slug": "grouped-list",
@@ -726,7 +886,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/grouped-list/",
     "installType": "block",
-    "registryId": "grouped-list"
+    "registryId": "grouped-list",
+    "docGroup": "data",
+    "docOrder": 180
   },
   {
     "slug": "item-board",
@@ -735,7 +897,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/item-board/",
     "installType": "block",
-    "registryId": "item-board"
+    "registryId": "item-board",
+    "docGroup": "other",
+    "docOrder": 181
   },
   {
     "slug": "work-item-properties",
@@ -744,7 +908,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-properties/",
     "installType": "block",
-    "registryId": "work-item-properties"
+    "registryId": "work-item-properties",
+    "docGroup": "data",
+    "docOrder": 22
   },
   {
     "slug": "work-item-row",
@@ -753,7 +919,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-row/",
     "installType": "block",
-    "registryId": "work-item"
+    "registryId": "work-item",
+    "docGroup": "data",
+    "docOrder": 23
   },
   {
     "slug": "work-item-card",
@@ -762,7 +930,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-card/",
     "installType": "block",
-    "registryId": "work-item"
+    "registryId": "work-item",
+    "docGroup": "data",
+    "docOrder": 24
   },
   {
     "slug": "work-item-list",
@@ -771,7 +941,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-list/",
     "installType": "block",
-    "registryId": "work-items-views"
+    "registryId": "work-items-views",
+    "docGroup": "data",
+    "docOrder": 185
   },
   {
     "slug": "work-item-board",
@@ -780,7 +952,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-board/",
     "installType": "block",
-    "registryId": "work-items-views"
+    "registryId": "work-items-views",
+    "docGroup": "data",
+    "docOrder": 186
   },
   {
     "slug": "work-item-table",
@@ -789,7 +963,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-table/",
     "installType": "block",
-    "registryId": "work-items-views"
+    "registryId": "work-items-views",
+    "docGroup": "data",
+    "docOrder": 187
   },
   {
     "slug": "work-items-toolbar",
@@ -798,7 +974,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-items-toolbar/",
     "installType": "block",
-    "registryId": "work-items-toolbar"
+    "registryId": "work-items-toolbar",
+    "docGroup": "data",
+    "docOrder": 21
   },
   {
     "slug": "work-item-detail",
@@ -807,7 +985,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-detail/",
     "installType": "block",
-    "registryId": "work-item-detail"
+    "registryId": "work-item-detail",
+    "docGroup": "data",
+    "docOrder": 189
   },
   {
     "slug": "work-items-workspace",
@@ -816,7 +996,9 @@
     "displayCategory": "workspace",
     "docPath": "/docs/work-items-workspace/",
     "installType": "block",
-    "registryId": "work-items-workspace"
+    "registryId": "work-items-workspace",
+    "docGroup": "workspace",
+    "docOrder": 20
   },
   {
     "slug": "work-items-board-base",
@@ -825,7 +1007,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-items-board-base/",
     "installType": "block",
-    "registryId": "work-items-board-base"
+    "registryId": "work-items-board-base",
+    "docGroup": "data",
+    "docOrder": 191
   },
   {
     "slug": "agent-dependency-graph",
@@ -834,7 +1018,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-dependency-graph/",
     "installType": "block",
-    "registryId": "agent-dependency-graph"
+    "registryId": "agent-dependency-graph",
+    "docGroup": "agent",
+    "docOrder": 192
   },
   {
     "slug": "agent-usage-history",
@@ -843,7 +1029,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-usage-history/",
     "installType": "block",
-    "registryId": "agent-usage-history"
+    "registryId": "agent-usage-history",
+    "docGroup": "agent",
+    "docOrder": 193
   },
   {
     "slug": "agent-run-virtual-list",
@@ -852,7 +1040,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/agent-run-virtual-list/",
     "installType": "block",
-    "registryId": "agent-run-virtual-list"
+    "registryId": "agent-run-virtual-list",
+    "docGroup": "agent",
+    "docOrder": 194
   },
   {
     "slug": "work-items-batch-actions",
@@ -861,7 +1051,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-items-batch-actions/",
     "installType": "block",
-    "registryId": "work-items-enhancements"
+    "registryId": "work-items-enhancements",
+    "docGroup": "data",
+    "docOrder": 195
   },
   {
     "slug": "work-items-saved-views",
@@ -870,7 +1062,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-items-saved-views/",
     "installType": "block",
-    "registryId": "work-items-enhancements"
+    "registryId": "work-items-enhancements",
+    "docGroup": "data",
+    "docOrder": 196
   },
   {
     "slug": "timeline",
@@ -879,7 +1073,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/timeline/",
     "installType": "block",
-    "registryId": "timeline"
+    "registryId": "timeline",
+    "docGroup": "data",
+    "docOrder": 197
   },
   {
     "slug": "calendar",
@@ -888,7 +1084,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/calendar/",
     "installType": "block",
-    "registryId": "calendar"
+    "registryId": "calendar",
+    "docGroup": "data",
+    "docOrder": 198
   },
   {
     "slug": "schedule-view-controls",
@@ -897,7 +1095,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/schedule-view-controls/",
     "installType": "block",
-    "registryId": "schedule-view-controls"
+    "registryId": "schedule-view-controls",
+    "docGroup": "data",
+    "docOrder": 199
   },
   {
     "slug": "work-item-date-range-field",
@@ -906,7 +1106,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-date-range-field/",
     "installType": "block",
-    "registryId": "work-item-date-range-field"
+    "registryId": "work-item-date-range-field",
+    "docGroup": "data",
+    "docOrder": 200
   },
   {
     "slug": "work-items-schedule",
@@ -915,7 +1117,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-items-schedule/",
     "installType": "block",
-    "registryId": "work-items-schedule"
+    "registryId": "work-items-schedule",
+    "docGroup": "data",
+    "docOrder": 201
   },
   {
     "slug": "work-item-timeline",
@@ -924,7 +1128,9 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-timeline/",
     "installType": "block",
-    "registryId": "work-item-timeline"
+    "registryId": "work-item-timeline",
+    "docGroup": "data",
+    "docOrder": 202
   },
   {
     "slug": "work-item-calendar",
@@ -933,6 +1139,8 @@
     "displayCategory": "patterns",
     "docPath": "/docs/work-item-calendar/",
     "installType": "block",
-    "registryId": "work-item-calendar"
+    "registryId": "work-item-calendar",
+    "docGroup": "data",
+    "docOrder": 203
   }
 ]

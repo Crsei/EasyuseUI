@@ -14,6 +14,12 @@ for (const entry of componentManifest) {
   assert.ok(!seen.has(entry.slug), `Duplicate component slug: ${entry.slug}`)
   seen.add(entry.slug)
   assert.equal(entry.docPath, `/docs/${entry.slug}/`)
+  assert.ok(
+    ["interaction", "data", "agent", "canvas", "workspace", "other"].includes(
+      entry.docGroup,
+    ),
+  )
+  assert.ok(Number.isInteger(entry.docOrder))
   const item = items.get(entry.registryId)
   assert.ok(item, `Missing Registry item: ${entry.registryId}`)
   assert.equal(entry.installType, item.type.split(":")[1])
@@ -35,6 +41,12 @@ for (const entry of componentManifest) {
     `${entry.slug}: source missing from Registry`,
   )
 }
+for (const entry of componentManifest)
+  for (const slug of entry.related ?? [])
+    assert.ok(
+      seen.has(slug),
+      `${entry.slug}: unknown related component ${slug}`,
+    )
 const source = fs.readFileSync(
   path.join(root, "lib/component-manifest.ts"),
   "utf8",
@@ -112,12 +124,22 @@ const index = componentManifest.map((entry) => ({
 const outputs = {
   "component-index.json": index,
   "component-navigation.json": componentManifest.map(
-    ({ slug, name, category, docPath, displayCategory }) => ({
+    ({
       slug,
       name,
       category,
       docPath,
       displayCategory,
+      docGroup,
+      docOrder,
+    }) => ({
+      slug,
+      name,
+      category,
+      docPath,
+      displayCategory,
+      docGroup,
+      docOrder,
     }),
   ),
   "component-directory.json": componentManifest.map(
@@ -129,6 +151,8 @@ const outputs = {
       docPath,
       installType,
       registryId,
+      docGroup,
+      docOrder,
     }) => ({
       slug,
       name,
@@ -137,6 +161,8 @@ const outputs = {
       docPath,
       installType,
       registryId,
+      docGroup,
+      docOrder,
     }),
   ),
 }
@@ -147,7 +173,7 @@ for (const [name, data] of Object.entries(outputs)) {
   else
     assert.deepEqual(
       JSON.parse(fs.readFileSync(filename, "utf8")),
-      data,
+      JSON.parse(JSON.stringify(data)),
       `${name} is stale; run pnpm manifest:build`,
     )
 }

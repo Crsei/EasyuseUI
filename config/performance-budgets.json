@@ -6,7 +6,9 @@
     "/dictionary/": 400000,
     "/docs/button/": 360000,
     "/blog/": 375000,
-    "/blog/on-demand-demos/": 365000
+    "/blog/on-demand-demos/": 365000,
+    "/": 380000,
+    "/examples/": 380000
   },
   "streams": {
     "count": 5000,
@@ -32,5 +34,13 @@
     "inspectorP95Ms": 100,
     "minimumDragFps": 30,
     "status": "Provisional absolute targets. Stable CI calibration is pending; shared host observations do not certify them."
+  },
+  "homepageCalibration": {
+    "sourceReport": "public/blog/homepage-and-docs/before.json",
+    "observedBytes": {
+      "/": 355776,
+      "/examples/": 340512
+    },
+    "change": "Homepage 380000 ceiling fixed from the D0 production baseline before measuring the candidate. Gallery shares this ceiling; existing budgets are unchanged."
   }
 }

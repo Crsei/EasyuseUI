@@ -1,73 +1,114 @@
-import { SiteText } from "@/components/site/site-i18n"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { buttonVariants } from "@/components/ui/button"
-import { CodeBlock } from "@/components/docs/code-block"
-import { catalog } from "@/lib/catalog"
-
-export const metadata = { title: "介绍" }
-
+import { SiteText } from "@/components/site/site-i18n"
+import { SiteLocalized } from "@/components/site/site-localized"
+import { docGuides } from "@/lib/doc-guides"
+import docs from "@/lib/docs-index.json"
+import { DocPage } from "@/components/docs/doc-page"
+export const metadata = {
+  title: "介绍",
+  description:
+    "从第一个组件到完整工作台，了解安装、受控模式、国际化与源码接入。",
+  alternates: { canonical: "/docs/" },
+}
 export default function DocsPage() {
   return (
-    <>
-      <p className="mb-3 text-xs font-medium text-primary">
-        <SiteText messageKey="site.start" />
-      </p>
-      <h1 className="text-3xl font-semibold tracking-tight">
-        <SiteText messageKey="site.introduction" />
-      </h1>
-      <p className="mt-5 text-base leading-8 text-muted-foreground">
-        <SiteText messageKey="site.easyuseuiIsASetOfReactComponentsYouCan" />
-      </p>
-      <h2 className="mt-12 mb-4 text-xl font-semibold">
-        <SiteText messageKey="site.howComponentsWork" />
-      </h2>
-      <p className="mb-5 text-sm leading-7 text-muted-foreground">
-        <SiteText messageKey="site.afterInstallationThroughTheShadcnCliFilesLiveIn" />
-      </p>
-      <CodeBlock
-        code={
-          'import { Button } from "@/components/ui/button"\n\nexport function SaveButton() {\n  return <Button onClick={() => console.log("保存")}>保存更改</Button>\n}'
-        }
-      />
-      <h2 className="mt-12 mb-5 text-xl font-semibold">
-        <SiteText messageKey="site.currentlyAvailable" />
-      </h2>
-      <div className="grid gap-3 sm:grid-cols-2">
-        {catalog.map((entry) => (
-          <Link prefetch={false}
-            key={entry.slug}
-            href={`/docs/${entry.slug}`}
-            className="rounded-xl border p-5 transition-colors hover:bg-muted/40"
-          >
-            <h3 className="font-medium">{entry.name}</h3>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">
-              {entry.description}
-            </p>
-          </Link>
-        ))}
-      </div>
-      <h2 className="mt-12 mb-4 text-xl font-semibold">
-        <SiteText messageKey="site.designConventions" />
-      </h2>
-      <ul className="list-disc space-y-3 pl-5 text-sm leading-7 text-muted-foreground">
-        <li>
-          <SiteText messageKey="site.semanticColorsExpressPrimaryActionsErrorsAndCompletionIn" />
-        </li>
-        <li>
-          <SiteText messageKey="site.interactiveControlsRetainKeyboardOperationFocusIndicatorsAndAccessible" />
-        </li>
-        <li>
-          <SiteText messageKey="site.componentsReceiveDataAndCallbacksTheConsumingProjectOwns" />
-        </li>
-        <li>
-          <SiteText messageKey="site.savingCreationAndTaskRetryInExamplesAreLocal" />
-        </li>
-      </ul>
-      <Link prefetch={false} href="/docs/installation" className={`${buttonVariants()} mt-10`}>
-        <SiteText messageKey="site.installYourFirstComponent" />
-        <ArrowRight size={15} />
-      </Link>
-    </>
+    <DocPage
+      title={<SiteText messageKey="site.introduction" />}
+      description={<SiteText messageKey="site.redesign.guideIntro" />}
+      sections={[
+        {
+          id: "learning-paths",
+          title: <SiteText messageKey="site.redesign.guidePaths" />,
+          content: (
+            <div className="grid gap-4">
+              {[
+                "installation",
+                "controlled-components",
+                "composing-workspaces",
+              ].map((slug, index) => {
+                const guide = docGuides.find((guide) => guide.slug === slug)!
+                return (
+                  <Link
+                    key={slug}
+                    href={`/docs/${slug}/`}
+                    prefetch={false}
+                    className="flex gap-4 rounded-xl border p-5 hover:bg-surface-hover"
+                  >
+                    <span className="font-mono text-sm text-primary">
+                      0{index + 1}
+                    </span>
+                    <div>
+                      <h3>
+                        <SiteLocalized value={guide.title} />
+                      </h3>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        <SiteLocalized value={guide.summary} />
+                      </p>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          ),
+        },
+        {
+          id: "component-groups",
+          title: <SiteText messageKey="site.componentCatalog" />,
+          content: (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                "interaction",
+                "data",
+                "agent",
+                "canvas",
+                "workspace",
+                "other",
+              ].map((group) => (
+                <Link
+                  href={`/components/?group=${group}`}
+                  prefetch={false}
+                  key={group}
+                  className="rounded-lg border p-4 hover:bg-surface-hover"
+                >
+                  <h3>
+                    <SiteText
+                      messageKey={
+                        `site.redesign.group.${group}` as "site.redesign.group.interaction"
+                      }
+                    />
+                  </h3>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    {docs
+                      .filter((entry) => entry.docGroup === group)
+                      .slice(0, 3)
+                      .map((entry) => entry.name)
+                      .join(" · ")}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          ),
+        },
+        {
+          id: "guides",
+          title: <SiteText messageKey="site.redesign.searchGuides" />,
+          content: (
+            <ul className="divide-y border-y">
+              {docGuides.map((guide) => (
+                <li key={guide.slug}>
+                  <Link
+                    prefetch={false}
+                    href={`/docs/${guide.slug}/`}
+                    className="flex min-h-11 items-center py-3 text-sm text-primary"
+                  >
+                    <SiteLocalized value={guide.title} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ),
+        },
+      ]}
+    />
   )
 }

@@ -1,70 +1,173 @@
 "use client"
-import { useSiteI18n } from "@/components/site/site-i18n"
-
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import componentIndex from "@/lib/component-navigation.json"
 import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-
-const sections = [
-  {
-    title: "开始",
-    links: [
-      { href: "/docs", label: "介绍" },
-      { href: "/dictionary", label: "视觉词典" },
-      { href: "/blog", label: "优化日志" },
-      { href: "/style-workbench", label: "样式工作台" },
-      { href: "/workspace/canvas", label: "流程画布" },
-      { href: "/docs/installation", label: "安装与主题" },
-    ],
-  },
-  ...["基础组件", "组合模块"].map((category) => ({
-    title: category,
-    links: componentIndex
-      .filter((entry) => entry.category === category)
-      .map((entry) => ({
-        href: entry.docPath.replace(/\/$/, ""),
-        label: entry.name,
+import { ChevronDown } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { useSiteI18n } from "@/components/site/site-i18n"
+import { resourceNavigation } from "@/lib/site-navigation"
+import styles from "./docs.module.css"
+const groups = [
+  "interaction",
+  "data",
+  "agent",
+  "canvas",
+  "workspace",
+  "other",
+] as const
+export type DocsNavigation = {
+  components: {
+    name: string
+    docPath: string
+    docGroup: string
+    aliases: string[]
+  }[]
+  guides: { slug: string; title: { "zh-CN": string; en: string } }[]
+}
+export function Sidebar({
+  components: componentIndex,
+  guides,
+  onNavigate,
+}: DocsNavigation & { onNavigate?: () => void }) {
+  const { t, locale } = useSiteI18n(),
+    pathname = usePathname().replace(/\/$/, "") || "/docs",
+    ref = useRef<HTMLElement>(null),
+    [query, setQuery] = useState(""),
+    [expanded, setExpanded] = useState<Record<string, boolean>>({})
+  const q = query.trim().toLocaleLowerCase()
+  const sections = [
+    {
+      id: "getting-started",
+      links: [
+        { href: "/docs/", name: t("site.introduction") },
+        ...guides.map((guide) => ({
+          href: `/docs/${guide.slug}/`,
+          name: guide.title[locale],
+        })),
+      ],
+    },
+    ...groups.map((group) => ({
+      id: group,
+      links: componentIndex
+        .filter((entry) => entry.docGroup === group)
+        .map((entry) => ({
+          href: entry.docPath,
+          name: entry.name,
+          keywords: entry.aliases.join(" "),
+        })),
+    })),
+    {
+      id: "resources",
+      links: resourceNavigation.map((item) => ({
+        href: item.href,
+        name: t(item.key),
       })),
-  })),
-]
-
-export function Sidebar() {
-  const { t, localize } = useSiteI18n()
-
-  const localizedSections = localize(sections)
-
-  const pathname = usePathname().replace(/\/$/, "")
+    },
+  ]
+  const activeSection = sections.find((section) =>
+    section.links.some((item) => item.href.replace(/\/$/, "") === pathname),
+  )?.id
+  const [lastPath, setLastPath] = useState(pathname)
+  if (lastPath !== pathname) {
+    setLastPath(pathname)
+    if (activeSection)
+      setExpanded((previous) => ({ ...previous, [activeSection]: true }))
+  }
+  useEffect(() => {
+    const current = ref.current?.querySelector<HTMLElement>(
+      '[aria-current="page"]',
+    )
+    if (!current) return
+    const rect = current.getBoundingClientRect(),
+      scrollArea = ref.current?.closest<HTMLElement>(
+        "aside,[data-docs-scroll]",
+      ),
+      container = scrollArea?.getBoundingClientRect()
+    if (
+      container &&
+      (rect.top < container.top || rect.bottom > container.bottom)
+    )
+      scrollArea?.scrollBy({
+        top:
+          rect.top < container.top
+            ? rect.top - container.top
+            : rect.bottom - container.bottom,
+      })
+  }, [pathname])
   return (
     <nav
+      ref={ref}
       aria-label={t("site.documentationNavigation")}
-      className="flex gap-6 overflow-x-auto pb-4 lg:sticky lg:top-26 lg:block lg:space-y-7 lg:overflow-visible lg:pb-0"
+      className={styles.navigation}
     >
-      {localizedSections.map((section) => (
-        <div key={section.links[0].href} className="shrink-0">
-          <p className="mb-3 text-xs font-semibold text-muted-foreground">
-            {section.title}
-          </p>
-          <ul className="flex gap-1 lg:block lg:space-y-1">
-            {section.links.map(({ href, label }) => (
-              <li key={href}>
-                <Link
-                  prefetch={false}
-                  href={href}
-                  aria-current={pathname === href ? "page" : undefined}
-                  className={cn(
-                    "block rounded-md px-3 py-2 text-sm whitespace-nowrap text-muted-foreground hover:bg-muted hover:text-foreground",
-                    pathname === href &&
-                      "bg-primary/8 font-medium text-primary",
-                  )}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <Input
+        className="sticky top-0 z-10 shrink-0 bg-background"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+        aria-label={t("site.redesign.filterDocs")}
+        placeholder={t("site.redesign.filterDocs")}
+      />
+      {sections.map((section) => {
+        const links = section.links.filter((item) =>
+            `${item.name} ${item.href} ${"keywords" in item ? item.keywords : ""}`
+              .toLocaleLowerCase()
+              .includes(q),
+          ),
+          active = section.links.some(
+            (item) => item.href.replace(/\/$/, "") === pathname,
+          )
+        return links.length ? (
+          <details
+            key={section.id}
+            open={Boolean(q) || (expanded[section.id] ?? active)}
+            onToggle={(event) => {
+              if (q) return
+              const open = event.currentTarget.open
+              setExpanded((previous) =>
+                previous[section.id] === open
+                  ? previous
+                  : { ...previous, [section.id]: open },
+              )
+            }}
+          >
+            <summary>
+              {t(
+                `site.redesign.group.${section.id}` as "site.redesign.group.interaction",
+              )}
+              <ChevronDown size={14} />
+            </summary>
+            <ul>
+              {links.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    prefetch={false}
+                    aria-current={
+                      item.href.replace(/\/$/, "") === pathname
+                        ? "page"
+                        : undefined
+                    }
+                    onClick={onNavigate}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </details>
+        ) : null
+      })}
+      {!sections.some((section) =>
+        section.links.some((item) =>
+          `${item.name} ${item.href} ${"keywords" in item ? item.keywords : ""}`
+            .toLocaleLowerCase()
+            .includes(q),
+        ),
+      ) && (
+        <p role="status" className="text-sm">
+          {t("site.noMatchingEntries")}
+        </p>
+      )}
     </nav>
   )
 }

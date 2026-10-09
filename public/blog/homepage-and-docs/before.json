@@ -1,0 +1,782 @@
+{
+  "schemaVersion": 1,
+  "phase": "before",
+  "capturedAt": "2026-10-09T00:21:32.842Z",
+  "source": {
+    "version": "804756e3f7b390f44821a689eb54c20d928e3262",
+    "files": {
+      "app/page.tsx": "2b5495aa9591080cbbdda52c3844d1d368f41eff1689b88b802ef45337dd650e",
+      "app/docs/[slug]/page.tsx": "147b50af581615772c6d025b3528f2e52a6524115f9aa5a68063cc034ffa9e57",
+      "app/docs/layout.tsx": "5f5060dce22f39ee99e4c851f20a8ff57dfd732e415dc7e4b5a4b4d8ed081679",
+      "components/site/header.tsx": "53b5fe908e506467c4864190256c415dc7e786418aec456f560560608990f625",
+      "components/docs/sidebar.tsx": "8fda650b9c3303fe34ace0dd81bd4c648e9d539e30836ffda869bc88a459fb9e",
+      "components/docs/component-browser.tsx": "a6a0e8c1c0f2b007bbfd9a91dc608bc5a414d945073608dd85c33cb0e757b00c",
+      "lib/component-manifest.ts": "c825e2a99429de0cc107e2dd51409053afafb95d01e874d3b4973549ad8a3ff7",
+      "components/examples/agent-board/agent-board-demo.tsx": "1516d08d1071d68394e04ee68e8de8354a5db269d038bf6b685b05a9b22a326a",
+      "components/examples/work-items/work-items-demo.tsx": "7cccbe932cba97ac6869eaec8efec59d8e9e978470aa29f3f437c4ecf54dc99f",
+      "components/examples/work-items/fixtures.ts": "4d866ac57f0b83b7f3244f69d1ac669d93a5e3ae9a9db2c935ac1a4a597f867a",
+      "components/examples/canvas-workspace-demo.tsx": "9c126549191c02fc32cd950f1af09a8b133c4cab70d934e17b42055c621efeff",
+      "styles/theme.css": "d6ed7b786ebe9aa802da95b68ef2e06b34db18a48de8b0ecce89d1a36c2f1a8d"
+    },
+    "id": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+  },
+  "sampleCount": 3,
+  "environment": {
+    "browser": "138.0.7204.92",
+    "node": "v24.21.0",
+    "sharedHost": true,
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    }
+  },
+  "method": "Three fresh contexts per route, production static output, no throttling. gzip bytes estimate compression of response bodies. LCP/CLS are browser observations; hydration includes network idle and a language switch. Search and source timings include automation. Shared-host samples are not p95, transport bytes, CI certification or service performance.",
+  "samples": [
+    {
+      "route": "/",
+      "sample": 0,
+      "htmlBytes": 59765,
+      "htmlEstimatedGzipBytes": 9887,
+      "jsBytes": 1101526,
+      "jsEstimatedGzipBytes": 355776,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1629.822579,
+      "lcp": 432,
+      "cls": 0.46435897648815266,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/",
+      "sample": 1,
+      "htmlBytes": 59765,
+      "htmlEstimatedGzipBytes": 9887,
+      "jsBytes": 1101526,
+      "jsEstimatedGzipBytes": 355776,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1560.0617639999996,
+      "lcp": 344,
+      "cls": 0.26525598362214936,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/",
+      "sample": 2,
+      "htmlBytes": 59765,
+      "htmlEstimatedGzipBytes": 9887,
+      "jsBytes": 1101526,
+      "jsEstimatedGzipBytes": 355776,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1440.7810790000003,
+      "lcp": 296,
+      "cls": 0.26525598362214936,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/button/",
+      "sample": 0,
+      "htmlBytes": 201743,
+      "htmlEstimatedGzipBytes": 18851,
+      "jsBytes": 1106469,
+      "jsEstimatedGzipBytes": 350654,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1550.0643380000001,
+      "lcp": 308,
+      "cls": 0.46673071860063553,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/button/",
+      "sample": 1,
+      "htmlBytes": 201743,
+      "htmlEstimatedGzipBytes": 18851,
+      "jsBytes": 1106469,
+      "jsEstimatedGzipBytes": 350654,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1494.6932070000003,
+      "lcp": 288,
+      "cls": 0.46673071860063553,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/button/",
+      "sample": 2,
+      "htmlBytes": 201743,
+      "htmlEstimatedGzipBytes": 18851,
+      "jsBytes": 1106469,
+      "jsEstimatedGzipBytes": 350654,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1496.6194489999998,
+      "lcp": 288,
+      "cls": 0.46673071860063553,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/tool-call/",
+      "sample": 0,
+      "htmlBytes": 609525,
+      "htmlEstimatedGzipBytes": 40066,
+      "jsBytes": 1121966,
+      "jsEstimatedGzipBytes": 356253,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1701.3560510000007,
+      "lcp": 1068,
+      "cls": 0.5610219051575629,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/tool-call/",
+      "sample": 1,
+      "htmlBytes": 609525,
+      "htmlEstimatedGzipBytes": 40066,
+      "jsBytes": 1121966,
+      "jsEstimatedGzipBytes": 356253,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1715.2694579999988,
+      "lcp": 1172,
+      "cls": 0.5610219051575629,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/tool-call/",
+      "sample": 2,
+      "htmlBytes": 609525,
+      "htmlEstimatedGzipBytes": 40066,
+      "jsBytes": 1121966,
+      "jsEstimatedGzipBytes": 356253,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1672.5454140000002,
+      "lcp": 1100,
+      "cls": 0.5610219051575629,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/work-items-workspace/",
+      "sample": 0,
+      "htmlBytes": 515848,
+      "htmlEstimatedGzipBytes": 33084,
+      "jsBytes": 1356718,
+      "jsEstimatedGzipBytes": 440319,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 2438.8392429999985,
+      "lcp": 344,
+      "cls": 0.7418292888374487,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/work-items-workspace/",
+      "sample": 1,
+      "htmlBytes": 515848,
+      "htmlEstimatedGzipBytes": 33084,
+      "jsBytes": 1356718,
+      "jsEstimatedGzipBytes": 440319,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 2450.119436000001,
+      "lcp": 332,
+      "cls": 0.7418292888374487,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/work-items-workspace/",
+      "sample": 2,
+      "htmlBytes": 515848,
+      "htmlEstimatedGzipBytes": 33084,
+      "jsBytes": 1356718,
+      "jsEstimatedGzipBytes": 440319,
+      "engineDownloaded": false,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 2447.119425000001,
+      "lcp": 312,
+      "cls": 0.7418292888374487,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/workflow-canvas/",
+      "sample": 0,
+      "htmlBytes": 900653,
+      "htmlEstimatedGzipBytes": 53490,
+      "jsBytes": 1307606,
+      "jsEstimatedGzipBytes": 417315,
+      "engineDownloaded": true,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1924.2971810000017,
+      "lcp": 316,
+      "cls": 0.5141429206753955,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/workflow-canvas/",
+      "sample": 1,
+      "htmlBytes": 900653,
+      "htmlEstimatedGzipBytes": 53490,
+      "jsBytes": 1307606,
+      "jsEstimatedGzipBytes": 417315,
+      "engineDownloaded": true,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1902.2854159999988,
+      "lcp": 324,
+      "cls": 0.5141429206753955,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/workflow-canvas/",
+      "sample": 2,
+      "htmlBytes": 900653,
+      "htmlEstimatedGzipBytes": 53490,
+      "jsBytes": 1307606,
+      "jsEstimatedGzipBytes": 417315,
+      "engineDownloaded": true,
+      "mountedDemos": 1,
+      "hydrationObservationMs": 1817.356119,
+      "lcp": 324,
+      "cls": 0.5141429206753955,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/components/",
+      "sample": 0,
+      "htmlBytes": 255216,
+      "htmlEstimatedGzipBytes": 15443,
+      "jsBytes": 1157843,
+      "jsEstimatedGzipBytes": 370150,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1678.302303000004,
+      "lcp": 320,
+      "cls": 0.46435897648815266,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/components/",
+      "sample": 1,
+      "htmlBytes": 255216,
+      "htmlEstimatedGzipBytes": 15443,
+      "jsBytes": 1157843,
+      "jsEstimatedGzipBytes": 370150,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1611.9997430000003,
+      "lcp": 268,
+      "cls": 0.46435897648815266,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/components/",
+      "sample": 2,
+      "htmlBytes": 255216,
+      "htmlEstimatedGzipBytes": 15443,
+      "jsBytes": 1157843,
+      "jsEstimatedGzipBytes": 370150,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1642.8296750000009,
+      "lcp": 336,
+      "cls": 0.46435897648815266,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/installation/",
+      "sample": 0,
+      "htmlBytes": 78536,
+      "htmlEstimatedGzipBytes": 10441,
+      "jsBytes": 1085128,
+      "jsEstimatedGzipBytes": 346747,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1438.875847000003,
+      "lcp": 288,
+      "cls": 0.46435897648815266,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/installation/",
+      "sample": 1,
+      "htmlBytes": 78536,
+      "htmlEstimatedGzipBytes": 10441,
+      "jsBytes": 1085128,
+      "jsEstimatedGzipBytes": 346747,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1463.2146309999953,
+      "lcp": 284,
+      "cls": 0.46435897648815266,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/docs/installation/",
+      "sample": 2,
+      "htmlBytes": 78536,
+      "htmlEstimatedGzipBytes": 10441,
+      "jsBytes": 1085128,
+      "jsEstimatedGzipBytes": 346747,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1430.8896230000028,
+      "lcp": 276,
+      "cls": 0.46435897648815266,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/examples/",
+      "sample": 0,
+      "htmlBytes": 18633,
+      "htmlEstimatedGzipBytes": 4989,
+      "jsBytes": 1061497,
+      "jsEstimatedGzipBytes": 340512,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1289.372368000004,
+      "lcp": 216,
+      "cls": 0.24458101684402866,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/examples/",
+      "sample": 1,
+      "htmlBytes": 18633,
+      "htmlEstimatedGzipBytes": 4989,
+      "jsBytes": 1061497,
+      "jsEstimatedGzipBytes": 340512,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1275.3603250000015,
+      "lcp": 236,
+      "cls": 0.24458101684402866,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    },
+    {
+      "route": "/examples/",
+      "sample": 2,
+      "htmlBytes": 18633,
+      "htmlEstimatedGzipBytes": 4989,
+      "jsBytes": 1061497,
+      "jsEstimatedGzipBytes": 340512,
+      "engineDownloaded": false,
+      "mountedDemos": 0,
+      "hydrationObservationMs": 1326.0309009999983,
+      "lcp": 232,
+      "cls": 0.24458101684402866,
+      "searchReadyMs": null,
+      "sourceReadyMs": null
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "before-home-1440-light-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-1440-light-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-1440-dark-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-1440-dark-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-1280-light-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-1280-light-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-1280-dark-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-1280-dark-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-768-light-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-768-light-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-768-dark-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-768-dark-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-390-light-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-390-light-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-390-dark-zh-CN.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-home-390-dark-en.jpg",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1440-light-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1440-light-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1440-dark-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1440-dark-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1280-light-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1280-light-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1280-dark-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-1280-dark-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-768-light-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-768-light-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-768-dark-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-768-dark-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-390-light-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-390-light-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-390-dark-zh-CN.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    },
+    {
+      "file": "before-docs-button-390-dark-en.jpg",
+      "route": "/docs/button/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T00:21:32.842Z",
+      "sourceSnapshotId": "5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a"
+    }
+  ]
+}

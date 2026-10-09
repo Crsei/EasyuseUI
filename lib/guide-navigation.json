@@ -1,0 +1,165 @@
+[
+  {
+    "slug": "installation",
+    "title": {
+      "zh-CN": "安装与主题",
+      "en": "Installation and theme"
+    },
+    "summary": {
+      "zh-CN": "在已有 React 项目安装第一个组件，检查主题、依赖和键盘交互。",
+      "en": "Install your first component in an existing React project, then verify themes, dependencies and keyboard interaction."
+    },
+    "sections": [
+      {
+        "id": "prepare",
+        "title": {
+          "zh-CN": "准备项目",
+          "en": "Prepare your project"
+        }
+      },
+      {
+        "id": "installation",
+        "title": {
+          "zh-CN": "安装源码",
+          "en": "Install source"
+        }
+      },
+      {
+        "id": "usage",
+        "title": {
+          "zh-CN": "使用与检查",
+          "en": "Use and verify"
+        }
+      },
+      {
+        "id": "theme",
+        "title": {
+          "zh-CN": "主题与作用域",
+          "en": "Theme and scope"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "controlled-components",
+    "title": {
+      "zh-CN": "受控组件与调用方责任",
+      "en": "Controlled components and caller responsibilities"
+    },
+    "summary": {
+      "zh-CN": "分清显示状态、数据快照与真实执行结果，保留草稿并处理未知回执。",
+      "en": "Separate presentation state, data snapshots and execution outcomes. Preserve drafts and reconcile unknown receipts."
+    },
+    "sections": [
+      {
+        "id": "ownership",
+        "title": {
+          "zh-CN": "谁拥有数据",
+          "en": "Data ownership"
+        }
+      },
+      {
+        "id": "states",
+        "title": {
+          "zh-CN": "状态与恢复",
+          "en": "States and recovery"
+        }
+      },
+      {
+        "id": "concurrency",
+        "title": {
+          "zh-CN": "版本与迟到响应",
+          "en": "Versions and late responses"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "internationalization",
+    "title": {
+      "zh-CN": "国际化",
+      "en": "Internationalization"
+    },
+    "summary": {
+      "zh-CN": "组件默认中文，支持英文；切换显示语言不改变协议值、用户内容或草稿。",
+      "en": "Components default to Chinese and support English. Locale changes preserve protocol values, user content and drafts."
+    },
+    "sections": [
+      {
+        "id": "installation",
+        "title": {
+          "zh-CN": "安装与 Provider",
+          "en": "Installation and provider"
+        }
+      },
+      {
+        "id": "content",
+        "title": {
+          "zh-CN": "保留调用方内容",
+          "en": "Preserve caller content"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "registry-and-source",
+    "title": {
+      "zh-CN": "Registry 与源码接入",
+      "en": "Registry and source integration"
+    },
+    "summary": {
+      "zh-CN": "理解安装 ID、依赖闭包与仓库源码的关系，选择适合宿主的主题。",
+      "en": "Understand install IDs, dependency closures and repository source, and choose a host-compatible theme."
+    },
+    "sections": [
+      {
+        "id": "installation",
+        "title": {
+          "zh-CN": "使用真实安装 ID",
+          "en": "Use the actual install ID"
+        }
+      },
+      {
+        "id": "source",
+        "title": {
+          "zh-CN": "源码和示例的边界",
+          "en": "Source and example boundaries"
+        }
+      },
+      {
+        "id": "publishing",
+        "title": {
+          "zh-CN": "部署自己的 Registry",
+          "en": "Publish your Registry"
+        }
+      }
+    ]
+  },
+  {
+    "slug": "composing-workspaces",
+    "title": {
+      "zh-CN": "组合工作台",
+      "en": "Compose a workspace"
+    },
+    "summary": {
+      "zh-CN": "以已有的工作台组件为骨架，将导航、任务和对象详情放在合适的位置。",
+      "en": "Use existing workspace components to place navigation, tasks and object details in the right regions."
+    },
+    "sections": [
+      {
+        "id": "structure",
+        "title": {
+          "zh-CN": "从布局到任务",
+          "en": "From layout to task"
+        }
+      },
+      {
+        "id": "examples",
+        "title": {
+          "zh-CN": "运行完整示例",
+          "en": "Run a complete example"
+        }
+      }
+    ]
+  }
+]

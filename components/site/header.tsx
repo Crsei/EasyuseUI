@@ -1,67 +1,125 @@
 "use client"
-import { useSiteI18n } from "@/components/site/site-i18n"
-
-import { LocaleSwitcher } from "@/components/site/locale-switcher"
+import { useEffect, useRef, useState } from "react"
+import dynamic from "next/dynamic"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
-import { ArrowUpRight, Moon, Sun } from "lucide-react"
+import { Menu, Search, Github, Moon, Sun, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-
+import { LocaleSwitcher } from "./locale-switcher"
+import { useSiteI18n } from "./site-i18n"
+import {
+  primaryNavigation,
+  resourceNavigation,
+  repositoryUrl,
+  isNavigationActive,
+} from "@/lib/site-navigation"
+import styles from "./site.module.css"
+const NavigationDrawer = dynamic(
+  () => import("./navigation-drawer").then((module) => module.NavigationDrawer),
+  { ssr: false },
+)
+const DocsSearch = dynamic(
+  () =>
+    import("@/components/docs/docs-search").then((module) => module.DocsSearch),
+  { ssr: false },
+)
 export function Header() {
-  const { t } = useSiteI18n()
-
-  const pathname = usePathname().replace(/\/$/, "") || "/"
+  const { t } = useSiteI18n(),
+    pathname = usePathname()
   const { resolvedTheme, setTheme } = useTheme()
-
+  const [menuLoaded, setMenuLoaded] = useState(false),
+    [menuOpen, setMenuOpen] = useState(false),
+    [searchOpen, setSearchOpen] = useState(false),
+    [searchLoaded, setSearchLoaded] = useState(false)
+  const searchTrigger = useRef<HTMLButtonElement>(null)
+  function openSearch() {
+    setSearchLoaded(true)
+    setSearchOpen(true)
+  }
+  useEffect(() => {
+    const handler = (event: KeyboardEvent) => {
+      const element = event.target instanceof Element ? event.target : null
+      if (
+        event.defaultPrevented ||
+        event.isComposing ||
+        event.repeat ||
+        event.altKey ||
+        event.shiftKey ||
+        !(event.metaKey || event.ctrlKey) ||
+        event.key.toLowerCase() !== "k" ||
+        element?.closest(
+          'input,textarea,select,[contenteditable="true"],.react-flow',
+        )
+      )
+        return
+      event.preventDefault()
+      setSearchLoaded(true)
+      setSearchOpen(true)
+    }
+    document.addEventListener("keydown", handler)
+    return () => document.removeEventListener("keydown", handler)
+  }, [])
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur-lg">
-      <div className="mx-auto flex min-h-18 max-w-6xl flex-wrap items-center gap-x-6 gap-y-3 px-5 py-3 sm:px-8">
+    <header className={styles.header} data-site-header>
+      <div className={styles.headerInner}>
         <Link
           prefetch={false}
           href="/"
           aria-label={t("site.easyuseuiHome")}
-          className="flex items-center gap-2.5 font-semibold tracking-tight"
+          className={styles.brand}
         >
-          <span className="flex size-8 items-center justify-center rounded-lg bg-primary font-mono text-lg text-primary-foreground">
-            e.
-          </span>
-          <span>
-            Easyuse<span className="text-muted-foreground">UI</span>
-          </span>
+          <span className={styles.mark}>e.</span>
+          <span className={styles.brandText}>EasyuseUI</span>
         </Link>
         <nav
           aria-label={t("site.mainNavigation")}
-          className="order-3 flex w-full gap-4 overflow-x-auto text-sm whitespace-nowrap sm:order-0 sm:ml-8 sm:w-auto sm:gap-6"
+          className={styles.desktopNav}
         >
-          {[
-            { href: "/docs", label: t("site.documentation") },
-            { href: "/dictionary", label: t("site.visualDictionary") },
-            { href: "/style-workbench", label: t("site.styleWorkbench") },
-            { href: "/workspace/canvas", label: t("site.workflowCanvas") },
-            { href: "/components", label: t("site.components") },
-            { href: "/examples", label: t("site.examples.navigation") },
-            { href: "/blog", label: t("site.optimization.blog") },
-            { href: "/docs/task-panel", label: t("site.blocks") },
-            { href: "/scroll", label: t("site.scrollLab") },
-            { href: "/workspace", label: t("site.workspace") },
-          ].map(({ href, label }) => (
+          {primaryNavigation.map((item) => (
             <Link
               prefetch={false}
-              key={href}
-              href={href}
-              aria-current={pathname === href ? "page" : undefined}
-              className={cn(
-                "py-1 text-muted-foreground transition-colors hover:text-foreground",
-                pathname === href && "text-foreground",
-              )}
+              key={item.href}
+              href={item.href}
+              aria-current={
+                isNavigationActive(pathname, item.href) ? "page" : undefined
+              }
             >
-              {label}
+              {t(item.key)}
             </Link>
           ))}
         </nav>
-        <div className="ml-auto flex items-center gap-2">
+        <div className={styles.headerTools}>
+          <details className={styles.resources}>
+            <summary>
+              {t("site.redesign.resources")}
+              <ChevronDown size={14} />
+            </summary>
+            <nav aria-label={t("site.redesign.resources")}>
+              {resourceNavigation.map((item) => (
+                <Link
+                  prefetch={false}
+                  href={item.href}
+                  key={item.href}
+                  onClick={(event) => {
+                    const details = event.currentTarget.closest("details")
+                    if (details) details.open = false
+                  }}
+                >
+                  {t(item.key)}
+                </Link>
+              ))}
+            </nav>
+          </details>
+          <Button
+            ref={searchTrigger}
+            variant="ghost"
+            size="icon"
+            aria-label={t("site.redesign.search")}
+            onClick={openSearch}
+          >
+            <Search size={16} />
+          </Button>
           <LocaleSwitcher />
           <Button
             variant="ghost"
@@ -74,16 +132,62 @@ export function Header() {
             <Sun className="hidden dark:block" />
             <Moon className="dark:hidden" />
           </Button>
-          <Link
-            prefetch={false}
-            href="/docs/installation"
-            className="hidden items-center gap-1 text-sm font-medium sm:flex"
+          <a
+            href={repositoryUrl}
+            aria-label={t("site.redesign.repository")}
+            className={styles.repository}
           >
-            {t("site.getStarted")}
-            <ArrowUpRight size={15} />
-          </Link>
+            <Github size={18} />
+          </a>
+          <Button
+            className={styles.mobileMenu}
+            variant="ghost"
+            size="icon"
+            aria-label={t("site.redesign.menu")}
+            onClick={() => {
+              setMenuLoaded(true)
+              setMenuOpen(true)
+            }}
+          >
+            <Menu size={18} />
+          </Button>
         </div>
       </div>
+      {menuLoaded && (
+        <NavigationDrawer
+          open={menuOpen}
+          onOpenChange={setMenuOpen}
+          title="EasyuseUI"
+          description={t("site.mainNavigation")}
+        >
+          <nav
+            aria-label={t("site.mainNavigation")}
+            className={styles.mobileNav}
+          >
+            {[...primaryNavigation, ...resourceNavigation].map((item) => (
+              <Link
+                prefetch={false}
+                key={item.href}
+                href={item.href}
+                aria-current={
+                  isNavigationActive(pathname, item.href) ? "page" : undefined
+                }
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(item.key)}
+              </Link>
+            ))}
+            <a href={repositoryUrl}>{t("site.redesign.repository")}</a>
+          </nav>
+        </NavigationDrawer>
+      )}
+      {searchLoaded && (
+        <DocsSearch
+          open={searchOpen}
+          onOpenChange={setSearchOpen}
+          finalFocus={searchTrigger}
+        />
+      )}
     </header>
   )
 }

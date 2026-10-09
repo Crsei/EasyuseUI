@@ -11,6 +11,9 @@ concurrency:
   cancel-in-progress: true
 jobs:
   checks:
+    env:
+      NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3011
+      EASYUSEUI_LOCAL_BUILD: "1"
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -35,7 +38,7 @@ jobs:
           echo "XDG_CONFIG_HOME=$RUNNER_TEMP/chrome-config" >> "$GITHUB_ENV"
           echo "XDG_CACHE_HOME=$RUNNER_TEMP/chrome-cache" >> "$GITHUB_ENV"
           echo "PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=$RUNNER_TEMP/browser/chrome-linux64/chrome" >> "$GITHUB_ENV"
-      - run: pnpm lint && pnpm typecheck && pnpm check:i18n && pnpm check:manifest && pnpm check:blog
+      - run: pnpm lint && pnpm typecheck && pnpm check:i18n && pnpm check:manifest && pnpm check:blog && pnpm check:docs
       - run: pnpm build
       - run: pnpm test --grep-invert @performance
       - run: pnpm exec playwright test tests/stream-performance.spec.ts tests/canvas-performance.spec.ts --workers=1

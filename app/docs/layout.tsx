@@ -1,16 +1,31 @@
+import docs from "@/lib/docs-index.json"
+import guides from "@/lib/guide-navigation.json"
 import { Sidebar } from "@/components/docs/sidebar"
-
+import { DocsDirectory } from "@/components/docs/docs-directory"
+import styles from "@/components/docs/docs.module.css"
 export default function DocsLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const navigation = {
+    components: docs.map(({ name, docPath, docGroup, aliases }) => ({
+      name,
+      docPath,
+      docGroup,
+      aliases,
+    })),
+    guides: guides.map(({ slug, title }) => ({ slug, title })),
+  }
   return (
-    <div className="mx-auto grid w-full max-w-6xl gap-6 px-5 py-8 sm:px-8 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-14 lg:py-12">
-      <aside className="min-w-0">
-        <Sidebar />
+    <div className={styles.layout}>
+      <aside className={styles.sidebar} data-docs-sidebar>
+        <Sidebar {...navigation} />
       </aside>
-      <main id="main-content" className="min-w-0 max-w-3xl pb-16">
+      <main id="main-content" className="min-w-0">
+        <div className={styles.mobileDirectory}>
+          <DocsDirectory {...navigation} />
+        </div>
         {children}
       </main>
     </div>

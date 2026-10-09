@@ -14,10 +14,8 @@ import {
   type Locale,
   createTranslator,
 } from "@/lib/i18n-core"
-import {
-  componentPageTitles,
-  pageDescriptionKeys,
-} from "@/lib/site-i18n-metadata"
+import { pageDescriptionKeys } from "@/lib/site-i18n-metadata"
+import type { DocGuide } from "@/lib/doc-guides"
 import blogIndex from "@/lib/blog-index.json"
 import { siteMessages } from "@/lib/site-i18n-messages"
 
@@ -76,7 +74,11 @@ const sourceKeys = new Map<string, keyof (typeof siteMessages)["zh-CN"]>(
     key as keyof (typeof siteMessages)["zh-CN"],
   ]),
 )
-export function SiteI18nProvider({ children }: { children: ReactNode }) {
+export function SiteI18nProvider({ children, componentPages, guides }: {
+  children: ReactNode
+  componentPages: Record<string, { title: string; description: string }>
+  guides: Pick<DocGuide, "slug" | "title" | "summary">[]
+}) {
   const locale = useSyncExternalStore(
     subscribeLocale,
     getSnapshot,
@@ -102,14 +104,17 @@ export function SiteI18nProvider({ children }: { children: ReactNode }) {
       const key = sourceKeys.get(source)
       return key ? t(key) : source
     }
+    const guide = guides.find(guide => pathname === `/docs/${guide.slug}`)
     const blog = blogIndex.find((post) => pathname === `/blog/${post.slug}`)
     const blogTitle = blog
       ? (blog.title[locale] ?? blog.title["zh-CN"])
       : undefined
+    const component = componentPages[pathname]
     const title =
+      guide?.title[locale] ??
       blogTitle ??
       pageTitles[pathname] ??
-      componentPageTitles[pathname] ??
+      component?.title ??
       (pathname.startsWith("/docs/") ? pathname.split("/").at(-1) : undefined)
     const localizedTitle = title
       ? `${translated(title)} · EasyuseUI`
@@ -119,12 +124,13 @@ export function SiteI18nProvider({ children }: { children: ReactNode }) {
     const descriptionKey =
       pageDescriptionKeys[pathname as keyof typeof pageDescriptionKeys] ??
       pageDescriptionKeys["/"]
-    const localizedDescription =
+    const localizedDescription = (component ? translated(component.description) : undefined) ?? guide?.summary[locale] ?? (
       blog
         ? (blog.summary[locale] ?? blog.summary["zh-CN"])
         : pathname === "/blog"
           ? t("site.optimization.blogIntro")
           : t(descriptionKey)
+    )
     const syncMetadata = () => {
       if (document.title !== localizedTitle) document.title = localizedTitle
       const description = document.querySelector<HTMLMetaElement>(
@@ -144,7 +150,7 @@ export function SiteI18nProvider({ children }: { children: ReactNode }) {
     })
     syncMetadata()
     return () => observer.disconnect()
-  }, [locale, pathname])
+  }, [locale, pathname, componentPages, guides])
   return (
     <I18nProvider locale={locale} onLocaleChange={setLocale}>
       {children}
