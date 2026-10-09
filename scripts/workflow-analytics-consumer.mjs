@@ -1,7 +1,26 @@
+import {
+  createFullAnalyticsConsumer,
+  verifyFullAnalyticsConsumer,
+} from "./workflow-analytics-full-consumer.mjs"
 import { mkdir, writeFile } from "node:fs/promises"
 import path from "node:path"
 import assert from "node:assert/strict"
 export const workflowAnalyticsRegistryItems = [
+  "analytics-resource-model",
+  "analytics-history-metrics",
+  "analytics-builder-model",
+  "dashboard-edit-session",
+  "analytics-image-export",
+  "heatmap",
+  "resource-allocation-view",
+  "agent-execution-timeline",
+  "workflow-history-charts",
+  "forecast-chart",
+  "agent-operations-dashboard",
+  "work-dependency-view",
+  "dashboard-layout-editor",
+  "analytics-builder",
+
   "analytics-model",
   "chart-model",
   "chart-frame",
@@ -33,6 +52,7 @@ const result:AnalyticsResult={queryKey:analyticsQueryKey(query),snapshotId:"inst
 export default function Page(){const [selection,setSelection]=useState<DrilldownSelection|null>(null);const [locale,setLocale]=useState<"zh-CN"|"en">("zh-CN");return <I18nProvider locale={locale}><button onClick={()=>setLocale(locale==="en"?"zh-CN":"en")}>Installed locale</button><div style={{maxWidth:900,padding:16}}>{(["bar","line","scatter"] as const).map(kind=><StatisticalChart key={kind} widgetId={kind} kind={kind} xType="number" query={query} result={result} title={kind} description="Independent installed fixture" onDrilldown={setSelection}/>)}<ProjectOverviewDashboard widgets={[]} riskEvidence={[]}/><ChartDrilldownPanel selection={selection} onClose={()=>setSelection(null)} definition="Installed definition" response={selection?{...selection,records:[{entityRef:{kind:"workItem",sourceId:"installed",projectId:"p",entityId:"w1"},title:"Installed source"}]}:undefined}/></div></I18nProvider>}
 `,
   )
+  await createFullAnalyticsConsumer(fixture)
 }
 export async function verifyWorkflowAnalyticsConsumer(page, origin) {
   await page.goto(origin + "/analytics/")
@@ -59,6 +79,7 @@ export async function verifyWorkflowAnalyticsConsumer(page, origin) {
       .count(),
     1,
   )
+  await verifyFullAnalyticsConsumer(page, origin)
   console.log(
     "PASS: installed analytics types, Recharts bar/line/scatter, snapshot drilldown and portable locale.",
   )

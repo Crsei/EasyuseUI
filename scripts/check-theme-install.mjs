@@ -205,6 +205,7 @@ export default function Page(){const [count,setCount]=useState(0);return <ThemeB
           "select",
           "combobox",
           "statistical-chart",
+          "heatmap",
         ].map(
           (name) =>
             `http://127.0.0.1:${registry.address().port}/r/${mode}/${name}.json`,

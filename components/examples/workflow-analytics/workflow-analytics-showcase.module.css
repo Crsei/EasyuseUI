@@ -1,0 +1,136 @@
+.page {
+  height: 100dvh;
+  min-width: 0;
+}
+.nav {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+}
+.nav button {
+  justify-content: flex-start;
+}
+.nav button[aria-current="page"] {
+  background: var(--selection);
+}
+.navLabel {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav button svg {
+  flex-shrink: 0;
+}
+@container workspace-navigation (max-width: 80px) {
+  .nav {
+    padding: 2px;
+  }
+  .nav button {
+    justify-content: center;
+    min-width: 44px;
+    padding-inline: 4px;
+  }
+  .navLabel {
+    display: none;
+  }
+}
+.filters {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+}
+.filter {
+  display: grid;
+  gap: 4px;
+  min-width: 88px;
+  font-size: 12px;
+  max-width: 180px;
+}
+.filter select {
+  width: auto;
+  max-width: 100%;
+}
+.meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0 0 12px;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.scenarios {
+  margin: 8px 0 16px;
+  padding: 8px;
+  border-block: 1px solid var(--border);
+  font-size: 12px;
+}
+.scenarios summary {
+  cursor: pointer;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+.scenarios[open] {
+  display: grid;
+  gap: 8px;
+}
+.directory,
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 12px 0;
+}
+.code {
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.page h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 12px 0 8px;
+}
+.page h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 12px 0 8px;
+}
+.page p {
+  line-height: 1.6;
+}
+.page select {
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text-primary);
+  padding: 4px 8px;
+}
+@media (max-width: 767px) {
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .filter {
+    min-width: 80px;
+    flex: 1;
+  }
+  .filters {
+    gap: 8px;
+  }
+  .page h2 {
+    font-size: 14px;
+  }
+}
+@media (pointer: coarse) {
+  .page select,
+  .scenarios summary {
+    min-height: 44px;
+  }
+}

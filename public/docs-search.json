@@ -8136,6 +8136,1378 @@
       "keywords": "work-items-view-adapter 源码 Source"
     },
     {
+      "id": "analytics-resource-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeWorkload",
+        "en": "computeWorkload"
+      },
+      "summary": {
+        "zh-CN": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+        "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
+      },
+      "href": "/docs/analytics-resource-model/",
+      "keywords": "analytics-resource-model data"
+    },
+    {
+      "id": "analytics-resource-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeWorkload · 安装",
+        "en": "computeWorkload · Installation"
+      },
+      "summary": {
+        "zh-CN": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+        "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
+      },
+      "href": "/docs/analytics-resource-model/#installation",
+      "keywords": "analytics-resource-model 安装 Installation"
+    },
+    {
+      "id": "analytics-resource-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeWorkload · 使用",
+        "en": "computeWorkload · Usage"
+      },
+      "summary": {
+        "zh-CN": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+        "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
+      },
+      "href": "/docs/analytics-resource-model/#usage",
+      "keywords": "analytics-resource-model 使用 Usage"
+    },
+    {
+      "id": "analytics-resource-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeWorkload · API",
+        "en": "computeWorkload · API"
+      },
+      "summary": {
+        "zh-CN": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+        "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
+      },
+      "href": "/docs/analytics-resource-model/#api",
+      "keywords": "analytics-resource-model API API"
+    },
+    {
+      "id": "analytics-resource-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeWorkload · 状态与交互",
+        "en": "computeWorkload · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+        "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
+      },
+      "href": "/docs/analytics-resource-model/#states",
+      "keywords": "analytics-resource-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "analytics-resource-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeWorkload · 完整示例",
+        "en": "computeWorkload · Complete example"
+      },
+      "summary": {
+        "zh-CN": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+        "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
+      },
+      "href": "/docs/analytics-resource-model/#example",
+      "keywords": "analytics-resource-model 完整示例 Complete example"
+    },
+    {
+      "id": "analytics-resource-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeWorkload · 源码",
+        "en": "computeWorkload · Source"
+      },
+      "summary": {
+        "zh-CN": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+        "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
+      },
+      "href": "/docs/analytics-resource-model/#source",
+      "keywords": "analytics-resource-model 源码 Source"
+    },
+    {
+      "id": "analytics-history-metrics",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeHistoricalMetric",
+        "en": "computeHistoricalMetric"
+      },
+      "summary": {
+        "zh-CN": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+        "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
+      },
+      "href": "/docs/analytics-history-metrics/",
+      "keywords": "analytics-history-metrics data"
+    },
+    {
+      "id": "analytics-history-metrics-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeHistoricalMetric · 安装",
+        "en": "computeHistoricalMetric · Installation"
+      },
+      "summary": {
+        "zh-CN": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+        "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
+      },
+      "href": "/docs/analytics-history-metrics/#installation",
+      "keywords": "analytics-history-metrics 安装 Installation"
+    },
+    {
+      "id": "analytics-history-metrics-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeHistoricalMetric · 使用",
+        "en": "computeHistoricalMetric · Usage"
+      },
+      "summary": {
+        "zh-CN": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+        "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
+      },
+      "href": "/docs/analytics-history-metrics/#usage",
+      "keywords": "analytics-history-metrics 使用 Usage"
+    },
+    {
+      "id": "analytics-history-metrics-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeHistoricalMetric · API",
+        "en": "computeHistoricalMetric · API"
+      },
+      "summary": {
+        "zh-CN": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+        "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
+      },
+      "href": "/docs/analytics-history-metrics/#api",
+      "keywords": "analytics-history-metrics API API"
+    },
+    {
+      "id": "analytics-history-metrics-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeHistoricalMetric · 状态与交互",
+        "en": "computeHistoricalMetric · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+        "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
+      },
+      "href": "/docs/analytics-history-metrics/#states",
+      "keywords": "analytics-history-metrics 状态与交互 States and interaction"
+    },
+    {
+      "id": "analytics-history-metrics-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeHistoricalMetric · 完整示例",
+        "en": "computeHistoricalMetric · Complete example"
+      },
+      "summary": {
+        "zh-CN": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+        "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
+      },
+      "href": "/docs/analytics-history-metrics/#example",
+      "keywords": "analytics-history-metrics 完整示例 Complete example"
+    },
+    {
+      "id": "analytics-history-metrics-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "computeHistoricalMetric · 源码",
+        "en": "computeHistoricalMetric · Source"
+      },
+      "summary": {
+        "zh-CN": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+        "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
+      },
+      "href": "/docs/analytics-history-metrics/#source",
+      "keywords": "analytics-history-metrics 源码 Source"
+    },
+    {
+      "id": "analytics-builder-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "validateAnalyticsBuilder",
+        "en": "validateAnalyticsBuilder"
+      },
+      "summary": {
+        "zh-CN": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+        "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
+      },
+      "href": "/docs/analytics-builder-model/",
+      "keywords": "analytics-builder-model data"
+    },
+    {
+      "id": "analytics-builder-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "validateAnalyticsBuilder · 安装",
+        "en": "validateAnalyticsBuilder · Installation"
+      },
+      "summary": {
+        "zh-CN": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+        "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
+      },
+      "href": "/docs/analytics-builder-model/#installation",
+      "keywords": "analytics-builder-model 安装 Installation"
+    },
+    {
+      "id": "analytics-builder-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "validateAnalyticsBuilder · 使用",
+        "en": "validateAnalyticsBuilder · Usage"
+      },
+      "summary": {
+        "zh-CN": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+        "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
+      },
+      "href": "/docs/analytics-builder-model/#usage",
+      "keywords": "analytics-builder-model 使用 Usage"
+    },
+    {
+      "id": "analytics-builder-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "validateAnalyticsBuilder · API",
+        "en": "validateAnalyticsBuilder · API"
+      },
+      "summary": {
+        "zh-CN": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+        "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
+      },
+      "href": "/docs/analytics-builder-model/#api",
+      "keywords": "analytics-builder-model API API"
+    },
+    {
+      "id": "analytics-builder-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "validateAnalyticsBuilder · 状态与交互",
+        "en": "validateAnalyticsBuilder · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+        "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
+      },
+      "href": "/docs/analytics-builder-model/#states",
+      "keywords": "analytics-builder-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "analytics-builder-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "validateAnalyticsBuilder · 完整示例",
+        "en": "validateAnalyticsBuilder · Complete example"
+      },
+      "summary": {
+        "zh-CN": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+        "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
+      },
+      "href": "/docs/analytics-builder-model/#example",
+      "keywords": "analytics-builder-model 完整示例 Complete example"
+    },
+    {
+      "id": "analytics-builder-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "validateAnalyticsBuilder · 源码",
+        "en": "validateAnalyticsBuilder · Source"
+      },
+      "summary": {
+        "zh-CN": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+        "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
+      },
+      "href": "/docs/analytics-builder-model/#source",
+      "keywords": "analytics-builder-model 源码 Source"
+    },
+    {
+      "id": "dashboard-edit-session",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardEditSession",
+        "en": "DashboardEditSession"
+      },
+      "summary": {
+        "zh-CN": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+        "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/dashboard-edit-session/",
+      "keywords": "dashboard-edit-session data"
+    },
+    {
+      "id": "dashboard-edit-session-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardEditSession · 安装",
+        "en": "DashboardEditSession · Installation"
+      },
+      "summary": {
+        "zh-CN": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+        "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/dashboard-edit-session/#installation",
+      "keywords": "dashboard-edit-session 安装 Installation"
+    },
+    {
+      "id": "dashboard-edit-session-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardEditSession · 使用",
+        "en": "DashboardEditSession · Usage"
+      },
+      "summary": {
+        "zh-CN": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+        "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/dashboard-edit-session/#usage",
+      "keywords": "dashboard-edit-session 使用 Usage"
+    },
+    {
+      "id": "dashboard-edit-session-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardEditSession · API",
+        "en": "DashboardEditSession · API"
+      },
+      "summary": {
+        "zh-CN": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+        "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/dashboard-edit-session/#api",
+      "keywords": "dashboard-edit-session API API"
+    },
+    {
+      "id": "dashboard-edit-session-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardEditSession · 状态与交互",
+        "en": "DashboardEditSession · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+        "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/dashboard-edit-session/#states",
+      "keywords": "dashboard-edit-session 状态与交互 States and interaction"
+    },
+    {
+      "id": "dashboard-edit-session-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardEditSession · 完整示例",
+        "en": "DashboardEditSession · Complete example"
+      },
+      "summary": {
+        "zh-CN": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+        "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/dashboard-edit-session/#example",
+      "keywords": "dashboard-edit-session 完整示例 Complete example"
+    },
+    {
+      "id": "dashboard-edit-session-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardEditSession · 源码",
+        "en": "DashboardEditSession · Source"
+      },
+      "summary": {
+        "zh-CN": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+        "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
+      },
+      "href": "/docs/dashboard-edit-session/#source",
+      "keywords": "dashboard-edit-session 源码 Source"
+    },
+    {
+      "id": "analytics-image-export",
+      "kind": "components",
+      "title": {
+        "zh-CN": "analyticsSvgExport",
+        "en": "analyticsSvgExport"
+      },
+      "summary": {
+        "zh-CN": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+        "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
+      },
+      "href": "/docs/analytics-image-export/",
+      "keywords": "analytics-image-export data"
+    },
+    {
+      "id": "analytics-image-export-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "analyticsSvgExport · 安装",
+        "en": "analyticsSvgExport · Installation"
+      },
+      "summary": {
+        "zh-CN": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+        "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
+      },
+      "href": "/docs/analytics-image-export/#installation",
+      "keywords": "analytics-image-export 安装 Installation"
+    },
+    {
+      "id": "analytics-image-export-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "analyticsSvgExport · 使用",
+        "en": "analyticsSvgExport · Usage"
+      },
+      "summary": {
+        "zh-CN": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+        "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
+      },
+      "href": "/docs/analytics-image-export/#usage",
+      "keywords": "analytics-image-export 使用 Usage"
+    },
+    {
+      "id": "analytics-image-export-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "analyticsSvgExport · API",
+        "en": "analyticsSvgExport · API"
+      },
+      "summary": {
+        "zh-CN": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+        "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
+      },
+      "href": "/docs/analytics-image-export/#api",
+      "keywords": "analytics-image-export API API"
+    },
+    {
+      "id": "analytics-image-export-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "analyticsSvgExport · 状态与交互",
+        "en": "analyticsSvgExport · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+        "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
+      },
+      "href": "/docs/analytics-image-export/#states",
+      "keywords": "analytics-image-export 状态与交互 States and interaction"
+    },
+    {
+      "id": "analytics-image-export-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "analyticsSvgExport · 完整示例",
+        "en": "analyticsSvgExport · Complete example"
+      },
+      "summary": {
+        "zh-CN": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+        "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
+      },
+      "href": "/docs/analytics-image-export/#example",
+      "keywords": "analytics-image-export 完整示例 Complete example"
+    },
+    {
+      "id": "analytics-image-export-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "analyticsSvgExport · 源码",
+        "en": "analyticsSvgExport · Source"
+      },
+      "summary": {
+        "zh-CN": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+        "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
+      },
+      "href": "/docs/analytics-image-export/#source",
+      "keywords": "analytics-image-export 源码 Source"
+    },
+    {
+      "id": "heatmap",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Heatmap",
+        "en": "Heatmap"
+      },
+      "summary": {
+        "zh-CN": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+        "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
+      },
+      "href": "/docs/heatmap/",
+      "keywords": "heatmap data"
+    },
+    {
+      "id": "heatmap-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Heatmap · 安装",
+        "en": "Heatmap · Installation"
+      },
+      "summary": {
+        "zh-CN": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+        "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
+      },
+      "href": "/docs/heatmap/#installation",
+      "keywords": "heatmap 安装 Installation"
+    },
+    {
+      "id": "heatmap-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Heatmap · 使用",
+        "en": "Heatmap · Usage"
+      },
+      "summary": {
+        "zh-CN": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+        "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
+      },
+      "href": "/docs/heatmap/#usage",
+      "keywords": "heatmap 使用 Usage"
+    },
+    {
+      "id": "heatmap-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Heatmap · API",
+        "en": "Heatmap · API"
+      },
+      "summary": {
+        "zh-CN": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+        "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
+      },
+      "href": "/docs/heatmap/#api",
+      "keywords": "heatmap API API"
+    },
+    {
+      "id": "heatmap-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Heatmap · 状态与交互",
+        "en": "Heatmap · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+        "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
+      },
+      "href": "/docs/heatmap/#states",
+      "keywords": "heatmap 状态与交互 States and interaction"
+    },
+    {
+      "id": "heatmap-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Heatmap · 完整示例",
+        "en": "Heatmap · Complete example"
+      },
+      "summary": {
+        "zh-CN": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+        "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
+      },
+      "href": "/docs/heatmap/#example",
+      "keywords": "heatmap 完整示例 Complete example"
+    },
+    {
+      "id": "heatmap-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Heatmap · 源码",
+        "en": "Heatmap · Source"
+      },
+      "summary": {
+        "zh-CN": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+        "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
+      },
+      "href": "/docs/heatmap/#source",
+      "keywords": "heatmap 源码 Source"
+    },
+    {
+      "id": "resource-allocation-view",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ResourceAllocationView",
+        "en": "ResourceAllocationView"
+      },
+      "summary": {
+        "zh-CN": "人员日期单元到显式分配清单与排期回调。",
+        "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
+      },
+      "href": "/docs/resource-allocation-view/",
+      "keywords": "resource-allocation-view data"
+    },
+    {
+      "id": "resource-allocation-view-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ResourceAllocationView · 安装",
+        "en": "ResourceAllocationView · Installation"
+      },
+      "summary": {
+        "zh-CN": "人员日期单元到显式分配清单与排期回调。",
+        "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
+      },
+      "href": "/docs/resource-allocation-view/#installation",
+      "keywords": "resource-allocation-view 安装 Installation"
+    },
+    {
+      "id": "resource-allocation-view-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ResourceAllocationView · 使用",
+        "en": "ResourceAllocationView · Usage"
+      },
+      "summary": {
+        "zh-CN": "人员日期单元到显式分配清单与排期回调。",
+        "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
+      },
+      "href": "/docs/resource-allocation-view/#usage",
+      "keywords": "resource-allocation-view 使用 Usage"
+    },
+    {
+      "id": "resource-allocation-view-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ResourceAllocationView · API",
+        "en": "ResourceAllocationView · API"
+      },
+      "summary": {
+        "zh-CN": "人员日期单元到显式分配清单与排期回调。",
+        "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
+      },
+      "href": "/docs/resource-allocation-view/#api",
+      "keywords": "resource-allocation-view API API"
+    },
+    {
+      "id": "resource-allocation-view-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ResourceAllocationView · 状态与交互",
+        "en": "ResourceAllocationView · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "人员日期单元到显式分配清单与排期回调。",
+        "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
+      },
+      "href": "/docs/resource-allocation-view/#states",
+      "keywords": "resource-allocation-view 状态与交互 States and interaction"
+    },
+    {
+      "id": "resource-allocation-view-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ResourceAllocationView · 完整示例",
+        "en": "ResourceAllocationView · Complete example"
+      },
+      "summary": {
+        "zh-CN": "人员日期单元到显式分配清单与排期回调。",
+        "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
+      },
+      "href": "/docs/resource-allocation-view/#example",
+      "keywords": "resource-allocation-view 完整示例 Complete example"
+    },
+    {
+      "id": "resource-allocation-view-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ResourceAllocationView · 源码",
+        "en": "ResourceAllocationView · Source"
+      },
+      "summary": {
+        "zh-CN": "人员日期单元到显式分配清单与排期回调。",
+        "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
+      },
+      "href": "/docs/resource-allocation-view/#source",
+      "keywords": "resource-allocation-view 源码 Source"
+    },
+    {
+      "id": "agent-execution-timeline",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentExecutionTimeline",
+        "en": "AgentExecutionTimeline"
+      },
+      "summary": {
+        "zh-CN": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+        "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
+      },
+      "href": "/docs/agent-execution-timeline/",
+      "keywords": "agent-execution-timeline data"
+    },
+    {
+      "id": "agent-execution-timeline-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentExecutionTimeline · 安装",
+        "en": "AgentExecutionTimeline · Installation"
+      },
+      "summary": {
+        "zh-CN": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+        "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
+      },
+      "href": "/docs/agent-execution-timeline/#installation",
+      "keywords": "agent-execution-timeline 安装 Installation"
+    },
+    {
+      "id": "agent-execution-timeline-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentExecutionTimeline · 使用",
+        "en": "AgentExecutionTimeline · Usage"
+      },
+      "summary": {
+        "zh-CN": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+        "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
+      },
+      "href": "/docs/agent-execution-timeline/#usage",
+      "keywords": "agent-execution-timeline 使用 Usage"
+    },
+    {
+      "id": "agent-execution-timeline-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentExecutionTimeline · API",
+        "en": "AgentExecutionTimeline · API"
+      },
+      "summary": {
+        "zh-CN": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+        "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
+      },
+      "href": "/docs/agent-execution-timeline/#api",
+      "keywords": "agent-execution-timeline API API"
+    },
+    {
+      "id": "agent-execution-timeline-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentExecutionTimeline · 状态与交互",
+        "en": "AgentExecutionTimeline · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+        "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
+      },
+      "href": "/docs/agent-execution-timeline/#states",
+      "keywords": "agent-execution-timeline 状态与交互 States and interaction"
+    },
+    {
+      "id": "agent-execution-timeline-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentExecutionTimeline · 完整示例",
+        "en": "AgentExecutionTimeline · Complete example"
+      },
+      "summary": {
+        "zh-CN": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+        "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
+      },
+      "href": "/docs/agent-execution-timeline/#example",
+      "keywords": "agent-execution-timeline 完整示例 Complete example"
+    },
+    {
+      "id": "agent-execution-timeline-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentExecutionTimeline · 源码",
+        "en": "AgentExecutionTimeline · Source"
+      },
+      "summary": {
+        "zh-CN": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+        "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
+      },
+      "href": "/docs/agent-execution-timeline/#source",
+      "keywords": "agent-execution-timeline 源码 Source"
+    },
+    {
+      "id": "workflow-history-charts",
+      "kind": "components",
+      "title": {
+        "zh-CN": "BurndownChart",
+        "en": "BurndownChart"
+      },
+      "summary": {
+        "zh-CN": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+        "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
+      },
+      "href": "/docs/workflow-history-charts/",
+      "keywords": "workflow-history-charts data"
+    },
+    {
+      "id": "workflow-history-charts-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "BurndownChart · 安装",
+        "en": "BurndownChart · Installation"
+      },
+      "summary": {
+        "zh-CN": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+        "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
+      },
+      "href": "/docs/workflow-history-charts/#installation",
+      "keywords": "workflow-history-charts 安装 Installation"
+    },
+    {
+      "id": "workflow-history-charts-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "BurndownChart · 使用",
+        "en": "BurndownChart · Usage"
+      },
+      "summary": {
+        "zh-CN": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+        "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
+      },
+      "href": "/docs/workflow-history-charts/#usage",
+      "keywords": "workflow-history-charts 使用 Usage"
+    },
+    {
+      "id": "workflow-history-charts-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "BurndownChart · API",
+        "en": "BurndownChart · API"
+      },
+      "summary": {
+        "zh-CN": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+        "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
+      },
+      "href": "/docs/workflow-history-charts/#api",
+      "keywords": "workflow-history-charts API API"
+    },
+    {
+      "id": "workflow-history-charts-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "BurndownChart · 状态与交互",
+        "en": "BurndownChart · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+        "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
+      },
+      "href": "/docs/workflow-history-charts/#states",
+      "keywords": "workflow-history-charts 状态与交互 States and interaction"
+    },
+    {
+      "id": "workflow-history-charts-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "BurndownChart · 完整示例",
+        "en": "BurndownChart · Complete example"
+      },
+      "summary": {
+        "zh-CN": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+        "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
+      },
+      "href": "/docs/workflow-history-charts/#example",
+      "keywords": "workflow-history-charts 完整示例 Complete example"
+    },
+    {
+      "id": "workflow-history-charts-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "BurndownChart · 源码",
+        "en": "BurndownChart · Source"
+      },
+      "summary": {
+        "zh-CN": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+        "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
+      },
+      "href": "/docs/workflow-history-charts/#source",
+      "keywords": "workflow-history-charts 源码 Source"
+    },
+    {
+      "id": "forecast-chart",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ForecastChart",
+        "en": "ForecastChart"
+      },
+      "summary": {
+        "zh-CN": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+        "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
+      },
+      "href": "/docs/forecast-chart/",
+      "keywords": "forecast-chart data"
+    },
+    {
+      "id": "forecast-chart-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ForecastChart · 安装",
+        "en": "ForecastChart · Installation"
+      },
+      "summary": {
+        "zh-CN": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+        "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
+      },
+      "href": "/docs/forecast-chart/#installation",
+      "keywords": "forecast-chart 安装 Installation"
+    },
+    {
+      "id": "forecast-chart-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ForecastChart · 使用",
+        "en": "ForecastChart · Usage"
+      },
+      "summary": {
+        "zh-CN": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+        "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
+      },
+      "href": "/docs/forecast-chart/#usage",
+      "keywords": "forecast-chart 使用 Usage"
+    },
+    {
+      "id": "forecast-chart-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ForecastChart · API",
+        "en": "ForecastChart · API"
+      },
+      "summary": {
+        "zh-CN": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+        "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
+      },
+      "href": "/docs/forecast-chart/#api",
+      "keywords": "forecast-chart API API"
+    },
+    {
+      "id": "forecast-chart-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ForecastChart · 状态与交互",
+        "en": "ForecastChart · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+        "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
+      },
+      "href": "/docs/forecast-chart/#states",
+      "keywords": "forecast-chart 状态与交互 States and interaction"
+    },
+    {
+      "id": "forecast-chart-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ForecastChart · 完整示例",
+        "en": "ForecastChart · Complete example"
+      },
+      "summary": {
+        "zh-CN": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+        "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
+      },
+      "href": "/docs/forecast-chart/#example",
+      "keywords": "forecast-chart 完整示例 Complete example"
+    },
+    {
+      "id": "forecast-chart-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ForecastChart · 源码",
+        "en": "ForecastChart · Source"
+      },
+      "summary": {
+        "zh-CN": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+        "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
+      },
+      "href": "/docs/forecast-chart/#source",
+      "keywords": "forecast-chart 源码 Source"
+    },
+    {
+      "id": "agent-operations-dashboard",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentOperationsDashboard",
+        "en": "AgentOperationsDashboard"
+      },
+      "summary": {
+        "zh-CN": "执行区间、验收与授权用量的只读组合。",
+        "en": "Read-only composition of actual intervals, acceptance and authorized usage."
+      },
+      "href": "/docs/agent-operations-dashboard/",
+      "keywords": "agent-operations-dashboard data"
+    },
+    {
+      "id": "agent-operations-dashboard-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentOperationsDashboard · 安装",
+        "en": "AgentOperationsDashboard · Installation"
+      },
+      "summary": {
+        "zh-CN": "执行区间、验收与授权用量的只读组合。",
+        "en": "Read-only composition of actual intervals, acceptance and authorized usage."
+      },
+      "href": "/docs/agent-operations-dashboard/#installation",
+      "keywords": "agent-operations-dashboard 安装 Installation"
+    },
+    {
+      "id": "agent-operations-dashboard-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentOperationsDashboard · 使用",
+        "en": "AgentOperationsDashboard · Usage"
+      },
+      "summary": {
+        "zh-CN": "执行区间、验收与授权用量的只读组合。",
+        "en": "Read-only composition of actual intervals, acceptance and authorized usage."
+      },
+      "href": "/docs/agent-operations-dashboard/#usage",
+      "keywords": "agent-operations-dashboard 使用 Usage"
+    },
+    {
+      "id": "agent-operations-dashboard-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentOperationsDashboard · API",
+        "en": "AgentOperationsDashboard · API"
+      },
+      "summary": {
+        "zh-CN": "执行区间、验收与授权用量的只读组合。",
+        "en": "Read-only composition of actual intervals, acceptance and authorized usage."
+      },
+      "href": "/docs/agent-operations-dashboard/#api",
+      "keywords": "agent-operations-dashboard API API"
+    },
+    {
+      "id": "agent-operations-dashboard-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentOperationsDashboard · 状态与交互",
+        "en": "AgentOperationsDashboard · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "执行区间、验收与授权用量的只读组合。",
+        "en": "Read-only composition of actual intervals, acceptance and authorized usage."
+      },
+      "href": "/docs/agent-operations-dashboard/#states",
+      "keywords": "agent-operations-dashboard 状态与交互 States and interaction"
+    },
+    {
+      "id": "agent-operations-dashboard-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentOperationsDashboard · 完整示例",
+        "en": "AgentOperationsDashboard · Complete example"
+      },
+      "summary": {
+        "zh-CN": "执行区间、验收与授权用量的只读组合。",
+        "en": "Read-only composition of actual intervals, acceptance and authorized usage."
+      },
+      "href": "/docs/agent-operations-dashboard/#example",
+      "keywords": "agent-operations-dashboard 完整示例 Complete example"
+    },
+    {
+      "id": "agent-operations-dashboard-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AgentOperationsDashboard · 源码",
+        "en": "AgentOperationsDashboard · Source"
+      },
+      "summary": {
+        "zh-CN": "执行区间、验收与授权用量的只读组合。",
+        "en": "Read-only composition of actual intervals, acceptance and authorized usage."
+      },
+      "href": "/docs/agent-operations-dashboard/#source",
+      "keywords": "agent-operations-dashboard 源码 Source"
+    },
+    {
+      "id": "work-dependency-view",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkDependencyView",
+        "en": "WorkDependencyView"
+      },
+      "summary": {
+        "zh-CN": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+        "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
+      },
+      "href": "/docs/work-dependency-view/",
+      "keywords": "work-dependency-view data"
+    },
+    {
+      "id": "work-dependency-view-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkDependencyView · 安装",
+        "en": "WorkDependencyView · Installation"
+      },
+      "summary": {
+        "zh-CN": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+        "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
+      },
+      "href": "/docs/work-dependency-view/#installation",
+      "keywords": "work-dependency-view 安装 Installation"
+    },
+    {
+      "id": "work-dependency-view-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkDependencyView · 使用",
+        "en": "WorkDependencyView · Usage"
+      },
+      "summary": {
+        "zh-CN": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+        "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
+      },
+      "href": "/docs/work-dependency-view/#usage",
+      "keywords": "work-dependency-view 使用 Usage"
+    },
+    {
+      "id": "work-dependency-view-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkDependencyView · API",
+        "en": "WorkDependencyView · API"
+      },
+      "summary": {
+        "zh-CN": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+        "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
+      },
+      "href": "/docs/work-dependency-view/#api",
+      "keywords": "work-dependency-view API API"
+    },
+    {
+      "id": "work-dependency-view-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkDependencyView · 状态与交互",
+        "en": "WorkDependencyView · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+        "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
+      },
+      "href": "/docs/work-dependency-view/#states",
+      "keywords": "work-dependency-view 状态与交互 States and interaction"
+    },
+    {
+      "id": "work-dependency-view-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkDependencyView · 完整示例",
+        "en": "WorkDependencyView · Complete example"
+      },
+      "summary": {
+        "zh-CN": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+        "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
+      },
+      "href": "/docs/work-dependency-view/#example",
+      "keywords": "work-dependency-view 完整示例 Complete example"
+    },
+    {
+      "id": "work-dependency-view-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "WorkDependencyView · 源码",
+        "en": "WorkDependencyView · Source"
+      },
+      "summary": {
+        "zh-CN": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+        "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
+      },
+      "href": "/docs/work-dependency-view/#source",
+      "keywords": "work-dependency-view 源码 Source"
+    },
+    {
+      "id": "dashboard-layout-editor",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardLayoutEditor",
+        "en": "DashboardLayoutEditor"
+      },
+      "summary": {
+        "zh-CN": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+        "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
+      },
+      "href": "/docs/dashboard-layout-editor/",
+      "keywords": "dashboard-layout-editor data"
+    },
+    {
+      "id": "dashboard-layout-editor-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardLayoutEditor · 安装",
+        "en": "DashboardLayoutEditor · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+        "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
+      },
+      "href": "/docs/dashboard-layout-editor/#installation",
+      "keywords": "dashboard-layout-editor 安装 Installation"
+    },
+    {
+      "id": "dashboard-layout-editor-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardLayoutEditor · 使用",
+        "en": "DashboardLayoutEditor · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+        "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
+      },
+      "href": "/docs/dashboard-layout-editor/#usage",
+      "keywords": "dashboard-layout-editor 使用 Usage"
+    },
+    {
+      "id": "dashboard-layout-editor-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardLayoutEditor · API",
+        "en": "DashboardLayoutEditor · API"
+      },
+      "summary": {
+        "zh-CN": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+        "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
+      },
+      "href": "/docs/dashboard-layout-editor/#api",
+      "keywords": "dashboard-layout-editor API API"
+    },
+    {
+      "id": "dashboard-layout-editor-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardLayoutEditor · 状态与交互",
+        "en": "DashboardLayoutEditor · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+        "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
+      },
+      "href": "/docs/dashboard-layout-editor/#states",
+      "keywords": "dashboard-layout-editor 状态与交互 States and interaction"
+    },
+    {
+      "id": "dashboard-layout-editor-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardLayoutEditor · 完整示例",
+        "en": "DashboardLayoutEditor · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+        "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
+      },
+      "href": "/docs/dashboard-layout-editor/#example",
+      "keywords": "dashboard-layout-editor 完整示例 Complete example"
+    },
+    {
+      "id": "dashboard-layout-editor-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "DashboardLayoutEditor · 源码",
+        "en": "DashboardLayoutEditor · Source"
+      },
+      "summary": {
+        "zh-CN": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+        "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
+      },
+      "href": "/docs/dashboard-layout-editor/#source",
+      "keywords": "dashboard-layout-editor 源码 Source"
+    },
+    {
+      "id": "analytics-builder",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsBuilder",
+        "en": "AnalyticsBuilder"
+      },
+      "summary": {
+        "zh-CN": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+        "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
+      },
+      "href": "/docs/analytics-builder/",
+      "keywords": "analytics-builder data"
+    },
+    {
+      "id": "analytics-builder-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsBuilder · 安装",
+        "en": "AnalyticsBuilder · Installation"
+      },
+      "summary": {
+        "zh-CN": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+        "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
+      },
+      "href": "/docs/analytics-builder/#installation",
+      "keywords": "analytics-builder 安装 Installation"
+    },
+    {
+      "id": "analytics-builder-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsBuilder · 使用",
+        "en": "AnalyticsBuilder · Usage"
+      },
+      "summary": {
+        "zh-CN": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+        "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
+      },
+      "href": "/docs/analytics-builder/#usage",
+      "keywords": "analytics-builder 使用 Usage"
+    },
+    {
+      "id": "analytics-builder-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsBuilder · API",
+        "en": "AnalyticsBuilder · API"
+      },
+      "summary": {
+        "zh-CN": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+        "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
+      },
+      "href": "/docs/analytics-builder/#api",
+      "keywords": "analytics-builder API API"
+    },
+    {
+      "id": "analytics-builder-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsBuilder · 状态与交互",
+        "en": "AnalyticsBuilder · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+        "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
+      },
+      "href": "/docs/analytics-builder/#states",
+      "keywords": "analytics-builder 状态与交互 States and interaction"
+    },
+    {
+      "id": "analytics-builder-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsBuilder · 完整示例",
+        "en": "AnalyticsBuilder · Complete example"
+      },
+      "summary": {
+        "zh-CN": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+        "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
+      },
+      "href": "/docs/analytics-builder/#example",
+      "keywords": "analytics-builder 完整示例 Complete example"
+    },
+    {
+      "id": "analytics-builder-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "AnalyticsBuilder · 源码",
+        "en": "AnalyticsBuilder · Source"
+      },
+      "summary": {
+        "zh-CN": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+        "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
+      },
+      "href": "/docs/analytics-builder/#source",
+      "keywords": "analytics-builder 源码 Source"
+    },
+    {
       "id": "avatar",
       "kind": "components",
       "title": {
@@ -15661,11 +17033,11 @@
         "en": "Workflow analytics"
       },
       "summary": {
-        "zh-CN": "固定项目 Dashboard、明确指标与同快照来源下钻。",
-        "en": "A fixed project dashboard, defined metrics and source drilldown at the same snapshot."
+        "zh-CN": "项目、执行、资源、交付与风险分析，附布局编辑和分析构建器。",
+        "en": "Project, execution, resource, delivery and risk analysis with layout editing and an analytics builder."
       },
       "href": "/examples/workflow-analytics/",
-      "keywords": "statistical-chart chart-drilldown-panel project-overview-dashboard"
+      "keywords": "statistical-chart chart-drilldown-panel project-overview-dashboard resource-allocation-view agent-operations-dashboard analytics-builder"
     },
     {
       "id": "agent",
@@ -15848,6 +17220,20 @@
       },
       "href": "/blog/work-items-shared-views/",
       "keywords": "work-items-shared-views"
+    },
+    {
+      "id": "workflow-analytics-full",
+      "kind": "articles",
+      "title": {
+        "zh-CN": "从项目概览到资源、交付与风险分析",
+        "en": "From project overview to resources, delivery and risk"
+      },
+      "summary": {
+        "zh-CN": "十种共享查询与来源身份的分析场景，展示历史指标、资源容量、Agent 用量、配置保存和分析构建。",
+        "en": "Ten analysis views with shared queries and source identity, historical metrics, capacity, agent usage, layout saves and an analytics builder."
+      },
+      "href": "/blog/workflow-analytics-full/",
+      "keywords": "workflow-analytics-full"
     },
     {
       "id": "workflow-analytics",

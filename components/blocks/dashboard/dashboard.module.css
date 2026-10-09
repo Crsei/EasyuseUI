@@ -37,6 +37,12 @@
   padding: 16px;
   background: var(--surface);
 }
+.widget[data-width="4"] {
+  grid-column: span 4;
+}
+.widget[data-width="8"] {
+  grid-column: span 8;
+}
 .widget[data-width="12"] {
   grid-column: span 12;
 }
@@ -57,6 +63,8 @@
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
   .widget,
+  .widget[data-width="4"],
+  .widget[data-width="8"],
   .widget[data-width="12"] {
     grid-column: span 6;
   }
@@ -67,6 +75,8 @@
     gap: 12px;
   }
   .widget,
+  .widget[data-width="4"],
+  .widget[data-width="8"],
   .widget[data-width="12"] {
     grid-column: span 1;
   }

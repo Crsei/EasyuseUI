@@ -54,6 +54,38 @@ export function matchesAnalyticsFilters(
 }
 export function validateAnalyticsQuery(query: AnalyticsQuery): void {
   if (
+    !query ||
+    typeof query.source !== "string" ||
+    !query.source ||
+    !query.scope ||
+    typeof query.scope.id !== "string" ||
+    typeof query.scope.permissionVersion !== "string" ||
+    !Array.isArray(query.scope.projectIds) ||
+    !query.scope.projectIds.every((v: unknown) => typeof v === "string") ||
+    !query.range ||
+    typeof query.measureId !== "string" ||
+    !Number.isSafeInteger(query.measureVersion) ||
+    query.measureVersion < 1 ||
+    typeof query.dimension !== "string" ||
+    !["asOf", "createdAt", "completedAt"].includes(query.timeField) ||
+    !["day", "week", "month"].includes(query.bucket) ||
+    !Array.isArray(query.filters) ||
+    !query.filters.every(
+      (f) =>
+        [
+          "entityId",
+          "projectId",
+          "stateId",
+          "category",
+          "assigneeIds",
+          "blockerId",
+        ].includes(f.field) &&
+        Array.isArray(f.values) &&
+        f.values.every((v: unknown) => typeof v === "string"),
+    )
+  )
+    throw new Error("Invalid analytics query")
+  if (
     !Number.isFinite(Date.parse(query.range.from)) ||
     !Number.isFinite(Date.parse(query.range.to)) ||
     Date.parse(query.range.from) >= Date.parse(query.range.to)

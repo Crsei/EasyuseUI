@@ -145,6 +145,7 @@ export type AnalyticsResult = {
   coverage: HistoryCoverage | null
   total: number | null
   limitations: readonly string[]
+  sampleCoverage?: { observed: number; total: number }
   completeness: "complete" | "partial" | "unavailable"
 }
 export type CapacitySnapshot = {

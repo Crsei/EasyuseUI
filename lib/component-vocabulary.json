@@ -583,6 +583,160 @@
     ]
   },
   {
+    "slug": "analytics-resource-model",
+    "name": "computeWorkload",
+    "category": "组合模块",
+    "description": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+    "source": "lib/analytics-resource-model.ts",
+    "usage": "import { computeWorkload } from \"@/lib/analytics-resource-model\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "analytics-history-metrics",
+    "name": "computeHistoricalMetric",
+    "category": "组合模块",
+    "description": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+    "source": "lib/analytics-history-metrics.ts",
+    "usage": "import { computeHistoricalMetric } from \"@/lib/analytics-history-metrics\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "analytics-builder-model",
+    "name": "validateAnalyticsBuilder",
+    "category": "组合模块",
+    "description": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+    "source": "lib/analytics-builder-model.ts",
+    "usage": "import { validateAnalyticsBuilder } from \"@/lib/analytics-builder-model\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "dashboard-edit-session",
+    "name": "DashboardEditSession",
+    "category": "组合模块",
+    "description": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+    "source": "lib/dashboard-edit-session.ts",
+    "usage": "import { DashboardEditSession } from \"@/lib/dashboard-edit-session\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "analytics-image-export",
+    "name": "analyticsSvgExport",
+    "category": "组合模块",
+    "description": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+    "source": "lib/analytics-image-export.ts",
+    "usage": "import { analyticsSvgExport } from \"@/lib/analytics-image-export\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "heatmap",
+    "name": "Heatmap",
+    "category": "组合模块",
+    "description": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+    "source": "components/blocks/charts/heatmap.tsx",
+    "usage": "import { Heatmap } from \"@/components/blocks/charts/heatmap\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "resource-allocation-view",
+    "name": "ResourceAllocationView",
+    "category": "组合模块",
+    "description": "人员日期单元到显式分配清单与排期回调。",
+    "source": "components/blocks/analytics/resource-allocation-view.tsx",
+    "usage": "import { ResourceAllocationView } from \"@/components/blocks/analytics/resource-allocation-view\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "agent-execution-timeline",
+    "name": "AgentExecutionTimeline",
+    "category": "组合模块",
+    "description": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+    "source": "components/blocks/analytics/agent-execution-timeline.tsx",
+    "usage": "import { AgentExecutionTimeline } from \"@/components/blocks/analytics/agent-execution-timeline\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "workflow-history-charts",
+    "name": "BurndownChart",
+    "category": "组合模块",
+    "description": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+    "source": "components/blocks/charts/workflow-history-charts.tsx",
+    "usage": "import { BurndownChart } from \"@/components/blocks/charts/workflow-history-charts\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "forecast-chart",
+    "name": "ForecastChart",
+    "category": "组合模块",
+    "description": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+    "source": "components/blocks/charts/forecast-chart.tsx",
+    "usage": "import { ForecastChart } from \"@/components/blocks/charts/forecast-chart\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "agent-operations-dashboard",
+    "name": "AgentOperationsDashboard",
+    "category": "组合模块",
+    "description": "执行区间、验收与授权用量的只读组合。",
+    "source": "components/blocks/analytics/agent-operations-dashboard.tsx",
+    "usage": "import { AgentOperationsDashboard } from \"@/components/blocks/analytics/agent-operations-dashboard\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "work-dependency-view",
+    "name": "WorkDependencyView",
+    "category": "组合模块",
+    "description": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+    "source": "components/blocks/analytics/work-dependency-view.tsx",
+    "usage": "import { WorkDependencyView } from \"@/components/blocks/analytics/work-dependency-view\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "dashboard-layout-editor",
+    "name": "DashboardLayoutEditor",
+    "category": "组合模块",
+    "description": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+    "source": "components/blocks/dashboard/dashboard-layout-editor.tsx",
+    "usage": "import { DashboardLayoutEditor } from \"@/components/blocks/dashboard/dashboard-layout-editor\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
+    "slug": "analytics-builder",
+    "name": "AnalyticsBuilder",
+    "category": "组合模块",
+    "description": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+    "source": "components/blocks/analytics/analytics-builder.tsx",
+    "usage": "import { AnalyticsBuilder } from \"@/components/blocks/analytics/analytics-builder\"",
+    "notes": [
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。"
+    ]
+  },
+  {
     "slug": "textarea",
     "name": "Textarea",
     "category": "基础组件",

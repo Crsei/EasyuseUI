@@ -25,8 +25,8 @@ export const exampleManifest: SiteExample[] = [
     id: "workflow-analytics",
     title: { "zh-CN": "工作流分析", en: "Workflow analytics" },
     description: {
-      "zh-CN": "固定项目 Dashboard、明确指标与同快照来源下钻。",
-      en: "A fixed project dashboard, defined metrics and source drilldown at the same snapshot.",
+      "zh-CN": "项目、执行、资源、交付与风险分析，附布局编辑和分析构建器。",
+      en: "Project, execution, resource, delivery and risk analysis with layout editing and an analytics builder.",
     },
     href: "/examples/workflow-analytics/",
     thumbnail: {
@@ -39,8 +39,11 @@ export const exampleManifest: SiteExample[] = [
       "statistical-chart",
       "chart-drilldown-panel",
       "project-overview-dashboard",
+      "resource-allocation-view",
+      "agent-operations-dashboard",
+      "analytics-builder",
     ],
-    article: "workflow-analytics",
+    article: "workflow-analytics-full",
     validation: "fixture-verified",
   },
   {

@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import { DataTable } from "@/components/blocks/data-table"
 import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n-provider"
@@ -19,9 +20,54 @@ export function ChartDataTable({
   onSelect?: (datum: ChartDatum) => void
 }) {
   const { t, locale } = useI18n()
+  const data = chartData(result),
+    identity = JSON.stringify([result.queryKey, result.snapshotId, selection]),
+    [paging, setPaging] = useState({ identity: "", page: 0 }),
+    selectedIndex = data.findIndex(
+      (d) =>
+        d.series.id === selection?.seriesId &&
+        d.point.bucketId === selection?.bucketId,
+    ),
+    pages = Math.max(1, Math.ceil(data.length / 50)),
+    page = Math.min(
+      paging.identity === identity
+        ? paging.page
+        : Math.max(0, Math.floor(selectedIndex / 50)),
+      pages - 1,
+    )
+
   return (
     <DataTable
-      rows={chartData(result)}
+      rows={data.slice(page * 50, (page + 1) * 50)}
+      footer={
+        data.length > 50 ? (
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={page === 0}
+              onClick={() => setPaging({ identity, page: page - 1 })}
+            >
+              {t("analytics.previousPage")}
+            </Button>
+            <span>
+              {t("analytics.aggregatePage", {
+                from: page * 50 + 1,
+                to: Math.min((page + 1) * 50, data.length),
+                total: data.length,
+              })}
+            </span>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={page === pages - 1}
+              onClick={() => setPaging({ identity, page: page + 1 })}
+            >
+              {t("analytics.nextPage")}
+            </Button>
+          </div>
+        ) : undefined
+      }
       caption={`${t("analytics.table")} · ${result.snapshotId}`}
       getRowId={(row) => row.key}
       getRowLabel={(row) => `${row.series.label} ${row.point.label}`}

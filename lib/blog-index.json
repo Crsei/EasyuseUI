@@ -110,6 +110,17 @@
     }
   },
   {
+    "slug": "workflow-analytics-full",
+    "title": {
+      "zh-CN": "从项目概览到资源、交付与风险分析",
+      "en": "From project overview to resources, delivery and risk"
+    },
+    "summary": {
+      "zh-CN": "十种共享查询与来源身份的分析场景，展示历史指标、资源容量、Agent 用量、配置保存和分析构建。",
+      "en": "Ten analysis views with shared queries and source identity, historical metrics, capacity, agent usage, layout saves and an analytics builder."
+    }
+  },
+  {
     "slug": "workflow-analytics",
     "title": {
       "zh-CN": "从状态分布到同快照工作项下钻",

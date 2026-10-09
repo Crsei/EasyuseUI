@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test"
 import path from "node:path"
 import fs from "node:fs/promises"
-const route = "/examples/workflow-analytics/"
+const route = "/examples/workflow-analytics/baseline/"
 const widget = (page: import("@playwright/test").Page, id: string) =>
   page.locator(`[data-widget="${id}"]`)
 test("example gallery and source docs expose installed charts on the current site", async ({
@@ -9,7 +9,10 @@ test("example gallery and source docs expose installed charts on the current sit
 }) => {
   await page.goto("/examples/")
   const example = page.locator('[data-example="workflow-analytics"]')
-  await expect(example.getByRole("link").first()).toHaveAttribute("href", route)
+  await expect(example.getByRole("link").first()).toHaveAttribute(
+    "href",
+    "/examples/workflow-analytics/",
+  )
   await expect
     .poll(() =>
       example
@@ -152,7 +155,7 @@ for (const width of [1440, 1024, 768, 390])
     expect(await title.evaluate((el) => getComputedStyle(el).fontSize)).toBe(
       "20px",
     )
-    const dir = path.resolve("public/blog/workflow-analytics")
+    const dir = path.resolve("test-results/workflow-analytics-baseline")
     await fs.mkdir(dir, { recursive: true })
     if (width === 1440 || width === 390) {
       await page.screenshot({
@@ -160,7 +163,7 @@ for (const width of [1440, 1024, 768, 390])
       })
       await fs.copyFile(
         path.join(dir, `project-light-${width}.png`),
-        `public/site/scenes/workflow-analytics-${width === 1440 ? "desktop" : "mobile"}-light.png`,
+        `test-results/workflow-analytics-baseline/gallery-${width === 1440 ? "desktop" : "mobile"}-light.png`,
       )
     }
     await page.getByRole("button", { name: "English", exact: true }).click()
@@ -178,7 +181,7 @@ for (const width of [1440, 1024, 768, 390])
       })
       await fs.copyFile(
         path.join(dir, `project-dark-${width}.png`),
-        `public/site/scenes/workflow-analytics-${width === 1440 ? "desktop" : "mobile"}-dark.png`,
+        `test-results/workflow-analytics-baseline/gallery-${width === 1440 ? "desktop" : "mobile"}-dark.png`,
       )
     }
     expect(
@@ -219,14 +222,19 @@ test("ordinary routes keep the statistical engine out of downloaded JavaScript",
   baseURL,
 }) => {
   test.skip(
-    !!process.env.WORKFLOW_ANALYTICS_EXTERNAL,
+    !!process.env.WORKFLOW_ANALYTICS_EXTERNAL &&
+      !process.env.WORKFLOW_ANALYTICS_PRODUCTION,
     "Measure production chunks only",
   )
   const report: Record<
     string,
     { jsBytes: number; statisticalEngineLoaded: boolean }
   > = {}
-  for (const route of ["/", "/docs/button/", "/examples/workflow-analytics/"]) {
+  for (const route of [
+    "/",
+    "/docs/button/",
+    "/examples/workflow-analytics/baseline/",
+  ]) {
     const context = await browser.newContext({ baseURL })
     const page = await context.newPage()
     const bodies: Promise<string>[] = []
@@ -252,11 +260,14 @@ test("ordinary routes keep the statistical engine out of downloaded JavaScript",
   }
   expect(report["/"].statisticalEngineLoaded).toBe(false)
   expect(report["/docs/button/"].statisticalEngineLoaded).toBe(false)
-  expect(report["/examples/workflow-analytics/"].statisticalEngineLoaded).toBe(
-    true,
-  )
+  expect(
+    report["/examples/workflow-analytics/baseline/"].statisticalEngineLoaded,
+  ).toBe(true)
+  await fs.mkdir("test-results/workflow-analytics-baseline", {
+    recursive: true,
+  })
   await fs.writeFile(
-    "public/blog/workflow-analytics/bundle-isolation.json",
+    "test-results/workflow-analytics-baseline/bundle-isolation.json",
     JSON.stringify(
       {
         capturedAt: new Date().toISOString(),

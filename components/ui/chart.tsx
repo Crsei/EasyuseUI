@@ -2,6 +2,8 @@
 import { useId, type ReactNode } from "react"
 import { Button } from "./button"
 import { DataRegion, type DataRegionProps } from "./data-region"
+import { componentMessages } from "@/lib/i18n-messages"
+import type { MessageKey } from "@/lib/i18n-core"
 import { useI18n } from "@/lib/i18n-provider"
 import type {
   AnalyticsQuery,
@@ -70,7 +72,7 @@ export function ChartHeader({
               })
             : limitation === "history-unavailable"
               ? t("analytics.noHistory")
-              : limitation}
+              : Object.hasOwn(componentMessages["zh-CN"],limitation)?t(limitation as MessageKey):limitation}
         </p>
       ))}
     </header>

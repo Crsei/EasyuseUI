@@ -1,0 +1,544 @@
+{
+  "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+  "hashes": {
+    "app/examples/workflow-analytics/baseline/page.tsx": "6b83d30101be34e2310d0e4e570ba13e234963b2dfbd04222bae7075dfb18981",
+    "app/examples/workflow-analytics/benchmark/page.tsx": "518f86b0a71f1dd0ffb7800f4dae249eda01fd0c5d6ce5f5044491868222603f",
+    "app/examples/workflow-analytics/page.tsx": "d2161465502d07f4e14ff3b9a18796c0db9645e6909fbbb7803605710ebac968",
+    "components/blocks/analytics/agent-execution-timeline.module.css": "b9a89ace40ccd3bdd0c57a217baccaf14ae1dae6772eac6195e504f5b4f856e3",
+    "components/blocks/analytics/agent-execution-timeline.tsx": "136fadd2409845815e62dde154823285ebd68f359b4f48770a6346e9b0ea5da8",
+    "components/blocks/analytics/agent-operations-dashboard.tsx": "99a1f86fdc4ab082fd359f64d6631c34f6649a80d78116ee18c4de18a23c76f9",
+    "components/blocks/analytics/analytics-builder.tsx": "d809e62dbbaeb69e184f8be7c059ea4566a90704d6449226d2143f2e349e7458",
+    "components/blocks/analytics/resource-allocation-view.tsx": "023772916ad6b58510aed874119a19e61c074f9755eaf49a87db98182ecd1873",
+    "components/blocks/analytics/risk-evidence-list.tsx": "ff52cc2518909dcc06b7d2ce2b5e128695b50414c6989501147d9a9d9d8a05a0",
+    "components/blocks/analytics/work-dependency-view.tsx": "e99c8c8219bb8047e2997e823f111b25262cb01371f6e0d7c627890861cbc336",
+    "components/blocks/analytics/work-items-view-adapter.tsx": "fc7e539430d54d904061597f6110313ed397c1aecaa214e6d9afad8779233ef7",
+    "components/blocks/analytics/work-traceability-view.tsx": "400bc35838e4c9c0118c6be6e855a5182b5653f386f560f97fd4636aceddcc51",
+    "components/blocks/analytics/workflow-charts.tsx": "e535176bbd4a96896473591d98e472f01f2b19c1572c2c904c976eb89e53cc37",
+    "components/blocks/analytics/workflow-metric.tsx": "d79817ef5ba6e4a597fe3b3e71572cd17dc9e69530b6b640c72e353e5f35cb83",
+    "components/blocks/charts/chart-data-table.tsx": "fa071712678534750370b47305b56527673c8bee72347dd99d94897ec02e86c9",
+    "components/blocks/charts/chart-drilldown-panel.tsx": "d62d10e262e37b66e7dba50c916fe85902ad72629add6cc9f009e11096a399db",
+    "components/blocks/charts/forecast-chart.tsx": "a89b6f93c6e5e29750fe72a50201ab6f5e4f4076791e5c4ab7fe8a1f6fddc656",
+    "components/blocks/charts/heatmap.module.css": "2cde11f87343e24ef7b43e5ef325b1dd9f17278201225b170cc7bd67e5ef5164",
+    "components/blocks/charts/heatmap.tsx": "e7a49c61242b43f3f59548237714a09e0658fd5528dce2a35fe326e655f013ec",
+    "components/blocks/charts/statistical-chart.module.css": "33383a24f18fddd01cfb10663ce045f0b81f53a321b3bccb024d233c499c905c",
+    "components/blocks/charts/statistical-chart.tsx": "9eb1e28bb0eca662e52f85c8f3dbbc83d963e750873c751893a288bb34b46ed6",
+    "components/blocks/charts/workflow-history-charts.tsx": "14b74cd0f95ff4a493ebaf294942e79f1aad1ed55eed933e7e2404a0e467f4dc",
+    "components/blocks/dashboard/dashboard-layout-editor.tsx": "76dc8aaf0ea2d23226c84e6ad33c59fc397a771db2684c3f638b54ac4cd7151a",
+    "components/blocks/dashboard/dashboard.module.css": "55fec9ffff229ce759e352bcd93e5a6d758afdb6d3618c9d48e787d3aeec5cc1",
+    "components/blocks/dashboard/dashboard.tsx": "4ca9eecbe9fd60be746270cccfde53d334ade23ac111d1e14612633c1c0a5c41",
+    "components/blocks/dashboard/project-overview-dashboard.tsx": "a5ffb797931f005144fb5e629dd0f1500bea6a8ba5aa1178c11570d2bcca061b",
+    "components/examples/workflow-analytics/advanced-demos.tsx": "2d95632f988660f65af22ada945ba5827109b5b941ad019e015cc1c664cbaeb7",
+    "components/examples/workflow-analytics/component-demos.tsx": "c5c11712510ef90f3cac76c607e735a614c0dc13d7d9a8ff8b5de23ea2b5640a",
+    "components/examples/workflow-analytics/fixtures.ts": "0b6bd4e83dd83cc9296c3755845129a6fe0da51af2df7a7867fb29cf98939699",
+    "components/examples/workflow-analytics/fixtures/extended.ts": "43f7353f86a7271e8d3f370ce7c49ccb023a5c8bc503918cc2336ee4ea227b4d",
+    "components/examples/workflow-analytics/performance-harness.tsx": "574baf00b81a10cb4cd8b4d16da094f3b861701786b4bae4209c399063a8919b",
+    "components/examples/workflow-analytics/query-adapter.ts": "023e08e5a3d41303f0f3f1d665feb83013a9c80d70e8bcb5813d55f9477daca2",
+    "components/examples/workflow-analytics/snapshot-workspace.tsx": "3319a92ef6dc7075d391dda47754f8b1a78f5df42599d24f7c5b0560f65ddef2",
+    "components/examples/workflow-analytics/url-state.ts": "1458372d843d658af0c7b650624c610cb8eb6f312d0b947f6ea9f21783fb868f",
+    "components/examples/workflow-analytics/workflow-analytics-demo.tsx": "db3119bb67f666956638d7f90e57d2d5e606da7db4a985e11830875d3e995ca5",
+    "components/examples/workflow-analytics/workflow-analytics-showcase.module.css": "1ebb6865352518dd9ce06c5e9dba270303285c721acb06b0e1d57098cdc94ea0",
+    "components/examples/workflow-analytics/workflow-analytics-showcase.tsx": "fc3068b9e3a4b36f134391ff0a1afc2fd6c5511f05debf9220c557e46872b23d",
+    "components/ui/chart.module.css": "1764007f4109d96d639899e61b2750a485cc94e612d841707fe0be78c0c20c9c",
+    "components/ui/chart.tsx": "81ccec1e13a33037e0bd4ddfa6e00f4192a37fb3cea3ac3c177d337e8220b603",
+    "lib/analytics-builder-model.ts": "2d2cbb71ac844782b5185ec99d1e634e55ae602dd9e343d2d8440d6174b61cae",
+    "lib/analytics-dependency-model.ts": "fc91c3c62f6230fbf6c36daa700c08c9ed91a8ce4a46bb103de95dda6a17a298",
+    "lib/analytics-forecast-model.ts": "32685e13df954d4c36dabb816825a3b29f00525adbfd627b7e1fc9f8b848db97",
+    "lib/analytics-history-metrics.ts": "15f01bea0dbab28255b668a6d59c9b0e8d2150849b3c16966f1145a27b631098",
+    "lib/analytics-history.ts": "80dd69a70a56c37c11e8003c61de8537c04112c0f8dc45af22c39d75765df46e",
+    "lib/analytics-image-export.ts": "f8e39d369d0e23ba3c1c58961e922f9ea31266a1de1a9ad29778fbb4bf442844",
+    "lib/analytics-metrics.ts": "54711b3c54a494540a777c69d28d529f7f2675f98c803964e52ff0241acb7112",
+    "lib/analytics-model.ts": "df684677539848fd4680916eb507a85ca7d2b91866a03f4c386481c1a0e44b12",
+    "lib/analytics-query.ts": "96e4895bdade0b93475ce77775057c45af81b0eba0b780aada1359c939812e38",
+    "lib/analytics-resource-model.ts": "14acb8980163bbe929383906f12f4ac6d0e3fcf555a811676b6f924bdce04f63",
+    "lib/analytics-usage-model.ts": "6fca31665e92a2606c952d392a90f797cca4d4b47a966c9958b34026c9196a4f",
+    "lib/chart-format.ts": "64960fcb1f678d612c8eaf678160594111c597ceb151b943c453f7ddc4ad016c",
+    "lib/chart-model.ts": "c0ffd0fc9a1021ce417e7197cefde242a49660a33d562b07c6f93c083aa97f97",
+    "lib/component-manifest.ts": "65f10f23903a9bd54631e7eb1bc31e0bcee766adf1ef34cc5624956f013526a2",
+    "lib/dashboard-edit-session.ts": "859aed481697eac438063cbbffd93f9f2e2e9e6c83f1d8e428174a216bb5df4f",
+    "lib/dashboard-model.ts": "06dc56a009c827e6d4444a84e36e36c3878a9e971b80397bfb9f83465955a92f",
+    "lib/example-manifest.ts": "d201a3018f2a4fb22eae5484d06b8010487e45ca262747ca9d8445bc6e480b8a",
+    "lib/i18n-messages.ts": "dd2f1368684ce4c780e44da24d4ada9bc20564fac2a383953500c3d2900222c7",
+    "lib/site-i18n-messages.ts": "aa36e7f6d8d38ff626e205aeb97e2e499a0866c6f34de0a605aa768b8fd8539a",
+    "package.json": "181ee366c2edd16bce5619df9d4eac0cf1f640c0885c4e35ff4100d94d103326",
+    "playwright.workflow-analytics.config.ts": "8249afe6f078848fd6d0a0c5514c7b316828063ee743d7b70078bdc93bb3b31d",
+    "pnpm-lock.yaml": "03104ba4ae70dfe3d57b193da01d0be161643200710e9ddc99df8dc094271ae1",
+    "registry.json": "c6b86b786da089b05df8e7b8eefee41adc6ab80f3551ee4053e17a3e2b8f5f7d",
+    "scripts/capture-workflow-analytics.mjs": "890fb8f2035d94709dfe9fe3d04eaab504b19a2bb7f20dcaa87eff7a41231476",
+    "scripts/check-install.mjs": "8e7f9c82a040eb2ec196d8ed6c193e04c423fe195f4a9f5e67316904ec9fd0c6",
+    "scripts/check-theme-install.mjs": "8c0956395849c6e2225257ce09e507558a46a9a01ec2ef123c1dcc074c3770c2",
+    "scripts/measure-workflow-analytics.mjs": "9999ee317fc6506a895ee2e66dd8574c96b7b9c89587819ecfc63c0a11384ec5",
+    "scripts/workflow-analytics-consumer.mjs": "422dbdd5cc541537cfa89d9784c6773748e326863458cd93821ef9cc5dffee9e",
+    "scripts/workflow-analytics-full-consumer.mjs": "09cb19b92956c76a552ca19b84fb514d59c67cb2b24ebe83ec8eaa5a4e848023",
+    "scripts/workflow-analytics-snapshot.mjs": "373b24d7c6171ca0a1cb86d32b38458ccd5fd97b4c1a01003081e622aaff1ee3",
+    "scripts/workflow-analytics-theme-consumer.mjs": "5a5bd63a5de0f206afccc14665394f596a204cc51e1c542e6db02c8f6b0e6b47",
+    "styles/theme.css": "86fdc160be1606a4ca94d394d0c8272f05ede1d908d3c6dc01e13ca9d70e06de",
+    "tests/workflow-analytics-advanced-model.spec.ts": "3768c23c6fbb927d7a5dc8bc0f42b828d404e7a4aa1f356e7039fd01b7d4dbc8",
+    "tests/workflow-analytics-model.spec.ts": "3b98f521f8559045697323617f738694934feef5d9a98af0a475e950d78b3564",
+    "tests/workflow-analytics-showcase.spec.ts": "903dc6af0f2695062bb37a5fbd421cce86522be5394095f7b748418caff9652f",
+    "tests/workflow-analytics.spec.ts": "428d8c2657901812f339312419e632a76d2dd3ff5bed3816eaad6859322b3245"
+  },
+  "capturedAt": "2026-10-09T02:48:21.592Z",
+  "browser": "138.0.7204.92",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "linux"
+  },
+  "screens": [
+    {
+      "file": "overview-1440-light-zh-CN.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:46:36.387Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-1440-light-en.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:46:39.412Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-1440-dark-zh-CN.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:46:42.243Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-1440-dark-en.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:46:45.310Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-1024-light-zh-CN.png",
+      "viewport": {
+        "width": 1024,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:46:48.103Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-1024-light-en.png",
+      "viewport": {
+        "width": 1024,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:46:51.098Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-1024-dark-zh-CN.png",
+      "viewport": {
+        "width": 1024,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:46:53.981Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-1024-dark-en.png",
+      "viewport": {
+        "width": 1024,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:46:57.229Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-768-light-zh-CN.png",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:00.130Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-768-light-en.png",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:47:03.413Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-768-dark-zh-CN.png",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:06.302Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-768-dark-en.png",
+      "viewport": {
+        "width": 768,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:47:09.581Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-390-light-zh-CN.png",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:12.245Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-390-light-en.png",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:47:15.473Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-390-dark-zh-CN.png",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:18.305Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "overview-390-dark-en.png",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "theme": "dark",
+      "locale": "en",
+      "capturedAt": "2026-10-09T02:47:21.329Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai"
+    },
+    {
+      "file": "scene-agents.png",
+      "view": "agents",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:24.471Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-resources.png",
+      "view": "resources",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:26.952Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-delivery.png",
+      "view": "delivery",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:29.809Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-flow.png",
+      "view": "flow",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:32.697Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-risk.png",
+      "view": "risk",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:35.030Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-custom.png",
+      "view": "custom",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:37.614Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-builder.png",
+      "view": "builder",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:40.141Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-traceability.png",
+      "view": "traceability",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:42.459Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    },
+    {
+      "file": "scene-charts.png",
+      "view": "charts",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "theme": "light",
+      "locale": "zh-CN",
+      "capturedAt": "2026-10-09T02:47:44.862Z",
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
+      "fixture": "workflow-fixture-90d-v2; alpha; 90d"
+    }
+  ],
+  "performanceRows": [
+    {
+      "widgets": 4,
+      "points": 100,
+      "totalPointsRendered": 100,
+      "chartPaintMs": 228.14590100001078,
+      "filterMs": 166.678820000001,
+      "drilldownMs": 126.61999000000651,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 4,
+      "points": 1000,
+      "totalPointsRendered": 1000,
+      "chartPaintMs": 262.81932699999015,
+      "filterMs": 267.6342779999977,
+      "drilldownMs": 177.96245399999316,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 4,
+      "points": 10000,
+      "totalPointsRendered": 10000,
+      "chartPaintMs": 1514.6567699999869,
+      "filterMs": 1717.2396869999939,
+      "drilldownMs": 745.3268280000048,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 8,
+      "points": 100,
+      "totalPointsRendered": 104,
+      "chartPaintMs": 250.27035700000124,
+      "filterMs": 213.1785089999903,
+      "drilldownMs": 149.23845399999118,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 8,
+      "points": 1000,
+      "totalPointsRendered": 1000,
+      "chartPaintMs": 452.50480300000345,
+      "filterMs": 336.0735249999998,
+      "drilldownMs": 209.06412600001204,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 8,
+      "points": 10000,
+      "totalPointsRendered": 10000,
+      "chartPaintMs": 1387.6264089999895,
+      "filterMs": 1399.9885649999924,
+      "drilldownMs": 892.9843009999895,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 12,
+      "points": 100,
+      "totalPointsRendered": 108,
+      "chartPaintMs": 320.904171999995,
+      "filterMs": 349.6055919999926,
+      "drilldownMs": 227.26984000000812,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 12,
+      "points": 1000,
+      "totalPointsRendered": 1008,
+      "chartPaintMs": 481.33987999999954,
+      "filterMs": 483.41834299999755,
+      "drilldownMs": 247.2778599999874,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    },
+    {
+      "widgets": 12,
+      "points": 10000,
+      "totalPointsRendered": 10008,
+      "chartPaintMs": 1671.1364599999943,
+      "filterMs": 1685.193803000002,
+      "drilldownMs": 925.1145380000089,
+      "drilldownRecords": 1,
+      "theme": "light",
+      "locale": "zh-CN",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f"
+    }
+  ],
+  "method": "Screenshot matrix: 4 widths × 2 themes × 2 locales; additional scenes. Browser timings include Playwright interaction and two RAFs; chart timing is a point-count update after preparing the target widget layout; drilldown opens one synthetic source record; total points distributed across widgets; one sample each. Baseline observations, no before/after or service capacity claims."
+}

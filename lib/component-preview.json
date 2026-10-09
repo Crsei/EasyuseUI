@@ -172,6 +172,57 @@
     "widePreview": true
   },
   {
+    "slug": "analytics-resource-model"
+  },
+  {
+    "slug": "analytics-history-metrics"
+  },
+  {
+    "slug": "analytics-builder-model"
+  },
+  {
+    "slug": "dashboard-edit-session"
+  },
+  {
+    "slug": "analytics-image-export"
+  },
+  {
+    "slug": "heatmap",
+    "widePreview": true
+  },
+  {
+    "slug": "resource-allocation-view",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-execution-timeline",
+    "widePreview": true
+  },
+  {
+    "slug": "workflow-history-charts",
+    "widePreview": true
+  },
+  {
+    "slug": "forecast-chart",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-operations-dashboard",
+    "widePreview": true
+  },
+  {
+    "slug": "work-dependency-view",
+    "widePreview": true
+  },
+  {
+    "slug": "dashboard-layout-editor",
+    "widePreview": true
+  },
+  {
+    "slug": "analytics-builder",
+    "widePreview": true
+  },
+  {
     "slug": "textarea"
   },
   {

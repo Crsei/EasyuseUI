@@ -1,3 +1,4 @@
+import { workflowAnalyticsFull } from "../content/blog/workflow-analytics-full"
 import { workflowAnalytics } from "../content/blog/workflow-analytics"
 import { homepageAndDocs } from "../content/blog/homepage-and-docs"
 import { workItemsSharedViews } from "../content/blog/work-items-shared-views"
@@ -13,6 +14,7 @@ import { onDemandDemos } from "../content/blog/on-demand-demos"
 import type { BlogPost, BlogSummary } from "./blog-model"
 
 const posts: BlogPost[] = [
+  workflowAnalyticsFull,
   workflowAnalytics,
   homepageAndDocs,
   workItemsSharedViews,

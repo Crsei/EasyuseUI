@@ -81,7 +81,7 @@ export function DashboardWidget({
 }: {
   id: string
   title: string
-  width?: 6 | 12
+  width?: 4 | 6 | 8 | 12
   children: ReactNode
   data?: Omit<DataRegionProps, "children">
 }) {

@@ -1,0 +1,12 @@
+{
+  "capturedAt": "2026-10-09T02:53:37.241Z",
+  "origin": "http://127.0.0.1:3010",
+  "scope": "Shared dirty dev workspace fixture smoke only; independent from formal isolated production validation",
+  "checks": [
+    "overview renders two charts",
+    "builder preview renders",
+    "narrow labeled-icon risk navigation",
+    "registry item served"
+  ],
+  "passed": true
+}

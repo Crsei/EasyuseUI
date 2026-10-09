@@ -120,9 +120,13 @@ const files = [
     )),
   "lib/dashboard-model.ts",
   ...(await fs
-    .readdir(path.join(root, "components/examples/workflow-analytics"))
+    .readdir(path.join(root, "components/examples/workflow-analytics"), {
+      withFileTypes: true,
+    })
     .then((names) =>
-      names.map((name) => `components/examples/workflow-analytics/${name}`),
+      names
+        .filter((entry) => entry.isFile())
+        .map((entry) => `components/examples/workflow-analytics/${entry.name}`),
     )),
   "app/examples/workflow-analytics/page.tsx",
   "lib/example-manifest.ts",
@@ -202,7 +206,11 @@ const report = {
   hashes,
 }
 await fs.writeFile(
-  path.join(root, "public/blog/workflow-analytics/measurements.json"),
+  path.join(
+    root,
+    process.env.WORKFLOW_ANALYTICS_MEASURE_OUTPUT ??
+      "public/blog/workflow-analytics/measurements.json",
+  ),
   JSON.stringify(report, null, 2) + "\n",
 )
 await fs.rm(tmp, { recursive: true })

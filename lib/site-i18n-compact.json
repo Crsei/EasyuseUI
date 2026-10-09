@@ -2167,7 +2167,23 @@
     "site.completion.remove",
     "site.completion.attachment",
     "site.completion.pending",
-    "site.completion.messageNavigation"
+    "site.completion.messageNavigation",
+    "site.workflowAnalytics.fullCatalog.0",
+    "site.workflowAnalytics.fullCatalog.1",
+    "site.workflowAnalytics.fullCatalog.2",
+    "site.workflowAnalytics.fullCatalog.3",
+    "site.workflowAnalytics.fullCatalog.4",
+    "site.workflowAnalytics.fullCatalog.5",
+    "site.workflowAnalytics.fullCatalog.6",
+    "site.workflowAnalytics.fullCatalog.7",
+    "site.workflowAnalytics.fullCatalog.8",
+    "site.workflowAnalytics.fullCatalog.9",
+    "site.workflowAnalytics.fullCatalog.10",
+    "site.workflowAnalytics.fullCatalog.11",
+    "site.workflowAnalytics.fullCatalog.12",
+    "site.workflowAnalytics.fullCatalog.13",
+    "site.workflowAnalytics.fullCatalog.14",
+    "site.workflowAnalytics.fullCatalog.15"
   ],
   "values": {
     "zh-CN": [
@@ -4338,7 +4354,23 @@
       "移除附件",
       "附件说明.txt",
       "待确认",
-      "消息定位示例"
+      "消息定位示例",
+      "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+      "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+      "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+      "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+      "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+      "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+      "人员日期单元到显式分配清单与排期回调。",
+      "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+      "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+      "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+      "执行区间、验收与授权用量的只读组合。",
+      "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+      "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+      "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+      "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+      "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
     ],
     "en": [
       "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown.",
@@ -6508,7 +6540,23 @@
       "Remove attachment",
       "Notes.txt",
       "Awaiting confirmation",
-      "Message navigation example"
+      "Message navigation example",
+      "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies.",
+      "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models.",
+      "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority.",
+      "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write.",
+      "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark.",
+      "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states.",
+      "Resource/date cells connect explicit allocations to caller-owned planning actions.",
+      "Actual timestamp intervals and accessible table; execution and acceptance remain separate.",
+      "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions.",
+      "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only.",
+      "Read-only composition of actual intervals, acceptance and authorized usage.",
+      "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles.",
+      "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves.",
+      "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis.",
+      "Local fixtures do not prove real services; callers own sources, permissions, execution, storage and forecast validity.",
+      "Unknown is not zero; ranges are half-open and selection drills down by default."
     ]
   }
 }

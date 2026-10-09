@@ -1,7 +1,7 @@
 # 工作流视图 分析图表与 Dashboard 组件建设计划
 
 日期：2026-10-09
-状态：首版 C0–C2 及对应 C7 已完成；C3–C6 待实施。验收与边界见 [实施记录](./workflow-analytics-implementation-log.md)。
+状态：C0–C7 已实现并完成组件、计算、浏览器及独立安装验收；真实服务接入不在本计划实施范围。验收与边界见 [实施记录](./workflow-analytics-implementation-log.md)。
 配套：[工作流分析与 Dashboard 示例展示计划](./workflow-analytics-showcase-plan.md)。
 
 围绕工作状态、进度、流程效率、资源分配和风险，建立三个职责独立、共享数据与交互契约的设计系统域：工作流视图负责查看和操作对象，统计图表负责分析，Dashboard负责组织决策信息。每个可交互统计结果都应能解释其口径，并定位对应工作项或来源记录。

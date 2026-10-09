@@ -63,10 +63,13 @@ export const componentMessages = {
     "analytics.source": "来源",
     "analytics.target": "目标",
     "analytics.threshold": "规则依据 / 阈值",
-    "analytics.statusDefinition": "有效范围内去重工作项；排除已取消项，状态以快照为准。",
-    "analytics.trendDefinition": "按实际完成事件分桶；同项同桶去重，跨桶可重复，不等于当前完成存量。",
+    "analytics.statusDefinition":
+      "有效范围内去重工作项；排除已取消项，状态以快照为准。",
+    "analytics.trendDefinition":
+      "按实际完成事件分桶；同项同桶去重，跨桶可重复，不等于当前完成存量。",
     "analytics.ageDefinition": "未完成项的快照时间减创建时间；缺失不按零处理。",
-    "analytics.blockerDefinition": "明确阻塞关系；类别可重叠，分组和不代表工作项总数。",
+    "analytics.blockerDefinition":
+      "明确阻塞关系；类别可重叠，分组和不代表工作项总数。",
     "analytics.donutInvalid": "组成图需要单一系列、互斥分组和非负数值",
     "analytics.noDrilldown": "此聚合未提供可重建的来源集合",
     "analytics.all": "全部成员",
@@ -132,25 +135,30 @@ export const componentMessages = {
     "schedule.collapse": "收起时间线",
     "schedule.correction": "原始日期：{start} → {end}；请修正。",
     "schedule.dropRejected": "无法改期；日期、权限或快照已变化。",
-    "workItems.lanesUnavailable": "调用方未提供当前查询的泳道快照，显示原始分组。",
+    "workItems.lanesUnavailable":
+      "调用方未提供当前查询的泳道快照，显示原始分组。",
     "workItems.swimlanes": "泳道",
     "workItems.noSwimlanes": "不使用泳道",
     "workItems.swimlaneLayoutHint": "泳道用于看板；列表与表格保留此偏好。",
-    "workItems.laneHint": "泳道内可移动状态或优先级；跨泳道移动需调用方另行定义命令。",
+    "workItems.laneHint":
+      "泳道内可移动状态或优先级；跨泳道移动需调用方另行定义命令。",
     "workItems.showSubItems": "列表展开子项",
-    "workItems.flatViewHint": "当前布局平铺全部实体；子项展开偏好在列表中恢复。",
+    "workItems.flatViewHint":
+      "当前布局平铺全部实体；子项展开偏好在列表中恢复。",
     "workItems.toggleChildren": "展开或折叠 {name} 的子项",
     "workItems.deferOffscreen": "延迟屏外布局（保留完整 DOM）",
     "workItems.batch": "批量修改",
     "workItems.batchField": "批量字段",
     "workItems.batchPreview": "预览批量修改",
-    "workItems.batchScope": "将修改 {count} 项，跳过 {skipped} 项。包含隐藏选择；逐项确认，不保证事务原子性。",
+    "workItems.batchScope":
+      "将修改 {count} 项，跳过 {skipped} 项。包含隐藏选择；逐项确认，不保证事务原子性。",
     "workItems.batchEligible": "可修改",
     "workItems.batchMissing": "快照未加载，跳过",
     "workItems.batchLocked": "正在提交或结果未知，跳过",
     "workItems.batchDenied": "无字段修改权限，跳过",
     "workItems.batchConfirm": "确认修改 {count} 项",
-    "workItems.batchResults": "已确认 {confirmed} · 拒绝 {rejected} · 提交中 {pending} · 待确认 {unknown}",
+    "workItems.batchResults":
+      "已确认 {confirmed} · 拒绝 {rejected} · 提交中 {pending} · 待确认 {unknown}",
     "workItems.savedViews": "保存的视图",
     "workItems.viewName": "视图名称",
     "workItems.saveView": "另存当前视图",
@@ -159,7 +167,8 @@ export const componentMessages = {
     "workItems.deleteViewNamed": "删除视图 {name}",
     "workItems.noSavedViews": "暂无保存的视图",
     "agentBoardP2.graphLoadReason": "原因尚未确认；可切换视图或重试读取。",
-    "agentBoardP2.graphLoadFailed": "依赖视图加载失败；来源运行和筛选已保留，可重试读取。",
+    "agentBoardP2.graphLoadFailed":
+      "依赖视图加载失败；来源运行和筛选已保留，可重试读取。",
     "agentBoard.dependencies": "依赖关系",
     "agentBoardP2.runReference": "来源运行引用",
     "agentBoardP2.prerequisite": "前置运行",
@@ -167,23 +176,31 @@ export const componentMessages = {
     "agentBoardP2.blocked": "来源确认阻塞",
     "agentBoardP2.satisfied": "来源确认满足",
     "agentBoardP2.unknown": "依赖结果未知",
-    "agentBoardP2.dependencyScope": "已显示 {runs} 次运行 · 当前范围 {edges} 条来源依赖",
-    "agentBoardP2.readOnlyGraph": "只读关系展示；运行完成不自动满足依赖，图中选择不会调度或执行。",
-    "agentBoardP2.missingEndpoints": "{count} 条依赖引用未加载的来源运行；保留 ID，不推断关系。",
-    "agentBoardP2.outsideScope": "{count} 条依赖涉及筛选范围外的已加载运行；在下方列表保留上下文。",
-    "agentBoardP2.graphLimit": "另有 {count} 次运行未进入画布；缩小筛选范围查看。",
-    "agentBoardP2.unsortedDependencies": "存在循环或受其影响的依赖链；保留来源关系，未生成执行顺序。",
+    "agentBoardP2.dependencyScope":
+      "已显示 {runs} 次运行 · 当前范围 {edges} 条来源依赖",
+    "agentBoardP2.readOnlyGraph":
+      "只读关系展示；运行完成不自动满足依赖，图中选择不会调度或执行。",
+    "agentBoardP2.missingEndpoints":
+      "{count} 条依赖引用未加载的来源运行；保留 ID，不推断关系。",
+    "agentBoardP2.outsideScope":
+      "{count} 条依赖涉及筛选范围外的已加载运行；在下方列表保留上下文。",
+    "agentBoardP2.graphLimit":
+      "另有 {count} 次运行未进入画布；缩小筛选范围查看。",
+    "agentBoardP2.unsortedDependencies":
+      "存在循环或受其影响的依赖链；保留来源关系，未生成执行顺序。",
     "agentBoardP2.noDependencies": "来源未提供此范围的依赖",
     "agentBoardP2.dependencyAlternative": "来源依赖列表",
     "agentBoardP2.missingRun": "来源运行未加载",
     "agentBoardP2.history": "用量历史",
-    "agentBoardP2.historyScope": "已加载 {count} 个来源区间观测 · UTC；按运行与币种分开，缺失或不连续区间保留断点。",
+    "agentBoardP2.historyScope":
+      "已加载 {count} 个来源区间观测 · UTC；按运行与币种分开，缺失或不连续区间保留断点。",
     "agentBoardP2.metric": "历史指标",
     "agentBoardP2.tokens": "Tokens",
     "agentBoardP2.cost": "费用",
     "agentBoardP2.durationMs": "耗时 (ms)",
     "agentBoardP2.noHistory": "来源未提供历史观测",
-    "agentBoardP2.chartDescription": "{run} · {count} 个有效区间观测 · {unit}；完整数值见下方表格。",
+    "agentBoardP2.chartDescription":
+      "{run} · {count} 个有效区间观测 · {unit}；完整数值见下方表格。",
     "agentBoardP2.noKnownPoints": "本序列没有可绘制的有效观测；缺失值不是零。",
     "agentBoardP2.seriesCoverage": "有效观测 {known}/{total}；不补齐缺失值。",
     "agentBoardP2.historyTable": "来源区间观测明细",
@@ -191,7 +208,8 @@ export const componentMessages = {
     "agentBoardP2.value": "观测值",
     "agentBoardP2.source": "来源标记",
     "agentBoardP2.virtualList": "虚拟运行列表",
-    "agentBoardP2.virtualHelp": "已加载 {count} 次运行；方向键、Page Up/Down、Home/End 移动焦点，Enter 查看。仅挂载可见行与焦点行，不代表服务分页。",
+    "agentBoardP2.virtualHelp":
+      "已加载 {count} 次运行；方向键、Page Up/Down、Home/End 移动焦点，Enter 查看。仅挂载可见行与焦点行，不代表服务分页。",
     "workItems.items": "工作项",
     "workItems.loaded": "已加载 {count}",
     "workItems.count": "{loaded} / {total}",
@@ -334,7 +352,8 @@ export const componentMessages = {
     "agentBoard.tokens": "Tokens",
     "agentBoard.cost": "费用（按币种）",
     "agentBoard.coverage": "统计覆盖",
-    "agentBoard.coverageDetail": "{covered}/{runs} 次运行有用量；{tokens} 次有可汇总 Tokens。",
+    "agentBoard.coverageDetail":
+      "{covered}/{runs} 次运行有用量；{tokens} 次有可汇总 Tokens。",
     "agentBoard.excluded": "以下记录未合计：包含关系未知或已被父运行覆盖。",
     "agentBoard.estimated": "含估算值",
     "agentBoard.observed": "来源原始观测",
@@ -358,24 +377,29 @@ export const componentMessages = {
     "commonComponents.noCommands": "没有匹配命令",
     "commonComponents.imageType": "请选择允许类型的图片，旧图片已保留。",
     "commonComponents.imageSize": "图片超过大小限制，旧图片已保留。",
-    "commonComponents.imageRead": "无法读取图片，请选择其他文件。旧图片已保留。",
+    "commonComponents.imageRead":
+      "无法读取图片，请选择其他文件。旧图片已保留。",
     "commonComponents.chooseImage": "选择图片",
     "commonComponents.replaceImage": "替换图片",
     "commonComponents.removeImage": "移除图片",
     "commonComponents.readingImage": "正在读取本地图片…",
-    "commonComponents.localPreview": "可拖放图片；此处仅提供本地预览，不代表上传完成。",
+    "commonComponents.localPreview":
+      "可拖放图片；此处仅提供本地预览，不代表上传完成。",
     "commonComponents.filters": "筛选",
     "canvasWorkspace.moreTools": "更多工具",
     "canvasWorkspace.arrangeDAG": "整理当前流程（DAG）",
     "canvasWorkspace.bottomViews": "底部视图",
     "canvasWorkspace.layoutPending": "正在计算布局…可随时取消。",
-    "canvasWorkspace.layoutPreview": "布局预览：尚未写入。仅调整坐标，不保证连线无交叉。",
+    "canvasWorkspace.layoutPreview":
+      "布局预览：尚未写入。仅调整坐标，不保证连线无交叉。",
     "canvasWorkspace.applyLayout": "应用布局",
     "canvasWorkspace.cancelLayout": "取消布局",
     "canvasLayout.cycle": "当前图存在循环，暂不支持自动布局；原图已保留。",
-    "canvasLayout.subflow": "当前作用域含子流程或循环容器，暂不支持自动布局；请进入普通 DAG 流程。",
+    "canvasLayout.subflow":
+      "当前作用域含子流程或循环容器，暂不支持自动布局；请进入普通 DAG 流程。",
     "canvasLayout.invalid": "图结构无效，无法计算布局；原图已保留。",
-    "canvasLayout.groupCapacity": "分组空间不足，无法在原边界内整理；请扩大分组后重试。",
+    "canvasLayout.groupCapacity":
+      "分组空间不足，无法在原边界内整理；请扩大分组后重试。",
     "nodeInspector.advancedConfiguration": "高级配置",
     "workspaceShell.collapseBottomPanel": "收起底部面板",
     "workspaceShell.expandBottomPanel": "展开底部面板",
@@ -393,7 +417,8 @@ export const componentMessages = {
     "canvasWorkspace.graphCounts": "{nodes} 节点 · {edges} 连线",
     "activityTimeline.activityTimeline": "Activity 时间线",
     "activityTimeline.noEventsInThisRange": "当前范围没有事件",
-    "activityTimeline.adjustTheTimeRangeOrFiltersToView": "调整时间或筛选范围后查看运行事件。",
+    "activityTimeline.adjustTheTimeRangeOrFiltersToView":
+      "调整时间或筛选范围后查看运行事件。",
     "common.valueEventValue": "{value0}事件 {value1}",
     "activityTimeline.newEventsJumpToLatest": "条新事件 · 返回最新",
     "agentRow.unnamedAgent": "未命名 Agent",
@@ -427,7 +452,8 @@ export const componentMessages = {
     "canvasConfigEditor.comparisonValue": "比较值",
     "canvasConfigEditor.removeCondition": "移除条件",
     "canvasConfigEditor.addCondition": "添加条件",
-    "canvasConfigEditor.completeTheConditionFieldsNumericComparisonsRequireNumbers": "请补全条件字段，数值比较使用数字。",
+    "canvasConfigEditor.completeTheConditionFieldsNumericComparisonsRequireNumbers":
+      "请补全条件字段，数值比较使用数字。",
     "canvasConfigEditor.objectSchema": "· 对象 Schema",
     "page.property": "属性",
     "canvasConfigEditor.propertyType": "属性类型",
@@ -435,9 +461,12 @@ export const componentMessages = {
     "canvasConfigEditor.required": "必填",
     "canvasConfigEditor.removeProperty": "移除属性",
     "canvasConfigEditor.addProperty": "添加属性",
-    "canvasConfigEditor.thisContentCannotBeEditedInTheSimplified": "当前内容不能用简化构建器编辑，原始 JSON 保留。修正后可恢复构建器。",
-    "canvasConfigEditor.textEditingOnlyExpressionsAndCodeAreNot": "仅编辑文本；不求值、不执行代码。变量绑定由节点字段另行管理。",
-    "canvasConnectionForm.selectTheSourceAndTargetPorts": "请选择来源和目标端口。",
+    "canvasConfigEditor.thisContentCannotBeEditedInTheSimplified":
+      "当前内容不能用简化构建器编辑，原始 JSON 保留。修正后可恢复构建器。",
+    "canvasConfigEditor.textEditingOnlyExpressionsAndCodeAreNot":
+      "仅编辑文本；不求值、不执行代码。变量绑定由节点字段另行管理。",
+    "canvasConnectionForm.selectTheSourceAndTargetPorts":
+      "请选择来源和目标端口。",
     "canvasConnectionForm.sourceOutputPort": "来源输出端口",
     "canvasConnectionForm.selectASource": "请选择来源",
     "canvasConnectionForm.targetInputPort": "目标输入端口",
@@ -447,8 +476,10 @@ export const componentMessages = {
     "canvasConnectionForm.connect": "建立连接",
     "canvasConnectionForm.disconnectEdge": "断开连线",
     "canvasConnectionForm.insertNodeIntoEdge": "在连线中插入节点",
-    "canvasConnectionForm.thePortsOnEitherSideAreIncompatibleThe": "此节点两侧端口不兼容；原连线保留。",
-    "canvasExecutionPanel.previewTruncated200Lines32kib": "[预览已截断：200 行 / 32KiB]",
+    "canvasConnectionForm.thePortsOnEitherSideAreIncompatibleThe":
+      "此节点两侧端口不兼容；原连线保留。",
+    "canvasExecutionPanel.previewTruncated200Lines32kib":
+      "[预览已截断：200 行 / 32KiB]",
     "canvasExecutionPanel.runControls": "运行控制",
     "canvasExecutionPanel.runScope": "运行范围",
     "canvasExecutionPanel.entireWorkflow": "整个流程",
@@ -462,48 +493,70 @@ export const componentMessages = {
     "canvasExecutionPanel.documentR": "· 文档 r",
     "canvasExecutionPanel.resultsFromAnOlderRevision": "（旧版本结果）",
     "canvasExecutionPanel.redactedPreviewCopied": "已复制脱敏预览。",
-    "canvasExecutionPanel.copyFailedSelectThePreviewManually": "复制失败，请手动选择预览。",
+    "canvasExecutionPanel.copyFailedSelectThePreviewManually":
+      "复制失败，请手动选择预览。",
     "canvasExecutionPanel.copyRedactedPreview": "复制脱敏预览",
-    "canvasExecutionPanel.requestInProgressTheSourceConfirmsTheFinal": "请求处理中，最终状态由来源确认。",
-    "canvasExecutionPanel.executionOutcomeUnknownQueryTheSourceBeforeAnother": "执行结果未确认；查询来源后再执行写操作。",
-    "canvasExecutionPanel.disconnectedLastSnapshotPreserved": "连接中断 · 保留最后快照",
-    "canvasExecutionPanel.theExistingRunSnapshotIsPreservedRetryThe": "已有运行快照保留，请安全重读。",
+    "canvasExecutionPanel.requestInProgressTheSourceConfirmsTheFinal":
+      "请求处理中，最终状态由来源确认。",
+    "canvasExecutionPanel.executionOutcomeUnknownQueryTheSourceBeforeAnother":
+      "执行结果未确认；查询来源后再执行写操作。",
+    "canvasExecutionPanel.disconnectedLastSnapshotPreserved":
+      "连接中断 · 保留最后快照",
+    "canvasExecutionPanel.theExistingRunSnapshotIsPreservedRetryThe":
+      "已有运行快照保留，请安全重读。",
     "canvasExecutionPanel.noExecutionRecordsYet": "尚无执行记录",
-    "canvasExecutionPanel.runOrQueryTheExecutionAdapterSuppliedBy": "运行或查询由调用方提供的执行适配器；构图不会自动执行。",
+    "canvasExecutionPanel.runOrQueryTheExecutionAdapterSuppliedBy":
+      "运行或查询由调用方提供的执行适配器；构图不会自动执行。",
     "canvasExecutionPanel.revision": "版本",
     "common.rValueValue": "r{value0}{value1}",
-    "canvasExecutionPanel.selectANodeToInspectItsExecutionInput": "选择节点查看执行输入、输出和 Trace。",
-    "canvasExecutionPanel.thisRunHasNoExecutionRecordForThis": "本次运行未提供该节点的执行记录。",
+    "canvasExecutionPanel.selectANodeToInspectItsExecutionInput":
+      "选择节点查看执行输入、输出和 Trace。",
+    "canvasExecutionPanel.thisRunHasNoExecutionRecordForThis":
+      "本次运行未提供该节点的执行记录。",
     "canvasFrame.collapsedNodesAndEdgesPreserved": "已折叠 · 节点和连线保留",
     "canvasFrame.visualGroup": "视觉分组",
     "canvasNote.workflowNote": "流程说明",
     "canvasProjectWorkspace.projectUnavailable": "项目不可用",
-    "canvasProjectWorkspace.localProjectDraftChangedNotPersistedYet": "本地项目草稿已修改，尚未持久化。",
-    "canvasProjectWorkspace.recursiveNavigationIntoAWorkflowOnTheCurrent": "禁止递归进入当前路径中的流程。",
+    "canvasProjectWorkspace.localProjectDraftChangedNotPersistedYet":
+      "本地项目草稿已修改，尚未持久化。",
+    "canvasProjectWorkspace.recursiveNavigationIntoAWorkflowOnTheCurrent":
+      "禁止递归进入当前路径中的流程。",
     "canvasProjectWorkspace.subflowPath": "子流程路径",
     "canvasProjectWorkspace.openSubflow": "进入子流程",
     "canvasProjectWorkspace.projectJson": "项目 JSON",
-    "canvasProjectWorkspace.projectHasChangesThatHaveNotBeenExported": "项目有未导出修改",
-    "canvasProjectWorkspace.initialProjectOrExportedRevision": "初始项目或已导出版本",
+    "canvasProjectWorkspace.projectHasChangesThatHaveNotBeenExported":
+      "项目有未导出修改",
+    "canvasProjectWorkspace.initialProjectOrExportedRevision":
+      "初始项目或已导出版本",
     "canvasProjectWorkspace.workflowsInMemoryDraft": "个流程 · 内存草稿",
     "canvasProjectWorkspace.boundary": "边界：",
     "canvasProjectWorkspace.noInputs": "无输入",
     "canvasProjectWorkspace.noOutputs": "无输出",
-    "canvasProjectWorkspace.variablesCrossWorkflowBoundariesOnlyThroughExplicitPorts": "。跨流程变量只能通过边界传递。",
-    "canvasProjectWorkspace.includesAllSubflowsAndBoundariesImportValidatesRecursion": "包含全部子流程与边界。导入先校验递归、端点、作用域和大小，失败保留项目。",
+    "canvasProjectWorkspace.variablesCrossWorkflowBoundariesOnlyThroughExplicitPorts":
+      "。跨流程变量只能通过边界传递。",
+    "canvasProjectWorkspace.includesAllSubflowsAndBoundariesImportValidatesRecursion":
+      "包含全部子流程与边界。导入先校验递归、端点、作用域和大小，失败保留项目。",
     "canvasProjectWorkspace.projectJsonText": "项目 JSON 文本",
-    "canvasProjectWorkspace.redactedProjectDownloadRequestedThisDoesNotConfirm": "已发起脱敏项目下载，不代表服务保存成功。",
+    "canvasProjectWorkspace.redactedProjectDownloadRequestedThisDoesNotConfirm":
+      "已发起脱敏项目下载，不代表服务保存成功。",
     "canvasProjectWorkspace.downloadRedactedProject": "下载脱敏项目",
-    "canvasProjectWorkspace.projectLoadedIntoTheLocalDraft": "项目已载入本地草稿。",
+    "canvasProjectWorkspace.projectLoadedIntoTheLocalDraft":
+      "项目已载入本地草稿。",
     "canvasProjectWorkspace.projectImportFailed": "项目导入失败。",
     "canvasProjectWorkspace.importProject": "导入项目",
-    "canvasServicePanel.submittingRequestTheSourceConfirmsTheResult": "请求提交中；结果由来源确认。",
-    "canvasServicePanel.requestSubmittedWaitingForSourceConfirmation": "请求已提交，等待来源确认。",
-    "canvasServicePanel.outcomeUnknownQueryTheReceiptBeforeSubmittingAgain": "结果未确认；查询回执前禁止重复提交。",
+    "canvasServicePanel.submittingRequestTheSourceConfirmsTheResult":
+      "请求提交中；结果由来源确认。",
+    "canvasServicePanel.requestSubmittedWaitingForSourceConfirmation":
+      "请求已提交，等待来源确认。",
+    "canvasServicePanel.outcomeUnknownQueryTheReceiptBeforeSubmittingAgain":
+      "结果未确认；查询回执前禁止重复提交。",
     "canvasServicePanel.serviceIntegration": "服务接入",
-    "canvasServicePanel.localUndoIsSeparateFromServerVersionHistory": "。本地撤销与服务端版本历史分开。",
-    "canvasServicePanel.theSourceHasNotProvidedServiceContent": "来源尚未提供服务内容",
-    "canvasServicePanel.versionsPermissionsDiscussionsEnvironmentsAndReceiptsAppearWhen": "调用方提供版本、权限、讨论、环境和回执后显示对应内容。",
+    "canvasServicePanel.localUndoIsSeparateFromServerVersionHistory":
+      "。本地撤销与服务端版本历史分开。",
+    "canvasServicePanel.theSourceHasNotProvidedServiceContent":
+      "来源尚未提供服务内容",
+    "canvasServicePanel.versionsPermissionsDiscussionsEnvironmentsAndReceiptsAppearWhen":
+      "调用方提供版本、权限、讨论、环境和回执后显示对应内容。",
     "canvasServicePanel.versionHistory": "版本历史 ·",
     "canvasServicePanel.restoreVersion": "恢复版本",
     "canvasServicePanel.discussions": "讨论 ·",
@@ -511,25 +564,32 @@ export const componentMessages = {
     "canvasServicePanel.resolved": "· 已解决",
     "canvasServicePanel.discussionDraft": "讨论草稿",
     "canvasServicePanel.submitDiscussion": "提交讨论",
-    "canvasServicePanel.submittingDoesNotInsertAMessageTheDraft": "提交不直接插入消息；草稿保留，等待来源更新 Thread。",
+    "canvasServicePanel.submittingDoesNotInsertAMessageTheDraft":
+      "提交不直接插入消息；草稿保留，等待来源更新 Thread。",
     "canvasServicePanel.collaborationPresence": "协作 Presence",
     "common.pointerValueValue": " · 指针 {value0}, {value1}",
-    "canvasServicePanel.transientStateUsesSourceAsofAndExpiresatValues": "临时状态，以来源 asOf 和 expiresAt 判定；不写入图文档。",
+    "canvasServicePanel.transientStateUsesSourceAsofAndExpiresatValues":
+      "临时状态，以来源 asOf 和 expiresAt 判定；不写入图文档。",
     "canvasServicePanel.environments": "环境",
     "canvasServicePanel.publishEnvironment": "发布环境",
     "canvasServicePanel.selectAnEnvironment": "选择环境",
     "canvasServicePanel.publishSavedRevision": "发布已保存版本",
     "canvasServicePanel.requestSharingLink": "请求分享链接",
     "canvasServicePanel.publicationConfirmedBySource": "来源确认发布：",
-    "canvasServicePanel.thisPublicationReceiptBelongsToAnotherDocumentOr": "发布回执属于其他文档或版本，不能证明当前版本已发布。",
-    "canvasServicePanel.openSharingLinkSuppliedBySource": "打开来源提供的分享链接",
-    "canvasServicePanel.receiptQueryFailedTheOriginalRequestAndUnknown": "查询操作回执失败，原请求和未知结果保留。",
+    "canvasServicePanel.thisPublicationReceiptBelongsToAnotherDocumentOr":
+      "发布回执属于其他文档或版本，不能证明当前版本已发布。",
+    "canvasServicePanel.openSharingLinkSuppliedBySource":
+      "打开来源提供的分享链接",
+    "canvasServicePanel.receiptQueryFailedTheOriginalRequestAndUnknown":
+      "查询操作回执失败，原请求和未知结果保留。",
     "canvasServicePanel.queryOperationReceipt": "查询操作回执",
     "canvasServicePanel.restoreServerVersion": "恢复服务端版本",
     "canvasServicePanel.useVersion": "将版本",
-    "canvasServicePanel.asANewServerRevisionTheCallerPreserves": "作为新服务版本。当前本地草稿由调用方保留或合并；这不是本地撤销。",
+    "canvasServicePanel.asANewServerRevisionTheCallerPreserves":
+      "作为新服务版本。当前本地草稿由调用方保留或合并；这不是本地撤销。",
     "canvasServicePanel.confirmVersionRestore": "确认恢复版本",
-    "canvasWorkspace.copiedToTheCanvasInMemoryClipboard": "已复制到画布内存剪贴板。",
+    "canvasWorkspace.copiedToTheCanvasInMemoryClipboard":
+      "已复制到画布内存剪贴板。",
     "canvasWorkspace.selectNodesToCopyFirst": "请先选择要复制的节点。",
     "canvasWorkspace.workflowGroup": "流程分组",
     "canvasWorkspace.findNodesInGraph": "查找图中节点",
@@ -544,7 +604,8 @@ export const componentMessages = {
     "canvasWorkspace.alignLeft": "左对齐",
     "canvasWorkspace.alignTop": "顶对齐",
     "canvasWorkspace.distributeHorizontally": "水平分布",
-    "canvasWorkspace.describeTheIntentOfThisWorkflowSection": "说明此处流程的意图。",
+    "canvasWorkspace.describeTheIntentOfThisWorkflowSection":
+      "说明此处流程的意图。",
     "canvasWorkspace.addNote": "添加便笺",
     "canvasWorkspace.readOnly": "只读",
     "canvasWorkspace.localDraft": "本地草稿",
@@ -574,7 +635,8 @@ export const componentMessages = {
     "canvasWorkspace.source": "来源",
     "canvasWorkspace.target": "目标",
     "canvasWorkspace.members": "成员数",
-    "canvasWorkspace.thisGroupIsVisualOnlyMovingItMoves": "此分组仅组织视觉。移动分组会整体移动成员。折叠隐藏成员及其连线，不删除图文档。",
+    "canvasWorkspace.thisGroupIsVisualOnlyMovingItMoves":
+      "此分组仅组织视觉。移动分组会整体移动成员。折叠隐藏成员及其连线，不删除图文档。",
     "canvasWorkspace.expandGroup": "展开分组",
     "canvasWorkspace.collapseGroup": "折叠分组",
     "canvasWorkspace.relatedEdges": "关联连线：",
@@ -585,26 +647,35 @@ export const componentMessages = {
     "canvasWorkspace.documentValidation2": "文档校验 ·",
     "canvasWorkspace.issues": "项",
     "canvasWorkspace.currentRevisionConfirmedByService": "服务已确认当前版本",
-    "canvasWorkspace.localDraftAwaitingServiceConfirmation": "本地草稿等待服务确认",
+    "canvasWorkspace.localDraftAwaitingServiceConfirmation":
+      "本地草稿等待服务确认",
     "canvasWorkspace.changesNotExported2": "有未导出修改",
     "canvasWorkspace.initialOrExportedRevision": "当前初始版本或已导出版本",
-    "canvasWorkspace.inMemoryDocumentLostOnReloadOrNavigation": "· 内存文档，刷新或离开后丢失",
-    "canvasWorkspace.addNodesFromThePaletteOrConnectThem": "可从节点目录添加，也可通过连接端口表单构图。",
+    "canvasWorkspace.inMemoryDocumentLostOnReloadOrNavigation":
+      "· 内存文档，刷新或离开后丢失",
+    "canvasWorkspace.addNodesFromThePaletteOrConnectThem":
+      "可从节点目录添加，也可通过连接端口表单构图。",
     "canvasWorkspace.error": "错误",
     "canvasWorkspace.notice": "提示",
-    "canvasWorkspace.noStructuralOrConfigurationIssuesFoundThisDoes": "未发现结构或配置问题。这不表示流程已执行。",
+    "canvasWorkspace.noStructuralOrConfigurationIssuesFoundThisDoes":
+      "未发现结构或配置问题。这不表示流程已执行。",
     "canvasWorkspace.startWithOneNode": "从一个节点开始构图",
-    "canvasWorkspace.addInputAgentToolAndOutputNodesAnd": "添加 Input、Agent、Tool 和 Output，并连接它们的端口。",
+    "canvasWorkspace.addInputAgentToolAndOutputNodesAnd":
+      "添加 Input、Agent、Tool 和 Output，并连接它们的端口。",
     "canvasWorkspace.addTheFirstNode": "添加第一个节点",
-    "canvasWorkspace.theGraphDocumentIsIncompleteAlreadyLoadedContent": "图文档尚未完整，保留当前已读取的内容。",
+    "canvasWorkspace.theGraphDocumentIsIncompleteAlreadyLoadedContent":
+      "图文档尚未完整，保留当前已读取的内容。",
     "canvasWorkspace.canvasActions": "画布操作",
     "canvasWorkspace.graphDocumentJson": "图文档 JSON",
-    "canvasWorkspace.exportsIncludeOnlyRedactedGraphConfigurationWithoutExecution": "导出仅含脱敏后的图配置，不含运行快照。导入会替换本地草稿，可撤销。",
-    "canvasWorkspace.allEditsAffectOnlyTheCurrentInMemory": "所有修改仅作用于当前内存图文档。",
+    "canvasWorkspace.exportsIncludeOnlyRedactedGraphConfigurationWithoutExecution":
+      "导出仅含脱敏后的图配置，不含运行快照。导入会替换本地草稿，可撤销。",
+    "canvasWorkspace.allEditsAffectOnlyTheCurrentInMemory":
+      "所有修改仅作用于当前内存图文档。",
     "canvasWorkspace.searchCommandsOrNodes": "搜索命令或节点",
     "canvasWorkspace.addLocateAlignUndo": "添加、定位、对齐、撤销",
     "common.addValue": "添加 {value0}",
-    "canvasWorkspace.showingTheFirst50MatchesTypeAName": "显示前 50 项；输入名称缩小范围。Tab 选择命令，Enter 执行，Escape 关闭。",
+    "canvasWorkspace.showingTheFirst50MatchesTypeAName":
+      "显示前 50 项；输入名称缩小范围。Tab 选择命令，Enter 执行，Escape 关闭。",
     "canvasWorkspace.shiftClickMarqueeSelect": "Shift + 点击 / 框选",
     "canvasWorkspace.selectMultipleNodes": "多选节点",
     "canvasWorkspace.arrowKeysShiftArrowKeys": "方向键 / Shift + 方向键",
@@ -618,14 +689,19 @@ export const componentMessages = {
     "canvasWorkspace.graphDocumentContent": "图文档内容",
     "canvasWorkspace.readJsonFile": "读取 JSON 文件",
     "canvasWorkspace.fileExceedsThe512kibLimit": "文件超过512KiB限制。",
-    "canvasWorkspace.fileReadFailedTheOriginalGraphIsPreserved": "读取文件失败，原图已保留。",
-    "canvasWorkspace.redactedGraphDocumentCopiedTheLocalDraftRemains": "已复制脱敏图文档；本地草稿仍仅存于内存。",
-    "canvasWorkspace.copyFailedTheDraftIsPreservedDownloadThe": "复制失败，草稿已保留。可以下载 JSON 文件。",
+    "canvasWorkspace.fileReadFailedTheOriginalGraphIsPreserved":
+      "读取文件失败，原图已保留。",
+    "canvasWorkspace.redactedGraphDocumentCopiedTheLocalDraftRemains":
+      "已复制脱敏图文档；本地草稿仍仅存于内存。",
+    "canvasWorkspace.copyFailedTheDraftIsPreservedDownloadThe":
+      "复制失败，草稿已保留。可以下载 JSON 文件。",
     "canvasWorkspace.copyRedactedJson": "复制脱敏 JSON",
-    "canvasWorkspace.graphDownloadRequestedKeepTheDownloadedFile": "已发起图文档下载，请保留下载文件。",
+    "canvasWorkspace.graphDownloadRequestedKeepTheDownloadedFile":
+      "已发起图文档下载，请保留下载文件。",
     "canvasWorkspace.exportFailedTheDraftIsPreserved": "导出失败，草稿已保留。",
     "canvasWorkspace.downloadJson": "下载 JSON",
-    "canvasWorkspace.importFailedTheOriginalGraphIsPreserved": "导入失败，原图已保留。",
+    "canvasWorkspace.importFailedTheOriginalGraphIsPreserved":
+      "导入失败，原图已保留。",
     "canvasWorkspace.validateAndReplaceDraft": "校验并替换草稿",
     "canvasWorkspace.theOriginalDocumentWasNotOverwritten": "原文档未被覆盖。",
     "canvasWorkspace.noteBody": "便笺正文",
@@ -639,38 +715,47 @@ export const componentMessages = {
     "chatMessage.you": "你",
     "chatMessage.copyMessage": "复制消息",
     "chatMessage.messageCopied": "已复制消息。",
-    "chatMessage.clipboardUnavailableCopyManually": "无法访问剪贴板，请手动复制。",
+    "chatMessage.clipboardUnavailableCopyManually":
+      "无法访问剪贴板，请手动复制。",
     "chatMessage.stopReceiving": "停止接收",
     "chatMessage.retryMessage": "重试消息",
     "chatMessage.continueReceiving": "继续接收",
     "chatMessage.conversationAndWorkspace": "对话与工作区",
     "chatMessage.conversationHistory": "对话记录",
     "chatMessage.startAConversation": "开始一段对话",
-    "chatMessage.enterATaskBelowSendingItPreservesThe": "在下方输入任务，发送后会保留完整工作流记录。",
+    "chatMessage.enterATaskBelowSendingItPreservesThe":
+      "在下方输入任务，发送后会保留完整工作流记录。",
     "chatMessage.jumpToLatest": "返回最新",
-    "chatMessage.messageDeliveryIsUnconfirmedYourDraftIsPreserved": "消息未确认发送成功，草稿已保留。请检查连接后重试。",
+    "chatMessage.messageDeliveryIsUnconfirmedYourDraftIsPreserved":
+      "消息未确认发送成功，草稿已保留。请检查连接后重试。",
     "chatMessage.messageInput": "消息输入",
     "chatMessage.enterATask": "输入任务…",
     "chatMessage.enterToSendShiftEnterForANew": "Enter 发送 · Shift+Enter 换行",
     "chatMessage.stop": "停止",
     "chatMessage.send": "发送",
     "inspector.noObjectSelected": "尚未选择对象",
-    "inspector.selectASessionAgentOrActivityToInspect": "选择 Session、Agent 或 Activity 以查看详情。",
+    "inspector.selectASessionAgentOrActivityToInspect":
+      "选择 Session、Agent 或 Activity 以查看详情。",
     "inspector.currentObject": "当前对象 ·",
     "inspector.loadingObjectDetails": "正在加载对象详情",
-    "inspector.objectDetailsAreIncompleteMissingFieldsAppearAs": "对象详情尚未完整，缺失字段显示「—」。",
+    "inspector.objectDetailsAreIncompleteMissingFieldsAppearAs":
+      "对象详情尚未完整，缺失字段显示「—」。",
     "common.copyValue": "复制{value0}",
     "common.valueCopied": "已复制{value0}。",
     "nodeInspector.unknownNode": "未知节点",
     "nodeInspector.nodeId": "节点 ID",
     "nodeInspector.nodeType": "节点类型",
     "nodeInspector.position": "位置",
-    "nodeInspector.selectANodeToEditItsConfigurationSelect": "选择一个节点来编辑配置；选择连线可重连或断开。",
-    "nodeInspector.theNodeDefinitionIsMissingOriginalConfigurationAnd": "缺少对应节点定义，原始配置和端口引用已保留。可导出文档；此节点不能配置。",
+    "nodeInspector.selectANodeToEditItsConfigurationSelect":
+      "选择一个节点来编辑配置；选择连线可重连或断开。",
+    "nodeInspector.theNodeDefinitionIsMissingOriginalConfigurationAnd":
+      "缺少对应节点定义，原始配置和端口引用已保留。可导出文档；此节点不能配置。",
     "common.valueIsNotValidJson": "{value0}不是有效 JSON。",
     "nodeInspector.nodeNameCannotBeEmpty": "节点名称不能为空。",
-    "common.theValueReferenceIsUnavailableSelectItAgain": "{value0}引用不可用，请重新选择。",
-    "nodeInspector.configurationCouldNotBeWrittenToTheDocument": "配置无法写入文档。",
+    "common.theValueReferenceIsUnavailableSelectItAgain":
+      "{value0}引用不可用，请重新选择。",
+    "nodeInspector.configurationCouldNotBeWrittenToTheDocument":
+      "配置无法写入文档。",
     "nodeInspector.nodeConfiguration": "节点配置",
     "nodeInspector.nodeName": "节点名称",
     "nodeInspector.select": "选择",
@@ -682,9 +767,11 @@ export const componentMessages = {
     "nodeInspector.removeBinding": "移除绑定",
     "nodeInspector.applyConfiguration": "应用配置",
     "nodeInspector.discardChanges": "放弃修改",
-    "nodeInspector.fieldEditsStayInTheCurrentObjectDraft": "字段修改在应用前仅保留于当前对象草稿。无效输入不会覆盖图文档。",
+    "nodeInspector.fieldEditsStayInTheCurrentObjectDraft":
+      "字段修改在应用前仅保留于当前对象草稿。无效输入不会覆盖图文档。",
     "nodeInspector.selectUpstreamVariable": "选择上游变量",
-    "nodeInspector.onlyCompatibleOutputsReachableUpstreamAreShownReferences": "仅展示当前节点可达上游的兼容输出。引用关联稳定 ID。",
+    "nodeInspector.onlyCompatibleOutputsReachableUpstreamAreShownReferences":
+      "仅展示当前节点可达上游的兼容输出。引用关联稳定 ID。",
     "nodePalette.nodePalette": "节点目录",
     "nodePalette.searchNodeTypes": "搜索节点类型",
     "nodePalette.nameOrType": "名称或类型",
@@ -693,38 +780,53 @@ export const componentMessages = {
     "nodePalette.recentlyUsedNodes": "最近使用节点",
     "nodePalette.recentlyUsed": "最近使用",
     "nodePalette.recent": "最近：",
-    "nodePalette.noMatchingNodeTypesTryAnotherNameOr": "没有匹配的节点类型。尝试其他名称或分类。",
-    "nodePalette.theNodePaletteRemainsBrowsableOnARead": "只读画布仍可浏览节点目录。",
-    "scrollPlayground.scrollTriggeredDemoScrollDownToRevealCards": "Scroll-triggered 演示，向下滚动查看淡入卡片",
+    "nodePalette.noMatchingNodeTypesTryAnotherNameOr":
+      "没有匹配的节点类型。尝试其他名称或分类。",
+    "nodePalette.theNodePaletteRemainsBrowsableOnARead":
+      "只读画布仍可浏览节点目录。",
+    "scrollPlayground.scrollTriggeredDemoScrollDownToRevealCards":
+      "Scroll-triggered 演示，向下滚动查看淡入卡片",
     "scrollPlayground.everyEntranceJustInTime": "每一次出现，恰到好处。",
     "scrollPlayground.scrollDownToDiscoverThreeCards": "向下滚动，遇见三张卡片",
     "scrollPlayground.aLittleInspiration": "一点灵感",
     "scrollPlayground.startWithASmallIdea": "从一个小小的想法开始。",
     "scrollPlayground.aLittleSurprise": "一点惊喜",
-    "scrollPlayground.onceInViewTheAnimationPlaysToCompletion": "进入视野，就把动画播完。",
+    "scrollPlayground.onceInViewTheAnimationPlaysToCompletion":
+      "进入视野，就把动画播完。",
     "scrollPlayground.justEnough": "刚刚好",
-    "scrollPlayground.scrollBackTheCardsAreStillHere": "再滚回来，卡片依然在这里。",
-    "scrollPlayground.allRevealedScrollingUpDoesNotReplay": "已经全部出现 · 向上滚动不会重播",
-    "scrollPlayground.scrollLinkedDemoReadingProgressFollowsArticleScrolling": "Scroll-linked 演示，滚动文章更新阅读进度",
+    "scrollPlayground.scrollBackTheCardsAreStillHere":
+      "再滚回来，卡片依然在这里。",
+    "scrollPlayground.allRevealedScrollingUpDoesNotReplay":
+      "已经全部出现 · 向上滚动不会重播",
+    "scrollPlayground.scrollLinkedDemoReadingProgressFollowsArticleScrolling":
+      "Scroll-linked 演示，滚动文章更新阅读进度",
     "scrollPlayground.read": "已读",
     "scrollPlayground.demoArticleReadingProgress": "演示文章阅读进度",
     "scrollPlayground.vol02OnSlowingDown": "VOL. 02 / 关于慢下来",
     "scrollPlayground.betweenScrolls": "滚动之间，",
     "scrollPlayground.leaveRoomToBreathe": "留一点呼吸。",
-    "scrollPlayground.readOnTheFineLineAboveFollowsYour": "向下阅读，顶部的细线会跟上你的步伐。",
+    "scrollPlayground.readOnTheFineLineAboveFollowsYour":
+      "向下阅读，顶部的细线会跟上你的步伐。",
     "scrollPlayground.01SetYourOwnPace": "01 / 由你掌握节奏",
-    "scrollPlayground.aGoodReadingExperienceLetsContentUnfoldNaturally": "好的阅读体验，会让内容自然展开。你滚过多少，进度就走过多少；停下来时，细线也停在原处。",
+    "scrollPlayground.aGoodReadingExperienceLetsContentUnfoldNaturally":
+      "好的阅读体验，会让内容自然展开。你滚过多少，进度就走过多少；停下来时，细线也停在原处。",
     "scrollPlayground.02LookBackAnytime": "02 / 随时可以回看",
-    "scrollPlayground.tryScrollingUpProgressRetracesItsPathWithout": "试着向上滚动。进度会沿着原路退回，不需要等待一段动画结束。这里的变化始终由滚动位置决定。",
+    "scrollPlayground.tryScrollingUpProgressRetracesItsPathWithout":
+      "试着向上滚动。进度会沿着原路退回，不需要等待一段动画结束。这里的变化始终由滚动位置决定。",
     "scrollPlayground.03ReachTheEnd": "03 / 抵达这一页的结尾",
-    "scrollPlayground.whenTheLineIsFullThisShortArticle": "细线填满时，这篇短文也读完了。一个简单的比例，就能给长内容一个清楚的位置感。",
-    "scrollPlayground.parallaxDemoCompareBackgroundAndForegroundScrollingSpeeds": "Parallax 演示，滚动比较背景与前景速度",
+    "scrollPlayground.whenTheLineIsFullThisShortArticle":
+      "细线填满时，这篇短文也读完了。一个简单的比例，就能给长内容一个清楚的位置感。",
+    "scrollPlayground.parallaxDemoCompareBackgroundAndForegroundScrollingSpeeds":
+      "Parallax 演示，滚动比较背景与前景速度",
     "scrollPlayground.distantMountains": "山很远，",
     "scrollPlayground.aMomentCloseBy": "此刻很近。",
-    "scrollPlayground.scrollDownToSeeTheDistantMountains": "往下走，看看远处的山",
+    "scrollPlayground.scrollDownToSeeTheDistantMountains":
+      "往下走，看看远处的山",
     "scrollPlayground.nearThingsPassDistantThingsDrift": "近处掠过，远处慢行。",
-    "scrollPlayground.textScrollsAtNormalSpeedWhileTheBackground": "文字以正常速度滚动，背景只走过 35% 的距离，层次就在这段距离里出现。",
-    "scrollPlayground.reducedMotionBackgroundScrollsNormallyWithContent": "减少动态效果：背景随内容正常滚动",
+    "scrollPlayground.textScrollsAtNormalSpeedWhileTheBackground":
+      "文字以正常速度滚动，背景只走过 35% 的距离，层次就在这段距离里出现。",
+    "scrollPlayground.reducedMotionBackgroundScrollsNormallyWithContent":
+      "减少动态效果：背景随内容正常滚动",
     "scrollPlayground.background035Foreground1": "背景 0.35× / 前景 1×",
     "scrollPlayground.anRan": "安然",
     "scrollPlayground.productDesign": "产品设计",
@@ -749,7 +851,8 @@ export const componentMessages = {
     "scrollPlayground.userResearch": "用户研究",
     "scrollPlayground.cuiNing": "崔宁",
     "scrollPlayground.contentDesign": "内容设计",
-    "scrollPlayground.stickyDemoAlphabetHeadersStickWhileYouScroll": "Sticky 演示，滚动通讯录查看字母标题吸顶",
+    "scrollPlayground.stickyDemoAlphabetHeadersStickWhileYouScroll":
+      "Sticky 演示，滚动通讯录查看字母标题吸顶",
     "scrollPlayground.makeSomethingGoodTogether": "一起做点好东西。",
     "scrollPlayground.12TeammatesGroupedByName": "12 位伙伴 · 按姓名分组",
     "scrollPlayground.4Teammates": "4 位伙伴",
@@ -757,10 +860,13 @@ export const componentMessages = {
     "scrollPlayground.pause": "停一停。",
     "scrollPlayground.giveEveryScreenItsOwnTime": "让每一屏，都有自己的时间。",
     "scrollPlayground.breathe": "深呼吸。",
-    "scrollPlayground.releaseTheWheelTheViewAlignsAutomatically": "松开滚轮，画面会自动对齐。",
+    "scrollPlayground.releaseTheWheelTheViewAlignsAutomatically":
+      "松开滚轮，画面会自动对齐。",
     "scrollPlayground.moveOn": "再出发。",
-    "scrollPlayground.theNextStoryStartsWithAFullScreen": "下一段故事，从完整的一屏开始。",
-    "scrollPlayground.scrollSnapDemoScrollingAlignsToAFull": "Scroll Snap 演示，滚动后自动对齐一屏",
+    "scrollPlayground.theNextStoryStartsWithAFullScreen":
+      "下一段故事，从完整的一屏开始。",
+    "scrollPlayground.scrollSnapDemoScrollingAlignsToAFull":
+      "Scroll Snap 演示，滚动后自动对齐一屏",
     "common.screenValueValue": "第 {value0} 屏：{value1}",
     "scrollPlayground.previousScreen": "上一屏",
     "common.goToScreenValue": "跳到第 {value0} 屏",
@@ -773,27 +879,38 @@ export const componentMessages = {
     "scrollPlayground.giveIdeasAShape": "让想法有形状",
     "scrollPlayground.begin": "出发",
     "scrollPlayground.nextStopMorePossibilities": "下一站，更多可能",
-    "scrollPlayground.horizontalScrollDemoScrollRightToViewCards": "Horizontal Scroll 演示，向右滚动查看卡片",
-    "scrollPlayground.horizontalScrollDemoScrollDownToMoveCards": "Horizontal Scroll 演示，向下滚动让卡片横向移动",
+    "scrollPlayground.horizontalScrollDemoScrollRightToViewCards":
+      "Horizontal Scroll 演示，向右滚动查看卡片",
+    "scrollPlayground.horizontalScrollDemoScrollDownToMoveCards":
+      "Horizontal Scroll 演示，向下滚动让卡片横向移动",
     "scrollPlayground.swipeRight": "向右滑动 →",
     "scrollPlayground.scrollDown": "向下滚动 ↓",
     "scrollPlayground.enterThenPlay": "进入，就播放",
-    "scrollPlayground.cardsFadeInWhenTheyEnterTheViewport": "卡片滚进视野后，自动完成淡入。停下滚动，动画也会继续。",
-    "scrollPlayground.intersectionobserverTriggerOnce": "IntersectionObserver · 触发一次",
+    "scrollPlayground.cardsFadeInWhenTheyEnterTheViewport":
+      "卡片滚进视野后，自动完成淡入。停下滚动，动画也会继续。",
+    "scrollPlayground.intersectionobserverTriggerOnce":
+      "IntersectionObserver · 触发一次",
     "scrollPlayground.movementFollowsScrolling": "滚多少，动多少",
-    "scrollPlayground.readingProgressFollowsScrollPositionIncludingWhenYou": "阅读进度与滚动位置同步。向上回看，进度也跟着退回。",
+    "scrollPlayground.readingProgressFollowsScrollPositionIncludingWhenYou":
+      "阅读进度与滚动位置同步。向上回看，进度也跟着退回。",
     "scrollPlayground.scrolltopScrollableDistance": "scrollTop / 可滚动距离",
     "scrollPlayground.letTheDistanceDrift": "远景，慢一点",
-    "scrollPlayground.foregroundTextScrollsNormallyWhileTheBackgroundMoves": "前景文字正常滚动，背景缓慢移动，让平面有了纵深。",
+    "scrollPlayground.foregroundTextScrollsNormallyWhileTheBackgroundMoves":
+      "前景文字正常滚动，背景缓慢移动，让平面有了纵深。",
     "scrollPlayground.differentLayersDifferentSpeeds": "不同图层 · 不同速度",
     "scrollPlayground.reachTheTopAndStay": "到顶，就留下",
-    "scrollPlayground.alphabetHeadersStickToTheTopUntilThe": "字母标题滚到顶部就钉住，直到下一组把它接替。",
-    "scrollPlayground.positionStickyGroupHeaders": "position: sticky · 分组吸顶",
+    "scrollPlayground.alphabetHeadersStickToTheTopUntilThe":
+      "字母标题滚到顶部就钉住，直到下一组把它接替。",
+    "scrollPlayground.positionStickyGroupHeaders":
+      "position: sticky · 分组吸顶",
     "scrollPlayground.everyScreenInPlace": "每一屏，都到位",
-    "scrollPlayground.afterScrollingStopsTheViewSnapsToA": "滚动松手后自动吸附到完整的一屏，也可以用箭头切换。",
+    "scrollPlayground.afterScrollingStopsTheViewSnapsToA":
+      "滚动松手后自动吸附到完整的一屏，也可以用箭头切换。",
     "scrollPlayground.scrollDownMoveSideways": "向下滚，横着走",
-    "scrollPlayground.keepScrollingDownAndCardsMoveHorizontallyScroll": "继续向下滚动，卡片沿横向展开。滚回去，它们就沿原路返回。",
-    "scrollPlayground.stickyTranslatexNativeVerticalScrolling": "Sticky + translateX · 原生纵向滚动",
+    "scrollPlayground.keepScrollingDownAndCardsMoveHorizontallyScroll":
+      "继续向下滚动，卡片沿横向展开。滚回去，它们就沿原路返回。",
+    "scrollPlayground.stickyTranslatexNativeVerticalScrolling":
+      "Sticky + translateX · 原生纵向滚动",
     "common.resetValueDemo": "重置 {value0} 演示",
     "scrollPlayground.tryAgain": "重新体验",
     "sessionRow.unnamedSession": "未命名 Session",
@@ -802,7 +919,8 @@ export const componentMessages = {
     "styleWorkbench.pxControls": "px 控件",
     "styleWorkbench.designSystemReview": "设计系统检查",
     "styleWorkbench.sample": "样例",
-    "styleWorkbench.compareBordersDensityAndReadabilityUsingIdenticalContent": "用相同内容比较边界、密度和阅读感受。修改参数，观察视觉差距。",
+    "styleWorkbench.compareBordersDensityAndReadabilityUsingIdenticalContent":
+      "用相同内容比较边界、密度和阅读感受。修改参数，观察视觉差距。",
     "styleWorkbench.foundations": "基础样式",
     "styleWorkbench.12Items": "12 项",
     "styleWorkbench.componentSpecification": "组件规范",
@@ -814,7 +932,8 @@ export const componentMessages = {
     "styleWorkbench.theCurrentThemeHasNotFullyLoaded": "当前主题尚未完整加载。",
     "styleWorkbench.bCssCopied": "已复制 B 的 CSS。",
     "styleWorkbench.aBParameterJsonCopied": "已复制 A/B 参数 JSON。",
-    "styleWorkbench.clipboardUnavailableSelectAndCopyTheCodeBelow": "无法访问剪贴板，请手动选择下面的代码复制。",
+    "styleWorkbench.clipboardUnavailableSelectAndCopyTheCodeBelow":
+      "无法访问剪贴板，请手动选择下面的代码复制。",
     "styleWorkbench.readingThemeBaseline": "正在读取主题基准",
     "styleWorkbench.couldNotReadStyleBaseline": "无法读取样式基准",
     "styleWorkbench.aIsPinned": "A 已固定",
@@ -824,7 +943,8 @@ export const componentMessages = {
     "styleWorkbench.setBAsBaselineA": "B 设为基准 A",
     "styleWorkbench.bResetToBaselineA": "B 已重置为基准 A。",
     "styleWorkbench.resetB": "重置 B",
-    "styleWorkbench.currentProjectThemeBaselineRestored": "已恢复当前项目主题基准。",
+    "styleWorkbench.currentProjectThemeBaselineRestored":
+      "已恢复当前项目主题基准。",
     "styleWorkbench.restoreProjectDefaults": "恢复项目默认",
     "styleWorkbench.styleParameters": "样式参数",
     "styleWorkbench.parameterCategories": "参数分类",
@@ -834,14 +954,16 @@ export const componentMessages = {
     "styleWorkbench.stylePresets": "样式预设",
     "styleWorkbench.tryAPreset": "试试预设",
     "common.appliedValueToB": "已应用「{value0}」到 B。",
-    "styleWorkbench.presetsAreLocalExperimentsTouchControlsRetainTargets": "预设用于局部实验；触屏控件保留至少44px点击区域。",
+    "styleWorkbench.presetsAreLocalExperimentsTouchControlsRetainTargets":
+      "预设用于局部实验；触屏控件保留至少44px点击区域。",
     "styleWorkbench.aBaseline": "A · 基准",
     "styleWorkbench.bCurrentChanges": "B · 当前调整",
     "styleWorkbench.parameterDifferences": "参数差异",
     "styleWorkbench.parameter": "参数",
     "styleWorkbench.bCurrent": "B · 当前",
     "styleWorkbench.difference": "差值",
-    "styleWorkbench.aAndBAreIdenticalAdjustParametersOn": "当前 A 与 B 相同。调整左侧参数，观察变化。",
+    "styleWorkbench.aAndBAreIdenticalAdjustParametersOn":
+      "当前 A 与 B 相同。调整左侧参数，观察变化。",
     "styleWorkbench.exportStyles": "导出样式",
     "styleWorkbench.parameterJson": "参数 JSON",
     "styleWorkbench.copyCss": "复制 CSS",
@@ -858,20 +980,25 @@ export const componentMessages = {
     "taskPanel.retry": "重试",
     "taskPanel.of": "项，共",
     "taskPanel.tasksCompleted": "项任务。",
-    "common.valueRequestSubmittedWaitingForSourceConfirmation": "{value0}请求已提交，等待来源确认。",
-    "common.valueRequestFailedTheOutcomeIsUnknownQuery": "{value0}请求失败，结果尚未确认。请查询状态后再决定下一步。",
+    "common.valueRequestSubmittedWaitingForSourceConfirmation":
+      "{value0}请求已提交，等待来源确认。",
+    "common.valueRequestFailedTheOutcomeIsUnknownQuery":
+      "{value0}请求失败，结果尚未确认。请查询状态后再决定下一步。",
     "toolCall.outcomeUnknown": "结果未确认",
-    "toolCall.partialOutputStillReceivingOrNotFullyLoaded": "部分输出 · 仍在接收或尚未完整读取。",
+    "toolCall.partialOutputStillReceivingOrNotFullyLoaded":
+      "部分输出 · 仍在接收或尚未完整读取。",
     "toolCall.loadingToolDetails": "正在加载工具详情",
     "toolCall.currentStageNotProvided": "当前阶段未提供",
     "toolCall.durationUnknown": "耗时未知",
-    "toolCall.outcomeUnknownQueryOrReconcileFirstDoNot": "结果未确认。先查询或对账，不能据此重试写操作。",
+    "toolCall.outcomeUnknownQueryOrReconcileFirstDoNot":
+      "结果未确认。先查询或对账，不能据此重试写操作。",
     "toolCall.queryResult": "查询结果",
     "toolCall.argumentsNotProvided": "参数未提供",
     "toolCall.output": "输出",
     "toolCall.copyRedactedOutput": "复制脱敏输出",
     "toolCall.redactedOutputCopied": "已复制脱敏输出。",
-    "toolCall.clipboardUnavailableCopyTheRedactedContentManually": "无法访问剪贴板，请手动复制脱敏内容。",
+    "toolCall.clipboardUnavailableCopyTheRedactedContentManually":
+      "无法访问剪贴板，请手动复制脱敏内容。",
     "toolCall.theToolReturnedNoTextOutput": "工具未返回文本输出",
     "toolCall.outputTruncated": "输出已截断",
     "toolCall.previewLimitedTo200Lines32kib": "：预览最多 200 行 / 32KiB。",
@@ -893,9 +1020,11 @@ export const componentMessages = {
     "variablePicker.searchUpstreamVariables": "搜索上游变量",
     "variablePicker.searchSourcePortOrType": "搜索来源、端口或类型",
     "variablePicker.reachableUpstreamVariables": "可达上游变量",
-    "variablePicker.noCompatibleUpstreamOutputsConnectASourceNode": "没有兼容的上游输出。请先连接来源节点。",
+    "variablePicker.noCompatibleUpstreamOutputsConnectASourceNode":
+      "没有兼容的上游输出。请先连接来源节点。",
     "variablePicker.source": "来源：",
-    "variablePicker.fieldPathDotSeparatedOptional": "字段路径（以点分隔，可留空）",
+    "variablePicker.fieldPathDotSeparatedOptional":
+      "字段路径（以点分隔，可留空）",
     "variablePicker.insertVariableReference": "插入变量引用",
     "common.valueNode": "{value0} 节点",
     "workflowCanvas.workflowCanvas": "流程画布",
@@ -915,8 +1044,10 @@ export const componentMessages = {
     "workspaceShell.closeInspector": "关闭 Inspector",
     "workspaceShell.bottomWorkspacePanel": "底部工作面板",
     "workspaceShell.resizeBottomPanelHeight": "调整底部面板高度",
-    "workspaceShell.statusMetadataAndActionsForTheSelectedObject": "当前选中对象的状态、元数据与操作。",
-    "canvasNode.originalDataPreservedInstallTheNodeDefinitionTo": "保留原始数据；安装对应节点定义后才能配置。",
+    "workspaceShell.statusMetadataAndActionsForTheSelectedObject":
+      "当前选中对象的状态、元数据与操作。",
+    "canvasNode.originalDataPreservedInstallTheNodeDefinitionTo":
+      "保留原始数据；安装对应节点定义后才能配置。",
     "canvasNode.validationIssues": "项校验问题",
     "common.valueValueValue2": "{value0} {value1} {value2}",
     "canvasPort.undefinedType": "类型未定义",
@@ -929,21 +1060,27 @@ export const componentMessages = {
     "dataRegion.permissionError": "权限错误",
     "dataRegion.networkError": "网络错误",
     "workspaceShellDemo.noContentYet": "这里暂时没有内容",
-    "dataRegion.noDataInThisScopeAdjustTheFilters": "当前范围没有数据，请调整筛选条件。",
-    "dataRegion.partialDataMissingFieldsAppearAs": "当前为部分数据，缺失字段显示「—」。",
+    "dataRegion.noDataInThisScopeAdjustTheFilters":
+      "当前范围没有数据，请调整筛选条件。",
+    "dataRegion.partialDataMissingFieldsAppearAs":
+      "当前为部分数据，缺失字段显示「—」。",
     "dataRegion.loading": "正在加载",
     "dataRegion.updatingExistingContentPreserved": "更新中 · 已有内容保留",
     "dataRegion.couldNotReadData": "无法读取数据",
-    "dataRegion.theCauseIsUnconfirmedInspectTheDetailsOr": "原因尚未确认，请查看详情或重新读取。",
-    "dataRegion.existingContentIsPreservedAndMayBeOut": "已有内容已保留，可能不是最新数据。",
+    "dataRegion.theCauseIsUnconfirmedInspectTheDetailsOr":
+      "原因尚未确认，请查看详情或重新读取。",
+    "dataRegion.existingContentIsPreservedAndMayBeOut":
+      "已有内容已保留，可能不是最新数据。",
     "dataRegion.lastUpdated": "最后更新：",
     "workspaceShellDemo.retryRead": "重试读取",
     "dataRegion.loadMore": "加载更多",
     "dialog.closeDialog": "关闭弹窗",
     "item.viewError": "查看错误",
     "common.unknownStatusValue": "未知状态 ({value0})",
-    "tree.cannotMoveToItselfADescendantOrA": "无法移动：不能移动到自身、后代或无权限的目标。",
-    "tree.nodeMoveRequestedTheCallerConfirmsTheResult": "已请求移动节点，由调用方确认结果。",
+    "tree.cannotMoveToItselfADescendantOrA":
+      "无法移动：不能移动到自身、后代或无权限的目标。",
+    "tree.nodeMoveRequestedTheCallerConfirmsTheResult":
+      "已请求移动节点，由调用方确认结果。",
     "tree.moveCancelled": "已取消移动。",
     "common.valueValue2": "{value0} {value1}",
     "tree.noChildren": "暂无子项",
@@ -961,40 +1098,57 @@ export const componentMessages = {
     "tree.before": "之前",
     "tree.after": "之后",
     "tree.moveTo": "移动到",
-    "canvasCommands.theCanvasIsReadOnlyTheDocumentWas": "当前画布为只读，未修改文档。",
+    "canvasCommands.theCanvasIsReadOnlyTheDocumentWas":
+      "当前画布为只读，未修改文档。",
     "canvasCommands.theNodeNoLongerExists": "节点已不存在。",
-    "canvasCommands.unknownNodesCannotBeConfiguredOriginalDataIs": "未知节点不能配置；原始数据已保留。",
+    "canvasCommands.unknownNodesCannotBeConfiguredOriginalDataIs":
+      "未知节点不能配置；原始数据已保留。",
     "canvasCommands.theEdgeNoLongerExists": "连线已不存在。",
     "canvasCommands.noNodesHaveBeenCopiedYet": "尚未复制节点。",
-    "canvasCommands.theCopiedContentReferencesExternalVariablesCopyThe": "复制内容包含外部变量引用；请同时复制来源节点，或先移除该绑定。",
-    "canvasCommands.theCopiedContentContainsExternalEdges": "复制内容包含外部连线。",
+    "canvasCommands.theCopiedContentReferencesExternalVariablesCopyThe":
+      "复制内容包含外部变量引用；请同时复制来源节点，或先移除该绑定。",
+    "canvasCommands.theCopiedContentContainsExternalEdges":
+      "复制内容包含外部连线。",
     "canvasCommands.theFrameNoLongerExists": "Frame已不存在。",
     "canvasCommands.theNoteNoLongerExists": "便笺已不存在。",
     "canvasCommands.theDocumentHasNotChanged": "文档没有变化。",
     "canvasCommands.localDraftChanged": "本地草稿已修改。",
-    "canvasCommands.editDidNotCompleteTheOriginalGraphIs": "编辑未完成，原图已保留。",
-    "canvasConfig.keyValueTablesRequireNonemptyKeysAndString": "键值表需要非空键和字符串值。",
-    "canvasConfig.conditionsRequire120ValidRulesNumericComparisons": "条件需要 1–20 条有效规则，数值比较必须使用数字。",
-    "canvasConfig.schemaRequiresObjectValidPropertiesAndRequiredFields": "Schema 需要 object、有效 properties 和 required 字段。",
+    "canvasCommands.editDidNotCompleteTheOriginalGraphIs":
+      "编辑未完成，原图已保留。",
+    "canvasConfig.keyValueTablesRequireNonemptyKeysAndString":
+      "键值表需要非空键和字符串值。",
+    "canvasConfig.conditionsRequire120ValidRulesNumericComparisons":
+      "条件需要 1–20 条有效规则，数值比较必须使用数字。",
+    "canvasConfig.schemaRequiresObjectValidPropertiesAndRequiredFields":
+      "Schema 需要 object、有效 properties 和 required 字段。",
     "canvasProject.subflowBoundary": "子流程边界",
     "canvasProject.scopeInput": "作用域输入",
     "canvasProject.scopeOutput": "作用域输出",
     "canvasProject.subflowsAndContainers": "子流程与容器",
-    "canvasProject.theExecutorInterpretsTheTerminationCondition": "由执行器解释终止条件",
+    "canvasProject.theExecutorInterpretsTheTerminationCondition":
+      "由执行器解释终止条件",
     "canvasProject.maximumIterations": "最大迭代次数",
     "canvasProject.terminationExpression": "终止表达式",
     "canvasProject.concurrentItems": "并发项数",
-    "canvasProject.independentItemScopesResultsBelongToTheirInput": "逐项独立作用域 · 结果按输入索引归属",
-    "canvasProject.statusStaysWithinTheContainerBoundedIterationWithout": "状态反馈限于容器 · 有界迭代，不允许图回路",
-    "canvasProject.dataPassesOnlyThroughExplicitInputsAndOutputs": "仅通过显式输入输出交换数据",
-    "canvasProject.invalidProjectVersionWorkflowCountOrEntryWorkflow": "项目版本、流程数量或入口无效。",
+    "canvasProject.independentItemScopesResultsBelongToTheirInput":
+      "逐项独立作用域 · 结果按输入索引归属",
+    "canvasProject.statusStaysWithinTheContainerBoundedIterationWithout":
+      "状态反馈限于容器 · 有界迭代，不允许图回路",
+    "canvasProject.dataPassesOnlyThroughExplicitInputsAndOutputs":
+      "仅通过显式输入输出交换数据",
+    "canvasProject.invalidProjectVersionWorkflowCountOrEntryWorkflow":
+      "项目版本、流程数量或入口无效。",
     "canvasProject.duplicateWorkflowId": "流程 ID 重复。",
-    "common.valueDocumentAndWorkflowIdsMustMatch": "{value0}：文档与流程 ID 必须一致。",
+    "common.valueDocumentAndWorkflowIdsMustMatch":
+      "{value0}：文档与流程 ID 必须一致。",
     "common.valueDuplicateBoundaryId": "{value0}：边界 ID 重复。",
-    "common.valueValueInvalidBoundaryMapping": "{value0} / {value1}：边界映射无效。",
-    "common.valueTargetWorkflowIsMissingOrViolatesContainer": "{value0}：目标流程不存在或不符合容器输入输出约束。",
+    "common.valueValueInvalidBoundaryMapping":
+      "{value0} / {value1}：边界映射无效。",
+    "common.valueTargetWorkflowIsMissingOrViolatesContainer":
+      "{value0}：目标流程不存在或不符合容器输入输出约束。",
     "canvasProject.theProjectExceeds500Nodes": "项目节点总数超过 500。",
-    "common.recursiveWorkflowReferenceIsNotAllowedValue": "禁止递归流程引用：{value0}",
+    "common.recursiveWorkflowReferenceIsNotAllowedValue":
+      "禁止递归流程引用：{value0}",
     "canvasProject.projectFileExceeds512kib": "项目文件超过 512KiB。",
     "canvasProject.invalidProjectFormat": "项目格式无效。",
     "canvasProject.invalidWorkflowFormat": "流程格式无效。",
@@ -1002,58 +1156,92 @@ export const componentMessages = {
     "canvasProject.invalidBoundaryPortFormat": "边界端口格式无效。",
     "canvasRuntime.theCanvasHasNoRunnableNodes": "画布没有可运行节点。",
     "canvasRuntime.selectANodeToRunFirst": "请先选择一个运行节点。",
-    "common.valueValueRequiresUpstreamInputForThisRun": "{value0} / {value1} 缺少本次运行的上游输入，请由调用方提供。",
-    "canvasServices.aPersistenceSessionCannotSwitchDocumentIds": "存储会话不能切换文档 ID。",
-    "canvasServices.saveReceiptDoesNotMatchTheRequestPreserve": "保存回执与请求不匹配；保留草稿并查询回执。",
-    "canvasServices.theServerRevisionChangedPreserveTheLocalDraft": "服务端版本已变化。保留本地草稿，请比较或合并后明确处理冲突。",
-    "canvasServices.saveOutcomeUnknownQueryThisRequestidBeforeAnother": "保存结果未确认；先查询此 requestId，禁止重复写入。",
-    "canvasServices.saveResponseLostTheDraftIsPreservedQuery": "保存响应丢失，草稿保留。查询回执后再决定下一步。",
-    "canvasServices.saveReceiptQueryFailedDraftAndRequestId": "查询保存回执失败，草稿和请求 ID 保留。",
-    "canvasServices.explicitConflictResolutionAndAServerRevisionFor": "需要同一文档的明确冲突处理和服务版本。",
-    "canvasServices.theCallerSExplicitMergedDraftWasAdopted": "已采用调用方明确提供的合并草稿；尚未保存。",
-    "canvasValidation.theConnectionReferencesAMissingNode": "连接引用了不存在的节点。",
+    "common.valueValueRequiresUpstreamInputForThisRun":
+      "{value0} / {value1} 缺少本次运行的上游输入，请由调用方提供。",
+    "canvasServices.aPersistenceSessionCannotSwitchDocumentIds":
+      "存储会话不能切换文档 ID。",
+    "canvasServices.saveReceiptDoesNotMatchTheRequestPreserve":
+      "保存回执与请求不匹配；保留草稿并查询回执。",
+    "canvasServices.theServerRevisionChangedPreserveTheLocalDraft":
+      "服务端版本已变化。保留本地草稿，请比较或合并后明确处理冲突。",
+    "canvasServices.saveOutcomeUnknownQueryThisRequestidBeforeAnother":
+      "保存结果未确认；先查询此 requestId，禁止重复写入。",
+    "canvasServices.saveResponseLostTheDraftIsPreservedQuery":
+      "保存响应丢失，草稿保留。查询回执后再决定下一步。",
+    "canvasServices.saveReceiptQueryFailedDraftAndRequestId":
+      "查询保存回执失败，草稿和请求 ID 保留。",
+    "canvasServices.explicitConflictResolutionAndAServerRevisionFor":
+      "需要同一文档的明确冲突处理和服务版本。",
+    "canvasServices.theCallerSExplicitMergedDraftWasAdopted":
+      "已采用调用方明确提供的合并草稿；尚未保存。",
+    "canvasValidation.theConnectionReferencesAMissingNode":
+      "连接引用了不存在的节点。",
     "canvasValidation.nodesCannotConnectToThemselves": "不允许节点连接自身。",
-    "canvasValidation.thesePortsAreAlreadyConnected": "相同端口之间已存在连接。",
-    "canvasValidation.thisConnectionWouldCreateACycleTheCanvas": "此连接会形成回路；当前画布要求 DAG。",
-    "canvasValidation.theConnectionReferencesAMissingPort": "连接引用了不存在的端口。",
-    "canvasValidation.connectionDirectionMustBeOutputInput": "连接方向必须为 output → input。",
-    "canvasValidation.unknownNodeDefinitionItsConnectionsCannotBeEdited": "未知节点定义，不能编辑其连接。",
-    "common.incompatiblePortTypesValueValue": "端口类型不兼容：{value0} → {value1}。",
-    "canvasValidation.theConnectionPolicyCouldNotCompleteValidation": "连接策略未能完成校验。",
-    "canvasValidation.theSourcePortReachedItsConnectionLimit": "来源端口已达到连接数量上限。",
-    "canvasValidation.theTargetPortReachedItsConnectionLimit": "目标端口已达到连接数量上限。",
-    "canvasValidation.theVariableSourceNodeNoLongerExists": "变量来源节点已不存在。",
-    "canvasValidation.theSourceOutputPortIsMissingOrIts": "变量来源输出端口已不存在或定义未知。",
-    "canvasValidation.theVariableSourceTypeChangedSelectItAgain": "变量来源类型已改变，请重新选择。",
-    "canvasValidation.thisConfigurationFieldDoesNotAcceptVariables": "此配置字段不接受变量。",
-    "common.theFieldRequiresValueButTheVariableIs": "字段需要 {value0}，变量为 {value1}。",
-    "canvasValidation.theVariableSourceIsNotReachableUpstreamOf": "变量来源不在当前节点的可达上游。",
+    "canvasValidation.thesePortsAreAlreadyConnected":
+      "相同端口之间已存在连接。",
+    "canvasValidation.thisConnectionWouldCreateACycleTheCanvas":
+      "此连接会形成回路；当前画布要求 DAG。",
+    "canvasValidation.theConnectionReferencesAMissingPort":
+      "连接引用了不存在的端口。",
+    "canvasValidation.connectionDirectionMustBeOutputInput":
+      "连接方向必须为 output → input。",
+    "canvasValidation.unknownNodeDefinitionItsConnectionsCannotBeEdited":
+      "未知节点定义，不能编辑其连接。",
+    "common.incompatiblePortTypesValueValue":
+      "端口类型不兼容：{value0} → {value1}。",
+    "canvasValidation.theConnectionPolicyCouldNotCompleteValidation":
+      "连接策略未能完成校验。",
+    "canvasValidation.theSourcePortReachedItsConnectionLimit":
+      "来源端口已达到连接数量上限。",
+    "canvasValidation.theTargetPortReachedItsConnectionLimit":
+      "目标端口已达到连接数量上限。",
+    "canvasValidation.theVariableSourceNodeNoLongerExists":
+      "变量来源节点已不存在。",
+    "canvasValidation.theSourceOutputPortIsMissingOrIts":
+      "变量来源输出端口已不存在或定义未知。",
+    "canvasValidation.theVariableSourceTypeChangedSelectItAgain":
+      "变量来源类型已改变，请重新选择。",
+    "canvasValidation.thisConfigurationFieldDoesNotAcceptVariables":
+      "此配置字段不接受变量。",
+    "common.theFieldRequiresValueButTheVariableIs":
+      "字段需要 {value0}，变量为 {value1}。",
+    "canvasValidation.theVariableSourceIsNotReachableUpstreamOf":
+      "变量来源不在当前节点的可达上游。",
     "common.valueCannotBeEmpty": "{value0}不能为空。",
     "common.valueRequiresAValidNumberValue": "{value0}需要有效数字{value1}。",
     "common.valueRequiresText": "{value0}需要文本。",
     "common.valueIsOutsideTheAllowedOptions": "{value0}不在可选范围内。",
-    "canvasValidation.theNodeValidatorCouldNotCompleteValidation": "节点校验器未能完成校验。",
-    "common.valueUnknownNodeTypeValueOriginalDataPreserved": "{value0}：未知节点类型 {value1}，原数据已保留。",
-    "common.valueRequiredInputValueIsNotConnected": "{value0}：必填输入「{value1}」未连接。",
+    "canvasValidation.theNodeValidatorCouldNotCompleteValidation":
+      "节点校验器未能完成校验。",
+    "common.valueUnknownNodeTypeValueOriginalDataPreserved":
+      "{value0}：未知节点类型 {value1}，原数据已保留。",
+    "common.valueRequiredInputValueIsNotConnected":
+      "{value0}：必填输入「{value1}」未连接。",
     "common.valueMustBeAnObject": "{value0}必须是对象。",
-    "common.valueRequiresNonemptyTextUpToValueCharacters": "{value0}需要非空文本，最多{value1}字符。",
-    "common.valueSupportsOnlyLettersNumbersUnderscoresAndHyphens": "{value0}仅支持字母、数字、下划线和短横线。",
+    "common.valueRequiresNonemptyTextUpToValueCharacters":
+      "{value0}需要非空文本，最多{value1}字符。",
+    "common.valueSupportsOnlyLettersNumbersUnderscoresAndHyphens":
+      "{value0}仅支持字母、数字、下划线和短横线。",
     "common.valueIsOutsideTheValidRange": "{value0}超出有效范围。",
-    "common.valueDoesNotSupportFieldValuePutExtension": "{value0}不支持字段 {value1}；扩展数据请放入 config。",
+    "common.valueDoesNotSupportFieldValuePutExtension":
+      "{value0}不支持字段 {value1}；扩展数据请放入 config。",
     "canvasValidation.jsonNestingExceeds20Levels": "JSON 嵌套超过20层。",
     "canvasValidation.jsonContainsANonfiniteNumber": "JSON 包含非有限数字。",
     "canvasValidation.jsonContainsAnUnsafeField": "JSON 包含不安全字段。",
     "canvasValidation.graphDocument": "图文档",
-    "canvasValidation.incompatibleSchemaversionOnlyVersion1IsSupported": "不兼容的 schemaVersion；当前仅支持版本1。",
+    "canvasValidation.incompatibleSchemaversionOnlyVersion1IsSupported":
+      "不兼容的 schemaVersion；当前仅支持版本1。",
     "canvasValidation.documentId": "文档ID",
     "canvasValidation.revisionMustBeAnInteger": "revision必须是整数。",
-    "common.valueMustBeAnArrayWithAtMost": "{value0}必须是数组且不超过{value1}项。",
+    "common.valueMustBeAnArrayWithAtMost":
+      "{value0}必须是数组且不超过{value1}项。",
     "common.duplicateIdValue": "ID重复：{value0}。",
     "canvasValidation.node": "节点",
     "canvasValidation.nodeTitle": "节点标题",
     "canvasValidation.nodePosition": "节点位置",
     "canvasValidation.nodeConfig": "节点config",
-    "common.nodeValueReferencesAMissingFrame": "节点 {value0} 引用了不存在的 Frame。",
+    "common.nodeValueReferencesAMissingFrame":
+      "节点 {value0} 引用了不存在的 Frame。",
     "canvasValidation.variableReference": "变量引用",
     "canvasValidation.variableSourceId": "变量来源ID",
     "canvasValidation.variablePortId": "变量端口ID",
@@ -1107,21 +1295,31 @@ export const componentMessages = {
     "styleWorkbenchModel.compactFlatSurface": "紧凑平面",
     "common.unrecognizedThemeColorValue": "无法识别主题颜色：{value0}",
     "styleWorkbenchModel.themeColorIsMissingRgbValues": "主题颜色缺少 RGB 值。",
-    "styleWorkbenchModel.couldNotReadCompleteThemeDimensionsConfirmThat": "无法读取完整的主题尺寸，请确认已安装 EasyuseUI theme。",
+    "styleWorkbenchModel.couldNotReadCompleteThemeDimensionsConfirmThat":
+      "无法读取完整的主题尺寸，请确认已安装 EasyuseUI theme。",
     "styleWorkbenchModel.on": "开启",
     "styleWorkbenchModel.off": "关闭",
     "styleWorkbenchModel.changed": "已更改",
     "useCanvasEditor.localEditUndone": "已撤销本地编辑。",
     "useCanvasEditor.localEditRedone": "已重做本地编辑。",
-    "useCanvasRuntime.theSourceConfirmedThatThisRequestDidNot": "来源确认此请求未创建运行。",
-    "useCanvasRuntime.theStartReceiptReferencesADifferentDocumentRevision": "启动回执的文档版本不匹配，请查询原请求确认。",
-    "useCanvasRuntime.theRunIdentityOrSequenceFromTheSource": "来源返回的运行身份或序号不匹配，保留当前快照。",
-    "useCanvasRuntime.writeReceiptMismatchQueryForConfirmationBeforeSubmitting": "写请求回执不匹配；先查询确认，禁止重复提交。",
-    "useCanvasRuntime.theOperationRequestWasReceivedButItsFinal": "操作请求已收到，尚待来源确认最终结果；请查询，不能重复提交。",
-    "common.valueRequestSubmittedWaitingForTheSourceQuery": "{value0}请求已提交，等待来源推进状态；查询确认前不可重复提交。",
-    "useCanvasRuntime.runReadFailedExistingStateAndOutputAre": "读取运行失败，保留已有状态和输出。",
-    "common.valueOutcomeUnknownQueryTheReceiptBeforeSubmitting": "{value0}结果未确认；先查询回执，禁止重复提交。",
-    "useCanvasRuntime.theSourceDoesNotProvideThisExecutionCapability": "来源未提供此运行能力。",
+    "useCanvasRuntime.theSourceConfirmedThatThisRequestDidNot":
+      "来源确认此请求未创建运行。",
+    "useCanvasRuntime.theStartReceiptReferencesADifferentDocumentRevision":
+      "启动回执的文档版本不匹配，请查询原请求确认。",
+    "useCanvasRuntime.theRunIdentityOrSequenceFromTheSource":
+      "来源返回的运行身份或序号不匹配，保留当前快照。",
+    "useCanvasRuntime.writeReceiptMismatchQueryForConfirmationBeforeSubmitting":
+      "写请求回执不匹配；先查询确认，禁止重复提交。",
+    "useCanvasRuntime.theOperationRequestWasReceivedButItsFinal":
+      "操作请求已收到，尚待来源确认最终结果；请查询，不能重复提交。",
+    "common.valueRequestSubmittedWaitingForTheSourceQuery":
+      "{value0}请求已提交，等待来源推进状态；查询确认前不可重复提交。",
+    "useCanvasRuntime.runReadFailedExistingStateAndOutputAre":
+      "读取运行失败，保留已有状态和输出。",
+    "common.valueOutcomeUnknownQueryTheReceiptBeforeSubmitting":
+      "{value0}结果未确认；先查询回执，禁止重复提交。",
+    "useCanvasRuntime.theSourceDoesNotProvideThisExecutionCapability":
+      "来源未提供此运行能力。",
     "useCanvasRuntime.startRun": "启动运行",
     "useCanvasRuntime.queryStartReceipt": "查询启动回执",
     "common.expand": "展开",
@@ -1136,8 +1334,8 @@ export const componentMessages = {
     "canvas.unbounded": "不限",
     "i18n.demoTitle": "语言与格式化",
     "i18n.items": {
-      "one": "{count} 个项目",
-      "other": "{count} 个项目"
+      one: "{count} 个项目",
+      other: "{count} 个项目",
     },
     "canvasMetadata.subflowBoundaries": "子流程边界",
     "canvasMetadata.scopeInput": "作用域输入",
@@ -1146,9 +1344,12 @@ export const componentMessages = {
     "canvasMetadata.maximumIterations": "最大迭代次数",
     "canvasMetadata.terminationExpression": "终止表达式",
     "canvasMetadata.concurrency": "并发项数",
-    "canvasMetadata.independentScopePerItemResultsBelongToInputIndices": "逐项独立作用域 · 结果按输入索引归属",
-    "canvasMetadata.containerScopedStateFeedbackBoundedIterationsNoGraphCycles": "状态反馈限于容器 · 有界迭代，不允许图回路",
-    "canvasMetadata.exchangeDataOnlyThroughExplicitInputsAndOutputs": "仅通过显式输入输出交换数据",
+    "canvasMetadata.independentScopePerItemResultsBelongToInputIndices":
+      "逐项独立作用域 · 结果按输入索引归属",
+    "canvasMetadata.containerScopedStateFeedbackBoundedIterationsNoGraphCycles":
+      "状态反馈限于容器 · 有界迭代，不允许图回路",
+    "canvasMetadata.exchangeDataOnlyThroughExplicitInputsAndOutputs":
+      "仅通过显式输入输出交换数据",
     "canvasMetadata.inputsAndOutputs": "输入输出",
     "canvasMetadata.text": "文本",
     "canvasMetadata.inputText": "输入文本",
@@ -1199,10 +1400,13 @@ export const componentMessages = {
     "canvasParser.frameHeight": "Frame高度",
     "canvasParser.noteBody": "Note正文",
     "canvasParser.notePosition": "Note位置",
-    "canvas.nodeInstructions": "按 Enter 或空格选择节点，方向键移动，Delete 请求删除，Escape 取消。",
+    "canvas.nodeInstructions":
+      "按 Enter 或空格选择节点，方向键移动，Delete 请求删除，Escape 取消。",
     "canvas.nodeReadOnlyInstructions": "按 Enter 或空格选择节点，Escape 取消。",
-    "canvas.edgeInstructions": "按 Enter 或空格选择连线，Delete 请求删除，Escape 取消。",
-    "canvas.movedNode": "已将选中节点向{direction}移动。新位置 x：{x}，y：{y}。",
+    "canvas.edgeInstructions":
+      "按 Enter 或空格选择连线，Delete 请求删除，Escape 取消。",
+    "canvas.movedNode":
+      "已将选中节点向{direction}移动。新位置 x：{x}，y：{y}。",
     "canvas.controls": "画布控制",
     "canvas.minimap": "画布缩略图",
     "canvas.handle": "连接端口",
@@ -1245,13 +1449,197 @@ export const componentMessages = {
     "chart.value": "值",
     "chart.missing": "—（缺失）",
     "chart.bounded": "展示最近 {count} / {total} 项调用方数据。",
-    "drawer.close": "关闭抽屉"
+    "drawer.close": "关闭抽屉",
+    "analytics.exportImage": "导出图像",
+    "analytics.previousPage": "上一页",
+    "analytics.nextPage": "下一页",
+    "analytics.aggregatePage": "聚合点 {from}–{to} / {total}",
+    "analytics.showcase": "工作流分析",
+    "analytics.project": "项目",
+    "analytics.cohortTime": "范围成员时间",
+    "analytics.timeZone": "时区",
+    "analytics.urlFallback": "部分 URL 参数无效，已按白名单使用默认值。",
+    "analytics.cohortDefinition":
+      "全局时间用于选择成员；每张图仍标明自己的指标时间。asOf 表示当前范围。",
+    "analytics.scenarios": "模拟说明与异常场景",
+    "analytics.fixtureDefinition":
+      "固定 90 天、两个项目、四名成员与三个 Agent。仅内存适配器；不代表真实执行、存储或权限服务。",
+    "analytics.reset": "重置示例",
+    "analytics.componentDocs": "组件文档",
+    "analytics.emptyProject": "这个项目尚无工作项",
+    "analytics.emptyFilter": "当前筛选无匹配成员",
+    "analytics.filterRecovery":
+      "清除筛选或选择其他项目可恢复。零值、历史未采集和无匹配是不同状态。",
+    "analytics.orphanDefinition":
+      "关系由显式 ID 提供；支持多对多。孤立、未知与已移除对象不从标题推断。",
+    "analytics.chartDirectory": "按问题查看图表",
+    "analytics.loadPreview": "加载此图预览",
+    "analytics.callerAuthority":
+      "调用方负责查询、权限和持久化；本地 fixture 不是 SDK。",
+    "analytics.scenarioInstructions":
+      "展开页面上方的异常场景控件，观察当前图的数据、缺口与恢复；只有当前预览会挂载。",
+    "analytics.unplanned": "未安排开始日期",
+    "analytics.saveScenario": "本地保存回执",
+    "analytics.applied": "已应用分析",
+    "analytics.drilldownDefinition":
+      "集合来自选中系列、分桶与快照；先查看，再明确应用为筛选。",
+    "analytics.stateEntry": "实际入状态",
+    "analytics.removedEntity": "来源对象已移除，保留关系事实与身份。",
+    "analytics.externalEntity":
+      "本地关系身份；详情服务未接入。孤立对象可能没有关系。",
+    "analytics.view.overview": "项目概览",
+    "analytics.view.traceability": "工作关联",
+    "analytics.view.charts": "图表目录",
+    "analytics.view.agents": "Agent 执行",
+    "analytics.view.resources": "资源计划",
+    "analytics.view.delivery": "迭代进度",
+    "analytics.view.flow": "流程效率",
+    "analytics.view.risk": "风险分析",
+    "analytics.view.custom": "自定义布局",
+    "analytics.view.builder": "分析构建器",
+    "analytics.tab.preview": "图形预览",
+    "analytics.tab.table": "聚合数据表",
+    "analytics.tab.definition": "口径说明",
+    "analytics.tab.usage": "最小用法",
+    "analytics.tab.scenarios": "状态场景",
+    "analytics.heatmap": "资源负载热图",
+    "analytics.heatmapLegend":
+      "实线：已知负载 · 虚线：未知 · 红线：超过容量 · 灰线：容量为零",
+    "analytics.resource": "资源",
+    "analytics.capacity": "分配 / 容量",
+    "analytics.unavailableCapacity": "容量为零，不可用",
+    "analytics.unknownCapacity": "利用率未知",
+    "analytics.allocationDefinition":
+      "按工作项与日期显式分摊；未知估算不计为零。",
+    "analytics.openTimeline": "打开排期视图",
+    "analytics.allocations": "分配清单",
+    "analytics.execution": "实际执行",
+    "analytics.executionDefinition":
+      "基于实际时间戳；持续时长含等待，重叠执行不能相加当作墙钟时间。",
+    "analytics.actualStart": "实际开始",
+    "analytics.actualEnd": "实际结束",
+    "analytics.acceptance": "产物验收",
+    "analytics.waitingReason": "等待依据",
+    "analytics.acceptance.pending": "待验收",
+    "analytics.acceptance.accepted": "已验收",
+    "analytics.acceptance.rejected": "未通过",
+    "analytics.acceptance.unknown": "未知",
+    "analytics.burndown": "燃尽图",
+    "analytics.burnup": "燃起图",
+    "analytics.velocity": "迭代速度",
+    "analytics.cumulative-flow": "累积流图",
+    "analytics.cycle-time": "周期时间",
+    "analytics.state-residence": "状态停留时间",
+    "analytics.workload": "资源负载",
+    "analytics.agent-cost": "Agent 用量趋势",
+    "analytics.burndownDefinition":
+      "实际剩余与期初基线理想线；理想线使用显式工作日历，范围变化不会重写期初。",
+    "analytics.burnupDefinition":
+      "每个历史时点的有效范围与已完成量；重开、范围与估算修正来自事件。",
+    "analytics.velocityDefinition":
+      "仅已关闭迭代；分别显示期初承诺、期末交付和新增范围，不比较不同单位。",
+    "analytics.cumulative-flowDefinition":
+      "固定互斥状态占用量；每个桶显示当时成员，三层之和等于有效范围。",
+    "analytics.cycle-timeDefinition":
+      "首次实际开始至当前有效完成，包含等待和重开间隔；缺实际开始项排除并报告覆盖。",
+    "analytics.state-residenceDefinition":
+      "未完成项从实际入状态时间到数据时点；不同于创建至今的年龄。",
+    "analytics.workloadDefinition":
+      "按显式资源、日期、份额和单位聚合；容量未知时不推断超载。",
+    "analytics.agent-costDefinition":
+      "只汇总授权范围原始观测；显式父子包含去重，币种分别展示。",
+    "analytics.quantileDefinition":
+      "最近秩分位：排序后第 ceil(p×n) 项，单位为连续天。",
+    "analytics.calendarMissing": "缺少匹配粒度与时区的工作日历，理想线不可计算",
+    "analytics.missingEstimate": "部分估算或单位未知，未填零",
+    "analytics.missingStart": "部分项缺首次实际开始时间，已排除",
+    "analytics.openIteration": "未关闭迭代不参与速度比较",
+    "analytics.missingStateEntry": "部分项缺入状态时间",
+    "analytics.usageExcluded": "未知包含关系或已被父级包含的观测未重复相加",
+    "analytics.forecast": "条件化交付预测",
+    "analytics.forecastAssumptions":
+      "本地经验重采样示例；按日完整吞吐、稳定范围与日历日假设。分位日期不是承诺，不产生未来任务。",
+    "analytics.forecast.insufficient":
+      "样本不足、历史不完整或范围不稳定，暂不预测",
+    "analytics.forecast.uncalibrated": "同口径滚动回测数量或覆盖率未达模型要求",
+    "analytics.forecast.stale": "模型已过期，需重新计算",
+    "analytics.samples": "样本数",
+    "analytics.backtest": "滚动回测",
+    "analytics.quantile": "分位",
+    "analytics.horizonExceeded": "超出模拟上限",
+    "analytics.conditionalDate": "条件化日期",
+    "analytics.forecastBand": "条件化分位区间，区间不是未来任务集合",
+    "analytics.historicalSamples": "查看历史样本",
+    "analytics.remainingItems": "查看待完成范围",
+    "analytics.usageDefinition":
+      "Tokens、费用和执行时长分别统计；混合币种不换汇；持续时长总和不是墙钟耗时。",
+    "analytics.dependencies": "工作依赖",
+    "analytics.dependencyDefinition":
+      "只显示显式业务依赖与证据；运行完成不代表业务依赖已满足。",
+    "analytics.cycles": "真实环路数",
+    "analytics.dependencyGraph": "预览依赖图",
+    "analytics.graphBound": "超过 200 个对象，请使用可访问的完整关系表",
+    "analytics.businessDependency": "业务依赖状态",
+    "analytics.evidence": "证据",
+    "analytics.dependency.blocked": "明确阻塞",
+    "analytics.dependency.satisfied": "已满足",
+    "analytics.dependency.unknown": "未知",
+    "analytics.addWidget": "添加分析模块",
+    "analytics.layoutEditor": "Dashboard 布局编辑",
+    "analytics.layoutDefinition":
+      "显式编辑草稿；布局仅保存配置。未知结果保留操作编号并锁定重写，需先核对。",
+    "analytics.revision": "版本",
+    "analytics.save": "保存布局",
+    "analytics.cancel": "取消草稿",
+    "analytics.reconcile": "核对保存结果",
+    "analytics.moveUp": "向前移动",
+    "analytics.moveDown": "向后移动",
+    "analytics.width": "列宽",
+    "analytics.height": "高度",
+    "analytics.remove": "移除",
+    "analytics.save.idle": "草稿",
+    "analytics.save.saving": "正在保存",
+    "analytics.save.confirmed": "已确认保存",
+    "analytics.save.rejected": "保存被拒绝，草稿保留",
+    "analytics.save.unknown": "保存结果未知，先核对",
+    "analytics.saveUnknown": "结果未知，禁止重复提交",
+    "analytics.saveRejected": "服务拒绝保存，草稿可恢复",
+    "analytics.saveMismatch": "回执操作编号不匹配，先核对",
+    "analytics.builder": "分析构建器",
+    "analytics.builderDefinition":
+      "在调用方授权范围内配置；先预览，再应用；取消不改变已应用分析。",
+    "analytics.none": "无",
+    "analytics.measure": "指标",
+    "analytics.dimension": "维度",
+    "analytics.segment": "分段",
+    "analytics.stacked": "堆叠",
+    "analytics.preview": "预览查询",
+    "analytics.apply": "应用分析",
+    "analytics.builderAttribution":
+      "去重工作项计数；多负责人采用按 ID 排序后的首位归属，避免堆叠重复。",
+    "analytics.builderMetric": "不支持此指标版本",
+    "analytics.builderDimension": "指标不支持此维度或分段",
+    "analytics.builderCombination": "单位与图型不兼容",
+    "analytics.builderComposition": "环图需要互斥维度，且不能分段或堆叠",
+    "analytics.builderScope": "不能更改调用方来源或权限范围",
+    "analytics.builderTimeField": "时间字段与指标口径不匹配",
+    "analytics.builderRange": "时间范围或查询无效",
+    "analytics.series.scope": "有效范围",
+    "analytics.series.remaining": "实际剩余",
+    "analytics.series.ideal": "期初理想线",
+    "analytics.series.committed": "期初承诺",
+    "analytics.series.delivered": "期末交付",
+    "analytics.series.added": "新增范围",
+    "analytics.series.backlog": "待处理",
+    "analytics.series.active": "进行中",
+    "analytics.series.completed": "已完成",
   },
-  "en": {
+  en: {
     "analytics.exampleCoordinate": "Example numeric coordinate",
     "analytics.historyComplete": "Complete",
     "analytics.historyPartial": "Incomplete history",
-    "analytics.missingCreatedAt": "{count} items have no observed creation time",
+    "analytics.missingCreatedAt":
+      "{count} items have no observed creation time",
     "analytics.table": "Data table",
     "analytics.chart": "Chart",
     "analytics.open": "View sources",
@@ -1262,7 +1650,8 @@ export const componentMessages = {
     "analytics.partial": "Partial data; aggregates may be incomplete",
     "analytics.noAccess": "Access to this scope is unavailable",
     "analytics.pending": "Reading the new scope",
-    "analytics.noHistory": "Complete baseline or history is unavailable; trend cannot be drawn",
+    "analytics.noHistory":
+      "Complete baseline or history is unavailable; trend cannot be drawn",
     "analytics.missing": "Not collected",
     "analytics.zero": "All values in this scope are zero",
     "analytics.range": "Range [from, to)",
@@ -1273,13 +1662,17 @@ export const componentMessages = {
     "analytics.total": "Total",
     "analytics.unfinished": "Unfinished",
     "analytics.estimated": "Estimated",
-    "analytics.legend": "Toggle series visibility; metric definitions remain unchanged",
-    "analytics.keyboard": "Use arrow keys to select a point, Enter to view sources",
+    "analytics.legend":
+      "Toggle series visibility; metric definitions remain unchanged",
+    "analytics.keyboard":
+      "Use arrow keys to select a point, Enter to view sources",
     "analytics.hidden": "All series are hidden",
     "analytics.drilldown": "Source records",
     "analytics.loaded": "Loaded {loaded} / {total}",
-    "analytics.historical": "Membership at the historical point; current state may differ",
-    "analytics.mismatch": "Details do not match the selected snapshot; read again",
+    "analytics.historical":
+      "Membership at the historical point; current state may differ",
+    "analytics.mismatch":
+      "Details do not match the selected snapshot; read again",
     "analytics.applyFilter": "Apply as filter",
     "analytics.clearFilter": "Clear point filter",
     "analytics.fullView": "Open work view",
@@ -1311,16 +1704,23 @@ export const componentMessages = {
     "analytics.source": "Source",
     "analytics.target": "Target",
     "analytics.threshold": "Rule evidence / threshold",
-    "analytics.statusDefinition": "Distinct in-scope work items excluding cancelled items; snapshot state.",
-    "analytics.trendDefinition": "Actual completion events; distinct per item per bucket, repeats across buckets allowed; not current completed stock.",
-    "analytics.ageDefinition": "As-of minus creation time for unfinished items; missing values are not zero.",
-    "analytics.blockerDefinition": "Explicit blocker relationships; groups may overlap and do not sum to distinct items.",
-    "analytics.donutInvalid": "Composition charts require one series, exclusive groups and nonnegative values",
-    "analytics.noDrilldown": "A reproducible source set is unavailable for this aggregate",
+    "analytics.statusDefinition":
+      "Distinct in-scope work items excluding cancelled items; snapshot state.",
+    "analytics.trendDefinition":
+      "Actual completion events; distinct per item per bucket, repeats across buckets allowed; not current completed stock.",
+    "analytics.ageDefinition":
+      "As-of minus creation time for unfinished items; missing values are not zero.",
+    "analytics.blockerDefinition":
+      "Explicit blocker relationships; groups may overlap and do not sum to distinct items.",
+    "analytics.donutInvalid":
+      "Composition charts require one series, exclusive groups and nonnegative values",
+    "analytics.noDrilldown":
+      "A reproducible source set is unavailable for this aggregate",
     "analytics.all": "All members",
     "analytics.member": "Member",
     "analytics.readError": "Simulated refresh failure",
-    "analytics.readReason": "Existing values in the same scope are preserved; retry the read",
+    "analytics.readReason":
+      "Existing values in the same scope are preserved; retry the read",
     "analytics.currentState": "Current business state",
     "analytics.cohort": "Cohort",
     "analytics.comparison": "Compared with baseline",
@@ -1353,10 +1753,13 @@ export const componentMessages = {
     "schedule.invalidDate": "Invalid date. Use a valid YYYY-MM-DD date.",
     "schedule.invalidRange": "Due date cannot precede start date.",
     "schedule.noop": "Dates have not changed.",
-    "schedule.stale": "Item or viewport changed. Read the latest snapshot before editing.",
-    "schedule.locked": "Pending or unknown result. Reconcile before another change.",
+    "schedule.stale":
+      "Item or viewport changed. Read the latest snapshot before editing.",
+    "schedule.locked":
+      "Pending or unknown result. Reconcile before another change.",
     "schedule.denied": "You cannot edit the changed fields.",
-    "schedule.retained": "Confirmed dates retained. Proposed dates appear below.",
+    "schedule.retained":
+      "Confirmed dates retained. Proposed dates appear below.",
     "schedule.shift": "Shift dates",
     "schedule.resizeStart": "Resize start date",
     "schedule.resizeEnd": "Resize due date",
@@ -1370,35 +1773,45 @@ export const componentMessages = {
     "schedule.emptyDay": "No items for this date",
     "schedule.continuesBefore": "Starts before visible range",
     "schedule.continuesAfter": "Ends after visible range",
-    "schedule.groupHint": "Schedule layouts are flat. Group and swimlane preferences are retained.",
+    "schedule.groupHint":
+      "Schedule layouts are flat. Group and swimlane preferences are retained.",
     "schedule.weekendAgenda": "Weekend agenda",
     "schedule.create": "Create an item on {date}",
     "schedule.moveDue": "Change due date",
     "schedule.partial": "This range is partially loaded.",
-    "schedule.enter": "Enter to read day entries; Escape to return to the date.",
+    "schedule.enter":
+      "Enter to read day entries; Escape to return to the date.",
     "schedule.expand": "Expand timeline",
     "schedule.collapse": "Collapse timeline",
-    "schedule.correction": "Original dates: {start} → {end}. Correct these dates.",
-    "schedule.dropRejected": "Cannot schedule. Date, permission or snapshot changed.",
-    "workItems.lanesUnavailable": "No swimlane snapshots supplied for this query. Showing original groups.",
+    "schedule.correction":
+      "Original dates: {start} → {end}. Correct these dates.",
+    "schedule.dropRejected":
+      "Cannot schedule. Date, permission or snapshot changed.",
+    "workItems.lanesUnavailable":
+      "No swimlane snapshots supplied for this query. Showing original groups.",
     "workItems.swimlanes": "Swimlanes",
     "workItems.noSwimlanes": "No swimlanes",
-    "workItems.swimlaneLayoutHint": "Swimlanes apply to Board; List and Table retain this preference.",
-    "workItems.laneHint": "Move within a swimlane. Cross-lane changes require a separate caller-defined command.",
+    "workItems.swimlaneLayoutHint":
+      "Swimlanes apply to Board; List and Table retain this preference.",
+    "workItems.laneHint":
+      "Move within a swimlane. Cross-lane changes require a separate caller-defined command.",
     "workItems.showSubItems": "Expand sub-items in List",
-    "workItems.flatViewHint": "This layout shows flat entities; List restores the hierarchy preference.",
+    "workItems.flatViewHint":
+      "This layout shows flat entities; List restores the hierarchy preference.",
     "workItems.toggleChildren": "Toggle sub-items of {name}",
     "workItems.deferOffscreen": "Defer offscreen layout (retain full DOM)",
     "workItems.batch": "Batch changes",
     "workItems.batchField": "Batch field",
     "workItems.batchPreview": "Preview batch changes",
-    "workItems.batchScope": "Change {count} items; skip {skipped}. Includes hidden selections; per-item confirmation, no atomic transaction guarantee.",
+    "workItems.batchScope":
+      "Change {count} items; skip {skipped}. Includes hidden selections; per-item confirmation, no atomic transaction guarantee.",
     "workItems.batchEligible": "Eligible",
     "workItems.batchMissing": "Snapshot not loaded; skipped",
     "workItems.batchLocked": "Pending or unknown outcome; skipped",
     "workItems.batchDenied": "No field permission; skipped",
     "workItems.batchConfirm": "Confirm changes to {count} items",
-    "workItems.batchResults": "Confirmed {confirmed} · Rejected {rejected} · Pending {pending} · Unknown {unknown}",
+    "workItems.batchResults":
+      "Confirmed {confirmed} · Rejected {rejected} · Pending {pending} · Unknown {unknown}",
     "workItems.savedViews": "Saved views",
     "workItems.viewName": "View name",
     "workItems.saveView": "Save current view as new",
@@ -1406,8 +1819,10 @@ export const componentMessages = {
     "workItems.deleteView": "Delete view",
     "workItems.deleteViewNamed": "Delete view {name}",
     "workItems.noSavedViews": "No saved views",
-    "agentBoardP2.graphLoadReason": "The cause is unconfirmed. Switch views or retry reading.",
-    "agentBoardP2.graphLoadFailed": "Dependency view failed to load; source runs and filters are preserved. Retry reading.",
+    "agentBoardP2.graphLoadReason":
+      "The cause is unconfirmed. Switch views or retry reading.",
+    "agentBoardP2.graphLoadFailed":
+      "Dependency view failed to load; source runs and filters are preserved. Retry reading.",
     "agentBoard.dependencies": "Dependencies",
     "agentBoardP2.runReference": "Source run reference",
     "agentBoardP2.prerequisite": "Prerequisite",
@@ -1415,31 +1830,42 @@ export const componentMessages = {
     "agentBoardP2.blocked": "Source reports blocked",
     "agentBoardP2.satisfied": "Source reports satisfied",
     "agentBoardP2.unknown": "Dependency outcome unknown",
-    "agentBoardP2.dependencyScope": "{runs} runs displayed · {edges} source dependencies in scope",
-    "agentBoardP2.readOnlyGraph": "Read-only relationships. Run completion does not satisfy dependencies; selection never schedules execution.",
-    "agentBoardP2.missingEndpoints": "{count} dependencies reference runs absent from the loaded source; IDs are retained.",
-    "agentBoardP2.outsideScope": "{count} dependencies include loaded runs outside the filter; the list retains context.",
-    "agentBoardP2.graphLimit": "{count} additional runs are outside the canvas limit; narrow the filter to inspect them.",
-    "agentBoardP2.unsortedDependencies": "A cycle or affected dependency chain prevents ordering. Source relationships are retained; no execution order is produced.",
+    "agentBoardP2.dependencyScope":
+      "{runs} runs displayed · {edges} source dependencies in scope",
+    "agentBoardP2.readOnlyGraph":
+      "Read-only relationships. Run completion does not satisfy dependencies; selection never schedules execution.",
+    "agentBoardP2.missingEndpoints":
+      "{count} dependencies reference runs absent from the loaded source; IDs are retained.",
+    "agentBoardP2.outsideScope":
+      "{count} dependencies include loaded runs outside the filter; the list retains context.",
+    "agentBoardP2.graphLimit":
+      "{count} additional runs are outside the canvas limit; narrow the filter to inspect them.",
+    "agentBoardP2.unsortedDependencies":
+      "A cycle or affected dependency chain prevents ordering. Source relationships are retained; no execution order is produced.",
     "agentBoardP2.noDependencies": "No dependencies supplied for this scope",
     "agentBoardP2.dependencyAlternative": "Source dependency list",
     "agentBoardP2.missingRun": "Source run not loaded",
     "agentBoardP2.history": "Usage history",
-    "agentBoardP2.historyScope": "{count} loaded interval observations · UTC; runs and currencies stay separate, with gaps for missing or noncontiguous intervals.",
+    "agentBoardP2.historyScope":
+      "{count} loaded interval observations · UTC; runs and currencies stay separate, with gaps for missing or noncontiguous intervals.",
     "agentBoardP2.metric": "History metric",
     "agentBoardP2.tokens": "Tokens",
     "agentBoardP2.cost": "Cost",
     "agentBoardP2.durationMs": "Duration (ms)",
     "agentBoardP2.noHistory": "No historical observations supplied",
-    "agentBoardP2.chartDescription": "{run} · {count} valid interval observations · {unit}; complete values are in the table.",
-    "agentBoardP2.noKnownPoints": "No valid observations to plot in this series; missing values are not zero.",
-    "agentBoardP2.seriesCoverage": "Valid observations {known}/{total}; missing values are not filled.",
+    "agentBoardP2.chartDescription":
+      "{run} · {count} valid interval observations · {unit}; complete values are in the table.",
+    "agentBoardP2.noKnownPoints":
+      "No valid observations to plot in this series; missing values are not zero.",
+    "agentBoardP2.seriesCoverage":
+      "Valid observations {known}/{total}; missing values are not filled.",
     "agentBoardP2.historyTable": "Source interval observations",
     "agentBoardP2.interval": "Source interval",
     "agentBoardP2.value": "Observed value",
     "agentBoardP2.source": "Source marker",
     "agentBoardP2.virtualList": "Virtual run list",
-    "agentBoardP2.virtualHelp": "{count} runs loaded; arrows, Page Up/Down and Home/End move focus, Enter opens. Only visible and focused rows are mounted; this is not service pagination.",
+    "agentBoardP2.virtualHelp":
+      "{count} runs loaded; arrows, Page Up/Down and Home/End move focus, Enter opens. Only visible and focused rows are mounted; this is not service pagination.",
     "workItems.items": "Work items",
     "workItems.loaded": "{count} loaded",
     "workItems.count": "{loaded} / {total}",
@@ -1476,7 +1902,8 @@ export const componentMessages = {
     "workItems.sort": "Sort",
     "workItems.manual": "Manual order",
     "workItems.title": "Title",
-    "workItems.autoSortHint": "Automatic order: free reordering within a column is disabled.",
+    "workItems.autoSortHint":
+      "Automatic order: free reordering within a column is disabled.",
     "workItems.showEmptyGroups": "Show empty groups",
     "workItems.filterHint": "OR within each field; AND between fields.",
     "workItems.toolbar": "Work items toolbar",
@@ -1545,14 +1972,16 @@ export const componentMessages = {
     "agentBoard.failure": "Failure",
     "agentBoard.disconnect": "Disconnected",
     "agentBoard.attentionSummary": "{count} attention items · {runs} runs",
-    "agentBoard.unknownOutcome": "Outcome unknown; reconcile before another action.",
+    "agentBoard.unknownOutcome":
+      "Outcome unknown; reconcile before another action.",
     "agentBoard.accept": "Accept",
     "agentBoard.reject": "Reject",
     "agentBoard.edit": "Edit and submit",
     "agentBoard.respond": "Respond",
     "agentBoard.ignore": "Ignore",
     "agentBoard.reconcile": "Reconcile",
-    "agentBoard.submitted": "Response confirmed; runtime status remains source controlled.",
+    "agentBoard.submitted":
+      "Response confirmed; runtime status remains source controlled.",
     "agentBoard.response": "Response or edited content",
     "agentBoard.submitting": "Submitting",
     "agentBoard.readOnly": "Read only; no response capability provided.",
@@ -1574,16 +2003,20 @@ export const componentMessages = {
     "agentBoard.execution": "Execution",
     "agentBoard.close": "Close details",
     "agentBoard.open": "View {name}",
-    "agentBoard.selectedHidden": "Selected run is outside the current filters; details remain open.",
-    "agentBoard.deleted": "This run is unavailable; refresh or select another run.",
+    "agentBoard.selectedHidden":
+      "Selected run is outside the current filters; details remain open.",
+    "agentBoard.deleted":
+      "This run is unavailable; refresh or select another run.",
     "agentBoard.connected": "Source connected",
     "agentBoard.disconnected": "Source disconnected; last snapshots preserved.",
     "agentBoard.loaded": "Showing {visible} · loaded {loaded} / total {total}",
     "agentBoard.tokens": "Tokens",
     "agentBoard.cost": "Cost by currency",
     "agentBoard.coverage": "Coverage",
-    "agentBoard.coverageDetail": "{covered}/{runs} runs with usage; {tokens} with aggregatable tokens.",
-    "agentBoard.excluded": "Not summed: unknown inclusion or already included by a parent run.",
+    "agentBoard.coverageDetail":
+      "{covered}/{runs} runs with usage; {tokens} with aggregatable tokens.",
+    "agentBoard.excluded":
+      "Not summed: unknown inclusion or already included by a parent run.",
     "agentBoard.estimated": "Includes estimates",
     "agentBoard.observed": "Source observations",
     "agentBoard.range": "Observation range",
@@ -1604,26 +2037,35 @@ export const componentMessages = {
     "commonComponents.searchCommands": "Search commands",
     "commonComponents.searching": "Loading commands…",
     "commonComponents.noCommands": "No matching commands",
-    "commonComponents.imageType": "Choose an allowed image type. The previous image is preserved.",
-    "commonComponents.imageSize": "The image exceeds the size limit. The previous image is preserved.",
-    "commonComponents.imageRead": "Unable to read the image. Choose another file. The previous image is preserved.",
+    "commonComponents.imageType":
+      "Choose an allowed image type. The previous image is preserved.",
+    "commonComponents.imageSize":
+      "The image exceeds the size limit. The previous image is preserved.",
+    "commonComponents.imageRead":
+      "Unable to read the image. Choose another file. The previous image is preserved.",
     "commonComponents.chooseImage": "Choose image",
     "commonComponents.replaceImage": "Replace image",
     "commonComponents.removeImage": "Remove image",
     "commonComponents.readingImage": "Reading local image…",
-    "commonComponents.localPreview": "Drop an image here. This is a local preview, not a completed upload.",
+    "commonComponents.localPreview":
+      "Drop an image here. This is a local preview, not a completed upload.",
     "commonComponents.filters": "Filters",
     "canvasWorkspace.moreTools": "More tools",
     "canvasWorkspace.arrangeDAG": "Arrange current flow (DAG)",
     "canvasWorkspace.bottomViews": "Bottom views",
     "canvasWorkspace.layoutPending": "Calculating layout… cancel at any time.",
-    "canvasWorkspace.layoutPreview": "Layout preview: no changes saved. Coordinates only; crossings may remain.",
+    "canvasWorkspace.layoutPreview":
+      "Layout preview: no changes saved. Coordinates only; crossings may remain.",
     "canvasWorkspace.applyLayout": "Apply layout",
     "canvasWorkspace.cancelLayout": "Cancel layout",
-    "canvasLayout.cycle": "This graph contains a cycle. Automatic layout is unsupported; the original graph is preserved.",
-    "canvasLayout.subflow": "This scope contains subflows or loop containers. Open a plain DAG flow to arrange it.",
-    "canvasLayout.invalid": "The graph structure is invalid. The original graph is preserved.",
-    "canvasLayout.groupCapacity": "The group is too small to arrange within its existing bounds. Enlarge it and retry.",
+    "canvasLayout.cycle":
+      "This graph contains a cycle. Automatic layout is unsupported; the original graph is preserved.",
+    "canvasLayout.subflow":
+      "This scope contains subflows or loop containers. Open a plain DAG flow to arrange it.",
+    "canvasLayout.invalid":
+      "The graph structure is invalid. The original graph is preserved.",
+    "canvasLayout.groupCapacity":
+      "The group is too small to arrange within its existing bounds. Enlarge it and retry.",
     "nodeInspector.advancedConfiguration": "Advanced configuration",
     "workspaceShell.collapseBottomPanel": "Collapse bottom panel",
     "workspaceShell.expandBottomPanel": "Expand bottom panel",
@@ -1641,7 +2083,8 @@ export const componentMessages = {
     "canvasWorkspace.graphCounts": "{nodes} nodes · {edges} edges",
     "activityTimeline.activityTimeline": "Activity timeline",
     "activityTimeline.noEventsInThisRange": "No events in this range",
-    "activityTimeline.adjustTheTimeRangeOrFiltersToView": "Adjust the time range or filters to view runtime events.",
+    "activityTimeline.adjustTheTimeRangeOrFiltersToView":
+      "Adjust the time range or filters to view runtime events.",
     "common.valueEventValue": "{value0} event {value1}",
     "activityTimeline.newEventsJumpToLatest": " new events · Jump to latest",
     "agentRow.unnamedAgent": "Unnamed Agent",
@@ -1675,7 +2118,8 @@ export const componentMessages = {
     "canvasConfigEditor.comparisonValue": "Comparison value",
     "canvasConfigEditor.removeCondition": "Remove condition",
     "canvasConfigEditor.addCondition": "Add condition",
-    "canvasConfigEditor.completeTheConditionFieldsNumericComparisonsRequireNumbers": "Complete the condition fields. Numeric comparisons require numbers.",
+    "canvasConfigEditor.completeTheConditionFieldsNumericComparisonsRequireNumbers":
+      "Complete the condition fields. Numeric comparisons require numbers.",
     "canvasConfigEditor.objectSchema": "· Object schema",
     "page.property": "Property",
     "canvasConfigEditor.propertyType": "Property type",
@@ -1683,9 +2127,12 @@ export const componentMessages = {
     "canvasConfigEditor.required": "Required",
     "canvasConfigEditor.removeProperty": "Remove property",
     "canvasConfigEditor.addProperty": "Add property",
-    "canvasConfigEditor.thisContentCannotBeEditedInTheSimplified": "This content cannot be edited in the simplified builder. The original JSON is preserved; fix it to restore the builder.",
-    "canvasConfigEditor.textEditingOnlyExpressionsAndCodeAreNot": "Text editing only; expressions and code are not executed. Node fields manage variable bindings separately.",
-    "canvasConnectionForm.selectTheSourceAndTargetPorts": "Select the source and target ports.",
+    "canvasConfigEditor.thisContentCannotBeEditedInTheSimplified":
+      "This content cannot be edited in the simplified builder. The original JSON is preserved; fix it to restore the builder.",
+    "canvasConfigEditor.textEditingOnlyExpressionsAndCodeAreNot":
+      "Text editing only; expressions and code are not executed. Node fields manage variable bindings separately.",
+    "canvasConnectionForm.selectTheSourceAndTargetPorts":
+      "Select the source and target ports.",
     "canvasConnectionForm.sourceOutputPort": "Source output port",
     "canvasConnectionForm.selectASource": "Select a source",
     "canvasConnectionForm.targetInputPort": "Target input port",
@@ -1695,8 +2142,10 @@ export const componentMessages = {
     "canvasConnectionForm.connect": "Connect",
     "canvasConnectionForm.disconnectEdge": "Disconnect edge",
     "canvasConnectionForm.insertNodeIntoEdge": "Insert node into edge",
-    "canvasConnectionForm.thePortsOnEitherSideAreIncompatibleThe": "The ports on either side are incompatible. The original edge is preserved.",
-    "canvasExecutionPanel.previewTruncated200Lines32kib": "[Preview truncated: 200 lines / 32KiB]",
+    "canvasConnectionForm.thePortsOnEitherSideAreIncompatibleThe":
+      "The ports on either side are incompatible. The original edge is preserved.",
+    "canvasExecutionPanel.previewTruncated200Lines32kib":
+      "[Preview truncated: 200 lines / 32KiB]",
     "canvasExecutionPanel.runControls": "Run controls",
     "canvasExecutionPanel.runScope": "Run scope",
     "canvasExecutionPanel.entireWorkflow": "Entire workflow",
@@ -1708,50 +2157,76 @@ export const componentMessages = {
     "canvasExecutionPanel.queryRun": "Query run",
     "canvasExecutionPanel.executionDebugger": "Execution debugger",
     "canvasExecutionPanel.documentR": "· Document r",
-    "canvasExecutionPanel.resultsFromAnOlderRevision": "(results from an older revision)",
+    "canvasExecutionPanel.resultsFromAnOlderRevision":
+      "(results from an older revision)",
     "canvasExecutionPanel.redactedPreviewCopied": "Redacted preview copied.",
-    "canvasExecutionPanel.copyFailedSelectThePreviewManually": "Copy failed. Select the preview manually.",
+    "canvasExecutionPanel.copyFailedSelectThePreviewManually":
+      "Copy failed. Select the preview manually.",
     "canvasExecutionPanel.copyRedactedPreview": "Copy redacted preview",
-    "canvasExecutionPanel.requestInProgressTheSourceConfirmsTheFinal": "Request in progress. The source confirms the final state.",
-    "canvasExecutionPanel.executionOutcomeUnknownQueryTheSourceBeforeAnother": "Execution outcome unknown. Query the source before another write.",
-    "canvasExecutionPanel.disconnectedLastSnapshotPreserved": "Disconnected · Last snapshot preserved",
-    "canvasExecutionPanel.theExistingRunSnapshotIsPreservedRetryThe": "The existing run snapshot is preserved. Retry the read safely.",
+    "canvasExecutionPanel.requestInProgressTheSourceConfirmsTheFinal":
+      "Request in progress. The source confirms the final state.",
+    "canvasExecutionPanel.executionOutcomeUnknownQueryTheSourceBeforeAnother":
+      "Execution outcome unknown. Query the source before another write.",
+    "canvasExecutionPanel.disconnectedLastSnapshotPreserved":
+      "Disconnected · Last snapshot preserved",
+    "canvasExecutionPanel.theExistingRunSnapshotIsPreservedRetryThe":
+      "The existing run snapshot is preserved. Retry the read safely.",
     "canvasExecutionPanel.noExecutionRecordsYet": "No execution records yet",
-    "canvasExecutionPanel.runOrQueryTheExecutionAdapterSuppliedBy": "Run or query the execution adapter supplied by the caller. Editing does not execute the workflow.",
+    "canvasExecutionPanel.runOrQueryTheExecutionAdapterSuppliedBy":
+      "Run or query the execution adapter supplied by the caller. Editing does not execute the workflow.",
     "canvasExecutionPanel.revision": "Revision",
     "common.rValueValue": "r{value0}{value1}",
-    "canvasExecutionPanel.selectANodeToInspectItsExecutionInput": "Select a node to inspect its execution input, output and trace.",
-    "canvasExecutionPanel.thisRunHasNoExecutionRecordForThis": "This run has no execution record for this node.",
-    "canvasFrame.collapsedNodesAndEdgesPreserved": "Collapsed · Nodes and edges preserved",
+    "canvasExecutionPanel.selectANodeToInspectItsExecutionInput":
+      "Select a node to inspect its execution input, output and trace.",
+    "canvasExecutionPanel.thisRunHasNoExecutionRecordForThis":
+      "This run has no execution record for this node.",
+    "canvasFrame.collapsedNodesAndEdgesPreserved":
+      "Collapsed · Nodes and edges preserved",
     "canvasFrame.visualGroup": "Visual group",
     "canvasNote.workflowNote": "Workflow note",
     "canvasProjectWorkspace.projectUnavailable": "Project unavailable",
-    "canvasProjectWorkspace.localProjectDraftChangedNotPersistedYet": "Local project draft changed; not persisted yet.",
-    "canvasProjectWorkspace.recursiveNavigationIntoAWorkflowOnTheCurrent": "Recursive navigation into a workflow on the current path is not allowed.",
+    "canvasProjectWorkspace.localProjectDraftChangedNotPersistedYet":
+      "Local project draft changed; not persisted yet.",
+    "canvasProjectWorkspace.recursiveNavigationIntoAWorkflowOnTheCurrent":
+      "Recursive navigation into a workflow on the current path is not allowed.",
     "canvasProjectWorkspace.subflowPath": "Subflow path",
     "canvasProjectWorkspace.openSubflow": "Open subflow",
     "canvasProjectWorkspace.projectJson": "Project JSON",
-    "canvasProjectWorkspace.projectHasChangesThatHaveNotBeenExported": "Project has changes that have not been exported",
-    "canvasProjectWorkspace.initialProjectOrExportedRevision": "Initial project or exported revision",
-    "canvasProjectWorkspace.workflowsInMemoryDraft": " workflows · In-memory draft",
+    "canvasProjectWorkspace.projectHasChangesThatHaveNotBeenExported":
+      "Project has changes that have not been exported",
+    "canvasProjectWorkspace.initialProjectOrExportedRevision":
+      "Initial project or exported revision",
+    "canvasProjectWorkspace.workflowsInMemoryDraft":
+      " workflows · In-memory draft",
     "canvasProjectWorkspace.boundary": "Boundary: ",
     "canvasProjectWorkspace.noInputs": "No inputs",
     "canvasProjectWorkspace.noOutputs": "No outputs",
-    "canvasProjectWorkspace.variablesCrossWorkflowBoundariesOnlyThroughExplicitPorts": ". Variables cross workflow boundaries only through explicit ports.",
-    "canvasProjectWorkspace.includesAllSubflowsAndBoundariesImportValidatesRecursion": "Includes all subflows and boundaries. Import validates recursion, endpoints, scope and size; failures preserve the project.",
+    "canvasProjectWorkspace.variablesCrossWorkflowBoundariesOnlyThroughExplicitPorts":
+      ". Variables cross workflow boundaries only through explicit ports.",
+    "canvasProjectWorkspace.includesAllSubflowsAndBoundariesImportValidatesRecursion":
+      "Includes all subflows and boundaries. Import validates recursion, endpoints, scope and size; failures preserve the project.",
     "canvasProjectWorkspace.projectJsonText": "Project JSON text",
-    "canvasProjectWorkspace.redactedProjectDownloadRequestedThisDoesNotConfirm": "Redacted project download requested. This does not confirm a service save.",
-    "canvasProjectWorkspace.downloadRedactedProject": "Download redacted project",
-    "canvasProjectWorkspace.projectLoadedIntoTheLocalDraft": "Project loaded into the local draft.",
+    "canvasProjectWorkspace.redactedProjectDownloadRequestedThisDoesNotConfirm":
+      "Redacted project download requested. This does not confirm a service save.",
+    "canvasProjectWorkspace.downloadRedactedProject":
+      "Download redacted project",
+    "canvasProjectWorkspace.projectLoadedIntoTheLocalDraft":
+      "Project loaded into the local draft.",
     "canvasProjectWorkspace.projectImportFailed": "Project import failed.",
     "canvasProjectWorkspace.importProject": "Import project",
-    "canvasServicePanel.submittingRequestTheSourceConfirmsTheResult": "Submitting request; the source confirms the result.",
-    "canvasServicePanel.requestSubmittedWaitingForSourceConfirmation": "Request submitted. Waiting for source confirmation.",
-    "canvasServicePanel.outcomeUnknownQueryTheReceiptBeforeSubmittingAgain": "Outcome unknown. Query the receipt before submitting again.",
+    "canvasServicePanel.submittingRequestTheSourceConfirmsTheResult":
+      "Submitting request; the source confirms the result.",
+    "canvasServicePanel.requestSubmittedWaitingForSourceConfirmation":
+      "Request submitted. Waiting for source confirmation.",
+    "canvasServicePanel.outcomeUnknownQueryTheReceiptBeforeSubmittingAgain":
+      "Outcome unknown. Query the receipt before submitting again.",
     "canvasServicePanel.serviceIntegration": "Service integration",
-    "canvasServicePanel.localUndoIsSeparateFromServerVersionHistory": ". Local undo is separate from server version history.",
-    "canvasServicePanel.theSourceHasNotProvidedServiceContent": "The source has not provided service content",
-    "canvasServicePanel.versionsPermissionsDiscussionsEnvironmentsAndReceiptsAppearWhen": "Versions, permissions, discussions, environments and receipts appear when supplied by the caller.",
+    "canvasServicePanel.localUndoIsSeparateFromServerVersionHistory":
+      ". Local undo is separate from server version history.",
+    "canvasServicePanel.theSourceHasNotProvidedServiceContent":
+      "The source has not provided service content",
+    "canvasServicePanel.versionsPermissionsDiscussionsEnvironmentsAndReceiptsAppearWhen":
+      "Versions, permissions, discussions, environments and receipts appear when supplied by the caller.",
     "canvasServicePanel.versionHistory": "Version history · ",
     "canvasServicePanel.restoreVersion": "Restore version",
     "canvasServicePanel.discussions": "Discussions · ",
@@ -1759,40 +2234,51 @@ export const componentMessages = {
     "canvasServicePanel.resolved": "· Resolved",
     "canvasServicePanel.discussionDraft": "Discussion draft",
     "canvasServicePanel.submitDiscussion": "Submit discussion",
-    "canvasServicePanel.submittingDoesNotInsertAMessageTheDraft": "Submitting does not insert a message. The draft is preserved until the source updates the thread.",
+    "canvasServicePanel.submittingDoesNotInsertAMessageTheDraft":
+      "Submitting does not insert a message. The draft is preserved until the source updates the thread.",
     "canvasServicePanel.collaborationPresence": "Collaboration presence",
     "common.pointerValueValue": " · Pointer {value0}, {value1}",
-    "canvasServicePanel.transientStateUsesSourceAsofAndExpiresatValues": "Transient state uses source asOf and expiresAt values; it is not written into the graph document.",
+    "canvasServicePanel.transientStateUsesSourceAsofAndExpiresatValues":
+      "Transient state uses source asOf and expiresAt values; it is not written into the graph document.",
     "canvasServicePanel.environments": "Environments",
     "canvasServicePanel.publishEnvironment": "Publish environment",
     "canvasServicePanel.selectAnEnvironment": "Select an environment",
     "canvasServicePanel.publishSavedRevision": "Publish saved revision",
     "canvasServicePanel.requestSharingLink": "Request sharing link",
-    "canvasServicePanel.publicationConfirmedBySource": "Publication confirmed by source: ",
-    "canvasServicePanel.thisPublicationReceiptBelongsToAnotherDocumentOr": "This publication receipt belongs to another document or revision. It does not prove that the current revision was published.",
-    "canvasServicePanel.openSharingLinkSuppliedBySource": "Open sharing link supplied by source",
-    "canvasServicePanel.receiptQueryFailedTheOriginalRequestAndUnknown": "Receipt query failed. The original request and unknown outcome are preserved.",
+    "canvasServicePanel.publicationConfirmedBySource":
+      "Publication confirmed by source: ",
+    "canvasServicePanel.thisPublicationReceiptBelongsToAnotherDocumentOr":
+      "This publication receipt belongs to another document or revision. It does not prove that the current revision was published.",
+    "canvasServicePanel.openSharingLinkSuppliedBySource":
+      "Open sharing link supplied by source",
+    "canvasServicePanel.receiptQueryFailedTheOriginalRequestAndUnknown":
+      "Receipt query failed. The original request and unknown outcome are preserved.",
     "canvasServicePanel.queryOperationReceipt": "Query operation receipt",
     "canvasServicePanel.restoreServerVersion": "Restore server version",
     "canvasServicePanel.useVersion": "Use version ",
-    "canvasServicePanel.asANewServerRevisionTheCallerPreserves": " as a new server revision. The caller preserves or merges the current local draft; this is not local undo.",
+    "canvasServicePanel.asANewServerRevisionTheCallerPreserves":
+      " as a new server revision. The caller preserves or merges the current local draft; this is not local undo.",
     "canvasServicePanel.confirmVersionRestore": "Confirm version restore",
-    "canvasWorkspace.copiedToTheCanvasInMemoryClipboard": "Copied to the canvas in-memory clipboard.",
+    "canvasWorkspace.copiedToTheCanvasInMemoryClipboard":
+      "Copied to the canvas in-memory clipboard.",
     "canvasWorkspace.selectNodesToCopyFirst": "Select nodes to copy first.",
     "canvasWorkspace.workflowGroup": "Workflow group",
     "canvasWorkspace.findNodesInGraph": "Find nodes in graph",
     "canvasWorkspace.nodeTitleOrId": "Node title or ID",
     "common.locateValue": "Locate {value0}",
-    "canvasWorkspace.noMatchingNodesInThisGraph": "No matching nodes in this graph.",
+    "canvasWorkspace.noMatchingNodesInThisGraph":
+      "No matching nodes in this graph.",
     "canvasWorkspace.copyNodes": "Copy nodes",
     "canvasWorkspace.pasteNodes": "Paste nodes",
-    "canvasWorkspace.deleteGroupAndUngroupMembers": "Delete group and ungroup members",
+    "canvasWorkspace.deleteGroupAndUngroupMembers":
+      "Delete group and ungroup members",
     "canvasWorkspace.deleteSelection": "Delete selection",
     "canvasWorkspace.groupSelectedNodes": "Group selected nodes",
     "canvasWorkspace.alignLeft": "Align left",
     "canvasWorkspace.alignTop": "Align top",
     "canvasWorkspace.distributeHorizontally": "Distribute horizontally",
-    "canvasWorkspace.describeTheIntentOfThisWorkflowSection": "Describe the intent of this workflow section.",
+    "canvasWorkspace.describeTheIntentOfThisWorkflowSection":
+      "Describe the intent of this workflow section.",
     "canvasWorkspace.addNote": "Add note",
     "canvasWorkspace.readOnly": "Read-only",
     "canvasWorkspace.localDraft": "Local draft",
@@ -1822,60 +2308,83 @@ export const componentMessages = {
     "canvasWorkspace.source": "Source",
     "canvasWorkspace.target": "Target",
     "canvasWorkspace.members": "Members",
-    "canvasWorkspace.thisGroupIsVisualOnlyMovingItMoves": "This group is visual only. Moving it moves its members; collapsing hides members and their edges without deleting graph data.",
+    "canvasWorkspace.thisGroupIsVisualOnlyMovingItMoves":
+      "This group is visual only. Moving it moves its members; collapsing hides members and their edges without deleting graph data.",
     "canvasWorkspace.expandGroup": "Expand group",
     "canvasWorkspace.collapseGroup": "Collapse group",
     "canvasWorkspace.relatedEdges": "Related edges:",
-    "canvasWorkspace.originalEndpointsPreserved": " (original endpoints preserved)",
+    "canvasWorkspace.originalEndpointsPreserved":
+      " (original endpoints preserved)",
     "canvasWorkspace.documentValidation": "Document validation",
     "canvasWorkspace.collapseBottomPanel": "Collapse bottom panel",
     "canvasWorkspace.expandBottomPanel": "Expand bottom panel",
     "canvasWorkspace.documentValidation2": "Document validation ·",
     "canvasWorkspace.issues": " issues",
-    "canvasWorkspace.currentRevisionConfirmedByService": "Current revision confirmed by service",
-    "canvasWorkspace.localDraftAwaitingServiceConfirmation": "Local draft awaiting service confirmation",
+    "canvasWorkspace.currentRevisionConfirmedByService":
+      "Current revision confirmed by service",
+    "canvasWorkspace.localDraftAwaitingServiceConfirmation":
+      "Local draft awaiting service confirmation",
     "canvasWorkspace.changesNotExported2": "Changes not exported",
     "canvasWorkspace.initialOrExportedRevision": "Initial or exported revision",
-    "canvasWorkspace.inMemoryDocumentLostOnReloadOrNavigation": "· In-memory document; lost on reload or navigation",
-    "canvasWorkspace.addNodesFromThePaletteOrConnectThem": "Add nodes from the palette or connect them using the port form.",
+    "canvasWorkspace.inMemoryDocumentLostOnReloadOrNavigation":
+      "· In-memory document; lost on reload or navigation",
+    "canvasWorkspace.addNodesFromThePaletteOrConnectThem":
+      "Add nodes from the palette or connect them using the port form.",
     "canvasWorkspace.error": "Error",
     "canvasWorkspace.notice": "Notice",
-    "canvasWorkspace.noStructuralOrConfigurationIssuesFoundThisDoes": "No structural or configuration issues found. This does not mean the workflow has executed.",
+    "canvasWorkspace.noStructuralOrConfigurationIssuesFoundThisDoes":
+      "No structural or configuration issues found. This does not mean the workflow has executed.",
     "canvasWorkspace.startWithOneNode": "Start with one node",
-    "canvasWorkspace.addInputAgentToolAndOutputNodesAnd": "Add Input, Agent, Tool and Output nodes and connect their ports.",
+    "canvasWorkspace.addInputAgentToolAndOutputNodesAnd":
+      "Add Input, Agent, Tool and Output nodes and connect their ports.",
     "canvasWorkspace.addTheFirstNode": "Add the first node",
-    "canvasWorkspace.theGraphDocumentIsIncompleteAlreadyLoadedContent": "The graph document is incomplete. Already loaded content is preserved.",
+    "canvasWorkspace.theGraphDocumentIsIncompleteAlreadyLoadedContent":
+      "The graph document is incomplete. Already loaded content is preserved.",
     "canvasWorkspace.canvasActions": "Canvas actions",
     "canvasWorkspace.graphDocumentJson": "Graph document JSON",
-    "canvasWorkspace.exportsIncludeOnlyRedactedGraphConfigurationWithoutExecution": "Exports include only redacted graph configuration, without execution snapshots. Import replaces the local draft and can be undone.",
-    "canvasWorkspace.allEditsAffectOnlyTheCurrentInMemory": "All edits affect only the current in-memory graph document.",
+    "canvasWorkspace.exportsIncludeOnlyRedactedGraphConfigurationWithoutExecution":
+      "Exports include only redacted graph configuration, without execution snapshots. Import replaces the local draft and can be undone.",
+    "canvasWorkspace.allEditsAffectOnlyTheCurrentInMemory":
+      "All edits affect only the current in-memory graph document.",
     "canvasWorkspace.searchCommandsOrNodes": "Search commands or nodes",
     "canvasWorkspace.addLocateAlignUndo": "Add, locate, align, undo",
     "common.addValue": "Add {value0}",
-    "canvasWorkspace.showingTheFirst50MatchesTypeAName": "Showing the first 50 matches. Type a name to narrow results. Tab selects, Enter runs, Escape closes.",
+    "canvasWorkspace.showingTheFirst50MatchesTypeAName":
+      "Showing the first 50 matches. Type a name to narrow results. Tab selects, Enter runs, Escape closes.",
     "canvasWorkspace.shiftClickMarqueeSelect": "Shift + click / Marquee select",
     "canvasWorkspace.selectMultipleNodes": "Select multiple nodes",
-    "canvasWorkspace.arrowKeysShiftArrowKeys": "Arrow keys / Shift + arrow keys",
+    "canvasWorkspace.arrowKeysShiftArrowKeys":
+      "Arrow keys / Shift + arrow keys",
     "canvasWorkspace.moveFocusedNodeBy832px": "Move focused node by 8 / 32px",
     "canvasWorkspace.selectAllNodes": "Select all nodes",
     "canvasWorkspace.copyPasteNodes": "Copy / paste nodes",
     "canvasWorkspace.undoRedo": "Undo / redo",
-    "canvasWorkspace.closeDialogAndReturnToTrigger": "Close dialog and return to trigger",
+    "canvasWorkspace.closeDialogAndReturnToTrigger":
+      "Close dialog and return to trigger",
     "canvasWorkspace.connectPortsButton": "Connect ports button",
-    "canvasWorkspace.connectWithoutDraggingAnEdge": "Connect without dragging an edge",
+    "canvasWorkspace.connectWithoutDraggingAnEdge":
+      "Connect without dragging an edge",
     "canvasWorkspace.graphDocumentContent": "Graph document content",
     "canvasWorkspace.readJsonFile": "Read JSON file",
-    "canvasWorkspace.fileExceedsThe512kibLimit": "File exceeds the 512KiB limit.",
-    "canvasWorkspace.fileReadFailedTheOriginalGraphIsPreserved": "File read failed. The original graph is preserved.",
-    "canvasWorkspace.redactedGraphDocumentCopiedTheLocalDraftRemains": "Redacted graph document copied; the local draft remains in memory only.",
-    "canvasWorkspace.copyFailedTheDraftIsPreservedDownloadThe": "Copy failed. The draft is preserved; download the JSON file instead.",
+    "canvasWorkspace.fileExceedsThe512kibLimit":
+      "File exceeds the 512KiB limit.",
+    "canvasWorkspace.fileReadFailedTheOriginalGraphIsPreserved":
+      "File read failed. The original graph is preserved.",
+    "canvasWorkspace.redactedGraphDocumentCopiedTheLocalDraftRemains":
+      "Redacted graph document copied; the local draft remains in memory only.",
+    "canvasWorkspace.copyFailedTheDraftIsPreservedDownloadThe":
+      "Copy failed. The draft is preserved; download the JSON file instead.",
     "canvasWorkspace.copyRedactedJson": "Copy redacted JSON",
-    "canvasWorkspace.graphDownloadRequestedKeepTheDownloadedFile": "Graph download requested. Keep the downloaded file.",
-    "canvasWorkspace.exportFailedTheDraftIsPreserved": "Export failed. The draft is preserved.",
+    "canvasWorkspace.graphDownloadRequestedKeepTheDownloadedFile":
+      "Graph download requested. Keep the downloaded file.",
+    "canvasWorkspace.exportFailedTheDraftIsPreserved":
+      "Export failed. The draft is preserved.",
     "canvasWorkspace.downloadJson": "Download JSON",
-    "canvasWorkspace.importFailedTheOriginalGraphIsPreserved": "Import failed. The original graph is preserved.",
+    "canvasWorkspace.importFailedTheOriginalGraphIsPreserved":
+      "Import failed. The original graph is preserved.",
     "canvasWorkspace.validateAndReplaceDraft": "Validate and replace draft",
-    "canvasWorkspace.theOriginalDocumentWasNotOverwritten": "The original document was not overwritten.",
+    "canvasWorkspace.theOriginalDocumentWasNotOverwritten":
+      "The original document was not overwritten.",
     "canvasWorkspace.noteBody": "Note body",
     "canvasWorkspace.applyNote": "Apply note",
     "chatMessage.submitting": "Submitting",
@@ -1887,42 +2396,53 @@ export const componentMessages = {
     "chatMessage.you": "You",
     "chatMessage.copyMessage": "Copy message",
     "chatMessage.messageCopied": "Message copied.",
-    "chatMessage.clipboardUnavailableCopyManually": "Clipboard unavailable. Copy manually.",
+    "chatMessage.clipboardUnavailableCopyManually":
+      "Clipboard unavailable. Copy manually.",
     "chatMessage.stopReceiving": "Stop receiving",
     "chatMessage.retryMessage": "Retry message",
     "chatMessage.continueReceiving": "Continue receiving",
     "chatMessage.conversationAndWorkspace": "Conversation and workspace",
     "chatMessage.conversationHistory": "Conversation history",
     "chatMessage.startAConversation": "Start a conversation",
-    "chatMessage.enterATaskBelowSendingItPreservesThe": "Enter a task below. Sending it preserves the complete workflow record.",
+    "chatMessage.enterATaskBelowSendingItPreservesThe":
+      "Enter a task below. Sending it preserves the complete workflow record.",
     "chatMessage.jumpToLatest": "Jump to latest",
-    "chatMessage.messageDeliveryIsUnconfirmedYourDraftIsPreserved": "Message delivery is unconfirmed. Your draft is preserved; check the connection before retrying.",
+    "chatMessage.messageDeliveryIsUnconfirmedYourDraftIsPreserved":
+      "Message delivery is unconfirmed. Your draft is preserved; check the connection before retrying.",
     "chatMessage.messageInput": "Message input",
     "chatMessage.enterATask": "Enter a task…",
-    "chatMessage.enterToSendShiftEnterForANew": "Enter to send · Shift+Enter for a new line",
+    "chatMessage.enterToSendShiftEnterForANew":
+      "Enter to send · Shift+Enter for a new line",
     "chatMessage.stop": "Stop",
     "chatMessage.send": "Send",
     "inspector.noObjectSelected": "No object selected",
-    "inspector.selectASessionAgentOrActivityToInspect": "Select a Session, Agent or Activity to inspect its details.",
+    "inspector.selectASessionAgentOrActivityToInspect":
+      "Select a Session, Agent or Activity to inspect its details.",
     "inspector.currentObject": "Current object · ",
     "inspector.loadingObjectDetails": "Loading object details",
-    "inspector.objectDetailsAreIncompleteMissingFieldsAppearAs": "Object details are incomplete. Missing fields appear as “—”.",
+    "inspector.objectDetailsAreIncompleteMissingFieldsAppearAs":
+      "Object details are incomplete. Missing fields appear as “—”.",
     "common.copyValue": "Copy {value0}",
     "common.valueCopied": "{value0} copied.",
     "nodeInspector.unknownNode": "Unknown node",
     "nodeInspector.nodeId": "Node ID",
     "nodeInspector.nodeType": "Node type",
     "nodeInspector.position": "Position",
-    "nodeInspector.selectANodeToEditItsConfigurationSelect": "Select a node to edit its configuration; select an edge to reconnect or disconnect it.",
-    "nodeInspector.theNodeDefinitionIsMissingOriginalConfigurationAnd": "The node definition is missing. Original configuration and port references are preserved. Export is available; configuration is disabled.",
+    "nodeInspector.selectANodeToEditItsConfigurationSelect":
+      "Select a node to edit its configuration; select an edge to reconnect or disconnect it.",
+    "nodeInspector.theNodeDefinitionIsMissingOriginalConfigurationAnd":
+      "The node definition is missing. Original configuration and port references are preserved. Export is available; configuration is disabled.",
     "common.valueIsNotValidJson": "{value0} is not valid JSON.",
     "nodeInspector.nodeNameCannotBeEmpty": "Node name cannot be empty.",
-    "common.theValueReferenceIsUnavailableSelectItAgain": "The {value0} reference is unavailable. Select it again.",
-    "nodeInspector.configurationCouldNotBeWrittenToTheDocument": "Configuration could not be written to the document.",
+    "common.theValueReferenceIsUnavailableSelectItAgain":
+      "The {value0} reference is unavailable. Select it again.",
+    "nodeInspector.configurationCouldNotBeWrittenToTheDocument":
+      "Configuration could not be written to the document.",
     "nodeInspector.nodeConfiguration": "Node configuration",
     "nodeInspector.nodeName": "Node name",
     "nodeInspector.select": "Select ",
-    "nodeInspector.currentReferenceUnavailable": "Current reference unavailable",
+    "nodeInspector.currentReferenceUnavailable":
+      "Current reference unavailable",
     "nodeInspector.unavailable": "· Unavailable",
     "nodeInspector.reference": "Reference: ",
     "nodeInspector.sourceDeleted": "Source deleted",
@@ -1930,9 +2450,11 @@ export const componentMessages = {
     "nodeInspector.removeBinding": "Remove binding",
     "nodeInspector.applyConfiguration": "Apply configuration",
     "nodeInspector.discardChanges": "Discard changes",
-    "nodeInspector.fieldEditsStayInTheCurrentObjectDraft": "Field edits stay in the current object draft until applied. Invalid input does not overwrite the graph document.",
+    "nodeInspector.fieldEditsStayInTheCurrentObjectDraft":
+      "Field edits stay in the current object draft until applied. Invalid input does not overwrite the graph document.",
     "nodeInspector.selectUpstreamVariable": "Select upstream variable",
-    "nodeInspector.onlyCompatibleOutputsReachableUpstreamAreShownReferences": "Only compatible outputs reachable upstream are shown. References use stable IDs.",
+    "nodeInspector.onlyCompatibleOutputsReachableUpstreamAreShownReferences":
+      "Only compatible outputs reachable upstream are shown. References use stable IDs.",
     "nodePalette.nodePalette": "Node palette",
     "nodePalette.searchNodeTypes": "Search node types",
     "nodePalette.nameOrType": "Name or type",
@@ -1941,39 +2463,58 @@ export const componentMessages = {
     "nodePalette.recentlyUsedNodes": "Recently used nodes",
     "nodePalette.recentlyUsed": "Recently used",
     "nodePalette.recent": "Recent: ",
-    "nodePalette.noMatchingNodeTypesTryAnotherNameOr": "No matching node types. Try another name or category.",
-    "nodePalette.theNodePaletteRemainsBrowsableOnARead": "The node palette remains browsable on a read-only canvas.",
-    "scrollPlayground.scrollTriggeredDemoScrollDownToRevealCards": "Scroll-triggered demo: scroll down to reveal cards",
+    "nodePalette.noMatchingNodeTypesTryAnotherNameOr":
+      "No matching node types. Try another name or category.",
+    "nodePalette.theNodePaletteRemainsBrowsableOnARead":
+      "The node palette remains browsable on a read-only canvas.",
+    "scrollPlayground.scrollTriggeredDemoScrollDownToRevealCards":
+      "Scroll-triggered demo: scroll down to reveal cards",
     "scrollPlayground.everyEntranceJustInTime": "Every entrance, just in time.",
-    "scrollPlayground.scrollDownToDiscoverThreeCards": "Scroll down to discover three cards",
+    "scrollPlayground.scrollDownToDiscoverThreeCards":
+      "Scroll down to discover three cards",
     "scrollPlayground.aLittleInspiration": "A little inspiration",
     "scrollPlayground.startWithASmallIdea": "Start with a small idea.",
     "scrollPlayground.aLittleSurprise": "A little surprise",
-    "scrollPlayground.onceInViewTheAnimationPlaysToCompletion": "Once in view, the animation plays to completion.",
+    "scrollPlayground.onceInViewTheAnimationPlaysToCompletion":
+      "Once in view, the animation plays to completion.",
     "scrollPlayground.justEnough": "Just enough",
-    "scrollPlayground.scrollBackTheCardsAreStillHere": "Scroll back; the cards are still here.",
-    "scrollPlayground.allRevealedScrollingUpDoesNotReplay": "All revealed · Scrolling up does not replay",
-    "scrollPlayground.scrollLinkedDemoReadingProgressFollowsArticleScrolling": "Scroll-linked demo: reading progress follows article scrolling",
+    "scrollPlayground.scrollBackTheCardsAreStillHere":
+      "Scroll back; the cards are still here.",
+    "scrollPlayground.allRevealedScrollingUpDoesNotReplay":
+      "All revealed · Scrolling up does not replay",
+    "scrollPlayground.scrollLinkedDemoReadingProgressFollowsArticleScrolling":
+      "Scroll-linked demo: reading progress follows article scrolling",
     "scrollPlayground.read": "Read ",
-    "scrollPlayground.demoArticleReadingProgress": "Demo article reading progress",
+    "scrollPlayground.demoArticleReadingProgress":
+      "Demo article reading progress",
     "scrollPlayground.vol02OnSlowingDown": "VOL. 02 / On slowing down",
     "scrollPlayground.betweenScrolls": "Between scrolls,",
     "scrollPlayground.leaveRoomToBreathe": "leave room to breathe.",
-    "scrollPlayground.readOnTheFineLineAboveFollowsYour": "Read on; the fine line above follows your pace.",
+    "scrollPlayground.readOnTheFineLineAboveFollowsYour":
+      "Read on; the fine line above follows your pace.",
     "scrollPlayground.01SetYourOwnPace": "01 / Set your own pace",
-    "scrollPlayground.aGoodReadingExperienceLetsContentUnfoldNaturally": "A good reading experience lets content unfold naturally. Progress follows how far you scroll; when you pause, the line pauses too.",
+    "scrollPlayground.aGoodReadingExperienceLetsContentUnfoldNaturally":
+      "A good reading experience lets content unfold naturally. Progress follows how far you scroll; when you pause, the line pauses too.",
     "scrollPlayground.02LookBackAnytime": "02 / Look back anytime",
-    "scrollPlayground.tryScrollingUpProgressRetracesItsPathWithout": "Try scrolling up. Progress retraces its path without waiting for an animation to finish. Every change is driven by scroll position.",
+    "scrollPlayground.tryScrollingUpProgressRetracesItsPathWithout":
+      "Try scrolling up. Progress retraces its path without waiting for an animation to finish. Every change is driven by scroll position.",
     "scrollPlayground.03ReachTheEnd": "03 / Reach the end",
-    "scrollPlayground.whenTheLineIsFullThisShortArticle": "When the line is full, this short article is complete. A simple ratio gives long content a clear sense of place.",
-    "scrollPlayground.parallaxDemoCompareBackgroundAndForegroundScrollingSpeeds": "Parallax demo: compare background and foreground scrolling speeds",
+    "scrollPlayground.whenTheLineIsFullThisShortArticle":
+      "When the line is full, this short article is complete. A simple ratio gives long content a clear sense of place.",
+    "scrollPlayground.parallaxDemoCompareBackgroundAndForegroundScrollingSpeeds":
+      "Parallax demo: compare background and foreground scrolling speeds",
     "scrollPlayground.distantMountains": "Distant mountains,",
     "scrollPlayground.aMomentCloseBy": "a moment close by.",
-    "scrollPlayground.scrollDownToSeeTheDistantMountains": "Scroll down to see the distant mountains",
-    "scrollPlayground.nearThingsPassDistantThingsDrift": "Near things pass; distant things drift.",
-    "scrollPlayground.textScrollsAtNormalSpeedWhileTheBackground": "Text scrolls at normal speed while the background travels only 35% as far, creating depth through the difference.",
-    "scrollPlayground.reducedMotionBackgroundScrollsNormallyWithContent": "Reduced motion: background scrolls normally with content",
-    "scrollPlayground.background035Foreground1": "Background 0.35× / Foreground 1×",
+    "scrollPlayground.scrollDownToSeeTheDistantMountains":
+      "Scroll down to see the distant mountains",
+    "scrollPlayground.nearThingsPassDistantThingsDrift":
+      "Near things pass; distant things drift.",
+    "scrollPlayground.textScrollsAtNormalSpeedWhileTheBackground":
+      "Text scrolls at normal speed while the background travels only 35% as far, creating depth through the difference.",
+    "scrollPlayground.reducedMotionBackgroundScrollsNormallyWithContent":
+      "Reduced motion: background scrolls normally with content",
+    "scrollPlayground.background035Foreground1":
+      "Background 0.35× / Foreground 1×",
     "scrollPlayground.anRan": "An Ran",
     "scrollPlayground.productDesign": "Product design",
     "scrollPlayground.amy": "Amy",
@@ -1997,18 +2538,25 @@ export const componentMessages = {
     "scrollPlayground.userResearch": "User research",
     "scrollPlayground.cuiNing": "Cui Ning",
     "scrollPlayground.contentDesign": "Content design",
-    "scrollPlayground.stickyDemoAlphabetHeadersStickWhileYouScroll": "Sticky demo: alphabet headers stick while you scroll the directory",
-    "scrollPlayground.makeSomethingGoodTogether": "Make something good together.",
-    "scrollPlayground.12TeammatesGroupedByName": "12 teammates · Grouped by name",
+    "scrollPlayground.stickyDemoAlphabetHeadersStickWhileYouScroll":
+      "Sticky demo: alphabet headers stick while you scroll the directory",
+    "scrollPlayground.makeSomethingGoodTogether":
+      "Make something good together.",
+    "scrollPlayground.12TeammatesGroupedByName":
+      "12 teammates · Grouped by name",
     "scrollPlayground.4Teammates": "4 teammates",
     "scrollPlayground.online": "Online",
     "scrollPlayground.pause": "Pause.",
-    "scrollPlayground.giveEveryScreenItsOwnTime": "Give every screen its own time.",
+    "scrollPlayground.giveEveryScreenItsOwnTime":
+      "Give every screen its own time.",
     "scrollPlayground.breathe": "Breathe.",
-    "scrollPlayground.releaseTheWheelTheViewAlignsAutomatically": "Release the wheel; the view aligns automatically.",
+    "scrollPlayground.releaseTheWheelTheViewAlignsAutomatically":
+      "Release the wheel; the view aligns automatically.",
     "scrollPlayground.moveOn": "Move on.",
-    "scrollPlayground.theNextStoryStartsWithAFullScreen": "The next story starts with a full screen.",
-    "scrollPlayground.scrollSnapDemoScrollingAlignsToAFull": "Scroll Snap demo: scrolling aligns to a full screen",
+    "scrollPlayground.theNextStoryStartsWithAFullScreen":
+      "The next story starts with a full screen.",
+    "scrollPlayground.scrollSnapDemoScrollingAlignsToAFull":
+      "Scroll Snap demo: scrolling aligns to a full screen",
     "common.screenValueValue": "Screen {value0}: {value1}",
     "scrollPlayground.previousScreen": "Previous screen",
     "common.goToScreenValue": "Go to screen {value0}",
@@ -2020,28 +2568,42 @@ export const componentMessages = {
     "scrollPlayground.create": "Create",
     "scrollPlayground.giveIdeasAShape": "Give ideas a shape",
     "scrollPlayground.begin": "Begin",
-    "scrollPlayground.nextStopMorePossibilities": "Next stop: more possibilities",
-    "scrollPlayground.horizontalScrollDemoScrollRightToViewCards": "Horizontal Scroll demo: scroll right to view cards",
-    "scrollPlayground.horizontalScrollDemoScrollDownToMoveCards": "Horizontal Scroll demo: scroll down to move cards horizontally",
+    "scrollPlayground.nextStopMorePossibilities":
+      "Next stop: more possibilities",
+    "scrollPlayground.horizontalScrollDemoScrollRightToViewCards":
+      "Horizontal Scroll demo: scroll right to view cards",
+    "scrollPlayground.horizontalScrollDemoScrollDownToMoveCards":
+      "Horizontal Scroll demo: scroll down to move cards horizontally",
     "scrollPlayground.swipeRight": "Swipe right →",
     "scrollPlayground.scrollDown": "Scroll down ↓",
     "scrollPlayground.enterThenPlay": "Enter, then play",
-    "scrollPlayground.cardsFadeInWhenTheyEnterTheViewport": "Cards fade in when they enter the viewport. The animation continues if scrolling stops.",
-    "scrollPlayground.intersectionobserverTriggerOnce": "IntersectionObserver · Trigger once",
+    "scrollPlayground.cardsFadeInWhenTheyEnterTheViewport":
+      "Cards fade in when they enter the viewport. The animation continues if scrolling stops.",
+    "scrollPlayground.intersectionobserverTriggerOnce":
+      "IntersectionObserver · Trigger once",
     "scrollPlayground.movementFollowsScrolling": "Movement follows scrolling",
-    "scrollPlayground.readingProgressFollowsScrollPositionIncludingWhenYou": "Reading progress follows scroll position, including when you scroll back.",
-    "scrollPlayground.scrolltopScrollableDistance": "scrollTop / Scrollable distance",
+    "scrollPlayground.readingProgressFollowsScrollPositionIncludingWhenYou":
+      "Reading progress follows scroll position, including when you scroll back.",
+    "scrollPlayground.scrolltopScrollableDistance":
+      "scrollTop / Scrollable distance",
     "scrollPlayground.letTheDistanceDrift": "Let the distance drift",
-    "scrollPlayground.foregroundTextScrollsNormallyWhileTheBackgroundMoves": "Foreground text scrolls normally while the background moves slowly to create depth.",
-    "scrollPlayground.differentLayersDifferentSpeeds": "Different layers · Different speeds",
+    "scrollPlayground.foregroundTextScrollsNormallyWhileTheBackgroundMoves":
+      "Foreground text scrolls normally while the background moves slowly to create depth.",
+    "scrollPlayground.differentLayersDifferentSpeeds":
+      "Different layers · Different speeds",
     "scrollPlayground.reachTheTopAndStay": "Reach the top and stay",
-    "scrollPlayground.alphabetHeadersStickToTheTopUntilThe": "Alphabet headers stick to the top until the next group takes over.",
-    "scrollPlayground.positionStickyGroupHeaders": "position: sticky · Group headers",
+    "scrollPlayground.alphabetHeadersStickToTheTopUntilThe":
+      "Alphabet headers stick to the top until the next group takes over.",
+    "scrollPlayground.positionStickyGroupHeaders":
+      "position: sticky · Group headers",
     "scrollPlayground.everyScreenInPlace": "Every screen in place",
-    "scrollPlayground.afterScrollingStopsTheViewSnapsToA": "After scrolling stops, the view snaps to a complete screen. Arrow buttons also work.",
+    "scrollPlayground.afterScrollingStopsTheViewSnapsToA":
+      "After scrolling stops, the view snaps to a complete screen. Arrow buttons also work.",
     "scrollPlayground.scrollDownMoveSideways": "Scroll down, move sideways",
-    "scrollPlayground.keepScrollingDownAndCardsMoveHorizontallyScroll": "Keep scrolling down and cards move horizontally. Scroll back to reverse their path.",
-    "scrollPlayground.stickyTranslatexNativeVerticalScrolling": "Sticky + translateX · Native vertical scrolling",
+    "scrollPlayground.keepScrollingDownAndCardsMoveHorizontallyScroll":
+      "Keep scrolling down and cards move horizontally. Scroll back to reverse their path.",
+    "scrollPlayground.stickyTranslatexNativeVerticalScrolling":
+      "Sticky + translateX · Native vertical scrolling",
     "common.resetValueDemo": "Reset {value0} demo",
     "scrollPlayground.tryAgain": "Try again",
     "sessionRow.unnamedSession": "Unnamed Session",
@@ -2050,7 +2612,8 @@ export const componentMessages = {
     "styleWorkbench.pxControls": "px controls",
     "styleWorkbench.designSystemReview": "Design system review",
     "styleWorkbench.sample": "Sample",
-    "styleWorkbench.compareBordersDensityAndReadabilityUsingIdenticalContent": "Compare borders, density and readability using identical content. Adjust parameters to see the difference.",
+    "styleWorkbench.compareBordersDensityAndReadabilityUsingIdenticalContent":
+      "Compare borders, density and readability using identical content. Adjust parameters to see the difference.",
     "styleWorkbench.foundations": "Foundations",
     "styleWorkbench.12Items": "12 items",
     "styleWorkbench.componentSpecification": "Component specification",
@@ -2059,10 +2622,12 @@ export const componentMessages = {
     "styleWorkbench.sampleButton": "Sample button",
     "styleWorkbench.filterValue": "Filter value",
     "styleWorkbench.visualParameterExperiment": "Visual parameter experiment",
-    "styleWorkbench.theCurrentThemeHasNotFullyLoaded": "The current theme has not fully loaded.",
+    "styleWorkbench.theCurrentThemeHasNotFullyLoaded":
+      "The current theme has not fully loaded.",
     "styleWorkbench.bCssCopied": "B CSS copied.",
     "styleWorkbench.aBParameterJsonCopied": "A/B parameter JSON copied.",
-    "styleWorkbench.clipboardUnavailableSelectAndCopyTheCodeBelow": "Clipboard unavailable. Select and copy the code below manually.",
+    "styleWorkbench.clipboardUnavailableSelectAndCopyTheCodeBelow":
+      "Clipboard unavailable. Select and copy the code below manually.",
     "styleWorkbench.readingThemeBaseline": "Reading theme baseline",
     "styleWorkbench.couldNotReadStyleBaseline": "Could not read style baseline",
     "styleWorkbench.aIsPinned": "A is pinned",
@@ -2072,7 +2637,8 @@ export const componentMessages = {
     "styleWorkbench.setBAsBaselineA": "Set B as baseline A",
     "styleWorkbench.bResetToBaselineA": "B reset to baseline A.",
     "styleWorkbench.resetB": "Reset B",
-    "styleWorkbench.currentProjectThemeBaselineRestored": "Current project theme baseline restored.",
+    "styleWorkbench.currentProjectThemeBaselineRestored":
+      "Current project theme baseline restored.",
     "styleWorkbench.restoreProjectDefaults": "Restore project defaults",
     "styleWorkbench.styleParameters": "Style parameters",
     "styleWorkbench.parameterCategories": "Parameter categories",
@@ -2082,14 +2648,16 @@ export const componentMessages = {
     "styleWorkbench.stylePresets": "Style presets",
     "styleWorkbench.tryAPreset": "Try a preset",
     "common.appliedValueToB": "Applied “{value0}” to B.",
-    "styleWorkbench.presetsAreLocalExperimentsTouchControlsRetainTargets": "Presets are local experiments. Touch controls retain targets of at least 44px.",
+    "styleWorkbench.presetsAreLocalExperimentsTouchControlsRetainTargets":
+      "Presets are local experiments. Touch controls retain targets of at least 44px.",
     "styleWorkbench.aBaseline": "A · Baseline",
     "styleWorkbench.bCurrentChanges": "B · Current changes",
     "styleWorkbench.parameterDifferences": "Parameter differences",
     "styleWorkbench.parameter": "Parameter",
     "styleWorkbench.bCurrent": "B · Current",
     "styleWorkbench.difference": "Difference",
-    "styleWorkbench.aAndBAreIdenticalAdjustParametersOn": "A and B are identical. Adjust parameters on the left to compare.",
+    "styleWorkbench.aAndBAreIdenticalAdjustParametersOn":
+      "A and B are identical. Adjust parameters on the left to compare.",
     "styleWorkbench.exportStyles": "Export styles",
     "styleWorkbench.parameterJson": "Parameter JSON",
     "styleWorkbench.copyCss": "Copy CSS",
@@ -2106,24 +2674,31 @@ export const componentMessages = {
     "taskPanel.retry": "Retry",
     "taskPanel.of": " of",
     "taskPanel.tasksCompleted": " tasks completed.",
-    "common.valueRequestSubmittedWaitingForSourceConfirmation": "{value0} request submitted. Waiting for source confirmation.",
-    "common.valueRequestFailedTheOutcomeIsUnknownQuery": "{value0} request failed; the outcome is unknown. Query the status before continuing.",
+    "common.valueRequestSubmittedWaitingForSourceConfirmation":
+      "{value0} request submitted. Waiting for source confirmation.",
+    "common.valueRequestFailedTheOutcomeIsUnknownQuery":
+      "{value0} request failed; the outcome is unknown. Query the status before continuing.",
     "toolCall.outcomeUnknown": "Outcome unknown",
-    "toolCall.partialOutputStillReceivingOrNotFullyLoaded": "Partial output · Still receiving or not fully loaded.",
+    "toolCall.partialOutputStillReceivingOrNotFullyLoaded":
+      "Partial output · Still receiving or not fully loaded.",
     "toolCall.loadingToolDetails": "Loading tool details",
     "toolCall.currentStageNotProvided": "Current stage not provided",
     "toolCall.durationUnknown": "Duration unknown",
-    "toolCall.outcomeUnknownQueryOrReconcileFirstDoNot": "Outcome unknown. Query or reconcile first; do not retry a write based on this result.",
+    "toolCall.outcomeUnknownQueryOrReconcileFirstDoNot":
+      "Outcome unknown. Query or reconcile first; do not retry a write based on this result.",
     "toolCall.queryResult": "Query result",
     "toolCall.argumentsNotProvided": "Arguments not provided",
     "toolCall.output": "Output",
     "toolCall.copyRedactedOutput": "Copy redacted output",
     "toolCall.redactedOutputCopied": "Redacted output copied.",
-    "toolCall.clipboardUnavailableCopyTheRedactedContentManually": "Clipboard unavailable. Copy the redacted content manually.",
+    "toolCall.clipboardUnavailableCopyTheRedactedContentManually":
+      "Clipboard unavailable. Copy the redacted content manually.",
     "toolCall.theToolReturnedNoTextOutput": "The tool returned no text output",
     "toolCall.outputTruncated": "Output truncated",
-    "toolCall.previewLimitedTo200Lines32kib": ": Preview limited to 200 lines / 32KiB.",
-    "toolCall.theSourceSuppliedOnlyPartialOutput": ": The source supplied only partial output.",
+    "toolCall.previewLimitedTo200Lines32kib":
+      ": Preview limited to 200 lines / 32KiB.",
+    "toolCall.theSourceSuppliedOnlyPartialOutput":
+      ": The source supplied only partial output.",
     "toolCall.collapseFullOutput": "Collapse full output",
     "toolCall.expandFullOutput": "Expand full output",
     "toolCall.downloadRedactedOutput": "Download redacted output",
@@ -2141,9 +2716,11 @@ export const componentMessages = {
     "variablePicker.searchUpstreamVariables": "Search upstream variables",
     "variablePicker.searchSourcePortOrType": "Search source, port or type",
     "variablePicker.reachableUpstreamVariables": "Reachable upstream variables",
-    "variablePicker.noCompatibleUpstreamOutputsConnectASourceNode": "No compatible upstream outputs. Connect a source node first.",
+    "variablePicker.noCompatibleUpstreamOutputsConnectASourceNode":
+      "No compatible upstream outputs. Connect a source node first.",
     "variablePicker.source": "Source:",
-    "variablePicker.fieldPathDotSeparatedOptional": "Field path (dot-separated, optional)",
+    "variablePicker.fieldPathDotSeparatedOptional":
+      "Field path (dot-separated, optional)",
     "variablePicker.insertVariableReference": "Insert variable reference",
     "common.valueNode": "{value0} node",
     "workflowCanvas.workflowCanvas": "Workflow canvas",
@@ -2163,8 +2740,10 @@ export const componentMessages = {
     "workspaceShell.closeInspector": "Close Inspector",
     "workspaceShell.bottomWorkspacePanel": "Bottom workspace panel",
     "workspaceShell.resizeBottomPanelHeight": "Resize bottom panel height",
-    "workspaceShell.statusMetadataAndActionsForTheSelectedObject": "Status, metadata and actions for the selected object.",
-    "canvasNode.originalDataPreservedInstallTheNodeDefinitionTo": "Original data preserved; install the node definition to configure it.",
+    "workspaceShell.statusMetadataAndActionsForTheSelectedObject":
+      "Status, metadata and actions for the selected object.",
+    "canvasNode.originalDataPreservedInstallTheNodeDefinitionTo":
+      "Original data preserved; install the node definition to configure it.",
     "canvasNode.validationIssues": " validation issues",
     "common.valueValueValue2": "{value0} {value1} {value2}",
     "canvasPort.undefinedType": "Undefined type",
@@ -2177,21 +2756,28 @@ export const componentMessages = {
     "dataRegion.permissionError": "Permission error",
     "dataRegion.networkError": "Network error",
     "workspaceShellDemo.noContentYet": "No content yet",
-    "dataRegion.noDataInThisScopeAdjustTheFilters": "No data in this scope. Adjust the filters.",
-    "dataRegion.partialDataMissingFieldsAppearAs": "Partial data. Missing fields appear as “—”.",
+    "dataRegion.noDataInThisScopeAdjustTheFilters":
+      "No data in this scope. Adjust the filters.",
+    "dataRegion.partialDataMissingFieldsAppearAs":
+      "Partial data. Missing fields appear as “—”.",
     "dataRegion.loading": "Loading",
-    "dataRegion.updatingExistingContentPreserved": "Updating · Existing content preserved",
+    "dataRegion.updatingExistingContentPreserved":
+      "Updating · Existing content preserved",
     "dataRegion.couldNotReadData": "Could not read data",
-    "dataRegion.theCauseIsUnconfirmedInspectTheDetailsOr": "The cause is unconfirmed. Inspect the details or retry the read.",
-    "dataRegion.existingContentIsPreservedAndMayBeOut": " Existing content is preserved and may be out of date.",
+    "dataRegion.theCauseIsUnconfirmedInspectTheDetailsOr":
+      "The cause is unconfirmed. Inspect the details or retry the read.",
+    "dataRegion.existingContentIsPreservedAndMayBeOut":
+      " Existing content is preserved and may be out of date.",
     "dataRegion.lastUpdated": "Last updated: ",
     "workspaceShellDemo.retryRead": "Retry read",
     "dataRegion.loadMore": "Load more",
     "dialog.closeDialog": "Close dialog",
     "item.viewError": "View error",
     "common.unknownStatusValue": "Unknown status ({value0})",
-    "tree.cannotMoveToItselfADescendantOrA": "Cannot move to itself, a descendant, or a target without permission.",
-    "tree.nodeMoveRequestedTheCallerConfirmsTheResult": "Node move requested. The caller confirms the result.",
+    "tree.cannotMoveToItselfADescendantOrA":
+      "Cannot move to itself, a descendant, or a target without permission.",
+    "tree.nodeMoveRequestedTheCallerConfirmsTheResult":
+      "Node move requested. The caller confirms the result.",
     "tree.moveCancelled": "Move cancelled.",
     "common.valueValue2": "{value0} {value1}",
     "tree.noChildren": "No children",
@@ -2209,105 +2795,165 @@ export const componentMessages = {
     "tree.before": "Before",
     "tree.after": "After",
     "tree.moveTo": "Move to",
-    "canvasCommands.theCanvasIsReadOnlyTheDocumentWas": "The canvas is read-only. The document was not modified.",
+    "canvasCommands.theCanvasIsReadOnlyTheDocumentWas":
+      "The canvas is read-only. The document was not modified.",
     "canvasCommands.theNodeNoLongerExists": "The node no longer exists.",
-    "canvasCommands.unknownNodesCannotBeConfiguredOriginalDataIs": "Unknown nodes cannot be configured. Original data is preserved.",
+    "canvasCommands.unknownNodesCannotBeConfiguredOriginalDataIs":
+      "Unknown nodes cannot be configured. Original data is preserved.",
     "canvasCommands.theEdgeNoLongerExists": "The edge no longer exists.",
     "canvasCommands.noNodesHaveBeenCopiedYet": "No nodes have been copied yet.",
-    "canvasCommands.theCopiedContentReferencesExternalVariablesCopyThe": "The copied content references external variables. Copy the source nodes too, or remove the bindings first.",
-    "canvasCommands.theCopiedContentContainsExternalEdges": "The copied content contains external edges.",
+    "canvasCommands.theCopiedContentReferencesExternalVariablesCopyThe":
+      "The copied content references external variables. Copy the source nodes too, or remove the bindings first.",
+    "canvasCommands.theCopiedContentContainsExternalEdges":
+      "The copied content contains external edges.",
     "canvasCommands.theFrameNoLongerExists": "The Frame no longer exists.",
     "canvasCommands.theNoteNoLongerExists": "The note no longer exists.",
     "canvasCommands.theDocumentHasNotChanged": "The document has not changed.",
     "canvasCommands.localDraftChanged": "Local draft changed.",
-    "canvasCommands.editDidNotCompleteTheOriginalGraphIs": "Edit did not complete. The original graph is preserved.",
-    "canvasConfig.keyValueTablesRequireNonemptyKeysAndString": "Key-value tables require nonempty keys and string values.",
-    "canvasConfig.conditionsRequire120ValidRulesNumericComparisons": "Conditions require 1–20 valid rules. Numeric comparisons require numbers.",
-    "canvasConfig.schemaRequiresObjectValidPropertiesAndRequiredFields": "Schema requires object, valid properties and required fields.",
+    "canvasCommands.editDidNotCompleteTheOriginalGraphIs":
+      "Edit did not complete. The original graph is preserved.",
+    "canvasConfig.keyValueTablesRequireNonemptyKeysAndString":
+      "Key-value tables require nonempty keys and string values.",
+    "canvasConfig.conditionsRequire120ValidRulesNumericComparisons":
+      "Conditions require 1–20 valid rules. Numeric comparisons require numbers.",
+    "canvasConfig.schemaRequiresObjectValidPropertiesAndRequiredFields":
+      "Schema requires object, valid properties and required fields.",
     "canvasProject.subflowBoundary": "Subflow boundary",
     "canvasProject.scopeInput": "Scope input",
     "canvasProject.scopeOutput": "Scope output",
     "canvasProject.subflowsAndContainers": "Subflows and containers",
-    "canvasProject.theExecutorInterpretsTheTerminationCondition": "The executor interprets the termination condition",
+    "canvasProject.theExecutorInterpretsTheTerminationCondition":
+      "The executor interprets the termination condition",
     "canvasProject.maximumIterations": "Maximum iterations",
     "canvasProject.terminationExpression": "Termination expression",
     "canvasProject.concurrentItems": "Concurrent items",
-    "canvasProject.independentItemScopesResultsBelongToTheirInput": "Independent item scopes · Results belong to their input indexes",
-    "canvasProject.statusStaysWithinTheContainerBoundedIterationWithout": "Status stays within the container · Bounded iteration without graph cycles",
-    "canvasProject.dataPassesOnlyThroughExplicitInputsAndOutputs": "Data passes only through explicit inputs and outputs",
-    "canvasProject.invalidProjectVersionWorkflowCountOrEntryWorkflow": "Invalid project version, workflow count or entry workflow.",
+    "canvasProject.independentItemScopesResultsBelongToTheirInput":
+      "Independent item scopes · Results belong to their input indexes",
+    "canvasProject.statusStaysWithinTheContainerBoundedIterationWithout":
+      "Status stays within the container · Bounded iteration without graph cycles",
+    "canvasProject.dataPassesOnlyThroughExplicitInputsAndOutputs":
+      "Data passes only through explicit inputs and outputs",
+    "canvasProject.invalidProjectVersionWorkflowCountOrEntryWorkflow":
+      "Invalid project version, workflow count or entry workflow.",
     "canvasProject.duplicateWorkflowId": "Duplicate workflow ID.",
-    "common.valueDocumentAndWorkflowIdsMustMatch": "{value0}: Document and workflow IDs must match.",
+    "common.valueDocumentAndWorkflowIdsMustMatch":
+      "{value0}: Document and workflow IDs must match.",
     "common.valueDuplicateBoundaryId": "{value0}: Duplicate boundary ID.",
-    "common.valueValueInvalidBoundaryMapping": "{value0} / {value1}: Invalid boundary mapping.",
-    "common.valueTargetWorkflowIsMissingOrViolatesContainer": "{value0}: Target workflow is missing or violates container input/output constraints.",
+    "common.valueValueInvalidBoundaryMapping":
+      "{value0} / {value1}: Invalid boundary mapping.",
+    "common.valueTargetWorkflowIsMissingOrViolatesContainer":
+      "{value0}: Target workflow is missing or violates container input/output constraints.",
     "canvasProject.theProjectExceeds500Nodes": "The project exceeds 500 nodes.",
-    "common.recursiveWorkflowReferenceIsNotAllowedValue": "Recursive workflow reference is not allowed: {value0}",
+    "common.recursiveWorkflowReferenceIsNotAllowedValue":
+      "Recursive workflow reference is not allowed: {value0}",
     "canvasProject.projectFileExceeds512kib": "Project file exceeds 512KiB.",
     "canvasProject.invalidProjectFormat": "Invalid project format.",
     "canvasProject.invalidWorkflowFormat": "Invalid workflow format.",
     "canvasProject.invalidWorkflowBoundary": "Invalid workflow boundary.",
     "canvasProject.invalidBoundaryPortFormat": "Invalid boundary port format.",
-    "canvasRuntime.theCanvasHasNoRunnableNodes": "The canvas has no runnable nodes.",
+    "canvasRuntime.theCanvasHasNoRunnableNodes":
+      "The canvas has no runnable nodes.",
     "canvasRuntime.selectANodeToRunFirst": "Select a node to run first.",
-    "common.valueValueRequiresUpstreamInputForThisRun": "{value0} / {value1} requires upstream input for this run. The caller must supply it.",
-    "canvasServices.aPersistenceSessionCannotSwitchDocumentIds": "A persistence session cannot switch document IDs.",
-    "canvasServices.saveReceiptDoesNotMatchTheRequestPreserve": "Save receipt does not match the request. Preserve the draft and query the receipt.",
-    "canvasServices.theServerRevisionChangedPreserveTheLocalDraft": "The server revision changed. Preserve the local draft and explicitly compare or merge the conflict.",
-    "canvasServices.saveOutcomeUnknownQueryThisRequestidBeforeAnother": "Save outcome unknown. Query this requestId before another write.",
-    "canvasServices.saveResponseLostTheDraftIsPreservedQuery": "Save response lost. The draft is preserved; query the receipt before continuing.",
-    "canvasServices.saveReceiptQueryFailedDraftAndRequestId": "Save receipt query failed. Draft and request ID preserved.",
-    "canvasServices.explicitConflictResolutionAndAServerRevisionFor": "Explicit conflict resolution and a server revision for the same document are required.",
-    "canvasServices.theCallerSExplicitMergedDraftWasAdopted": "The caller's explicit merged draft was adopted; it has not been saved.",
-    "canvasValidation.theConnectionReferencesAMissingNode": "The connection references a missing node.",
-    "canvasValidation.nodesCannotConnectToThemselves": "Nodes cannot connect to themselves.",
-    "canvasValidation.thesePortsAreAlreadyConnected": "These ports are already connected.",
-    "canvasValidation.thisConnectionWouldCreateACycleTheCanvas": "This connection would create a cycle; the canvas requires a DAG.",
-    "canvasValidation.theConnectionReferencesAMissingPort": "The connection references a missing port.",
-    "canvasValidation.connectionDirectionMustBeOutputInput": "Connection direction must be output → input.",
-    "canvasValidation.unknownNodeDefinitionItsConnectionsCannotBeEdited": "Unknown node definition; its connections cannot be edited.",
-    "common.incompatiblePortTypesValueValue": "Incompatible port types: {value0} → {value1}.",
-    "canvasValidation.theConnectionPolicyCouldNotCompleteValidation": "The connection policy could not complete validation.",
-    "canvasValidation.theSourcePortReachedItsConnectionLimit": "The source port reached its connection limit.",
-    "canvasValidation.theTargetPortReachedItsConnectionLimit": "The target port reached its connection limit.",
-    "canvasValidation.theVariableSourceNodeNoLongerExists": "The variable source node no longer exists.",
-    "canvasValidation.theSourceOutputPortIsMissingOrIts": "The source output port is missing or its definition is unknown.",
-    "canvasValidation.theVariableSourceTypeChangedSelectItAgain": "The variable source type changed. Select it again.",
-    "canvasValidation.thisConfigurationFieldDoesNotAcceptVariables": "This configuration field does not accept variables.",
-    "common.theFieldRequiresValueButTheVariableIs": "The field requires {value0}, but the variable is {value1}.",
-    "canvasValidation.theVariableSourceIsNotReachableUpstreamOf": "The variable source is not reachable upstream of this node.",
+    "common.valueValueRequiresUpstreamInputForThisRun":
+      "{value0} / {value1} requires upstream input for this run. The caller must supply it.",
+    "canvasServices.aPersistenceSessionCannotSwitchDocumentIds":
+      "A persistence session cannot switch document IDs.",
+    "canvasServices.saveReceiptDoesNotMatchTheRequestPreserve":
+      "Save receipt does not match the request. Preserve the draft and query the receipt.",
+    "canvasServices.theServerRevisionChangedPreserveTheLocalDraft":
+      "The server revision changed. Preserve the local draft and explicitly compare or merge the conflict.",
+    "canvasServices.saveOutcomeUnknownQueryThisRequestidBeforeAnother":
+      "Save outcome unknown. Query this requestId before another write.",
+    "canvasServices.saveResponseLostTheDraftIsPreservedQuery":
+      "Save response lost. The draft is preserved; query the receipt before continuing.",
+    "canvasServices.saveReceiptQueryFailedDraftAndRequestId":
+      "Save receipt query failed. Draft and request ID preserved.",
+    "canvasServices.explicitConflictResolutionAndAServerRevisionFor":
+      "Explicit conflict resolution and a server revision for the same document are required.",
+    "canvasServices.theCallerSExplicitMergedDraftWasAdopted":
+      "The caller's explicit merged draft was adopted; it has not been saved.",
+    "canvasValidation.theConnectionReferencesAMissingNode":
+      "The connection references a missing node.",
+    "canvasValidation.nodesCannotConnectToThemselves":
+      "Nodes cannot connect to themselves.",
+    "canvasValidation.thesePortsAreAlreadyConnected":
+      "These ports are already connected.",
+    "canvasValidation.thisConnectionWouldCreateACycleTheCanvas":
+      "This connection would create a cycle; the canvas requires a DAG.",
+    "canvasValidation.theConnectionReferencesAMissingPort":
+      "The connection references a missing port.",
+    "canvasValidation.connectionDirectionMustBeOutputInput":
+      "Connection direction must be output → input.",
+    "canvasValidation.unknownNodeDefinitionItsConnectionsCannotBeEdited":
+      "Unknown node definition; its connections cannot be edited.",
+    "common.incompatiblePortTypesValueValue":
+      "Incompatible port types: {value0} → {value1}.",
+    "canvasValidation.theConnectionPolicyCouldNotCompleteValidation":
+      "The connection policy could not complete validation.",
+    "canvasValidation.theSourcePortReachedItsConnectionLimit":
+      "The source port reached its connection limit.",
+    "canvasValidation.theTargetPortReachedItsConnectionLimit":
+      "The target port reached its connection limit.",
+    "canvasValidation.theVariableSourceNodeNoLongerExists":
+      "The variable source node no longer exists.",
+    "canvasValidation.theSourceOutputPortIsMissingOrIts":
+      "The source output port is missing or its definition is unknown.",
+    "canvasValidation.theVariableSourceTypeChangedSelectItAgain":
+      "The variable source type changed. Select it again.",
+    "canvasValidation.thisConfigurationFieldDoesNotAcceptVariables":
+      "This configuration field does not accept variables.",
+    "common.theFieldRequiresValueButTheVariableIs":
+      "The field requires {value0}, but the variable is {value1}.",
+    "canvasValidation.theVariableSourceIsNotReachableUpstreamOf":
+      "The variable source is not reachable upstream of this node.",
     "common.valueCannotBeEmpty": "{value0} cannot be empty.",
-    "common.valueRequiresAValidNumberValue": "{value0} requires a valid number{value1}.",
+    "common.valueRequiresAValidNumberValue":
+      "{value0} requires a valid number{value1}.",
     "common.valueRequiresText": "{value0} requires text.",
-    "common.valueIsOutsideTheAllowedOptions": "{value0} is outside the allowed options.",
-    "canvasValidation.theNodeValidatorCouldNotCompleteValidation": "The node validator could not complete validation.",
-    "common.valueUnknownNodeTypeValueOriginalDataPreserved": "{value0}: Unknown node type {value1}. Original data preserved.",
-    "common.valueRequiredInputValueIsNotConnected": "{value0}: Required input “{value1}” is not connected.",
+    "common.valueIsOutsideTheAllowedOptions":
+      "{value0} is outside the allowed options.",
+    "canvasValidation.theNodeValidatorCouldNotCompleteValidation":
+      "The node validator could not complete validation.",
+    "common.valueUnknownNodeTypeValueOriginalDataPreserved":
+      "{value0}: Unknown node type {value1}. Original data preserved.",
+    "common.valueRequiredInputValueIsNotConnected":
+      "{value0}: Required input “{value1}” is not connected.",
     "common.valueMustBeAnObject": "{value0} must be an object.",
-    "common.valueRequiresNonemptyTextUpToValueCharacters": "{value0} requires nonempty text, up to {value1} characters.",
-    "common.valueSupportsOnlyLettersNumbersUnderscoresAndHyphens": "{value0} supports only letters, numbers, underscores and hyphens.",
-    "common.valueIsOutsideTheValidRange": "{value0} is outside the valid range.",
-    "common.valueDoesNotSupportFieldValuePutExtension": "{value0} does not support field {value1}; put extension data in config.",
-    "canvasValidation.jsonNestingExceeds20Levels": "JSON nesting exceeds 20 levels.",
-    "canvasValidation.jsonContainsANonfiniteNumber": "JSON contains a nonfinite number.",
-    "canvasValidation.jsonContainsAnUnsafeField": "JSON contains an unsafe field.",
+    "common.valueRequiresNonemptyTextUpToValueCharacters":
+      "{value0} requires nonempty text, up to {value1} characters.",
+    "common.valueSupportsOnlyLettersNumbersUnderscoresAndHyphens":
+      "{value0} supports only letters, numbers, underscores and hyphens.",
+    "common.valueIsOutsideTheValidRange":
+      "{value0} is outside the valid range.",
+    "common.valueDoesNotSupportFieldValuePutExtension":
+      "{value0} does not support field {value1}; put extension data in config.",
+    "canvasValidation.jsonNestingExceeds20Levels":
+      "JSON nesting exceeds 20 levels.",
+    "canvasValidation.jsonContainsANonfiniteNumber":
+      "JSON contains a nonfinite number.",
+    "canvasValidation.jsonContainsAnUnsafeField":
+      "JSON contains an unsafe field.",
     "canvasValidation.graphDocument": "Graph document",
-    "canvasValidation.incompatibleSchemaversionOnlyVersion1IsSupported": "Incompatible schemaVersion; only version 1 is supported.",
+    "canvasValidation.incompatibleSchemaversionOnlyVersion1IsSupported":
+      "Incompatible schemaVersion; only version 1 is supported.",
     "canvasValidation.documentId": "Document ID",
     "canvasValidation.revisionMustBeAnInteger": "revision must be an integer.",
-    "common.valueMustBeAnArrayWithAtMost": "{value0} must be an array with at most {value1} items.",
+    "common.valueMustBeAnArrayWithAtMost":
+      "{value0} must be an array with at most {value1} items.",
     "common.duplicateIdValue": "Duplicate ID: {value0}.",
     "canvasValidation.node": "Node",
     "canvasValidation.nodeTitle": "Node title",
     "canvasValidation.nodePosition": "Node position",
     "canvasValidation.nodeConfig": "Node config",
-    "common.nodeValueReferencesAMissingFrame": "Node {value0} references a missing Frame.",
+    "common.nodeValueReferencesAMissingFrame":
+      "Node {value0} references a missing Frame.",
     "canvasValidation.variableReference": "Variable reference",
     "canvasValidation.variableSourceId": "Variable source ID",
     "canvasValidation.variablePortId": "Variable port ID",
     "canvasValidation.variableType": "Variable type",
     "canvasValidation.invalidVariableType": "Invalid variable type.",
-    "canvasValidation.variablePathMustBeATextArray": "Variable path must be a text array.",
+    "canvasValidation.variablePathMustBeATextArray":
+      "Variable path must be a text array.",
     "canvasValidation.edgeLabel": "Edge label",
     "canvasValidation.frameTitle": "Frame title",
     "canvasValidation.framePosition": "Frame position",
@@ -2354,22 +3000,33 @@ export const componentMessages = {
     "styleWorkbenchModel.pillControls": "Pill controls",
     "styleWorkbenchModel.compactFlatSurface": "Compact flat surface",
     "common.unrecognizedThemeColorValue": "Unrecognized theme color: {value0}",
-    "styleWorkbenchModel.themeColorIsMissingRgbValues": "Theme color is missing RGB values.",
-    "styleWorkbenchModel.couldNotReadCompleteThemeDimensionsConfirmThat": "Could not read complete theme dimensions. Confirm that the EasyuseUI theme is installed.",
+    "styleWorkbenchModel.themeColorIsMissingRgbValues":
+      "Theme color is missing RGB values.",
+    "styleWorkbenchModel.couldNotReadCompleteThemeDimensionsConfirmThat":
+      "Could not read complete theme dimensions. Confirm that the EasyuseUI theme is installed.",
     "styleWorkbenchModel.on": "On",
     "styleWorkbenchModel.off": "Off",
     "styleWorkbenchModel.changed": "Changed",
     "useCanvasEditor.localEditUndone": "Local edit undone.",
     "useCanvasEditor.localEditRedone": "Local edit redone.",
-    "useCanvasRuntime.theSourceConfirmedThatThisRequestDidNot": "The source confirmed that this request did not create a run.",
-    "useCanvasRuntime.theStartReceiptReferencesADifferentDocumentRevision": "The start receipt references a different document revision. Query the original request.",
-    "useCanvasRuntime.theRunIdentityOrSequenceFromTheSource": "The run identity or sequence from the source does not match. The current snapshot is preserved.",
-    "useCanvasRuntime.writeReceiptMismatchQueryForConfirmationBeforeSubmitting": "Write receipt mismatch. Query for confirmation before submitting again.",
-    "useCanvasRuntime.theOperationRequestWasReceivedButItsFinal": "The operation request was received but its final result is unconfirmed. Query instead of resubmitting.",
-    "common.valueRequestSubmittedWaitingForTheSourceQuery": "{value0} request submitted. Waiting for the source; query before submitting again.",
-    "useCanvasRuntime.runReadFailedExistingStateAndOutputAre": "Run read failed. Existing state and output are preserved.",
-    "common.valueOutcomeUnknownQueryTheReceiptBeforeSubmitting": "{value0} outcome unknown. Query the receipt before submitting again.",
-    "useCanvasRuntime.theSourceDoesNotProvideThisExecutionCapability": "The source does not provide this execution capability.",
+    "useCanvasRuntime.theSourceConfirmedThatThisRequestDidNot":
+      "The source confirmed that this request did not create a run.",
+    "useCanvasRuntime.theStartReceiptReferencesADifferentDocumentRevision":
+      "The start receipt references a different document revision. Query the original request.",
+    "useCanvasRuntime.theRunIdentityOrSequenceFromTheSource":
+      "The run identity or sequence from the source does not match. The current snapshot is preserved.",
+    "useCanvasRuntime.writeReceiptMismatchQueryForConfirmationBeforeSubmitting":
+      "Write receipt mismatch. Query for confirmation before submitting again.",
+    "useCanvasRuntime.theOperationRequestWasReceivedButItsFinal":
+      "The operation request was received but its final result is unconfirmed. Query instead of resubmitting.",
+    "common.valueRequestSubmittedWaitingForTheSourceQuery":
+      "{value0} request submitted. Waiting for the source; query before submitting again.",
+    "useCanvasRuntime.runReadFailedExistingStateAndOutputAre":
+      "Run read failed. Existing state and output are preserved.",
+    "common.valueOutcomeUnknownQueryTheReceiptBeforeSubmitting":
+      "{value0} outcome unknown. Query the receipt before submitting again.",
+    "useCanvasRuntime.theSourceDoesNotProvideThisExecutionCapability":
+      "The source does not provide this execution capability.",
     "useCanvasRuntime.startRun": "Start run",
     "useCanvasRuntime.queryStartReceipt": "Query start receipt",
     "common.expand": "Expand",
@@ -2384,8 +3041,8 @@ export const componentMessages = {
     "canvas.unbounded": "Unbounded",
     "i18n.demoTitle": "Language and formatting",
     "i18n.items": {
-      "one": "{count} item",
-      "other": "{count} items"
+      one: "{count} item",
+      other: "{count} items",
     },
     "canvasMetadata.subflowBoundaries": "Subflow boundaries",
     "canvasMetadata.scopeInput": "Scope input",
@@ -2394,9 +3051,12 @@ export const componentMessages = {
     "canvasMetadata.maximumIterations": "Maximum iterations",
     "canvasMetadata.terminationExpression": "Termination expression",
     "canvasMetadata.concurrency": "Concurrency",
-    "canvasMetadata.independentScopePerItemResultsBelongToInputIndices": "Independent scope per item · Results belong to input indices",
-    "canvasMetadata.containerScopedStateFeedbackBoundedIterationsNoGraphCycles": "Container-scoped state feedback · Bounded iterations, no graph cycles",
-    "canvasMetadata.exchangeDataOnlyThroughExplicitInputsAndOutputs": "Exchange data only through explicit inputs and outputs",
+    "canvasMetadata.independentScopePerItemResultsBelongToInputIndices":
+      "Independent scope per item · Results belong to input indices",
+    "canvasMetadata.containerScopedStateFeedbackBoundedIterationsNoGraphCycles":
+      "Container-scoped state feedback · Bounded iterations, no graph cycles",
+    "canvasMetadata.exchangeDataOnlyThroughExplicitInputsAndOutputs":
+      "Exchange data only through explicit inputs and outputs",
     "canvasMetadata.inputsAndOutputs": "Inputs and outputs",
     "canvasMetadata.text": "Text",
     "canvasMetadata.inputText": "Input text",
@@ -2447,10 +3107,14 @@ export const componentMessages = {
     "canvasParser.frameHeight": "Frame height",
     "canvasParser.noteBody": "Note body",
     "canvasParser.notePosition": "Note position",
-    "canvas.nodeInstructions": "Press Enter or Space to select a node, arrow keys to move it, Delete to request deletion, and Escape to cancel.",
-    "canvas.nodeReadOnlyInstructions": "Press Enter or Space to select a node, and Escape to cancel.",
-    "canvas.edgeInstructions": "Press Enter or Space to select an edge, Delete to request deletion, and Escape to cancel.",
-    "canvas.movedNode": "Moved the selected node {direction}. New position x: {x}, y: {y}.",
+    "canvas.nodeInstructions":
+      "Press Enter or Space to select a node, arrow keys to move it, Delete to request deletion, and Escape to cancel.",
+    "canvas.nodeReadOnlyInstructions":
+      "Press Enter or Space to select a node, and Escape to cancel.",
+    "canvas.edgeInstructions":
+      "Press Enter or Space to select an edge, Delete to request deletion, and Escape to cancel.",
+    "canvas.movedNode":
+      "Moved the selected node {direction}. New position x: {x}, y: {y}.",
     "canvas.controls": "Canvas controls",
     "canvas.minimap": "Canvas minimap",
     "canvas.handle": "Connection handle",
@@ -2493,6 +3157,198 @@ export const componentMessages = {
     "chart.value": "Value",
     "chart.missing": "— (missing)",
     "chart.bounded": "Showing the last {count} of {total} supplied items.",
-    "drawer.close": "Close drawer"
-  }
+    "drawer.close": "Close drawer",
+    "analytics.exportImage": "Export image",
+    "analytics.previousPage": "Previous page",
+    "analytics.nextPage": "Next page",
+    "analytics.aggregatePage": "Aggregate points {from}–{to} / {total}",
+    "analytics.showcase": "Workflow analytics",
+    "analytics.project": "Project",
+    "analytics.cohortTime": "Cohort time",
+    "analytics.timeZone": "Timezone",
+    "analytics.urlFallback":
+      "Some URL parameters were invalid; allowed defaults are shown.",
+    "analytics.cohortDefinition":
+      "Global time selects cohort membership; each chart keeps its own metric time. asOf means current scope.",
+    "analytics.scenarios": "Fixture and failure scenarios",
+    "analytics.fixtureDefinition":
+      "Fixed 90 days, two projects, four members and three agents. In-memory adapter only; no real execution, storage or permission service.",
+    "analytics.reset": "Reset example",
+    "analytics.componentDocs": "Component docs",
+    "analytics.emptyProject": "This project has no work items",
+    "analytics.emptyFilter": "No items match these filters",
+    "analytics.filterRecovery":
+      "Clear filters or choose another project. Zero values, missing history and no matches are distinct states.",
+    "analytics.orphanDefinition":
+      "Explicit IDs support many-to-many relations. Orphan, unknown and removed objects are never inferred from titles.",
+    "analytics.chartDirectory": "Charts by question",
+    "analytics.loadPreview": "Load this chart preview",
+    "analytics.callerAuthority":
+      "Caller owns queries, permissions and persistence; fixture is not an SDK.",
+    "analytics.scenarioInstructions":
+      "Expand scenario controls above to inspect data, gaps and recovery. Only the selected preview mounts.",
+    "analytics.unplanned": "No planned start date",
+    "analytics.saveScenario": "Local save receipt",
+    "analytics.applied": "Applied analysis",
+    "analytics.drilldownDefinition":
+      "Membership comes from the selected series, bucket and snapshot; inspect before explicitly applying a filter.",
+    "analytics.stateEntry": "Observed state entry",
+    "analytics.removedEntity":
+      "Source object removed; relationship and identity retained.",
+    "analytics.externalEntity":
+      "Local relationship identity; detail service unavailable. Orphans may have no relations.",
+    "analytics.view.overview": "Overview",
+    "analytics.view.traceability": "Traceability",
+    "analytics.view.charts": "Chart directory",
+    "analytics.view.agents": "Agent execution",
+    "analytics.view.resources": "Resource planning",
+    "analytics.view.delivery": "Delivery",
+    "analytics.view.flow": "Flow efficiency",
+    "analytics.view.risk": "Risk analysis",
+    "analytics.view.custom": "Custom layout",
+    "analytics.view.builder": "Analytics builder",
+    "analytics.tab.preview": "Preview",
+    "analytics.tab.table": "Aggregate table",
+    "analytics.tab.definition": "Definition",
+    "analytics.tab.usage": "Usage",
+    "analytics.tab.scenarios": "Scenarios",
+    "analytics.heatmap": "Resource workload heatmap",
+    "analytics.heatmapLegend":
+      "Solid: known · Dashed: unknown · Red: over capacity · Gray: zero capacity",
+    "analytics.resource": "Resource",
+    "analytics.capacity": "Allocated / capacity",
+    "analytics.unavailableCapacity": "Zero capacity, unavailable",
+    "analytics.unknownCapacity": "Utilization unknown",
+    "analytics.allocationDefinition":
+      "Explicit shares per item and date; missing estimates are never zero.",
+    "analytics.openTimeline": "Open planning timeline",
+    "analytics.allocations": "Allocations",
+    "analytics.execution": "Actual execution",
+    "analytics.executionDefinition":
+      "Actual timestamps; elapsed duration includes waiting. Concurrent durations are not wall-clock time.",
+    "analytics.actualStart": "Actual start",
+    "analytics.actualEnd": "Actual end",
+    "analytics.acceptance": "Artifact acceptance",
+    "analytics.waitingReason": "Waiting evidence",
+    "analytics.acceptance.pending": "Pending review",
+    "analytics.acceptance.accepted": "Accepted",
+    "analytics.acceptance.rejected": "Rejected",
+    "analytics.acceptance.unknown": "Unknown",
+    "analytics.burndown": "Burndown",
+    "analytics.burnup": "Burnup",
+    "analytics.velocity": "Iteration velocity",
+    "analytics.cumulative-flow": "Cumulative flow",
+    "analytics.cycle-time": "Cycle time",
+    "analytics.state-residence": "State residence",
+    "analytics.workload": "Workload",
+    "analytics.agent-cost": "Agent usage trend",
+    "analytics.burndownDefinition":
+      "Actual remaining versus the initial ideal baseline using an explicit working calendar; scope changes do not rewrite commitment.",
+    "analytics.burnupDefinition":
+      "Historical scope and completed amount; reopening, scope and estimate corrections come from events.",
+    "analytics.velocityDefinition":
+      "Closed iterations only: initial commitment, final delivery and added scope. Units remain separate.",
+    "analytics.cumulative-flowDefinition":
+      "Fixed exclusive state occupancy; membership belongs to each historical bucket. Layers sum to scope.",
+    "analytics.cycle-timeDefinition":
+      "First actual start to last valid completion, including waiting and reopening gaps; missing starts are excluded with coverage.",
+    "analytics.state-residenceDefinition":
+      "Unfinished items from observed state entry to data time; distinct from item age.",
+    "analytics.workloadDefinition":
+      "Explicit resource/date/share/unit aggregation; unknown capacity cannot imply overload.",
+    "analytics.agent-costDefinition":
+      "Authorized observations with explicit inclusive-parent deduplication and separate currencies.",
+    "analytics.quantileDefinition":
+      "Nearest-rank quantile: sorted[ceil(p×n)-1], in elapsed days.",
+    "analytics.calendarMissing":
+      "A matching working calendar, granularity and timezone are required for the ideal line",
+    "analytics.missingEstimate":
+      "Some estimates or units are unknown; no zero imputation",
+    "analytics.missingStart": "Items missing an actual start are excluded",
+    "analytics.openIteration": "Open iterations are excluded from velocity",
+    "analytics.missingStateEntry": "Some state entry timestamps are missing",
+    "analytics.usageExcluded":
+      "Unknown inclusion and included descendants are excluded",
+    "analytics.forecast": "Conditional delivery forecast",
+    "analytics.forecastAssumptions":
+      "Local empirical bootstrap example; assumes complete daily throughput, stable scope and calendar days. Quantile dates are conditional, not commitments or future tasks.",
+    "analytics.forecast.insufficient":
+      "Insufficient samples, incomplete history or unstable scope; forecast unavailable",
+    "analytics.forecast.uncalibrated":
+      "Rolling delivery backtest sample count or coverage does not meet this model’s requirements",
+    "analytics.forecast.stale": "Model is stale; recomputation required",
+    "analytics.samples": "Samples",
+    "analytics.backtest": "Rolling backtest",
+    "analytics.quantile": "Quantile",
+    "analytics.horizonExceeded": "Beyond simulation horizon",
+    "analytics.conditionalDate": "Conditional date",
+    "analytics.forecastBand":
+      "Conditional quantile interval; not a future task set",
+    "analytics.historicalSamples": "View historical samples",
+    "analytics.remainingItems": "View remaining scope",
+    "analytics.usageDefinition":
+      "Tokens, cost and execution duration are separate; no currency conversion. Summed durations are not wall-clock time.",
+    "analytics.dependencies": "Work dependencies",
+    "analytics.dependencyDefinition":
+      "Explicit business dependencies and evidence; runtime completion does not imply dependency satisfaction.",
+    "analytics.cycles": "Actual cycles",
+    "analytics.dependencyGraph": "Preview dependency graph",
+    "analytics.graphBound":
+      "Over 200 entities; use the accessible relationship table",
+    "analytics.businessDependency": "Business dependency",
+    "analytics.evidence": "Evidence",
+    "analytics.dependency.blocked": "Explicitly blocked",
+    "analytics.dependency.satisfied": "Satisfied",
+    "analytics.dependency.unknown": "Unknown",
+    "analytics.addWidget": "Add widget",
+    "analytics.layoutEditor": "Dashboard layout editor",
+    "analytics.layoutDefinition":
+      "Explicit configuration draft. Unknown results retain the operation ID and lock writes until reconciliation.",
+    "analytics.revision": "Revision",
+    "analytics.save": "Save layout",
+    "analytics.cancel": "Cancel draft",
+    "analytics.reconcile": "Reconcile save",
+    "analytics.moveUp": "Move earlier",
+    "analytics.moveDown": "Move later",
+    "analytics.width": "Columns",
+    "analytics.height": "Height",
+    "analytics.remove": "Remove",
+    "analytics.save.idle": "Draft",
+    "analytics.save.saving": "Saving",
+    "analytics.save.confirmed": "Save confirmed",
+    "analytics.save.rejected": "Save rejected; draft retained",
+    "analytics.save.unknown": "Save outcome unknown; reconcile first",
+    "analytics.saveUnknown": "Unknown outcome; resubmission locked",
+    "analytics.saveRejected": "Service rejected save; draft retained",
+    "analytics.saveMismatch": "Receipt operation mismatch; reconcile first",
+    "analytics.builder": "Analytics builder",
+    "analytics.builderDefinition":
+      "Configure within caller authority; preview before applying. Cancel preserves the applied analysis.",
+    "analytics.none": "None",
+    "analytics.measure": "Measure",
+    "analytics.dimension": "Dimension",
+    "analytics.segment": "Segment",
+    "analytics.stacked": "Stacked",
+    "analytics.preview": "Preview query",
+    "analytics.apply": "Apply analysis",
+    "analytics.builderAttribution":
+      "Distinct item count; multiple assignees attribute to the first sorted ID to avoid duplicate stacking.",
+    "analytics.builderMetric": "Unsupported metric version",
+    "analytics.builderDimension": "Unsupported dimension or segment",
+    "analytics.builderCombination": "Incompatible unit or chart type",
+    "analytics.builderComposition":
+      "Donut requires exclusive dimensions without segments or stacking",
+    "analytics.builderScope": "Caller source and authority cannot be changed",
+    "analytics.builderTimeField": "Time field does not match the measure",
+    "analytics.builderRange": "Invalid query or time range",
+    "analytics.series.scope": "Scope",
+    "analytics.series.remaining": "Actual remaining",
+    "analytics.series.ideal": "Initial ideal baseline",
+    "analytics.series.committed": "Commitment",
+    "analytics.series.delivered": "Delivered",
+    "analytics.series.added": "Added scope",
+    "analytics.series.backlog": "Backlog",
+    "analytics.series.active": "Active",
+    "analytics.series.completed": "Completed",
+  },
 } as const

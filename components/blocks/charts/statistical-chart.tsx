@@ -1,5 +1,5 @@
 "use client"
-import { useState, type KeyboardEvent, type ReactNode } from "react"
+import { useRef, useState, type KeyboardEvent, type ReactNode } from "react"
 import {
   Area,
   Bar,
@@ -57,6 +57,7 @@ export type StatisticalChartProps = Omit<
   selection?: ChartSelection
   onSelectionChange?: (selection: ChartSelection) => void
   onDrilldown?: (selection: DrilldownSelection) => void
+  onExportImage?: (svg: SVGSVGElement) => void
 }
 export function ChartReference({
   reference,
@@ -95,6 +96,7 @@ export function ChartReference({
 }
 export function StatisticalChart(props: StatisticalChartProps) {
   const { t, locale } = useI18n()
+  const plotRef = useRef<HTMLDivElement>(null)
   const [mode, setMode] = useState<"chart" | "table">("chart")
   const [hiddenIds, setHiddenIds] = useState<string[]>([])
   const [cursor, setCursor] = useState(0)
@@ -165,8 +167,21 @@ export function StatisticalChart(props: StatisticalChartProps) {
   const datumIndex = new Map(data.map((datum) => [datum.key, datum]))
   const lookup = (seriesId: string, bucketId: string) =>
     datumIndex.get(JSON.stringify([seriesId, bucketId]))
-  const color = (datum: ChartDatum) =>
-    chartSeriesColor(datum.series.color, datum.point.bucketId)
+  const color = (datum: ChartDatum) => {
+    if (
+      props.kind === "donut" &&
+      !["backlog", "active", "completed", "cancelled"].includes(
+        datum.point.bucketId,
+      )
+    ) {
+      let hash = 0
+      for (const char of datum.point.bucketId)
+        hash = (Math.imul(hash, 31) + char.charCodeAt(0)) >>> 0
+      const slots = ["1", "2", "3", "4", "5"] as const
+      return chartSeriesColor(slots[hash % slots.length])
+    }
+    return chartSeriesColor(datum.series.color, datum.point.bucketId)
+  }
   const pointDot = (seriesId: string) =>
     function ChartPointDot(raw: unknown) {
       const dot = raw as {
@@ -383,6 +398,23 @@ export function StatisticalChart(props: StatisticalChartProps) {
           >
             {t("analytics.table")}
           </Button>
+          {props.onExportImage && (
+            <Button
+              size="sm"
+              variant="ghost"
+              disabled={
+                mode !== "chart" || !result || invalidDonut || !series.length
+              }
+              onClick={() => {
+                const svg = plotRef.current?.querySelector<SVGSVGElement>(
+                  "svg.recharts-surface",
+                )
+                if (svg) props.onExportImage?.(svg)
+              }}
+            >
+              {t("analytics.exportImage")}
+            </Button>
+          )}
           {props.actions}
         </div>
       }
@@ -416,6 +448,7 @@ export function StatisticalChart(props: StatisticalChartProps) {
                 xUnit={props.xUnit}
               />
               <div
+                ref={plotRef}
                 className={styles.plot}
                 style={{ height: props.height ?? 240 }}
               >
