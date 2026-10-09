@@ -1,6 +1,10 @@
 import Link from "next/link"
 import type { ReactNode } from "react"
 import { SiteText, SiteElement } from "@/components/site/site-i18n"
+import {
+  SitePageMetadata,
+  type PageMetadataSnapshot,
+} from "@/components/site/site-page-metadata"
 import { DocsToc } from "./docs-toc"
 import styles from "./docs.module.css"
 export type DocSection = { id: string; title: ReactNode; content: ReactNode }
@@ -13,6 +17,7 @@ export function DocPage({
   related,
   previous,
   next,
+  metadata,
 }: {
   title: ReactNode
   description: ReactNode
@@ -22,10 +27,12 @@ export function DocPage({
   related?: ReactNode
   previous?: { name: ReactNode; href: string }
   next?: { name: ReactNode; href: string }
+  metadata?: PageMetadataSnapshot
 }) {
   const toc = sections.map(({ id, title }) => ({ id, title }))
   return (
     <div className={styles.page}>
+      {metadata && <SitePageMetadata {...metadata} />}
       <article className={styles.content}>
         <SiteElement
           as="nav"

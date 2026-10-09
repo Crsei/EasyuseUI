@@ -4,6 +4,7 @@ import fs from "node:fs"
 import path from "node:path"
 import { componentManifest } from "../lib/component-manifest.ts"
 import { siteMessages } from "../lib/site-i18n-messages.ts"
+import { pageTitles, pageDescriptionKeys } from "../lib/site-i18n-metadata.ts"
 
 const root = path.resolve(import.meta.dirname, "..")
 const registry = JSON.parse(
@@ -123,10 +124,67 @@ const index = componentManifest.map((entry) => ({
   notes: entry.notes.slice(0, 1),
 }))
 const messageKeys = Object.keys(siteMessages["zh-CN"])
-assert.deepEqual(messageKeys.toSorted(), Object.keys(siteMessages.en).toSorted())
+const messageKeyPrefix = "site."
+const compactKeys = messageKeys.map((key) => {
+  const suffix = key.startsWith(messageKeyPrefix)
+    ? key.slice(messageKeyPrefix.length)
+    : undefined
+  return suffix !== undefined && !suffix.startsWith("!") ? suffix : `!${key}`
+})
+assert.deepEqual(
+  compactKeys.map((key) =>
+    key.startsWith("!") ? key.slice(1) : messageKeyPrefix + key,
+  ),
+  messageKeys,
+)
+assert.deepEqual(
+  messageKeys.toSorted(),
+  Object.keys(siteMessages.en).toSorted(),
+)
 const outputs = {
+  "site-crm-metadata.json": {
+    title: "Sales CRM Companies",
+    description: {
+      "zh-CN": siteMessages["zh-CN"]["site.examples.salesCrmDescription"],
+      en: siteMessages.en["site.examples.salesCrmDescription"],
+    },
+  },
+  "site-root-labels.json": Object.fromEntries(
+    ["zh-CN", "en"].map((locale) => [
+      locale,
+      Object.fromEntries(
+        [
+          "site.skipToMainContent",
+          "site.noComponentHereYet",
+          "site.backToTheComponentCatalog",
+        ].map((key) => [key, siteMessages[locale][key]]),
+      ),
+    ]),
+  ),
+  "site-root-messages.json": Object.fromEntries(
+    ["zh-CN", "en"].map((locale) => [
+      locale,
+      {
+        titles: Object.fromEntries(
+          Object.entries(pageTitles).map(([route, title]) => {
+            const key = Object.keys(siteMessages["zh-CN"]).findLast(
+              (key) => siteMessages["zh-CN"][key] === title,
+            )
+            return [route, key ? siteMessages[locale][key] : title]
+          }),
+        ),
+        descriptions: Object.fromEntries(
+          Object.entries(pageDescriptionKeys).map(([route, key]) => [
+            route,
+            siteMessages[locale][key],
+          ]),
+        ),
+      },
+    ]),
+  ),
   "site-i18n-compact.json": {
-    keys: messageKeys,
+    prefix: messageKeyPrefix,
+    keys: compactKeys,
     values: {
       "zh-CN": messageKeys.map((key) => siteMessages["zh-CN"][key]),
       en: messageKeys.map((key) => siteMessages.en[key]),

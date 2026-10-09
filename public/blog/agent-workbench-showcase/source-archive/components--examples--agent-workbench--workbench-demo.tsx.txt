@@ -2,30 +2,34 @@
 import Link from "next/link"
 import { Info } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
-import {
-  useEffect,
-  useCallback,
-  useRef,
-  useState,
-  type ReactNode,
-  type ComponentProps,
-} from "react"
+import { useEffect, useCallback, useRef, useState, type ReactNode } from "react"
 import { useTheme } from "next-themes"
 import {
+  AgentWorkbench,
   SessionNavigator,
   ProjectSwitcher,
   SessionHeader,
-} from "@/components/blocks/agent-workbench/navigation"
-import { AgentComposer } from "@/components/blocks/agent-workbench/composer"
-import {
+  AgentConversation,
+  AgentComposer,
   ContextPanel,
   ContextPicker,
-} from "@/components/blocks/agent-workbench/context"
-import type { WorkbenchPanelDescriptor } from "@/components/blocks/agent-workbench/panels"
+  ChangeReviewPanel,
+  ExecutionOutputPanel,
+  PreviewPanel,
+  MessageContent,
+  WorkbenchPanelTabs,
+  TaskInbox,
+  type WorkbenchPanelDescriptor,
+} from "@/components/blocks/agent-workbench"
+import { AgentRunInspector } from "@/components/blocks/agent-run-inspector"
 import { ApprovalRequestPanel } from "@/components/blocks/approval-request-panel"
+import { ArtifactList } from "@/components/blocks/artifact-list"
 import type { ConversationActions } from "@/components/blocks/chat-message"
+import { ExecutionTraceTree } from "@/components/blocks/execution-trace-tree"
 import { ToolCall } from "@/components/blocks/tool-call"
 import { CommandPalette } from "@/components/blocks/command-palette"
+import { FormSection } from "@/components/blocks/form-section"
+import { Field } from "@/components/ui/field"
 import { Button } from "@/components/ui/button"
 import { Item } from "@/components/ui/item"
 import { DataRegion } from "@/components/ui/data-region"
@@ -60,104 +64,15 @@ import {
   reportBody,
 } from "./fixtures"
 import { exampleMessages } from "./messages"
-import { parseShowcaseQuery, showcaseHref } from "./showcase-model"
-import { lazyExample } from "./lazy-module"
-import { WorkbenchFrame } from "./workbench-frame"
-import { DeferredWorkbenchPanels } from "./deferred-panels"
+import { RegionLab } from "./region-lab"
+import {
+  parseShowcaseQuery,
+  showcaseHref,
+  showcaseScenarios,
+  commonScenarios,
+  regionDefinitions,
+} from "./showcase-model"
 import styles from "./demo.module.css"
-
-const AgentConversation = lazyExample<
-  ComponentProps<
-    typeof import("@/components/blocks/agent-workbench/conversation").AgentConversation
-  >
->("conversation", () =>
-  import("@/components/blocks/agent-workbench/conversation").then((module) => ({
-    default: module.AgentConversation,
-  })),
-)
-const MessageContent = lazyExample<
-  ComponentProps<
-    typeof import("@/components/blocks/agent-workbench/conversation").MessageContent
-  >
->("message-preview", () =>
-  import("@/components/blocks/agent-workbench/conversation").then((module) => ({
-    default: module.MessageContent,
-  })),
-)
-const TaskInbox = lazyExample<
-  ComponentProps<typeof import("@/components/blocks/agent-workbench").TaskInbox>
->("inbox", () =>
-  import("@/components/blocks/agent-workbench").then((module) => ({
-    default: module.TaskInbox,
-  })),
-)
-const ExecutionOutputPanel = lazyExample<
-  ComponentProps<
-    typeof import("@/components/blocks/agent-workbench/panels").ExecutionOutputPanel
-  >
->("output", () =>
-  import("@/components/blocks/agent-workbench/panels").then((module) => ({
-    default: module.ExecutionOutputPanel,
-  })),
-)
-const PreviewPanel = lazyExample<
-  ComponentProps<
-    typeof import("@/components/blocks/agent-workbench/panels").PreviewPanel
-  >
->("preview", () =>
-  import("@/components/blocks/agent-workbench/panels").then((module) => ({
-    default: module.PreviewPanel,
-  })),
-)
-const AgentRunInspector = lazyExample<
-  ComponentProps<
-    typeof import("@/components/blocks/agent-run-inspector").AgentRunInspector
-  >
->("run-inspector", () =>
-  import("@/components/blocks/agent-run-inspector").then((module) => ({
-    default: module.AgentRunInspector,
-  })),
-)
-const ExecutionTraceTree = lazyExample<
-  ComponentProps<
-    typeof import("@/components/blocks/execution-trace-tree").ExecutionTraceTree
-  >
->("plan", () =>
-  import("@/components/blocks/execution-trace-tree").then((module) => ({
-    default: module.ExecutionTraceTree,
-  })),
-)
-const RegionLab = lazyExample<
-  ComponentProps<typeof import("./region-lab").RegionLab>
->("regions", () =>
-  import("./region-lab").then((module) => ({ default: module.RegionLab })),
-)
-const ArtifactsView = lazyExample<
-  ComponentProps<typeof import("./artifacts-view").ArtifactsView>
->("artifacts", () =>
-  import("./artifacts-view").then((module) => ({
-    default: module.ArtifactsView,
-  })),
-)
-const SourceControls = lazyExample<
-  ComponentProps<typeof import("./source-controls").SourceControls>
->("scenario-controls", () =>
-  import("./source-controls").then((module) => ({
-    default: module.SourceControls,
-  })),
-)
-const SettingsView = lazyExample<
-  ComponentProps<typeof import("./settings-view").SettingsView>
->("settings", () =>
-  import("./settings-view").then((module) => ({
-    default: module.SettingsView,
-  })),
-)
-const ReviewView = lazyExample<
-  ComponentProps<typeof import("./review-view").ReviewView>
->("review", () =>
-  import("./review-view").then((module) => ({ default: module.ReviewView })),
-)
 
 export function WorkbenchDemo({
   level = "overview",
@@ -212,8 +127,6 @@ export function WorkbenchDemo({
     )?.requestId ?? "",
   )
   const composerRef = useRef<HTMLDivElement>(null)
-  const [bottomVisited, setBottomVisited] = useState(state.panels.bottomOpen)
-  if (state.panels.bottomOpen && !bottomVisited) setBottomVisited(true)
   const activePanel = (params.get("panel") ||
     state.panels.activePanel) as WorkbenchPanelId
   const navigationSnapshot = useRef<URLSearchParams | null>(null)
@@ -376,33 +289,25 @@ export function WorkbenchDemo({
         scenario: query.scenario,
       })
   }, [dispatch, current.sessionId, query.scenario, queryErrorKey])
-  const focusPendingMessage = useCallback(
-    (actions: ConversationActions | null = conversationActions.current) => {
-      const target = pendingMessage.current
-      if (
-        target?.sessionId === current.sessionId &&
-        (query.page === "session" ||
-          (level === "regions" && query.region === "conversation")) &&
-        actions?.scrollToMessage(target.messageId, {
-          focus: true,
-        })
-      )
-        pendingMessage.current = null
-    },
-    [current.sessionId, query.page, query.region, level],
-  )
-  const retainConversationActions = useCallback(
-    (actions: ConversationActions | null) => {
-      conversationActions.current = actions
-      focusPendingMessage(actions)
-    },
-    [focusPendingMessage],
-  )
-  // A deferred conversation can mount after the navigation effect has run.
-  // Deliver pending focus when its actual actions become available as well.
   useEffect(() => {
-    focusPendingMessage()
-  }, [focusPendingMessage, query.layout, activePanel])
+    const target = pendingMessage.current
+    if (
+      target?.sessionId === current.sessionId &&
+      (query.page === "session" ||
+        (level === "regions" && query.region === "conversation")) &&
+      conversationActions.current?.scrollToMessage(target.messageId, {
+        focus: true,
+      })
+    )
+      pendingMessage.current = null
+  }, [
+    current.sessionId,
+    query.page,
+    query.layout,
+    query.region,
+    level,
+    activePanel,
+  ])
   useEffect(() => {
     if (!locatedTool || activePanel !== "activity") return
     const frame = requestAnimationFrame(() => {
@@ -907,33 +812,184 @@ export function WorkbenchDemo({
   }
   function review(fileOnly = false) {
     return (
-      <ReviewView
-        session={session}
-        draft={draft}
-        setDraft={setDraft}
-        query={query}
-        navigate={navigate}
-        fileOnly={fileOnly}
+      <ChangeReviewPanel
+        scopeId={session.sessionId}
+        changes={
+          query.scenario === "empty"
+            ? { ...session.changes, files: [] }
+            : session.changes
+        }
+        selectedFileId={state.panels.selectedFileId}
+        onSelectFile={(id) =>
+          dispatch({
+            type: "panels",
+            panels: { ...state.panels, selectedFileId: id },
+          })
+        }
+        comments={state.comments[session.sessionId] ?? []}
+        onCommentsChange={(comments) =>
+          dispatch({ type: "comments", id: session.sessionId, comments })
+        }
+        onFeedback={(text) => {
+          setDraft({
+            ...draft,
+            text: draft.text ? `${draft.text}\n\n${text}` : text,
+            version: draft.version + 1,
+          })
+          navigate({ page: "session", layout: "conversation" })
+        }}
         mode={mode}
         onModeChange={setMode}
+        fileOnly={fileOnly}
       />
     )
   }
   function artifacts() {
+    if (level === "app" && session.projectId !== projectId) {
+      const owned = state.sessions.filter((s) => s.projectId === projectId)
+      return (
+        <section className={styles.section}>
+          <h1 className={styles.title}>{x.artifacts}</h1>
+          <p>{owned.length ? x.chooseProjectSession : x.noTasks}</p>
+          {owned.map((s) => (
+            <Item
+              key={s.sessionId}
+              title={s.title}
+              description={s.artifacts.map((a) => a.name).join(", ") || "—"}
+              onSelect={() => openSession(s.sessionId, "artifacts")}
+            />
+          ))}
+        </section>
+      )
+    }
+    const records = query.scenario === "empty" ? [] : session.artifacts
+    const selected =
+      records.find(
+        (a) => a.artifactId === selectedArtifacts[session.sessionId],
+      ) ?? records[0]
+    const body =
+      selected?.availability === "available" &&
+      ["summary.md", "analysis-report.md", "filter-report.md"].includes(
+        selected.name,
+      )
+        ? reportBody
+        : undefined
+    const source = session.messages.find((m) =>
+      m.parts.some(
+        (part) =>
+          part.kind === "artifact" && part.referenceId === selected?.artifactId,
+      ),
+    )
     return (
-      <ArtifactsView
-        session={session}
-        draft={draft}
-        setDraft={setDraft}
-        query={query}
-        navigate={navigate}
-        projectId={projectId}
-        level={level}
-        selectedArtifacts={selectedArtifacts}
-        setSelectedArtifacts={setSelectedArtifacts}
-        openSession={openSession}
-        locateMessage={locateMessage}
-      />
+      <div className={styles.section}>
+        {records.length > 1 && (
+          <label className={styles.label}>
+            {x.artifactSelection}
+            <select
+              value={selected?.artifactId ?? ""}
+              onChange={(e) =>
+                setSelectedArtifacts((before) => ({
+                  ...before,
+                  [session.sessionId]: e.target.value,
+                }))
+              }
+            >
+              {records.map((a) => (
+                <option key={a.artifactId} value={a.artifactId}>
+                  {a.name}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
+        <ArtifactList records={records} />
+        {selected && (
+          <>
+            <PreviewPanel>
+              <h3>{x.previewSource}</h3>
+              {body !== undefined ? (
+                <MessageContent content={body} />
+              ) : (
+                <p>
+                  {selected.availability === "available"
+                    ? x.unsupportedArtifact
+                    : `${x.noPreview} · ${t(`agentBoard.${selected.availability}`)}`}
+                </p>
+              )}
+            </PreviewPanel>
+            <div className={styles.row}>
+              <Button
+                size="sm"
+                variant="secondary"
+                disabled={!source}
+                onClick={() => {
+                  if (source) locateMessage(session.sessionId, source.messageId)
+                }}
+              >
+                {x.sourceLink}
+              </Button>
+              <Button
+                size="sm"
+                variant="secondary"
+                onClick={() =>
+                  navigate({
+                    page: "review",
+                    layout: "review",
+                    panel: "changes",
+                    ...(level === "regions" ? { region: "files" } : {}),
+                  })
+                }
+              >
+                {x.reviewFiles}
+              </Button>
+              <Button
+                size="sm"
+                onClick={() => {
+                  setDraft({
+                    ...draft,
+                    text: draft.text
+                      ? `${draft.text}\n\n${x.reportComment}`
+                      : x.reportComment,
+                    version: draft.version + 1,
+                  })
+                  navigate({ page: "session", layout: "conversation" })
+                }}
+              >
+                {x.feedback}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                disabled={body === undefined}
+                onClick={async () => {
+                  if (body !== undefined)
+                    await navigator.clipboard.writeText(body).catch(() => {})
+                }}
+              >
+                {t("workbench.copy")}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                disabled={body === undefined}
+                onClick={() => {
+                  if (body === undefined) return
+                  const url = URL.createObjectURL(
+                    new Blob([body], { type: "text/markdown" }),
+                  )
+                  const a = document.createElement("a")
+                  a.href = url
+                  a.download = selected.name
+                  a.click()
+                  URL.revokeObjectURL(url)
+                }}
+              >
+                {x.download}
+              </Button>
+            </div>
+          </>
+        )}
+      </div>
     )
   }
   function plan() {
@@ -968,15 +1024,139 @@ export function WorkbenchDemo({
   }
   function settings() {
     return (
-      <SettingsView
-        session={session}
-        draft={draft}
-        setDraft={setDraft}
-        query={query}
-        navigate={navigate}
-        preferences={preferences()}
-        retryRead={retryRead}
-      />
+      <section className={styles.section}>
+        <h1 className={styles.title}>{x.settings}</h1>
+        <p className={styles.meta}>{x.settingsScope}</p>
+        <FormSection title={x.capabilities}>
+          <Field label={t("workbench.model")}>
+            {(props) => (
+              <select
+                {...props}
+                className="h-8 border rounded-md px-2"
+                value={draft.modelId}
+                onChange={(e) =>
+                  setDraft({
+                    ...draft,
+                    modelId: e.target.value,
+                    version: draft.version + 1,
+                  })
+                }
+              >
+                <option value="">{x.chooseModel}</option>
+                {models.map((m) => (
+                  <option
+                    key={m.id}
+                    value={m.id}
+                    disabled={Boolean(m.disabledReason)}
+                  >
+                    {m.label} {m.disabledReason}
+                  </option>
+                ))}
+              </select>
+            )}
+          </Field>
+          <Field label={t("workbench.environment")}>
+            {(props) => (
+              <select
+                {...props}
+                className="h-8 border rounded-md px-2"
+                value={draft.environmentId}
+                onChange={(e) =>
+                  setDraft({
+                    ...draft,
+                    environmentId: e.target.value,
+                    version: draft.version + 1,
+                  })
+                }
+              >
+                <option value="">{x.noEnvironment}</option>
+                {environments.map((env) => (
+                  <option key={env.id} value={env.id}>
+                    {env.label}
+                  </option>
+                ))}
+              </select>
+            )}
+          </Field>
+          {(!draft.environmentId || !draft.modelId) && (
+            <p role="status">{x.invalidConfig}</p>
+          )}
+          <Field label={t("workbench.permission")}>
+            {(props) => (
+              <select
+                {...props}
+                className="h-8 border rounded-md px-2"
+                value={draft.permissionId}
+                onChange={(e) =>
+                  setDraft({
+                    ...draft,
+                    permissionId: e.target.value,
+                    version: draft.version + 1,
+                  })
+                }
+              >
+                {permissions.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.label}
+                  </option>
+                ))}
+              </select>
+            )}
+          </Field>
+          <p>{session.environment.capabilities.join(", ") || x.noService}</p>
+          <p>{x.noService}</p>
+          {session.dataState === "error" && (
+            <DataRegion
+              state="error"
+              hasContent
+              error={{
+                category: "network",
+                message: session.error || x.readError,
+                reason: x.readError,
+              }}
+              onRetry={retryRead}
+            >
+              <p>{x.settingsRetained}</p>
+            </DataRegion>
+          )}
+        </FormSection>
+        {preferences()}
+        <label className={styles.label}>
+          {x.mode}
+          <select
+            value={query.template}
+            onChange={(e) =>
+              navigate({
+                template: e.target.value,
+                page: e.target.value === "console" ? "inbox" : "home",
+              })
+            }
+          >
+            {workbenchTemplates.map((template) => (
+              <option key={template} value={template}>
+                {template === "coding"
+                  ? x.coding
+                  : template === "artifacts"
+                    ? x.artifactTemplate
+                    : x.console}
+              </option>
+            ))}
+          </select>
+        </label>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            dispatch({ type: "reset" })
+            navigate({
+              session: "session-filter",
+              project: "project-demo",
+              scenario: "default",
+            })
+          }}
+        >
+          {x.reset}
+        </Button>
+      </section>
     )
   }
   function preferences() {
@@ -1048,7 +1228,7 @@ export function WorkbenchDemo({
     }),
   )
   const workspace = (
-    <DeferredWorkbenchPanels
+    <WorkbenchPanelTabs
       panels={panelDescriptors}
       value={activePanel}
       onChange={(id) => {
@@ -1099,9 +1279,7 @@ export function WorkbenchDemo({
               <option value="title">{x.sortTitle}</option>
             </select>
           </label>
-          <Link prefetch={false} href="/workspace/agents/">
-            {x.agentBoard}
-          </Link>
+          <Link href="/workspace/agents/">{x.agentBoard}</Link>
         </div>
         <div className={styles.inboxFrame}>
           <div className={styles.inboxGrid}>
@@ -1311,19 +1489,236 @@ export function WorkbenchDemo({
   }
   function sourceControls() {
     return (
-      <SourceControls
-        session={session}
-        draft={draft}
-        setDraft={setDraft}
-        query={query}
-        navigate={navigate}
-        preferences={preferences()}
-        projectId={projectId}
-        current={current}
-        level={level}
-        narrow={narrow}
-        setNarrow={setNarrow}
-      />
+      <div className={styles.controls}>
+        <p className={styles.meta}>{x.sourceOnly}</p>
+        <div className={styles.row}>
+          <Link
+            href={showcaseHref("regions", {
+              region: "sidebar",
+              session: session.sessionId,
+              scenario: query.scenario,
+              project: projectId,
+            })}
+          >
+            {x.regions}
+          </Link>
+          <Link
+            href={showcaseHref("layouts", {
+              layout: "conversation",
+              session: session.sessionId,
+              scenario: query.scenario,
+              project: projectId,
+            })}
+          >
+            {x.layouts}
+          </Link>
+        </div>
+        {preferences()}
+        <label className={styles.label}>
+          {x.scenario}
+          <select
+            value={query.scenario}
+            onChange={(e) => {
+              const scenario = e.target.value
+              navigate({ scenario })
+            }}
+          >
+            {showcaseScenarios
+              .filter(
+                (s) =>
+                  level !== "regions" ||
+                  commonScenarios.includes(s.id) ||
+                  (
+                    regionDefinitions.find((r) => r.id === query.region)
+                      ?.cases as readonly string[] | undefined
+                  )?.includes(s.id) ||
+                  s.id === query.scenario,
+              )
+              .map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.label[locale]}
+                </option>
+              ))}
+          </select>
+        </label>
+        <label className={styles.row}>
+          <input
+            type="checkbox"
+            checked={narrow}
+            onChange={(e) => setNarrow(e.target.checked)}
+          />
+          {x.narrow}
+        </label>
+        <Button
+          variant="secondary"
+          onClick={() => dispatch({ type: "advance", id: session.sessionId })}
+        >
+          {x.advance}
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => dispatch({ type: "revision", id: session.sessionId })}
+        >
+          {x.revision}
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => {
+            const message = session.messages[0]
+            if (message)
+              dispatch({
+                type: "event",
+                id: session.sessionId,
+                cursor: 0,
+                message: {
+                  ...message,
+                  revision: 999,
+                  parts: [
+                    {
+                      partId: "late",
+                      sequence: 1,
+                      revision: 1,
+                      kind: "text",
+                      text: "STALE RESPONSE MUST NOT APPEAR",
+                    },
+                  ],
+                },
+              })
+          }}
+        >
+          {x.staleEvent}
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => dispatch({ type: "long", id: session.sessionId })}
+        >
+          {x.longHistory}
+        </Button>
+        {draft.context.some((r) => r.availability === "uploading") && (
+          <Button
+            variant="secondary"
+            onClick={() =>
+              setDraft({
+                ...draft,
+                version: draft.version + 1,
+                context: draft.context.map((r) =>
+                  r.availability === "uploading"
+                    ? { ...r, availability: "available", reason: undefined }
+                    : r,
+                ),
+              })
+            }
+          >
+            {x.uploadReady}
+          </Button>
+        )}
+        <Button
+          variant="secondary"
+          onClick={() => {
+            dispatch({ type: "reset" })
+            navigate(
+              {
+                session: "session-filter",
+                project: "project-demo",
+                scenario: "default",
+                page: "home",
+              },
+              true,
+            )
+          }}
+        >
+          {x.reset}
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => {
+            const previous = current.messages.find(
+              (m) => m.messageId === `stream-${current.sessionId}`,
+            )
+            dispatch({
+              type: "event",
+              id: current.sessionId,
+              cursor: current.cursor + 1,
+              message: {
+                messageId: `stream-${current.sessionId}`,
+                turnId: `stream-turn-${current.sessionId}`,
+                role: "agent",
+                sequence: 100,
+                revision: (previous?.revision ?? 0) + 1,
+                state: "streaming",
+                parts: [
+                  {
+                    partId: `stream-part-${current.sessionId}`,
+                    sequence: 1,
+                    revision: (previous?.revision ?? 0) + 1,
+                    kind: "text",
+                    text: `Streaming source update ${(previous?.revision ?? 0) + 1}`,
+                  },
+                ],
+              },
+            })
+          }}
+        >
+          {x.appendEvent}
+        </Button>
+        <h3>{x.receipts}</h3>
+        {state.receipts.map((r) => (
+          <section
+            key={r.requestId}
+            className={styles.receipt}
+            data-state={r.state}
+            data-request-id={r.requestId}
+          >
+            <p>
+              {r.requestId} · {r.targetId} · {r.action}
+            </p>
+            <p role="status">{t(`workbench.${r.state}`)}</p>
+            {(r.state === "pending" || r.state === "unknown") && (
+              <div className={styles.row}>
+                <Button
+                  size="sm"
+                  onClick={() =>
+                    dispatch({
+                      type: "settle",
+                      requestId: r.requestId,
+                      state: "confirmed",
+                    })
+                  }
+                >
+                  {x.confirm}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  onClick={() =>
+                    dispatch({
+                      type: "settle",
+                      requestId: r.requestId,
+                      state: "failed",
+                    })
+                  }
+                >
+                  {x.fail}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() =>
+                    dispatch({
+                      type: "settle",
+                      requestId: r.requestId,
+                      state: "unknown",
+                    })
+                  }
+                >
+                  {r.state === "unknown" ? x.stillUnknown : x.lose}
+                </Button>
+              </div>
+            )}
+            {r.receipt && <p className={styles.meta}>{r.receipt}</p>}
+          </section>
+        ))}
+      </div>
     )
   }
   const controls = (
@@ -1339,11 +1734,8 @@ export function WorkbenchDemo({
   )
   const links = (
     <>
-      <Link prefetch={false} href="/examples/agent-workbench/">
-        {x.overview}
-      </Link>
+      <Link href="/examples/agent-workbench/">{x.overview}</Link>
       <Link
-        prefetch={false}
         href={showcaseHref("regions", {
           region: query.region,
           session: session.sessionId,
@@ -1354,7 +1746,6 @@ export function WorkbenchDemo({
         {x.regions}
       </Link>
       <Link
-        prefetch={false}
         href={showcaseHref("layouts", {
           layout: "conversation",
           session: session.sessionId,
@@ -1365,7 +1756,6 @@ export function WorkbenchDemo({
         {x.layouts}
       </Link>
       <Link
-        prefetch={false}
         href={showcaseHref("app", {
           template: query.template,
           page: "home",
@@ -1424,27 +1814,18 @@ export function WorkbenchDemo({
         <p>{x.contractBody}</p>
         <p className={styles.meta}>{x.noService}</p>
         <p>{x.showcaseStatus}</p>
-        <Link prefetch={false} href="/blog/agent-workbench-showcase/">
-          {x.verification}
-        </Link>
+        <Link href="/blog/agent-workbench-showcase/">{x.verification}</Link>
         <div className={styles.overview}>
-          <Link
-            prefetch={false}
-            href="/examples/agent-workbench/regions/?region=sidebar"
-          >
+          <Link href="/examples/agent-workbench/regions/?region=sidebar">
             <strong>{x.regions}</strong>
             <span>R1–R10</span>
           </Link>
-          <Link
-            prefetch={false}
-            href="/examples/agent-workbench/layouts/?layout=conversation"
-          >
+          <Link href="/examples/agent-workbench/layouts/?layout=conversation">
             <strong>{x.layouts}</strong>
             <span>L1–L3</span>
           </Link>
           {workbenchTemplates.map((template) => (
             <Link
-              prefetch={false}
               key={template}
               href={`/examples/agent-workbench/app/?template=${template}&page=${template === "console" ? "inbox" : "home"}`}
             >
@@ -1484,7 +1865,7 @@ export function WorkbenchDemo({
     conversation: (
       <AgentConversation
         session={session}
-        actionsRef={retainConversationActions}
+        actionsRef={conversationActions}
         onLoadHistory={() =>
           dispatch({ type: "history", id: session.sessionId })
         }
@@ -1644,7 +2025,6 @@ export function WorkbenchDemo({
             : home()
   return (
     <main
-      id="main-content"
       className={styles.root}
       data-workbench-template={query.template}
       data-workbench-page={query.page}
@@ -1653,9 +2033,7 @@ export function WorkbenchDemo({
       {sourceSheet}
       <div className={styles.top}>
         {level === "app" ? (
-          <Link prefetch={false} href="/examples/agent-workbench/">
-            EasyuseUI · Agent
-          </Link>
+          <Link href="/examples/agent-workbench/">EasyuseUI · Agent</Link>
         ) : (
           links
         )}
@@ -1664,8 +2042,7 @@ export function WorkbenchDemo({
       </div>
       {level === "app" && <div className={styles.top}>{pageNav}</div>}
       <div className={styles.product}>
-        <WorkbenchFrame
-          sessionActive={isSession}
+        <AgentWorkbench
           session={session}
           header={
             !isSession ? (
@@ -1682,13 +2059,7 @@ export function WorkbenchDemo({
           composer={composer}
           workspace={main}
           inspector={contextPanel}
-          bottom={
-            bottomVisited || state.panels.bottomOpen ? (
-              <ExecutionOutputPanel {...session.output} />
-            ) : (
-              <></>
-            )
-          }
+          bottom={<ExecutionOutputPanel {...session.output} />}
           toolbar={
             <div className={styles.row}>
               {isSession &&
@@ -1729,7 +2100,7 @@ export function WorkbenchDemo({
                   })
           }
           conversation={{
-            actionsRef: retainConversationActions,
+            actionsRef: conversationActions,
             attention: tools(true),
             deferOffscreen: true,
             onLoadHistory: () =>

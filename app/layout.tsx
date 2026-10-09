@@ -1,12 +1,7 @@
-import Link from "next/link"
-import docs from "@/lib/docs-index.json"
-import guides from "@/lib/guide-navigation.json"
 import { SiteI18nProvider } from "@/components/site/site-i18n-provider"
-import { SiteText } from "@/components/site/site-i18n"
+import { SiteSkipLink } from "@/components/site/site-skip-link"
 import type { Metadata } from "next"
 import { siteUrl } from "@/lib/site"
-import { SiteFooter } from "@/components/site/site-footer"
-import { Header } from "@/components/site/header"
 import { SiteFrame } from "@/components/site/site-frame"
 import { ThemeProvider } from "@/components/site/theme-provider"
 import "./globals.css"
@@ -39,30 +34,10 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <body>
-        <SiteI18nProvider
-          componentPages={Object.fromEntries(
-            docs.map((entry) => [
-              entry.docPath.replace(/\/$/, ""),
-              { title: entry.name, description: entry.description["zh-CN"] },
-            ]),
-          )}
-          guides={guides.map(({ slug, title, summary }) => ({
-            slug,
-            title,
-            summary,
-          }))}
-        >
-          <Link
-            prefetch={false}
-            href="#main-content"
-            className="sr-only z-50 rounded-md bg-background p-3 focus:fixed focus:top-2 focus:left-2 focus:not-sr-only"
-          >
-            <SiteText messageKey="site.skipToMainContent" />
-          </Link>
+        <SiteI18nProvider>
+          <SiteSkipLink />
           <ThemeProvider>
-            <SiteFrame header={<Header />} footer={<SiteFooter />}>
-              {children}
-            </SiteFrame>
+            <SiteFrame>{children}</SiteFrame>
           </ThemeProvider>
         </SiteI18nProvider>
       </body>

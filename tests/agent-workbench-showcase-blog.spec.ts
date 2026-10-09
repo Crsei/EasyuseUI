@@ -1,9 +1,8 @@
 import { createHash } from "node:crypto"
-import { readFile } from "node:fs/promises"
 import { test, expect } from "@playwright/test"
 import { agentWorkbenchShowcasePost } from "../content/blog/agent-workbench-showcase"
 
-test("showcase capture and distribution evidence match the delivered source", async ({
+test("showcase capture and distribution evidence match the frozen source archive", async ({
   request,
 }) => {
   const response = await request.get(
@@ -20,13 +19,23 @@ test("showcase capture and distribution evidence match the delivered source", as
       .update(JSON.stringify(captures.sourceFiles))
       .digest("hex"),
   ).toBe(captures.sourceSnapshotId)
-  for (const [file, sha] of Object.entries(captures.sourceFiles))
+  const archive = await (
+    await request.get("/blog/agent-workbench-showcase/source-archive.json")
+  ).json()
+  expect(archive.sourceSnapshotId).toBe(captures.sourceSnapshotId)
+  expect(Object.keys(archive.sourceFiles).sort()).toEqual(
+    Object.keys(captures.sourceFiles).sort(),
+  )
+  for (const [file, sha] of Object.entries(captures.sourceFiles)) {
+    const source = await request.get(archive.sourceFiles[file])
+    expect(source.ok(), file).toBe(true)
     expect(
       createHash("sha256")
-        .update(await readFile(file))
+        .update(await source.body())
         .digest("hex"),
       file,
     ).toBe(sha)
+  }
   for (const capture of captures.images) {
     expect(capture.sourceSnapshotId).toBe(captures.sourceSnapshotId)
     expect(capture.fonts.status).toBe("loaded")

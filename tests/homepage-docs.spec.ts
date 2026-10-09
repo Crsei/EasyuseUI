@@ -247,6 +247,12 @@ test("mobile site and docs drawers restore focus, touch targets and active links
   await expect(page).toHaveURL(/\/docs\/tool-call\/$/)
   await expect(dialog).toBeHidden()
   await page.getByRole("button", { name: "文档目录", exact: true }).click()
+  await expect(dialog).toBeVisible()
+  await expect
+    .poll(() =>
+      dialog.evaluate((element) => element.contains(document.activeElement)),
+    )
+    .toBe(true)
   await page.keyboard.press("Escape")
   await expect(
     page.getByRole("button", { name: "文档目录", exact: true }),
@@ -471,6 +477,15 @@ for (const route of [
     await page
       .getByRole("combobox", { name: "语言", exact: true })
       .selectOption("en")
+    if (route.startsWith("/docs/") && route !== "/docs/installation/") {
+      const demo = page.locator("#preview [data-demo-loader]")
+      await expect(demo).toHaveAttribute("data-demo-mounted", "true")
+      await expect(demo).toHaveAttribute("aria-busy", "false")
+      if (route === "/docs/workflow-canvas/")
+        await expect(
+          page.locator("#preview [data-canvas-ready]"),
+        ).toHaveAttribute("data-canvas-ready", "true")
+    }
     for (const theme of ["light", "dark"]) {
       if (theme === "dark")
         await page
@@ -479,6 +494,14 @@ for (const route of [
             exact: true,
           })
           .click()
+      // Scan the loaded preview after fonts and layout settle. Scanning during
+      // a deferred mount can miss its controls or inspect an incomplete graph.
+      await page.evaluate(async () => {
+        await document.fonts.ready
+        await new Promise<void>((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+        )
+      })
       const results = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
         .analyze()

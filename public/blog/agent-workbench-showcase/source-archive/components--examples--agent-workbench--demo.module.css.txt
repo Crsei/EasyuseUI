@@ -39,12 +39,6 @@
   min-width: 0;
   min-height: 0;
 }
-/* Deferred CSS can arrive after the frame CSS. Keep its shell bounded even
-   when WorkspaceShell's documentation minimum height is inserted later. */
-.product [data-workbench-module="session"] > div {
-  height: 100%;
-  min-height: 0;
-}
 .composerMount {
   display: flex;
   flex-direction: column;

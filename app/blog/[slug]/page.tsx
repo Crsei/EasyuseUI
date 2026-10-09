@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { getBlogPost, publishedPosts } from "@/lib/blog"
 import { BlogArticle } from "@/components/site/blog/blog-article"
 import { siteUrl } from "@/lib/site"
+import { SitePageMetadata } from "@/components/site/site-page-metadata"
 export const dynamicParams = false
 export function generateStaticParams() {
   return publishedPosts.map(({ slug }) => ({ slug }))
@@ -31,5 +32,14 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
   const post = getBlogPost(slug)
   if (!post) notFound()
-  return <BlogArticle post={post} />
+  return (
+    <>
+      <SitePageMetadata
+        pathname={`/blog/${slug}`}
+        title={post.title}
+        description={post.summary}
+      />
+      <BlogArticle post={post} />
+    </>
+  )
 }

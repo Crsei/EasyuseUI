@@ -1,0 +1,332 @@
+.shell {
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.section {
+  padding: 12px;
+  min-width: 0;
+}
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 0;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-height: 40px;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.heading {
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.meta {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 16px;
+  overflow-wrap: anywhere;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 8px;
+  padding: 8px;
+}
+.navGroup {
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+.select {
+  height: 32px;
+  min-width: 0;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 8px;
+  color: var(--foreground);
+  background: var(--surface);
+  font-size: 13px;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  font-size: 12px;
+}
+.status {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+.context {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 12px;
+}
+.context[data-invalid="true"] {
+  border-left: 2px solid var(--status-error);
+}
+.composer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding-bottom: env(safe-area-inset-bottom);
+  flex-shrink: 1;
+  min-height: 0;
+  max-height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.composerSettings > summary {
+  padding: 8px 12px;
+  min-height: 32px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.composerSettings > summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+.composerSettings > summary span {
+  margin-left: 8px;
+}
+.composerOptions {
+  max-height: 160px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.attachmentInput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+.attachmentInput input {
+  min-width: 0;
+  max-width: 100%;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+}
+.controls label {
+  flex: 1 1 120px;
+}
+.body {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  container: agent-workbench / inline-size;
+}
+.panes {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+.chat {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+}
+.conversation {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+.workspace {
+  display: none;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  border-left: 1px solid var(--border);
+  flex: 1;
+}
+.panes[data-layout="review"] .workspace {
+  display: block;
+  flex: 1.2;
+}
+.panes[data-layout="tasks"] .chat {
+  display: none;
+}
+.panes[data-layout="tasks"] .workspace {
+  display: block;
+  border-left: 0;
+}
+.viewSwitch {
+  display: none;
+}
+.tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  padding: 4px 8px;
+}
+.tabPanel {
+  min-width: 0;
+}
+.code {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  line-height: 20px;
+  border: 1px solid var(--border);
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+.text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 800px;
+}
+.messagePart + .messagePart {
+  margin-top: 8px;
+}
+.fileLayout {
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) minmax(0, 1fr);
+  min-width: 0;
+}
+.fileNav {
+  border-right: 1px solid var(--border);
+  overflow: auto;
+}
+.diff {
+  width: 100%;
+  overflow: auto;
+  max-height: 60vh;
+}
+.diff table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  line-height: 20px;
+}
+.diff td {
+  vertical-align: top;
+  padding: 0 8px;
+  white-space: pre;
+}
+.diff td:first-child {
+  width: 72px;
+  color: var(--muted-foreground);
+  user-select: none;
+}
+.diff tr[data-kind="add"] {
+  background: color-mix(in srgb, var(--status-success) 10%, var(--surface));
+}
+.diff tr[data-kind="remove"] {
+  background: color-mix(in srgb, var(--status-error) 10%, var(--surface));
+}
+.diff[data-mode="split"] td[data-new] {
+  border-left: 1px solid var(--border);
+}
+.feedback {
+  width: 100%;
+  min-height: 64px;
+  resize: vertical;
+  background: var(--surface);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 6px;
+}
+.output {
+  max-height: 100%;
+  min-width: 0;
+  overflow: auto;
+}
+.preview {
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+}
+@container agent-workbench (max-width: 919px) {
+  .viewSwitch {
+    display: flex;
+  }
+  .panes[data-view="conversation"] .workspace {
+    display: none;
+  }
+  .panes[data-view="workspace"] .chat {
+    display: none;
+  }
+  .panes[data-view="workspace"] .workspace {
+    display: block;
+    border-left: 0;
+  }
+}
+@container workspace-navigation (max-width: 80px) {
+  .nav {
+    padding: 4px;
+  }
+  .nav > :not(.newButton) {
+    display: none;
+  }
+  .newButton {
+    overflow: hidden;
+    padding: 4px;
+    font-size: 0;
+  }
+  .newButton svg {
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 600px) {
+  .fileLayout {
+    grid-template-columns: 1fr;
+  }
+  .fileNav {
+    max-height: 144px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+}
+@media (pointer: coarse) {
+  .composerSettings > summary {
+    min-height: 44px;
+  }
+  .select {
+    min-height: 44px;
+  }
+  .tabs button {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shell * {
+    scroll-behavior: auto;
+    transition: none;
+  }
+}

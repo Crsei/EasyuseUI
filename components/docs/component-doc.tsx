@@ -155,6 +155,11 @@ export function ComponentDoc({ entry }: { entry: ComponentManifestEntry }) {
   ]
   return (
     <DocPage
+      metadata={{
+        pathname: entry.docPath.replace(/\/$/, ""),
+        title: entry.name,
+        description: docs[position].description,
+      }}
       title={entry.name}
       description={<SiteText text={entry.description} />}
       group={

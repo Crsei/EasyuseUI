@@ -1,0 +1,66 @@
+{
+  "zh-CN": {
+    "titles": {
+      "/examples": "组件示例",
+      "/examples/work-items": "Work Items 组件示例",
+      "/workspace/work-items": "Work Items 组件示例",
+      "/components": "组件目录",
+      "/blog": "优化日志",
+      "/dictionary": "视觉词典",
+      "/docs": "介绍",
+      "/docs/installation": "安装与主题",
+      "/scroll": "滚动实验室",
+      "/style-workbench": "样式工作台",
+      "/workspace": "工作台",
+      "/workspace/canvas": "流程画布",
+      "/workspace/canvas/project": "嵌套流程",
+      "/workspace/canvas/services": "服务接口",
+      "/workspace/canvas/stress": "压力图"
+    },
+    "descriptions": {
+      "/blog": "了解每项优化的问题、方案、前后证据与适用范围。测量与实施状态分别记录。",
+      "/examples/workflow-analytics": "固定项目 Dashboard、历史口径图表与同快照工作项下钻。",
+      "/examples": "通过完整交互示例了解组件如何组合；每个示例使用本地数据，便于探索布局与状态。",
+      "/examples/work-items": "List、Board、Table、Timeline 与 Calendar 共享字段、选择和日期操作。",
+      "/workspace/work-items": "Work Items 展示已移至组件示例页面。",
+      "/": "可组合、可修改的 React 组件。从基础交互到完整模块，把源码带进你自己的项目。",
+      "/style-workbench": "并排比较基础样式，实时调整圆角、间距、边框、阴影、颜色和字体，查看参数差异并复制 CSS。",
+      "/dictionary": "通过中文外观、英文名和别名查找 UI 组件、基础样式与视觉效果，比较外观并查看项目用法。",
+      "/scroll": "亲手体验 Scroll-triggered、Scroll-linked、Parallax、Sticky、Scroll Snap 和 Horizontal Scroll 六种滚动交互。",
+      "/workspace": "基于 Component Specification 初始化的紧凑 Agent 工作台，统一尺寸、运行状态和 Inspector。",
+      "/workspace/canvas": "构图、配置、校验与 JSON 导入导出的本地画布工作台。"
+    }
+  },
+  "en": {
+    "titles": {
+      "/examples": "Component examples",
+      "/examples/work-items": "Work Items component example",
+      "/workspace/work-items": "Work Items component example",
+      "/components": "Component catalog",
+      "/blog": "Engineering blog",
+      "/dictionary": "Visual dictionary",
+      "/docs": "Introduction",
+      "/docs/installation": "Installation and theme",
+      "/scroll": "Scroll lab",
+      "/style-workbench": "Style workbench",
+      "/workspace": "Workspace",
+      "/workspace/canvas": "Workflow canvas",
+      "/workspace/canvas/project": "Nested workflows",
+      "/workspace/canvas/services": "Service interfaces",
+      "/workspace/canvas/stress": "Stress graph"
+    },
+    "descriptions": {
+      "/blog": "Explore the problem, approach, before and after evidence, and scope of each improvement. Measurement and implementation status are recorded separately.",
+      "/examples/workflow-analytics": "A fixed project dashboard, historical metrics and work-item drilldown at the same snapshot.",
+      "/examples": "Explore how components fit together in interactive examples. Each example uses local data to demonstrate layouts and states.",
+      "/examples/work-items": "List, Board, Table, Timeline and Calendar share fields, selection and date operations.",
+      "/workspace/work-items": "The Work Items showcase has moved to the component examples.",
+      "/": "Composable, customizable React components. Bring the source into your project, from primitives to complete modules.",
+      "/style-workbench": "Compare foundation styles side by side. Adjust radius, spacing, borders, shadows, colors and typography, inspect differences and copy CSS.",
+      "/dictionary": "Find UI components, foundations and visual effects by Chinese appearance, English names or aliases. Compare previews and inspect project usage.",
+      "/scroll": "Try six scrolling interactions: scroll-triggered, scroll-linked, parallax, sticky, scroll snap and horizontal scroll.",
+      "/workspace": "A compact Agent workspace following the Component Specification, with consistent dimensions, runtime states and Inspector.",
+      "/workspace/canvas": "A local canvas workspace for graph editing, configuration, validation and JSON import/export."
+    }
+  }
+}

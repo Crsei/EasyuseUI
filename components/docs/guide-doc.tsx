@@ -11,6 +11,11 @@ export function GuideDoc({ guide }: { guide: DocGuide }) {
     next = docGuides[position + 1]
   return (
     <DocPage
+      metadata={{
+        pathname: `/docs/${guide.slug}`,
+        title: guide.title,
+        description: guide.summary,
+      }}
       title={<SiteLocalized value={guide.title} />}
       description={<SiteLocalized value={guide.summary} />}
       group={<SiteText messageKey="site.redesign.group.getting-started" />}

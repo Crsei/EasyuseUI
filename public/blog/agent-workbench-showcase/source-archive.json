@@ -1,0 +1,29 @@
+{
+  "sourceSnapshotId": "476017e821453b9e770a5e0109f19cf1b487e9f8eb37ab66dcf2e5c0251e766c",
+  "sourceFiles": {
+    "lib/agent-workbench-model.ts": "/blog/agent-workbench-showcase/source-archive/lib--agent-workbench-model.ts.txt",
+    "components/blocks/agent-workbench.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench.tsx.txt",
+    "components/blocks/chat-message.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--chat-message.tsx.txt",
+    "components/blocks/chat-message.module.css": "/blog/agent-workbench-showcase/source-archive/components--blocks--chat-message.module.css.txt",
+    "components/blocks/workspace-shell.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--workspace-shell.tsx.txt",
+    "components/blocks/workspace-shell.module.css": "/blog/agent-workbench-showcase/source-archive/components--blocks--workspace-shell.module.css.txt",
+    "styles/theme.css": "/blog/agent-workbench-showcase/source-archive/styles--theme.css.txt",
+    "components/blocks/agent-workbench/navigation.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench--navigation.tsx.txt",
+    "components/blocks/agent-workbench/context.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench--context.tsx.txt",
+    "components/blocks/agent-workbench/conversation.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench--conversation.tsx.txt",
+    "components/blocks/agent-workbench/composer.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench--composer.tsx.txt",
+    "components/blocks/agent-workbench/review.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench--review.tsx.txt",
+    "components/blocks/agent-workbench/panels.tsx": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench--panels.tsx.txt",
+    "components/blocks/agent-workbench/workbench.module.css": "/blog/agent-workbench-showcase/source-archive/components--blocks--agent-workbench--workbench.module.css.txt",
+    "components/examples/agent-workbench/fixtures.ts": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--fixtures.ts.txt",
+    "components/examples/agent-workbench/reducer.ts": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--reducer.ts.txt",
+    "components/examples/agent-workbench/messages.ts": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--messages.ts.txt",
+    "components/examples/agent-workbench/showcase-model.ts": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--showcase-model.ts.txt",
+    "components/examples/agent-workbench/workbench-demo.tsx": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--workbench-demo.tsx.txt",
+    "components/examples/agent-workbench/demo.module.css": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--demo.module.css.txt",
+    "components/examples/agent-workbench/provider.tsx": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--provider.tsx.txt",
+    "components/examples/agent-workbench/region-lab.tsx": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--region-lab.tsx.txt",
+    "components/examples/agent-workbench/region-lab.module.css": "/blog/agent-workbench-showcase/source-archive/components--examples--agent-workbench--region-lab.module.css.txt"
+  },
+  "note": "Frozen source used by the existing 64 captures. Later optimizations do not rewrite the capture hashes or verification."
+}

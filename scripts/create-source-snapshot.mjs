@@ -15,6 +15,8 @@ const root = path.resolve(import.meta.dirname, "..")
 const target = process.argv[2]
   ? path.resolve(process.argv[2])
   : await mkdtemp(path.join(path.dirname(root), ".tmp/easyuseui-opt-after-"))
+if (target === root || target.startsWith(`${root}${path.sep}`))
+  throw new Error("Source snapshots must live outside the shared checkout")
 await mkdir(target, { recursive: true })
 const names = execFileSync(
   "git",
@@ -67,8 +69,7 @@ const manifest = {
   capturedAt: new Date().toISOString(),
   files,
   deletedFiles,
-  status: execFileSync("git", ["status", "--short"], { cwd: root })
-    .toString(),
+  status: execFileSync("git", ["status", "--short"], { cwd: root }).toString(),
   environment: { node: process.version, platform: process.platform },
 }
 await writeFile(
@@ -77,10 +78,27 @@ await writeFile(
 )
 const patchFile = openSync(path.join(target, "source.patch"), "w")
 try {
-  execFileSync("git", ["diff", "--binary"], {
-    cwd: root,
-    stdio: ["ignore", patchFile, "pipe"],
-  })
+  execFileSync(
+    "git",
+    [
+      "diff",
+      "HEAD",
+      "--binary",
+      "--",
+      ".",
+      ":(exclude)**/.env*",
+      ":(exclude)**/github_token.txt",
+      ":(exclude)node_modules/**",
+      ":(exclude).next/**",
+      ":(exclude)out/**",
+      ":(exclude)test-results/**",
+      ":(exclude)playwright-report/**",
+    ],
+    {
+      cwd: root,
+      stdio: ["ignore", patchFile, "pipe"],
+    },
+  )
 } finally {
   closeSync(patchFile)
 }

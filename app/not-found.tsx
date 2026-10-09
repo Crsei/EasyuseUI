@@ -1,5 +1,4 @@
-import { SiteText } from "@/components/site/site-i18n"
-import Link from "next/link"
+import { SiteRootText, SiteRootLink } from "@/components/site/site-root-text"
 
 export default function NotFound() {
   return (
@@ -9,14 +8,14 @@ export default function NotFound() {
     >
       <p className="font-mono text-sm text-muted-foreground">404</p>
       <h1 className="text-2xl font-semibold">
-        <SiteText messageKey="site.noComponentHereYet" />
+        <SiteRootText messageKey="site.noComponentHereYet" />
       </h1>
-      <Link
+      <SiteRootLink
         href="/components"
         className="text-sm text-primary underline underline-offset-4"
       >
-        <SiteText messageKey="site.backToTheComponentCatalog" />
-      </Link>
+        <SiteRootText messageKey="site.backToTheComponentCatalog" />
+      </SiteRootLink>
     </main>
   )
 }

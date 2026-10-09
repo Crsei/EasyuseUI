@@ -1,0 +1,12 @@
+{
+  "zh-CN": {
+    "site.skipToMainContent": "跳转到主要内容",
+    "site.noComponentHereYet": "这里还没有组件。",
+    "site.backToTheComponentCatalog": "回到组件目录"
+  },
+  "en": {
+    "site.skipToMainContent": "Skip to main content",
+    "site.noComponentHereYet": "No component here yet.",
+    "site.backToTheComponentCatalog": "Back to the component catalog"
+  }
+}
