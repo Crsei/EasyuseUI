@@ -1,6 +1,6 @@
 # Agent Workspace 具体设计与布局执行计划
 
-日期：2026-10-10。状态：首轮 Pi DL1–DL2 已实现；完整参考界面及 DL3–DL5 的剩余范围待执行，实际证据见[首轮记录](agent-workspace-completion-log.md)。
+日期：2026-10-10。状态：首轮 Pi DL1–DL2 已实现；DL3 的审批双层呈现、Queue/Steer fixture 已实现，见[人工介入记录](agent-workspace-intervention-log.md)。完整参考界面及 DL3–DL5 的剩余范围待执行；Pi 证据见[首轮记录](agent-workspace-completion-log.md)。
 
 本文件是 [reference 原文](./reference/agent-workspace-plan.md) 的完整内容副本，负责具体视觉、页面布局、模块展示和交互细节。原文全部保留，仅增加标题层级、线框图代码围栏和本文件的执行声明/清单；原文中的对话、示例产品名、后续建议均作为设计来源保留，不表示已实现功能或新的执行指令。
 
@@ -1206,6 +1206,8 @@ ChatWorkspace
 
 所有页面共同遵循：Compact、4px 网格、语义 token、zh-CN/en、五种数据态、同对象刷新保留旧数据、键盘/触摸/reduced-motion；设计图中的示例路径和模型文字不成为运行配置。页面级验收必须检查实际挂载和区域布局，不能只检查路由和 Registry 存在。
 
+PG02 的人工介入增量页为 `/examples/agent-workbench/regions/intervention/`。其 PG02-I 页面声明与 MD13-I/MD14-I 模块变体、尺寸、状态和验收路径见[人工介入实施记录](agent-workspace-intervention-log.md)。它是独立内存 fixture，不启用 PG05 的 Queue/Steer 或审批能力。
+
 ## 模块级设计声明
 
 | 模块 ID / reference | 职责与复用入口 | 明确的展示与布局规则 | 状态、交互和服务边界 | 适用页面 |
@@ -1259,10 +1261,12 @@ ChatWorkspace
 
 ### DL3 参考完整状态与区域演示
 
+MD13/MD14 的独立人工介入 fixture 与 MD12 输入稳定性按[人工介入记录](agent-workspace-intervention-log.md)单独实施；本阶段的全模块/全页面覆盖仍分别验收。
+
 - [ ] 在 PG02 明确 fixture 的情况下覆盖 MD01–MD17 的默认/hover/focus/selected/disabled/loading/error 及适用数据五态。
 - [ ] 展示 User、开放 Agent 正文、Thinking、Plan、Read/Search、Edit、Shell/Test、Output 的差异，不统一套大 Card。
-- [ ] 对照 A2-08 验证审批双层呈现：历史阅读时提醒可发现、Review定位、确认后留审计；unknown保持锁。
-- [ ] 对照 A2-07 验证 Queue/Steer 外观稳定与队列最多两条；这些fixture不计作Pi服务能力。
+- [x] 对照 A2-08 验证审批双层呈现：历史阅读时提醒可发现、Review定位、确认后留审计；unknown保持锁。（PG02-I 独立 fixture）
+- [x] 对照 A2-07 验证 Queue/Steer 外观稳定与队列最多两条；这些fixture不计作Pi服务能力。（PG02-I 独立 fixture）
 
 ### DL4 完整桌面与代码工作区
 

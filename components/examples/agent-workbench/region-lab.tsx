@@ -48,6 +48,12 @@ export function RegionLab({
     >
       <div className={styles.navigation}>
         {navigation}
+        <Link
+          prefetch={false}
+          href="/examples/agent-workbench/regions/intervention/"
+        >
+          {en ? "Approval and queue fixture" : "审批与队列 fixture"}
+        </Link>
         <span className={styles.meta}>
           {en ? "Local interactive example" : "本地交互示例"}
         </span>
