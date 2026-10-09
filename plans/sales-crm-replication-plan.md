@@ -1,7 +1,7 @@
 # Sales CRM Companies 页面复刻计划
 
 日期：2026-10-08  
-状态：待实施；当前依据源码拆解，尚无浏览器像素对比结果。  
+状态：R0–R5 已完成（本地fixture范围；提交复核见实施记录）；详见 [实施记录](./sales-crm-replication-log.md)。
 前置：[通用组件补齐计划](./common-components-completion-plan.md)。
 
 ## 1. 目标、落点与范围

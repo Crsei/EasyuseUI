@@ -1,0 +1,43 @@
+[WebServer] (node:18848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] $ node scripts/preview.mjs
+[WebServer] (node:19353) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 29 tests using 2 workers
+
+(node:19876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19875) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 tests/blog.spec.ts:6:1 › metrics distinguish unknown, zero, incompatible and regression (13ms)
+  ✓   3 tests/blog.spec.ts:77:1 › static Blog and catalog load no engine; one preview mounts and closes (3.1s)
+  ✓   1 tests/blog.spec.ts:30:1 › Blog search and filters restore from URL, back and locale changes (3.3s)
+  ✓   4 tests/blog.spec.ts:107:1 › draft and unknown posts stay absent from pages and sitemap (1.3s)
+  ✓   5 tests/blog.spec.ts:120:1 › an unavailable screenshot keeps the article and reports readable and can retry (1.8s)
+  ✓   6 tests/blog.spec.ts:150:1 › article locale changes preserve the loaded workspace and local created session (2.2s)
+  ✓   8 tests/blog.spec.ts:198:1 › Blog supports narrow touch, dark theme and reduced motion (1.8s)
+  ✓   9 tests/blog.spec.ts:231:1 › failed demo import retries without removing the article; closing a pending load ignores its result (3.7s)
+  ✓  10 tests/blog.spec.ts:270:1 › common component article links evidence and keeps its table selection across locales (2.3s)
+  ✓   7 tests/blog.spec.ts:170:1 › measurement articles fit desktop, tablet and phone with working evidence links (9.5s)
+  ✓  12 tests/sales-crm.spec.ts:55:1 › CRM selectors, windows, raw validation and CSV safety are deterministic (22ms)
+  ✓  11 tests/sales-crm-blog.spec.ts:3:1 › CRM article exposes bounded evidence, bilingual comparisons and the working example (3.8s)
+  ✓  13 tests/sales-crm.spec.ts:124:1 › nine business columns, exact compact geometry, selection and activation stay separate (4.1s)
+  ✓  14 tests/sales-crm.spec.ts:159:1 › filters, visible select-all, stable sorting and summaries share the export view (3.7s)
+  ✓  15 tests/sales-crm.spec.ts:205:1 › detail windows change data, owner navigation uses complete snapshots and restores a useful focus (5.3s)
+  ✓  17 tests/sales-crm.spec.ts:296:1 › new company validates raw input, retains cancelled drafts, prevents duplicates and explains filtered creation (7.1s)
+  ✓  16 tests/sales-crm.spec.ts:235:1 › keyboard search finds companies, owners and stages without intercepting draft editing (11.2s)
+  ✓  18 tests/sales-crm.spec.ts:353:1 › file rejection, creation failure and download failure preserve data and drafts (6.3s)
+  ✓  19 tests/sales-crm.spec.ts:400:1 › notifications keep reading separate from opening and explain missing targets (5.5s)
+  ✓  21 tests/sales-crm.spec.ts:468:1 › locale updates preserve selection, open-object identity and raw drafts; theme stays isolated (4.7s)
+  ✓  20 tests/sales-crm.spec.ts:443:1 › all five data states recover and refresh failure preserves existing rows (8.4s)
+  ✓  22 tests/sales-crm.spec.ts:525:1 › sidebar pointer/keyboard resizing persists only valid layout preferences (5.5s)
+  ✓  23 tests/sales-crm.spec.ts:568:1 › local creation uses unique instance IDs without secure-context crypto (4.5s)
+  ✓  24 tests/sales-crm.spec.ts:590:1 › valid image creation stays local and a rejected replacement preserves the preview (4.1s)
+  ✓  25 tests/sales-crm.spec.ts:632:1 › storage denial leaves language controls and sidebar resizing usable (3.1s)
+  ✓  27 tests/sales-crm.spec.ts:686:5 › CRM touch layouts › touch controls, native horizontal scrolling and sheets at 390px (7.3s)
+  ✓  28 tests/sales-crm.spec.ts:686:5 › CRM touch layouts › touch controls, native horizontal scrolling and sheets at 768px (3.6s)
+  ✓  26 tests/sales-crm.spec.ts:660:1 › default and object/form overlays pass automated accessibility checks (12.4s)
+  ✓  29 tests/sales-crm.spec.ts:686:5 › CRM touch layouts › touch controls, native horizontal scrolling and sheets at 1024px (3.7s)
+
+  29 passed (1.2m)

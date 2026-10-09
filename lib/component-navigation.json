@@ -162,373 +162,13 @@
     "docOrder": 117
   },
   {
-    "slug": "button-group",
-    "name": "ButtonGroup",
-    "category": "基础组件",
-    "docPath": "/docs/button-group/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 118
-  },
-  {
-    "slug": "input-group",
-    "name": "InputGroup",
-    "category": "基础组件",
-    "docPath": "/docs/input-group/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 119
-  },
-  {
-    "slug": "toggle",
-    "name": "Toggle",
-    "category": "基础组件",
-    "docPath": "/docs/toggle/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 120
-  },
-  {
-    "slug": "toggle-group",
-    "name": "ToggleGroup",
-    "category": "基础组件",
-    "docPath": "/docs/toggle-group/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 121
-  },
-  {
-    "slug": "input-otp",
-    "name": "InputOTP",
-    "category": "基础组件",
-    "docPath": "/docs/input-otp/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 122
-  },
-  {
-    "slug": "separator",
-    "name": "Separator",
-    "category": "基础组件",
-    "docPath": "/docs/separator/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 123
-  },
-  {
-    "slug": "collapsible",
-    "name": "Collapsible",
-    "category": "基础组件",
-    "docPath": "/docs/collapsible/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 124
-  },
-  {
-    "slug": "accordion",
-    "name": "Accordion",
-    "category": "基础组件",
-    "docPath": "/docs/accordion/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 125
-  },
-  {
-    "slug": "tooltip",
-    "name": "Tooltip",
-    "category": "基础组件",
-    "docPath": "/docs/tooltip/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 126
-  },
-  {
-    "slug": "alert-dialog",
-    "name": "AlertDialog",
-    "category": "基础组件",
-    "docPath": "/docs/alert-dialog/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 127
-  },
-  {
-    "slug": "hover-card",
-    "name": "HoverCard",
-    "category": "基础组件",
-    "docPath": "/docs/hover-card/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 128
-  },
-  {
-    "slug": "context-menu",
-    "name": "ContextMenu",
-    "category": "基础组件",
-    "docPath": "/docs/context-menu/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 129
-  },
-  {
-    "slug": "skeleton",
-    "name": "Skeleton",
-    "category": "基础组件",
-    "docPath": "/docs/skeleton/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 130
-  },
-  {
-    "slug": "spinner",
-    "name": "Spinner",
-    "category": "基础组件",
-    "docPath": "/docs/spinner/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 131
-  },
-  {
-    "slug": "empty",
-    "name": "Empty",
-    "category": "基础组件",
-    "docPath": "/docs/empty/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 132
-  },
-  {
-    "slug": "alert",
-    "name": "Alert",
-    "category": "基础组件",
-    "docPath": "/docs/alert/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 133
-  },
-  {
-    "slug": "progress",
-    "name": "Progress",
-    "category": "基础组件",
-    "docPath": "/docs/progress/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 134
-  },
-  {
-    "slug": "toast",
-    "name": "Toast",
-    "category": "基础组件",
-    "docPath": "/docs/toast/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 135
-  },
-  {
-    "slug": "sonner",
-    "name": "Sonner",
-    "category": "基础组件",
-    "docPath": "/docs/sonner/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 136
-  },
-  {
-    "slug": "date-calendar",
-    "name": "DateCalendar",
-    "category": "基础组件",
-    "docPath": "/docs/date-calendar/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 137
-  },
-  {
-    "slug": "date-picker",
-    "name": "DatePicker",
-    "category": "基础组件",
-    "docPath": "/docs/date-picker/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 138
-  },
-  {
-    "slug": "pagination",
-    "name": "Pagination",
-    "category": "基础组件",
-    "docPath": "/docs/pagination/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 139
-  },
-  {
-    "slug": "breadcrumb",
-    "name": "Breadcrumb",
-    "category": "基础组件",
-    "docPath": "/docs/breadcrumb/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 140
-  },
-  {
-    "slug": "menubar",
-    "name": "Menubar",
-    "category": "基础组件",
-    "docPath": "/docs/menubar/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 141
-  },
-  {
-    "slug": "navigation-menu",
-    "name": "NavigationMenu",
-    "category": "基础组件",
-    "docPath": "/docs/navigation-menu/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 142
-  },
-  {
-    "slug": "direction",
-    "name": "Direction",
-    "category": "基础组件",
-    "docPath": "/docs/direction/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 143
-  },
-  {
-    "slug": "attachment",
-    "name": "Attachment",
-    "category": "基础组件",
-    "docPath": "/docs/attachment/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 144
-  },
-  {
-    "slug": "marker",
-    "name": "Marker",
-    "category": "基础组件",
-    "docPath": "/docs/marker/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 145
-  },
-  {
-    "slug": "questionnaire",
-    "name": "Questionnaire",
-    "category": "组合模块",
-    "docPath": "/docs/questionnaire/",
-    "displayCategory": "patterns",
-    "docGroup": "other",
-    "docOrder": 146
-  },
-  {
-    "slug": "bubble",
-    "name": "Bubble",
-    "category": "基础组件",
-    "docPath": "/docs/bubble/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 147
-  },
-  {
-    "slug": "card",
-    "name": "Card",
-    "category": "基础组件",
-    "docPath": "/docs/card/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 148
-  },
-  {
-    "slug": "aspect-ratio",
-    "name": "AspectRatio",
-    "category": "基础组件",
-    "docPath": "/docs/aspect-ratio/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 149
-  },
-  {
-    "slug": "carousel",
-    "name": "Carousel",
-    "category": "基础组件",
-    "docPath": "/docs/carousel/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 150
-  },
-  {
-    "slug": "chart",
-    "name": "Chart",
-    "category": "组合模块",
-    "docPath": "/docs/chart/",
-    "displayCategory": "patterns",
-    "docGroup": "other",
-    "docOrder": 151
-  },
-  {
-    "slug": "form",
-    "name": "Form",
-    "category": "基础组件",
-    "docPath": "/docs/form/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 152
-  },
-  {
-    "slug": "sidebar",
-    "name": "Sidebar",
-    "category": "组合模块",
-    "docPath": "/docs/sidebar/",
-    "displayCategory": "patterns",
-    "docGroup": "other",
-    "docOrder": 153
-  },
-  {
-    "slug": "resizable",
-    "name": "Resizable",
-    "category": "基础组件",
-    "docPath": "/docs/resizable/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 154
-  },
-  {
-    "slug": "scroll-area",
-    "name": "ScrollArea",
-    "category": "基础组件",
-    "docPath": "/docs/scroll-area/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 155
-  },
-  {
-    "slug": "command",
-    "name": "Command",
-    "category": "组合模块",
-    "docPath": "/docs/command/",
-    "displayCategory": "patterns",
-    "docGroup": "other",
-    "docOrder": 156
-  },
-  {
-    "slug": "drawer",
-    "name": "Drawer",
-    "category": "基础组件",
-    "docPath": "/docs/drawer/",
-    "displayCategory": "primitives",
-    "docGroup": "interaction",
-    "docOrder": 157
-  },
-  {
     "slug": "analytics-model",
     "name": "AnalyticsModel",
     "category": "组合模块",
     "docPath": "/docs/analytics-model/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 158
+    "docOrder": 118
   },
   {
     "slug": "chart-model",
@@ -537,7 +177,7 @@
     "docPath": "/docs/chart-model/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 159
+    "docOrder": 119
   },
   {
     "slug": "chart-frame",
@@ -546,7 +186,7 @@
     "docPath": "/docs/chart-frame/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 160
+    "docOrder": 120
   },
   {
     "slug": "chart-data-table",
@@ -555,7 +195,7 @@
     "docPath": "/docs/chart-data-table/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 161
+    "docOrder": 121
   },
   {
     "slug": "statistical-chart",
@@ -564,7 +204,7 @@
     "docPath": "/docs/statistical-chart/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 162
+    "docOrder": 122
   },
   {
     "slug": "chart-drilldown-panel",
@@ -573,7 +213,7 @@
     "docPath": "/docs/chart-drilldown-panel/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 163
+    "docOrder": 123
   },
   {
     "slug": "workflow-metric",
@@ -582,7 +222,7 @@
     "docPath": "/docs/workflow-metric/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 164
+    "docOrder": 124
   },
   {
     "slug": "workflow-charts",
@@ -591,7 +231,7 @@
     "docPath": "/docs/workflow-charts/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 165
+    "docOrder": 125
   },
   {
     "slug": "risk-evidence-list",
@@ -600,7 +240,7 @@
     "docPath": "/docs/risk-evidence-list/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 166
+    "docOrder": 126
   },
   {
     "slug": "work-traceability-view",
@@ -609,7 +249,7 @@
     "docPath": "/docs/work-traceability-view/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 167
+    "docOrder": 127
   },
   {
     "slug": "work-items-view-adapter",
@@ -618,7 +258,7 @@
     "docPath": "/docs/work-items-view-adapter/",
     "displayCategory": "workspace",
     "docGroup": "data",
-    "docOrder": 168
+    "docOrder": 128
   },
   {
     "slug": "dashboard",
@@ -627,7 +267,7 @@
     "docPath": "/docs/dashboard/",
     "displayCategory": "workspace",
     "docGroup": "workspace",
-    "docOrder": 169
+    "docOrder": 129
   },
   {
     "slug": "project-overview-dashboard",
@@ -636,7 +276,7 @@
     "docPath": "/docs/project-overview-dashboard/",
     "displayCategory": "workspace",
     "docGroup": "workspace",
-    "docOrder": 170
+    "docOrder": 130
   },
   {
     "slug": "analytics-resource-model",
@@ -645,7 +285,7 @@
     "docPath": "/docs/analytics-resource-model/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 171
+    "docOrder": 131
   },
   {
     "slug": "analytics-history-metrics",
@@ -654,7 +294,7 @@
     "docPath": "/docs/analytics-history-metrics/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 172
+    "docOrder": 132
   },
   {
     "slug": "analytics-builder-model",
@@ -663,7 +303,7 @@
     "docPath": "/docs/analytics-builder-model/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 173
+    "docOrder": 133
   },
   {
     "slug": "dashboard-edit-session",
@@ -672,7 +312,7 @@
     "docPath": "/docs/dashboard-edit-session/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 174
+    "docOrder": 134
   },
   {
     "slug": "analytics-image-export",
@@ -681,7 +321,7 @@
     "docPath": "/docs/analytics-image-export/",
     "displayCategory": "primitives",
     "docGroup": "data",
-    "docOrder": 175
+    "docOrder": 135
   },
   {
     "slug": "heatmap",
@@ -690,7 +330,7 @@
     "docPath": "/docs/heatmap/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 176
+    "docOrder": 136
   },
   {
     "slug": "resource-allocation-view",
@@ -699,7 +339,7 @@
     "docPath": "/docs/resource-allocation-view/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 177
+    "docOrder": 137
   },
   {
     "slug": "agent-execution-timeline",
@@ -708,7 +348,7 @@
     "docPath": "/docs/agent-execution-timeline/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 178
+    "docOrder": 138
   },
   {
     "slug": "workflow-history-charts",
@@ -717,7 +357,7 @@
     "docPath": "/docs/workflow-history-charts/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 179
+    "docOrder": 139
   },
   {
     "slug": "forecast-chart",
@@ -726,7 +366,7 @@
     "docPath": "/docs/forecast-chart/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 180
+    "docOrder": 140
   },
   {
     "slug": "agent-operations-dashboard",
@@ -735,7 +375,7 @@
     "docPath": "/docs/agent-operations-dashboard/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 181
+    "docOrder": 141
   },
   {
     "slug": "work-dependency-view",
@@ -744,7 +384,7 @@
     "docPath": "/docs/work-dependency-view/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 182
+    "docOrder": 142
   },
   {
     "slug": "dashboard-layout-editor",
@@ -753,7 +393,7 @@
     "docPath": "/docs/dashboard-layout-editor/",
     "displayCategory": "patterns",
     "docGroup": "data",
-    "docOrder": 183
+    "docOrder": 143
   },
   {
     "slug": "analytics-builder",
@@ -762,6 +402,366 @@
     "docPath": "/docs/analytics-builder/",
     "displayCategory": "patterns",
     "docGroup": "data",
+    "docOrder": 144
+  },
+  {
+    "slug": "button-group",
+    "name": "ButtonGroup",
+    "category": "基础组件",
+    "docPath": "/docs/button-group/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 145
+  },
+  {
+    "slug": "input-group",
+    "name": "InputGroup",
+    "category": "基础组件",
+    "docPath": "/docs/input-group/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 146
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "category": "基础组件",
+    "docPath": "/docs/toggle/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 147
+  },
+  {
+    "slug": "toggle-group",
+    "name": "ToggleGroup",
+    "category": "基础组件",
+    "docPath": "/docs/toggle-group/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 148
+  },
+  {
+    "slug": "input-otp",
+    "name": "InputOTP",
+    "category": "基础组件",
+    "docPath": "/docs/input-otp/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 149
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "category": "基础组件",
+    "docPath": "/docs/separator/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 150
+  },
+  {
+    "slug": "collapsible",
+    "name": "Collapsible",
+    "category": "基础组件",
+    "docPath": "/docs/collapsible/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 151
+  },
+  {
+    "slug": "accordion",
+    "name": "Accordion",
+    "category": "基础组件",
+    "docPath": "/docs/accordion/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 152
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip",
+    "category": "基础组件",
+    "docPath": "/docs/tooltip/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 153
+  },
+  {
+    "slug": "alert-dialog",
+    "name": "AlertDialog",
+    "category": "基础组件",
+    "docPath": "/docs/alert-dialog/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 154
+  },
+  {
+    "slug": "hover-card",
+    "name": "HoverCard",
+    "category": "基础组件",
+    "docPath": "/docs/hover-card/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 155
+  },
+  {
+    "slug": "context-menu",
+    "name": "ContextMenu",
+    "category": "基础组件",
+    "docPath": "/docs/context-menu/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 156
+  },
+  {
+    "slug": "skeleton",
+    "name": "Skeleton",
+    "category": "基础组件",
+    "docPath": "/docs/skeleton/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 157
+  },
+  {
+    "slug": "spinner",
+    "name": "Spinner",
+    "category": "基础组件",
+    "docPath": "/docs/spinner/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 158
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "category": "基础组件",
+    "docPath": "/docs/empty/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 159
+  },
+  {
+    "slug": "alert",
+    "name": "Alert",
+    "category": "基础组件",
+    "docPath": "/docs/alert/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 160
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "category": "基础组件",
+    "docPath": "/docs/progress/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 161
+  },
+  {
+    "slug": "toast",
+    "name": "Toast",
+    "category": "基础组件",
+    "docPath": "/docs/toast/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 162
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "category": "基础组件",
+    "docPath": "/docs/sonner/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 163
+  },
+  {
+    "slug": "date-calendar",
+    "name": "DateCalendar",
+    "category": "基础组件",
+    "docPath": "/docs/date-calendar/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 164
+  },
+  {
+    "slug": "date-picker",
+    "name": "DatePicker",
+    "category": "基础组件",
+    "docPath": "/docs/date-picker/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 165
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "category": "基础组件",
+    "docPath": "/docs/pagination/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 166
+  },
+  {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "category": "基础组件",
+    "docPath": "/docs/breadcrumb/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 167
+  },
+  {
+    "slug": "menubar",
+    "name": "Menubar",
+    "category": "基础组件",
+    "docPath": "/docs/menubar/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 168
+  },
+  {
+    "slug": "navigation-menu",
+    "name": "NavigationMenu",
+    "category": "基础组件",
+    "docPath": "/docs/navigation-menu/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 169
+  },
+  {
+    "slug": "direction",
+    "name": "Direction",
+    "category": "基础组件",
+    "docPath": "/docs/direction/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 170
+  },
+  {
+    "slug": "attachment",
+    "name": "Attachment",
+    "category": "基础组件",
+    "docPath": "/docs/attachment/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 171
+  },
+  {
+    "slug": "marker",
+    "name": "Marker",
+    "category": "基础组件",
+    "docPath": "/docs/marker/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 172
+  },
+  {
+    "slug": "questionnaire",
+    "name": "Questionnaire",
+    "category": "组合模块",
+    "docPath": "/docs/questionnaire/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 173
+  },
+  {
+    "slug": "bubble",
+    "name": "Bubble",
+    "category": "基础组件",
+    "docPath": "/docs/bubble/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 174
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "category": "基础组件",
+    "docPath": "/docs/card/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 175
+  },
+  {
+    "slug": "aspect-ratio",
+    "name": "AspectRatio",
+    "category": "基础组件",
+    "docPath": "/docs/aspect-ratio/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 176
+  },
+  {
+    "slug": "carousel",
+    "name": "Carousel",
+    "category": "基础组件",
+    "docPath": "/docs/carousel/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 177
+  },
+  {
+    "slug": "chart",
+    "name": "Chart",
+    "category": "组合模块",
+    "docPath": "/docs/chart/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 178
+  },
+  {
+    "slug": "form",
+    "name": "Form",
+    "category": "基础组件",
+    "docPath": "/docs/form/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 179
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "category": "组合模块",
+    "docPath": "/docs/sidebar/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 180
+  },
+  {
+    "slug": "resizable",
+    "name": "Resizable",
+    "category": "基础组件",
+    "docPath": "/docs/resizable/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 181
+  },
+  {
+    "slug": "scroll-area",
+    "name": "ScrollArea",
+    "category": "基础组件",
+    "docPath": "/docs/scroll-area/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
+    "docOrder": 182
+  },
+  {
+    "slug": "command",
+    "name": "Command",
+    "category": "组合模块",
+    "docPath": "/docs/command/",
+    "displayCategory": "patterns",
+    "docGroup": "other",
+    "docOrder": 183
+  },
+  {
+    "slug": "drawer",
+    "name": "Drawer",
+    "category": "基础组件",
+    "docPath": "/docs/drawer/",
+    "displayCategory": "primitives",
+    "docGroup": "interaction",
     "docOrder": 184
   },
   {

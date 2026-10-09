@@ -61,6 +61,109 @@
     "slug": "agent-workbench-model"
   },
   {
+    "slug": "analytics-model",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-model",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-frame",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-data-table",
+    "widePreview": true
+  },
+  {
+    "slug": "statistical-chart",
+    "widePreview": true
+  },
+  {
+    "slug": "chart-drilldown-panel",
+    "widePreview": true
+  },
+  {
+    "slug": "workflow-metric",
+    "widePreview": true
+  },
+  {
+    "slug": "workflow-charts",
+    "widePreview": true
+  },
+  {
+    "slug": "risk-evidence-list",
+    "widePreview": true
+  },
+  {
+    "slug": "work-traceability-view",
+    "widePreview": true
+  },
+  {
+    "slug": "work-items-view-adapter",
+    "widePreview": true
+  },
+  {
+    "slug": "dashboard",
+    "widePreview": true
+  },
+  {
+    "slug": "project-overview-dashboard",
+    "widePreview": true
+  },
+  {
+    "slug": "analytics-resource-model"
+  },
+  {
+    "slug": "analytics-history-metrics"
+  },
+  {
+    "slug": "analytics-builder-model"
+  },
+  {
+    "slug": "dashboard-edit-session"
+  },
+  {
+    "slug": "analytics-image-export"
+  },
+  {
+    "slug": "heatmap",
+    "widePreview": true
+  },
+  {
+    "slug": "resource-allocation-view",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-execution-timeline",
+    "widePreview": true
+  },
+  {
+    "slug": "workflow-history-charts",
+    "widePreview": true
+  },
+  {
+    "slug": "forecast-chart",
+    "widePreview": true
+  },
+  {
+    "slug": "agent-operations-dashboard",
+    "widePreview": true
+  },
+  {
+    "slug": "work-dependency-view",
+    "widePreview": true
+  },
+  {
+    "slug": "dashboard-layout-editor",
+    "widePreview": true
+  },
+  {
+    "slug": "analytics-builder",
+    "widePreview": true
+  },
+  {
     "slug": "button-group"
   },
   {
@@ -179,109 +282,6 @@
   },
   {
     "slug": "drawer"
-  },
-  {
-    "slug": "analytics-model",
-    "widePreview": true
-  },
-  {
-    "slug": "chart-model",
-    "widePreview": true
-  },
-  {
-    "slug": "chart-frame",
-    "widePreview": true
-  },
-  {
-    "slug": "chart-data-table",
-    "widePreview": true
-  },
-  {
-    "slug": "statistical-chart",
-    "widePreview": true
-  },
-  {
-    "slug": "chart-drilldown-panel",
-    "widePreview": true
-  },
-  {
-    "slug": "workflow-metric",
-    "widePreview": true
-  },
-  {
-    "slug": "workflow-charts",
-    "widePreview": true
-  },
-  {
-    "slug": "risk-evidence-list",
-    "widePreview": true
-  },
-  {
-    "slug": "work-traceability-view",
-    "widePreview": true
-  },
-  {
-    "slug": "work-items-view-adapter",
-    "widePreview": true
-  },
-  {
-    "slug": "dashboard",
-    "widePreview": true
-  },
-  {
-    "slug": "project-overview-dashboard",
-    "widePreview": true
-  },
-  {
-    "slug": "analytics-resource-model"
-  },
-  {
-    "slug": "analytics-history-metrics"
-  },
-  {
-    "slug": "analytics-builder-model"
-  },
-  {
-    "slug": "dashboard-edit-session"
-  },
-  {
-    "slug": "analytics-image-export"
-  },
-  {
-    "slug": "heatmap",
-    "widePreview": true
-  },
-  {
-    "slug": "resource-allocation-view",
-    "widePreview": true
-  },
-  {
-    "slug": "agent-execution-timeline",
-    "widePreview": true
-  },
-  {
-    "slug": "workflow-history-charts",
-    "widePreview": true
-  },
-  {
-    "slug": "forecast-chart",
-    "widePreview": true
-  },
-  {
-    "slug": "agent-operations-dashboard",
-    "widePreview": true
-  },
-  {
-    "slug": "work-dependency-view",
-    "widePreview": true
-  },
-  {
-    "slug": "dashboard-layout-editor",
-    "widePreview": true
-  },
-  {
-    "slug": "analytics-builder",
-    "widePreview": true
   },
   {
     "slug": "textarea"

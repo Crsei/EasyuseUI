@@ -1,0 +1,98 @@
+{
+  "capturedAt": "2026-10-08T10:51:31.966Z",
+  "sourceSnapshotId": "981f6768a2505df6a7ee6fb14b3d1728a3bf9c1e790ced0ad479b2b472595628",
+  "sourceScope": "/blog/sales-crm/replica/source-scope.json",
+  "referenceSnapshotId": "9700e58d87fb4a8b04b319d63e455e6d99acba181e31adbf9c92890d6aff8739",
+  "environment": "GLIBC 2.28; Node 24; Next 16.3.8 Webpack + WASM SWC; Chrome 138.0.7204.92",
+  "validationCheckout": "/data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuseui-opt-after-pA3gEt",
+  "checks": {
+    "lint": {
+      "status": "passed",
+      "command": "pnpm lint"
+    },
+    "typecheck": {
+      "status": "passed",
+      "command": "pnpm typecheck"
+    },
+    "build": {
+      "status": "passed",
+      "command": "pnpm build",
+      "scope": "Whole frozen source, not a reduced scaffold"
+    },
+    "i18n": {
+      "status": "passed",
+      "command": "pnpm check:i18n"
+    },
+    "manifest": {
+      "status": "passed",
+      "command": "pnpm check:manifest"
+    },
+    "fullBrowser": {
+      "sourceSnapshotId": "981f6768a2505df6a7ee6fb14b3d1728a3bf9c1e790ced0ad479b2b472595628",
+      "command": "pnpm exec playwright test --grep-invert 'CRM article exposes bounded evidence'",
+      "passed": 215,
+      "failed": 0,
+      "crmTests": 18,
+      "workers": 2,
+      "scope": "Full suite except the new article test; final CRM/article checks after evidence updates are recorded separately"
+    },
+    "installation": {
+      "status": "passed",
+      "reused": false,
+      "command": "pnpm test:install",
+      "fixture": "/data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP",
+      "scope": "Fresh separate CLI consumer typecheck, production build and browser flows; portable source/dependencies, not CRM API or a separately installed CRM application"
+    },
+    "visual": {
+      "status": "reviewed with explicit differences",
+      "referenceCaptures": 12,
+      "replicaCaptures": 13,
+      "pairedHeatmaps": 12,
+      "review": "/blog/sales-crm/visual-review.json"
+    },
+    "article": {
+      "status": "passed",
+      "passed": 29,
+      "crmTests": 18,
+      "blogTests": 11,
+      "command": "pnpm exec playwright test tests/blog.spec.ts tests/sales-crm-blog.spec.ts tests/sales-crm.spec.ts",
+      "sourceSnapshotId": "981f6768a2505df6a7ee6fb14b3d1728a3bf9c1e790ced0ad479b2b472595628",
+      "completedAt": "2026-10-08T11:00:38.245784+00:00",
+      "scope": "Final article/evidence and unchanged CRM UI; bilingual figures, live example link, image loading, narrow layouts and CRM behavior"
+    },
+    "finalEngineering": {
+      "status": "passed",
+      "commands": [
+        "pnpm lint",
+        "pnpm typecheck",
+        "pnpm build",
+        "pnpm check:i18n",
+        "pnpm check:manifest",
+        "pnpm check:blog"
+      ],
+      "scope": "Complete frozen source with final article and evidence assets"
+    },
+    "liveDevelopment": {
+      "origin": "http://127.0.0.1:3010",
+      "articleHTTP": 200,
+      "articleDOM": "passed",
+      "scope": "Shared development server title and example link verified separately; formal feature acceptance uses the isolated production snapshot"
+    }
+  },
+  "limits": [
+    "Local fixtures and in-memory images; business data resets on reload. Only sidebar width is persisted.",
+    "No CRM API, authentication, collaboration, remote saving or unavailable destination pages.",
+    "Initials/Lucide/system fonts replace reference assets without license evidence. No pixel identity or performance benefit is claimed."
+  ],
+  "ownedSourceMatchesLiveTree": {
+    "files": 20,
+    "changed": [],
+    "checkedAt": "2026-10-08T11:00:38.245784+00:00"
+  },
+  "gitDelivery": {
+    "agentCommitted": false,
+    "agentPushed": false,
+    "observedHeadAtHandoff": "d5cea15b421a6302750896a4a07b0dd47610e925",
+    "note": "Shared worktree received a parallel Agent board commit; this CRM task did not issue commit/push or read credentials."
+  }
+}

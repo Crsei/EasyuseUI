@@ -1,0 +1,2 @@
+$ node scripts/check-i18n.mjs
+i18n checked: 1048 portable + 1835 site + 166 CRM messages, Catalog, dictionary and Registry closure.

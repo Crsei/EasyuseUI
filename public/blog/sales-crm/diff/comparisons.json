@@ -1,0 +1,101 @@
+{
+  "method": "RGB absolute difference, brightness x3 and contrast x2 for inspection; no pixel pass/fail percentage. Font, assets, accessibility and behavioral enhancements intentionally differ.",
+  "comparisons": [
+    {
+      "state": "default-1440",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/default-1440.png",
+      "replica": "/blog/sales-crm/replica/default-1440.png",
+      "diff": "/blog/sales-crm/diff/default-1440.png"
+    },
+    {
+      "state": "default-1920",
+      "width": 1920,
+      "height": 1080,
+      "reference": "/blog/sales-crm/reference/default-1920.png",
+      "replica": "/blog/sales-crm/replica/default-1920.png",
+      "diff": "/blog/sales-crm/diff/default-1920.png"
+    },
+    {
+      "state": "default-390",
+      "width": 390,
+      "height": 844,
+      "reference": "/blog/sales-crm/reference/default-390.png",
+      "replica": "/blog/sales-crm/replica/default-390.png",
+      "diff": "/blog/sales-crm/diff/default-390.png"
+    },
+    {
+      "state": "detail",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/detail.png",
+      "replica": "/blog/sales-crm/replica/detail.png",
+      "diff": "/blog/sales-crm/diff/detail.png"
+    },
+    {
+      "state": "filters",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/filters.png",
+      "replica": "/blog/sales-crm/replica/filters.png",
+      "diff": "/blog/sales-crm/diff/filters.png"
+    },
+    {
+      "state": "mobile-filters",
+      "width": 390,
+      "height": 844,
+      "reference": "/blog/sales-crm/reference/mobile-filters.png",
+      "replica": "/blog/sales-crm/replica/mobile-filters.png",
+      "diff": "/blog/sales-crm/diff/mobile-filters.png"
+    },
+    {
+      "state": "mobile-navigation",
+      "width": 390,
+      "height": 844,
+      "reference": "/blog/sales-crm/reference/mobile-navigation.png",
+      "replica": "/blog/sales-crm/replica/mobile-navigation.png",
+      "diff": "/blog/sales-crm/diff/mobile-navigation.png"
+    },
+    {
+      "state": "new-company",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/new-company.png",
+      "replica": "/blog/sales-crm/replica/new-company.png",
+      "diff": "/blog/sales-crm/diff/new-company.png"
+    },
+    {
+      "state": "notifications",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/notifications.png",
+      "replica": "/blog/sales-crm/replica/notifications.png",
+      "diff": "/blog/sales-crm/diff/notifications.png"
+    },
+    {
+      "state": "profile",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/profile.png",
+      "replica": "/blog/sales-crm/replica/profile.png",
+      "diff": "/blog/sales-crm/diff/profile.png"
+    },
+    {
+      "state": "search",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/search.png",
+      "replica": "/blog/sales-crm/replica/search.png",
+      "diff": "/blog/sales-crm/diff/search.png"
+    },
+    {
+      "state": "selection",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/selection.png",
+      "replica": "/blog/sales-crm/replica/selection.png",
+      "diff": "/blog/sales-crm/diff/selection.png"
+    }
+  ]
+}

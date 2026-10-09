@@ -1187,6 +1187,1316 @@ const sourceManifest: ComponentManifestEntry[] = [
 },
   // END agent workbench
 
+  // BEGIN workflow analytics
+{
+  "slug": "analytics-model",
+  "docPath": "/docs/analytics-model/",
+  "registryId": "analytics-model",
+  "registryDependencies": [],
+  "installType": "lib",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "AnalyticsModel",
+  "category": "组合模块",
+  "description": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+  "source": "lib/analytics-model.ts",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { analyticsEntityKey } from \"@/lib/analytics-model\"",
+  "props": [
+    {
+      "name": "AnalyticsQuery",
+      "type": "source / scope / measureId / measureVersion / dimension / timeField / range / bucket / timeZone / filters",
+      "description": "纯查询描述；筛选逐层取交集，范围采用 [from,to)。"
+    },
+    {
+      "name": "AnalyticsResult",
+      "type": "queryKey / snapshotId / asOf / series / coverage / completeness",
+      "description": "受控聚合快照，complete/partial/unavailable 不能互相冒充。"
+    },
+    {
+      "name": "WorkflowEvent / HistoryCoverage",
+      "type": "source event identity / baseline / coverage / corrections",
+      "description": "可选小数据重放；无期初或缺口时不生成趋势。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [
+    "lib/analytics-query.ts",
+    "lib/analytics-history.ts",
+    "lib/analytics-metrics.ts"
+  ],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "import { analyticsEntityKey } from \"@/lib/analytics-model\"\nexport const identity = analyticsEntityKey({\n  kind: \"workItem\", sourceId: \"service\", projectId: \"project-1\", entityId: \"item-1\",\n})"
+    }
+  ]
+},
+{
+  "slug": "chart-model",
+  "docPath": "/docs/chart-model/",
+  "registryId": "chart-model",
+  "registryDependencies": [
+    "analytics-model"
+  ],
+  "installType": "lib",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "ChartModel",
+  "category": "组合模块",
+  "description": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+  "source": "lib/chart-model.ts",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { chartData } from \"@/lib/chart-model\"",
+  "props": [
+    {
+      "name": "ChartSelection",
+      "type": "{ seriesId: string; bucketId: string } | null",
+      "description": "稳定选择身份；不包含统计引擎事件对象。"
+    },
+    {
+      "name": "chartData / chartDrilldown",
+      "type": "AnalyticsResult → ChartDatum[] / DrilldownSelection",
+      "description": "纯适配；非有限值转缺失，重复身份报错。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [
+    "lib/chart-format.ts"
+  ],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "import { chartSeriesColor } from \"@/lib/chart-model\"\nexport const seriesColor = chartSeriesColor(\"1\")\nexport const completedColor = chartSeriesColor(\"1\", \"completed\")"
+    }
+  ]
+},
+{
+  "slug": "chart-frame",
+  "docPath": "/docs/chart-frame/",
+  "registryId": "chart-frame",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "button",
+    "data-region",
+    "analytics-model",
+    "chart-model"
+  ],
+  "installType": "ui",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "ChartFrame",
+  "category": "基础组件",
+  "description": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+  "source": "components/ui/chart.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { ChartFrame } from \"@/components/ui/chart\"",
+  "props": [
+    {
+      "name": "title / description",
+      "type": "ReactNode",
+      "description": "标题与正式口径，保留调用方文案。"
+    },
+    {
+      "name": "query / result",
+      "type": "AnalyticsQuery / AnalyticsResult | null",
+      "description": "结果 queryKey 必须匹配；切范围不显示旧值。"
+    },
+    {
+      "name": "access",
+      "type": "\"allowed\" | \"denied\"",
+      "description": "denied 隐藏旧图、数据和操作。"
+    },
+    {
+      "name": "data",
+      "type": "Omit<DataRegionProps, \"children\" | \"hasContent\">",
+      "description": "独立五种读态、刷新、错误和安全重读。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [
+    "components/ui/chart.module.css"
+  ],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartFrame } from \"@/components/ui/chart\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartFrame>) {\n  return <ChartFrame {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "chart-data-table",
+  "docPath": "/docs/chart-data-table/",
+  "registryId": "chart-data-table",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "data-table",
+    "button",
+    "chart-model",
+    "analytics-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ChartDataTable",
+  "category": "组合模块",
+  "description": "聚合点的完整结构化表格与键盘下钻路径。",
+  "source": "components/blocks/charts/chart-data-table.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { ChartDataTable } from \"@/components/blocks/charts/chart-data-table\"",
+  "props": [
+    {
+      "name": "result",
+      "type": "AnalyticsResult",
+      "description": "完整聚合点表，保留隐藏系列与缺失值。"
+    },
+    {
+      "name": "selection / onSelect",
+      "type": "ChartSelection / (datum: ChartDatum) => void",
+      "description": "选中与键盘下钻；没有能力时不显示动作。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartDataTable } from \"@/components/blocks/charts/chart-data-table\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartDataTable>) {\n  return <ChartDataTable {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "statistical-chart",
+  "docPath": "/docs/statistical-chart/",
+  "registryId": "statistical-chart",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "button",
+    "chart-frame",
+    "chart-data-table",
+    "chart-model",
+    "analytics-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "StatisticalChart",
+  "category": "组合模块",
+  "description": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+  "source": "components/blocks/charts/statistical-chart.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { StatisticalChart } from \"@/components/blocks/charts/statistical-chart\"",
+  "props": [
+    {
+      "name": "kind / result / query / widgetId",
+      "type": "ChartKind / AnalyticsResult | null / AnalyticsQuery / string",
+      "description": "五种图形共享快照与稳定选择。"
+    },
+    {
+      "name": "height / stacked / composition",
+      "type": "240 | 320 | 400 / boolean / \"exclusive\"",
+      "description": "堆叠可选；Donut必须明确互斥组成。"
+    },
+    {
+      "name": "xType / xUnit / domain / references",
+      "type": "\"category\" | \"time\" | \"number\" / string / [number,number] / ChartReferenceDefinition[]",
+      "description": "连续轴使用实际x；显式数值范围及参考线/区间。"
+    },
+    {
+      "name": "selection / onSelectionChange / onDrilldown",
+      "type": "ChartSelection / callbacks",
+      "description": "图形、数据表、触屏与键盘产生相同业务描述。"
+    },
+    {
+      "name": "access / data",
+      "type": "\"allowed\" | \"denied\" / DataRegion options",
+      "description": "权限和新鲜度与数据态分轴。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [
+    "components/blocks/charts/statistical-chart.module.css"
+  ],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { StatisticalChart } from \"@/components/blocks/charts/statistical-chart\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof StatisticalChart>) {\n  return <StatisticalChart {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "chart-drilldown-panel",
+  "docPath": "/docs/chart-drilldown-panel/",
+  "registryId": "chart-drilldown-panel",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "sheet",
+    "button",
+    "data-table",
+    "data-region",
+    "analytics-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ChartDrilldownPanel",
+  "category": "组合模块",
+  "description": "快照匹配、历史成员说明与分页来源记录面板。",
+  "source": "components/blocks/charts/chart-drilldown-panel.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { ChartDrilldownPanel } from \"@/components/blocks/charts/chart-drilldown-panel\"",
+  "props": [
+    {
+      "name": "selection / onClose",
+      "type": "DrilldownSelection | null / () => void",
+      "description": "受控打开/关闭，保留图表选择与筛选。"
+    },
+    {
+      "name": "response",
+      "type": "{ queryKey; snapshotId; bucketId; seriesId; records; totalCount }",
+      "description": "必须匹配选中快照，分页标已加载/总量。"
+    },
+    {
+      "name": "definition / access / data",
+      "type": "ReactNode / \"allowed\" | \"denied\" / DataRegion options",
+      "description": "显示口径与历史成员说明；不混淆权限和空集合。"
+    },
+    {
+      "name": "onOpenEntity / onOpenView / onApplyFilter / onLoadMore",
+      "type": "optional callbacks",
+      "description": "只报告意图；没有能力不显示操作。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartDrilldownPanel } from \"@/components/blocks/charts/chart-drilldown-panel\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartDrilldownPanel>) {\n  return <ChartDrilldownPanel {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "workflow-metric",
+  "docPath": "/docs/workflow-metric/",
+  "registryId": "workflow-metric",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "metric-summary",
+    "button",
+    "chart-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkflowMetric",
+  "category": "组合模块",
+  "description": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+  "source": "components/blocks/analytics/workflow-metric.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { WorkflowMetric } from \"@/components/blocks/analytics/workflow-metric\"",
+  "props": [
+    {
+      "name": "id / label / value / unit / definition",
+      "type": "string / ReactNode / number | null / string / ReactNode",
+      "description": "复用MetricSummary，null显示不适用。"
+    },
+    {
+      "name": "baseline / partial / onDrilldown",
+      "type": "{ value; label } / boolean / () => void",
+      "description": "零基期不显示无穷比例；部分数据明确标记。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkflowMetric } from \"@/components/blocks/analytics/workflow-metric\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkflowMetric>) {\n  return <WorkflowMetric {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "workflow-charts",
+  "docPath": "/docs/workflow-charts/",
+  "registryId": "workflow-charts",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "statistical-chart"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkflowCharts",
+  "category": "组合模块",
+  "description": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+  "source": "components/blocks/analytics/workflow-charts.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { StatusDistribution } from \"@/components/blocks/analytics/workflow-charts\"",
+  "props": [
+    {
+      "name": "query / result / widgetId",
+      "type": "AnalyticsQuery / AnalyticsResult | null / string",
+      "description": "状态、完成趋势、年龄、阻塞四个固定模板。"
+    },
+    {
+      "name": "selection / onSelectionChange / onDrilldown / data / access",
+      "type": "WorkflowChartProps",
+      "description": "复用统计图表受控交互与读态。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { StatusDistribution } from \"@/components/blocks/analytics/workflow-charts\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof StatusDistribution>) {\n  return <StatusDistribution {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "risk-evidence-list",
+  "docPath": "/docs/risk-evidence-list/",
+  "registryId": "risk-evidence-list",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "analytics-model",
+    "data-table",
+    "button"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "RiskEvidenceList",
+  "category": "组合模块",
+  "description": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+  "source": "components/blocks/analytics/risk-evidence-list.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { RiskEvidenceList } from \"@/components/blocks/analytics/risk-evidence-list\"",
+  "props": [
+    {
+      "name": "evidence",
+      "type": "readonly RiskEvidence[]",
+      "description": "每条有rule/threshold/asOf/source/entityRef；不是健康总分。"
+    },
+    {
+      "name": "onOpenEntity",
+      "type": "(ref: AnalyticsEntityRef) => void",
+      "description": "可选来源对象入口。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { RiskEvidenceList } from \"@/components/blocks/analytics/risk-evidence-list\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof RiskEvidenceList>) {\n  return <RiskEvidenceList {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "work-traceability-view",
+  "docPath": "/docs/work-traceability-view/",
+  "registryId": "work-traceability-view",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "analytics-model",
+    "data-table",
+    "button",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkTraceabilityView",
+  "category": "组合模块",
+  "description": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+  "source": "components/blocks/analytics/work-traceability-view.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { WorkTraceabilityView } from \"@/components/blocks/analytics/work-traceability-view\"",
+  "props": [
+    {
+      "name": "relations",
+      "type": "readonly AnalyticsRelation[]",
+      "description": "区分trace/contains/blocks/execution-parent/idea-link。"
+    },
+    {
+      "name": "onSelectEntity / data",
+      "type": "optional callback / DataRegion options",
+      "description": "受控对象选择与五种读态。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkTraceabilityView } from \"@/components/blocks/analytics/work-traceability-view\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkTraceabilityView>) {\n  return <WorkTraceabilityView {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "work-items-view-adapter",
+  "docPath": "/docs/work-items-view-adapter/",
+  "registryId": "work-items-view-adapter",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "analytics-model",
+    "work-items-workspace"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "WorkItemsViewAdapter",
+  "category": "组合模块",
+  "description": "保留业务能力的分析快照到工作项五布局适配。",
+  "source": "components/blocks/analytics/work-items-view-adapter.tsx",
+  "example": "components/examples/workflow-analytics/workflow-analytics-demo.tsx",
+  "usage": "import { WorkItemsViewAdapter } from \"@/components/blocks/analytics/work-items-view-adapter\"",
+  "props": [
+    {
+      "name": "selection / snapshotId / workspace",
+      "type": "DrilldownSelection / string / WorkItemsWorkspaceProps",
+      "description": "同快照成员映射到已有五布局，原业务能力保持。"
+    },
+    {
+      "name": "access",
+      "type": "\"allowed\" | \"denied\"",
+      "description": "撤权后隐藏整个工作区。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkItemsViewAdapter } from \"@/components/blocks/analytics/work-items-view-adapter\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkItemsViewAdapter>) {\n  return <WorkItemsViewAdapter {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "dashboard",
+  "docPath": "/docs/dashboard/",
+  "registryId": "dashboard",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "analytics-model",
+    "workspace-shell",
+    "filter-toolbar",
+    "button",
+    "sheet",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "Dashboard",
+  "category": "组合模块",
+  "description": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+  "source": "components/blocks/dashboard/dashboard.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { DashboardGrid } from \"@/components/blocks/dashboard/dashboard\"",
+  "props": [
+    {
+      "name": "DashboardShell.header / toolbar / sidebar / children",
+      "type": "ReactNode",
+      "description": "复用WorkspaceShell，填充有明确高度的父容器。"
+    },
+    {
+      "name": "DashboardFilterBar",
+      "type": "FilterToolbarProps",
+      "description": "受控范围、成员、刷新与数据时间；筛选归调用方。"
+    },
+    {
+      "name": "DashboardWidget.id / title / width / data",
+      "type": "string / string / 6 | 12 / DataRegion options",
+      "description": "桌面12列、中屏6列、窄屏单列；独立读态。"
+    },
+    {
+      "name": "WidgetActions / WidgetInspector",
+      "type": "optional callbacks / controlled open query result definition",
+      "description": "口径与允许导出；不显示无法保存的编辑。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [
+    "lib/dashboard-model.ts",
+    "components/blocks/dashboard/dashboard.module.css"
+  ],
+  "widePreview": true,
+  "docGroup": "workspace",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { DashboardGrid } from \"@/components/blocks/dashboard/dashboard\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof DashboardGrid>) {\n  return <DashboardGrid {...props} />\n}"
+    }
+  ]
+},
+{
+  "slug": "project-overview-dashboard",
+  "docPath": "/docs/project-overview-dashboard/",
+  "registryId": "project-overview-dashboard",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "analytics-model",
+    "chart-model",
+    "chart-frame",
+    "dashboard",
+    "workflow-metric",
+    "workflow-charts",
+    "risk-evidence-list"
+  ],
+  "installType": "block",
+  "displayCategory": "workspace",
+  "availability": "available",
+  "name": "ProjectOverviewDashboard",
+  "category": "组合模块",
+  "description": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+  "source": "components/blocks/dashboard/project-overview-dashboard.tsx",
+  "example": "components/examples/workflow-analytics/component-demos.tsx",
+  "usage": "import { ProjectOverviewDashboard } from \"@/components/blocks/dashboard/project-overview-dashboard\"",
+  "props": [
+    {
+      "name": "widgets",
+      "type": "readonly ProjectOverviewWidget[]",
+      "description": "每项有稳定id/query/result及独立data态。"
+    },
+    {
+      "name": "riskEvidence / access",
+      "type": "readonly RiskEvidence[] / \"allowed\" | \"denied\"",
+      "description": "受控风险事实；撤权隐藏数据区域。"
+    },
+    {
+      "name": "selection / onSelectionChange / onDrilldown / onOpenEntity / onExport",
+      "type": "controlled value / optional callbacks",
+      "description": "点选默认只开来源，导出和查询由调用方执行。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "workspace",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "调用方控制的输入",
+        "en": "Caller-controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ProjectOverviewDashboard } from \"@/components/blocks/dashboard/project-overview-dashboard\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ProjectOverviewDashboard>) {\n  return <ProjectOverviewDashboard {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "analytics-resource-model",
+  "docPath": "/docs/analytics-resource-model/",
+  "registryId": "analytics-resource-model",
+  "registryDependencies": [
+    "analytics-model",
+    "agent-board-model"
+  ],
+  "installType": "lib",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "computeWorkload",
+  "category": "组合模块",
+  "description": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
+  "source": "lib/analytics-resource-model.ts",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { computeWorkload } from \"@/lib/analytics-resource-model\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "显式资源份额、容量与执行区间；父子用量去重并保留币种。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [
+    "lib/analytics-usage-model.ts"
+  ],
+  "widePreview": false,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "import { computeWorkload } from \"@/lib/analytics-resource-model\"\nexport const api = computeWorkload"
+    }
+  ]
+},
+  {
+  "slug": "analytics-history-metrics",
+  "docPath": "/docs/analytics-history-metrics/",
+  "registryId": "analytics-history-metrics",
+  "registryDependencies": [
+    "analytics-model"
+  ],
+  "installType": "lib",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "computeHistoricalMetric",
+  "category": "组合模块",
+  "description": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
+  "source": "lib/analytics-history-metrics.ts",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { computeHistoricalMetric } from \"@/lib/analytics-history-metrics\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [
+    "lib/analytics-forecast-model.ts"
+  ],
+  "widePreview": false,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "import { computeHistoricalMetric } from \"@/lib/analytics-history-metrics\"\nexport const api = computeHistoricalMetric"
+    }
+  ]
+},
+  {
+  "slug": "analytics-builder-model",
+  "docPath": "/docs/analytics-builder-model/",
+  "registryId": "analytics-builder-model",
+  "registryDependencies": [
+    "analytics-model",
+    "chart-model"
+  ],
+  "installType": "lib",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "validateAnalyticsBuilder",
+  "category": "组合模块",
+  "description": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
+  "source": "lib/analytics-builder-model.ts",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { validateAnalyticsBuilder } from \"@/lib/analytics-builder-model\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": false,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "import { validateAnalyticsBuilder } from \"@/lib/analytics-builder-model\"\nexport const api = validateAnalyticsBuilder"
+    }
+  ]
+},
+  {
+  "slug": "dashboard-edit-session",
+  "docPath": "/docs/dashboard-edit-session/",
+  "registryId": "dashboard-edit-session",
+  "registryDependencies": [
+    "dashboard",
+    "analytics-model"
+  ],
+  "installType": "lib",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "DashboardEditSession",
+  "category": "组合模块",
+  "description": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
+  "source": "lib/dashboard-edit-session.ts",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { DashboardEditSession } from \"@/lib/dashboard-edit-session\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": false,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "import { DashboardEditSession } from \"@/lib/dashboard-edit-session\"\nexport const api = DashboardEditSession"
+    }
+  ]
+},
+  {
+  "slug": "analytics-image-export",
+  "docPath": "/docs/analytics-image-export/",
+  "registryId": "analytics-image-export",
+  "registryDependencies": [
+    "analytics-model"
+  ],
+  "installType": "lib",
+  "displayCategory": "primitives",
+  "availability": "available",
+  "name": "analyticsSvgExport",
+  "category": "组合模块",
+  "description": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
+  "source": "lib/analytics-image-export.ts",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { analyticsSvgExport } from \"@/lib/analytics-image-export\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": false,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "import { analyticsSvgExport } from \"@/lib/analytics-image-export\"\nexport const api = analyticsSvgExport"
+    }
+  ]
+},
+  {
+  "slug": "heatmap",
+  "docPath": "/docs/heatmap/",
+  "registryId": "heatmap",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "button",
+    "data-table",
+    "analytics-resource-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Heatmap",
+  "category": "组合模块",
+  "description": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
+  "source": "components/blocks/charts/heatmap.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { Heatmap } from \"@/components/blocks/charts/heatmap\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [
+    "components/blocks/charts/heatmap.module.css"
+  ],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { Heatmap } from \"@/components/blocks/charts/heatmap\"\nexport function Example(props: ComponentProps<typeof Heatmap>) {\n  return <Heatmap {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "resource-allocation-view",
+  "docPath": "/docs/resource-allocation-view/",
+  "registryId": "resource-allocation-view",
+  "registryDependencies": [
+    "heatmap",
+    "data-table",
+    "button",
+    "i18n"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ResourceAllocationView",
+  "category": "组合模块",
+  "description": "人员日期单元到显式分配清单与排期回调。",
+  "source": "components/blocks/analytics/resource-allocation-view.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { ResourceAllocationView } from \"@/components/blocks/analytics/resource-allocation-view\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "人员日期单元到显式分配清单与排期回调。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ResourceAllocationView } from \"@/components/blocks/analytics/resource-allocation-view\"\nexport function Example(props: ComponentProps<typeof ResourceAllocationView>) {\n  return <ResourceAllocationView {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "agent-execution-timeline",
+  "docPath": "/docs/agent-execution-timeline/",
+  "registryId": "agent-execution-timeline",
+  "registryDependencies": [
+    "timeline",
+    "runtime-status-badge",
+    "button",
+    "data-table",
+    "i18n",
+    "analytics-resource-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "AgentExecutionTimeline",
+  "category": "组合模块",
+  "description": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
+  "source": "components/blocks/analytics/agent-execution-timeline.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { AgentExecutionTimeline } from \"@/components/blocks/analytics/agent-execution-timeline\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "实际时间戳区间与可访问数据表，运行和验收状态分离。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [
+    "components/blocks/analytics/agent-execution-timeline.module.css"
+  ],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AgentExecutionTimeline } from \"@/components/blocks/analytics/agent-execution-timeline\"\nexport function Example(props: ComponentProps<typeof AgentExecutionTimeline>) {\n  return <AgentExecutionTimeline {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "workflow-history-charts",
+  "docPath": "/docs/workflow-history-charts/",
+  "registryId": "workflow-history-charts",
+  "registryDependencies": [
+    "statistical-chart",
+    "analytics-history-metrics",
+    "i18n"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "BurndownChart",
+  "category": "组合模块",
+  "description": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
+  "source": "components/blocks/charts/workflow-history-charts.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { BurndownChart } from \"@/components/blocks/charts/workflow-history-charts\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { BurndownChart } from \"@/components/blocks/charts/workflow-history-charts\"\nexport function Example(props: ComponentProps<typeof BurndownChart>) {\n  return <BurndownChart {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "forecast-chart",
+  "docPath": "/docs/forecast-chart/",
+  "registryId": "forecast-chart",
+  "registryDependencies": [
+    "data-table",
+    "button",
+    "i18n",
+    "analytics-history-metrics"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ForecastChart",
+  "category": "组合模块",
+  "description": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
+  "source": "components/blocks/charts/forecast-chart.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { ForecastChart } from \"@/components/blocks/charts/forecast-chart\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ForecastChart } from \"@/components/blocks/charts/forecast-chart\"\nexport function Example(props: ComponentProps<typeof ForecastChart>) {\n  return <ForecastChart {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "agent-operations-dashboard",
+  "docPath": "/docs/agent-operations-dashboard/",
+  "registryId": "agent-operations-dashboard",
+  "registryDependencies": [
+    "agent-execution-timeline",
+    "agent-usage-summary",
+    "i18n"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "AgentOperationsDashboard",
+  "category": "组合模块",
+  "description": "执行区间、验收与授权用量的只读组合。",
+  "source": "components/blocks/analytics/agent-operations-dashboard.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { AgentOperationsDashboard } from \"@/components/blocks/analytics/agent-operations-dashboard\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "执行区间、验收与授权用量的只读组合。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AgentOperationsDashboard } from \"@/components/blocks/analytics/agent-operations-dashboard\"\nexport function Example(props: ComponentProps<typeof AgentOperationsDashboard>) {\n  return <AgentOperationsDashboard {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "work-dependency-view",
+  "docPath": "/docs/work-dependency-view/",
+  "registryId": "work-dependency-view",
+  "registryDependencies": [
+    "workflow-canvas",
+    "data-table",
+    "button",
+    "i18n",
+    "analytics-model"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "WorkDependencyView",
+  "category": "组合模块",
+  "description": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
+  "source": "components/blocks/analytics/work-dependency-view.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { WorkDependencyView } from \"@/components/blocks/analytics/work-dependency-view\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [
+    "lib/analytics-dependency-model.ts"
+  ],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkDependencyView } from \"@/components/blocks/analytics/work-dependency-view\"\nexport function Example(props: ComponentProps<typeof WorkDependencyView>) {\n  return <WorkDependencyView {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "dashboard-layout-editor",
+  "docPath": "/docs/dashboard-layout-editor/",
+  "registryId": "dashboard-layout-editor",
+  "registryDependencies": [
+    "dashboard-edit-session",
+    "dashboard",
+    "button",
+    "i18n"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "DashboardLayoutEditor",
+  "category": "组合模块",
+  "description": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
+  "source": "components/blocks/dashboard/dashboard-layout-editor.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { DashboardLayoutEditor } from \"@/components/blocks/dashboard/dashboard-layout-editor\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { DashboardLayoutEditor } from \"@/components/blocks/dashboard/dashboard-layout-editor\"\nexport function Example(props: ComponentProps<typeof DashboardLayoutEditor>) {\n  return <DashboardLayoutEditor {...props} />\n}"
+    }
+  ]
+},
+  {
+  "slug": "analytics-builder",
+  "docPath": "/docs/analytics-builder/",
+  "registryId": "analytics-builder",
+  "registryDependencies": [
+    "analytics-builder-model",
+    "statistical-chart",
+    "button",
+    "i18n"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "AnalyticsBuilder",
+  "category": "组合模块",
+  "description": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
+  "source": "components/blocks/analytics/analytics-builder.tsx",
+  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
+  "usage": "import { AnalyticsBuilder } from \"@/components/blocks/analytics/analytics-builder\"",
+  "props": [
+    {
+      "name": "input / result / callbacks",
+      "type": "typed controlled contract",
+      "description": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。"
+    }
+  ],
+  "notes": [
+    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
+    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
+  ],
+  "relatedSources": [],
+  "widePreview": true,
+  "docGroup": "data",
+  "variants": [
+    {
+      "title": {
+        "zh-CN": "受控输入",
+        "en": "Controlled input"
+      },
+      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AnalyticsBuilder } from \"@/components/blocks/analytics/analytics-builder\"\nexport function Example(props: ComponentProps<typeof AnalyticsBuilder>) {\n  return <AnalyticsBuilder {...props} />\n}"
+    }
+  ]
+},
+  // END workflow analytics
 // BEGIN shadcn completion
 {
   "slug": "button-group",
@@ -2341,1317 +3651,6 @@ const sourceManifest: ComponentManifestEntry[] = [
 },
 // END shadcn completion
 
-  // BEGIN workflow analytics
-{
-  "slug": "analytics-model",
-  "docPath": "/docs/analytics-model/",
-  "registryId": "analytics-model",
-  "registryDependencies": [],
-  "installType": "lib",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "AnalyticsModel",
-  "category": "组合模块",
-  "description": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
-  "source": "lib/analytics-model.ts",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { analyticsEntityKey } from \"@/lib/analytics-model\"",
-  "props": [
-    {
-      "name": "AnalyticsQuery",
-      "type": "source / scope / measureId / measureVersion / dimension / timeField / range / bucket / timeZone / filters",
-      "description": "纯查询描述；筛选逐层取交集，范围采用 [from,to)。"
-    },
-    {
-      "name": "AnalyticsResult",
-      "type": "queryKey / snapshotId / asOf / series / coverage / completeness",
-      "description": "受控聚合快照，complete/partial/unavailable 不能互相冒充。"
-    },
-    {
-      "name": "WorkflowEvent / HistoryCoverage",
-      "type": "source event identity / baseline / coverage / corrections",
-      "description": "可选小数据重放；无期初或缺口时不生成趋势。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [
-    "lib/analytics-query.ts",
-    "lib/analytics-history.ts",
-    "lib/analytics-metrics.ts"
-  ],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "import { analyticsEntityKey } from \"@/lib/analytics-model\"\nexport const identity = analyticsEntityKey({\n  kind: \"workItem\", sourceId: \"service\", projectId: \"project-1\", entityId: \"item-1\",\n})"
-    }
-  ]
-},
-{
-  "slug": "chart-model",
-  "docPath": "/docs/chart-model/",
-  "registryId": "chart-model",
-  "registryDependencies": [
-    "analytics-model"
-  ],
-  "installType": "lib",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "ChartModel",
-  "category": "组合模块",
-  "description": "独立于统计引擎的系列、选择、数值格式与比较模型。",
-  "source": "lib/chart-model.ts",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { chartData } from \"@/lib/chart-model\"",
-  "props": [
-    {
-      "name": "ChartSelection",
-      "type": "{ seriesId: string; bucketId: string } | null",
-      "description": "稳定选择身份；不包含统计引擎事件对象。"
-    },
-    {
-      "name": "chartData / chartDrilldown",
-      "type": "AnalyticsResult → ChartDatum[] / DrilldownSelection",
-      "description": "纯适配；非有限值转缺失，重复身份报错。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [
-    "lib/chart-format.ts"
-  ],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "import { chartSeriesColor } from \"@/lib/chart-model\"\nexport const seriesColor = chartSeriesColor(\"1\")\nexport const completedColor = chartSeriesColor(\"1\", \"completed\")"
-    }
-  ]
-},
-{
-  "slug": "chart-frame",
-  "docPath": "/docs/chart-frame/",
-  "registryId": "chart-frame",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "button",
-    "data-region",
-    "analytics-model",
-    "chart-model"
-  ],
-  "installType": "ui",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "ChartFrame",
-  "category": "基础组件",
-  "description": "共享图表标题、口径、范围、权限隔离与五种数据态。",
-  "source": "components/ui/chart.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { ChartFrame } from \"@/components/ui/chart\"",
-  "props": [
-    {
-      "name": "title / description",
-      "type": "ReactNode",
-      "description": "标题与正式口径，保留调用方文案。"
-    },
-    {
-      "name": "query / result",
-      "type": "AnalyticsQuery / AnalyticsResult | null",
-      "description": "结果 queryKey 必须匹配；切范围不显示旧值。"
-    },
-    {
-      "name": "access",
-      "type": "\"allowed\" | \"denied\"",
-      "description": "denied 隐藏旧图、数据和操作。"
-    },
-    {
-      "name": "data",
-      "type": "Omit<DataRegionProps, \"children\" | \"hasContent\">",
-      "description": "独立五种读态、刷新、错误和安全重读。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [
-    "components/ui/chart.module.css"
-  ],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartFrame } from \"@/components/ui/chart\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartFrame>) {\n  return <ChartFrame {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "chart-data-table",
-  "docPath": "/docs/chart-data-table/",
-  "registryId": "chart-data-table",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "data-table",
-    "button",
-    "chart-model",
-    "analytics-model"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "ChartDataTable",
-  "category": "组合模块",
-  "description": "聚合点的完整结构化表格与键盘下钻路径。",
-  "source": "components/blocks/charts/chart-data-table.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { ChartDataTable } from \"@/components/blocks/charts/chart-data-table\"",
-  "props": [
-    {
-      "name": "result",
-      "type": "AnalyticsResult",
-      "description": "完整聚合点表，保留隐藏系列与缺失值。"
-    },
-    {
-      "name": "selection / onSelect",
-      "type": "ChartSelection / (datum: ChartDatum) => void",
-      "description": "选中与键盘下钻；没有能力时不显示动作。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartDataTable } from \"@/components/blocks/charts/chart-data-table\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartDataTable>) {\n  return <ChartDataTable {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "statistical-chart",
-  "docPath": "/docs/statistical-chart/",
-  "registryId": "statistical-chart",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "button",
-    "chart-frame",
-    "chart-data-table",
-    "chart-model",
-    "analytics-model"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "StatisticalChart",
-  "category": "组合模块",
-  "description": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
-  "source": "components/blocks/charts/statistical-chart.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { StatisticalChart } from \"@/components/blocks/charts/statistical-chart\"",
-  "props": [
-    {
-      "name": "kind / result / query / widgetId",
-      "type": "ChartKind / AnalyticsResult | null / AnalyticsQuery / string",
-      "description": "五种图形共享快照与稳定选择。"
-    },
-    {
-      "name": "height / stacked / composition",
-      "type": "240 | 320 | 400 / boolean / \"exclusive\"",
-      "description": "堆叠可选；Donut必须明确互斥组成。"
-    },
-    {
-      "name": "xType / xUnit / domain / references",
-      "type": "\"category\" | \"time\" | \"number\" / string / [number,number] / ChartReferenceDefinition[]",
-      "description": "连续轴使用实际x；显式数值范围及参考线/区间。"
-    },
-    {
-      "name": "selection / onSelectionChange / onDrilldown",
-      "type": "ChartSelection / callbacks",
-      "description": "图形、数据表、触屏与键盘产生相同业务描述。"
-    },
-    {
-      "name": "access / data",
-      "type": "\"allowed\" | \"denied\" / DataRegion options",
-      "description": "权限和新鲜度与数据态分轴。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [
-    "components/blocks/charts/statistical-chart.module.css"
-  ],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { StatisticalChart } from \"@/components/blocks/charts/statistical-chart\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof StatisticalChart>) {\n  return <StatisticalChart {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "chart-drilldown-panel",
-  "docPath": "/docs/chart-drilldown-panel/",
-  "registryId": "chart-drilldown-panel",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "sheet",
-    "button",
-    "data-table",
-    "data-region",
-    "analytics-model"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "ChartDrilldownPanel",
-  "category": "组合模块",
-  "description": "快照匹配、历史成员说明与分页来源记录面板。",
-  "source": "components/blocks/charts/chart-drilldown-panel.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { ChartDrilldownPanel } from \"@/components/blocks/charts/chart-drilldown-panel\"",
-  "props": [
-    {
-      "name": "selection / onClose",
-      "type": "DrilldownSelection | null / () => void",
-      "description": "受控打开/关闭，保留图表选择与筛选。"
-    },
-    {
-      "name": "response",
-      "type": "{ queryKey; snapshotId; bucketId; seriesId; records; totalCount }",
-      "description": "必须匹配选中快照，分页标已加载/总量。"
-    },
-    {
-      "name": "definition / access / data",
-      "type": "ReactNode / \"allowed\" | \"denied\" / DataRegion options",
-      "description": "显示口径与历史成员说明；不混淆权限和空集合。"
-    },
-    {
-      "name": "onOpenEntity / onOpenView / onApplyFilter / onLoadMore",
-      "type": "optional callbacks",
-      "description": "只报告意图；没有能力不显示操作。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ChartDrilldownPanel } from \"@/components/blocks/charts/chart-drilldown-panel\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ChartDrilldownPanel>) {\n  return <ChartDrilldownPanel {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "workflow-metric",
-  "docPath": "/docs/workflow-metric/",
-  "registryId": "workflow-metric",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "metric-summary",
-    "button",
-    "chart-model"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "WorkflowMetric",
-  "category": "组合模块",
-  "description": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
-  "source": "components/blocks/analytics/workflow-metric.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { WorkflowMetric } from \"@/components/blocks/analytics/workflow-metric\"",
-  "props": [
-    {
-      "name": "id / label / value / unit / definition",
-      "type": "string / ReactNode / number | null / string / ReactNode",
-      "description": "复用MetricSummary，null显示不适用。"
-    },
-    {
-      "name": "baseline / partial / onDrilldown",
-      "type": "{ value; label } / boolean / () => void",
-      "description": "零基期不显示无穷比例；部分数据明确标记。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkflowMetric } from \"@/components/blocks/analytics/workflow-metric\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkflowMetric>) {\n  return <WorkflowMetric {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "workflow-charts",
-  "docPath": "/docs/workflow-charts/",
-  "registryId": "workflow-charts",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "statistical-chart"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "WorkflowCharts",
-  "category": "组合模块",
-  "description": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
-  "source": "components/blocks/analytics/workflow-charts.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { StatusDistribution } from \"@/components/blocks/analytics/workflow-charts\"",
-  "props": [
-    {
-      "name": "query / result / widgetId",
-      "type": "AnalyticsQuery / AnalyticsResult | null / string",
-      "description": "状态、完成趋势、年龄、阻塞四个固定模板。"
-    },
-    {
-      "name": "selection / onSelectionChange / onDrilldown / data / access",
-      "type": "WorkflowChartProps",
-      "description": "复用统计图表受控交互与读态。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { StatusDistribution } from \"@/components/blocks/analytics/workflow-charts\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof StatusDistribution>) {\n  return <StatusDistribution {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "risk-evidence-list",
-  "docPath": "/docs/risk-evidence-list/",
-  "registryId": "risk-evidence-list",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "analytics-model",
-    "data-table",
-    "button"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "RiskEvidenceList",
-  "category": "组合模块",
-  "description": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
-  "source": "components/blocks/analytics/risk-evidence-list.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { RiskEvidenceList } from \"@/components/blocks/analytics/risk-evidence-list\"",
-  "props": [
-    {
-      "name": "evidence",
-      "type": "readonly RiskEvidence[]",
-      "description": "每条有rule/threshold/asOf/source/entityRef；不是健康总分。"
-    },
-    {
-      "name": "onOpenEntity",
-      "type": "(ref: AnalyticsEntityRef) => void",
-      "description": "可选来源对象入口。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { RiskEvidenceList } from \"@/components/blocks/analytics/risk-evidence-list\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof RiskEvidenceList>) {\n  return <RiskEvidenceList {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "work-traceability-view",
-  "docPath": "/docs/work-traceability-view/",
-  "registryId": "work-traceability-view",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "analytics-model",
-    "data-table",
-    "button",
-    "data-region"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "WorkTraceabilityView",
-  "category": "组合模块",
-  "description": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
-  "source": "components/blocks/analytics/work-traceability-view.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { WorkTraceabilityView } from \"@/components/blocks/analytics/work-traceability-view\"",
-  "props": [
-    {
-      "name": "relations",
-      "type": "readonly AnalyticsRelation[]",
-      "description": "区分trace/contains/blocks/execution-parent/idea-link。"
-    },
-    {
-      "name": "onSelectEntity / data",
-      "type": "optional callback / DataRegion options",
-      "description": "受控对象选择与五种读态。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkTraceabilityView } from \"@/components/blocks/analytics/work-traceability-view\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkTraceabilityView>) {\n  return <WorkTraceabilityView {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "work-items-view-adapter",
-  "docPath": "/docs/work-items-view-adapter/",
-  "registryId": "work-items-view-adapter",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "analytics-model",
-    "work-items-workspace"
-  ],
-  "installType": "block",
-  "displayCategory": "workspace",
-  "availability": "available",
-  "name": "WorkItemsViewAdapter",
-  "category": "组合模块",
-  "description": "保留业务能力的分析快照到工作项五布局适配。",
-  "source": "components/blocks/analytics/work-items-view-adapter.tsx",
-  "example": "components/examples/workflow-analytics/workflow-analytics-demo.tsx",
-  "usage": "import { WorkItemsViewAdapter } from \"@/components/blocks/analytics/work-items-view-adapter\"",
-  "props": [
-    {
-      "name": "selection / snapshotId / workspace",
-      "type": "DrilldownSelection / string / WorkItemsWorkspaceProps",
-      "description": "同快照成员映射到已有五布局，原业务能力保持。"
-    },
-    {
-      "name": "access",
-      "type": "\"allowed\" | \"denied\"",
-      "description": "撤权后隐藏整个工作区。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkItemsViewAdapter } from \"@/components/blocks/analytics/work-items-view-adapter\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof WorkItemsViewAdapter>) {\n  return <WorkItemsViewAdapter {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "dashboard",
-  "docPath": "/docs/dashboard/",
-  "registryId": "dashboard",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "analytics-model",
-    "workspace-shell",
-    "filter-toolbar",
-    "button",
-    "sheet",
-    "data-region"
-  ],
-  "installType": "block",
-  "displayCategory": "workspace",
-  "availability": "available",
-  "name": "Dashboard",
-  "category": "组合模块",
-  "description": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
-  "source": "components/blocks/dashboard/dashboard.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { DashboardGrid } from \"@/components/blocks/dashboard/dashboard\"",
-  "props": [
-    {
-      "name": "DashboardShell.header / toolbar / sidebar / children",
-      "type": "ReactNode",
-      "description": "复用WorkspaceShell，填充有明确高度的父容器。"
-    },
-    {
-      "name": "DashboardFilterBar",
-      "type": "FilterToolbarProps",
-      "description": "受控范围、成员、刷新与数据时间；筛选归调用方。"
-    },
-    {
-      "name": "DashboardWidget.id / title / width / data",
-      "type": "string / string / 6 | 12 / DataRegion options",
-      "description": "桌面12列、中屏6列、窄屏单列；独立读态。"
-    },
-    {
-      "name": "WidgetActions / WidgetInspector",
-      "type": "optional callbacks / controlled open query result definition",
-      "description": "口径与允许导出；不显示无法保存的编辑。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [
-    "lib/dashboard-model.ts",
-    "components/blocks/dashboard/dashboard.module.css"
-  ],
-  "widePreview": true,
-  "docGroup": "workspace",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { DashboardGrid } from \"@/components/blocks/dashboard/dashboard\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof DashboardGrid>) {\n  return <DashboardGrid {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "project-overview-dashboard",
-  "docPath": "/docs/project-overview-dashboard/",
-  "registryId": "project-overview-dashboard",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "analytics-model",
-    "chart-model",
-    "chart-frame",
-    "dashboard",
-    "workflow-metric",
-    "workflow-charts",
-    "risk-evidence-list"
-  ],
-  "installType": "block",
-  "displayCategory": "workspace",
-  "availability": "available",
-  "name": "ProjectOverviewDashboard",
-  "category": "组合模块",
-  "description": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
-  "source": "components/blocks/dashboard/project-overview-dashboard.tsx",
-  "example": "components/examples/workflow-analytics/component-demos.tsx",
-  "usage": "import { ProjectOverviewDashboard } from \"@/components/blocks/dashboard/project-overview-dashboard\"",
-  "props": [
-    {
-      "name": "widgets",
-      "type": "readonly ProjectOverviewWidget[]",
-      "description": "每项有稳定id/query/result及独立data态。"
-    },
-    {
-      "name": "riskEvidence / access",
-      "type": "readonly RiskEvidence[] / \"allowed\" | \"denied\"",
-      "description": "受控风险事实；撤权隐藏数据区域。"
-    },
-    {
-      "name": "selection / onSelectionChange / onDrilldown / onOpenEntity / onExport",
-      "type": "controlled value / optional callbacks",
-      "description": "点选默认只开来源，导出和查询由调用方执行。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "workspace",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "调用方控制的输入",
-        "en": "Caller-controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ProjectOverviewDashboard } from \"@/components/blocks/dashboard/project-overview-dashboard\"\n// The caller supplies the complete snapshot and operation callbacks.\nexport function Example(props: ComponentProps<typeof ProjectOverviewDashboard>) {\n  return <ProjectOverviewDashboard {...props} />\n}"
-    }
-  ]
-},
-
-{
-  "slug": "analytics-resource-model",
-  "docPath": "/docs/analytics-resource-model/",
-  "registryId": "analytics-resource-model",
-  "registryDependencies": [
-    "analytics-model",
-    "agent-board-model"
-  ],
-  "installType": "lib",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "computeWorkload",
-  "category": "组合模块",
-  "description": "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
-  "source": "lib/analytics-resource-model.ts",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { computeWorkload } from \"@/lib/analytics-resource-model\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "显式资源份额、容量与执行区间；父子用量去重并保留币种。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [
-    "lib/analytics-usage-model.ts"
-  ],
-  "widePreview": false,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "import { computeWorkload } from \"@/lib/analytics-resource-model\"\nexport const api = computeWorkload"
-    }
-  ]
-},
-{
-  "slug": "analytics-history-metrics",
-  "docPath": "/docs/analytics-history-metrics/",
-  "registryId": "analytics-history-metrics",
-  "registryDependencies": [
-    "analytics-model"
-  ],
-  "installType": "lib",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "computeHistoricalMetric",
-  "category": "组合模块",
-  "description": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。",
-  "source": "lib/analytics-history-metrics.ts",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { computeHistoricalMetric } from \"@/lib/analytics-history-metrics\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "历史燃尽、燃起、速度、累积流、周期时间与条件化预测模型。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [
-    "lib/analytics-forecast-model.ts"
-  ],
-  "widePreview": false,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "import { computeHistoricalMetric } from \"@/lib/analytics-history-metrics\"\nexport const api = computeHistoricalMetric"
-    }
-  ]
-},
-{
-  "slug": "analytics-builder-model",
-  "docPath": "/docs/analytics-builder-model/",
-  "registryId": "analytics-builder-model",
-  "registryDependencies": [
-    "analytics-model",
-    "chart-model"
-  ],
-  "installType": "lib",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "validateAnalyticsBuilder",
-  "category": "组合模块",
-  "description": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。",
-  "source": "lib/analytics-builder-model.ts",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { validateAnalyticsBuilder } from \"@/lib/analytics-builder-model\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "按指标版本校验维度、分段、单位与图型，固定调用方权限范围。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": false,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "import { validateAnalyticsBuilder } from \"@/lib/analytics-builder-model\"\nexport const api = validateAnalyticsBuilder"
-    }
-  ]
-},
-{
-  "slug": "dashboard-edit-session",
-  "docPath": "/docs/dashboard-edit-session/",
-  "registryId": "dashboard-edit-session",
-  "registryDependencies": [
-    "dashboard",
-    "analytics-model"
-  ],
-  "installType": "lib",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "DashboardEditSession",
-  "category": "组合模块",
-  "description": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。",
-  "source": "lib/dashboard-edit-session.ts",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { DashboardEditSession } from \"@/lib/dashboard-edit-session\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "可保留的布局草稿与带操作编号、版本的保存回执；unknown 先核对。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": false,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "import { DashboardEditSession } from \"@/lib/dashboard-edit-session\"\nexport const api = DashboardEditSession"
-    }
-  ]
-},
-{
-  "slug": "analytics-image-export",
-  "docPath": "/docs/analytics-image-export/",
-  "registryId": "analytics-image-export",
-  "registryDependencies": [
-    "analytics-model"
-  ],
-  "installType": "lib",
-  "displayCategory": "primitives",
-  "availability": "available",
-  "name": "analyticsSvgExport",
-  "category": "组合模块",
-  "description": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。",
-  "source": "lib/analytics-image-export.ts",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { analyticsSvgExport } from \"@/lib/analytics-image-export\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "由调用方触发，导出当前授权聚合 SVG 及口径和模拟标记。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": false,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "import { analyticsSvgExport } from \"@/lib/analytics-image-export\"\nexport const api = analyticsSvgExport"
-    }
-  ]
-},
-{
-  "slug": "heatmap",
-  "docPath": "/docs/heatmap/",
-  "registryId": "heatmap",
-  "registryDependencies": [
-    "theme",
-    "i18n",
-    "button",
-    "data-table",
-    "analytics-resource-model"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "Heatmap",
-  "category": "组合模块",
-  "description": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。",
-  "source": "components/blocks/charts/heatmap.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { Heatmap } from \"@/components/blocks/charts/heatmap\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "资源热图与 HeatmapLegend；已知、未知、零容量与超载分离。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [
-    "components/blocks/charts/heatmap.module.css"
-  ],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { Heatmap } from \"@/components/blocks/charts/heatmap\"\nexport function Example(props: ComponentProps<typeof Heatmap>) {\n  return <Heatmap {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "resource-allocation-view",
-  "docPath": "/docs/resource-allocation-view/",
-  "registryId": "resource-allocation-view",
-  "registryDependencies": [
-    "heatmap",
-    "data-table",
-    "button",
-    "i18n"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "ResourceAllocationView",
-  "category": "组合模块",
-  "description": "人员日期单元到显式分配清单与排期回调。",
-  "source": "components/blocks/analytics/resource-allocation-view.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { ResourceAllocationView } from \"@/components/blocks/analytics/resource-allocation-view\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "人员日期单元到显式分配清单与排期回调。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ResourceAllocationView } from \"@/components/blocks/analytics/resource-allocation-view\"\nexport function Example(props: ComponentProps<typeof ResourceAllocationView>) {\n  return <ResourceAllocationView {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "agent-execution-timeline",
-  "docPath": "/docs/agent-execution-timeline/",
-  "registryId": "agent-execution-timeline",
-  "registryDependencies": [
-    "timeline",
-    "runtime-status-badge",
-    "button",
-    "data-table",
-    "i18n",
-    "analytics-resource-model"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "AgentExecutionTimeline",
-  "category": "组合模块",
-  "description": "实际时间戳区间与可访问数据表，运行和验收状态分离。",
-  "source": "components/blocks/analytics/agent-execution-timeline.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { AgentExecutionTimeline } from \"@/components/blocks/analytics/agent-execution-timeline\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "实际时间戳区间与可访问数据表，运行和验收状态分离。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [
-    "components/blocks/analytics/agent-execution-timeline.module.css"
-  ],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AgentExecutionTimeline } from \"@/components/blocks/analytics/agent-execution-timeline\"\nexport function Example(props: ComponentProps<typeof AgentExecutionTimeline>) {\n  return <AgentExecutionTimeline {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "workflow-history-charts",
-  "docPath": "/docs/workflow-history-charts/",
-  "registryId": "workflow-history-charts",
-  "registryDependencies": [
-    "statistical-chart",
-    "analytics-history-metrics",
-    "i18n"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "BurndownChart",
-  "category": "组合模块",
-  "description": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。",
-  "source": "components/blocks/charts/workflow-history-charts.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { BurndownChart } from \"@/components/blocks/charts/workflow-history-charts\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "Burndown/Burnup/Velocity/CFD/CycleTime/StateResidence/Workload/AgentCost 模板，保留专业口径。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { BurndownChart } from \"@/components/blocks/charts/workflow-history-charts\"\nexport function Example(props: ComponentProps<typeof BurndownChart>) {\n  return <BurndownChart {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "forecast-chart",
-  "docPath": "/docs/forecast-chart/",
-  "registryId": "forecast-chart",
-  "registryDependencies": [
-    "data-table",
-    "button",
-    "i18n",
-    "analytics-history-metrics"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "ForecastChart",
-  "category": "组合模块",
-  "description": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。",
-  "source": "components/blocks/charts/forecast-chart.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { ForecastChart } from \"@/components/blocks/charts/forecast-chart\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "条件化分位区间、模型版本、样本与滚动回测；仅下钻历史或待完成项。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ForecastChart } from \"@/components/blocks/charts/forecast-chart\"\nexport function Example(props: ComponentProps<typeof ForecastChart>) {\n  return <ForecastChart {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "agent-operations-dashboard",
-  "docPath": "/docs/agent-operations-dashboard/",
-  "registryId": "agent-operations-dashboard",
-  "registryDependencies": [
-    "agent-execution-timeline",
-    "agent-usage-summary",
-    "i18n"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "AgentOperationsDashboard",
-  "category": "组合模块",
-  "description": "执行区间、验收与授权用量的只读组合。",
-  "source": "components/blocks/analytics/agent-operations-dashboard.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { AgentOperationsDashboard } from \"@/components/blocks/analytics/agent-operations-dashboard\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "执行区间、验收与授权用量的只读组合。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AgentOperationsDashboard } from \"@/components/blocks/analytics/agent-operations-dashboard\"\nexport function Example(props: ComponentProps<typeof AgentOperationsDashboard>) {\n  return <AgentOperationsDashboard {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "work-dependency-view",
-  "docPath": "/docs/work-dependency-view/",
-  "registryId": "work-dependency-view",
-  "registryDependencies": [
-    "workflow-canvas",
-    "data-table",
-    "button",
-    "i18n",
-    "analytics-model"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "WorkDependencyView",
-  "category": "组合模块",
-  "description": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。",
-  "source": "components/blocks/analytics/work-dependency-view.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { WorkDependencyView } from \"@/components/blocks/analytics/work-dependency-view\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "复用只读 Canvas 与完整关系表；显式业务依赖，强连通分量检测真实环路。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [
-    "lib/analytics-dependency-model.ts"
-  ],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { WorkDependencyView } from \"@/components/blocks/analytics/work-dependency-view\"\nexport function Example(props: ComponentProps<typeof WorkDependencyView>) {\n  return <WorkDependencyView {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "dashboard-layout-editor",
-  "docPath": "/docs/dashboard-layout-editor/",
-  "registryId": "dashboard-layout-editor",
-  "registryDependencies": [
-    "dashboard-edit-session",
-    "dashboard",
-    "button",
-    "i18n"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "DashboardLayoutEditor",
-  "category": "组合模块",
-  "description": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。",
-  "source": "components/blocks/dashboard/dashboard-layout-editor.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { DashboardLayoutEditor } from \"@/components/blocks/dashboard/dashboard-layout-editor\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "受控布局编辑与 WidgetPicker，键盘重排、有限尺寸、可核对保存。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { DashboardLayoutEditor } from \"@/components/blocks/dashboard/dashboard-layout-editor\"\nexport function Example(props: ComponentProps<typeof DashboardLayoutEditor>) {\n  return <DashboardLayoutEditor {...props} />\n}"
-    }
-  ]
-},
-{
-  "slug": "analytics-builder",
-  "docPath": "/docs/analytics-builder/",
-  "registryId": "analytics-builder",
-  "registryDependencies": [
-    "analytics-builder-model",
-    "statistical-chart",
-    "button",
-    "i18n"
-  ],
-  "installType": "block",
-  "displayCategory": "patterns",
-  "availability": "available",
-  "name": "AnalyticsBuilder",
-  "category": "组合模块",
-  "description": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。",
-  "source": "components/blocks/analytics/analytics-builder.tsx",
-  "example": "components/examples/workflow-analytics/advanced-demos.tsx",
-  "usage": "import { AnalyticsBuilder } from \"@/components/blocks/analytics/analytics-builder\"",
-  "props": [
-    {
-      "name": "input / result / callbacks",
-      "type": "typed controlled contract",
-      "description": "受控类型化查询配置，匹配预览后应用，取消保留已应用分析。"
-    }
-  ],
-  "notes": [
-    "本地示例不证明真实服务；来源、权限、执行、保存与预测可信度由调用方负责。",
-    "未知不当零，时间范围为 [from,to)，点选默认只下钻。"
-  ],
-  "relatedSources": [],
-  "widePreview": true,
-  "docGroup": "data",
-  "variants": [
-    {
-      "title": {
-        "zh-CN": "受控输入",
-        "en": "Controlled input"
-      },
-      "code": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AnalyticsBuilder } from \"@/components/blocks/analytics/analytics-builder\"\nexport function Example(props: ComponentProps<typeof AnalyticsBuilder>) {\n  return <AnalyticsBuilder {...props} />\n}"
-    }
-  ]
-},
-  // END workflow analytics
   {
     slug: "textarea",
     docPath: "/docs/textarea/",
@@ -3999,7 +3998,7 @@ const sourceManifest: ComponentManifestEntry[] = [
       'import { CommandPalette } from "@/components/blocks/command-palette"',
     props: [
       {
-        name: "groups / query / onQueryChange / onSelect / open / shortcut / finalFocus / loading / error",
+        name: "groups / query / onQueryChange / onSelect / open / shortcut / finalFocus / loading / error / className / renderItem",
         type: "CommandPaletteProps",
         description:
           "默认不注册全局快捷键；可配置scope，忽略编辑器、Canvas及已处理事件；选择不执行内置服务。",
@@ -5926,6 +5925,7 @@ const sourceManifest: ComponentManifestEntry[] = [
       "不执行工具、不发网络请求、不自动批准，不伪造完成或退出码。",
     ],
   },
+
   {
     slug: "agent-run-properties",
     docPath: "/docs/agent-run-properties/",
@@ -6590,7 +6590,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     ],
     "widePreview": true
   },
-  {
+{
     slug: "item-board",
     docPath: "/docs/item-board/",
     registryId: "item-board",

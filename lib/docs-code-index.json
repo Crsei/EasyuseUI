@@ -287,6 +287,529 @@
       "lines": 290
     }
   ],
+  "analytics-model": [
+    {
+      "id": "c0fe3dfa00534a2813c2c6cf73bd4d21b07f6833d6b17afaf47e0a4b7654581b",
+      "path": "lib/analytics-model.ts",
+      "kind": "source",
+      "url": "/docs-code/c0fe3dfa00534a2813c2c6cf73bd4d21b07f6833d6b17afaf47e0a4b7654581b.json",
+      "lines": 170
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    },
+    {
+      "id": "a8ee6a44ed7b3cda398f06117c00a4925e1f74d45376c30433968487e2cb5832",
+      "path": "lib/analytics-query.ts",
+      "kind": "related",
+      "url": "/docs-code/a8ee6a44ed7b3cda398f06117c00a4925e1f74d45376c30433968487e2cb5832.json",
+      "lines": 155
+    },
+    {
+      "id": "76bf99e82c4773a388f0a07f148255c24c3c644e6b04632e59f5901bd28b5c8d",
+      "path": "lib/analytics-history.ts",
+      "kind": "related",
+      "url": "/docs-code/76bf99e82c4773a388f0a07f148255c24c3c644e6b04632e59f5901bd28b5c8d.json",
+      "lines": 166
+    },
+    {
+      "id": "79f908cb5c4f825d9456cc589e867c8e016ae14c767c6d19a51b583fa9379cff",
+      "path": "lib/analytics-metrics.ts",
+      "kind": "related",
+      "url": "/docs-code/79f908cb5c4f825d9456cc589e867c8e016ae14c767c6d19a51b583fa9379cff.json",
+      "lines": 380
+    }
+  ],
+  "chart-model": [
+    {
+      "id": "aec13353aacf5e72e718a8819f11408822b3e735e99dc7cbafa3e59a7bfe882b",
+      "path": "lib/chart-model.ts",
+      "kind": "source",
+      "url": "/docs-code/aec13353aacf5e72e718a8819f11408822b3e735e99dc7cbafa3e59a7bfe882b.json",
+      "lines": 78
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    },
+    {
+      "id": "35912d0dbe3a359d44adf17da15b8aa3b30c11f8451e2f27f91d04e4b8037a17",
+      "path": "lib/chart-format.ts",
+      "kind": "related",
+      "url": "/docs-code/35912d0dbe3a359d44adf17da15b8aa3b30c11f8451e2f27f91d04e4b8037a17.json",
+      "lines": 24
+    }
+  ],
+  "chart-frame": [
+    {
+      "id": "dd87b6a4bba3b7c7cf499e0a8f1ae1eb09fbee3c547d5f1c536527d5e7d0d657",
+      "path": "components/ui/chart.tsx",
+      "kind": "source",
+      "url": "/docs-code/dd87b6a4bba3b7c7cf499e0a8f1ae1eb09fbee3c547d5f1c536527d5e7d0d657.json",
+      "lines": 225
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    },
+    {
+      "id": "e9eea864e68bd5471f57295d6b62f5b311df07526b54dc6cd47d789e5da5005a",
+      "path": "components/ui/chart.module.css",
+      "kind": "related",
+      "url": "/docs-code/e9eea864e68bd5471f57295d6b62f5b311df07526b54dc6cd47d789e5da5005a.json",
+      "lines": 50
+    }
+  ],
+  "chart-data-table": [
+    {
+      "id": "9afba5ef253ff18b7a6a94c04b0f59c8ec07b8906a8d5d629ddaef44332c425b",
+      "path": "components/blocks/charts/chart-data-table.tsx",
+      "kind": "source",
+      "url": "/docs-code/9afba5ef253ff18b7a6a94c04b0f59c8ec07b8906a8d5d629ddaef44332c425b.json",
+      "lines": 122
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    }
+  ],
+  "statistical-chart": [
+    {
+      "id": "0402be52b8423c6308775dc32657da60d37a9c851f59473ae0c450614e76c0b0",
+      "path": "components/blocks/charts/statistical-chart.tsx",
+      "kind": "source",
+      "url": "/docs-code/0402be52b8423c6308775dc32657da60d37a9c851f59473ae0c450614e76c0b0.json",
+      "lines": 506
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    },
+    {
+      "id": "a25633693d05d6c255b3c482f030053d6ebb497e2902ef8ce3abe0d4657dd064",
+      "path": "components/blocks/charts/statistical-chart.module.css",
+      "kind": "related",
+      "url": "/docs-code/a25633693d05d6c255b3c482f030053d6ebb497e2902ef8ce3abe0d4657dd064.json",
+      "lines": 42
+    }
+  ],
+  "chart-drilldown-panel": [
+    {
+      "id": "906182514e3b62d7ffe2957d8c050e0855b34c77c66e3bc4dd3410ac1e6f9386",
+      "path": "components/blocks/charts/chart-drilldown-panel.tsx",
+      "kind": "source",
+      "url": "/docs-code/906182514e3b62d7ffe2957d8c050e0855b34c77c66e3bc4dd3410ac1e6f9386.json",
+      "lines": 159
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    }
+  ],
+  "workflow-metric": [
+    {
+      "id": "cd31dba91561ee3cfba4bb5c8765e2b090746291afa7b2bf8d923023c6b00b11",
+      "path": "components/blocks/analytics/workflow-metric.tsx",
+      "kind": "source",
+      "url": "/docs-code/cd31dba91561ee3cfba4bb5c8765e2b090746291afa7b2bf8d923023c6b00b11.json",
+      "lines": 66
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    }
+  ],
+  "workflow-charts": [
+    {
+      "id": "c284dc32609227855bf87607b621c624dc9d40319794ade472b39b1403378030",
+      "path": "components/blocks/analytics/workflow-charts.tsx",
+      "kind": "source",
+      "url": "/docs-code/c284dc32609227855bf87607b621c624dc9d40319794ade472b39b1403378030.json",
+      "lines": 120
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    }
+  ],
+  "risk-evidence-list": [
+    {
+      "id": "8105be5527fe50668f6cc57d6198d43ca10b171bf6f4c409f82599cf862a7de3",
+      "path": "components/blocks/analytics/risk-evidence-list.tsx",
+      "kind": "source",
+      "url": "/docs-code/8105be5527fe50668f6cc57d6198d43ca10b171bf6f4c409f82599cf862a7de3.json",
+      "lines": 59
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    }
+  ],
+  "work-traceability-view": [
+    {
+      "id": "6f0c16a4496f721dde0212a5902e2c7bcda47073a3e5ca4647aa3a9775a75c87",
+      "path": "components/blocks/analytics/work-traceability-view.tsx",
+      "kind": "source",
+      "url": "/docs-code/6f0c16a4496f721dde0212a5902e2c7bcda47073a3e5ca4647aa3a9775a75c87.json",
+      "lines": 69
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    }
+  ],
+  "work-items-view-adapter": [
+    {
+      "id": "e46917f2f9346c65179044edbba9d1a51c26ee2b93653960cea37fbd7e425a87",
+      "path": "components/blocks/analytics/work-items-view-adapter.tsx",
+      "kind": "source",
+      "url": "/docs-code/e46917f2f9346c65179044edbba9d1a51c26ee2b93653960cea37fbd7e425a87.json",
+      "lines": 29
+    },
+    {
+      "id": "d45117b8290d722c562f6e7c69d4927f05f1b3572f7cc7a69fba178cfc83d15f",
+      "path": "components/examples/workflow-analytics/workflow-analytics-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/d45117b8290d722c562f6e7c69d4927f05f1b3572f7cc7a69fba178cfc83d15f.json",
+      "lines": 478
+    }
+  ],
+  "dashboard": [
+    {
+      "id": "494c4644a08a61574941c19e677a31b74940a509dced3c4d91fff45270cd662a",
+      "path": "components/blocks/dashboard/dashboard.tsx",
+      "kind": "source",
+      "url": "/docs-code/494c4644a08a61574941c19e677a31b74940a509dced3c4d91fff45270cd662a.json",
+      "lines": 168
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    },
+    {
+      "id": "4ee8c4aab215de284e342a5005985e8f8125bd28bc62305048081355c2b894b2",
+      "path": "lib/dashboard-model.ts",
+      "kind": "related",
+      "url": "/docs-code/4ee8c4aab215de284e342a5005985e8f8125bd28bc62305048081355c2b894b2.json",
+      "lines": 68
+    },
+    {
+      "id": "5325fedfebbe1dad6d1cb218f31ed4c8f1b0033d24e9bd8ed1a74d5fbbbb9130",
+      "path": "components/blocks/dashboard/dashboard.module.css",
+      "kind": "related",
+      "url": "/docs-code/5325fedfebbe1dad6d1cb218f31ed4c8f1b0033d24e9bd8ed1a74d5fbbbb9130.json",
+      "lines": 100
+    }
+  ],
+  "project-overview-dashboard": [
+    {
+      "id": "0bbeda62db0b298b7e927d36b10026ec459c99f56d4d3eb9cad9568b9702b702",
+      "path": "components/blocks/dashboard/project-overview-dashboard.tsx",
+      "kind": "source",
+      "url": "/docs-code/0bbeda62db0b298b7e927d36b10026ec459c99f56d4d3eb9cad9568b9702b702.json",
+      "lines": 174
+    },
+    {
+      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
+      "path": "components/examples/workflow-analytics/component-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
+      "lines": 153
+    }
+  ],
+  "analytics-resource-model": [
+    {
+      "id": "0621bcd4275f8fc0d38eb441761dd5cfc2587f452dd572b95c88a5f9213b0433",
+      "path": "lib/analytics-resource-model.ts",
+      "kind": "source",
+      "url": "/docs-code/0621bcd4275f8fc0d38eb441761dd5cfc2587f452dd572b95c88a5f9213b0433.json",
+      "lines": 152
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    },
+    {
+      "id": "1452bf0406d2c3ba702173a459c916f5980234bc98f7959306a04b0d086fc5ef",
+      "path": "lib/analytics-usage-model.ts",
+      "kind": "related",
+      "url": "/docs-code/1452bf0406d2c3ba702173a459c916f5980234bc98f7959306a04b0d086fc5ef.json",
+      "lines": 106
+    }
+  ],
+  "analytics-history-metrics": [
+    {
+      "id": "b8ea42072526fb3588bdfdc846096583938f487455b8c5b1ff6ab035962a5012",
+      "path": "lib/analytics-history-metrics.ts",
+      "kind": "source",
+      "url": "/docs-code/b8ea42072526fb3588bdfdc846096583938f487455b8c5b1ff6ab035962a5012.json",
+      "lines": 497
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    },
+    {
+      "id": "1f9139cbaf8ab3ea671746982c7c0f144abffb31eb47e45682a38641e2cb0174",
+      "path": "lib/analytics-forecast-model.ts",
+      "kind": "related",
+      "url": "/docs-code/1f9139cbaf8ab3ea671746982c7c0f144abffb31eb47e45682a38641e2cb0174.json",
+      "lines": 199
+    }
+  ],
+  "analytics-builder-model": [
+    {
+      "id": "98920825e464a759c479e3c7c979d9539021b31fb48bb8ea95197d94ee175b7f",
+      "path": "lib/analytics-builder-model.ts",
+      "kind": "source",
+      "url": "/docs-code/98920825e464a759c479e3c7c979d9539021b31fb48bb8ea95197d94ee175b7f.json",
+      "lines": 69
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "dashboard-edit-session": [
+    {
+      "id": "9382347131add3302aeddac523cb754c7eb6fe832b96a33505da4f74bbbcca71",
+      "path": "lib/dashboard-edit-session.ts",
+      "kind": "source",
+      "url": "/docs-code/9382347131add3302aeddac523cb754c7eb6fe832b96a33505da4f74bbbcca71.json",
+      "lines": 250
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "analytics-image-export": [
+    {
+      "id": "243405be1397960633129a07b9fc47f1ae52ce9600bc34d5460fcb0fce8fa620",
+      "path": "lib/analytics-image-export.ts",
+      "kind": "source",
+      "url": "/docs-code/243405be1397960633129a07b9fc47f1ae52ce9600bc34d5460fcb0fce8fa620.json",
+      "lines": 67
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "heatmap": [
+    {
+      "id": "f323462cee69a6723bca55f72c238bb8bc4bb7cfd5ae43c9ba5e9771d9f56577",
+      "path": "components/blocks/charts/heatmap.tsx",
+      "kind": "source",
+      "url": "/docs-code/f323462cee69a6723bca55f72c238bb8bc4bb7cfd5ae43c9ba5e9771d9f56577.json",
+      "lines": 126
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    },
+    {
+      "id": "0c35a112c8d33b6e546d1e9959fd05eabcceeba5532f7ebd29da8d49468495fb",
+      "path": "components/blocks/charts/heatmap.module.css",
+      "kind": "related",
+      "url": "/docs-code/0c35a112c8d33b6e546d1e9959fd05eabcceeba5532f7ebd29da8d49468495fb.json",
+      "lines": 49
+    }
+  ],
+  "resource-allocation-view": [
+    {
+      "id": "aac5bc8abede758e91a4ac92038d58bbd059db19e20ddf9e999b9a4fb3f897fb",
+      "path": "components/blocks/analytics/resource-allocation-view.tsx",
+      "kind": "source",
+      "url": "/docs-code/aac5bc8abede758e91a4ac92038d58bbd059db19e20ddf9e999b9a4fb3f897fb.json",
+      "lines": 81
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "agent-execution-timeline": [
+    {
+      "id": "e88fc1440bd7783c5e2fe03d2cc302d9132236abee89acdf6ac903a2079a841a",
+      "path": "components/blocks/analytics/agent-execution-timeline.tsx",
+      "kind": "source",
+      "url": "/docs-code/e88fc1440bd7783c5e2fe03d2cc302d9132236abee89acdf6ac903a2079a841a.json",
+      "lines": 111
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    },
+    {
+      "id": "7e8db03d3bf6e97cc84f337a35d71708b0ad342f27beb2356c2fbbc770968c4a",
+      "path": "components/blocks/analytics/agent-execution-timeline.module.css",
+      "kind": "related",
+      "url": "/docs-code/7e8db03d3bf6e97cc84f337a35d71708b0ad342f27beb2356c2fbbc770968c4a.json",
+      "lines": 21
+    }
+  ],
+  "workflow-history-charts": [
+    {
+      "id": "075f297ca34ab23c764b8159586098a1c82bd80bbf7572233c58945270ae2c34",
+      "path": "components/blocks/charts/workflow-history-charts.tsx",
+      "kind": "source",
+      "url": "/docs-code/075f297ca34ab23c764b8159586098a1c82bd80bbf7572233c58945270ae2c34.json",
+      "lines": 114
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "forecast-chart": [
+    {
+      "id": "d359b70f886da115ec8240dee7a5f8761e25f7ae66ed8f5f93b07901a45c400b",
+      "path": "components/blocks/charts/forecast-chart.tsx",
+      "kind": "source",
+      "url": "/docs-code/d359b70f886da115ec8240dee7a5f8761e25f7ae66ed8f5f93b07901a45c400b.json",
+      "lines": 108
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "agent-operations-dashboard": [
+    {
+      "id": "cbfb2c885ca982e55bbccb5f84baa9c2f3e1bb3a7370972f6d0104e62e86f5a3",
+      "path": "components/blocks/analytics/agent-operations-dashboard.tsx",
+      "kind": "source",
+      "url": "/docs-code/cbfb2c885ca982e55bbccb5f84baa9c2f3e1bb3a7370972f6d0104e62e86f5a3.json",
+      "lines": 44
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "work-dependency-view": [
+    {
+      "id": "305f69647f4c4f85d70c72185e2b2759e79651c391999358a9542c3a5d5dfcf1",
+      "path": "components/blocks/analytics/work-dependency-view.tsx",
+      "kind": "source",
+      "url": "/docs-code/305f69647f4c4f85d70c72185e2b2759e79651c391999358a9542c3a5d5dfcf1.json",
+      "lines": 157
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    },
+    {
+      "id": "eebf32e9644a3cdec7c7e536167aa5e4f2abdbd7c40a69a53ba9ecc4b7887ded",
+      "path": "lib/analytics-dependency-model.ts",
+      "kind": "related",
+      "url": "/docs-code/eebf32e9644a3cdec7c7e536167aa5e4f2abdbd7c40a69a53ba9ecc4b7887ded.json",
+      "lines": 55
+    }
+  ],
+  "dashboard-layout-editor": [
+    {
+      "id": "0bf8474a4cb11ee3dcc455f4feedb476de38dc9d14b9fcb796cf0b8d3748cb72",
+      "path": "components/blocks/dashboard/dashboard-layout-editor.tsx",
+      "kind": "source",
+      "url": "/docs-code/0bf8474a4cb11ee3dcc455f4feedb476de38dc9d14b9fcb796cf0b8d3748cb72.json",
+      "lines": 200
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
+  "analytics-builder": [
+    {
+      "id": "1e87e5a7e28c908b6f229e99c8165abb52c56dd14977fde7976ea51d6f482c5b",
+      "path": "components/blocks/analytics/analytics-builder.tsx",
+      "kind": "source",
+      "url": "/docs-code/1e87e5a7e28c908b6f229e99c8165abb52c56dd14977fde7976ea51d6f482c5b.json",
+      "lines": 173
+    },
+    {
+      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
+      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
+      "kind": "example",
+      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
+      "lines": 230
+    }
+  ],
   "button-group": [
     {
       "id": "253e3b10f95b4344ef6799571d037a7808821f79975e093d5a7797f7b75794af",
@@ -927,529 +1450,6 @@
       "lines": 229
     }
   ],
-  "analytics-model": [
-    {
-      "id": "c0fe3dfa00534a2813c2c6cf73bd4d21b07f6833d6b17afaf47e0a4b7654581b",
-      "path": "lib/analytics-model.ts",
-      "kind": "source",
-      "url": "/docs-code/c0fe3dfa00534a2813c2c6cf73bd4d21b07f6833d6b17afaf47e0a4b7654581b.json",
-      "lines": 170
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    },
-    {
-      "id": "a8ee6a44ed7b3cda398f06117c00a4925e1f74d45376c30433968487e2cb5832",
-      "path": "lib/analytics-query.ts",
-      "kind": "related",
-      "url": "/docs-code/a8ee6a44ed7b3cda398f06117c00a4925e1f74d45376c30433968487e2cb5832.json",
-      "lines": 155
-    },
-    {
-      "id": "76bf99e82c4773a388f0a07f148255c24c3c644e6b04632e59f5901bd28b5c8d",
-      "path": "lib/analytics-history.ts",
-      "kind": "related",
-      "url": "/docs-code/76bf99e82c4773a388f0a07f148255c24c3c644e6b04632e59f5901bd28b5c8d.json",
-      "lines": 166
-    },
-    {
-      "id": "79f908cb5c4f825d9456cc589e867c8e016ae14c767c6d19a51b583fa9379cff",
-      "path": "lib/analytics-metrics.ts",
-      "kind": "related",
-      "url": "/docs-code/79f908cb5c4f825d9456cc589e867c8e016ae14c767c6d19a51b583fa9379cff.json",
-      "lines": 380
-    }
-  ],
-  "chart-model": [
-    {
-      "id": "aec13353aacf5e72e718a8819f11408822b3e735e99dc7cbafa3e59a7bfe882b",
-      "path": "lib/chart-model.ts",
-      "kind": "source",
-      "url": "/docs-code/aec13353aacf5e72e718a8819f11408822b3e735e99dc7cbafa3e59a7bfe882b.json",
-      "lines": 78
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    },
-    {
-      "id": "35912d0dbe3a359d44adf17da15b8aa3b30c11f8451e2f27f91d04e4b8037a17",
-      "path": "lib/chart-format.ts",
-      "kind": "related",
-      "url": "/docs-code/35912d0dbe3a359d44adf17da15b8aa3b30c11f8451e2f27f91d04e4b8037a17.json",
-      "lines": 24
-    }
-  ],
-  "chart-frame": [
-    {
-      "id": "dd87b6a4bba3b7c7cf499e0a8f1ae1eb09fbee3c547d5f1c536527d5e7d0d657",
-      "path": "components/ui/chart.tsx",
-      "kind": "source",
-      "url": "/docs-code/dd87b6a4bba3b7c7cf499e0a8f1ae1eb09fbee3c547d5f1c536527d5e7d0d657.json",
-      "lines": 225
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    },
-    {
-      "id": "e9eea864e68bd5471f57295d6b62f5b311df07526b54dc6cd47d789e5da5005a",
-      "path": "components/ui/chart.module.css",
-      "kind": "related",
-      "url": "/docs-code/e9eea864e68bd5471f57295d6b62f5b311df07526b54dc6cd47d789e5da5005a.json",
-      "lines": 50
-    }
-  ],
-  "chart-data-table": [
-    {
-      "id": "9afba5ef253ff18b7a6a94c04b0f59c8ec07b8906a8d5d629ddaef44332c425b",
-      "path": "components/blocks/charts/chart-data-table.tsx",
-      "kind": "source",
-      "url": "/docs-code/9afba5ef253ff18b7a6a94c04b0f59c8ec07b8906a8d5d629ddaef44332c425b.json",
-      "lines": 122
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    }
-  ],
-  "statistical-chart": [
-    {
-      "id": "0402be52b8423c6308775dc32657da60d37a9c851f59473ae0c450614e76c0b0",
-      "path": "components/blocks/charts/statistical-chart.tsx",
-      "kind": "source",
-      "url": "/docs-code/0402be52b8423c6308775dc32657da60d37a9c851f59473ae0c450614e76c0b0.json",
-      "lines": 506
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    },
-    {
-      "id": "a25633693d05d6c255b3c482f030053d6ebb497e2902ef8ce3abe0d4657dd064",
-      "path": "components/blocks/charts/statistical-chart.module.css",
-      "kind": "related",
-      "url": "/docs-code/a25633693d05d6c255b3c482f030053d6ebb497e2902ef8ce3abe0d4657dd064.json",
-      "lines": 42
-    }
-  ],
-  "chart-drilldown-panel": [
-    {
-      "id": "906182514e3b62d7ffe2957d8c050e0855b34c77c66e3bc4dd3410ac1e6f9386",
-      "path": "components/blocks/charts/chart-drilldown-panel.tsx",
-      "kind": "source",
-      "url": "/docs-code/906182514e3b62d7ffe2957d8c050e0855b34c77c66e3bc4dd3410ac1e6f9386.json",
-      "lines": 159
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    }
-  ],
-  "workflow-metric": [
-    {
-      "id": "cd31dba91561ee3cfba4bb5c8765e2b090746291afa7b2bf8d923023c6b00b11",
-      "path": "components/blocks/analytics/workflow-metric.tsx",
-      "kind": "source",
-      "url": "/docs-code/cd31dba91561ee3cfba4bb5c8765e2b090746291afa7b2bf8d923023c6b00b11.json",
-      "lines": 66
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    }
-  ],
-  "workflow-charts": [
-    {
-      "id": "c284dc32609227855bf87607b621c624dc9d40319794ade472b39b1403378030",
-      "path": "components/blocks/analytics/workflow-charts.tsx",
-      "kind": "source",
-      "url": "/docs-code/c284dc32609227855bf87607b621c624dc9d40319794ade472b39b1403378030.json",
-      "lines": 120
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    }
-  ],
-  "risk-evidence-list": [
-    {
-      "id": "8105be5527fe50668f6cc57d6198d43ca10b171bf6f4c409f82599cf862a7de3",
-      "path": "components/blocks/analytics/risk-evidence-list.tsx",
-      "kind": "source",
-      "url": "/docs-code/8105be5527fe50668f6cc57d6198d43ca10b171bf6f4c409f82599cf862a7de3.json",
-      "lines": 59
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    }
-  ],
-  "work-traceability-view": [
-    {
-      "id": "6f0c16a4496f721dde0212a5902e2c7bcda47073a3e5ca4647aa3a9775a75c87",
-      "path": "components/blocks/analytics/work-traceability-view.tsx",
-      "kind": "source",
-      "url": "/docs-code/6f0c16a4496f721dde0212a5902e2c7bcda47073a3e5ca4647aa3a9775a75c87.json",
-      "lines": 69
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    }
-  ],
-  "work-items-view-adapter": [
-    {
-      "id": "e46917f2f9346c65179044edbba9d1a51c26ee2b93653960cea37fbd7e425a87",
-      "path": "components/blocks/analytics/work-items-view-adapter.tsx",
-      "kind": "source",
-      "url": "/docs-code/e46917f2f9346c65179044edbba9d1a51c26ee2b93653960cea37fbd7e425a87.json",
-      "lines": 29
-    },
-    {
-      "id": "d45117b8290d722c562f6e7c69d4927f05f1b3572f7cc7a69fba178cfc83d15f",
-      "path": "components/examples/workflow-analytics/workflow-analytics-demo.tsx",
-      "kind": "example",
-      "url": "/docs-code/d45117b8290d722c562f6e7c69d4927f05f1b3572f7cc7a69fba178cfc83d15f.json",
-      "lines": 478
-    }
-  ],
-  "dashboard": [
-    {
-      "id": "494c4644a08a61574941c19e677a31b74940a509dced3c4d91fff45270cd662a",
-      "path": "components/blocks/dashboard/dashboard.tsx",
-      "kind": "source",
-      "url": "/docs-code/494c4644a08a61574941c19e677a31b74940a509dced3c4d91fff45270cd662a.json",
-      "lines": 168
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    },
-    {
-      "id": "4ee8c4aab215de284e342a5005985e8f8125bd28bc62305048081355c2b894b2",
-      "path": "lib/dashboard-model.ts",
-      "kind": "related",
-      "url": "/docs-code/4ee8c4aab215de284e342a5005985e8f8125bd28bc62305048081355c2b894b2.json",
-      "lines": 68
-    },
-    {
-      "id": "5325fedfebbe1dad6d1cb218f31ed4c8f1b0033d24e9bd8ed1a74d5fbbbb9130",
-      "path": "components/blocks/dashboard/dashboard.module.css",
-      "kind": "related",
-      "url": "/docs-code/5325fedfebbe1dad6d1cb218f31ed4c8f1b0033d24e9bd8ed1a74d5fbbbb9130.json",
-      "lines": 100
-    }
-  ],
-  "project-overview-dashboard": [
-    {
-      "id": "0bbeda62db0b298b7e927d36b10026ec459c99f56d4d3eb9cad9568b9702b702",
-      "path": "components/blocks/dashboard/project-overview-dashboard.tsx",
-      "kind": "source",
-      "url": "/docs-code/0bbeda62db0b298b7e927d36b10026ec459c99f56d4d3eb9cad9568b9702b702.json",
-      "lines": 174
-    },
-    {
-      "id": "70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce",
-      "path": "components/examples/workflow-analytics/component-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/70a79078002455c5e854775041b2cd3118677afa19629433754770cfe8f1e6ce.json",
-      "lines": 153
-    }
-  ],
-  "analytics-resource-model": [
-    {
-      "id": "0621bcd4275f8fc0d38eb441761dd5cfc2587f452dd572b95c88a5f9213b0433",
-      "path": "lib/analytics-resource-model.ts",
-      "kind": "source",
-      "url": "/docs-code/0621bcd4275f8fc0d38eb441761dd5cfc2587f452dd572b95c88a5f9213b0433.json",
-      "lines": 152
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    },
-    {
-      "id": "1452bf0406d2c3ba702173a459c916f5980234bc98f7959306a04b0d086fc5ef",
-      "path": "lib/analytics-usage-model.ts",
-      "kind": "related",
-      "url": "/docs-code/1452bf0406d2c3ba702173a459c916f5980234bc98f7959306a04b0d086fc5ef.json",
-      "lines": 106
-    }
-  ],
-  "analytics-history-metrics": [
-    {
-      "id": "b8ea42072526fb3588bdfdc846096583938f487455b8c5b1ff6ab035962a5012",
-      "path": "lib/analytics-history-metrics.ts",
-      "kind": "source",
-      "url": "/docs-code/b8ea42072526fb3588bdfdc846096583938f487455b8c5b1ff6ab035962a5012.json",
-      "lines": 497
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    },
-    {
-      "id": "1f9139cbaf8ab3ea671746982c7c0f144abffb31eb47e45682a38641e2cb0174",
-      "path": "lib/analytics-forecast-model.ts",
-      "kind": "related",
-      "url": "/docs-code/1f9139cbaf8ab3ea671746982c7c0f144abffb31eb47e45682a38641e2cb0174.json",
-      "lines": 199
-    }
-  ],
-  "analytics-builder-model": [
-    {
-      "id": "98920825e464a759c479e3c7c979d9539021b31fb48bb8ea95197d94ee175b7f",
-      "path": "lib/analytics-builder-model.ts",
-      "kind": "source",
-      "url": "/docs-code/98920825e464a759c479e3c7c979d9539021b31fb48bb8ea95197d94ee175b7f.json",
-      "lines": 69
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "dashboard-edit-session": [
-    {
-      "id": "9382347131add3302aeddac523cb754c7eb6fe832b96a33505da4f74bbbcca71",
-      "path": "lib/dashboard-edit-session.ts",
-      "kind": "source",
-      "url": "/docs-code/9382347131add3302aeddac523cb754c7eb6fe832b96a33505da4f74bbbcca71.json",
-      "lines": 250
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "analytics-image-export": [
-    {
-      "id": "243405be1397960633129a07b9fc47f1ae52ce9600bc34d5460fcb0fce8fa620",
-      "path": "lib/analytics-image-export.ts",
-      "kind": "source",
-      "url": "/docs-code/243405be1397960633129a07b9fc47f1ae52ce9600bc34d5460fcb0fce8fa620.json",
-      "lines": 67
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "heatmap": [
-    {
-      "id": "f323462cee69a6723bca55f72c238bb8bc4bb7cfd5ae43c9ba5e9771d9f56577",
-      "path": "components/blocks/charts/heatmap.tsx",
-      "kind": "source",
-      "url": "/docs-code/f323462cee69a6723bca55f72c238bb8bc4bb7cfd5ae43c9ba5e9771d9f56577.json",
-      "lines": 126
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    },
-    {
-      "id": "0c35a112c8d33b6e546d1e9959fd05eabcceeba5532f7ebd29da8d49468495fb",
-      "path": "components/blocks/charts/heatmap.module.css",
-      "kind": "related",
-      "url": "/docs-code/0c35a112c8d33b6e546d1e9959fd05eabcceeba5532f7ebd29da8d49468495fb.json",
-      "lines": 49
-    }
-  ],
-  "resource-allocation-view": [
-    {
-      "id": "aac5bc8abede758e91a4ac92038d58bbd059db19e20ddf9e999b9a4fb3f897fb",
-      "path": "components/blocks/analytics/resource-allocation-view.tsx",
-      "kind": "source",
-      "url": "/docs-code/aac5bc8abede758e91a4ac92038d58bbd059db19e20ddf9e999b9a4fb3f897fb.json",
-      "lines": 81
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "agent-execution-timeline": [
-    {
-      "id": "e88fc1440bd7783c5e2fe03d2cc302d9132236abee89acdf6ac903a2079a841a",
-      "path": "components/blocks/analytics/agent-execution-timeline.tsx",
-      "kind": "source",
-      "url": "/docs-code/e88fc1440bd7783c5e2fe03d2cc302d9132236abee89acdf6ac903a2079a841a.json",
-      "lines": 111
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    },
-    {
-      "id": "7e8db03d3bf6e97cc84f337a35d71708b0ad342f27beb2356c2fbbc770968c4a",
-      "path": "components/blocks/analytics/agent-execution-timeline.module.css",
-      "kind": "related",
-      "url": "/docs-code/7e8db03d3bf6e97cc84f337a35d71708b0ad342f27beb2356c2fbbc770968c4a.json",
-      "lines": 21
-    }
-  ],
-  "workflow-history-charts": [
-    {
-      "id": "075f297ca34ab23c764b8159586098a1c82bd80bbf7572233c58945270ae2c34",
-      "path": "components/blocks/charts/workflow-history-charts.tsx",
-      "kind": "source",
-      "url": "/docs-code/075f297ca34ab23c764b8159586098a1c82bd80bbf7572233c58945270ae2c34.json",
-      "lines": 114
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "forecast-chart": [
-    {
-      "id": "d359b70f886da115ec8240dee7a5f8761e25f7ae66ed8f5f93b07901a45c400b",
-      "path": "components/blocks/charts/forecast-chart.tsx",
-      "kind": "source",
-      "url": "/docs-code/d359b70f886da115ec8240dee7a5f8761e25f7ae66ed8f5f93b07901a45c400b.json",
-      "lines": 108
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "agent-operations-dashboard": [
-    {
-      "id": "cbfb2c885ca982e55bbccb5f84baa9c2f3e1bb3a7370972f6d0104e62e86f5a3",
-      "path": "components/blocks/analytics/agent-operations-dashboard.tsx",
-      "kind": "source",
-      "url": "/docs-code/cbfb2c885ca982e55bbccb5f84baa9c2f3e1bb3a7370972f6d0104e62e86f5a3.json",
-      "lines": 44
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "work-dependency-view": [
-    {
-      "id": "305f69647f4c4f85d70c72185e2b2759e79651c391999358a9542c3a5d5dfcf1",
-      "path": "components/blocks/analytics/work-dependency-view.tsx",
-      "kind": "source",
-      "url": "/docs-code/305f69647f4c4f85d70c72185e2b2759e79651c391999358a9542c3a5d5dfcf1.json",
-      "lines": 157
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    },
-    {
-      "id": "eebf32e9644a3cdec7c7e536167aa5e4f2abdbd7c40a69a53ba9ecc4b7887ded",
-      "path": "lib/analytics-dependency-model.ts",
-      "kind": "related",
-      "url": "/docs-code/eebf32e9644a3cdec7c7e536167aa5e4f2abdbd7c40a69a53ba9ecc4b7887ded.json",
-      "lines": 55
-    }
-  ],
-  "dashboard-layout-editor": [
-    {
-      "id": "0bf8474a4cb11ee3dcc455f4feedb476de38dc9d14b9fcb796cf0b8d3748cb72",
-      "path": "components/blocks/dashboard/dashboard-layout-editor.tsx",
-      "kind": "source",
-      "url": "/docs-code/0bf8474a4cb11ee3dcc455f4feedb476de38dc9d14b9fcb796cf0b8d3748cb72.json",
-      "lines": 200
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
-  "analytics-builder": [
-    {
-      "id": "1e87e5a7e28c908b6f229e99c8165abb52c56dd14977fde7976ea51d6f482c5b",
-      "path": "components/blocks/analytics/analytics-builder.tsx",
-      "kind": "source",
-      "url": "/docs-code/1e87e5a7e28c908b6f229e99c8165abb52c56dd14977fde7976ea51d6f482c5b.json",
-      "lines": 173
-    },
-    {
-      "id": "0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc",
-      "path": "components/examples/workflow-analytics/advanced-demos.tsx",
-      "kind": "example",
-      "url": "/docs-code/0310d321bee22312b367e27afb9c82ee961ae2226087b6daaafcd7b056e448bc.json",
-      "lines": 230
-    }
-  ],
   "textarea": [
     {
       "id": "bffb2e39c7f0dfbf143a25e29419998e8eba4d573a9dc3b6e0feb44fe334a75e",
@@ -1674,11 +1674,11 @@
   ],
   "command-palette": [
     {
-      "id": "d51dd925853fe39b9abc69a5f069eb335cd988ff68e8e80d72865e48e568b160",
+      "id": "954dfcead6a3dfcb65fa6f9b26c4f75ef9a82bce6d31b4313023d9ddeea6dd3c",
       "path": "components/blocks/command-palette.tsx",
       "kind": "source",
-      "url": "/docs-code/d51dd925853fe39b9abc69a5f069eb335cd988ff68e8e80d72865e48e568b160.json",
-      "lines": 288
+      "url": "/docs-code/954dfcead6a3dfcb65fa6f9b26c4f75ef9a82bce6d31b4313023d9ddeea6dd3c.json",
+      "lines": 304
     },
     {
       "id": "8239fe9b649ecce060b19150660d719f1a0534c51be74fcdb657807efdac0d70",
@@ -1958,11 +1958,11 @@
       "lines": 135
     },
     {
-      "id": "5e85d05cfd556d595108718f71722edc0334ac313ef1ad9a1d13124b7d94db32",
+      "id": "db7eeafa39ea7a1ed3f5bddbbdcb1cde11489bf398f2080596a0d9dde1220f02",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/5e85d05cfd556d595108718f71722edc0334ac313ef1ad9a1d13124b7d94db32.json",
-      "lines": 3587
+      "url": "/docs-code/db7eeafa39ea7a1ed3f5bddbbdcb1cde11489bf398f2080596a0d9dde1220f02.json",
+      "lines": 3557
     }
   ],
   "canvas-service-panel": [
@@ -2281,11 +2281,11 @@
       "lines": 219
     },
     {
-      "id": "332daa92651b0ba6b859b4bfccd61548ca5dc573b7a375a340bc88b84a9364d2",
+      "id": "98991305004269c98f165e630653dccb4807c365071b98069f216d4552d274d5",
       "path": "components/blocks/workflow-canvas.module.css",
       "kind": "related",
-      "url": "/docs-code/332daa92651b0ba6b859b4bfccd61548ca5dc573b7a375a340bc88b84a9364d2.json",
-      "lines": 77
+      "url": "/docs-code/98991305004269c98f165e630653dccb4807c365071b98069f216d4552d274d5.json",
+      "lines": 80
     }
   ],
   "canvas-node": [
@@ -2320,11 +2320,11 @@
   ],
   "canvas-port": [
     {
-      "id": "01b95a8a81a5cc13682d7066316644b48d57c1aa9069e7ff5765f3e7dfac0d7b",
+      "id": "258396943c5e31ce3269ade08b317ad56bd8156cdd5dbc485be179b9e15d8fef",
       "path": "components/ui/canvas-port.tsx",
       "kind": "source",
-      "url": "/docs-code/01b95a8a81a5cc13682d7066316644b48d57c1aa9069e7ff5765f3e7dfac0d7b.json",
-      "lines": 34
+      "url": "/docs-code/258396943c5e31ce3269ade08b317ad56bd8156cdd5dbc485be179b9e15d8fef.json",
+      "lines": 38
     },
     {
       "id": "814479f4af29437ca5462881f17bf39e58ce0f0f4176fe1e0bd0e13d7b224d34",
@@ -2612,11 +2612,11 @@
   ],
   "workspace-shell": [
     {
-      "id": "2d3820112787ae643fa80493b754da0d56bc8469de50d227ead2ee00d9343266",
+      "id": "fc4b557ae352dda403ded838a50df88527c2c168f0d13084bf93fc9bbee94d3a",
       "path": "components/blocks/workspace-shell.tsx",
       "kind": "source",
-      "url": "/docs-code/2d3820112787ae643fa80493b754da0d56bc8469de50d227ead2ee00d9343266.json",
-      "lines": 422
+      "url": "/docs-code/fc4b557ae352dda403ded838a50df88527c2c168f0d13084bf93fc9bbee94d3a.json",
+      "lines": 423
     },
     {
       "id": "82be09674e5c713d6c6805d6d32223accff8915b154108cf05406ba650b23a0e",

@@ -279,6 +279,7 @@ export function WorkspaceShell({
           ref={sidebarRef}
           className={styles.sidebar}
           aria-label={t("workspaceShell.workspaceNavigation")}
+            tabIndex={0}
         >
           {sidebar}
         </aside>

@@ -50,6 +50,9 @@
   background: var(--surface);
   color: var(--text-secondary);
 }
+.canvas :global(.react-flow__attribution a) {
+  color: inherit;
+}
 @media (pointer: coarse) {
   .canvas :global(.react-flow__controls-button) {
     min-width: 44px;

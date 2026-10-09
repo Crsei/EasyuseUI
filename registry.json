@@ -2589,323 +2589,6 @@
       ]
     },
     {
-      "name": "analytics-model",
-      "type": "registry:lib",
-      "title": "analytics-model",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "lib/analytics-model.ts",
-          "type": "registry:lib",
-          "target": "lib/analytics-model.ts"
-        },
-        {
-          "path": "lib/analytics-query.ts",
-          "type": "registry:lib",
-          "target": "lib/analytics-query.ts"
-        },
-        {
-          "path": "lib/analytics-history.ts",
-          "type": "registry:lib",
-          "target": "lib/analytics-history.ts"
-        },
-        {
-          "path": "lib/analytics-metrics.ts",
-          "type": "registry:lib",
-          "target": "lib/analytics-metrics.ts"
-        }
-      ]
-    },
-    {
-      "name": "chart-model",
-      "type": "registry:lib",
-      "title": "chart-model",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "analytics-model"
-      ],
-      "files": [
-        {
-          "path": "lib/chart-model.ts",
-          "type": "registry:lib",
-          "target": "lib/chart-model.ts"
-        },
-        {
-          "path": "lib/chart-format.ts",
-          "type": "registry:lib",
-          "target": "lib/chart-format.ts"
-        }
-      ]
-    },
-    {
-      "name": "chart-frame",
-      "type": "registry:ui",
-      "title": "chart-frame",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "button",
-        "data-region",
-        "analytics-model",
-        "chart-model"
-      ],
-      "files": [
-        {
-          "path": "components/ui/chart.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/chart.tsx"
-        },
-        {
-          "path": "components/ui/chart.module.css",
-          "type": "registry:ui",
-          "target": "components/ui/chart.module.css"
-        }
-      ]
-    },
-    {
-      "name": "chart-data-table",
-      "type": "registry:block",
-      "title": "chart-data-table",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "data-table",
-        "button",
-        "chart-model",
-        "analytics-model"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/charts/chart-data-table.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/charts/chart-data-table.tsx"
-        }
-      ]
-    },
-    {
-      "name": "statistical-chart",
-      "type": "registry:block",
-      "title": "statistical-chart",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [
-        "recharts@3.10.1",
-        "react-is@19.3.0"
-      ],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "button",
-        "chart-frame",
-        "chart-data-table",
-        "chart-model",
-        "analytics-model"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/charts/statistical-chart.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/charts/statistical-chart.tsx"
-        },
-        {
-          "path": "components/blocks/charts/statistical-chart.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/charts/statistical-chart.module.css"
-        }
-      ]
-    },
-    {
-      "name": "chart-drilldown-panel",
-      "type": "registry:block",
-      "title": "chart-drilldown-panel",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "sheet",
-        "button",
-        "data-table",
-        "data-region",
-        "analytics-model"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/charts/chart-drilldown-panel.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/charts/chart-drilldown-panel.tsx"
-        }
-      ]
-    },
-    {
-      "name": "workflow-metric",
-      "type": "registry:block",
-      "title": "workflow-metric",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "metric-summary",
-        "button",
-        "chart-model"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/analytics/workflow-metric.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/analytics/workflow-metric.tsx"
-        }
-      ]
-    },
-    {
-      "name": "workflow-charts",
-      "type": "registry:block",
-      "title": "workflow-charts",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "statistical-chart"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/analytics/workflow-charts.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/analytics/workflow-charts.tsx"
-        }
-      ]
-    },
-    {
-      "name": "risk-evidence-list",
-      "type": "registry:block",
-      "title": "risk-evidence-list",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "analytics-model",
-        "data-table",
-        "button"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/analytics/risk-evidence-list.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/analytics/risk-evidence-list.tsx"
-        }
-      ]
-    },
-    {
-      "name": "work-traceability-view",
-      "type": "registry:block",
-      "title": "work-traceability-view",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "analytics-model",
-        "data-table",
-        "button",
-        "data-region"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/analytics/work-traceability-view.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/analytics/work-traceability-view.tsx"
-        }
-      ]
-    },
-    {
-      "name": "work-items-view-adapter",
-      "type": "registry:block",
-      "title": "work-items-view-adapter",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "analytics-model",
-        "work-items-workspace"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/analytics/work-items-view-adapter.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/analytics/work-items-view-adapter.tsx"
-        }
-      ]
-    },
-    {
-      "name": "dashboard",
-      "type": "registry:block",
-      "title": "dashboard",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "analytics-model",
-        "workspace-shell",
-        "filter-toolbar",
-        "button",
-        "sheet",
-        "data-region"
-      ],
-      "files": [
-        {
-          "path": "lib/dashboard-model.ts",
-          "type": "registry:lib",
-          "target": "lib/dashboard-model.ts"
-        },
-        {
-          "path": "components/blocks/dashboard/dashboard.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/dashboard/dashboard.tsx"
-        },
-        {
-          "path": "components/blocks/dashboard/dashboard.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/dashboard/dashboard.module.css"
-        }
-      ]
-    },
-    {
-      "name": "project-overview-dashboard",
-      "type": "registry:block",
-      "title": "project-overview-dashboard",
-      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "analytics-model",
-        "chart-model",
-        "chart-frame",
-        "dashboard",
-        "workflow-metric",
-        "workflow-charts",
-        "risk-evidence-list"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/dashboard/project-overview-dashboard.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/dashboard/project-overview-dashboard.tsx"
-        }
-      ]
-    },
-    {
       "name": "button-group",
       "type": "registry:ui",
       "registryDependencies": [
@@ -3561,6 +3244,701 @@
       ]
     },
     {
+      "name": "analytics-model",
+      "type": "registry:lib",
+      "title": "analytics-model",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "lib/analytics-model.ts",
+          "type": "registry:lib",
+          "target": "lib/analytics-model.ts"
+        },
+        {
+          "path": "lib/analytics-query.ts",
+          "type": "registry:lib",
+          "target": "lib/analytics-query.ts"
+        },
+        {
+          "path": "lib/analytics-history.ts",
+          "type": "registry:lib",
+          "target": "lib/analytics-history.ts"
+        },
+        {
+          "path": "lib/analytics-metrics.ts",
+          "type": "registry:lib",
+          "target": "lib/analytics-metrics.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-model",
+      "type": "registry:lib",
+      "title": "chart-model",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "analytics-model"
+      ],
+      "files": [
+        {
+          "path": "lib/chart-model.ts",
+          "type": "registry:lib",
+          "target": "lib/chart-model.ts"
+        },
+        {
+          "path": "lib/chart-format.ts",
+          "type": "registry:lib",
+          "target": "lib/chart-format.ts"
+        }
+      ]
+    },
+    {
+      "name": "chart-frame",
+      "type": "registry:ui",
+      "title": "chart-frame",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "button",
+        "data-region",
+        "analytics-model",
+        "chart-model"
+      ],
+      "files": [
+        {
+          "path": "components/ui/chart.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/chart.tsx"
+        },
+        {
+          "path": "components/ui/chart.module.css",
+          "type": "registry:ui",
+          "target": "components/ui/chart.module.css"
+        }
+      ]
+    },
+    {
+      "name": "chart-data-table",
+      "type": "registry:block",
+      "title": "chart-data-table",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "data-table",
+        "button",
+        "chart-model",
+        "analytics-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/charts/chart-data-table.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/charts/chart-data-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "statistical-chart",
+      "type": "registry:block",
+      "title": "statistical-chart",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [
+        "recharts@3.10.1",
+        "react-is@19.3.0"
+      ],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "button",
+        "chart-frame",
+        "chart-data-table",
+        "chart-model",
+        "analytics-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/charts/statistical-chart.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/charts/statistical-chart.tsx"
+        },
+        {
+          "path": "components/blocks/charts/statistical-chart.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/charts/statistical-chart.module.css"
+        }
+      ]
+    },
+    {
+      "name": "chart-drilldown-panel",
+      "type": "registry:block",
+      "title": "chart-drilldown-panel",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "sheet",
+        "button",
+        "data-table",
+        "data-region",
+        "analytics-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/charts/chart-drilldown-panel.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/charts/chart-drilldown-panel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workflow-metric",
+      "type": "registry:block",
+      "title": "workflow-metric",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "metric-summary",
+        "button",
+        "chart-model"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/analytics/workflow-metric.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/analytics/workflow-metric.tsx"
+        }
+      ]
+    },
+    {
+      "name": "workflow-charts",
+      "type": "registry:block",
+      "title": "workflow-charts",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "statistical-chart"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/analytics/workflow-charts.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/analytics/workflow-charts.tsx"
+        }
+      ]
+    },
+    {
+      "name": "risk-evidence-list",
+      "type": "registry:block",
+      "title": "risk-evidence-list",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "analytics-model",
+        "data-table",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/analytics/risk-evidence-list.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/analytics/risk-evidence-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-traceability-view",
+      "type": "registry:block",
+      "title": "work-traceability-view",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "analytics-model",
+        "data-table",
+        "button",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/analytics/work-traceability-view.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/analytics/work-traceability-view.tsx"
+        }
+      ]
+    },
+    {
+      "name": "work-items-view-adapter",
+      "type": "registry:block",
+      "title": "work-items-view-adapter",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "analytics-model",
+        "work-items-workspace"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/analytics/work-items-view-adapter.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/analytics/work-items-view-adapter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dashboard",
+      "type": "registry:block",
+      "title": "dashboard",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "analytics-model",
+        "workspace-shell",
+        "filter-toolbar",
+        "button",
+        "sheet",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "lib/dashboard-model.ts",
+          "type": "registry:lib",
+          "target": "lib/dashboard-model.ts"
+        },
+        {
+          "path": "components/blocks/dashboard/dashboard.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/dashboard/dashboard.tsx"
+        },
+        {
+          "path": "components/blocks/dashboard/dashboard.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/dashboard/dashboard.module.css"
+        }
+      ]
+    },
+    {
+      "name": "project-overview-dashboard",
+      "type": "registry:block",
+      "title": "project-overview-dashboard",
+      "description": "Controlled workflow analytics; caller owns permissions, queries and persistence.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "analytics-model",
+        "chart-model",
+        "chart-frame",
+        "dashboard",
+        "workflow-metric",
+        "workflow-charts",
+        "risk-evidence-list"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/dashboard/project-overview-dashboard.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/dashboard/project-overview-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "agent-workbench-model",
+      "type": "registry:lib",
+      "title": "Agent workbench model",
+      "description": "Portable source snapshots, draft versions and operation receipts.",
+      "registryDependencies": [
+        "agent-board-model",
+        "runtime-status"
+      ],
+      "files": [
+        {
+          "path": "lib/agent-workbench-model.ts",
+          "type": "registry:lib",
+          "target": "lib/agent-workbench-model.ts"
+        }
+      ]
+    },
+    {
+      "name": "agent-workbench-navigation",
+      "type": "registry:block",
+      "title": "agent-workbench-navigation",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "input",
+        "data-region",
+        "session-row",
+        "runtime-status-badge"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/navigation.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/navigation.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "session-navigator",
+      "type": "registry:block",
+      "title": "session-navigator",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-navigation"
+      ],
+      "files": []
+    },
+    {
+      "name": "project-switcher",
+      "type": "registry:block",
+      "title": "project-switcher",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-navigation"
+      ],
+      "files": []
+    },
+    {
+      "name": "session-header",
+      "type": "registry:block",
+      "title": "session-header",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-navigation"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-context",
+      "type": "registry:block",
+      "title": "agent-workbench-context",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "data-region",
+        "item"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/context.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/context.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "context-panel",
+      "type": "registry:block",
+      "title": "context-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-context"
+      ],
+      "files": []
+    },
+    {
+      "name": "context-picker",
+      "type": "registry:block",
+      "title": "context-picker",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-context"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-conversation",
+      "type": "registry:block",
+      "title": "agent-workbench-conversation",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "chat-message",
+        "tool-call"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/conversation.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/conversation.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "message-content",
+      "type": "registry:block",
+      "title": "message-content",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-conversation"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-conversation",
+      "type": "registry:block",
+      "title": "agent-conversation",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-conversation"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-composer",
+      "type": "registry:block",
+      "title": "agent-workbench-composer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "button",
+        "chat-message"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/composer.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/composer.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "composer-controls",
+      "type": "registry:block",
+      "title": "composer-controls",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-composer"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-composer",
+      "type": "registry:block",
+      "title": "agent-composer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-composer"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-review",
+      "type": "registry:block",
+      "title": "agent-workbench-review",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "tree",
+        "button",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/review.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/review.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "file-viewer",
+      "type": "registry:block",
+      "title": "file-viewer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-review"
+      ],
+      "files": []
+    },
+    {
+      "name": "diff-viewer",
+      "type": "registry:block",
+      "title": "diff-viewer",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-review"
+      ],
+      "files": []
+    },
+    {
+      "name": "change-review-panel",
+      "type": "registry:block",
+      "title": "change-review-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-review"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench-panels",
+      "type": "registry:block",
+      "title": "agent-workbench-panels",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "agent-workbench-model",
+        "tabs",
+        "button",
+        "input",
+        "redact"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench/panels.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/panels.tsx"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/agent-workbench/workbench.module.css"
+        }
+      ]
+    },
+    {
+      "name": "workbench-panel-tabs",
+      "type": "registry:block",
+      "title": "workbench-panel-tabs",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-panels"
+      ],
+      "files": []
+    },
+    {
+      "name": "execution-output-panel",
+      "type": "registry:block",
+      "title": "execution-output-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-panels"
+      ],
+      "files": []
+    },
+    {
+      "name": "preview-panel",
+      "type": "registry:block",
+      "title": "preview-panel",
+      "description": "Controlled agent workbench regions. Caller owns services and authority.",
+      "registryDependencies": [
+        "agent-workbench-panels"
+      ],
+      "files": []
+    },
+    {
+      "name": "agent-workbench",
+      "type": "registry:block",
+      "title": "AgentWorkbench",
+      "description": "Controlled agent workspace composition. Services remain caller owned.",
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "utils",
+        "workspace-shell",
+        "inspector",
+        "agent-run-list",
+        "attention-queue",
+        "button",
+        "agent-workbench-model",
+        "agent-workbench-navigation",
+        "agent-workbench-context",
+        "agent-workbench-conversation",
+        "agent-workbench-composer",
+        "agent-workbench-review",
+        "agent-workbench-panels"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/agent-workbench.tsx",
+          "target": "components/blocks/agent-workbench.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "components/blocks/agent-workbench/workbench.module.css",
+          "target": "components/blocks/agent-workbench/workbench.module.css",
+          "type": "registry:block"
+        }
+      ]
+    },
+    {
+      "name": "task-inbox",
+      "type": "registry:block",
+      "title": "TaskInbox",
+      "description": "Controlled agent workspace composition. Services remain caller owned.",
+      "registryDependencies": [
+        "agent-workbench"
+      ],
+      "files": []
+    },
+    {
       "name": "analytics-resource-model",
       "type": "registry:lib",
       "title": "analytics-resource-model",
@@ -3945,384 +4323,6 @@
           "type": "registry:lib"
         }
       ]
-    },
-    {
-      "name": "agent-workbench-model",
-      "type": "registry:lib",
-      "title": "Agent workbench model",
-      "description": "Portable source snapshots, draft versions and operation receipts.",
-      "registryDependencies": [
-        "agent-board-model",
-        "runtime-status"
-      ],
-      "files": [
-        {
-          "path": "lib/agent-workbench-model.ts",
-          "type": "registry:lib",
-          "target": "lib/agent-workbench-model.ts"
-        }
-      ]
-    },
-    {
-      "name": "agent-workbench-navigation",
-      "type": "registry:block",
-      "title": "agent-workbench-navigation",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "agent-workbench-model",
-        "button",
-        "input",
-        "data-region",
-        "session-row",
-        "runtime-status-badge"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/agent-workbench/navigation.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/navigation.tsx"
-        },
-        {
-          "path": "components/blocks/agent-workbench/workbench.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/workbench.module.css"
-        }
-      ]
-    },
-    {
-      "name": "session-navigator",
-      "type": "registry:block",
-      "title": "session-navigator",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-navigation"
-      ],
-      "files": []
-    },
-    {
-      "name": "project-switcher",
-      "type": "registry:block",
-      "title": "project-switcher",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-navigation"
-      ],
-      "files": []
-    },
-    {
-      "name": "session-header",
-      "type": "registry:block",
-      "title": "session-header",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-navigation"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-workbench-context",
-      "type": "registry:block",
-      "title": "agent-workbench-context",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "agent-workbench-model",
-        "button",
-        "data-region",
-        "item"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/agent-workbench/context.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/context.tsx"
-        },
-        {
-          "path": "components/blocks/agent-workbench/workbench.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/workbench.module.css"
-        }
-      ]
-    },
-    {
-      "name": "context-panel",
-      "type": "registry:block",
-      "title": "context-panel",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-context"
-      ],
-      "files": []
-    },
-    {
-      "name": "context-picker",
-      "type": "registry:block",
-      "title": "context-picker",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-context"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-workbench-conversation",
-      "type": "registry:block",
-      "title": "agent-workbench-conversation",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "agent-workbench-model",
-        "button",
-        "chat-message",
-        "tool-call"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/agent-workbench/conversation.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/conversation.tsx"
-        },
-        {
-          "path": "components/blocks/agent-workbench/workbench.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/workbench.module.css"
-        }
-      ]
-    },
-    {
-      "name": "message-content",
-      "type": "registry:block",
-      "title": "message-content",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-conversation"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-conversation",
-      "type": "registry:block",
-      "title": "agent-conversation",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-conversation"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-workbench-composer",
-      "type": "registry:block",
-      "title": "agent-workbench-composer",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "agent-workbench-model",
-        "button",
-        "chat-message"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/agent-workbench/composer.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/composer.tsx"
-        },
-        {
-          "path": "components/blocks/agent-workbench/workbench.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/workbench.module.css"
-        }
-      ]
-    },
-    {
-      "name": "composer-controls",
-      "type": "registry:block",
-      "title": "composer-controls",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-composer"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-composer",
-      "type": "registry:block",
-      "title": "agent-composer",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-composer"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-workbench-review",
-      "type": "registry:block",
-      "title": "agent-workbench-review",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "dependencies": [],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "agent-workbench-model",
-        "tree",
-        "button",
-        "data-region"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/agent-workbench/review.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/review.tsx"
-        },
-        {
-          "path": "components/blocks/agent-workbench/workbench.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/workbench.module.css"
-        }
-      ]
-    },
-    {
-      "name": "file-viewer",
-      "type": "registry:block",
-      "title": "file-viewer",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-review"
-      ],
-      "files": []
-    },
-    {
-      "name": "diff-viewer",
-      "type": "registry:block",
-      "title": "diff-viewer",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-review"
-      ],
-      "files": []
-    },
-    {
-      "name": "change-review-panel",
-      "type": "registry:block",
-      "title": "change-review-panel",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-review"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-workbench-panels",
-      "type": "registry:block",
-      "title": "agent-workbench-panels",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "dependencies": [
-        "@base-ui/react"
-      ],
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "agent-workbench-model",
-        "tabs",
-        "button",
-        "input",
-        "redact"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/agent-workbench/panels.tsx",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/panels.tsx"
-        },
-        {
-          "path": "components/blocks/agent-workbench/workbench.module.css",
-          "type": "registry:block",
-          "target": "components/blocks/agent-workbench/workbench.module.css"
-        }
-      ]
-    },
-    {
-      "name": "workbench-panel-tabs",
-      "type": "registry:block",
-      "title": "workbench-panel-tabs",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-panels"
-      ],
-      "files": []
-    },
-    {
-      "name": "execution-output-panel",
-      "type": "registry:block",
-      "title": "execution-output-panel",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-panels"
-      ],
-      "files": []
-    },
-    {
-      "name": "preview-panel",
-      "type": "registry:block",
-      "title": "preview-panel",
-      "description": "Controlled agent workbench regions. Caller owns services and authority.",
-      "registryDependencies": [
-        "agent-workbench-panels"
-      ],
-      "files": []
-    },
-    {
-      "name": "agent-workbench",
-      "type": "registry:block",
-      "title": "AgentWorkbench",
-      "description": "Controlled agent workspace composition. Services remain caller owned.",
-      "registryDependencies": [
-        "theme",
-        "i18n",
-        "utils",
-        "workspace-shell",
-        "inspector",
-        "agent-run-list",
-        "attention-queue",
-        "button",
-        "agent-workbench-model",
-        "agent-workbench-navigation",
-        "agent-workbench-context",
-        "agent-workbench-conversation",
-        "agent-workbench-composer",
-        "agent-workbench-review",
-        "agent-workbench-panels"
-      ],
-      "files": [
-        {
-          "path": "components/blocks/agent-workbench.tsx",
-          "target": "components/blocks/agent-workbench.tsx",
-          "type": "registry:block"
-        },
-        {
-          "path": "components/blocks/agent-workbench/workbench.module.css",
-          "target": "components/blocks/agent-workbench/workbench.module.css",
-          "type": "registry:block"
-        }
-      ]
-    },
-    {
-      "name": "task-inbox",
-      "type": "registry:block",
-      "title": "TaskInbox",
-      "description": "Controlled agent workspace composition. Services remain caller owned.",
-      "registryDependencies": [
-        "agent-workbench"
-      ],
-      "files": []
     }
   ]
 }

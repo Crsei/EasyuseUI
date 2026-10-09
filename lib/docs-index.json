@@ -211,7 +211,7 @@
       "en": "A compact group of related actions."
     },
     "docGroup": "interaction",
-    "docOrder": 118,
+    "docOrder": 145,
     "aliases": []
   },
   {
@@ -223,7 +223,7 @@
       "en": "Input with addons and sibling actions."
     },
     "docGroup": "interaction",
-    "docOrder": 119,
+    "docOrder": 146,
     "aliases": []
   },
   {
@@ -235,7 +235,7 @@
       "en": "A button with a pressed state."
     },
     "docGroup": "interaction",
-    "docOrder": 120,
+    "docOrder": 147,
     "aliases": []
   },
   {
@@ -247,7 +247,7 @@
       "en": "A single or multiple selection toggle group."
     },
     "docGroup": "interaction",
-    "docOrder": 121,
+    "docOrder": 148,
     "aliases": []
   },
   {
@@ -259,7 +259,7 @@
       "en": "A native one-time-code input."
     },
     "docGroup": "interaction",
-    "docOrder": 122,
+    "docOrder": 149,
     "aliases": []
   },
   {
@@ -271,7 +271,7 @@
       "en": "Semantic or decorative separator."
     },
     "docGroup": "interaction",
-    "docOrder": 123,
+    "docOrder": 150,
     "aliases": []
   },
   {
@@ -283,7 +283,7 @@
       "en": "Controlled or uncontrolled disclosure."
     },
     "docGroup": "interaction",
-    "docOrder": 124,
+    "docOrder": 151,
     "aliases": []
   },
   {
@@ -295,7 +295,7 @@
       "en": "An accordion with single or multiple expansion."
     },
     "docGroup": "interaction",
-    "docOrder": 125,
+    "docOrder": 152,
     "aliases": []
   },
   {
@@ -307,7 +307,7 @@
       "en": "Supplemental hover and focus tooltip."
     },
     "docGroup": "interaction",
-    "docOrder": 126,
+    "docOrder": 153,
     "aliases": []
   },
   {
@@ -319,7 +319,7 @@
       "en": "A modal for explicit confirmation requests."
     },
     "docGroup": "interaction",
-    "docOrder": 127,
+    "docOrder": 154,
     "aliases": []
   },
   {
@@ -331,7 +331,7 @@
       "en": "A supplemental link preview."
     },
     "docGroup": "interaction",
-    "docOrder": 128,
+    "docOrder": 155,
     "aliases": []
   },
   {
@@ -343,7 +343,7 @@
       "en": "Context actions for right click, keyboard and long press."
     },
     "docGroup": "interaction",
-    "docOrder": 129,
+    "docOrder": 156,
     "aliases": []
   },
   {
@@ -355,7 +355,7 @@
       "en": "Static placeholders matching the final structure."
     },
     "docGroup": "interaction",
-    "docOrder": 130,
+    "docOrder": 157,
     "aliases": []
   },
   {
@@ -367,7 +367,7 @@
       "en": "A busy indicator with readable text."
     },
     "docGroup": "interaction",
-    "docOrder": 131,
+    "docOrder": 158,
     "aliases": []
   },
   {
@@ -379,7 +379,7 @@
       "en": "Explains an empty state and its next action."
     },
     "docGroup": "interaction",
-    "docOrder": 132,
+    "docOrder": 159,
     "aliases": []
   },
   {
@@ -391,7 +391,7 @@
       "en": "Inline information, warning and error feedback."
     },
     "docGroup": "interaction",
-    "docOrder": 133,
+    "docOrder": 160,
     "aliases": []
   },
   {
@@ -403,7 +403,7 @@
       "en": "Determinate or indeterminate task progress."
     },
     "docGroup": "interaction",
-    "docOrder": 134,
+    "docOrder": 161,
     "aliases": []
   },
   {
@@ -415,7 +415,7 @@
       "en": "Unified notifications that can be updated and dismissed."
     },
     "docGroup": "interaction",
-    "docOrder": 135,
+    "docOrder": 162,
     "aliases": []
   },
   {
@@ -427,7 +427,7 @@
       "en": "A notification adapter sharing the Toast system."
     },
     "docGroup": "interaction",
-    "docOrder": 136,
+    "docOrder": 163,
     "aliases": []
   },
   {
@@ -439,7 +439,7 @@
       "en": "Select a civil date or date range."
     },
     "docGroup": "interaction",
-    "docOrder": 137,
+    "docOrder": 164,
     "aliases": []
   },
   {
@@ -451,7 +451,7 @@
       "en": "A date calendar composed with a popover."
     },
     "docGroup": "interaction",
-    "docOrder": 138,
+    "docOrder": 165,
     "aliases": []
   },
   {
@@ -463,7 +463,7 @@
       "en": "Controlled pagination with unknown-total navigation."
     },
     "docGroup": "interaction",
-    "docOrder": 139,
+    "docOrder": 166,
     "aliases": []
   },
   {
@@ -475,7 +475,7 @@
       "en": "Hierarchical path and current-page navigation."
     },
     "docGroup": "interaction",
-    "docOrder": 140,
+    "docOrder": 167,
     "aliases": []
   },
   {
@@ -487,7 +487,7 @@
       "en": "An application menubar and action menus."
     },
     "docGroup": "interaction",
-    "docOrder": 141,
+    "docOrder": 168,
     "aliases": []
   },
   {
@@ -499,7 +499,7 @@
       "en": "Hierarchical navigation with link popups."
     },
     "docGroup": "interaction",
-    "docOrder": 142,
+    "docOrder": 169,
     "aliases": []
   },
   {
@@ -511,7 +511,7 @@
       "en": "Coordinates DOM and Base UI text direction."
     },
     "docGroup": "interaction",
-    "docOrder": 143,
+    "docOrder": 170,
     "aliases": []
   },
   {
@@ -523,7 +523,7 @@
       "en": "Caller-owned attachment state with open and remove actions."
     },
     "docGroup": "interaction",
-    "docOrder": 144,
+    "docOrder": 171,
     "aliases": []
   },
   {
@@ -535,7 +535,7 @@
       "en": "Conversation time, section and event markers."
     },
     "docGroup": "interaction",
-    "docOrder": 145,
+    "docOrder": 172,
     "aliases": []
   },
   {
@@ -547,7 +547,7 @@
       "en": "A standalone container for quotations and annotations."
     },
     "docGroup": "interaction",
-    "docOrder": 147,
+    "docOrder": 174,
     "aliases": []
   },
   {
@@ -559,7 +559,7 @@
       "en": "Independent content, overview and preview container."
     },
     "docGroup": "interaction",
-    "docOrder": 148,
+    "docOrder": 175,
     "aliases": []
   },
   {
@@ -571,7 +571,7 @@
       "en": "A content area with a fixed aspect ratio."
     },
     "docGroup": "interaction",
-    "docOrder": 149,
+    "docOrder": 176,
     "aliases": []
   },
   {
@@ -583,7 +583,7 @@
       "en": "A manual carousel with keyboard and touch navigation."
     },
     "docGroup": "interaction",
-    "docOrder": 150,
+    "docOrder": 177,
     "aliases": []
   },
   {
@@ -595,7 +595,7 @@
       "en": "A lightweight native form composed with Field."
     },
     "docGroup": "interaction",
-    "docOrder": 152,
+    "docOrder": 179,
     "aliases": []
   },
   {
@@ -607,7 +607,7 @@
       "en": "Reusable two-panel layout and resize handle."
     },
     "docGroup": "interaction",
-    "docOrder": 154,
+    "docOrder": 181,
     "aliases": []
   },
   {
@@ -619,7 +619,7 @@
       "en": "A native scroll region preserving browser behavior."
     },
     "docGroup": "interaction",
-    "docOrder": 155,
+    "docOrder": 182,
     "aliases": []
   },
   {
@@ -631,7 +631,7 @@
       "en": "A Sheet-based drawer with optional swipe dismissal."
     },
     "docGroup": "interaction",
-    "docOrder": 157,
+    "docOrder": 184,
     "aliases": []
   },
   {
@@ -911,7 +911,7 @@
       "en": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown."
     },
     "docGroup": "data",
-    "docOrder": 158,
+    "docOrder": 118,
     "aliases": []
   },
   {
@@ -923,7 +923,7 @@
       "en": "Series, selection, number formatting and comparison models independent of the statistical engine."
     },
     "docGroup": "data",
-    "docOrder": 159,
+    "docOrder": 119,
     "aliases": []
   },
   {
@@ -935,7 +935,7 @@
       "en": "Shared chart titles, metric definitions, ranges, permission isolation and five data states."
     },
     "docGroup": "data",
-    "docOrder": 160,
+    "docOrder": 120,
     "aliases": []
   },
   {
@@ -947,7 +947,7 @@
       "en": "Complete structured aggregate tables and keyboard drilldown."
     },
     "docGroup": "data",
-    "docOrder": 161,
+    "docOrder": 121,
     "aliases": []
   },
   {
@@ -959,7 +959,7 @@
       "en": "On-demand bar, line, area, donut and scatter rendering."
     },
     "docGroup": "data",
-    "docOrder": 162,
+    "docOrder": 122,
     "aliases": []
   },
   {
@@ -971,7 +971,7 @@
       "en": "Snapshot matching, historical membership explanations and paginated source records."
     },
     "docGroup": "data",
-    "docOrder": 163,
+    "docOrder": 123,
     "aliases": []
   },
   {
@@ -983,7 +983,7 @@
       "en": "MetricSummary with definitions, comparison periods, coverage and drilldown."
     },
     "docGroup": "data",
-    "docOrder": 164,
+    "docOrder": 124,
     "aliases": []
   },
   {
@@ -995,7 +995,7 @@
       "en": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates."
     },
     "docGroup": "data",
-    "docOrder": 165,
+    "docOrder": 125,
     "aliases": []
   },
   {
@@ -1007,7 +1007,7 @@
       "en": "Explainable facts for overdue plans, blockers, missing dates and aging."
     },
     "docGroup": "data",
-    "docOrder": 166,
+    "docOrder": 126,
     "aliases": []
   },
   {
@@ -1019,7 +1019,7 @@
       "en": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts."
     },
     "docGroup": "data",
-    "docOrder": 167,
+    "docOrder": 127,
     "aliases": []
   },
   {
@@ -1031,7 +1031,7 @@
       "en": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities."
     },
     "docGroup": "data",
-    "docOrder": 168,
+    "docOrder": 128,
     "aliases": []
   },
   {
@@ -1043,7 +1043,7 @@
       "en": "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies."
     },
     "docGroup": "data",
-    "docOrder": 171,
+    "docOrder": 131,
     "aliases": []
   },
   {
@@ -1055,7 +1055,7 @@
       "en": "Historical burndown, burnup, velocity, cumulative flow, cycle time and conditional forecast models."
     },
     "docGroup": "data",
-    "docOrder": 172,
+    "docOrder": 132,
     "aliases": []
   },
   {
@@ -1067,7 +1067,7 @@
       "en": "Versioned measure compatibility for dimensions, segments, units and charts with pinned caller authority."
     },
     "docGroup": "data",
-    "docOrder": 173,
+    "docOrder": 133,
     "aliases": []
   },
   {
@@ -1079,7 +1079,7 @@
       "en": "Retained layout draft and versioned operation receipts; reconcile unknown outcomes before another write."
     },
     "docGroup": "data",
-    "docOrder": 174,
+    "docOrder": 134,
     "aliases": []
   },
   {
@@ -1091,7 +1091,7 @@
       "en": "Caller-triggered authorized aggregate SVG export with definitions and fixture watermark."
     },
     "docGroup": "data",
-    "docOrder": 175,
+    "docOrder": 135,
     "aliases": []
   },
   {
@@ -1103,7 +1103,7 @@
       "en": "Resource heatmap and legend separate known, unknown, unavailable and over-capacity states."
     },
     "docGroup": "data",
-    "docOrder": 176,
+    "docOrder": 136,
     "aliases": []
   },
   {
@@ -1115,7 +1115,7 @@
       "en": "Resource/date cells connect explicit allocations to caller-owned planning actions."
     },
     "docGroup": "data",
-    "docOrder": 177,
+    "docOrder": 137,
     "aliases": []
   },
   {
@@ -1127,7 +1127,7 @@
       "en": "Actual timestamp intervals and accessible table; execution and acceptance remain separate."
     },
     "docGroup": "data",
-    "docOrder": 178,
+    "docOrder": 138,
     "aliases": []
   },
   {
@@ -1139,7 +1139,7 @@
       "en": "Burndown, burnup, velocity, CFD, cycle time, residence, workload and usage templates retain measure definitions."
     },
     "docGroup": "data",
-    "docOrder": 179,
+    "docOrder": 139,
     "aliases": []
   },
   {
@@ -1151,7 +1151,7 @@
       "en": "Conditional quantiles, method versions, samples and rolling backtests; drill into history or remaining items only."
     },
     "docGroup": "data",
-    "docOrder": 180,
+    "docOrder": 140,
     "aliases": []
   },
   {
@@ -1163,7 +1163,7 @@
       "en": "Read-only composition of actual intervals, acceptance and authorized usage."
     },
     "docGroup": "data",
-    "docOrder": 181,
+    "docOrder": 141,
     "aliases": []
   },
   {
@@ -1175,7 +1175,7 @@
       "en": "Read-only Canvas and accessible relationship table; explicit business state and true strongly connected cycles."
     },
     "docGroup": "data",
-    "docOrder": 182,
+    "docOrder": 142,
     "aliases": []
   },
   {
@@ -1187,7 +1187,7 @@
       "en": "Controlled layout editor and widget picker with keyboard ordering, finite sizes and reconcilable saves."
     },
     "docGroup": "data",
-    "docOrder": 183,
+    "docOrder": 143,
     "aliases": []
   },
   {
@@ -1199,7 +1199,7 @@
       "en": "Controlled typed query configuration; apply a matching preview and cancel without changing applied analysis."
     },
     "docGroup": "data",
-    "docOrder": 184,
+    "docOrder": 144,
     "aliases": []
   },
   {
@@ -2130,7 +2130,7 @@
       "en": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars."
     },
     "docGroup": "workspace",
-    "docOrder": 169,
+    "docOrder": 129,
     "aliases": []
   },
   {
@@ -2142,7 +2142,7 @@
       "en": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts."
     },
     "docGroup": "workspace",
-    "docOrder": 170,
+    "docOrder": 130,
     "aliases": []
   },
   {
@@ -2166,7 +2166,7 @@
       "en": "A stepwise single choice, multiple choice and text questionnaire."
     },
     "docGroup": "other",
-    "docOrder": 146,
+    "docOrder": 173,
     "aliases": []
   },
   {
@@ -2178,7 +2178,7 @@
       "en": "Lightweight bar and line charts with text alternatives."
     },
     "docGroup": "other",
-    "docOrder": 151,
+    "docOrder": 178,
     "aliases": []
   },
   {
@@ -2190,7 +2190,7 @@
       "en": "A standalone sidebar with controlled collapse."
     },
     "docGroup": "other",
-    "docOrder": 153,
+    "docOrder": 180,
     "aliases": []
   },
   {
@@ -2202,7 +2202,7 @@
       "en": "An inline command panel sharing CommandPalette."
     },
     "docGroup": "other",
-    "docOrder": 156,
+    "docOrder": 183,
     "aliases": []
   },
   {

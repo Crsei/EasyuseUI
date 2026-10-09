@@ -33,6 +33,10 @@ const loadCompletion6 = () =>
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  "toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.ToolbarDemo),
+  "command-toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.CommandToolbarDemo),
+  "data-table-controls": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
+  "data-table-model": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
   // BEGIN agent workbench
   "session-navigator": () =>
     import("@/components/examples/agent-workbench/component-demos").then(
@@ -162,10 +166,19 @@ export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
     ),
   // END agent workbench
 
-  "toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.ToolbarDemo),
-  "command-toolbar": () => import("@/components/examples/gap-audit-demo").then(m => m.CommandToolbarDemo),
-  "data-table-controls": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
-  "data-table-model": () => import("@/components/examples/gap-audit-demo").then(m => m.DataTableQueryDemo),
+  "analytics-model": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.AnalyticsModelDemo),
+  "chart-model": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.AnalyticsModelDemo),
+  "chart-frame": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.StatisticalChartDemo),
+  "chart-data-table": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ChartDataTableDemo),
+  "statistical-chart": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.StatisticalChartDemo),
+  "chart-drilldown-panel": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ChartDrilldownDemo),
+  "workflow-metric": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.WorkflowMetricDemo),
+  "workflow-charts": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ProjectOverviewDemo),
+  "risk-evidence-list": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.RiskEvidenceDemo),
+  "work-traceability-view": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.WorkTraceabilityDemo),
+  "work-items-view-adapter": () => import("@/components/examples/workflow-analytics/workflow-analytics-demo").then(m => m.WorkflowAnalyticsDemo),
+  "dashboard": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ProjectOverviewDemo),
+  "project-overview-dashboard": () => import("@/components/examples/workflow-analytics/component-demos").then(m => m.ProjectOverviewDemo),
   // BEGIN shadcn completion
   "button-group": completionDemo(loadCompletion0, "ButtonGroupDemo"),
   "input-group": completionDemo(loadCompletion0, "InputGroupDemo"),
@@ -208,241 +221,66 @@ export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
   command: completionDemo(loadCompletion6, "CommandDemo"),
   drawer: completionDemo(loadCompletion6, "DrawerDemo"),
   // END shadcn completion
-  "analytics-model": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.AnalyticsModelDemo,
-    ),
-  "chart-model": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.AnalyticsModelDemo,
-    ),
-  "chart-frame": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.StatisticalChartDemo,
-    ),
-  "chart-data-table": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.ChartDataTableDemo,
-    ),
-  "statistical-chart": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.StatisticalChartDemo,
-    ),
-  "chart-drilldown-panel": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.ChartDrilldownDemo,
-    ),
-  "workflow-metric": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.WorkflowMetricDemo,
-    ),
-  "workflow-charts": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.ProjectOverviewDemo,
-    ),
-  "risk-evidence-list": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.RiskEvidenceDemo,
-    ),
-  "work-traceability-view": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.WorkTraceabilityDemo,
-    ),
-  "work-items-view-adapter": () =>
-    import("@/components/examples/workflow-analytics/workflow-analytics-demo").then(
-      (m) => m.WorkflowAnalyticsDemo,
-    ),
-  dashboard: () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.ProjectOverviewDemo,
-    ),
-  "project-overview-dashboard": () =>
-    import("@/components/examples/workflow-analytics/component-demos").then(
-      (m) => m.ProjectOverviewDemo,
-    ),
-  timeline: () =>
-    import("@/components/examples/work-items-schedule-demo").then(
-      (m) => m.TimelineDemo,
-    ),
-  calendar: () =>
-    import("@/components/examples/work-items-schedule-demo").then(
-      (m) => m.CalendarDemo,
-    ),
-  "schedule-view-controls": () =>
-    import("@/components/examples/work-items-schedule-demo").then(
-      (m) => m.ScheduleViewControlsDemo,
-    ),
-  "work-item-date-range-field": () =>
-    import("@/components/examples/work-items-schedule-demo").then(
-      (m) => m.WorkItemDateRangeFieldDemo,
-    ),
-  "work-items-schedule": () =>
-    import("@/components/examples/work-items-schedule-demo").then(
-      (m) => m.UnscheduledWorkItemsDemo,
-    ),
-  "work-item-timeline": () =>
-    import("@/components/examples/work-items-schedule-demo").then(
-      (m) => m.WorkItemTimelineDemo,
-    ),
-  "work-item-calendar": () =>
-    import("@/components/examples/work-items-schedule-demo").then(
-      (m) => m.WorkItemCalendarDemo,
-    ),
 
-  "agent-dependency-graph": () =>
+  "timeline": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.TimelineDemo),
+  "calendar": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.CalendarDemo),
+  "schedule-view-controls": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.ScheduleViewControlsDemo),
+  "work-item-date-range-field": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.WorkItemDateRangeFieldDemo),
+  "work-items-schedule": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.UnscheduledWorkItemsDemo),
+  "work-item-timeline": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.WorkItemTimelineDemo),
+  "work-item-calendar": () => import("@/components/examples/work-items-schedule-demo").then(m=>m.WorkItemCalendarDemo),
+
+"agent-dependency-graph": () =>
     import("@/components/examples/agent-board/p2-demos").then(
       (module) => module.AgentDependencyGraphDemo,
     ),
-  "agent-usage-history": () =>
+"agent-usage-history": () =>
     import("@/components/examples/agent-board/p2-demos").then(
       (module) => module.AgentUsageHistoryDemo,
     ),
-  "agent-run-virtual-list": () =>
+"agent-run-virtual-list": () =>
     import("@/components/examples/agent-board/p2-demos").then(
       (module) => module.AgentRunVirtualListDemo,
     ),
 
-  "work-items-board-base": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.ItemBoardDemo,
-    ),
-  "work-item-properties": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemPropertiesDemo,
-    ),
-  "work-item-row": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemRowDemo,
-    ),
-  "work-item-card": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemCardDemo,
-    ),
-  "work-item-list": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemListDemo,
-    ),
-  "work-item-board": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemBoardDemo,
-    ),
-  "work-item-table": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemTableDemo,
-    ),
-  "work-items-toolbar": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemsToolbarDemo,
-    ),
-  "work-item-detail": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemDetailDemo,
-    ),
-  "work-items-batch-actions": () =>
-    import("@/components/examples/work-items-enhancements-demo").then(
-      (m) => m.WorkItemsBatchActionsDemo,
-    ),
-  "work-items-saved-views": () =>
-    import("@/components/examples/work-items-enhancements-demo").then(
-      (m) => m.WorkItemsSavedViewsDemo,
-    ),
-  "work-items-workspace": () =>
-    import("@/components/examples/work-items-components-demo").then(
-      (m) => m.WorkItemsWorkspaceDemo,
-    ),
+  "work-items-board-base": () => import("@/components/examples/work-items-components-demo").then(m => m.ItemBoardDemo),
+  "work-item-properties": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemPropertiesDemo),
+  "work-item-row": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemRowDemo),
+  "work-item-card": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemCardDemo),
+  "work-item-list": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemListDemo),
+  "work-item-board": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemBoardDemo),
+  "work-item-table": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemTableDemo),
+  "work-items-toolbar": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemsToolbarDemo),
+  "work-item-detail": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemDetailDemo),
+  "work-items-batch-actions": () => import("@/components/examples/work-items-enhancements-demo").then(m => m.WorkItemsBatchActionsDemo),
+  "work-items-saved-views": () => import("@/components/examples/work-items-enhancements-demo").then(m => m.WorkItemsSavedViewsDemo),
+  "work-items-workspace": () => import("@/components/examples/work-items-components-demo").then(m => m.WorkItemsWorkspaceDemo),
+"grouped-list":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.GroupedListDemo),
 
-  "agent-run-properties": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentRunPropertiesDemo,
-    ),
-  "run-stage-summary": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.RunStageSummaryDemo,
-    ),
-  "agent-run-row": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentRunRowDemo,
-    ),
-  "agent-run-card": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentRunCardDemo,
-    ),
-  "agent-run-list": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentRunListDemo,
-    ),
-  "agent-run-board": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentRunBoardDemo,
-    ),
-  "agent-run-inspector": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentRunInspectorDemo,
-    ),
-  "attention-queue": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AttentionQueueDemo,
-    ),
-  "approval-request-panel": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.ApprovalRequestPanelDemo,
-    ),
-  "artifact-list": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.ArtifactListDemo,
-    ),
-  "review-summary": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.ReviewSummaryDemo,
-    ),
-  "execution-trace-tree": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.ExecutionTraceTreeDemo,
-    ),
-  "agent-relationship-list": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentRelationshipListDemo,
-    ),
-  "agent-usage-summary": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentUsageSummaryDemo,
-    ),
-  "agent-board-toolbar": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.AgentBoardToolbarDemo,
-    ),
-  "agent-board-workspace": () =>
-    import("@/components/examples/agent-board/agent-board-demo").then(
-      (module) => module.AgentBoardDemo,
-    ),
-  "grouped-list": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.GroupedListDemo,
-    ),
-  "item-board": () =>
-    import("@/components/examples/agent-board/component-demos").then(
-      (module) => module.BoardDemo,
-    ),
-  textarea: () =>
-    import("@/components/examples/form-primitives-demo").then(
-      (module) => module.TextareaDemo,
-    ),
-  label: () =>
-    import("@/components/examples/form-primitives-demo").then(
-      (module) => module.LabelDemo,
-    ),
-  "native-select": () =>
-    import("@/components/examples/form-primitives-demo").then(
-      (module) => module.NativeSelectDemo,
-    ),
-  switch: () =>
-    import("@/components/examples/form-primitives-demo").then(
-      (module) => module.SwitchDemo,
-    ),
-  "radio-group": () =>
-    import("@/components/examples/form-primitives-demo").then(
-      (module) => module.RadioGroupDemo,
-    ),
+  "item-board":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.BoardDemo),
+
+  "agent-board-workspace":()=>import("@/components/examples/agent-board/agent-board-demo").then(module=>module.AgentBoardDemo),
+  "agent-board-toolbar":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentBoardToolbarDemo),
+  "agent-usage-summary":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentUsageSummaryDemo),
+  "agent-relationship-list":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRelationshipListDemo),
+  "execution-trace-tree":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.ExecutionTraceTreeDemo),
+  "review-summary":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.ReviewSummaryDemo),
+  "artifact-list":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.ArtifactListDemo),
+  "approval-request-panel":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.ApprovalRequestPanelDemo),
+  "attention-queue":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AttentionQueueDemo),
+  "agent-run-inspector":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunInspectorDemo),
+  "agent-run-board":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunBoardDemo),
+  "agent-run-list":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunListDemo),
+  "agent-run-card":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunCardDemo),
+  "agent-run-row":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunRowDemo),
+  "run-stage-summary":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.RunStageSummaryDemo),
+  "agent-run-properties":()=>import("@/components/examples/agent-board/component-demos").then(module=>module.AgentRunPropertiesDemo),
+
+  textarea: () => import("@/components/examples/form-primitives-demo").then((module) => module.TextareaDemo),
+  label: () => import("@/components/examples/form-primitives-demo").then((module) => module.LabelDemo),
+  "native-select": () => import("@/components/examples/form-primitives-demo").then((module) => module.NativeSelectDemo),
+  switch: () => import("@/components/examples/form-primitives-demo").then((module) => module.SwitchDemo),
+  "radio-group": () => import("@/components/examples/form-primitives-demo").then((module) => module.RadioGroupDemo),
   checkbox: () =>
     import("@/components/examples/checkbox-demo").then(
       (module) => module.CheckboxDemo,
@@ -666,59 +504,59 @@ export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
       (module) => module.ToolCallDemo,
     ),
 
-  "analytics-resource-model": () =>
+    "analytics-resource-model": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.ResourceModelDemo,
     ),
-  "analytics-history-metrics": () =>
+    "analytics-history-metrics": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.HistoryChartsDemo,
     ),
-  "analytics-builder-model": () =>
+    "analytics-builder-model": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.BuilderDemo,
     ),
-  "dashboard-edit-session": () =>
+    "dashboard-edit-session": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.LayoutEditorDemo,
     ),
-  "analytics-image-export": () =>
+    "analytics-image-export": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.HistoryChartsDemo,
     ),
-  heatmap: () =>
+    heatmap: () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.HeatmapDemo,
     ),
-  "resource-allocation-view": () =>
+    "resource-allocation-view": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.ResourceAllocationDemo,
     ),
-  "agent-execution-timeline": () =>
+    "agent-execution-timeline": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.AgentOperationsDemo,
     ),
-  "workflow-history-charts": () =>
+    "workflow-history-charts": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.HistoryChartsDemo,
     ),
-  "forecast-chart": () =>
+    "forecast-chart": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.ForecastDemo,
     ),
-  "agent-operations-dashboard": () =>
+    "agent-operations-dashboard": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.AgentOperationsDemo,
     ),
-  "work-dependency-view": () =>
+    "work-dependency-view": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.DependencyDemo,
     ),
-  "dashboard-layout-editor": () =>
+    "dashboard-layout-editor": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.LayoutEditorDemo,
     ),
-  "analytics-builder": () =>
+    "analytics-builder": () =>
     import("@/components/examples/workflow-analytics/advanced-demos").then(
       (m) => m.BuilderDemo,
     ),

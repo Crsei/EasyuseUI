@@ -198,446 +198,6 @@
     "docOrder": 117
   },
   {
-    "slug": "button-group",
-    "name": "ButtonGroup",
-    "description": "同组操作的紧凑容器。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/button-group/",
-    "installType": "ui",
-    "registryId": "button-group",
-    "docGroup": "interaction",
-    "docOrder": 118
-  },
-  {
-    "slug": "input-group",
-    "name": "InputGroup",
-    "description": "输入与前后缀、操作的组合。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/input-group/",
-    "installType": "ui",
-    "registryId": "input-group",
-    "docGroup": "interaction",
-    "docOrder": 119
-  },
-  {
-    "slug": "toggle",
-    "name": "Toggle",
-    "description": "支持按下状态的切换按钮。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/toggle/",
-    "installType": "ui",
-    "registryId": "toggle",
-    "docGroup": "interaction",
-    "docOrder": 120
-  },
-  {
-    "slug": "toggle-group",
-    "name": "ToggleGroup",
-    "description": "单选或多选切换组。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/toggle-group/",
-    "installType": "ui",
-    "registryId": "toggle-group",
-    "docGroup": "interaction",
-    "docOrder": 121
-  },
-  {
-    "slug": "input-otp",
-    "name": "InputOTP",
-    "description": "原生一次性验证码输入。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/input-otp/",
-    "installType": "ui",
-    "registryId": "input-otp",
-    "docGroup": "interaction",
-    "docOrder": 122
-  },
-  {
-    "slug": "separator",
-    "name": "Separator",
-    "description": "语义或装饰性分隔线。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/separator/",
-    "installType": "ui",
-    "registryId": "separator",
-    "docGroup": "interaction",
-    "docOrder": 123
-  },
-  {
-    "slug": "collapsible",
-    "name": "Collapsible",
-    "description": "受控或非受控内容折叠。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/collapsible/",
-    "installType": "ui",
-    "registryId": "collapsible",
-    "docGroup": "interaction",
-    "docOrder": 124
-  },
-  {
-    "slug": "accordion",
-    "name": "Accordion",
-    "description": "单项或多项展开的手风琴。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/accordion/",
-    "installType": "ui",
-    "registryId": "accordion",
-    "docGroup": "interaction",
-    "docOrder": 125
-  },
-  {
-    "slug": "tooltip",
-    "name": "Tooltip",
-    "description": "支持悬停和焦点的补充提示。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/tooltip/",
-    "installType": "ui",
-    "registryId": "tooltip",
-    "docGroup": "interaction",
-    "docOrder": 126
-  },
-  {
-    "slug": "alert-dialog",
-    "name": "AlertDialog",
-    "description": "显式确认请求的模态对话框。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/alert-dialog/",
-    "installType": "ui",
-    "registryId": "alert-dialog",
-    "docGroup": "interaction",
-    "docOrder": 127
-  },
-  {
-    "slug": "hover-card",
-    "name": "HoverCard",
-    "description": "链接的补充预览层。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/hover-card/",
-    "installType": "ui",
-    "registryId": "hover-card",
-    "docGroup": "interaction",
-    "docOrder": 128
-  },
-  {
-    "slug": "context-menu",
-    "name": "ContextMenu",
-    "description": "右键、键盘与长按的上下文动作。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/context-menu/",
-    "installType": "ui",
-    "registryId": "context-menu",
-    "docGroup": "interaction",
-    "docOrder": 129
-  },
-  {
-    "slug": "skeleton",
-    "name": "Skeleton",
-    "description": "结构相符的静态加载占位。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/skeleton/",
-    "installType": "ui",
-    "registryId": "skeleton",
-    "docGroup": "interaction",
-    "docOrder": 130
-  },
-  {
-    "slug": "spinner",
-    "name": "Spinner",
-    "description": "附带可读文本的忙碌指示。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/spinner/",
-    "installType": "ui",
-    "registryId": "spinner",
-    "docGroup": "interaction",
-    "docOrder": 131
-  },
-  {
-    "slug": "empty",
-    "name": "Empty",
-    "description": "说明空态原因与下一步。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/empty/",
-    "installType": "ui",
-    "registryId": "empty",
-    "docGroup": "interaction",
-    "docOrder": 132
-  },
-  {
-    "slug": "alert",
-    "name": "Alert",
-    "description": "内联信息、警告与错误反馈。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/alert/",
-    "installType": "ui",
-    "registryId": "alert",
-    "docGroup": "interaction",
-    "docOrder": 133
-  },
-  {
-    "slug": "progress",
-    "name": "Progress",
-    "description": "确定或未知总量的任务进度。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/progress/",
-    "installType": "ui",
-    "registryId": "progress",
-    "docGroup": "interaction",
-    "docOrder": 134
-  },
-  {
-    "slug": "toast",
-    "name": "Toast",
-    "description": "统一、可更新和关闭的通知体系。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/toast/",
-    "installType": "ui",
-    "registryId": "toast",
-    "docGroup": "interaction",
-    "docOrder": 135
-  },
-  {
-    "slug": "sonner",
-    "name": "Sonner",
-    "description": "复用 Toast 的通知适配入口。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/sonner/",
-    "installType": "ui",
-    "registryId": "sonner",
-    "docGroup": "interaction",
-    "docOrder": 136
-  },
-  {
-    "slug": "date-calendar",
-    "name": "DateCalendar",
-    "description": "按民用日期键选择单日或范围。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/date-calendar/",
-    "installType": "ui",
-    "registryId": "date-calendar",
-    "docGroup": "interaction",
-    "docOrder": 137
-  },
-  {
-    "slug": "date-picker",
-    "name": "DatePicker",
-    "description": "日期日历与弹出层的组合。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/date-picker/",
-    "installType": "ui",
-    "registryId": "date-picker",
-    "docGroup": "interaction",
-    "docOrder": 138
-  },
-  {
-    "slug": "pagination",
-    "name": "Pagination",
-    "description": "受控分页请求与未知总数导航。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/pagination/",
-    "installType": "ui",
-    "registryId": "pagination",
-    "docGroup": "interaction",
-    "docOrder": 139
-  },
-  {
-    "slug": "breadcrumb",
-    "name": "Breadcrumb",
-    "description": "路径层级与当前页面导航。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/breadcrumb/",
-    "installType": "ui",
-    "registryId": "breadcrumb",
-    "docGroup": "interaction",
-    "docOrder": 140
-  },
-  {
-    "slug": "menubar",
-    "name": "Menubar",
-    "description": "桌面应用菜单栏与动作菜单。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/menubar/",
-    "installType": "ui",
-    "registryId": "menubar",
-    "docGroup": "interaction",
-    "docOrder": 141
-  },
-  {
-    "slug": "navigation-menu",
-    "name": "NavigationMenu",
-    "description": "站点层级导航与链接浮层。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/navigation-menu/",
-    "installType": "ui",
-    "registryId": "navigation-menu",
-    "docGroup": "interaction",
-    "docOrder": 142
-  },
-  {
-    "slug": "direction",
-    "name": "Direction",
-    "description": "同步 DOM 与 Base UI 的阅读方向。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/direction/",
-    "installType": "ui",
-    "registryId": "direction",
-    "docGroup": "interaction",
-    "docOrder": 143
-  },
-  {
-    "slug": "attachment",
-    "name": "Attachment",
-    "description": "调用方附件状态与打开、移除操作。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/attachment/",
-    "installType": "ui",
-    "registryId": "attachment",
-    "docGroup": "interaction",
-    "docOrder": 144
-  },
-  {
-    "slug": "marker",
-    "name": "Marker",
-    "description": "对话时间、章节与事件分隔标记。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/marker/",
-    "installType": "ui",
-    "registryId": "marker",
-    "docGroup": "interaction",
-    "docOrder": 145
-  },
-  {
-    "slug": "questionnaire",
-    "name": "Questionnaire",
-    "description": "逐题单选、多选和文本问卷。",
-    "displayCategory": "patterns",
-    "docPath": "/docs/questionnaire/",
-    "installType": "block",
-    "registryId": "questionnaire",
-    "docGroup": "other",
-    "docOrder": 146
-  },
-  {
-    "slug": "bubble",
-    "name": "Bubble",
-    "description": "独立引用或批注的内容容器。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/bubble/",
-    "installType": "ui",
-    "registryId": "bubble",
-    "docGroup": "interaction",
-    "docOrder": 147
-  },
-  {
-    "slug": "card",
-    "name": "Card",
-    "description": "独立内容、概览和预览容器。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/card/",
-    "installType": "ui",
-    "registryId": "card",
-    "docGroup": "interaction",
-    "docOrder": 148
-  },
-  {
-    "slug": "aspect-ratio",
-    "name": "AspectRatio",
-    "description": "保留指定纵横比的内容区域。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/aspect-ratio/",
-    "installType": "ui",
-    "registryId": "aspect-ratio",
-    "docGroup": "interaction",
-    "docOrder": 149
-  },
-  {
-    "slug": "carousel",
-    "name": "Carousel",
-    "description": "手动控制、键盘与触摸轮播。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/carousel/",
-    "installType": "ui",
-    "registryId": "carousel",
-    "docGroup": "interaction",
-    "docOrder": 150
-  },
-  {
-    "slug": "chart",
-    "name": "Chart",
-    "description": "带完整文本替代的轻量柱图和折线图。",
-    "displayCategory": "patterns",
-    "docPath": "/docs/chart/",
-    "installType": "block",
-    "registryId": "chart",
-    "docGroup": "other",
-    "docOrder": 151
-  },
-  {
-    "slug": "form",
-    "name": "Form",
-    "description": "原生表单与 Field 的轻量组合。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/form/",
-    "installType": "ui",
-    "registryId": "form",
-    "docGroup": "interaction",
-    "docOrder": 152
-  },
-  {
-    "slug": "sidebar",
-    "name": "Sidebar",
-    "description": "受控折叠的独立侧栏布局。",
-    "displayCategory": "patterns",
-    "docPath": "/docs/sidebar/",
-    "installType": "block",
-    "registryId": "sidebar",
-    "docGroup": "other",
-    "docOrder": 153
-  },
-  {
-    "slug": "resizable",
-    "name": "Resizable",
-    "description": "可复用双面板与尺寸调整手柄。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/resizable/",
-    "installType": "ui",
-    "registryId": "resizable",
-    "docGroup": "interaction",
-    "docOrder": 154
-  },
-  {
-    "slug": "scroll-area",
-    "name": "ScrollArea",
-    "description": "保留浏览器行为的原生滚动区域。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/scroll-area/",
-    "installType": "ui",
-    "registryId": "scroll-area",
-    "docGroup": "interaction",
-    "docOrder": 155
-  },
-  {
-    "slug": "command",
-    "name": "Command",
-    "description": "复用 CommandPalette 的内嵌命令面板。",
-    "displayCategory": "patterns",
-    "docPath": "/docs/command/",
-    "installType": "block",
-    "registryId": "command",
-    "docGroup": "other",
-    "docOrder": 156
-  },
-  {
-    "slug": "drawer",
-    "name": "Drawer",
-    "description": "复用 Sheet 的抽屉与可选滑动关闭。",
-    "displayCategory": "primitives",
-    "docPath": "/docs/drawer/",
-    "installType": "ui",
-    "registryId": "drawer",
-    "docGroup": "interaction",
-    "docOrder": 157
-  },
-  {
     "slug": "analytics-model",
     "name": "AnalyticsModel",
     "description": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
@@ -646,7 +206,7 @@
     "installType": "lib",
     "registryId": "analytics-model",
     "docGroup": "data",
-    "docOrder": 158
+    "docOrder": 118
   },
   {
     "slug": "chart-model",
@@ -657,7 +217,7 @@
     "installType": "lib",
     "registryId": "chart-model",
     "docGroup": "data",
-    "docOrder": 159
+    "docOrder": 119
   },
   {
     "slug": "chart-frame",
@@ -668,7 +228,7 @@
     "installType": "ui",
     "registryId": "chart-frame",
     "docGroup": "data",
-    "docOrder": 160
+    "docOrder": 120
   },
   {
     "slug": "chart-data-table",
@@ -679,7 +239,7 @@
     "installType": "block",
     "registryId": "chart-data-table",
     "docGroup": "data",
-    "docOrder": 161
+    "docOrder": 121
   },
   {
     "slug": "statistical-chart",
@@ -690,7 +250,7 @@
     "installType": "block",
     "registryId": "statistical-chart",
     "docGroup": "data",
-    "docOrder": 162
+    "docOrder": 122
   },
   {
     "slug": "chart-drilldown-panel",
@@ -701,7 +261,7 @@
     "installType": "block",
     "registryId": "chart-drilldown-panel",
     "docGroup": "data",
-    "docOrder": 163
+    "docOrder": 123
   },
   {
     "slug": "workflow-metric",
@@ -712,7 +272,7 @@
     "installType": "block",
     "registryId": "workflow-metric",
     "docGroup": "data",
-    "docOrder": 164
+    "docOrder": 124
   },
   {
     "slug": "workflow-charts",
@@ -723,7 +283,7 @@
     "installType": "block",
     "registryId": "workflow-charts",
     "docGroup": "data",
-    "docOrder": 165
+    "docOrder": 125
   },
   {
     "slug": "risk-evidence-list",
@@ -734,7 +294,7 @@
     "installType": "block",
     "registryId": "risk-evidence-list",
     "docGroup": "data",
-    "docOrder": 166
+    "docOrder": 126
   },
   {
     "slug": "work-traceability-view",
@@ -745,7 +305,7 @@
     "installType": "block",
     "registryId": "work-traceability-view",
     "docGroup": "data",
-    "docOrder": 167
+    "docOrder": 127
   },
   {
     "slug": "work-items-view-adapter",
@@ -756,7 +316,7 @@
     "installType": "block",
     "registryId": "work-items-view-adapter",
     "docGroup": "data",
-    "docOrder": 168
+    "docOrder": 128
   },
   {
     "slug": "dashboard",
@@ -767,7 +327,7 @@
     "installType": "block",
     "registryId": "dashboard",
     "docGroup": "workspace",
-    "docOrder": 169
+    "docOrder": 129
   },
   {
     "slug": "project-overview-dashboard",
@@ -778,7 +338,7 @@
     "installType": "block",
     "registryId": "project-overview-dashboard",
     "docGroup": "workspace",
-    "docOrder": 170
+    "docOrder": 130
   },
   {
     "slug": "analytics-resource-model",
@@ -789,7 +349,7 @@
     "installType": "lib",
     "registryId": "analytics-resource-model",
     "docGroup": "data",
-    "docOrder": 171
+    "docOrder": 131
   },
   {
     "slug": "analytics-history-metrics",
@@ -800,7 +360,7 @@
     "installType": "lib",
     "registryId": "analytics-history-metrics",
     "docGroup": "data",
-    "docOrder": 172
+    "docOrder": 132
   },
   {
     "slug": "analytics-builder-model",
@@ -811,7 +371,7 @@
     "installType": "lib",
     "registryId": "analytics-builder-model",
     "docGroup": "data",
-    "docOrder": 173
+    "docOrder": 133
   },
   {
     "slug": "dashboard-edit-session",
@@ -822,7 +382,7 @@
     "installType": "lib",
     "registryId": "dashboard-edit-session",
     "docGroup": "data",
-    "docOrder": 174
+    "docOrder": 134
   },
   {
     "slug": "analytics-image-export",
@@ -833,7 +393,7 @@
     "installType": "lib",
     "registryId": "analytics-image-export",
     "docGroup": "data",
-    "docOrder": 175
+    "docOrder": 135
   },
   {
     "slug": "heatmap",
@@ -844,7 +404,7 @@
     "installType": "block",
     "registryId": "heatmap",
     "docGroup": "data",
-    "docOrder": 176
+    "docOrder": 136
   },
   {
     "slug": "resource-allocation-view",
@@ -855,7 +415,7 @@
     "installType": "block",
     "registryId": "resource-allocation-view",
     "docGroup": "data",
-    "docOrder": 177
+    "docOrder": 137
   },
   {
     "slug": "agent-execution-timeline",
@@ -866,7 +426,7 @@
     "installType": "block",
     "registryId": "agent-execution-timeline",
     "docGroup": "data",
-    "docOrder": 178
+    "docOrder": 138
   },
   {
     "slug": "workflow-history-charts",
@@ -877,7 +437,7 @@
     "installType": "block",
     "registryId": "workflow-history-charts",
     "docGroup": "data",
-    "docOrder": 179
+    "docOrder": 139
   },
   {
     "slug": "forecast-chart",
@@ -888,7 +448,7 @@
     "installType": "block",
     "registryId": "forecast-chart",
     "docGroup": "data",
-    "docOrder": 180
+    "docOrder": 140
   },
   {
     "slug": "agent-operations-dashboard",
@@ -899,7 +459,7 @@
     "installType": "block",
     "registryId": "agent-operations-dashboard",
     "docGroup": "data",
-    "docOrder": 181
+    "docOrder": 141
   },
   {
     "slug": "work-dependency-view",
@@ -910,7 +470,7 @@
     "installType": "block",
     "registryId": "work-dependency-view",
     "docGroup": "data",
-    "docOrder": 182
+    "docOrder": 142
   },
   {
     "slug": "dashboard-layout-editor",
@@ -921,7 +481,7 @@
     "installType": "block",
     "registryId": "dashboard-layout-editor",
     "docGroup": "data",
-    "docOrder": 183
+    "docOrder": 143
   },
   {
     "slug": "analytics-builder",
@@ -932,6 +492,446 @@
     "installType": "block",
     "registryId": "analytics-builder",
     "docGroup": "data",
+    "docOrder": 144
+  },
+  {
+    "slug": "button-group",
+    "name": "ButtonGroup",
+    "description": "同组操作的紧凑容器。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/button-group/",
+    "installType": "ui",
+    "registryId": "button-group",
+    "docGroup": "interaction",
+    "docOrder": 145
+  },
+  {
+    "slug": "input-group",
+    "name": "InputGroup",
+    "description": "输入与前后缀、操作的组合。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/input-group/",
+    "installType": "ui",
+    "registryId": "input-group",
+    "docGroup": "interaction",
+    "docOrder": 146
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "description": "支持按下状态的切换按钮。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/toggle/",
+    "installType": "ui",
+    "registryId": "toggle",
+    "docGroup": "interaction",
+    "docOrder": 147
+  },
+  {
+    "slug": "toggle-group",
+    "name": "ToggleGroup",
+    "description": "单选或多选切换组。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/toggle-group/",
+    "installType": "ui",
+    "registryId": "toggle-group",
+    "docGroup": "interaction",
+    "docOrder": 148
+  },
+  {
+    "slug": "input-otp",
+    "name": "InputOTP",
+    "description": "原生一次性验证码输入。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/input-otp/",
+    "installType": "ui",
+    "registryId": "input-otp",
+    "docGroup": "interaction",
+    "docOrder": 149
+  },
+  {
+    "slug": "separator",
+    "name": "Separator",
+    "description": "语义或装饰性分隔线。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/separator/",
+    "installType": "ui",
+    "registryId": "separator",
+    "docGroup": "interaction",
+    "docOrder": 150
+  },
+  {
+    "slug": "collapsible",
+    "name": "Collapsible",
+    "description": "受控或非受控内容折叠。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/collapsible/",
+    "installType": "ui",
+    "registryId": "collapsible",
+    "docGroup": "interaction",
+    "docOrder": 151
+  },
+  {
+    "slug": "accordion",
+    "name": "Accordion",
+    "description": "单项或多项展开的手风琴。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/accordion/",
+    "installType": "ui",
+    "registryId": "accordion",
+    "docGroup": "interaction",
+    "docOrder": 152
+  },
+  {
+    "slug": "tooltip",
+    "name": "Tooltip",
+    "description": "支持悬停和焦点的补充提示。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/tooltip/",
+    "installType": "ui",
+    "registryId": "tooltip",
+    "docGroup": "interaction",
+    "docOrder": 153
+  },
+  {
+    "slug": "alert-dialog",
+    "name": "AlertDialog",
+    "description": "显式确认请求的模态对话框。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/alert-dialog/",
+    "installType": "ui",
+    "registryId": "alert-dialog",
+    "docGroup": "interaction",
+    "docOrder": 154
+  },
+  {
+    "slug": "hover-card",
+    "name": "HoverCard",
+    "description": "链接的补充预览层。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/hover-card/",
+    "installType": "ui",
+    "registryId": "hover-card",
+    "docGroup": "interaction",
+    "docOrder": 155
+  },
+  {
+    "slug": "context-menu",
+    "name": "ContextMenu",
+    "description": "右键、键盘与长按的上下文动作。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/context-menu/",
+    "installType": "ui",
+    "registryId": "context-menu",
+    "docGroup": "interaction",
+    "docOrder": 156
+  },
+  {
+    "slug": "skeleton",
+    "name": "Skeleton",
+    "description": "结构相符的静态加载占位。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/skeleton/",
+    "installType": "ui",
+    "registryId": "skeleton",
+    "docGroup": "interaction",
+    "docOrder": 157
+  },
+  {
+    "slug": "spinner",
+    "name": "Spinner",
+    "description": "附带可读文本的忙碌指示。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/spinner/",
+    "installType": "ui",
+    "registryId": "spinner",
+    "docGroup": "interaction",
+    "docOrder": 158
+  },
+  {
+    "slug": "empty",
+    "name": "Empty",
+    "description": "说明空态原因与下一步。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/empty/",
+    "installType": "ui",
+    "registryId": "empty",
+    "docGroup": "interaction",
+    "docOrder": 159
+  },
+  {
+    "slug": "alert",
+    "name": "Alert",
+    "description": "内联信息、警告与错误反馈。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/alert/",
+    "installType": "ui",
+    "registryId": "alert",
+    "docGroup": "interaction",
+    "docOrder": 160
+  },
+  {
+    "slug": "progress",
+    "name": "Progress",
+    "description": "确定或未知总量的任务进度。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/progress/",
+    "installType": "ui",
+    "registryId": "progress",
+    "docGroup": "interaction",
+    "docOrder": 161
+  },
+  {
+    "slug": "toast",
+    "name": "Toast",
+    "description": "统一、可更新和关闭的通知体系。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/toast/",
+    "installType": "ui",
+    "registryId": "toast",
+    "docGroup": "interaction",
+    "docOrder": 162
+  },
+  {
+    "slug": "sonner",
+    "name": "Sonner",
+    "description": "复用 Toast 的通知适配入口。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/sonner/",
+    "installType": "ui",
+    "registryId": "sonner",
+    "docGroup": "interaction",
+    "docOrder": 163
+  },
+  {
+    "slug": "date-calendar",
+    "name": "DateCalendar",
+    "description": "按民用日期键选择单日或范围。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/date-calendar/",
+    "installType": "ui",
+    "registryId": "date-calendar",
+    "docGroup": "interaction",
+    "docOrder": 164
+  },
+  {
+    "slug": "date-picker",
+    "name": "DatePicker",
+    "description": "日期日历与弹出层的组合。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/date-picker/",
+    "installType": "ui",
+    "registryId": "date-picker",
+    "docGroup": "interaction",
+    "docOrder": 165
+  },
+  {
+    "slug": "pagination",
+    "name": "Pagination",
+    "description": "受控分页请求与未知总数导航。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/pagination/",
+    "installType": "ui",
+    "registryId": "pagination",
+    "docGroup": "interaction",
+    "docOrder": 166
+  },
+  {
+    "slug": "breadcrumb",
+    "name": "Breadcrumb",
+    "description": "路径层级与当前页面导航。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/breadcrumb/",
+    "installType": "ui",
+    "registryId": "breadcrumb",
+    "docGroup": "interaction",
+    "docOrder": 167
+  },
+  {
+    "slug": "menubar",
+    "name": "Menubar",
+    "description": "桌面应用菜单栏与动作菜单。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/menubar/",
+    "installType": "ui",
+    "registryId": "menubar",
+    "docGroup": "interaction",
+    "docOrder": 168
+  },
+  {
+    "slug": "navigation-menu",
+    "name": "NavigationMenu",
+    "description": "站点层级导航与链接浮层。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/navigation-menu/",
+    "installType": "ui",
+    "registryId": "navigation-menu",
+    "docGroup": "interaction",
+    "docOrder": 169
+  },
+  {
+    "slug": "direction",
+    "name": "Direction",
+    "description": "同步 DOM 与 Base UI 的阅读方向。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/direction/",
+    "installType": "ui",
+    "registryId": "direction",
+    "docGroup": "interaction",
+    "docOrder": 170
+  },
+  {
+    "slug": "attachment",
+    "name": "Attachment",
+    "description": "调用方附件状态与打开、移除操作。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/attachment/",
+    "installType": "ui",
+    "registryId": "attachment",
+    "docGroup": "interaction",
+    "docOrder": 171
+  },
+  {
+    "slug": "marker",
+    "name": "Marker",
+    "description": "对话时间、章节与事件分隔标记。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/marker/",
+    "installType": "ui",
+    "registryId": "marker",
+    "docGroup": "interaction",
+    "docOrder": 172
+  },
+  {
+    "slug": "questionnaire",
+    "name": "Questionnaire",
+    "description": "逐题单选、多选和文本问卷。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/questionnaire/",
+    "installType": "block",
+    "registryId": "questionnaire",
+    "docGroup": "other",
+    "docOrder": 173
+  },
+  {
+    "slug": "bubble",
+    "name": "Bubble",
+    "description": "独立引用或批注的内容容器。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/bubble/",
+    "installType": "ui",
+    "registryId": "bubble",
+    "docGroup": "interaction",
+    "docOrder": 174
+  },
+  {
+    "slug": "card",
+    "name": "Card",
+    "description": "独立内容、概览和预览容器。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/card/",
+    "installType": "ui",
+    "registryId": "card",
+    "docGroup": "interaction",
+    "docOrder": 175
+  },
+  {
+    "slug": "aspect-ratio",
+    "name": "AspectRatio",
+    "description": "保留指定纵横比的内容区域。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/aspect-ratio/",
+    "installType": "ui",
+    "registryId": "aspect-ratio",
+    "docGroup": "interaction",
+    "docOrder": 176
+  },
+  {
+    "slug": "carousel",
+    "name": "Carousel",
+    "description": "手动控制、键盘与触摸轮播。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/carousel/",
+    "installType": "ui",
+    "registryId": "carousel",
+    "docGroup": "interaction",
+    "docOrder": 177
+  },
+  {
+    "slug": "chart",
+    "name": "Chart",
+    "description": "带完整文本替代的轻量柱图和折线图。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/chart/",
+    "installType": "block",
+    "registryId": "chart",
+    "docGroup": "other",
+    "docOrder": 178
+  },
+  {
+    "slug": "form",
+    "name": "Form",
+    "description": "原生表单与 Field 的轻量组合。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/form/",
+    "installType": "ui",
+    "registryId": "form",
+    "docGroup": "interaction",
+    "docOrder": 179
+  },
+  {
+    "slug": "sidebar",
+    "name": "Sidebar",
+    "description": "受控折叠的独立侧栏布局。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/sidebar/",
+    "installType": "block",
+    "registryId": "sidebar",
+    "docGroup": "other",
+    "docOrder": 180
+  },
+  {
+    "slug": "resizable",
+    "name": "Resizable",
+    "description": "可复用双面板与尺寸调整手柄。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/resizable/",
+    "installType": "ui",
+    "registryId": "resizable",
+    "docGroup": "interaction",
+    "docOrder": 181
+  },
+  {
+    "slug": "scroll-area",
+    "name": "ScrollArea",
+    "description": "保留浏览器行为的原生滚动区域。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/scroll-area/",
+    "installType": "ui",
+    "registryId": "scroll-area",
+    "docGroup": "interaction",
+    "docOrder": 182
+  },
+  {
+    "slug": "command",
+    "name": "Command",
+    "description": "复用 CommandPalette 的内嵌命令面板。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/command/",
+    "installType": "block",
+    "registryId": "command",
+    "docGroup": "other",
+    "docOrder": 183
+  },
+  {
+    "slug": "drawer",
+    "name": "Drawer",
+    "description": "复用 Sheet 的抽屉与可选滑动关闭。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/drawer/",
+    "installType": "ui",
+    "registryId": "drawer",
+    "docGroup": "interaction",
     "docOrder": 184
   },
   {

@@ -19490,6 +19490,20 @@
       "keywords": "optimization-roadmap"
     },
     {
+      "id": "sales-crm-replication",
+      "kind": "articles",
+      "title": {
+        "zh-CN": "使用 EasyuseUI 复刻 Sales CRM Companies",
+        "en": "Rebuilding Sales CRM Companies with EasyuseUI"
+      },
+      "summary": {
+        "zh-CN": "通用表格、筛选、抽屉与表单组成一个可操作的本地 CRM；分别记录参考对比、交互验证与服务边界。",
+        "en": "Reusable tables, filters, sheets and forms make an operable local CRM. Reference comparisons, interaction checks and service boundaries are recorded separately."
+      },
+      "href": "/blog/sales-crm-replication/",
+      "keywords": "sales-crm-replication"
+    },
+    {
       "id": "theme-modes",
       "kind": "articles",
       "title": {

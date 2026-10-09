@@ -30,11 +30,13 @@ function resources(file) {
 }
 const core = resources("lib/i18n-messages.ts")
 const site = resources("lib/site-i18n-messages.ts")
+const crm = resources("lib/site-crm-messages.ts")
 const placeholders = (value) =>
   [...value.matchAll(/\{(\w+)\}/g)].map((match) => match[1]).sort()
 for (const [name, messages] of [
   ["components", core],
   ["site", site],
+  ["CRM example", crm],
 ]) {
   assert.deepEqual(
     Object.keys(messages.en).sort(),
@@ -136,5 +138,5 @@ for (const item of registry.items) {
   }
 }
 console.log(
-  `i18n checked: ${Object.keys(core.en).length} portable + ${Object.keys(site.en).length} site messages, Catalog, dictionary and Registry closure.`,
+  `i18n checked: ${Object.keys(core.en).length} portable + ${Object.keys(site.en).length} site + ${Object.keys(crm.en).length} CRM messages, Catalog, dictionary and Registry closure.`,
 )

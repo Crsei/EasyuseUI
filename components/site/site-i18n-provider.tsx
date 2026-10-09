@@ -3,6 +3,7 @@
 import {
   useCallback,
   useEffect,
+  useState,
   useSyncExternalStore,
   type ReactNode,
 } from "react"
@@ -16,7 +17,6 @@ import {
 } from "@/lib/i18n-core"
 import { pageDescriptionKeys } from "@/lib/site-i18n-metadata"
 import type { DocGuide } from "@/lib/doc-guides"
-import blogIndex from "@/lib/blog-index.json"
 import { siteMessages } from "@/lib/site-i18n-runtime"
 
 export const localeStorageKey = "easyuseui-locale"
@@ -52,6 +52,7 @@ function subscribeLocale(listener: () => void) {
   return subscribe(listener)
 }
 const pageTitles: Record<string, string> = {
+  "/examples/sales-crm": "Sales CRM Companies",
   "/examples": "组件示例",
   "/examples/work-items": "Work Items 组件示例",
   "/workspace/work-items": "Work Items 组件示例",
@@ -79,12 +80,28 @@ export function SiteI18nProvider({ children, componentPages, guides }: {
   componentPages: Record<string, { title: string; description: string }>
   guides: Pick<DocGuide, "slug" | "title" | "summary">[]
 }) {
+  const [blogIndex, setBlogIndex] = useState<
+    typeof import("@/lib/blog-index.json") | null
+  >(null)
   const locale = useSyncExternalStore(
     subscribeLocale,
     getSnapshot,
     () => defaultLocale,
   )
   const pathname = usePathname().replace(/\/$/, "") || "/"
+  const isBlogPost = pathname.startsWith("/blog/")
+  useEffect(() => {
+    if (!isBlogPost || blogIndex) return
+    let active = true
+    import("@/lib/blog-index.json")
+      .then(({ default: metadata }) => {
+        if (active) setBlogIndex(metadata)
+      })
+      .catch(() => {
+        // Keep the server-provided metadata if the optional index cannot load.
+      })
+    return () => { active = false }
+  }, [isBlogPost, blogIndex])
   const setLocale = useCallback((next: Locale) => {
     if (!isLocale(next)) return
     memoryLocale = next
@@ -99,13 +116,14 @@ export function SiteI18nProvider({ children, componentPages, guides }: {
   }, [])
   useEffect(() => {
     document.documentElement.lang = locale
+    if (isBlogPost && !blogIndex) return
     const t = createTranslator(locale, siteMessages)
     const translated = (source: string) => {
       const key = sourceKeys.get(source)
       return key ? t(key) : source
     }
     const guide = guides.find(guide => pathname === `/docs/${guide.slug}`)
-    const blog = blogIndex.find((post) => pathname === `/blog/${post.slug}`)
+    const blog = blogIndex?.find((post) => pathname === `/blog/${post.slug}`)
     const blogTitle = blog
       ? (blog.title[locale] ?? blog.title["zh-CN"])
       : undefined
@@ -150,7 +168,7 @@ export function SiteI18nProvider({ children, componentPages, guides }: {
     })
     syncMetadata()
     return () => observer.disconnect()
-  }, [locale, pathname, componentPages, guides])
+  }, [locale, pathname, componentPages, guides, isBlogPost, blogIndex])
   return (
     <I18nProvider locale={locale} onLocaleChange={setLocale}>
       {children}

@@ -1,0 +1,2 @@
+$ node scripts/check-blog.mjs
+Blog checked: 9 published, 1 drafts; references, assets, metrics and evidence

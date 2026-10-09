@@ -116,10 +116,7 @@ for (const post of posts) {
     if (block.type === "paragraph") text(block.text)
     if (block.type === "link") {
       text(block.text)
-      assert.match(
-        block.href,
-        /^\/(?:examples\/[a-z0-9-]+|workspace\/agents(?:\/scale)?)\/$/,
-      )
+      assert.ok(block.href === "/workspace/agents/" || block.href === "/workspace/agents/scale/" || /^\/examples\/[a-z0-9-]+\/$/.test(block.href))
       assert.ok(
         fs.existsSync(path.join(root, "app", block.href, "page.tsx")),
         `Missing example route: ${block.href}`,
@@ -160,7 +157,7 @@ for (const post of posts) {
     assert.ok(
       (post.resultVersion || post.sourceSnapshotId) &&
         post.evidence.length &&
-        post.body.some(
+        (post.body.some(
           (block) =>
             block.type === "metrics" &&
             block.metrics.some(
@@ -171,8 +168,27 @@ for (const post of posts) {
                 metric.beforeContext &&
                 metric.beforeContext === metric.afterContext,
             ),
-        ),
-      `${post.slug}: verified requires measured scoped evidence`,
+        ) ||
+          (post.category === "reuse" &&
+            post.body.some(
+              (block) =>
+                block.type === "comparison" &&
+                block.before &&
+                block.after &&
+                block.before.sourceSnapshotId === post.baselineVersion &&
+                block.after.sourceSnapshotId === post.sourceSnapshotId,
+            ) &&
+            post.evidence.some(
+              (item) =>
+                item.type === "test" &&
+                item.sourceSnapshotId === post.sourceSnapshotId,
+            ) &&
+            post.evidence.some(
+              (item) =>
+                item.type === "screenshot" &&
+                item.sourceSnapshotId === post.sourceSnapshotId,
+            ))),
+      `${post.slug}: verified requires scoped measurements or a tested reuse comparison`,
     )
 }
 for (const post of posts)

@@ -1,0 +1,128 @@
+$ pnpm registry:build && pnpm blog:build && next build --webpack
+$ node scripts/build-registry.mjs
+Manifest checked: 87 components, Registry files/dependencies and lazy loaders
+EasyuseUI: built 101 registry items at http://localhost:3010/r
+$ node scripts/check-blog.mjs --write
+Blog checked: 8 published, 1 drafts; references, assets, metrics and evidence
+▲ Next.js 16.3.8 (webpack)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+✓ Running next.config.ts took 333ms
+  Skipping creating a lockfile at /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuseui-opt-after-pA3gEt/.next/lock because we're using WASM bindings
+
+  Creating an optimized production build ...
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+✓ Compiled successfully in 29.9s
+  Running TypeScript ...
+  Finished TypeScript in 15.7s ...
+  Collecting page data using 27 workers ...
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+  Generating static pages using 27 workers (0/122) ...
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+  Generating static pages using 27 workers (30/122) 
+  Generating static pages using 27 workers (60/122) 
+  Generating static pages using 27 workers (91/122) 
+✓ Generating static pages using 27 workers (122/122) in 24.8s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├   /benchmarks/canvas/[size]
+│ ├ ● /benchmarks/canvas/50
+│ ├ ● /benchmarks/canvas/200
+│ ├ ● /benchmarks/canvas/500
+│ └ ● /benchmarks/canvas/1000
+├ ○ /benchmarks/common-components
+├ ○ /benchmarks/streams
+├ ○ /blog
+├   /blog/[slug]
+│ ├ ● /blog/canvas-indexes
+│ ├ ● /blog/common-components-from-crm
+│ ├ ● /blog/controlled-layout
+│ └ ● [+5 more paths]
+├ ○ /components
+├ ○ /dictionary
+├ ○ /docs
+├   /docs/[slug]
+│ ├ ● /docs/checkbox
+│ ├ ● /docs/table
+│ ├ ● /docs/data-table
+│ └ ● [+84 more paths]
+├ ○ /docs/installation
+├ ○ /examples/sales-crm
+├ ○ /icon.svg
+├ ○ /scroll
+├ ○ /sitemap.xml
+├ ○ /style-workbench
+├ ○ /workspace
+├ ○ /workspace/agents
+├ ○ /workspace/canvas
+├ ○ /workspace/canvas/project
+├ ○ /workspace/canvas/services
+├ ○ /workspace/canvas/stress
+├ ○ /workspace/layout
+└ ○ /workspace/work-items
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

@@ -52,6 +52,9 @@ export type CommandPaletteProps = {
     scope?: RefObject<HTMLElement | null>
   }
   finalFocus?: DialogContentFinalFocus
+  className?: string
+  /** Non-interactive option content; the palette retains activation and keyboard ownership. */
+  renderItem?: (item: CommandPaletteItem) => ReactNode
 }
 type DialogContentFinalFocus = React.ComponentProps<
   typeof DialogContent
@@ -74,6 +77,8 @@ export function CommandPalette({
   emptyMessage,
   shortcut,
   finalFocus,
+  className,
+  renderItem,
 }: CommandPaletteProps) {
   const { t } = useI18n()
   const id = useId()
@@ -245,16 +250,20 @@ export function CommandPalette({
                 }}
                 className="flex min-h-8 cursor-default items-center gap-2 rounded-md px-3 py-2 text-sm aria-selected:bg-selection aria-disabled:opacity-50 [@media(pointer:coarse)]:min-h-11"
               >
-                {item.icon && <span aria-hidden="true">{item.icon}</span>}
-                <span className="min-w-0 flex-1">
-                  {item.label}
-                  {item.description && (
-                    <span className="block text-xs text-muted-foreground">
-                      {item.description}
+                {renderItem?.(item) ?? (
+                  <>
+                    {item.icon && <span aria-hidden="true">{item.icon}</span>}
+                    <span className="min-w-0 flex-1">
+                      {item.label}
+                      {item.description && (
+                        <span className="block text-xs text-muted-foreground">
+                          {item.description}
+                        </span>
+                      )}
                     </span>
-                  )}
-                </span>
-                {item.shortcut && <Kbd>{item.shortcut}</Kbd>}
+                    {item.shortcut && <Kbd>{item.shortcut}</Kbd>}
+                  </>
+                )}
               </div>
             ))}
           </div>
@@ -269,7 +278,14 @@ export function CommandPalette({
   )
   if (presentation === "inline")
     return (
-      <section aria-label={title} className="rounded-control border">
+      <section
+        aria-label={title}
+        className={
+          className
+            ? `rounded-control border ${className}`
+            : "rounded-control border"
+        }
+      >
         {content}
       </section>
     )
@@ -278,7 +294,7 @@ export function CommandPalette({
       <DialogContent
         finalFocus={finalFocus}
         initialFocus={input}
-        className="p-0"
+        className={className ? `p-0 ${className}` : "p-0"}
       >
         {content}
       </DialogContent>

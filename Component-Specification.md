@@ -399,7 +399,7 @@ Canvas 性能与整理补充：索引按实际 nodes/frames/edges/definitions/is
 
 `WorkflowCanvas.onMeasurementsChange` 输出临时引擎尺寸，不能写入图文档或撤销历史。`CanvasWorkspace.fixedNodeIds` 是调用方的自动布局约束，不增加业务权限或节点锁定字段。“更多工具”提供当前作用域 DAG 整理、JSON 和帮助；整理使用实际尺寸，缺失尺寸按端口数量估算，保留固定节点和分组边界。计算可取消，结果绑定完整源对象、定义与固定节点输入；旧结果不应用。预览不提交，应用只发出一次 `move` 坐标命令；循环、子流程、无效图和分组空间不足保留原图并说明原因。布局不承诺连线无交叉。既有 500 节点/1000 连线导入与命令限制继续有效；1000 节点压力样例仅探测显示容量。
 
-WorkspaceShell 同时支持 `value/defaultValue/onChange` 配对（具体属性为 `sidebarCollapsed/defaultSidebarCollapsed/onSidebarCollapsedChange`、`inspectorOpen`、`inspectorWidth`、`bottomPanelOpen`、`bottomPanelHeight` 及各自 default/onChange）。受控模式由调用方回传；Inspector 宽度限定 280–360px，底部高度 200–400px。`inspectorOverlayOpen` 是独立的窄屏浮层状态；响应式测量不回写桌面偏好。原 `bottomPanelCollapsed` 接口继续兼容。组件不读取 localStorage；`/workspace/layout/` 展示按 workspace ID 保存、校验和重置偏好的适配器。
+WorkspaceShell 同时支持 `value/defaultValue/onChange` 配对（具体属性为 `sidebarCollapsed/defaultSidebarCollapsed/onSidebarCollapsedChange`、`inspectorOpen`、`inspectorWidth`、`bottomPanelOpen`、`bottomPanelHeight` 及各自 default/onChange）。受控模式由调用方回传；Inspector 宽度限定 300–360px，底部高度 200–400px。`inspectorOverlayOpen` 是独立的窄屏浮层状态；响应式测量不回写桌面偏好。原 `bottomPanelCollapsed` 接口继续兼容。组件不读取 localStorage；`/workspace/layout/` 展示按 workspace ID 保存、校验和重置偏好的适配器。
 
 Conversation 与 ActivityTimeline 可选 `revision: string | number`。调用方须在追加、历史修订、删除、重排和状态变化时推进；省略时继续检测完整相关字段。输入使用不可变记录；去重保留首次位置和最后 payload。未变化的消息/事件行跳过重复渲染，64px 跟随阈值与补历史锚点继续生效。未默认启用窗口化，浏览器全文查找和复制仍覆盖全部记录。`deferOffscreen` 默认 false，开启后使用浏览器 content-visibility 延迟屏外布局，记录仍保留在 DOM；不支持该 CSS 的浏览器回退完整布局。
 
@@ -413,6 +413,8 @@ ThemeBoundary 新安装使用 `/r/host/` 或 `/r/scoped/` 的命名空间源码�
 通用组件补齐遵循 [计划及固定接口](plans/common-components-completion-plan.md)。Checkbox 可视图标16、实际目标32/粗指针44；Table 默认行40，保留 caption、th scope 和横向滚动。选择、当前查看与焦点独立，全选仅改变当前可选行，隐藏选择保留。排序只请求变更，数据和汇总由调用方提供。
 
 Sheet 左/右/底部可配，首尾固定、正文滚动，复用 Dialog 焦点/关闭及 ThemeBoundary；嵌套浮层只由最上层消费 Escape。Field 关联 label/id、description/error IDs，失败保留草稿。CommandPalette 使用 combobox/listbox、方向键与 Home/End/Enter、IME防误选，默认无全局键盘监听。ImageUpload 验证类型/大小、读取与解码后交付本地 File，替换失败保留旧值，卸载或新请求取消旧读取。
+
+CommandPalette 的 `className` 只覆盖当前浮层样式；`renderItem(item)` 可提供丰富的非交互结果内容，返回空值沿用默认展示。结果激活、禁用、选中与键盘导航仍由 CommandPalette 管理，展示内容不能包含嵌套按钮或输入控件。CRM 示例用该接口复用 Avatar、Tag 和 SegmentBar 展示搜索结果。
 
 只读图元不增加交互hover。SegmentBar有限值限制在范围，未知显示未知；Sparkline最近120点且提供文本替代；RatingDisplay限制1–10星、半星四舍五入。Slider区分连续变化与提交。WorkspaceShell 侧栏默认256、折叠48，局部宽度与边界受控可配，resize默认关闭；按实例持久化属于适配层。
 
@@ -452,6 +454,7 @@ Attachment 仅显示调用方附件描述，未知或忙碌时禁止再次移除
 Card 只用于独立内容。AspectRatio 使用有限正比例。Carousel 不自动播放，隐藏页保留输入并退出 Tab 顺序，支持键盘、指针和 RTL。Chart 提供最近120项的柱/线图与对应可读数据表，空、缺失、负值和零分开；外层 DataRegion 保留刷新失败时的数据。
 
 Form 复用原生提交和 Field；不绑定业务验证库。Sidebar 默认256/折叠48，隐藏文字仍有标签。Resizable/ResizableHandle 的尺寸值受控或非受控，支持指针捕获、取消、8px键盘步进、Home/End 与 RTL；WorkspaceShell 侧栏复用手柄。ScrollArea 保留原生滚动。Command 是 CommandPalette 的内嵌展示；Drawer 复用 Sheet，仅底部显式手柄可选48px向下滑动关闭，正文继续原生滚动。Conversation actionsRef 只定位已加载消息，不读取历史、不选中或执行消息，找不到返回 false。
+
 
 ## Agent 工作台组合合同
 

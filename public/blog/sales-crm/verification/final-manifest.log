@@ -1,0 +1,2 @@
+$ node scripts/check-manifest.mjs
+Manifest checked: 87 components, Registry files/dependencies and lazy loaders

@@ -18,13 +18,17 @@ export function CanvasPort({
   const { t, resolve } = useI18n()
 
   return (
-    <div className={styles.port} data-direction={port.direction}>
+    <div
+      className={styles.port}
+      data-direction={port.direction}
+      role="group"
+      aria-label={`${resolve(port.labelI18n, port.label)} ${port.direction === "input" ? t("common.input") : t("toolCall.output")} ${unknownType ? t("canvasPort.undefinedType") : port.type}`}
+    >
       <Handle
         id={port.id}
         type={port.direction === "input" ? "target" : "source"}
         position={port.direction === "input" ? Position.Left : Position.Right}
         isConnectable={!readOnly}
-        aria-label={`${resolve(port.labelI18n, port.label)} ${port.direction === "input" ? t("common.input") : t("toolCall.output")} ${unknownType ? t("canvasPort.undefinedType") : port.type}`}
       />
       <span>{resolve(port.labelI18n, port.label)}</span>
       <code>{unknownType ? t("canvasPort.undefinedType") : port.type}</code>

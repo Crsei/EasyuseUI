@@ -1,12 +1,12 @@
-import { workbenchRegistryItems, createWorkbenchConsumer, verifyWorkbenchConsumer } from "./agent-workbench-consumer.mjs"
 import {gapRegistryItems,createGapConsumer,verifyGapConsumer} from "./gap-contract-consumer.mjs"
+import { workbenchRegistryItems, createWorkbenchConsumer, verifyWorkbenchConsumer } from "./agent-workbench-consumer.mjs"
 import { workflowAnalyticsRegistryItems, createWorkflowAnalyticsConsumer, verifyWorkflowAnalyticsConsumer } from "./workflow-analytics-consumer.mjs"
 import {
   workItemsRegistryItems,
   createWorkItemsConsumer,
   verifyWorkItemsConsumer,
 } from "./work-items-consumer.mjs"
-import { createAgentBoardConsumer, verifyAgentBoardConsumer } from "./agent-board-consumer.mjs"
+import {createAgentBoardConsumer,verifyAgentBoardConsumer} from "./agent-board-consumer.mjs"
 import {
   commonRegistryItems,
   createCommonConsumer,

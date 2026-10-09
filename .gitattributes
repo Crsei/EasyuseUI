@@ -1,0 +1,2 @@
+# Published validation transcripts retain their original bytes and whitespace.
+public/blog/sales-crm/verification/*.log -text -whitespace

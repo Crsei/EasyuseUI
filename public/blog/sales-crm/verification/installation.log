@@ -1,0 +1,227 @@
+$ node scripts/check-install.mjs
+Independent consumer: /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 21, reused 20, downloaded 0, added 0
+Packages: +47
++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 100, reused 49, downloaded 0, added 47, done
+
+dependencies:
++ next 16.3.8 (16.4.0 is available)
++ react 19.3.0
++ react-dom 19.3.0
++ tailwindcss 4.3.3
+
+devDependencies:
++ @tailwindcss/postcss 4.3.0 (4.3.3 is available)
++ @types/node 24.19.1 (26.6.4 is available)
++ @types/react 19.3.0
++ typescript 6.0.3 (7.0.2 is available)
+
+Done in 2.9s using pnpm v11.9.0
+Registry snapshot: http://127.0.0.1:35105/r (independent of the dev server)
+- Checking registry.
+✔ Checking registry.
+- Installing dependencies.
+- Installing dependencies.
+✔ Installing dependencies.
+- Updating files.
+✔ Created 116 files:
+  - lib/utils.ts
+  - components/ui/theme-boundary.tsx
+  - styles/theme-boundary.css
+  - lib/i18n-core.ts
+  - lib/i18n-messages.ts
+  - lib/i18n-provider.tsx
+  - lib/use-controllable-value.ts
+  - lib/runtime-status.ts
+  - lib/use-follow-tail.ts
+  - lib/redact.ts
+  - components/ui/field.tsx
+  - components/ui/slider.tsx
+  - components/blocks/metric-summary.tsx
+  - components/blocks/work-items.module.css
+  - components/blocks/canvas-controls.module.css
+  - components/ui/checkbox.tsx
+  - components/ui/table.tsx
+  - components/ui/avatar.tsx
+  - components/ui/kbd.tsx
+  - components/blocks/form-section.tsx
+  - components/ui/input.tsx
+  - components/ui/badge.tsx
+  - components/ui/badge.module.css
+  - components/ui/tabs.tsx
+  - components/ui/segmented.tsx
+  - components/ui/menu.tsx
+  - components/ui/popover.tsx
+  - components/ui/select.tsx
+  - components/ui/combobox.tsx
+  - components/ui/button.tsx
+  - components/ui/button-tooltip.tsx
+  - components/ui/segment-bar.tsx
+  - components/ui/sparkline.tsx
+  - components/ui/rating-display.tsx
+  - components/ui/dialog.tsx
+  - components/blocks/scroll-playground.tsx
+  - components/blocks/scroll-playground.module.css
+  - components/ui/item.tsx
+  - components/ui/item.module.css
+  - lib/style-workbench-model.ts
+  - lib/canvas-model.ts
+  - lib/canvas-config.ts
+  - components/ui/runtime-status-badge.tsx
+  - lib/grouped-items-model.ts
+  - components/ui/tag.tsx
+  - components/ui/dropdown-menu.tsx
+  - components/ui/sheet.tsx
+  - components/ui/sheet.module.css
+  - components/blocks/image-upload.tsx
+  - components/blocks/task-panel.tsx
+  - components/blocks/workspace-shell.tsx
+  - components/blocks/workspace-shell.module.css
+  - components/ui/data-region.tsx
+  - components/ui/data-region.module.css
+  - components/ui/chip.tsx
+  - components/ui/chip.module.css
+  - components/blocks/command-palette.tsx
+  - components/ui/canvas-port.tsx
+  - components/ui/canvas-node.module.css
+  - components/ui/canvas-edge.tsx
+  - components/ui/canvas-edge.module.css
+  - components/blocks/canvas-frame.tsx
+  - components/blocks/canvas-annotations.module.css
+  - components/blocks/node-palette.tsx
+  - components/blocks/canvas-config-editor.tsx
+  - lib/canvas-services.ts
+  - lib/use-canvas-persistence.ts
+  - lib/canvas-validation.ts
+  - components/blocks/session-row.tsx
+  - components/blocks/entity-row.module.css
+  - components/blocks/agent-row.tsx
+  - lib/work-items-model.ts
+  - lib/work-items-view.ts
+  - components/blocks/filter-toolbar.tsx
+  - components/blocks/data-table.tsx
+  - components/blocks/data-table.module.css
+  - components/ui/tree.tsx
+  - components/ui/tree.module.css
+  - components/blocks/activity-timeline.tsx
+  - components/blocks/activity-timeline.module.css
+  - components/blocks/inspector.tsx
+  - components/blocks/inspector.module.css
+  - components/blocks/chat-message.tsx
+  - components/blocks/chat-message.module.css
+  - components/blocks/tool-call.tsx
+  - components/blocks/tool-call.module.css
+  - components/blocks/grouped-list.tsx
+  - components/blocks/grouped-list.module.css
+  - components/blocks/style-workbench.tsx
+  - components/blocks/style-workbench.module.css
+  - components/ui/canvas-node.tsx
+  - components/blocks/canvas-note.tsx
+  - components/blocks/canvas-service-panel.tsx
+  - lib/canvas-runtime.ts
+  - lib/use-canvas-runtime.ts
+  - lib/canvas-commands.ts
+  - lib/use-canvas-editor.ts
+  - components/blocks/work-item-properties.tsx
+  - components/blocks/variable-picker.tsx
+  - components/blocks/item-board.tsx
+  - components/blocks/item-board.module.css
+  - components/blocks/workflow-canvas.tsx
+  - components/blocks/workflow-canvas.module.css
+  - lib/canvas-index.ts
+  - lib/canvas-layout.ts
+  - components/blocks/canvas-execution-panel.tsx
+  - components/blocks/work-items-toolbar.tsx
+  - components/blocks/work-item.tsx
+  - components/blocks/node-inspector.tsx
+  - components/blocks/work-items-views.tsx
+  - components/blocks/work-item-detail.tsx
+  - components/blocks/canvas-workspace.tsx
+  - components/blocks/canvas-connection-form.tsx
+  - components/blocks/work-items-workspace.tsx
+  - lib/canvas-project.ts
+  - components/blocks/canvas-project-workspace.tsx
+- Updating app/globals.css
+✔ Updating app/globals.css
+PASS: CLI installation, dependency resolution, theme injection and consumer TypeScript check.
+▲ Next.js 16.3.8 (webpack)
+⚠ Warning: Next.js ignored pnpm-lock.yaml in /data2-HDD-SATA-20T/Digital_avatar/haoweiyao because it is outside the current Git repository (/data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP).
+ To use this directory, set `outputFileTracingRoot` in your Next.js config.
+
+✓ Running next.config.mjs took 19ms
+  Using cached swc package @next/swc-wasm-nodejs...
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+  Skipping creating a lockfile at /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/.next/lock because we're using WASM bindings
+
+  Creating an optimized production build ...
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+✓ Compiled successfully in 23.0s
+  Running TypeScript ...
+
+  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+  	- allowJs was set to true
+  	- incremental was set to true
+  	- include was updated to add '.next/types/**/*.ts'
+  	- include was updated to add '.next/dev/types/**/*.ts'
+  	- plugins was updated to add { name: 'next' }
+  	- exclude was set to ['node_modules']
+
+  The following mandatory changes were made to your tsconfig.json:
+
+  	- esModuleInterop was set to true (requirement for SWC / babel)
+  	- resolveJsonModule was set to true (to match webpack resolution)
+  	- isolatedModules was set to true (requirement for SWC / Babel)
+
+  Finished TypeScript in 8.1s ...
+  Collecting page data using 9 workers ...
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+  Generating static pages using 9 workers (0/8) ...
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+  Generating static pages using 9 workers (2/8) 
+  Generating static pages using 9 workers (4/8) 
+  Generating static pages using 9 workers (6/8) 
+✓ Generating static pages using 9 workers (8/8) in 1185ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /canvas
+├ ○ /common
+├ ○ /i18n
+├ ○ /project
+└ ○ /work-items
+
+
+○  (Static)  prerendered as static content
+
+PASS: installed common components, hidden row selection, activation, Slider commit, command search, nested Sheet/Select, menu radio and local image preview
+PASS: installed Work Items list/board/table, unknown outcome survives layout change, reconciliation and detail editing
+PASS: installed Canvas production build, full-height layout and collapsed panels, browser mount, engine CSS, ports, edge, controlled selection, add, connect, undo, authoritative runtime/redaction, unknown save/publication reconciliation, subflow navigation and structured config. Evidence: /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/.tmp/easyuse-ui-consumer-Xd3rFP/canvas-installed.png

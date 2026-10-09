@@ -1,0 +1,1981 @@
+{
+  "reviewedAt": "2026-10-08T10:51:31.966Z",
+  "reviewer": "Codex visual inspection",
+  "referenceSnapshotId": "9700e58d87fb4a8b04b319d63e455e6d99acba181e31adbf9c92890d6aff8739",
+  "sourceSnapshotId": "981f6768a2505df6a7ee6fb14b3d1728a3bf9c1e790ced0ad479b2b472595628",
+  "method": "Paired originals and RGB absolute-difference heatmaps, plus DOM geometry. No pixel-equivalence threshold or performance claim.",
+  "states": [
+    {
+      "state": "default-1440",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/default-1440.png",
+      "replica": "/blog/sales-crm/replica/default-1440.png",
+      "diff": "/blog/sales-crm/diff/default-1440.png",
+      "result": "reviewed with recorded differences",
+      "notes": "254px sidebar and nine business columns retained; separate native selection column, real count/summaries, readable text and initials differ. Reference rendered row/header include one extra border pixel (43/39); replica uses 42/38."
+    },
+    {
+      "state": "default-1920",
+      "width": 1920,
+      "height": 1080,
+      "reference": "/blog/sales-crm/reference/default-1920.png",
+      "replica": "/blog/sales-crm/replica/default-1920.png",
+      "diff": "/blog/sales-crm/diff/default-1920.png",
+      "result": "reviewed with recorded differences",
+      "notes": "Same ordering and full-window distribution. System font metrics, column spacing, actual footer values and added documentation entries differ."
+    },
+    {
+      "state": "default-390",
+      "width": 390,
+      "height": 844,
+      "reference": "/blog/sales-crm/reference/default-390.png",
+      "replica": "/blog/sales-crm/replica/default-390.png",
+      "diff": "/blog/sales-crm/diff/default-390.png",
+      "result": "reviewed with recorded differences",
+      "notes": "Full-window page and native horizontal table retained. Desktop-style capture uses fine pointer; actual coarse-pointer 390/768/1024 behavior is separately tested."
+    },
+    {
+      "state": "detail",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/detail.png",
+      "replica": "/blog/sales-crm/replica/detail.png",
+      "diff": "/blog/sales-crm/diff/detail.png",
+      "result": "reviewed with recorded differences",
+      "notes": "560px sheet with account, pipeline, trend and score sections. Initials/email substitution, example labels, accessible meters and fixed read-only score text alter vertical spacing. Done replaces a source Save Update that only closed."
+    },
+    {
+      "state": "filters",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/filters.png",
+      "replica": "/blog/sales-crm/replica/filters.png",
+      "diff": "/blog/sales-crm/diff/filters.png",
+      "result": "reviewed with recorded differences",
+      "notes": "Same owner order and filter behavior. Base UI Select uses checkmark, stronger text contrast and 32px options; source menu has a caption and shorter rows."
+    },
+    {
+      "state": "mobile-filters",
+      "width": 390,
+      "height": 844,
+      "reference": "/blog/sales-crm/reference/mobile-filters.png",
+      "replica": "/blog/sales-crm/replica/mobile-filters.png",
+      "diff": "/blog/sales-crm/diff/mobile-filters.png",
+      "result": "reviewed with recorded differences",
+      "notes": "Bottom sheet includes sort, owner, stage and activity. Values apply immediately and persist when closed; source Show companies footer is replaced by standard sheet dismissal and help text."
+    },
+    {
+      "state": "mobile-navigation",
+      "width": 390,
+      "height": 844,
+      "reference": "/blog/sales-crm/reference/mobile-navigation.png",
+      "replica": "/blog/sales-crm/replica/mobile-navigation.png",
+      "diff": "/blog/sales-crm/diff/mobile-navigation.png",
+      "result": "reviewed with recorded differences",
+      "notes": "Left sheet, navigation groups and dismissal retained. Replica uses 280px rather than 254px to support touch targets and documentation entries; unavailable destinations remain disabled."
+    },
+    {
+      "state": "new-company",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/new-company.png",
+      "replica": "/blog/sales-crm/replica/new-company.png",
+      "diff": "/blog/sales-crm/diff/new-company.png",
+      "result": "reviewed with recorded differences",
+      "notes": "560px dialog with source field groups. Real validation, required labels, numeric probability input, local-only explanation and focused name input make the dialog taller."
+    },
+    {
+      "state": "notifications",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/notifications.png",
+      "replica": "/blog/sales-crm/replica/notifications.png",
+      "diff": "/blog/sales-crm/diff/notifications.png",
+      "result": "reviewed with recorded differences",
+      "notes": "All/unread and local navigation retained. Separate read actions and missing-target recovery use simplified example messages; source timestamps/quoted note are not reproduced. Panel 420px versus source 400px."
+    },
+    {
+      "state": "profile",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/profile.png",
+      "replica": "/blog/sales-crm/replica/profile.png",
+      "diff": "/blog/sales-crm/diff/profile.png",
+      "result": "reviewed with recorded differences",
+      "notes": "Contact, summary and assigned accounts retained. Controlled sheet is 560px versus source 480px; initial avatars, actual aggregate values, example labels and separate actions are explicit differences."
+    },
+    {
+      "state": "search",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/search.png",
+      "replica": "/blog/sales-crm/replica/search.png",
+      "diff": "/blog/sales-crm/diff/search.png",
+      "result": "reviewed with recorded differences",
+      "notes": "960px rich result view retains company/tags/owner/pipeline/probability/date. Palette title/help/close remain; compact metadata and keyboard selection use the shared option renderer. Extra tags collapse to +N."
+    },
+    {
+      "state": "selection",
+      "width": 1440,
+      "height": 1000,
+      "reference": "/blog/sales-crm/reference/selection.png",
+      "replica": "/blog/sales-crm/replica/selection.png",
+      "diff": "/blog/sales-crm/diff/selection.png",
+      "result": "reviewed with recorded differences",
+      "notes": "Apple and Microsoft are selected without opening detail. The source Radix visible checkbox is used rather than its hidden input. Replica additionally exposes selected count and separate active-object outline."
+    }
+  ],
+  "geometry": {
+    "reference": [
+      {
+        "name": "default-1440",
+        "steps": "Fresh Companies route; initial Microsoft selection",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "default-1920",
+        "steps": "Fresh Companies route",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1080,
+              "top": 0,
+              "right": 254,
+              "bottom": 1080,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1666,
+              "height": 103,
+              "top": 0,
+              "right": 1920,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1665.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1919.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1665.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1919.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "selection",
+        "steps": "Click Apple row checkbox (Microsoft remains selected)",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "filters",
+        "steps": "Open All Owners",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "detail",
+        "steps": "Open Apple",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 880,
+              "y": 0,
+              "width": 560,
+              "height": 1000,
+              "top": 0,
+              "right": 1440,
+              "bottom": 1000,
+              "left": 880
+            }
+          }
+        ]
+      },
+      {
+        "name": "profile",
+        "steps": "Open current user profile",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 960,
+              "y": 0,
+              "width": 480,
+              "height": 1000,
+              "top": 0,
+              "right": 1440,
+              "bottom": 1000,
+              "left": 960
+            }
+          }
+        ]
+      },
+      {
+        "name": "new-company",
+        "steps": "Open New Company",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 440,
+              "y": 94,
+              "width": 560,
+              "height": 812,
+              "top": 94,
+              "right": 1000,
+              "bottom": 906,
+              "left": 440
+            }
+          }
+        ]
+      },
+      {
+        "name": "notifications",
+        "steps": "Open notifications",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 898,
+              "y": 52,
+              "width": 400,
+              "height": 515,
+              "top": 52,
+              "right": 1298,
+              "bottom": 567,
+              "left": 898
+            }
+          }
+        ]
+      },
+      {
+        "name": "search",
+        "steps": "Open Search",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 103,
+              "top": 0,
+              "right": 1440,
+              "bottom": 103,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 166,
+              "width": 1185.921875,
+              "height": 39,
+              "top": 166,
+              "right": 1439.921875,
+              "bottom": 205,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 254,
+              "y": 205,
+              "width": 1185.921875,
+              "height": 43,
+              "top": 205,
+              "right": 1439.921875,
+              "bottom": 248,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 240,
+              "y": 120,
+              "width": 960,
+              "height": 486,
+              "top": 120,
+              "right": 1200,
+              "bottom": 606,
+              "left": 240
+            }
+          }
+        ]
+      },
+      {
+        "name": "default-390",
+        "steps": "Fresh mobile Companies route",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 103,
+              "top": 0,
+              "right": 390,
+              "bottom": 103,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 0,
+              "y": 166,
+              "width": 1163.046875,
+              "height": 39,
+              "top": 166,
+              "right": 1163.046875,
+              "bottom": 205,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 0,
+              "y": 205,
+              "width": 1163.046875,
+              "height": 43,
+              "top": 205,
+              "right": 1163.046875,
+              "bottom": 248,
+              "left": 0
+            }
+          }
+        ]
+      },
+      {
+        "name": "mobile-navigation",
+        "steps": "Open navigation",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 103,
+              "top": 0,
+              "right": 390,
+              "bottom": 103,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 0,
+              "y": 166,
+              "width": 1163.046875,
+              "height": 39,
+              "top": 166,
+              "right": 1163.046875,
+              "bottom": 205,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 0,
+              "y": 205,
+              "width": 1163.046875,
+              "height": 43,
+              "top": 205,
+              "right": 1163.046875,
+              "bottom": 248,
+              "left": 0
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 844,
+              "top": 0,
+              "right": 254,
+              "bottom": 844,
+              "left": 0
+            }
+          }
+        ]
+      },
+      {
+        "name": "mobile-filters",
+        "steps": "Open filters",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "geometry": [
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 103,
+              "top": 0,
+              "right": 390,
+              "bottom": 103,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 0,
+              "y": 166,
+              "width": 1163.046875,
+              "height": 39,
+              "top": 166,
+              "right": 1163.046875,
+              "bottom": 205,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": "row",
+            "rect": {
+              "x": 0,
+              "y": 205,
+              "width": 1163.046875,
+              "height": 43,
+              "top": 205,
+              "right": 1163.046875,
+              "bottom": 248,
+              "left": 0
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 0,
+              "y": 421,
+              "width": 390,
+              "height": 423,
+              "top": 421,
+              "right": 390,
+              "bottom": 844,
+              "left": 0
+            }
+          }
+        ]
+      }
+    ],
+    "replica": [
+      {
+        "name": "default-1440",
+        "steps": "Fresh route; Microsoft selected",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "default-1920",
+        "steps": "Fresh route",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1666,
+              "height": 56,
+              "top": 0,
+              "right": 1920,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1080,
+              "top": 0,
+              "right": 254,
+              "bottom": 1080,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1666,
+              "height": 38,
+              "top": 165,
+              "right": 1920,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1666,
+              "height": 42,
+              "top": 203,
+              "right": 1920,
+              "bottom": 245,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "selection",
+        "steps": "Select Apple; Microsoft remains selected",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "filters",
+        "steps": "Open owner select",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "detail",
+        "steps": "Open Apple",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 880,
+              "y": 0,
+              "width": 560,
+              "height": 1000,
+              "top": 0,
+              "right": 1440,
+              "bottom": 1000,
+              "left": 880
+            }
+          }
+        ]
+      },
+      {
+        "name": "profile",
+        "steps": "Open current user profile",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 880,
+              "y": 0,
+              "width": 560,
+              "height": 1000,
+              "top": 0,
+              "right": 1440,
+              "bottom": 1000,
+              "left": 880
+            }
+          }
+        ]
+      },
+      {
+        "name": "new-company",
+        "steps": "Open New Company",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 440,
+              "y": 77.5625,
+              "width": 560,
+              "height": 844.875,
+              "top": 77.5625,
+              "right": 1000,
+              "bottom": 922.4375,
+              "left": 440
+            }
+          }
+        ]
+      },
+      {
+        "name": "notifications",
+        "steps": "Open notifications",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 874,
+              "y": 49,
+              "width": 420,
+              "height": 598,
+              "top": 49,
+              "right": 1294,
+              "bottom": 647,
+              "left": 874
+            }
+          }
+        ]
+      },
+      {
+        "name": "search",
+        "steps": "Open Search",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 1186,
+              "height": 56,
+              "top": 0,
+              "right": 1440,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 1000,
+              "top": 0,
+              "right": 254,
+              "bottom": 1000,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 165,
+              "width": 1186,
+              "height": 38,
+              "top": 165,
+              "right": 1440,
+              "bottom": 203,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 203,
+              "width": 1186,
+              "height": 42,
+              "top": 203,
+              "right": 1440,
+              "bottom": 245,
+              "left": 254
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 240,
+              "y": 120,
+              "width": 960,
+              "height": 503,
+              "top": 120,
+              "right": 1200,
+              "bottom": 623,
+              "left": 240
+            }
+          }
+        ]
+      },
+      {
+        "name": "default-1024",
+        "steps": "Desktop sidebar threshold",
+        "viewport": {
+          "width": 1024,
+          "height": 844
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 0,
+              "width": 770,
+              "height": 56,
+              "top": 0,
+              "right": 1024,
+              "bottom": 56,
+              "left": 254
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 254,
+              "height": 844,
+              "top": 0,
+              "right": 254,
+              "bottom": 844,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 196,
+              "width": 1170,
+              "height": 38,
+              "top": 196,
+              "right": 1424,
+              "bottom": 234,
+              "left": 254
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 254,
+              "y": 234,
+              "width": 1170,
+              "height": 42,
+              "top": 234,
+              "right": 1424,
+              "bottom": 276,
+              "left": 254
+            }
+          }
+        ]
+      },
+      {
+        "name": "default-390",
+        "steps": "Fresh mobile route",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 56,
+              "top": 0,
+              "right": 390,
+              "bottom": 56,
+              "left": 0
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 162,
+              "width": 1170,
+              "height": 38,
+              "top": 162,
+              "right": 1170,
+              "bottom": 200,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 200,
+              "width": 1170,
+              "height": 42,
+              "top": 200,
+              "right": 1170,
+              "bottom": 242,
+              "left": 0
+            }
+          }
+        ]
+      },
+      {
+        "name": "mobile-navigation",
+        "steps": "Open navigation",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 56,
+              "top": 0,
+              "right": 390,
+              "bottom": 56,
+              "left": 0
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 162,
+              "width": 1170,
+              "height": 38,
+              "top": 162,
+              "right": 1170,
+              "bottom": 200,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 200,
+              "width": 1170,
+              "height": 42,
+              "top": 200,
+              "right": 1170,
+              "bottom": 242,
+              "left": 0
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 280,
+              "height": 844,
+              "top": 0,
+              "right": 280,
+              "bottom": 844,
+              "left": 0
+            }
+          }
+        ]
+      },
+      {
+        "name": "mobile-filters",
+        "steps": "Open bottom filters",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "geometry": [
+          {
+            "tag": "HEADER",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 390,
+              "height": 56,
+              "top": 0,
+              "right": 390,
+              "bottom": 56,
+              "left": 0
+            }
+          },
+          {
+            "tag": "ASIDE",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0,
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            }
+          },
+          {
+            "tag": "THEAD",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 162,
+              "width": 1170,
+              "height": 38,
+              "top": 162,
+              "right": 1170,
+              "bottom": 200,
+              "left": 0
+            }
+          },
+          {
+            "tag": "TR",
+            "role": null,
+            "rect": {
+              "x": 0,
+              "y": 200,
+              "width": 1170,
+              "height": 42,
+              "top": 200,
+              "right": 1170,
+              "bottom": 242,
+              "left": 0
+            }
+          },
+          {
+            "tag": "DIV",
+            "role": "dialog",
+            "rect": {
+              "x": 0,
+              "y": 444,
+              "width": 390,
+              "height": 400,
+              "top": 444,
+              "right": 390,
+              "bottom": 844,
+              "left": 0
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

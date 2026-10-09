@@ -23,6 +23,28 @@ const chooseChinese = (page: Page) =>
   page
     .getByRole("combobox", { name: "Language", exact: true })
     .selectOption("zh-CN")
+
+test("locale control waits for hydration and applies its first selection", async ({ page }) => {
+  let release: () => void = () => {}
+  const ready = new Promise<void>((resolve) => { release = resolve })
+  await page.route("**/_next/static/chunks/app/layout-*.js", async (route) => {
+    await ready
+    await route.continue()
+  })
+  try {
+    await page.goto("/components/", { waitUntil: "commit" })
+    const language = page.getByRole("combobox", { name: "语言", exact: true })
+    await expect(language).toBeDisabled()
+    release()
+    await expect(language).toBeEnabled()
+    await language.selectOption("en")
+    await expect(page.locator("html")).toHaveAttribute("lang", "en")
+    await expect(page.getByRole("textbox", { name: "Search components", exact: true })).toBeVisible()
+  } finally {
+    release()
+  }
+})
+
 async function selectNode(page: Page, title: string) {
   await page
     .getByRole("button", { name: "查找图中节点", exact: true })

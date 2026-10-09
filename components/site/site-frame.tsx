@@ -22,7 +22,9 @@ export function SiteFrame({
     pathname === "/examples/work-items" ||
     pathname === "/examples/work-items/" ||
     pathname === "/workspace/canvas" ||
-    pathname.startsWith("/workspace/canvas/")
+    pathname.startsWith("/workspace/canvas/") ||
+    pathname === "/examples/sales-crm" ||
+    pathname === "/examples/sales-crm/"
   )
     return <div className="h-dvh min-h-0 overflow-hidden">{children}</div>
   return (

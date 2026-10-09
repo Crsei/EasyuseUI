@@ -1,120 +1,22 @@
+// Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.examples.salesCrmDescription": "本地示例；刷新页面后重置。未连接 CRM 服务。",
     "workbenchCatalog.description": "受控 Agent 工作台区域；服务、权限与来源确认由调用方提供。",
     "workbenchCatalog.snapshot": "稳定对象标识、版本、能力与独立操作回执。",
     "workbenchCatalog.actions": "选择与执行分离；未知结果先查询，确认前保留草稿。",
     "workbenchCatalog.boundary": "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。",
 
-    "site.workflowAnalytics.catalog.00":
-      "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
-    "site.workflowAnalytics.catalog.01":
-      "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
-    "site.workflowAnalytics.catalog.02":
-      "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。",
-    "site.workflowAnalytics.catalog.03":
-      "纯查询描述；筛选逐层取交集，范围采用 [from,to)。",
-    "site.workflowAnalytics.catalog.04":
-      "受控聚合快照，complete/partial/unavailable 不能互相冒充。",
-    "site.workflowAnalytics.catalog.05":
-      "可选小数据重放；无期初或缺口时不生成趋势。",
-    "site.workflowAnalytics.catalog.06":
-      "独立于统计引擎的系列、选择、数值格式与比较模型。",
-    "site.workflowAnalytics.catalog.07":
-      "稳定选择身份；不包含统计引擎事件对象。",
-    "site.workflowAnalytics.catalog.08":
-      "纯适配；非有限值转缺失，重复身份报错。",
-    "site.workflowAnalytics.catalog.09":
-      "共享图表标题、口径、范围、权限隔离与五种数据态。",
-    "site.workflowAnalytics.catalog.10": "标题与正式口径，保留调用方文案。",
-    "site.workflowAnalytics.catalog.11":
-      "结果 queryKey 必须匹配；切范围不显示旧值。",
-    "site.workflowAnalytics.catalog.12": "denied 隐藏旧图、数据和操作。",
-    "site.workflowAnalytics.catalog.13": "独立五种读态、刷新、错误和安全重读。",
-    "site.workflowAnalytics.catalog.14":
-      "聚合点的完整结构化表格与键盘下钻路径。",
-    "site.workflowAnalytics.catalog.15": "完整聚合点表，保留隐藏系列与缺失值。",
-    "site.workflowAnalytics.catalog.16":
-      "选中与键盘下钻；没有能力时不显示动作。",
-    "site.workflowAnalytics.catalog.17":
-      "按需加载的柱、线、面积、Donut、散点统计渲染器。",
-    "site.workflowAnalytics.catalog.18": "五种图形共享快照与稳定选择。",
-    "site.workflowAnalytics.catalog.19": "堆叠可选；Donut必须明确互斥组成。",
-    "site.workflowAnalytics.catalog.20":
-      "连续轴使用实际x；显式数值范围及参考线/区间。",
-    "site.workflowAnalytics.catalog.21":
-      "图形、数据表、触屏与键盘产生相同业务描述。",
-    "site.workflowAnalytics.catalog.22": "权限和新鲜度与数据态分轴。",
-    "site.workflowAnalytics.catalog.23":
-      "快照匹配、历史成员说明与分页来源记录面板。",
-    "site.workflowAnalytics.catalog.24": "受控打开/关闭，保留图表选择与筛选。",
-    "site.workflowAnalytics.catalog.25":
-      "必须匹配选中快照，分页标已加载/总量。",
-    "site.workflowAnalytics.catalog.26":
-      "显示口径与历史成员说明；不混淆权限和空集合。",
-    "site.workflowAnalytics.catalog.27": "只报告意图；没有能力不显示操作。",
-    "site.workflowAnalytics.catalog.28":
-      "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
-    "site.workflowAnalytics.catalog.29": "复用MetricSummary，null显示不适用。",
-    "site.workflowAnalytics.catalog.30":
-      "零基期不显示无穷比例；部分数据明确标记。",
-    "site.workflowAnalytics.catalog.31":
-      "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
-    "site.workflowAnalytics.catalog.32":
-      "状态、完成趋势、年龄、阻塞四个固定模板。",
-    "site.workflowAnalytics.catalog.33": "复用统计图表受控交互与读态。",
-    "site.workflowAnalytics.catalog.34":
-      "可解释的逾期、阻塞、缺日期与年龄事实列表。",
-    "site.workflowAnalytics.catalog.35":
-      "每条有rule/threshold/asOf/source/entityRef；不是健康总分。",
-    "site.workflowAnalytics.catalog.36": "可选来源对象入口。",
-    "site.workflowAnalytics.catalog.37":
-      "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
-    "site.workflowAnalytics.catalog.38":
-      "区分trace/contains/blocks/execution-parent/idea-link。",
-    "site.workflowAnalytics.catalog.39": "受控对象选择与五种读态。",
-    "site.workflowAnalytics.catalog.40":
-      "保留业务能力的分析快照到工作项五布局适配。",
-    "site.workflowAnalytics.catalog.41":
-      "同快照成员映射到已有五布局，原业务能力保持。",
-    "site.workflowAnalytics.catalog.42": "撤权后隐藏整个工作区。",
-    "site.workflowAnalytics.catalog.43":
-      "固定响应网格、独立 Widget、口径查看与受控工具栏。",
-    "site.workflowAnalytics.catalog.44":
-      "复用WorkspaceShell，填充有明确高度的父容器。",
-    "site.workflowAnalytics.catalog.45":
-      "受控范围、成员、刷新与数据时间；筛选归调用方。",
-    "site.workflowAnalytics.catalog.46":
-      "桌面12列、中屏6列、窄屏单列；独立读态。",
-    "site.workflowAnalytics.catalog.47":
-      "口径与允许导出；不显示无法保存的编辑。",
-    "site.workflowAnalytics.catalog.48":
-      "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
-    "site.workflowAnalytics.catalog.49":
-      "每项有稳定id/query/result及独立data态。",
-    "site.workflowAnalytics.catalog.50": "受控风险事实；撤权隐藏数据区域。",
-    "site.workflowAnalytics.catalog.51":
-      "点选默认只开来源，导出和查询由调用方执行。",
-    "site.examples.workflowAnalyticsDescription":
-      "固定项目 Dashboard、历史口径图表与同快照工作项下钻。",
-    "site.redesign.previewDisplay": "预览展示方式",
-    "site.redesign.apiType": "类型",
-    "site.redesign.guideSource": "内容依据",
-    "site.redesign.breadcrumb": "面包屑",
-    "site.redesign.pagination": "文档上下篇",
-    "site.redesign.purpose": "用途分组",
     "site.redesign.homeTitle": "从组件，到完整的工作界面。",
-    "site.redesign.homeIntro":
-      "可组合、可修改的 React 源码组件，为任务管理、Agent 执行与工作流构建清晰的界面。",
+    "site.redesign.homeIntro": "可组合、可修改的 React 源码组件，为任务管理、Agent 执行与工作流构建清晰的界面。",
     "site.redesign.build": "开始构建",
     "site.redesign.viewExamples": "查看示例",
     "site.redesign.openExample": "打开完整示例",
     "site.redesign.localDemo": "本地交互演示",
     "site.redesign.featured": "为真实任务选择组件",
-    "site.redesign.featuredIntro":
-      "从一个明确的交互开始，再组合成自己的工作界面。",
+    "site.redesign.featuredIntro": "从一个明确的交互开始，再组合成自己的工作界面。",
     "site.redesign.composition": "选择组件，安装源码，组合页面。",
-    "site.redesign.sourceOwnership":
-      "源码进入你的项目；数据、权限和执行服务由你掌握。",
+    "site.redesign.sourceOwnership": "源码进入你的项目；数据、权限和执行服务由你掌握。",
     "site.redesign.recent": "优化与实现记录",
     "site.redesign.resources": "资源",
     "site.redesign.repository": "代码仓库",
@@ -122,8 +24,7 @@ export const siteMessages = {
     "site.redesign.search": "搜索文档",
     "site.redesign.searchHint": "搜索组件、指南、示例或文章",
     "site.redesign.searchError": "搜索索引加载失败。可以重试或浏览组件目录。",
-    "site.redesign.searchEmpty":
-      "没有匹配结果。试试 Button、按钮、日期或 Canvas。",
+    "site.redesign.searchEmpty": "没有匹配结果。试试 Button、按钮、日期或 Canvas。",
     "site.redesign.searchComponents": "组件",
     "site.redesign.searchGuides": "指南",
     "site.redesign.searchExamples": "示例",
@@ -143,8 +44,7 @@ export const siteMessages = {
     "site.redesign.loadSource": "读取所选文件",
     "site.redesign.sourceLoading": "正在读取源码…",
     "site.redesign.sourceError": "源码资源读取失败，请重试。",
-    "site.redesign.sourceContext":
-      "仓库原始文件；安装时 CLI 会重写导入路径并解析依赖。示例包含本地 fixture，不能替代生产服务。",
+    "site.redesign.sourceContext": "仓库原始文件；安装时 CLI 会重写导入路径并解析依赖。示例包含本地 fixture，不能替代生产服务。",
     "site.redesign.showFull": "展开完整代码",
     "site.redesign.collapseCode": "收起代码",
     "site.redesign.grid": "网格",
@@ -153,8 +53,7 @@ export const siteMessages = {
     "site.redesign.guidePaths": "从这里开始",
     "site.redesign.browseAll": "浏览全部组件",
     "site.redesign.exampleGallery": "完整界面，由组件组合而成。",
-    "site.redesign.exampleGalleryIntro":
-      "探索可运行的本地示例，查看所用组件和实现记录。",
+    "site.redesign.exampleGalleryIntro": "探索可运行的本地示例，查看所用组件和实现记录。",
     "site.redesign.usedComponents": "使用的组件",
     "site.redesign.readArticle": "阅读实现记录",
     "site.redesign.thumbnail": "组件结构示意",
@@ -171,30 +70,195 @@ export const siteMessages = {
     "site.redesign.chooseStep": "选择组件",
     "site.redesign.composeStep": "组合页面",
     "site.redesign.apiDefault": "默认值",
-    "site.redesign.stateNote":
-      "以下演示仅修改本地数据；读取、写入、权限与结果确认由调用方负责。",
-    "site.shadcnForms.catalog.textarea":
-      "多行文本输入，保留原生表单、引用与草稿语义。",
-    "site.shadcnForms.contract.textarea":
-      "支持受控和非受控值；错误不会清空草稿。",
+    "site.redesign.stateNote": "以下演示仅修改本地数据；读取、写入、权限与结果确认由调用方负责。",
+    "site.redesign.breadcrumb": "面包屑",
+    "site.redesign.pagination": "文档上下篇",
+    "site.redesign.purpose": "用途分组",
+    "site.redesign.apiType": "类型",
+    "site.redesign.guideSource": "内容依据",
+    "site.redesign.previewDisplay": "预览展示方式",
+    "site.workflowAnalytics.catalog.00": "带来源身份、历史覆盖、指标版本、筛选交集与下钻快照的纯分析契约。",
+    "site.workflowAnalytics.catalog.01": "本地示例不证明真实服务接入；权限、历史、查询、写入和持久化由调用方负责。",
+    "site.workflowAnalytics.catalog.02": "时间采用 [from,to)，缺失不当零；图例不改分母，点选默认只开下钻。",
+    "site.workflowAnalytics.catalog.03": "纯查询描述；筛选逐层取交集，范围采用 [from,to)。",
+    "site.workflowAnalytics.catalog.04": "受控聚合快照，complete/partial/unavailable 不能互相冒充。",
+    "site.workflowAnalytics.catalog.05": "可选小数据重放；无期初或缺口时不生成趋势。",
+    "site.workflowAnalytics.catalog.06": "独立于统计引擎的系列、选择、数值格式与比较模型。",
+    "site.workflowAnalytics.catalog.07": "稳定选择身份；不包含统计引擎事件对象。",
+    "site.workflowAnalytics.catalog.08": "纯适配；非有限值转缺失，重复身份报错。",
+    "site.workflowAnalytics.catalog.09": "共享图表标题、口径、范围、权限隔离与五种数据态。",
+    "site.workflowAnalytics.catalog.10": "标题与正式口径，保留调用方文案。",
+    "site.workflowAnalytics.catalog.11": "结果 queryKey 必须匹配；切范围不显示旧值。",
+    "site.workflowAnalytics.catalog.12": "denied 隐藏旧图、数据和操作。",
+    "site.workflowAnalytics.catalog.13": "独立五种读态、刷新、错误和安全重读。",
+    "site.workflowAnalytics.catalog.14": "聚合点的完整结构化表格与键盘下钻路径。",
+    "site.workflowAnalytics.catalog.15": "完整聚合点表，保留隐藏系列与缺失值。",
+    "site.workflowAnalytics.catalog.16": "选中与键盘下钻；没有能力时不显示动作。",
+    "site.workflowAnalytics.catalog.17": "按需加载的柱、线、面积、Donut、散点统计渲染器。",
+    "site.workflowAnalytics.catalog.18": "五种图形共享快照与稳定选择。",
+    "site.workflowAnalytics.catalog.19": "堆叠可选；Donut必须明确互斥组成。",
+    "site.workflowAnalytics.catalog.20": "连续轴使用实际x；显式数值范围及参考线/区间。",
+    "site.workflowAnalytics.catalog.21": "图形、数据表、触屏与键盘产生相同业务描述。",
+    "site.workflowAnalytics.catalog.22": "权限和新鲜度与数据态分轴。",
+    "site.workflowAnalytics.catalog.23": "快照匹配、历史成员说明与分页来源记录面板。",
+    "site.workflowAnalytics.catalog.24": "受控打开/关闭，保留图表选择与筛选。",
+    "site.workflowAnalytics.catalog.25": "必须匹配选中快照，分页标已加载/总量。",
+    "site.workflowAnalytics.catalog.26": "显示口径与历史成员说明；不混淆权限和空集合。",
+    "site.workflowAnalytics.catalog.27": "只报告意图；没有能力不显示操作。",
+    "site.workflowAnalytics.catalog.28": "复用 MetricSummary 的口径、基期、覆盖与下钻指标。",
+    "site.workflowAnalytics.catalog.29": "复用MetricSummary，null显示不适用。",
+    "site.workflowAnalytics.catalog.30": "零基期不显示无穷比例；部分数据明确标记。",
+    "site.workflowAnalytics.catalog.31": "状态分布、完成趋势、工作项年龄与阻塞分布固定模板。",
+    "site.workflowAnalytics.catalog.32": "状态、完成趋势、年龄、阻塞四个固定模板。",
+    "site.workflowAnalytics.catalog.33": "复用统计图表受控交互与读态。",
+    "site.workflowAnalytics.catalog.34": "可解释的逾期、阻塞、缺日期与年龄事实列表。",
+    "site.workflowAnalytics.catalog.35": "每条有rule/threshold/asOf/source/entityRef；不是健康总分。",
+    "site.workflowAnalytics.catalog.36": "可选来源对象入口。",
+    "site.workflowAnalytics.catalog.37": "区分 Idea、工作项、Session、Run、Artifact 的有类型关联表。",
+    "site.workflowAnalytics.catalog.38": "区分trace/contains/blocks/execution-parent/idea-link。",
+    "site.workflowAnalytics.catalog.39": "受控对象选择与五种读态。",
+    "site.workflowAnalytics.catalog.40": "保留业务能力的分析快照到工作项五布局适配。",
+    "site.workflowAnalytics.catalog.41": "同快照成员映射到已有五布局，原业务能力保持。",
+    "site.workflowAnalytics.catalog.42": "撤权后隐藏整个工作区。",
+    "site.workflowAnalytics.catalog.43": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
+    "site.workflowAnalytics.catalog.44": "复用WorkspaceShell，填充有明确高度的父容器。",
+    "site.workflowAnalytics.catalog.45": "受控范围、成员、刷新与数据时间；筛选归调用方。",
+    "site.workflowAnalytics.catalog.46": "桌面12列、中屏6列、窄屏单列；独立读态。",
+    "site.workflowAnalytics.catalog.47": "口径与允许导出；不显示无法保存的编辑。",
+    "site.workflowAnalytics.catalog.48": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
+    "site.workflowAnalytics.catalog.49": "每项有稳定id/query/result及独立data态。",
+    "site.workflowAnalytics.catalog.50": "受控风险事实；撤权隐藏数据区域。",
+    "site.workflowAnalytics.catalog.51": "点选默认只开来源，导出和查询由调用方执行。",
+    "site.examples.workflowAnalyticsDescription": "固定项目 Dashboard、历史口径图表与同快照工作项下钻。",
+    // BEGIN shadcn completion zh-CN
+    "site.completion.catalog.button-group": "同组操作的紧凑容器。",
+    "site.completion.contract.button-group": "只组合兄弟操作目标，不引入选中状态。",
+    "site.completion.catalog.input-group": "输入与前后缀、操作的组合。",
+    "site.completion.contract.input-group": "标签由原生输入负责；附加操作保持独立。",
+    "site.completion.catalog.toggle": "支持按下状态的切换按钮。",
+    "site.completion.contract.toggle": "按下与焦点独立；值由调用方持有。",
+    "site.completion.catalog.toggle-group": "单选或多选切换组。",
+    "site.completion.contract.toggle-group": "值始终为数组；方向键移动焦点。",
+    "site.completion.catalog.input-otp": "原生一次性验证码输入。",
+    "site.completion.contract.input-otp": "保留原生粘贴、选择、删除、自动填充及表单行为；验证由调用方负责。",
+    "site.completion.catalog.separator": "语义或装饰性分隔线。",
+    "site.completion.contract.separator": "装饰性分隔默认不进入无障碍树。",
+    "site.completion.catalog.collapsible": "受控或非受控内容折叠。",
+    "site.completion.contract.collapsible": "展开与业务选择分开；触发器保持键盘与焦点关联。",
+    "site.completion.catalog.accordion": "单项或多项展开的手风琴。",
+    "site.completion.contract.accordion": "每个标题有独立触发器；禁用项不展开。",
+    "site.completion.catalog.tooltip": "支持悬停和焦点的补充提示。",
+    "site.completion.contract.tooltip": "提示不承担关键操作；浮层进入当前主题边界。",
+    "site.completion.catalog.alert-dialog": "显式确认请求的模态对话框。",
+    "site.completion.contract.alert-dialog": "确认按钮由调用方提供；请求返回不代表操作完成。",
+    "site.completion.catalog.hover-card": "链接的补充预览层。",
+    "site.completion.contract.hover-card": "重要内容需通过链接或可见按钮到达；预览不是唯一入口。",
+    "site.completion.catalog.context-menu": "右键、键盘与长按的上下文动作。",
+    "site.completion.contract.context-menu": "提供可见菜单替代以支持触摸；动作仅由回调触发。",
+    "site.completion.catalog.skeleton": "结构相符的静态加载占位。",
+    "site.completion.contract.skeleton": "加载语义由外层区域负责；减少动效下无闪烁。",
+    "site.completion.catalog.spinner": "附带可读文本的忙碌指示。",
+    "site.completion.contract.spinner": "减少动效时停止旋转，保持状态文字。",
+    "site.completion.catalog.empty": "说明空态原因与下一步。",
+    "site.completion.contract.empty": "操作由调用方提供；不把错误展示为空数据。",
+    "site.completion.catalog.alert": "内联信息、警告与错误反馈。",
+    "site.completion.contract.alert": "即时错误用 alert，常规通知用 status；不改变运行状态。",
+    "site.completion.catalog.progress": "确定或未知总量的任务进度。",
+    "site.completion.contract.progress": "未知进度不提供伪造百分比；测量值使用 Meter。",
+    "site.completion.catalog.toast": "统一、可更新和关闭的通知体系。",
+    "site.completion.contract.toast": "通知仅表达调用方已知事实，不根据请求返回推断业务完成。",
+    "site.completion.catalog.sonner": "复用 Toast 的通知适配入口。",
+    "site.completion.contract.sonner": "使用同一 Provider 与 Toaster；不承诺 Sonner 包的 API 兼容。",
+    "site.completion.catalog.date-calendar": "按民用日期键选择单日或范围。",
+    "site.completion.contract.date-calendar": "使用 YYYY-MM-DD 与 UTC 日历运算；禁用日期不可选择，范围内禁用日会阻止完成。",
+    "site.completion.catalog.date-picker": "日期日历与弹出层的组合。",
+    "site.completion.contract.date-picker": "单日或完整范围选择后关闭并恢复焦点；日期值不因语言或时区变化。",
+    "site.completion.catalog.pagination": "受控分页请求与未知总数导航。",
+    "site.completion.contract.pagination": "只请求页码变化；未知总数依赖 hasNext，不推断最后一页。",
+    "site.completion.catalog.breadcrumb": "路径层级与当前页面导航。",
+    "site.completion.contract.breadcrumb": "导航使用链接；当前页面使用 aria-current。",
+    "site.completion.catalog.menubar": "桌面应用菜单栏与动作菜单。",
+    "site.completion.contract.menubar": "键盘跨菜单导航由 Base UI 管理；禁用动作不执行。",
+    "site.completion.catalog.navigation-menu": "站点层级导航与链接浮层。",
+    "site.completion.contract.navigation-menu": "保留链接和键盘语义；主题浮层通过 Viewport 分发。",
+    "site.completion.catalog.direction": "同步 DOM 与 Base UI 的阅读方向。",
+    "site.completion.contract.direction": "方向边界不翻译调用方内容，值与服务请求保持不变。",
+    "site.completion.catalog.attachment": "调用方附件状态与打开、移除操作。",
+    "site.completion.contract.attachment": "不读取或上传文件；未知结果和忙碌状态阻止再次写入。",
+    "site.completion.catalog.marker": "对话时间、章节与事件分隔标记。",
+    "site.completion.contract.marker": "只读标记无交互悬停；调用方内容保持原样。",
+    "site.completion.catalog.questionnaire": "逐题单选、多选和文本问卷。",
+    "site.completion.contract.questionnaire": "答案受控；支持跳过、回退和错误保留；提交结果由调用方确认。",
+    "site.completion.catalog.bubble": "独立引用或批注的内容容器。",
+    "site.completion.contract.bubble": "用于独立引用示例，不改变 ChatMessage 的同轴对话布局。",
+    "site.completion.catalog.card": "独立内容、概览和预览容器。",
+    "site.completion.contract.card": "普通会话、日志和列表继续使用 Item、list 或 table。",
+    "site.completion.catalog.aspect-ratio": "保留指定纵横比的内容区域。",
+    "site.completion.contract.aspect-ratio": "比例必须为有限正数；无效输入回退 16:9。",
+    "site.completion.catalog.carousel": "手动控制、键盘与触摸轮播。",
+    "site.completion.contract.carousel": "不自动播放；隐藏页保留草稿并离开 Tab 顺序；方向随 RTL 调整。",
+    "site.completion.catalog.chart": "带完整文本替代的轻量柱图和折线图。",
+    "site.completion.contract.chart": "最多展示最近120项；空、缺失、负值和零值分开，未增加图表依赖。",
+    "site.completion.catalog.form": "原生表单与 Field 的轻量组合。",
+    "site.completion.contract.form": "调用方拥有验证、提交、错误和持久化；不要求特定表单库。",
+    "site.completion.catalog.sidebar": "受控折叠的独立侧栏布局。",
+    "site.completion.contract.sidebar": "默认宽256、折叠48；标签和当前链接保留；不持久化偏好。",
+    "site.completion.catalog.resizable": "可复用双面板与尺寸调整手柄。",
+    "site.completion.contract.resizable": "支持指针、键盘、RTL、边界和取消；像素值由调用方持有。",
+    "site.completion.catalog.scroll-area": "保留浏览器行为的原生滚动区域。",
+    "site.completion.contract.scroll-area": "无需模拟滚动条；保留键盘、选择、查找与 ref。",
+    "site.completion.catalog.command": "复用 CommandPalette 的内嵌命令面板。",
+    "site.completion.contract.command": "结果、过滤和激活由调用方提供；不默认监听全局快捷键。",
+    "site.completion.catalog.drawer": "复用 Sheet 的抽屉与可选滑动关闭。",
+    "site.completion.contract.drawer": "仅底部显式手柄支持滑动；正文原生滚动，焦点恢复沿用 Sheet。",
+    "site.completion.actions": "操作",
+    "site.completion.draft": "草稿",
+    "site.completion.read": "读取表单值",
+    "site.completion.bold": "粗体",
+    "site.completion.italic": "斜体",
+    "site.completion.code": "代码",
+    "site.completion.disabled": "不可用",
+    "site.completion.single": "单选",
+    "site.completion.multiple": "多选",
+    "site.completion.otp": "一次性验证码",
+    "site.completion.hint": "仅在本地演示，真实操作由调用方提供。",
+    "site.completion.show": "展开详情",
+    "site.completion.content": "保留内容与调用方状态。",
+    "site.completion.confirm": "确认请求",
+    "site.completion.cancel": "取消",
+    "site.completion.warning": "确认此请求的目标和范围。",
+    "site.completion.open": "打开",
+    "site.completion.title": "项目详情",
+    "site.completion.retry": "重试读取",
+    "site.completion.loading": "正在读取",
+    "site.completion.empty": "尚无内容",
+    "site.completion.emptyHint": "创建内容或调整筛选。",
+    "site.completion.error": "读取失败，已有内容保留。",
+    "site.completion.previous": "上一项",
+    "site.completion.next": "下一项",
+    "site.completion.submit": "提交答案",
+    "site.completion.skip": "跳过",
+    "site.completion.back": "返回",
+    "site.completion.question": "选择所需能力",
+    "site.completion.answer": "补充说明",
+    "site.completion.remove": "移除附件",
+    "site.completion.attachment": "附件说明.txt",
+    "site.completion.pending": "待确认",
+    "site.completion.messageNavigation": "消息定位示例",
+    // END shadcn completion zh-CN
+
+    "site.shadcnForms.catalog.textarea": "多行文本输入，保留原生表单、引用与草稿语义。",
+    "site.shadcnForms.contract.textarea": "支持受控和非受控值；错误不会清空草稿。",
     "site.shadcnForms.catalog.label": "独立字段标签，沿用原生 htmlFor 与 ref。",
-    "site.shadcnForms.contract.label":
-      "只负责标签关联；完整说明与错误关联使用 Field。",
-    "site.shadcnForms.catalog.native-select":
-      "原生选择器、选项与分组，保留移动端系统选择器。",
-    "site.shadcnForms.contract.native-select":
-      "显示标签与提交值分开，支持多选和原生表单属性。",
-    "site.shadcnForms.catalog.switch":
-      "受控或非受控开关，保留原生表单与只读状态。",
-    "site.shadcnForms.contract.switch":
-      "32px操作目标、粗指针44px；回调只报告设置值变化。",
-    "site.shadcnForms.catalog.radio-group":
-      "常规单选组，键盘选择、焦点与表单值由 Base UI 管理。",
-    "site.shadcnForms.contract.radio-group":
-      "单选值受控或非受控；协议值不随显示语言改变。",
+    "site.shadcnForms.contract.label": "只负责标签关联；完整说明与错误关联使用 Field。",
+    "site.shadcnForms.catalog.native-select": "原生选择器、选项与分组，保留移动端系统选择器。",
+    "site.shadcnForms.contract.native-select": "显示标签与提交值分开，支持多选和原生表单属性。",
+    "site.shadcnForms.catalog.switch": "受控或非受控开关，保留原生表单与只读状态。",
+    "site.shadcnForms.contract.switch": "32px操作目标、粗指针44px；回调只报告设置值变化。",
+    "site.shadcnForms.catalog.radio-group": "常规单选组，键盘选择、焦点与表单值由 Base UI 管理。",
+    "site.shadcnForms.contract.radio-group": "单选值受控或非受控；协议值不随显示语言改变。",
     "site.shadcnForms.draft": "说明草稿",
-    "site.shadcnForms.draftHint":
-      "输入保留在当前页面；校验错误和切换语言不会清空内容。",
+    "site.shadcnForms.draftHint": "输入保留在当前页面；校验错误和切换语言不会清空内容。",
     "site.shadcnForms.draftError": "请检查说明，草稿已保留。",
     "site.shadcnForms.disabledDraft": "禁用的说明",
     "site.shadcnForms.toggleError": "切换校验错误",
@@ -212,19 +276,17 @@ export const siteMessages = {
     "site.shadcnForms.uncontrolledSwitch": "非受控开关",
     "site.shadcnForms.disabledSwitch": "禁用开关",
     "site.shadcnForms.readonlySwitch": "只读开关",
-    "site.shadcnForms.localOnly":
-      "仅修改本地示例值，刷新后重置；真实设置保存由调用方负责。",
+    "site.shadcnForms.localOnly": "仅修改本地示例值，刷新后重置；真实设置保存由调用方负责。",
     "site.shadcnForms.mode": "运行方式",
     "site.shadcnForms.manual": "手动",
     "site.shadcnForms.automatic": "自动",
     "site.shadcnForms.disabledGroup": "禁用单选组",
+
     "site.examples.workItemsTitle": "Work Items 组件示例",
     "site.examples.navigation": "示例",
     "site.examples.title": "组件示例",
-    "site.examples.description":
-      "通过完整交互示例了解组件如何组合；每个示例使用本地数据，便于探索布局与状态。",
-    "site.examples.workItemsDescription":
-      "List、Board、Table、Timeline 与 Calendar 共享字段、选择和日期操作。",
+    "site.examples.description": "通过完整交互示例了解组件如何组合；每个示例使用本地数据，便于探索布局与状态。",
+    "site.examples.workItemsDescription": "List、Board、Table、Timeline 与 Calendar 共享字段、选择和日期操作。",
     "site.examples.back": "返回示例",
     "site.examples.moved": "Work Items 展示已移至组件示例页面。",
     "site.examples.openWorkItems": "打开 Work Items 示例",
@@ -235,31 +297,29 @@ export const siteMessages = {
     "site.schedule.catalog.4": "去重未排期队列与紧凑工作项日历条目。",
     "site.schedule.catalog.5": "工作项排期，平移与两端调整使用独立字段能力。",
     "site.schedule.catalog.6": "仅修改截止日的日历、逐日分页与未排期工作项。",
-    "site.schedule.catalog.7":
-      "调用方持有记录、权限、分页、原子写入与结果对账。",
+    "site.schedule.catalog.7": "调用方持有记录、权限、分页、原子写入与结果对账。",
     "site.schedule.catalog.8": "本地示例刷新清除；真实服务仍由调用方接入。",
-    "site.workItems.enhancementsDescription":
-      "受控批量字段修改、逐项回执与调用方保存视图接口。",
-    "site.workItems.enhancementsProps":
-      "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。",
-    "site.workItems.enhancementsNotes":
-      "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。",
-    "site.workItems.enhancementNotice":
-      "泳道、子项与批量操作使用本地快照；保存视图仅保存在当前页面内存，刷新清除。真实权限、回执和存储由接入方提供。",
+
+    "site.workItems.enhancementsDescription": "受控批量字段修改、逐项回执与调用方保存视图接口。",
+    "site.workItems.enhancementsProps": "调用方持有权威快照、版本、权限、写入与未知结果；组件不存储业务数据。",
+    "site.workItems.enhancementsNotes": "批量仅状态/优先级；保存视图无默认持久化。真实服务由调用方接入。",
+
+    "site.workItems.enhancementNotice": "泳道、子项与批量操作使用本地快照；保存视图仅保存在当前页面内存，刷新清除。真实权限、回执和存储由接入方提供。",
     "site.workItems.scenario.hierarchy": "子项与部分加载",
     "site.workItems.scenario.batch-mixed": "批量部分成功",
     "site.workItems.viewConflict": "保存视图版本冲突，草稿已保留。",
-    "site.agentBoardP2.agent-dependency-graph":
+
+"site.agentBoardP2.agent-dependency-graph":
       "仅展示来源明确的运行依赖；只读画布与可访问列表同步。",
-    "site.agentBoardP2.agent-usage-history":
+"site.agentBoardP2.agent-usage-history":
       "来源区间历史；运行与币种独立，缺失观测保留断点。",
-    "site.agentBoardP2.agent-run-virtual-list":
+"site.agentBoardP2.agent-run-virtual-list":
       "可变行高的受控运行列表，保留离屏焦点和完整加载口径。",
-    "site.agentBoardP2.toolbar": "共享运行筛选与可选依赖视图受控切换。",
+"site.agentBoardP2.toolbar": "共享运行筛选与可选依赖视图受控切换。",
+
     "site.workItems.simulatedAgent": "模拟 Agent",
     "site.workItems.noProjectItems": "项目尚无工作项",
-    "site.workItems.noProjectItemsHint":
-      "使用顶部新建工作项开始；本地数据刷新后重置。",
+    "site.workItems.noProjectItemsHint": "使用顶部新建工作项开始；本地数据刷新后重置。",
     "site.workItems.scenario.field-rejected": "标题被拒绝，其他字段可保存",
     "site.workItems.demoRefreshError": "示例：刷新失败，旧快照已保留。",
     "site.workItems.demoPageError": "示例：加载更多失败，已加载项保留。",
@@ -268,16 +328,13 @@ export const siteMessages = {
     "site.workItems.demoRejected": "示例明确拒绝本次修改，可修改后重试。",
     "site.workItems.demoConfirmed": "示例已确认修改。",
     "site.workItems.demoReconciled": "查询示例回执后确认已生效。",
-    "site.workItems.demoMoveUnavailable":
-      "落点、权限或快照已变化，请重新选择。",
+    "site.workItems.demoMoveUnavailable": "落点、权限或快照已变化，请重新选择。",
     "site.workItems.demoCreated": "已添加到本地示例。",
-    "site.workItems.demoCreatedHidden":
-      "已添加到示例，当前筛选下不可见；可清除筛选查看。",
+    "site.workItems.demoCreatedHidden": "已添加到示例，当前筛选下不可见；可清除筛选查看。",
     "site.workItems.demoWorkspace": "返回工作台",
     "site.workItems.demoDocs": "组件文档",
     "site.workItems.demoTheme": "切换主题",
-    "site.workItems.demoNotice":
-      "确定性本地示例；刷新重置数据。写入、Agent 与回执均为模拟，不连接 Plane 或真实服务。",
+    "site.workItems.demoNotice": "确定性本地示例；刷新重置数据。写入、Agent 与回执均为模拟，不连接 Plane 或真实服务。",
     "site.workItems.demoScenario": "示例场景",
     "site.workItems.demoReset": "重置示例",
     "site.workItems.demoCounts": "已加载 {loaded} / 示例总数 {total}",
@@ -296,44 +353,32 @@ export const siteMessages = {
     "site.workItems.scenario.1000": "1000 项",
     "site.workItems.catalog0": "受控分组列表，保留分组读取状态与未知总数。",
     "site.workItems.catalog1": "通用受控看板，指针、触屏与键盘移动共享命令。",
-    "site.workItems.catalog2":
-      "工作项共享属性与选择器，业务状态独立于运行状态。",
+    "site.workItems.catalog2": "工作项共享属性与选择器，业务状态独立于运行状态。",
     "site.workItems.catalog3": "工作项行与卡片，主目标、勾选及属性为兄弟目标。",
     "site.workItems.catalog4": "同一工作项快照的列表、看板和表格适配。",
     "site.workItems.catalog5": "工作项搜索、筛选、布局、排序与显示设置。",
     "site.workItems.catalog6": "受控工作项详情及保留失败草稿的快速创建。",
-    "site.workItems.catalog7":
-      "组合三种工作项布局与详情，路由和服务由调用方持有。",
-    "site.workItems.catalog8":
-      "调用方负责权威快照、权限、写入、分页与未知结果对账。",
+    "site.workItems.catalog7": "组合三种工作项布局与详情，路由和服务由调用方持有。",
+    "site.workItems.catalog8": "调用方负责权威快照、权限、写入、分页与未知结果对账。",
+
     "site.agentBoard.board": "通用受控列容器，支持分组数据态及能力受控移动。",
-    "site.agentBoard.agent-run-properties":
-      "共享运行身份、模型、耗时与原始状态。",
-    "site.agentBoard.run-stage-summary":
-      "来源阶段与有明确分母的步骤计数，不生成假进度。",
+    "site.agentBoard.agent-run-properties": "共享运行身份、模型、耗时与原始状态。",
+    "site.agentBoard.run-stage-summary": "来源阶段与有明确分母的步骤计数，不生成假进度。",
     "site.agentBoard.agent-run-row": "紧凑运行行；查看与尾部操作使用兄弟目标。",
     "site.agentBoard.agent-run-card": "独立运行卡片；缺失计数保留为未知。",
     "site.agentBoard.agent-run-list": "同一运行集合的只读分组列表。",
     "site.agentBoard.agent-run-board": "按来源状态派生分列的只读运行看板。",
-    "site.agentBoard.agent-run-inspector":
-      "完整受控运行详情，组合请求、执行、产物与关联。",
-    "site.agentBoard.attention-queue":
-      "按关注 ID 去重；请求数与运行数分别表达。",
-    "site.agentBoard.approval-request-panel":
-      "工具审批复用 ToolCall；未知结果必须先核对。",
+    "site.agentBoard.agent-run-inspector": "完整受控运行详情，组合请求、执行、产物与关联。",
+    "site.agentBoard.attention-queue": "按关注 ID 去重；请求数与运行数分别表达。",
+    "site.agentBoard.approval-request-panel": "工具审批复用 ToolCall；未知结果必须先核对。",
     "site.agentBoard.artifact-list": "产物入口、可用状态与独立审阅摘要。",
     "site.agentBoard.review-summary": "审阅、业务验收与 PR 状态分别呈现。",
-    "site.agentBoard.execution-trace-tree":
-      "可观测父子执行步骤与脱敏工具详情。",
-    "site.agentBoard.agent-relationship-list":
-      "仅展示来源明确的运行关联与交接。",
-    "site.agentBoard.agent-usage-summary":
-      "来源用量去重、覆盖说明与分币种合计。",
+    "site.agentBoard.execution-trace-tree": "可观测父子执行步骤与脱敏工具详情。",
+    "site.agentBoard.agent-relationship-list": "仅展示来源明确的运行关联与交接。",
+    "site.agentBoard.agent-usage-summary": "来源用量去重、覆盖说明与分币种合计。",
     "site.agentBoard.agent-board-toolbar": "共享运行筛选与四视图受控切换。",
-    "site.agentBoard.agent-board-workspace":
-      "受控 Agent 工作台；路由、服务与持久化归调用方。",
-    "site.agentBoard.note":
-      "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。",
+    "site.agentBoard.agent-board-workspace": "受控 Agent 工作台；路由、服务与持久化归调用方。",
+    "site.agentBoard.note": "示例仅证明本地组件交互；真实授权、执行和存储由调用方提供。",
     "site.commonComponents.budgetError": "请输入有效数值，原始输入已保留。",
     "site.commonComponents.dataState": "读取状态",
     "site.commonComponents.success": "读取成功",
@@ -344,6 +389,7 @@ export const siteMessages = {
       "输出临时引擎尺寸；不能写入图文档或撤销历史。",
     "site.optimization.fixedNodeIdsContract":
       "自动布局保留这些节点坐标；不增加业务权限或手动编辑锁定。",
+
     "site.commonContracts.description0":
       "原生表单关联的三态复选框，选择与焦点分离。",
     "site.commonContracts.contract0":
@@ -2731,156 +2777,7 @@ export const siteMessages = {
       "基于 Component Specification 初始化的紧凑 Agent 工作台，统一尺寸、运行状态和 Inspector。",
     "site.metadata_workspace_canvasDescription":
       "构图、配置、校验与 JSON 导入导出的本地画布工作台。",
-    "site.completion.catalog.button-group": "同组操作的紧凑容器。",
-    "site.completion.contract.button-group":
-      "只组合兄弟操作目标，不引入选中状态。",
-    "site.completion.catalog.input-group": "输入与前后缀、操作的组合。",
-    "site.completion.contract.input-group":
-      "标签由原生输入负责；附加操作保持独立。",
-    "site.completion.catalog.toggle": "支持按下状态的切换按钮。",
-    "site.completion.contract.toggle": "按下与焦点独立；值由调用方持有。",
-    "site.completion.catalog.toggle-group": "单选或多选切换组。",
-    "site.completion.contract.toggle-group": "值始终为数组；方向键移动焦点。",
-    "site.completion.catalog.input-otp": "原生一次性验证码输入。",
-    "site.completion.contract.input-otp":
-      "保留原生粘贴、选择、删除、自动填充及表单行为；验证由调用方负责。",
-    "site.completion.catalog.separator": "语义或装饰性分隔线。",
-    "site.completion.contract.separator": "装饰性分隔默认不进入无障碍树。",
-    "site.completion.catalog.collapsible": "受控或非受控内容折叠。",
-    "site.completion.contract.collapsible":
-      "展开与业务选择分开；触发器保持键盘与焦点关联。",
-    "site.completion.catalog.accordion": "单项或多项展开的手风琴。",
-    "site.completion.contract.accordion":
-      "每个标题有独立触发器；禁用项不展开。",
-    "site.completion.catalog.tooltip": "支持悬停和焦点的补充提示。",
-    "site.completion.contract.tooltip":
-      "提示不承担关键操作；浮层进入当前主题边界。",
-    "site.completion.catalog.alert-dialog": "显式确认请求的模态对话框。",
-    "site.completion.contract.alert-dialog":
-      "确认按钮由调用方提供；请求返回不代表操作完成。",
-    "site.completion.catalog.hover-card": "链接的补充预览层。",
-    "site.completion.contract.hover-card":
-      "重要内容需通过链接或可见按钮到达；预览不是唯一入口。",
-    "site.completion.catalog.context-menu": "右键、键盘与长按的上下文动作。",
-    "site.completion.contract.context-menu":
-      "提供可见菜单替代以支持触摸；动作仅由回调触发。",
-    "site.completion.catalog.skeleton": "结构相符的静态加载占位。",
-    "site.completion.contract.skeleton":
-      "加载语义由外层区域负责；减少动效下无闪烁。",
-    "site.completion.catalog.spinner": "附带可读文本的忙碌指示。",
-    "site.completion.contract.spinner": "减少动效时停止旋转，保持状态文字。",
-    "site.completion.catalog.empty": "说明空态原因与下一步。",
-    "site.completion.contract.empty":
-      "操作由调用方提供；不把错误展示为空数据。",
-    "site.completion.catalog.alert": "内联信息、警告与错误反馈。",
-    "site.completion.contract.alert":
-      "即时错误用 alert，常规通知用 status；不改变运行状态。",
-    "site.completion.catalog.progress": "确定或未知总量的任务进度。",
-    "site.completion.contract.progress":
-      "未知进度不提供伪造百分比；测量值使用 Meter。",
-    "site.completion.catalog.toast": "统一、可更新和关闭的通知体系。",
-    "site.completion.contract.toast":
-      "通知仅表达调用方已知事实，不根据请求返回推断业务完成。",
-    "site.completion.catalog.sonner": "复用 Toast 的通知适配入口。",
-    "site.completion.contract.sonner":
-      "使用同一 Provider 与 Toaster；不承诺 Sonner 包的 API 兼容。",
-    "site.completion.catalog.date-calendar": "按民用日期键选择单日或范围。",
-    "site.completion.contract.date-calendar":
-      "使用 YYYY-MM-DD 与 UTC 日历运算；禁用日期不可选择，范围内禁用日会阻止完成。",
-    "site.completion.catalog.date-picker": "日期日历与弹出层的组合。",
-    "site.completion.contract.date-picker":
-      "单日或完整范围选择后关闭并恢复焦点；日期值不因语言或时区变化。",
-    "site.completion.catalog.pagination": "受控分页请求与未知总数导航。",
-    "site.completion.contract.pagination":
-      "只请求页码变化；未知总数依赖 hasNext，不推断最后一页。",
-    "site.completion.catalog.breadcrumb": "路径层级与当前页面导航。",
-    "site.completion.contract.breadcrumb":
-      "导航使用链接；当前页面使用 aria-current。",
-    "site.completion.catalog.menubar": "桌面应用菜单栏与动作菜单。",
-    "site.completion.contract.menubar":
-      "键盘跨菜单导航由 Base UI 管理；禁用动作不执行。",
-    "site.completion.catalog.navigation-menu": "站点层级导航与链接浮层。",
-    "site.completion.contract.navigation-menu":
-      "保留链接和键盘语义；主题浮层通过 Viewport 分发。",
-    "site.completion.catalog.direction": "同步 DOM 与 Base UI 的阅读方向。",
-    "site.completion.contract.direction":
-      "方向边界不翻译调用方内容，值与服务请求保持不变。",
-    "site.completion.catalog.attachment": "调用方附件状态与打开、移除操作。",
-    "site.completion.contract.attachment":
-      "不读取或上传文件；未知结果和忙碌状态阻止再次写入。",
-    "site.completion.catalog.marker": "对话时间、章节与事件分隔标记。",
-    "site.completion.contract.marker":
-      "只读标记无交互悬停；调用方内容保持原样。",
-    "site.completion.catalog.questionnaire": "逐题单选、多选和文本问卷。",
-    "site.completion.contract.questionnaire":
-      "答案受控；支持跳过、回退和错误保留；提交结果由调用方确认。",
-    "site.completion.catalog.bubble": "独立引用或批注的内容容器。",
-    "site.completion.contract.bubble":
-      "用于独立引用示例，不改变 ChatMessage 的同轴对话布局。",
-    "site.completion.catalog.card": "独立内容、概览和预览容器。",
-    "site.completion.contract.card":
-      "普通会话、日志和列表继续使用 Item、list 或 table。",
-    "site.completion.catalog.aspect-ratio": "保留指定纵横比的内容区域。",
-    "site.completion.contract.aspect-ratio":
-      "比例必须为有限正数；无效输入回退 16:9。",
-    "site.completion.catalog.carousel": "手动控制、键盘与触摸轮播。",
-    "site.completion.contract.carousel":
-      "不自动播放；隐藏页保留草稿并离开 Tab 顺序；方向随 RTL 调整。",
-    "site.completion.catalog.chart": "带完整文本替代的轻量柱图和折线图。",
-    "site.completion.contract.chart":
-      "最多展示最近120项；空、缺失、负值和零值分开，未增加图表依赖。",
-    "site.completion.catalog.form": "原生表单与 Field 的轻量组合。",
-    "site.completion.contract.form":
-      "调用方拥有验证、提交、错误和持久化；不要求特定表单库。",
-    "site.completion.catalog.sidebar": "受控折叠的独立侧栏布局。",
-    "site.completion.contract.sidebar":
-      "默认宽256、折叠48；标签和当前链接保留；不持久化偏好。",
-    "site.completion.catalog.resizable": "可复用双面板与尺寸调整手柄。",
-    "site.completion.contract.resizable":
-      "支持指针、键盘、RTL、边界和取消；像素值由调用方持有。",
-    "site.completion.catalog.scroll-area": "保留浏览器行为的原生滚动区域。",
-    "site.completion.contract.scroll-area":
-      "无需模拟滚动条；保留键盘、选择、查找与 ref。",
-    "site.completion.catalog.command": "复用 CommandPalette 的内嵌命令面板。",
-    "site.completion.contract.command":
-      "结果、过滤和激活由调用方提供；不默认监听全局快捷键。",
-    "site.completion.catalog.drawer": "复用 Sheet 的抽屉与可选滑动关闭。",
-    "site.completion.contract.drawer":
-      "仅底部显式手柄支持滑动；正文原生滚动，焦点恢复沿用 Sheet。",
-    "site.completion.actions": "操作",
-    "site.completion.draft": "草稿",
-    "site.completion.read": "读取表单值",
-    "site.completion.bold": "粗体",
-    "site.completion.italic": "斜体",
-    "site.completion.code": "代码",
-    "site.completion.disabled": "不可用",
-    "site.completion.single": "单选",
-    "site.completion.multiple": "多选",
-    "site.completion.otp": "一次性验证码",
-    "site.completion.hint": "仅在本地演示，真实操作由调用方提供。",
-    "site.completion.show": "展开详情",
-    "site.completion.content": "保留内容与调用方状态。",
-    "site.completion.confirm": "确认请求",
-    "site.completion.cancel": "取消",
-    "site.completion.warning": "确认此请求的目标和范围。",
-    "site.completion.open": "打开",
-    "site.completion.title": "项目详情",
-    "site.completion.retry": "重试读取",
-    "site.completion.loading": "正在读取",
-    "site.completion.empty": "尚无内容",
-    "site.completion.emptyHint": "创建内容或调整筛选。",
-    "site.completion.error": "读取失败，已有内容保留。",
-    "site.completion.previous": "上一项",
-    "site.completion.next": "下一项",
-    "site.completion.submit": "提交答案",
-    "site.completion.skip": "跳过",
-    "site.completion.back": "返回",
-    "site.completion.question": "选择所需能力",
-    "site.completion.answer": "补充说明",
-    "site.completion.remove": "移除附件",
-    "site.completion.attachment": "附件说明.txt",
-    "site.completion.pending": "待确认",
-    "site.completion.messageNavigation": "消息定位示例",
+
     "site.workflowAnalytics.fullCatalog.0":
       "显式资源份额、容量与执行区间；父子用量去重并保留币种。",
     "site.workflowAnalytics.fullCatalog.1":
@@ -2929,145 +2826,30 @@ export const siteMessages = {
 "site.gapAudit.detail5":"交互单元格使用separate，避免嵌套按钮。"
 },
   en: {
+    "site.examples.salesCrmDescription": "Local demo; refresh resets data. No CRM service is connected.",
     "workbenchCatalog.description": "Controlled Agent workbench regions; the caller owns services, permission and source confirmation.",
     "workbenchCatalog.snapshot": "Stable object identity, revisions, capabilities and separate operation receipts.",
     "workbenchCatalog.actions": "Selection and execution are separate; reconcile unknown outcomes and retain drafts until confirmation.",
     "workbenchCatalog.boundary": "Local fixtures prove component interaction; real model, file, Git, PTY and browser services need separate adapters.",
 
-    "site.workflowAnalytics.catalog.00":
-      "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown.",
-    "site.workflowAnalytics.catalog.01":
-      "Local examples do not prove service integration; callers own permissions, history, queries, writes and persistence.",
-    "site.workflowAnalytics.catalog.02":
-      "Time uses [from,to); missing values are not zero. Legends keep denominators unchanged; point selection opens drilldown by default.",
-    "site.workflowAnalytics.catalog.03":
-      "Serializable query descriptions; each filter layer is intersected and ranges use [from,to).",
-    "site.workflowAnalytics.catalog.04":
-      "Controlled aggregate snapshots; complete, partial and unavailable remain distinct.",
-    "site.workflowAnalytics.catalog.05":
-      "Optional small-data replay; no trend is generated without a baseline or across a history gap.",
-    "site.workflowAnalytics.catalog.06":
-      "Series, selection, number formatting and comparison models independent of the statistical engine.",
-    "site.workflowAnalytics.catalog.07":
-      "Stable selection identity without statistical engine event objects.",
-    "site.workflowAnalytics.catalog.08":
-      "Pure adaptation; nonfinite values become missing and duplicate identities are rejected.",
-    "site.workflowAnalytics.catalog.09":
-      "Shared chart titles, metric definitions, ranges, permission isolation and five data states.",
-    "site.workflowAnalytics.catalog.10":
-      "Titles and formal metric definitions preserve caller text.",
-    "site.workflowAnalytics.catalog.11":
-      "Result queryKey must match; changing scope hides old values.",
-    "site.workflowAnalytics.catalog.12":
-      "Denied access hides previous charts, data and actions.",
-    "site.workflowAnalytics.catalog.13":
-      "Five independent read states, refresh, errors and safe read retries.",
-    "site.workflowAnalytics.catalog.14":
-      "Complete structured aggregate tables and keyboard drilldown.",
-    "site.workflowAnalytics.catalog.15":
-      "Complete aggregate tables retain hidden series and missing values.",
-    "site.workflowAnalytics.catalog.16":
-      "Selection and keyboard drilldown; actions appear only when callbacks are available.",
-    "site.workflowAnalytics.catalog.17":
-      "On-demand bar, line, area, donut and scatter rendering.",
-    "site.workflowAnalytics.catalog.18":
-      "Five chart forms share snapshot and stable selection contracts.",
-    "site.workflowAnalytics.catalog.19":
-      "Optional stacking; donuts require explicitly exclusive composition.",
-    "site.workflowAnalytics.catalog.20":
-      "Continuous axes use actual x values, explicit domains and reference lines or intervals.",
-    "site.workflowAnalytics.catalog.21":
-      "Charts, tables, touch and keyboard produce the same business selection description.",
-    "site.workflowAnalytics.catalog.22":
-      "Permissions and freshness remain separate from data states.",
-    "site.workflowAnalytics.catalog.23":
-      "Snapshot matching, historical membership explanations and paginated source records.",
-    "site.workflowAnalytics.catalog.24":
-      "Controlled opening and closing preserve chart selection and filters.",
-    "site.workflowAnalytics.catalog.25":
-      "Responses must match the selected snapshot; pagination shows loaded and total counts.",
-    "site.workflowAnalytics.catalog.26":
-      "Metric definitions and historical membership; permission denial is distinct from an empty set.",
-    "site.workflowAnalytics.catalog.27":
-      "Reports intent only; actions appear only when capabilities are provided.",
-    "site.workflowAnalytics.catalog.28":
-      "MetricSummary with definitions, comparison periods, coverage and drilldown.",
-    "site.workflowAnalytics.catalog.29":
-      "Reuses MetricSummary; null is shown as not applicable.",
-    "site.workflowAnalytics.catalog.30":
-      "Zero baselines never produce infinite ratios; partial data is marked explicitly.",
-    "site.workflowAnalytics.catalog.31":
-      "Fixed status distribution, completion trend, work-item aging and blocker distribution templates.",
-    "site.workflowAnalytics.catalog.32":
-      "Four fixed templates for status, completion flow, aging and blockers.",
-    "site.workflowAnalytics.catalog.33":
-      "Reuses controlled statistical-chart interactions and read states.",
-    "site.workflowAnalytics.catalog.34":
-      "Explainable facts for overdue plans, blockers, missing dates and aging.",
-    "site.workflowAnalytics.catalog.35":
-      "Every fact has rule, threshold, asOf, source and entityRef; no combined health score.",
-    "site.workflowAnalytics.catalog.36":
-      "Optional navigation to the source object.",
-    "site.workflowAnalytics.catalog.37":
-      "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts.",
-    "site.workflowAnalytics.catalog.38":
-      "Distinguishes trace, contains, blocks, execution-parent and idea-link relations.",
-    "site.workflowAnalytics.catalog.39":
-      "Controlled object selection and five data states.",
-    "site.workflowAnalytics.catalog.40":
-      "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities.",
-    "site.workflowAnalytics.catalog.41":
-      "Maps same-snapshot members to five existing layouts and preserves original business capabilities.",
-    "site.workflowAnalytics.catalog.42":
-      "Revoking access hides the entire workspace.",
-    "site.workflowAnalytics.catalog.43":
-      "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars.",
-    "site.workflowAnalytics.catalog.44":
-      "Reuses WorkspaceShell to fill a parent with an explicit height.",
-    "site.workflowAnalytics.catalog.45":
-      "Controlled scope, members, refresh and data time; filtering belongs to callers.",
-    "site.workflowAnalytics.catalog.46":
-      "Twelve columns on desktop, six on medium screens and one on narrow screens; independent read states.",
-    "site.workflowAnalytics.catalog.47":
-      "Metric definitions and permitted export; no editing controls without saving support.",
-    "site.workflowAnalytics.catalog.48":
-      "A fixed project template combining status, trends, aging, blockers, metrics and risk facts.",
-    "site.workflowAnalytics.catalog.49":
-      "Each widget has stable id, query, result and an independent data state.",
-    "site.workflowAnalytics.catalog.50":
-      "Controlled risk facts; revoked access hides data regions.",
-    "site.workflowAnalytics.catalog.51":
-      "Point selection opens sources by default; callers execute exports and queries.",
-    "site.examples.workflowAnalyticsDescription":
-      "A fixed project dashboard, historical metrics and work-item drilldown at the same snapshot.",
-    "site.redesign.previewDisplay": "Preview display",
-    "site.redesign.apiType": "Type",
-    "site.redesign.guideSource": "Source references",
     "site.redesign.homeTitle": "From components to complete workspaces.",
-    "site.redesign.homeIntro":
-      "Composable React source for clear task management, agent execution and workflow interfaces.",
+    "site.redesign.homeIntro": "Composable React source for clear task management, agent execution and workflow interfaces.",
     "site.redesign.build": "Start building",
     "site.redesign.viewExamples": "Explore examples",
     "site.redesign.openExample": "Open full example",
     "site.redesign.localDemo": "Local interactive demo",
     "site.redesign.featured": "Components for real tasks",
-    "site.redesign.featuredIntro":
-      "Start with a focused interaction, then compose your own workspace.",
-    "site.redesign.composition":
-      "Choose components. Install source. Compose your page.",
-    "site.redesign.sourceOwnership":
-      "Source lives in your project. You own data, permissions and execution services.",
+    "site.redesign.featuredIntro": "Start with a focused interaction, then compose your own workspace.",
+    "site.redesign.composition": "Choose components. Install source. Compose your page.",
+    "site.redesign.sourceOwnership": "Source lives in your project. You own data, permissions and execution services.",
     "site.redesign.recent": "Design and implementation notes",
     "site.redesign.resources": "Resources",
     "site.redesign.repository": "Source repository",
     "site.redesign.menu": "Open site menu",
     "site.redesign.search": "Search documentation",
-    "site.redesign.searchHint":
-      "Search components, guides, examples or articles",
-    "site.redesign.searchError":
-      "The search index could not load. Retry or browse the component catalog.",
-    "site.redesign.searchEmpty":
-      "No matches. Try Button, date, task or Canvas.",
+    "site.redesign.searchHint": "Search components, guides, examples or articles",
+    "site.redesign.searchError": "The search index could not load. Retry or browse the component catalog.",
+    "site.redesign.searchEmpty": "No matches. Try Button, date, task or Canvas.",
     "site.redesign.searchComponents": "Components",
     "site.redesign.searchGuides": "Guides",
     "site.redesign.searchExamples": "Examples",
@@ -3086,10 +2868,8 @@ export const siteMessages = {
     "site.redesign.source": "Source files",
     "site.redesign.loadSource": "Load selected file",
     "site.redesign.sourceLoading": "Loading source…",
-    "site.redesign.sourceError":
-      "The source resource could not load. Please retry.",
-    "site.redesign.sourceContext":
-      "Original repository files. The CLI rewrites imports and resolves dependencies at installation. Examples contain local fixtures and do not provide production services.",
+    "site.redesign.sourceError": "The source resource could not load. Please retry.",
+    "site.redesign.sourceContext": "Original repository files. The CLI rewrites imports and resolves dependencies at installation. Examples contain local fixtures and do not provide production services.",
     "site.redesign.showFull": "Show full code",
     "site.redesign.collapseCode": "Collapse code",
     "site.redesign.grid": "Grid",
@@ -3097,10 +2877,8 @@ export const siteMessages = {
     "site.redesign.display": "Catalog display",
     "site.redesign.guidePaths": "Start here",
     "site.redesign.browseAll": "Browse all components",
-    "site.redesign.exampleGallery":
-      "Complete interfaces, composed from components.",
-    "site.redesign.exampleGalleryIntro":
-      "Explore runnable local examples, their components and implementation notes.",
+    "site.redesign.exampleGallery": "Complete interfaces, composed from components.",
+    "site.redesign.exampleGalleryIntro": "Explore runnable local examples, their components and implementation notes.",
     "site.redesign.usedComponents": "Components used",
     "site.redesign.readArticle": "Read implementation notes",
     "site.redesign.thumbnail": "Component structure illustration",
@@ -3112,42 +2890,201 @@ export const siteMessages = {
     "site.redesign.group.workspace": "Workspace layout",
     "site.redesign.group.resources": "Resources",
     "site.redesign.group.other": "Other components",
-    "site.redesign.guideIntro":
-      "Three learning paths, from your first component to a complete interface.",
+    "site.redesign.guideIntro": "Three learning paths, from your first component to a complete interface.",
     "site.redesign.installStep": "Install source",
     "site.redesign.chooseStep": "Choose components",
     "site.redesign.composeStep": "Compose a page",
     "site.redesign.apiDefault": "Default",
-    "site.redesign.stateNote":
-      "These examples update local data only. Callers own reads, writes, permissions and result confirmation.",
+    "site.redesign.stateNote": "These examples update local data only. Callers own reads, writes, permissions and result confirmation.",
     "site.redesign.breadcrumb": "Breadcrumb",
     "site.redesign.pagination": "Documentation pagination",
     "site.redesign.purpose": "Purpose group",
-    "site.shadcnForms.catalog.textarea":
-      "Multiline input with native form, ref, and draft semantics.",
-    "site.shadcnForms.contract.textarea":
-      "Supports controlled and uncontrolled values; errors preserve the draft.",
-    "site.shadcnForms.catalog.label":
-      "A standalone field label with native htmlFor and ref support.",
-    "site.shadcnForms.contract.label":
-      "Associates a label with a control; use Field for descriptions and errors.",
-    "site.shadcnForms.catalog.native-select":
-      "Native select, options, and groups with the mobile system picker.",
-    "site.shadcnForms.contract.native-select":
-      "Separates display labels from submitted values; supports multiple selection and native form props.",
-    "site.shadcnForms.catalog.switch":
-      "A controlled or uncontrolled switch with form and read-only support.",
-    "site.shadcnForms.contract.switch":
-      "Uses 32px targets and 44px for coarse pointers; callbacks only report value changes.",
-    "site.shadcnForms.catalog.radio-group":
-      "A standard radio group with Base UI keyboard navigation, focus, and form values.",
-    "site.shadcnForms.contract.radio-group":
-      "Supports controlled and uncontrolled selection; protocol values stay stable across locales.",
+    "site.redesign.apiType": "Type",
+    "site.redesign.guideSource": "Source references",
+    "site.redesign.previewDisplay": "Preview display",
+    "site.workflowAnalytics.catalog.00": "Pure analytics contracts for source identity, history coverage, metric versions, intersected filters and snapshot drilldown.",
+    "site.workflowAnalytics.catalog.01": "Local examples do not prove service integration; callers own permissions, history, queries, writes and persistence.",
+    "site.workflowAnalytics.catalog.02": "Time uses [from,to); missing values are not zero. Legends keep denominators unchanged; point selection opens drilldown by default.",
+    "site.workflowAnalytics.catalog.03": "Serializable query descriptions; each filter layer is intersected and ranges use [from,to).",
+    "site.workflowAnalytics.catalog.04": "Controlled aggregate snapshots; complete, partial and unavailable remain distinct.",
+    "site.workflowAnalytics.catalog.05": "Optional small-data replay; no trend is generated without a baseline or across a history gap.",
+    "site.workflowAnalytics.catalog.06": "Series, selection, number formatting and comparison models independent of the statistical engine.",
+    "site.workflowAnalytics.catalog.07": "Stable selection identity without statistical engine event objects.",
+    "site.workflowAnalytics.catalog.08": "Pure adaptation; nonfinite values become missing and duplicate identities are rejected.",
+    "site.workflowAnalytics.catalog.09": "Shared chart titles, metric definitions, ranges, permission isolation and five data states.",
+    "site.workflowAnalytics.catalog.10": "Titles and formal metric definitions preserve caller text.",
+    "site.workflowAnalytics.catalog.11": "Result queryKey must match; changing scope hides old values.",
+    "site.workflowAnalytics.catalog.12": "Denied access hides previous charts, data and actions.",
+    "site.workflowAnalytics.catalog.13": "Five independent read states, refresh, errors and safe read retries.",
+    "site.workflowAnalytics.catalog.14": "Complete structured aggregate tables and keyboard drilldown.",
+    "site.workflowAnalytics.catalog.15": "Complete aggregate tables retain hidden series and missing values.",
+    "site.workflowAnalytics.catalog.16": "Selection and keyboard drilldown; actions appear only when callbacks are available.",
+    "site.workflowAnalytics.catalog.17": "On-demand bar, line, area, donut and scatter rendering.",
+    "site.workflowAnalytics.catalog.18": "Five chart forms share snapshot and stable selection contracts.",
+    "site.workflowAnalytics.catalog.19": "Optional stacking; donuts require explicitly exclusive composition.",
+    "site.workflowAnalytics.catalog.20": "Continuous axes use actual x values, explicit domains and reference lines or intervals.",
+    "site.workflowAnalytics.catalog.21": "Charts, tables, touch and keyboard produce the same business selection description.",
+    "site.workflowAnalytics.catalog.22": "Permissions and freshness remain separate from data states.",
+    "site.workflowAnalytics.catalog.23": "Snapshot matching, historical membership explanations and paginated source records.",
+    "site.workflowAnalytics.catalog.24": "Controlled opening and closing preserve chart selection and filters.",
+    "site.workflowAnalytics.catalog.25": "Responses must match the selected snapshot; pagination shows loaded and total counts.",
+    "site.workflowAnalytics.catalog.26": "Metric definitions and historical membership; permission denial is distinct from an empty set.",
+    "site.workflowAnalytics.catalog.27": "Reports intent only; actions appear only when capabilities are provided.",
+    "site.workflowAnalytics.catalog.28": "MetricSummary with definitions, comparison periods, coverage and drilldown.",
+    "site.workflowAnalytics.catalog.29": "Reuses MetricSummary; null is shown as not applicable.",
+    "site.workflowAnalytics.catalog.30": "Zero baselines never produce infinite ratios; partial data is marked explicitly.",
+    "site.workflowAnalytics.catalog.31": "Fixed status distribution, completion trend, work-item aging and blocker distribution templates.",
+    "site.workflowAnalytics.catalog.32": "Four fixed templates for status, completion flow, aging and blockers.",
+    "site.workflowAnalytics.catalog.33": "Reuses controlled statistical-chart interactions and read states.",
+    "site.workflowAnalytics.catalog.34": "Explainable facts for overdue plans, blockers, missing dates and aging.",
+    "site.workflowAnalytics.catalog.35": "Every fact has rule, threshold, asOf, source and entityRef; no combined health score.",
+    "site.workflowAnalytics.catalog.36": "Optional navigation to the source object.",
+    "site.workflowAnalytics.catalog.37": "Typed relations distinguishing Ideas, work items, Sessions, Runs and Artifacts.",
+    "site.workflowAnalytics.catalog.38": "Distinguishes trace, contains, blocks, execution-parent and idea-link relations.",
+    "site.workflowAnalytics.catalog.39": "Controlled object selection and five data states.",
+    "site.workflowAnalytics.catalog.40": "Analytics snapshots adapted to five existing work-item layouts while preserving business capabilities.",
+    "site.workflowAnalytics.catalog.41": "Maps same-snapshot members to five existing layouts and preserves original business capabilities.",
+    "site.workflowAnalytics.catalog.42": "Revoking access hides the entire workspace.",
+    "site.workflowAnalytics.catalog.43": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars.",
+    "site.workflowAnalytics.catalog.44": "Reuses WorkspaceShell to fill a parent with an explicit height.",
+    "site.workflowAnalytics.catalog.45": "Controlled scope, members, refresh and data time; filtering belongs to callers.",
+    "site.workflowAnalytics.catalog.46": "Twelve columns on desktop, six on medium screens and one on narrow screens; independent read states.",
+    "site.workflowAnalytics.catalog.47": "Metric definitions and permitted export; no editing controls without saving support.",
+    "site.workflowAnalytics.catalog.48": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts.",
+    "site.workflowAnalytics.catalog.49": "Each widget has stable id, query, result and an independent data state.",
+    "site.workflowAnalytics.catalog.50": "Controlled risk facts; revoked access hides data regions.",
+    "site.workflowAnalytics.catalog.51": "Point selection opens sources by default; callers execute exports and queries.",
+    "site.examples.workflowAnalyticsDescription": "A fixed project dashboard, historical metrics and work-item drilldown at the same snapshot.",
+    // BEGIN shadcn completion en
+    "site.completion.catalog.button-group": "A compact group of related actions.",
+    "site.completion.contract.button-group": "Groups sibling actions without selection state.",
+    "site.completion.catalog.input-group": "Input with addons and sibling actions.",
+    "site.completion.contract.input-group": "The input owns its label; addon actions remain separate.",
+    "site.completion.catalog.toggle": "A button with a pressed state.",
+    "site.completion.contract.toggle": "Pressed state and focus are independent; callers own values.",
+    "site.completion.catalog.toggle-group": "A single or multiple selection toggle group.",
+    "site.completion.contract.toggle-group": "Values are arrays; arrow keys move focus.",
+    "site.completion.catalog.input-otp": "A native one-time-code input.",
+    "site.completion.contract.input-otp": "Preserves native paste, selection, deletion, autofill and forms; callers own validation.",
+    "site.completion.catalog.separator": "Semantic or decorative separator.",
+    "site.completion.contract.separator": "Decorative separators are excluded from the accessibility tree.",
+    "site.completion.catalog.collapsible": "Controlled or uncontrolled disclosure.",
+    "site.completion.contract.collapsible": "Expansion is separate from selection; triggers retain keyboard and focus associations.",
+    "site.completion.catalog.accordion": "An accordion with single or multiple expansion.",
+    "site.completion.contract.accordion": "Each heading has a trigger; disabled items cannot expand.",
+    "site.completion.catalog.tooltip": "Supplemental hover and focus tooltip.",
+    "site.completion.contract.tooltip": "Tooltips do not own essential actions; portals inherit the theme boundary.",
+    "site.completion.catalog.alert-dialog": "A modal for explicit confirmation requests.",
+    "site.completion.contract.alert-dialog": "Callers supply confirmation buttons; a response does not imply completion.",
+    "site.completion.catalog.hover-card": "A supplemental link preview.",
+    "site.completion.contract.hover-card": "Essential content must be reachable through a link or visible button.",
+    "site.completion.catalog.context-menu": "Context actions for right click, keyboard and long press.",
+    "site.completion.contract.context-menu": "Provide a visible menu alternative for touch; only callbacks execute actions.",
+    "site.completion.catalog.skeleton": "Static placeholders matching the final structure.",
+    "site.completion.contract.skeleton": "The surrounding region owns loading semantics; placeholders do not flash.",
+    "site.completion.catalog.spinner": "A busy indicator with readable text.",
+    "site.completion.contract.spinner": "Reduced motion stops rotation while retaining status text.",
+    "site.completion.catalog.empty": "Explains an empty state and its next action.",
+    "site.completion.contract.empty": "Callers supply actions; errors are not represented as empty data.",
+    "site.completion.catalog.alert": "Inline information, warning and error feedback.",
+    "site.completion.contract.alert": "Urgent errors use alert; routine feedback uses status and does not alter runtime state.",
+    "site.completion.catalog.progress": "Determinate or indeterminate task progress.",
+    "site.completion.contract.progress": "Unknown progress has no fabricated percentage; measurements use Meter.",
+    "site.completion.catalog.toast": "Unified notifications that can be updated and dismissed.",
+    "site.completion.contract.toast": "Notifications express caller-known facts and never infer completion from a request response.",
+    "site.completion.catalog.sonner": "A notification adapter sharing the Toast system.",
+    "site.completion.contract.sonner": "Uses the same Provider and Toaster; it does not promise Sonner package API compatibility.",
+    "site.completion.catalog.date-calendar": "Select a civil date or date range.",
+    "site.completion.contract.date-calendar": "Uses YYYY-MM-DD and UTC calendar arithmetic; disabled dates block selection and range completion.",
+    "site.completion.catalog.date-picker": "A date calendar composed with a popover.",
+    "site.completion.contract.date-picker": "A single date or complete range closes and restores focus; values remain stable across locale and time zone.",
+    "site.completion.catalog.pagination": "Controlled pagination with unknown-total navigation.",
+    "site.completion.contract.pagination": "Only requests page changes; unknown totals use hasNext without inventing a last page.",
+    "site.completion.catalog.breadcrumb": "Hierarchical path and current-page navigation.",
+    "site.completion.contract.breadcrumb": "Navigation uses links; the current page uses aria-current.",
+    "site.completion.catalog.menubar": "An application menubar and action menus.",
+    "site.completion.contract.menubar": "Base UI manages cross-menu keyboard navigation; disabled actions cannot execute.",
+    "site.completion.catalog.navigation-menu": "Hierarchical navigation with link popups.",
+    "site.completion.contract.navigation-menu": "Preserves link and keyboard semantics; the themed popup renders through Viewport.",
+    "site.completion.catalog.direction": "Coordinates DOM and Base UI text direction.",
+    "site.completion.contract.direction": "Direction boundaries do not translate caller content or mutate values and requests.",
+    "site.completion.catalog.attachment": "Caller-owned attachment state with open and remove actions.",
+    "site.completion.contract.attachment": "Does not read or upload files; unknown and busy states prevent another write.",
+    "site.completion.catalog.marker": "Conversation time, section and event markers.",
+    "site.completion.contract.marker": "Read-only markers have no interactive hover; caller content is preserved.",
+    "site.completion.catalog.questionnaire": "A stepwise single choice, multiple choice and text questionnaire.",
+    "site.completion.contract.questionnaire": "Controlled answers support skip, back and error preservation; callers confirm submission outcomes.",
+    "site.completion.catalog.bubble": "A standalone container for quotations and annotations.",
+    "site.completion.contract.bubble": "For standalone quotations; it does not change ChatMessage conversation alignment.",
+    "site.completion.catalog.card": "Independent content, overview and preview container.",
+    "site.completion.contract.card": "Sessions, logs and regular lists continue to use Item, list or table.",
+    "site.completion.catalog.aspect-ratio": "A content area with a fixed aspect ratio.",
+    "site.completion.contract.aspect-ratio": "The ratio must be finite and positive; invalid values fall back to 16:9.",
+    "site.completion.catalog.carousel": "A manual carousel with keyboard and touch navigation.",
+    "site.completion.contract.carousel": "No autoplay; hidden slides preserve drafts and leave the tab order; navigation respects RTL.",
+    "site.completion.catalog.chart": "Lightweight bar and line charts with text alternatives.",
+    "site.completion.contract.chart": "Shows up to the last 120 items; empty, missing, negative and zero values stay distinct with no chart dependency.",
+    "site.completion.catalog.form": "A lightweight native form composed with Field.",
+    "site.completion.contract.form": "Callers own validation, submission, errors and persistence; no form library is required.",
+    "site.completion.catalog.sidebar": "A standalone sidebar with controlled collapse.",
+    "site.completion.contract.sidebar": "Default width 256, collapsed 48; labels and current links remain available; preferences are not persisted.",
+    "site.completion.catalog.resizable": "Reusable two-panel layout and resize handle.",
+    "site.completion.contract.resizable": "Supports pointer, keyboard, RTL, bounds and cancellation; callers own pixel values.",
+    "site.completion.catalog.scroll-area": "A native scroll region preserving browser behavior.",
+    "site.completion.contract.scroll-area": "No simulated scrollbar; keyboard, selection, find and ref remain native.",
+    "site.completion.catalog.command": "An inline command panel sharing CommandPalette.",
+    "site.completion.contract.command": "Callers supply results, filtering and activation; global shortcuts are opt-in.",
+    "site.completion.catalog.drawer": "A Sheet-based drawer with optional swipe dismissal.",
+    "site.completion.contract.drawer": "Only an explicit bottom handle supports swipe; body scrolling stays native and Sheet restores focus.",
+    "site.completion.actions": "Actions",
+    "site.completion.draft": "Draft",
+    "site.completion.read": "Read form values",
+    "site.completion.bold": "Bold",
+    "site.completion.italic": "Italic",
+    "site.completion.code": "Code",
+    "site.completion.disabled": "Unavailable",
+    "site.completion.single": "Single selection",
+    "site.completion.multiple": "Multiple selection",
+    "site.completion.otp": "One-time code",
+    "site.completion.hint": "Local demonstration; the caller supplies real operations.",
+    "site.completion.show": "Show details",
+    "site.completion.content": "Keep content and caller state.",
+    "site.completion.confirm": "Confirm request",
+    "site.completion.cancel": "Cancel",
+    "site.completion.warning": "Review the target and scope of this request.",
+    "site.completion.open": "Open",
+    "site.completion.title": "Project details",
+    "site.completion.retry": "Retry read",
+    "site.completion.loading": "Loading",
+    "site.completion.empty": "No content yet",
+    "site.completion.emptyHint": "Create content or adjust filters.",
+    "site.completion.error": "Read failed; existing content is preserved.",
+    "site.completion.previous": "Previous",
+    "site.completion.next": "Next",
+    "site.completion.submit": "Submit answers",
+    "site.completion.skip": "Skip",
+    "site.completion.back": "Back",
+    "site.completion.question": "Choose capabilities",
+    "site.completion.answer": "Additional notes",
+    "site.completion.remove": "Remove attachment",
+    "site.completion.attachment": "Notes.txt",
+    "site.completion.pending": "Awaiting confirmation",
+    "site.completion.messageNavigation": "Message navigation example",
+    // END shadcn completion en
+
+    "site.shadcnForms.catalog.textarea": "Multiline input with native form, ref, and draft semantics.",
+    "site.shadcnForms.contract.textarea": "Supports controlled and uncontrolled values; errors preserve the draft.",
+    "site.shadcnForms.catalog.label": "A standalone field label with native htmlFor and ref support.",
+    "site.shadcnForms.contract.label": "Associates a label with a control; use Field for descriptions and errors.",
+    "site.shadcnForms.catalog.native-select": "Native select, options, and groups with the mobile system picker.",
+    "site.shadcnForms.contract.native-select": "Separates display labels from submitted values; supports multiple selection and native form props.",
+    "site.shadcnForms.catalog.switch": "A controlled or uncontrolled switch with form and read-only support.",
+    "site.shadcnForms.contract.switch": "Uses 32px targets and 44px for coarse pointers; callbacks only report value changes.",
+    "site.shadcnForms.catalog.radio-group": "A standard radio group with Base UI keyboard navigation, focus, and form values.",
+    "site.shadcnForms.contract.radio-group": "Supports controlled and uncontrolled selection; protocol values stay stable across locales.",
     "site.shadcnForms.draft": "Description draft",
-    "site.shadcnForms.draftHint":
-      "The draft stays on this page through validation errors and locale changes.",
-    "site.shadcnForms.draftError":
-      "Review the description. Your draft is preserved.",
+    "site.shadcnForms.draftHint": "The draft stays on this page through validation errors and locale changes.",
+    "site.shadcnForms.draftError": "Review the description. Your draft is preserved.",
     "site.shadcnForms.disabledDraft": "Disabled description",
     "site.shadcnForms.toggleError": "Toggle validation error",
     "site.shadcnForms.readForm": "Read form values",
@@ -3164,88 +3101,66 @@ export const siteMessages = {
     "site.shadcnForms.uncontrolledSwitch": "Uncontrolled switch",
     "site.shadcnForms.disabledSwitch": "Disabled switch",
     "site.shadcnForms.readonlySwitch": "Read-only switch",
-    "site.shadcnForms.localOnly":
-      "Changes only the local example and resets on refresh; the caller owns real settings storage.",
+    "site.shadcnForms.localOnly": "Changes only the local example and resets on refresh; the caller owns real settings storage.",
     "site.shadcnForms.mode": "Run mode",
     "site.shadcnForms.manual": "Manual",
     "site.shadcnForms.automatic": "Automatic",
     "site.shadcnForms.disabledGroup": "Disabled radio group",
+
     "site.examples.workItemsTitle": "Work Items component example",
     "site.examples.navigation": "Examples",
     "site.examples.title": "Component examples",
-    "site.examples.description":
-      "Explore how components fit together in interactive examples. Each example uses local data to demonstrate layouts and states.",
-    "site.examples.workItemsDescription":
-      "List, Board, Table, Timeline and Calendar share fields, selection and date operations.",
+    "site.examples.description": "Explore how components fit together in interactive examples. Each example uses local data to demonstrate layouts and states.",
+    "site.examples.workItemsDescription": "List, Board, Table, Timeline and Calendar share fields, selection and date operations.",
     "site.examples.back": "Back to examples",
-    "site.examples.moved":
-      "The Work Items showcase has moved to the component examples.",
+    "site.examples.moved": "The Work Items showcase has moved to the component examples.",
     "site.examples.openWorkItems": "Open the Work Items example",
-    "site.schedule.catalog.0":
-      "Business-independent scheduling rows, day snapping and clipped ranges.",
-    "site.schedule.catalog.1":
-      "Controlled month, week and daily agenda with authoritative date buckets.",
-    "site.schedule.catalog.2":
-      "Controlled schedule anchors, scales, week starts and weekend visibility.",
-    "site.schedule.catalog.3":
-      "Atomic date intentions with field permissions, validation and retained drafts.",
-    "site.schedule.catalog.4":
-      "Deduplicated unscheduled queue and compact work item calendar entries.",
-    "site.schedule.catalog.5":
-      "Work item scheduling with independent shift and endpoint resize capabilities.",
-    "site.schedule.catalog.6":
-      "Due-date-only calendar changes, daily paging and unscheduled work items.",
-    "site.schedule.catalog.7":
-      "The caller owns records, permissions, paging, atomic writes and reconciliation.",
-    "site.schedule.catalog.8":
-      "Fixture examples reset on refresh. Real services remain caller responsibilities.",
-    "site.workItems.enhancementsDescription":
-      "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces.",
-    "site.workItems.enhancementsProps":
-      "Callers own authoritative snapshots, revisions, permissions, writes and uncertain outcomes. Components do not store business data.",
-    "site.workItems.enhancementsNotes":
-      "Batch changes support state and priority; saved views have no default persistence. Consumers integrate live services.",
-    "site.workItems.enhancementNotice":
-      "Swimlanes, sub-items and batch changes use local snapshots. Saved views live only in page memory and reset on refresh. Consumers supply live authorization, receipts and storage.",
+    "site.schedule.catalog.0": "Business-independent scheduling rows, day snapping and clipped ranges.",
+    "site.schedule.catalog.1": "Controlled month, week and daily agenda with authoritative date buckets.",
+    "site.schedule.catalog.2": "Controlled schedule anchors, scales, week starts and weekend visibility.",
+    "site.schedule.catalog.3": "Atomic date intentions with field permissions, validation and retained drafts.",
+    "site.schedule.catalog.4": "Deduplicated unscheduled queue and compact work item calendar entries.",
+    "site.schedule.catalog.5": "Work item scheduling with independent shift and endpoint resize capabilities.",
+    "site.schedule.catalog.6": "Due-date-only calendar changes, daily paging and unscheduled work items.",
+    "site.schedule.catalog.7": "The caller owns records, permissions, paging, atomic writes and reconciliation.",
+    "site.schedule.catalog.8": "Fixture examples reset on refresh. Real services remain caller responsibilities.",
+
+    "site.workItems.enhancementsDescription": "Controlled batch field changes, per-item receipts and caller-owned saved view interfaces.",
+    "site.workItems.enhancementsProps": "Callers own authoritative snapshots, revisions, permissions, writes and uncertain outcomes. Components do not store business data.",
+    "site.workItems.enhancementsNotes": "Batch changes support state and priority; saved views have no default persistence. Consumers integrate live services.",
+
+    "site.workItems.enhancementNotice": "Swimlanes, sub-items and batch changes use local snapshots. Saved views live only in page memory and reset on refresh. Consumers supply live authorization, receipts and storage.",
     "site.workItems.scenario.hierarchy": "Sub-items and partial loading",
     "site.workItems.scenario.batch-mixed": "Mixed batch outcomes",
-    "site.workItems.viewConflict":
-      "Saved view revision conflict. Draft retained.",
-    "site.agentBoardP2.agent-dependency-graph":
+    "site.workItems.viewConflict": "Saved view revision conflict. Draft retained.",
+
+"site.agentBoardP2.agent-dependency-graph":
       "Source-reported run dependencies in a read-only canvas and accessible list.",
-    "site.agentBoardP2.agent-usage-history":
+"site.agentBoardP2.agent-usage-history":
       "Source interval history; separate runs and currencies with gaps for missing observations.",
-    "site.agentBoardP2.agent-run-virtual-list":
+"site.agentBoardP2.agent-run-virtual-list":
       "Controlled variable-height run list with off-screen focus and explicit loaded scope.",
-    "site.agentBoardP2.toolbar":
+"site.agentBoardP2.toolbar":
       "Shared run filters and an optional controlled dependency view.",
+
     "site.workItems.simulatedAgent": "Simulated agent",
     "site.workItems.noProjectItems": "This project has no work items yet",
-    "site.workItems.noProjectItemsHint":
-      "Create a work item to begin. Local data resets on refresh.",
-    "site.workItems.scenario.field-rejected":
-      "Title rejected, other fields writable",
-    "site.workItems.demoRefreshError":
-      "Fixture: refresh failed. The previous snapshot is retained.",
-    "site.workItems.demoPageError":
-      "Fixture: loading more failed. Loaded items are retained.",
+    "site.workItems.noProjectItemsHint": "Create a work item to begin. Local data resets on refresh.",
+    "site.workItems.scenario.field-rejected": "Title rejected, other fields writable",
+    "site.workItems.demoRefreshError": "Fixture: refresh failed. The previous snapshot is retained.",
+    "site.workItems.demoPageError": "Fixture: loading more failed. Loaded items are retained.",
     "site.workItems.demoReadOnly": "This example project is read only.",
-    "site.workItems.demoConflict":
-      "Revision changed. Read the latest snapshot.",
-    "site.workItems.demoRejected":
-      "Fixture explicitly rejected the change. Edit and retry.",
+    "site.workItems.demoConflict": "Revision changed. Read the latest snapshot.",
+    "site.workItems.demoRejected": "Fixture explicitly rejected the change. Edit and retry.",
     "site.workItems.demoConfirmed": "Fixture confirmed the change.",
     "site.workItems.demoReconciled": "The fixture receipt confirms the change.",
-    "site.workItems.demoMoveUnavailable":
-      "Placement, permission or snapshot changed. Choose again.",
+    "site.workItems.demoMoveUnavailable": "Placement, permission or snapshot changed. Choose again.",
     "site.workItems.demoCreated": "Added to the local example.",
-    "site.workItems.demoCreatedHidden":
-      "Added to the example, hidden by current filters. Clear filters to view it.",
+    "site.workItems.demoCreatedHidden": "Added to the example, hidden by current filters. Clear filters to view it.",
     "site.workItems.demoWorkspace": "Back to workspace",
     "site.workItems.demoDocs": "Component docs",
     "site.workItems.demoTheme": "Switch theme",
-    "site.workItems.demoNotice":
-      "Deterministic local example; refresh resets data. Writes, agent status and receipts are simulated. No Plane or live service connection.",
+    "site.workItems.demoNotice": "Deterministic local example; refresh resets data. Writes, agent status and receipts are simulated. No Plane or live service connection.",
     "site.workItems.demoScenario": "Example scenario",
     "site.workItems.demoReset": "Reset example",
     "site.workItems.demoCounts": "{loaded} loaded / {total} fixture records",
@@ -3262,60 +3177,34 @@ export const siteMessages = {
     "site.workItems.scenario.50": "50 items",
     "site.workItems.scenario.200": "200 items",
     "site.workItems.scenario.1000": "1000 items",
-    "site.workItems.catalog0":
-      "Controlled grouped list with per-group read states and unknown totals.",
-    "site.workItems.catalog1":
-      "Business-independent controlled board sharing pointer, touch and keyboard move commands.",
-    "site.workItems.catalog2":
-      "Shared work item properties and pickers, with business state separate from runtime.",
-    "site.workItems.catalog3":
-      "Work item rows and cards with sibling activation, selection and property targets.",
-    "site.workItems.catalog4":
-      "List, board and table adapters for the same work item snapshot.",
-    "site.workItems.catalog5":
-      "Work item search, filters, layout, sorting and display options.",
-    "site.workItems.catalog6":
-      "Controlled work item detail and quick creation retaining rejected drafts.",
-    "site.workItems.catalog7":
-      "Three work item layouts and detail composition; caller owns routing and services.",
-    "site.workItems.catalog8":
-      "Caller owns authoritative snapshots, permission, writes, pagination and unknown-outcome reconciliation.",
-    "site.agentBoard.board":
-      "Business agnostic controlled columns with per-group data states and capability-controlled movement.",
-    "site.agentBoard.agent-run-properties":
-      "Shared run identity, model, duration and source runtime status.",
-    "site.agentBoard.run-stage-summary":
-      "Source stages and bounded step counts without synthetic progress.",
-    "site.agentBoard.agent-run-row":
-      "Compact run row with sibling activation and trailing targets.",
-    "site.agentBoard.agent-run-card":
-      "Independent run card retaining unknown counts.",
-    "site.agentBoard.agent-run-list":
-      "Read-only grouped list over shared run snapshots.",
-    "site.agentBoard.agent-run-board":
-      "Read-only run board grouped by source status.",
-    "site.agentBoard.agent-run-inspector":
-      "Complete controlled run detail composing requests, traces, artifacts and relationships.",
-    "site.agentBoard.attention-queue":
-      "Attention ID deduplication with separate request and run counts.",
-    "site.agentBoard.approval-request-panel":
-      "Tool approval composes ToolCall; unknown results require reconciliation.",
-    "site.agentBoard.artifact-list":
-      "Artifact links, availability and independent review summaries.",
-    "site.agentBoard.review-summary":
-      "Separate review, business acceptance and PR states.",
-    "site.agentBoard.execution-trace-tree":
-      "Observable parent-child steps and redacted tool detail.",
-    "site.agentBoard.agent-relationship-list":
-      "Only explicit source relationships and handoffs.",
-    "site.agentBoard.agent-usage-summary":
-      "Deduplicated source usage, coverage and per-currency totals.",
-    "site.agentBoard.agent-board-toolbar":
-      "Shared filters and controlled switching across four views.",
-    "site.agentBoard.agent-board-workspace":
-      "Controlled Agent workspace; routing, services and persistence belong to callers.",
-    "site.agentBoard.note":
-      "Examples prove local component interaction; callers provide real authorization, execution and storage.",
+    "site.workItems.catalog0": "Controlled grouped list with per-group read states and unknown totals.",
+    "site.workItems.catalog1": "Business-independent controlled board sharing pointer, touch and keyboard move commands.",
+    "site.workItems.catalog2": "Shared work item properties and pickers, with business state separate from runtime.",
+    "site.workItems.catalog3": "Work item rows and cards with sibling activation, selection and property targets.",
+    "site.workItems.catalog4": "List, board and table adapters for the same work item snapshot.",
+    "site.workItems.catalog5": "Work item search, filters, layout, sorting and display options.",
+    "site.workItems.catalog6": "Controlled work item detail and quick creation retaining rejected drafts.",
+    "site.workItems.catalog7": "Three work item layouts and detail composition; caller owns routing and services.",
+    "site.workItems.catalog8": "Caller owns authoritative snapshots, permission, writes, pagination and unknown-outcome reconciliation.",
+
+    "site.agentBoard.board": "Business agnostic controlled columns with per-group data states and capability-controlled movement.",
+    "site.agentBoard.agent-run-properties": "Shared run identity, model, duration and source runtime status.",
+    "site.agentBoard.run-stage-summary": "Source stages and bounded step counts without synthetic progress.",
+    "site.agentBoard.agent-run-row": "Compact run row with sibling activation and trailing targets.",
+    "site.agentBoard.agent-run-card": "Independent run card retaining unknown counts.",
+    "site.agentBoard.agent-run-list": "Read-only grouped list over shared run snapshots.",
+    "site.agentBoard.agent-run-board": "Read-only run board grouped by source status.",
+    "site.agentBoard.agent-run-inspector": "Complete controlled run detail composing requests, traces, artifacts and relationships.",
+    "site.agentBoard.attention-queue": "Attention ID deduplication with separate request and run counts.",
+    "site.agentBoard.approval-request-panel": "Tool approval composes ToolCall; unknown results require reconciliation.",
+    "site.agentBoard.artifact-list": "Artifact links, availability and independent review summaries.",
+    "site.agentBoard.review-summary": "Separate review, business acceptance and PR states.",
+    "site.agentBoard.execution-trace-tree": "Observable parent-child steps and redacted tool detail.",
+    "site.agentBoard.agent-relationship-list": "Only explicit source relationships and handoffs.",
+    "site.agentBoard.agent-usage-summary": "Deduplicated source usage, coverage and per-currency totals.",
+    "site.agentBoard.agent-board-toolbar": "Shared filters and controlled switching across four views.",
+    "site.agentBoard.agent-board-workspace": "Controlled Agent workspace; routing, services and persistence belong to callers.",
+    "site.agentBoard.note": "Examples prove local component interaction; callers provide real authorization, execution and storage.",
     "site.commonComponents.budgetError":
       "Enter a valid number. Your original input is preserved.",
     "site.commonComponents.dataState": "Read state",
@@ -3327,6 +3216,7 @@ export const siteMessages = {
       "Reports temporary engine sizes; never write them into the graph or undo history.",
     "site.optimization.fixedNodeIdsContract":
       "Automatic layout preserves these node positions; this adds no business authority or manual editing lock.",
+
     "site.commonContracts.description0":
       "Form-associated three-state checkbox with distinct selection and focus.",
     "site.commonContracts.contract0":
@@ -5878,195 +5768,7 @@ export const siteMessages = {
       "A compact Agent workspace following the Component Specification, with consistent dimensions, runtime states and Inspector.",
     "site.metadata_workspace_canvasDescription":
       "A local canvas workspace for graph editing, configuration, validation and JSON import/export.",
-    "site.completion.catalog.button-group":
-      "A compact group of related actions.",
-    "site.completion.contract.button-group":
-      "Groups sibling actions without selection state.",
-    "site.completion.catalog.input-group":
-      "Input with addons and sibling actions.",
-    "site.completion.contract.input-group":
-      "The input owns its label; addon actions remain separate.",
-    "site.completion.catalog.toggle": "A button with a pressed state.",
-    "site.completion.contract.toggle":
-      "Pressed state and focus are independent; callers own values.",
-    "site.completion.catalog.toggle-group":
-      "A single or multiple selection toggle group.",
-    "site.completion.contract.toggle-group":
-      "Values are arrays; arrow keys move focus.",
-    "site.completion.catalog.input-otp": "A native one-time-code input.",
-    "site.completion.contract.input-otp":
-      "Preserves native paste, selection, deletion, autofill and forms; callers own validation.",
-    "site.completion.catalog.separator": "Semantic or decorative separator.",
-    "site.completion.contract.separator":
-      "Decorative separators are excluded from the accessibility tree.",
-    "site.completion.catalog.collapsible":
-      "Controlled or uncontrolled disclosure.",
-    "site.completion.contract.collapsible":
-      "Expansion is separate from selection; triggers retain keyboard and focus associations.",
-    "site.completion.catalog.accordion":
-      "An accordion with single or multiple expansion.",
-    "site.completion.contract.accordion":
-      "Each heading has a trigger; disabled items cannot expand.",
-    "site.completion.catalog.tooltip": "Supplemental hover and focus tooltip.",
-    "site.completion.contract.tooltip":
-      "Tooltips do not own essential actions; portals inherit the theme boundary.",
-    "site.completion.catalog.alert-dialog":
-      "A modal for explicit confirmation requests.",
-    "site.completion.contract.alert-dialog":
-      "Callers supply confirmation buttons; a response does not imply completion.",
-    "site.completion.catalog.hover-card": "A supplemental link preview.",
-    "site.completion.contract.hover-card":
-      "Essential content must be reachable through a link or visible button.",
-    "site.completion.catalog.context-menu":
-      "Context actions for right click, keyboard and long press.",
-    "site.completion.contract.context-menu":
-      "Provide a visible menu alternative for touch; only callbacks execute actions.",
-    "site.completion.catalog.skeleton":
-      "Static placeholders matching the final structure.",
-    "site.completion.contract.skeleton":
-      "The surrounding region owns loading semantics; placeholders do not flash.",
-    "site.completion.catalog.spinner": "A busy indicator with readable text.",
-    "site.completion.contract.spinner":
-      "Reduced motion stops rotation while retaining status text.",
-    "site.completion.catalog.empty":
-      "Explains an empty state and its next action.",
-    "site.completion.contract.empty":
-      "Callers supply actions; errors are not represented as empty data.",
-    "site.completion.catalog.alert":
-      "Inline information, warning and error feedback.",
-    "site.completion.contract.alert":
-      "Urgent errors use alert; routine feedback uses status and does not alter runtime state.",
-    "site.completion.catalog.progress":
-      "Determinate or indeterminate task progress.",
-    "site.completion.contract.progress":
-      "Unknown progress has no fabricated percentage; measurements use Meter.",
-    "site.completion.catalog.toast":
-      "Unified notifications that can be updated and dismissed.",
-    "site.completion.contract.toast":
-      "Notifications express caller-known facts and never infer completion from a request response.",
-    "site.completion.catalog.sonner":
-      "A notification adapter sharing the Toast system.",
-    "site.completion.contract.sonner":
-      "Uses the same Provider and Toaster; it does not promise Sonner package API compatibility.",
-    "site.completion.catalog.date-calendar":
-      "Select a civil date or date range.",
-    "site.completion.contract.date-calendar":
-      "Uses YYYY-MM-DD and UTC calendar arithmetic; disabled dates block selection and range completion.",
-    "site.completion.catalog.date-picker":
-      "A date calendar composed with a popover.",
-    "site.completion.contract.date-picker":
-      "A single date or complete range closes and restores focus; values remain stable across locale and time zone.",
-    "site.completion.catalog.pagination":
-      "Controlled pagination with unknown-total navigation.",
-    "site.completion.contract.pagination":
-      "Only requests page changes; unknown totals use hasNext without inventing a last page.",
-    "site.completion.catalog.breadcrumb":
-      "Hierarchical path and current-page navigation.",
-    "site.completion.contract.breadcrumb":
-      "Navigation uses links; the current page uses aria-current.",
-    "site.completion.catalog.menubar":
-      "An application menubar and action menus.",
-    "site.completion.contract.menubar":
-      "Base UI manages cross-menu keyboard navigation; disabled actions cannot execute.",
-    "site.completion.catalog.navigation-menu":
-      "Hierarchical navigation with link popups.",
-    "site.completion.contract.navigation-menu":
-      "Preserves link and keyboard semantics; the themed popup renders through Viewport.",
-    "site.completion.catalog.direction":
-      "Coordinates DOM and Base UI text direction.",
-    "site.completion.contract.direction":
-      "Direction boundaries do not translate caller content or mutate values and requests.",
-    "site.completion.catalog.attachment":
-      "Caller-owned attachment state with open and remove actions.",
-    "site.completion.contract.attachment":
-      "Does not read or upload files; unknown and busy states prevent another write.",
-    "site.completion.catalog.marker":
-      "Conversation time, section and event markers.",
-    "site.completion.contract.marker":
-      "Read-only markers have no interactive hover; caller content is preserved.",
-    "site.completion.catalog.questionnaire":
-      "A stepwise single choice, multiple choice and text questionnaire.",
-    "site.completion.contract.questionnaire":
-      "Controlled answers support skip, back and error preservation; callers confirm submission outcomes.",
-    "site.completion.catalog.bubble":
-      "A standalone container for quotations and annotations.",
-    "site.completion.contract.bubble":
-      "For standalone quotations; it does not change ChatMessage conversation alignment.",
-    "site.completion.catalog.card":
-      "Independent content, overview and preview container.",
-    "site.completion.contract.card":
-      "Sessions, logs and regular lists continue to use Item, list or table.",
-    "site.completion.catalog.aspect-ratio":
-      "A content area with a fixed aspect ratio.",
-    "site.completion.contract.aspect-ratio":
-      "The ratio must be finite and positive; invalid values fall back to 16:9.",
-    "site.completion.catalog.carousel":
-      "A manual carousel with keyboard and touch navigation.",
-    "site.completion.contract.carousel":
-      "No autoplay; hidden slides preserve drafts and leave the tab order; navigation respects RTL.",
-    "site.completion.catalog.chart":
-      "Lightweight bar and line charts with text alternatives.",
-    "site.completion.contract.chart":
-      "Shows up to the last 120 items; empty, missing, negative and zero values stay distinct with no chart dependency.",
-    "site.completion.catalog.form":
-      "A lightweight native form composed with Field.",
-    "site.completion.contract.form":
-      "Callers own validation, submission, errors and persistence; no form library is required.",
-    "site.completion.catalog.sidebar":
-      "A standalone sidebar with controlled collapse.",
-    "site.completion.contract.sidebar":
-      "Default width 256, collapsed 48; labels and current links remain available; preferences are not persisted.",
-    "site.completion.catalog.resizable":
-      "Reusable two-panel layout and resize handle.",
-    "site.completion.contract.resizable":
-      "Supports pointer, keyboard, RTL, bounds and cancellation; callers own pixel values.",
-    "site.completion.catalog.scroll-area":
-      "A native scroll region preserving browser behavior.",
-    "site.completion.contract.scroll-area":
-      "No simulated scrollbar; keyboard, selection, find and ref remain native.",
-    "site.completion.catalog.command":
-      "An inline command panel sharing CommandPalette.",
-    "site.completion.contract.command":
-      "Callers supply results, filtering and activation; global shortcuts are opt-in.",
-    "site.completion.catalog.drawer":
-      "A Sheet-based drawer with optional swipe dismissal.",
-    "site.completion.contract.drawer":
-      "Only an explicit bottom handle supports swipe; body scrolling stays native and Sheet restores focus.",
-    "site.completion.actions": "Actions",
-    "site.completion.draft": "Draft",
-    "site.completion.read": "Read form values",
-    "site.completion.bold": "Bold",
-    "site.completion.italic": "Italic",
-    "site.completion.code": "Code",
-    "site.completion.disabled": "Unavailable",
-    "site.completion.single": "Single selection",
-    "site.completion.multiple": "Multiple selection",
-    "site.completion.otp": "One-time code",
-    "site.completion.hint":
-      "Local demonstration; the caller supplies real operations.",
-    "site.completion.show": "Show details",
-    "site.completion.content": "Keep content and caller state.",
-    "site.completion.confirm": "Confirm request",
-    "site.completion.cancel": "Cancel",
-    "site.completion.warning": "Review the target and scope of this request.",
-    "site.completion.open": "Open",
-    "site.completion.title": "Project details",
-    "site.completion.retry": "Retry read",
-    "site.completion.loading": "Loading",
-    "site.completion.empty": "No content yet",
-    "site.completion.emptyHint": "Create content or adjust filters.",
-    "site.completion.error": "Read failed; existing content is preserved.",
-    "site.completion.previous": "Previous",
-    "site.completion.next": "Next",
-    "site.completion.submit": "Submit answers",
-    "site.completion.skip": "Skip",
-    "site.completion.back": "Back",
-    "site.completion.question": "Choose capabilities",
-    "site.completion.answer": "Additional notes",
-    "site.completion.remove": "Remove attachment",
-    "site.completion.attachment": "Notes.txt",
-    "site.completion.pending": "Awaiting confirmation",
-    "site.completion.messageNavigation": "Message navigation example",
+
     "site.workflowAnalytics.fullCatalog.0":
       "Explicit resource shares, capacity and execution intervals; inclusive usage deduplication with separate currencies.",
     "site.workflowAnalytics.fullCatalog.1":

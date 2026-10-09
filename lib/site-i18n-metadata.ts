@@ -1,4 +1,5 @@
 export const pageDescriptionKeys = {
+  "/examples/sales-crm": "site.examples.salesCrmDescription",
   "/examples/workflow-analytics": "site.examples.workflowAnalyticsDescription",
   "/examples": "site.examples.description",
   "/examples/work-items": "site.examples.workItemsDescription",

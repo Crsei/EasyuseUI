@@ -1,11 +1,12 @@
 import { agentWorkbenchShowcasePost } from "../content/blog/agent-workbench-showcase"
 import { agentWorkbenchPost } from "../content/blog/agent-workbench"
 import { workflowAnalyticsFull } from "../content/blog/workflow-analytics-full"
-import { workflowAnalytics } from "../content/blog/workflow-analytics"
 import { homepageAndDocs } from "../content/blog/homepage-and-docs"
-import { workItemsSharedViews } from "../content/blog/work-items-shared-views"
+import { workflowAnalytics } from "../content/blog/workflow-analytics"
 import { agentBoardShowcase } from "../content/blog/agent-board-showcase"
+import { workItemsSharedViews } from "../content/blog/work-items-shared-views"
 import { commonComponentsFromCrm } from "../content/blog/common-components-from-crm"
+import { salesCrmReplication } from "../content/blog/sales-crm-replication"
 import { canvasIndexes } from "../content/blog/canvas-indexes"
 import { longSessionAnchor } from "../content/blog/long-session-anchor"
 import { controlledLayout } from "../content/blog/controlled-layout"
@@ -19,10 +20,11 @@ const posts: BlogPost[] = [
   agentWorkbenchShowcasePost,
   agentWorkbenchPost,
   workflowAnalyticsFull,
-  workflowAnalytics,
   homepageAndDocs,
-  workItemsSharedViews,
+  workflowAnalytics,
   agentBoardShowcase,
+  workItemsSharedViews,
+  salesCrmReplication,
   commonComponentsFromCrm,
   canvasIndexes,
   longSessionAnchor,

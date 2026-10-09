@@ -1,0 +1,5 @@
+$ next typegen && tsc --noEmit
+⚠ Attempted to load @next/swc-linux-x64-gnu, but an error occurred: /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.29' not found (required by /data2-HDD-SATA-20T/Digital_avatar/haoweiyao/EasyuseUI/node_modules/.pnpm/@next+swc-linux-x64-gnu@16.3.8/node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node)
+⚠ Attempted to load @next/swc-linux-x64-musl, but it was not installed
+Generating route types...
+✓ Types generated successfully
