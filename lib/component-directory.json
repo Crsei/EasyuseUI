@@ -1,5 +1,50 @@
 [
   {
+    "slug": "textarea",
+    "name": "Textarea",
+    "description": "多行文本输入，保留原生表单、引用与草稿语义。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/textarea/",
+    "installType": "ui",
+    "registryId": "textarea"
+  },
+  {
+    "slug": "label",
+    "name": "Label",
+    "description": "独立字段标签，沿用原生 htmlFor 与 ref。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/label/",
+    "installType": "ui",
+    "registryId": "label"
+  },
+  {
+    "slug": "native-select",
+    "name": "NativeSelect",
+    "description": "原生选择器、选项与分组，保留移动端系统选择器。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/native-select/",
+    "installType": "ui",
+    "registryId": "native-select"
+  },
+  {
+    "slug": "switch",
+    "name": "Switch",
+    "description": "受控或非受控开关，保留原生表单与只读状态。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/switch/",
+    "installType": "ui",
+    "registryId": "switch"
+  },
+  {
+    "slug": "radio-group",
+    "name": "RadioGroup",
+    "description": "常规单选组，键盘选择、焦点与表单值由 Base UI 管理。",
+    "displayCategory": "primitives",
+    "docPath": "/docs/radio-group/",
+    "installType": "ui",
+    "registryId": "radio-group"
+  },
+  {
     "slug": "checkbox",
     "name": "Checkbox",
     "description": "原生表单关联的三态复选框，选择与焦点分离。",

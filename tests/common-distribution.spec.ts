@@ -15,6 +15,11 @@ const registry = JSON.parse(
 }
 const items = new Map(registry.items.map((item) => [item.name, item]))
 const ids = [
+  "textarea",
+  "label",
+  "native-select",
+  "switch",
+  "radio-group",
   "checkbox",
   "table",
   "data-table",

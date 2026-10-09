@@ -417,6 +417,12 @@ Sheet 左/右/底部可配，首尾固定、正文滚动，复用 Dialog 焦点/
 只读图元不增加交互hover。SegmentBar有限值限制在范围，未知显示未知；Sparkline最近120点且提供文本替代；RatingDisplay限制1–10星、半星四舍五入。Slider区分连续变化与提交。WorkspaceShell 侧栏默认256、折叠48，局部宽度与边界受控可配，resize默认关闭；按实例持久化属于适配层。
 
 
+## shadcn 对照 S1 基础表单增量
+
+Textarea 保留原生 textarea 属性、ref、表单关联与可调整高度，默认3行/min-height80；错误关联由 Field 负责，失败保留调用方草稿。Label 为原生 htmlFor 标签，不复制 Field 的校验责任。NativeSelect 保留原生 option/optgroup、键盘和移动端系统选择器，单行高32/粗指针44；multiple/size>1 使用列表高度；显示标签与协议值分开。
+
+Switch 沿用 Base UI checked/defaultChecked/onCheckedChange、name/form/value/uncheckedValue、disabled/readOnly/required；操作目标44×32、粗指针44×44，轨道32×20、圆点14。RadioGroup/RadioGroupItem 沿用 Base UI 泛型单选与表单接口，项操作目标32×32/粗指针44×44、圆形标记16；方向键选择和焦点行为由 Base UI 管理。状态与焦点分别呈现，减少动效关闭 Switch 位移过渡。组件只报告值变化；真实设置保存、权限和异步错误由调用方负责。现有 Segmented 继续用于分段选择。
+
 ## Work Items W5 增强契约
 
 详见 [WORK-ITEMS.md](./WORK-ITEMS.md)。WorkItemBoard 接收调用方权威泳道/分组；泳道内移动附带 laneKey，跨泳道写入不自动推断。WorkItemList 的 hierarchy 受控展开与子项快照独立于勾选；折叠保留隐藏选择，父项不在查询时子项可独立阅读。Table/Board 保持平铺。

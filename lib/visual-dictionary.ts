@@ -399,8 +399,7 @@ const seeds: Seed[] = [
     "对话输入复用 ChatComposer。",
     "不要以单行框截断长文本。",
     {
-      availability: "embedded",
-      relatedSlug: "chat-message",
+      componentSlug: "textarea",
       aliases: ["文本域"],
     },
   ),
@@ -427,7 +426,7 @@ const seeds: Seed[] = [
     "从互斥选项中选一个值。",
     "选项少且需要同时可见。",
     "不要当全局导航。",
-    { aliases: ["单选", "单选框"] },
+    { componentSlug: "radio-group", aliases: ["单选", "单选框"] },
   ),
   term(
     "switch",
@@ -438,7 +437,7 @@ const seeds: Seed[] = [
     "一个明确开/关设置。",
     "说明何时生效。",
     "不要用开关执行一次性命令。",
-    { aliases: ["Toggle Switch", "拨动开关"] },
+    { componentSlug: "switch", aliases: ["Toggle Switch", "拨动开关"] },
   ),
   term(
     "toggle-button",

@@ -1,5 +1,40 @@
 [
   {
+    "slug": "textarea",
+    "name": "Textarea",
+    "category": "基础组件",
+    "docPath": "/docs/textarea/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "label",
+    "name": "Label",
+    "category": "基础组件",
+    "docPath": "/docs/label/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "native-select",
+    "name": "NativeSelect",
+    "category": "基础组件",
+    "docPath": "/docs/native-select/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "switch",
+    "name": "Switch",
+    "category": "基础组件",
+    "docPath": "/docs/switch/",
+    "displayCategory": "primitives"
+  },
+  {
+    "slug": "radio-group",
+    "name": "RadioGroup",
+    "category": "基础组件",
+    "docPath": "/docs/radio-group/",
+    "displayCategory": "primitives"
+  },
+  {
     "slug": "checkbox",
     "name": "Checkbox",
     "category": "基础组件",

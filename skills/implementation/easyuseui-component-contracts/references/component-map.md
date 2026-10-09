@@ -8,6 +8,11 @@
 | ------------------- | ---------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
 | Button              | `components/ui/button.tsx`               | button               | loading受控，图标需aria-label；图标tooltip随条目分发                                                    |
 | Input               | `components/ui/input.tsx`                | input                | 原生input属性；label/校验说明由组合层负责                                                               |
+| Textarea            | `components/ui/textarea.tsx`             | textarea             | 原生textarea属性/ref；value/defaultValue；Field负责说明与错误关联                                       |
+| Label               | `components/ui/label.tsx`                | label                | 原生htmlFor/ref；不替代Field的完整字段关联                                                               |
+| NativeSelect        | `components/ui/native-select.tsx`        | native-select        | 原生select/option/optgroup；保留multiple/size与系统移动端选择器                                           |
+| Switch              | `components/ui/switch.tsx`               | switch               | Base UI checked/defaultChecked/onCheckedChange；name/form、disabled/readOnly；设置保存属于调用方         |
+| RadioGroup / Item   | `components/ui/radio-group.tsx`          | radio-group          | 泛型value/defaultValue/onValueChange；原生表单与键盘；Segmented保留分段选择用途                            |
 | Badge               | `components/ui/badge.tsx`                | badge                | 只读；通用tone不替代runtime映射                                                                         |
 | Tag                 | `components/ui/tag.tsx`                  | tag                  | 只读分类，依赖Badge                                                                                     |
 | Chip                | `components/ui/chip.tsx`                 | chip                 | `selected/onSelectedChange/onRemove/disabled/busy`；两目标为兄弟                                        |
@@ -49,7 +54,7 @@ CSS Module、内部lib与主题通过Registry依赖一并分发。若复制源�
 
 ## 已知没有通用导出的模式
 
-Tabs、Popover、Select、Combobox、Menu、CommandPalette、Card、Table、Drawer/Sheet、通用Tooltip/Toast目前没有对应通用组件导出。部分功能内嵌或通过原生元素存在，不意味着可从`components/ui/`导入同名文件。先重查目标版本；仍缺失时按目标项目规范补齐，并实现相应键盘/焦点语义。
+Card、通用Tooltip/Toast目前没有对应通用组件导出。Tabs、Popover、Select、Combobox、Menu、CommandPalette、Table和Sheet已有源码/Registry；Drawer的基础抽屉用途优先复用Sheet，额外滑动手势需另核对。部分其他功能仍内嵌或通过原生元素存在，不意味着可从`components/ui/`导入同名文件。先重查目标版本；仍缺失时按目标项目规范补齐，并实现相应键盘/焦点语义。
 
 ## Canvas
 
