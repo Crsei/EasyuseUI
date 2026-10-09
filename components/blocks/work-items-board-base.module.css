@@ -10,6 +10,9 @@
 .column {
   width: 320px;
   min-height: 240px;
+  /* Fill the board row so every column shares the tallest column's height and a
+     collapsed column keeps its vertical length instead of shrinking. */
+  height: 100%;
   background: var(--surface-raised);
   border: 1px solid var(--border);
   border-radius: 8px;
