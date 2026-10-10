@@ -3,18 +3,38 @@ import AxeBuilder from "@axe-core/playwright"
 const root = "/examples/agent-workbench"
 const input = (page: Page) =>
   page.getByRole("textbox", { name: "消息输入", exact: true })
-async function openReview(page: import("@playwright/test").Page, keyboard = false) {
-  const link = page.getByRole("link", { name: "变更", exact: true }).filter({ visible: true })
+async function openReview(
+  page: import("@playwright/test").Page,
+  keyboard = false,
+) {
+  const link = page
+    .getByRole("link", { name: "变更", exact: true })
+    .filter({ visible: true })
   if (await link.isVisible()) {
-    if (keyboard) { await link.focus(); await page.keyboard.press("Enter") }
-    else await link.click()
+    if (keyboard) {
+      await link.focus()
+      await page.keyboard.press("Enter")
+    } else await link.click()
   } else {
-    await page.getByRole("button", { name: "更多工作台工具", exact: true }).click()
+    await page
+      .getByRole("button", { name: "更多工作台工具", exact: true })
+      .click()
     const entry = page.getByRole("menuitem", { name: /^变更/ })
-    if (keyboard) { await entry.focus(); await page.keyboard.press("Enter") }
-    else await entry.click()
+    if (keyboard) {
+      await entry.focus()
+      await page.keyboard.press("Enter")
+    } else await entry.click()
   }
   await expect(page).toHaveURL(/page=review/)
+}
+async function openConversation(page: Page) {
+  const entry = page.locator('[data-sidebar-session-view="conversation"]')
+  if (!(await entry.isVisible())) {
+    await page.getByRole("button", { name: "展开侧栏", exact: true }).click()
+  }
+  await entry.click()
+  await expect(page).toHaveURL(/page=session/)
+  await expect(page).toHaveURL(/layout=conversation/)
 }
 test("complete templates retain accessible controls on desktop and mobile", async ({
   page,
@@ -200,13 +220,13 @@ test("renaming and archiving wait for source confirmation and preserve the selec
   await row.getByRole("button", { name: "归档会话", exact: true }).click()
   await expect(row).toBeVisible()
   await source(page)
-  await expect(row).toHaveCount(0)
-  await page.getByRole("button", { name: "归档", exact: true }).click()
+  await expect(row).not.toBeVisible()
+  await page.locator('[data-session-section="archived"] > summary').click()
   await expect(row).toBeVisible()
   await row.locator("summary").click()
   await row.getByRole("button", { name: "恢复会话", exact: true }).click()
   await source(page)
-  await page.getByRole("button", { name: "最近", exact: true }).click()
+  await expect(row).toBeVisible()
   await row.getByRole("button", { name: /Source-confirmed task title/ }).click()
   await expect(page.locator("main[data-session-id]")).toHaveAttribute(
     "data-session-id",
@@ -372,7 +392,7 @@ test("a changed Diff revision requires explicit relocation before feedback can e
     .click()
   await expect(input(page)).toHaveValue(/Bound to old revision/)
 })
-test("artifact template generates a report, locates a reference and brings review feedback back to the session", async ({
+test("artifact template generates a report, locates its source message and brings review feedback back to the session", async ({
   page,
 }) => {
   await page.goto(`${root}/app/?template=artifacts&page=new`)
@@ -391,12 +411,17 @@ test("artifact template generates a report, locates a reference and brings revie
     page.getByText("报告预览（本地数据）", { exact: true }),
   ).toBeVisible()
   await page.getByRole("button", { name: "定位来源引用", exact: true }).click()
-  await expect(
-    page
-      .getByText("src/filter.ts", { exact: true })
-      .filter({ visible: true })
-      .first(),
-  ).toBeVisible()
+  await expect(page).toHaveURL(/page=session/)
+  const sourceMessage = page.locator("[data-follow-tail-id]").filter({
+    has: page.getByRole("button", {
+      name: "Open analysis report",
+      exact: true,
+    }),
+  })
+  await expect(sourceMessage).toContainText(
+    "Report generated from source references.",
+  )
+  await expect(sourceMessage).toBeFocused()
   await page.getByRole("link", { name: "产物", exact: true }).first().click()
   await page
     .getByRole("button", { name: "将审阅意见带回对话", exact: true })
@@ -549,10 +574,7 @@ for (const width of [390, 768, 1024, 1280, 1440])
       await expect(
         page.getByRole("tab", { name: "变更", exact: true }),
       ).toBeVisible()
-      await page
-        .getByRole("button", { name: "对话", exact: true })
-        .first()
-        .click()
+      await openConversation(page)
     }
     await expect(input(page)).toHaveValue(`Draft ${width}`)
   })
@@ -596,10 +618,7 @@ test.describe("200 percent effective layout", () => {
     await expect(
       page.getByRole("tab", { name: "变更", exact: true }),
     ).toBeVisible()
-    await page
-      .getByRole("button", { name: "对话", exact: true })
-      .first()
-      .click()
+    await openConversation(page)
     await expect(input(page)).toHaveValue("Zoomed layout draft")
     const metrics = await page.evaluate(() => ({
       cssWidth: innerWidth,

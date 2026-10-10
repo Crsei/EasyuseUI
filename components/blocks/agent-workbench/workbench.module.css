@@ -63,6 +63,66 @@
   border-top: 1px solid var(--border);
   padding-top: 8px;
 }
+.sessionSections .navGroup {
+  position: relative;
+  border-top: 0;
+  padding-top: 0;
+}
+.sessionEntry {
+  padding-right: 32px;
+}
+.sessionActions > summary {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  min-height: 32px;
+  border-radius: 6px;
+  list-style: none;
+  cursor: pointer;
+}
+.sessionActions > summary::-webkit-details-marker {
+  display: none;
+}
+.sessionActions > summary:hover {
+  background: var(--surface-hover);
+}
+.sessionActions > summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+.sessionSection > summary {
+  min-height: 32px;
+  padding: 8px 4px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 16px;
+  cursor: pointer;
+}
+.sessionSection > summary span {
+  margin-left: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.sessionSection > summary:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+@media (pointer: coarse) {
+  .sessionEntry {
+    padding-right: 44px;
+  }
+  .sessionActions > summary {
+    top: 0;
+    width: 44px;
+    min-height: 44px;
+  }
+  .sessionSection > summary {
+    min-height: 44px;
+  }
+}
 .select {
   height: 32px;
   min-width: 0;

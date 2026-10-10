@@ -115,3 +115,162 @@ test("workspace mobile retains the composer across locale and theme changes whil
     await context.close()
   }
 })
+
+test("session sidebar owns views and groups with accessible runtime icons", async ({
+  page,
+}) => {
+  await page.goto("/workspace/")
+  const nav = page.locator('[data-session-navigation="sections"]')
+  const current = nav.locator('[data-session-id="session-filter"]')
+  const field = page.getByRole("textbox", { name: "消息输入", exact: true })
+  await field.fill("侧栏导航草稿")
+  const retained = page.locator('[data-entry-instance="sidebar"]')
+  await field.evaluate((node) =>
+    node.setAttribute("data-entry-instance", "sidebar"),
+  )
+  await expect(nav.locator('[data-session-section="running"]')).toHaveAttribute(
+    "open",
+    "",
+  )
+  await expect(
+    nav.locator('[data-session-section="archived"]'),
+  ).not.toHaveAttribute("open")
+  await expect(
+    nav.getByRole("button", { name: "最近", exact: true }),
+  ).toHaveCount(0)
+  await expect(
+    nav.getByRole("button", { name: "执行中", exact: true }),
+  ).toHaveCount(0)
+  await expect(
+    current.locator('[data-runtime-status="running"]'),
+  ).toHaveAttribute("data-icon-only", "true")
+  await expect(
+    current.locator('[data-runtime-status="running"]'),
+  ).toHaveAttribute("title", "执行中")
+  await expect(
+    current.locator('[data-runtime-status="running"] .sr-only'),
+  ).toHaveText("执行中")
+  await expect(
+    current.getByRole("button", { name: /修复大小写过滤逻辑/ }),
+  ).toHaveAccessibleName(/执行中/)
+  await expect(current.locator("[data-session-views] button")).toHaveCount(4)
+  const main = page.locator('[data-workbench-presentation="workspace"]')
+  await expect(
+    page.getByRole("tab", { name: "计划", exact: true }),
+  ).toHaveCount(0)
+  await page.getByRole("button", { name: "更多面板", exact: true }).click()
+  await expect(
+    page.getByRole("menuitem", { name: "计划", exact: true }),
+  ).toHaveCount(0)
+  await expect(
+    page.getByRole("menuitem", { name: "上下文", exact: true }),
+  ).toHaveCount(0)
+  await page.keyboard.press("Escape")
+  await expect(
+    main.getByRole("button", { name: "对话", exact: true }),
+  ).toHaveCount(0)
+  await expect(
+    main.getByRole("button", { name: "上下文", exact: true }),
+  ).toHaveCount(0)
+  await expect(
+    main.getByRole("button", { name: "计划", exact: true }),
+  ).toHaveCount(0)
+  for (const view of ["context", "plan", "conversation"]) {
+    const entry = current.locator(`[data-sidebar-session-view="${view}"]`)
+    await entry.focus()
+    await entry.press("Enter")
+    await expect(entry).toHaveAttribute("aria-pressed", "true")
+    await expect(page.locator("[data-review-controls]")).toHaveCount(0)
+    await expect(main.getByRole("tablist")).toHaveCount(0)
+    await expect(retained).toHaveValue("侧栏导航草稿")
+    await expect(retained).toHaveAttribute("data-entry-instance", "sidebar")
+  }
+  await current.locator('[data-sidebar-session-view="runtime"]').click()
+  await expect(
+    page.getByRole("region", { name: "底部工作面板", exact: true }),
+  ).toHaveAttribute("data-collapsed", "false")
+  await current.locator('[data-sidebar-session-view="runtime"]').click()
+  await expect(
+    page.getByRole("region", { name: "底部工作面板", exact: true }),
+  ).toHaveAttribute("data-collapsed", "true")
+  await nav
+    .getByRole("textbox", { name: "搜索会话", exact: true })
+    .fill("检查失败")
+  await expect(
+    nav.locator('[data-session-section="recent"] [data-session-id]'),
+  ).toHaveCount(1)
+  await expect(
+    nav.locator('[data-session-section="running"] [data-session-id]'),
+  ).toHaveCount(0)
+  await nav.getByRole("textbox", { name: "搜索会话", exact: true }).clear()
+  await nav.getByRole("button", { name: /分析资料并整理报告/ }).click()
+  await expect(page.locator("main[data-session-id]")).toHaveAttribute(
+    "data-session-id",
+    "session-report",
+  )
+  await field.fill("第二个会话草稿")
+  await current.getByRole("button", { name: /修复大小写过滤逻辑/ }).click()
+  await expect(page.locator("main[data-session-id]")).toHaveAttribute(
+    "data-session-id",
+    "session-filter",
+  )
+  await expect(retained).toHaveValue("侧栏导航草稿")
+  await page.getByRole("link", { name: "变更", exact: true }).click()
+  await page.getByRole("button", { name: "添加行反馈 1", exact: true }).click()
+  const feedback = page.getByRole("textbox", { name: /审阅反馈草稿/ })
+  await feedback.fill("保留审阅草稿")
+  await feedback.evaluate((node) =>
+    node.setAttribute("data-review-instance", "retained"),
+  )
+  const retainedFeedback = page.locator('[data-review-instance="retained"]')
+  for (const view of ["context", "plan", "conversation"]) {
+    await current.locator(`[data-sidebar-session-view="${view}"]`).click()
+    await expect(retainedFeedback).toHaveValue("保留审阅草稿")
+  }
+  await page.getByRole("link", { name: "变更", exact: true }).click()
+  await expect(feedback).toBeVisible()
+  await expect(feedback).toHaveValue("保留审阅草稿")
+  await expect(feedback).toHaveAttribute("data-review-instance", "retained")
+})
+
+test("mobile session views close the navigation sheet and preserve the composer", async ({
+  browser,
+}, info) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    hasTouch: true,
+    isMobile: true,
+    reducedMotion: "reduce",
+  })
+  const page = await context.newPage()
+  try {
+    await page.goto("/workspace/")
+    const field = page.getByRole("textbox", { name: "消息输入", exact: true })
+    await field.fill("移动侧栏草稿")
+    await field.evaluate((node) =>
+      node.setAttribute("data-entry-instance", "mobile-views"),
+    )
+    const retained = page.locator('[data-entry-instance="mobile-views"]')
+    for (const view of ["context", "plan", "conversation"]) {
+      await page.getByRole("button", { name: "展开侧栏", exact: true }).tap()
+      const sheet = page.getByRole("dialog")
+      const entry = sheet.locator(`[data-sidebar-session-view="${view}"]`)
+      const box = (await entry.boundingBox())!
+      expect(box.height).toBeGreaterThanOrEqual(44)
+      await entry.tap()
+      await expect(sheet).toHaveCount(0)
+      await expect(retained).toHaveValue("移动侧栏草稿")
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true)
+    }
+    await page.getByRole("button", { name: "展开侧栏", exact: true }).tap()
+    await page.screenshot({
+      path: info.outputPath("session-sidebar-mobile.png"),
+    })
+  } finally {
+    await context.close()
+  }
+})

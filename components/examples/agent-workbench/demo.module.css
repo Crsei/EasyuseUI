@@ -277,6 +277,23 @@
   outline: 2px solid var(--ring);
   outline-offset: -2px;
 }
+.sessionViews {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 4px 8px 8px 16px;
+  padding-left: 8px;
+  border-left: 1px solid var(--border);
+}
+.sessionViews > button {
+  justify-content: flex-start;
+  width: 100%;
+  color: var(--muted-foreground);
+}
+.sessionViews > button[aria-pressed="true"] {
+  background: var(--selection);
+  color: var(--foreground);
+}
 @container (max-width: 680px) {
   .inboxGrid {
     grid-template-columns: minmax(0, 1fr);

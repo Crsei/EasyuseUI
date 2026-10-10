@@ -5,6 +5,7 @@ import { MessageSquare } from "lucide-react"
 import { Item } from "@/components/ui/item"
 import { Button } from "@/components/ui/button"
 import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
+import { isRuntimeStatus, runtimeStatusMeta } from "@/lib/runtime-status"
 import styles from "./entity-row.module.css"
 
 export type SessionRecord = {
@@ -23,6 +24,7 @@ export type SessionRowProps = {
   selected?: boolean
   disabled?: boolean
   compact?: boolean
+  statusIconOnly?: boolean
   onSelect?: () => void
   action?: {
     label: string
@@ -36,12 +38,16 @@ export function SessionRow({
   selected,
   disabled,
   compact,
+  statusIconOnly = false,
   onSelect,
   action,
 }: SessionRowProps) {
-  const { t } = useI18n()
+  const { t, builtIn } = useI18n()
 
   const name = session.title.trim() || t("sessionRow.unnamedSession")
+  const statusName = isRuntimeStatus(session.status)
+    ? builtIn(runtimeStatusMeta[session.status].label)
+    : t("common.unknownStatusValue", { value0: session.status })
   const description = [
     session.id,
     session.agent,
@@ -57,14 +63,24 @@ export function SessionRow({
       <Item
         title={name}
         description={compact ? undefined : description}
-        leading={<MessageSquare />}
+        leading={
+          statusIconOnly ? (
+            <RuntimeStatusBadge status={session.status} iconOnly />
+          ) : (
+            <MessageSquare />
+          )
+        }
         selected={selected}
         disabled={disabled}
         onSelect={onSelect}
-        ariaLabel={`${name} ${session.id}`}
+        ariaLabel={
+          statusIconOnly
+            ? `${name} ${session.id} ${statusName}`
+            : `${name} ${session.id}`
+        }
         trailing={
           <>
-            <RuntimeStatusBadge status={session.status} />
+            {!statusIconOnly && <RuntimeStatusBadge status={session.status} />}
             {session.elapsed && (
               <span className={styles.elapsed}>{session.elapsed}</span>
             )}

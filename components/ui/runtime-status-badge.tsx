@@ -31,10 +31,15 @@ const icons = {
   failed: CircleAlert,
   cancelled: Ban,
 } satisfies Record<RuntimeStatus, typeof Circle>
-export type RuntimeStatusBadgeProps = { status: string; className?: string }
+export type RuntimeStatusBadgeProps = {
+  status: string
+  className?: string
+  iconOnly?: boolean
+}
 export function RuntimeStatusBadge({
   status,
   className,
+  iconOnly = false,
 }: RuntimeStatusBadgeProps) {
   const { t, builtIn } = useI18n()
 
@@ -49,6 +54,8 @@ export function RuntimeStatusBadge({
   return (
     <span
       data-runtime-status={status}
+      data-icon-only={iconOnly || undefined}
+      title={iconOnly ? builtIn(meta.label) : undefined}
       className={cn(
         "inline-flex min-h-5 items-center gap-1 rounded-sm px-1 text-xs leading-4 whitespace-nowrap",
         className,
@@ -56,7 +63,9 @@ export function RuntimeStatusBadge({
       style={{ color: `var(--${meta.token})` }}
     >
       <Icon size={12} strokeWidth={1.75} aria-hidden="true" />
-      {builtIn(meta.label)}
+      <span className={iconOnly ? "sr-only" : undefined}>
+        {builtIn(meta.label)}
+      </span>
     </span>
   )
 }

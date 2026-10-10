@@ -89,6 +89,8 @@ export type AgentWorkbenchProps = {
   header?: ReactNode
   headerActions?: ReactNode
   toolbar?: ReactNode
+  showBottomToggle?: boolean
+  showReviewControls?: boolean
   composer: ReactNode
   conversation?: Omit<AgentConversationProps, "session" | "composer">
   onRename?: (title: string) => void
@@ -119,6 +121,8 @@ export function AgentWorkbench({
   header,
   headerActions,
   toolbar,
+  showBottomToggle = true,
+  showReviewControls = true,
   composer,
   conversation,
   onRename,
@@ -221,22 +225,24 @@ export function AgentWorkbench({
       onBottomPanelHeightChange={(bottomHeight) => patch({ bottomHeight })}
       bottomPanelResizable
       toolbar={
-        <>
-          {toolbar}
-          {bottom && (
-            <Button
-              size="sm"
-              variant="ghost"
-              aria-pressed={panelState.bottomOpen}
-              onClick={() => patch({ bottomOpen: !panelState.bottomOpen })}
-            >
-              {t("workbench.bottom")}
-              {bottomBadge !== undefined &&
-                bottomBadge > 0 &&
-                ` (${bottomBadge})`}
-            </Button>
-          )}
-        </>
+        toolbar || (bottom && showBottomToggle) ? (
+          <>
+            {toolbar}
+            {bottom && showBottomToggle && (
+              <Button
+                size="sm"
+                variant="ghost"
+                aria-pressed={panelState.bottomOpen}
+                onClick={() => patch({ bottomOpen: !panelState.bottomOpen })}
+              >
+                {t("workbench.bottom")}
+                {bottomBadge !== undefined &&
+                  bottomBadge > 0 &&
+                  ` (${bottomBadge})`}
+              </Button>
+            )}
+          </>
+        ) : undefined
       }
     >
       <div className={styles.body} data-workbench-presentation={presentation}>
@@ -248,28 +254,29 @@ export function AgentWorkbench({
             actions={headerActions}
           />
         )}
-        {(showViewSwitch || layout === "review") && (
+        {(showViewSwitch || (layout === "review" && showReviewControls)) && (
           <div
             className={cn(styles.toolbar, styles.viewSwitch)}
             data-review-controls={layout === "review" || undefined}
           >
-            {(["conversation", "workspace"] as const).map((v) => (
-              <Button
-                key={v}
-                size="sm"
-                variant="ghost"
-                aria-pressed={view === v}
-                onClick={() => {
-                  if (v === "conversation") changeMaximized(false)
-                  setPane({ layout, view: v })
-                  onActiveViewChange?.(v)
-                }}
-              >
-                {v === "conversation"
-                  ? t("workbench.conversation")
-                  : t("workbench.details")}
-              </Button>
-            ))}
+            {showViewSwitch &&
+              (["conversation", "workspace"] as const).map((v) => (
+                <Button
+                  key={v}
+                  size="sm"
+                  variant="ghost"
+                  aria-pressed={view === v}
+                  onClick={() => {
+                    if (v === "conversation") changeMaximized(false)
+                    setPane({ layout, view: v })
+                    onActiveViewChange?.(v)
+                  }}
+                >
+                  {v === "conversation"
+                    ? t("workbench.conversation")
+                    : t("workbench.details")}
+                </Button>
+              ))}
             {layout === "review" && (
               <>
                 <Button

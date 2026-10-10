@@ -1229,6 +1229,8 @@ PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/refere
 
 2026-10-11 按用户要求新增 PG08 `/workspace/` 作为 PG04 新版会话示例的直接入口；原通用 Shell 示例移至 PG09 `/workspace/shell/`。页面声明、共享模块的 host pages、入口默认查询与验收路径见[入口迁移记录](workspace-entry-migration-log.md)。本次复用同一 fixture，不新增真实服务能力。
 
+2026-10-11 按用户对当前页面的修正，PG04/PG08 将对话、上下文、计划与运行面板入口收进选中 Session 下方；列表采用执行中/最近/归档分区和运行图标，替换顶部文字筛选条。MD03/MD04 增量及验收见[会话导航调整记录](workspace-session-navigation-log.md)。
+
 ## 模块级设计声明
 
 | 模块 ID / reference | 职责与复用入口 | 明确的展示与布局规则 | 状态、交互和服务边界 | 适用页面 |

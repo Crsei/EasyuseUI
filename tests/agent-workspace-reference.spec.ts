@@ -255,12 +255,21 @@ test("resource navigation stays compact and command, problem, tool and file link
   await page.goto(`${root}/app/?page=session`)
   const sidebar = page.locator("[data-inspector-docked]")
   await expect(sidebar.getByRole("tab")).toHaveCount(3)
-  await sidebar.getByRole("button", { name: "更多面板", exact: true }).click()
-  await page.getByRole("menuitem", { name: "上下文", exact: true }).click()
-  await expect(sidebar.getByRole("tab")).toHaveCount(3)
+  await page.locator('[data-sidebar-session-view="context"]').click()
   await expect(
     sidebar.getByRole("tab", { name: "上下文", exact: true }),
+  ).toHaveCount(0)
+  await expect(
+    page.locator('[data-sidebar-session-view="context"]'),
+  ).toHaveAttribute("aria-pressed", "true")
+  await expect(
+    page.getByRole("button", { name: "添加引用", exact: true }),
   ).toBeVisible()
+  await page.locator('[data-sidebar-session-view="conversation"]').click()
+  await expect(sidebar).toBeVisible()
+  await expect(sidebar.getByRole("tab")).toHaveCount(3)
+  await sidebar.getByRole("tab", { name: "文件", exact: true }).click()
+  await expect(page).toHaveURL(/panel=files/)
   await sidebar.getByRole("tab", { name: "变更", exact: true }).click()
   await expect(page).toHaveURL(/panel=changes/)
   await sidebar
@@ -365,8 +374,11 @@ for (const configuration of [
       }
       const screenshot = `${id}-V2-${configuration.theme}-${configuration.locale}.png`
       const screenshotPath = info.outputPath(screenshot)
-      await page.screenshot({path: screenshotPath})
-      await info.attach(screenshot, {path: screenshotPath, contentType: "image/png"})
+      await page.screenshot({ path: screenshotPath })
+      await info.attach(screenshot, {
+        path: screenshotPath,
+        contentType: "image/png",
+      })
     }
     await page.goto(`${root}/regions/reference/`)
     await expect(page.locator("[data-reference-lab]")).toBeVisible()

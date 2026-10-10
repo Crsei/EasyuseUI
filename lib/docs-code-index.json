@@ -166,11 +166,11 @@
   ],
   "session-navigator": [
     {
-      "id": "e77b6264ee3408f1e02c9fc229eea35f84c66452267482c0f75b51e214dacfe9",
+      "id": "c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789",
       "path": "components/blocks/agent-workbench/navigation.tsx",
       "kind": "source",
-      "url": "/docs-code/e77b6264ee3408f1e02c9fc229eea35f84c66452267482c0f75b51e214dacfe9.json",
-      "lines": 377
+      "url": "/docs-code/c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789.json",
+      "lines": 469
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -182,11 +182,11 @@
   ],
   "project-switcher": [
     {
-      "id": "e77b6264ee3408f1e02c9fc229eea35f84c66452267482c0f75b51e214dacfe9",
+      "id": "c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789",
       "path": "components/blocks/agent-workbench/navigation.tsx",
       "kind": "source",
-      "url": "/docs-code/e77b6264ee3408f1e02c9fc229eea35f84c66452267482c0f75b51e214dacfe9.json",
-      "lines": 377
+      "url": "/docs-code/c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789.json",
+      "lines": 469
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -198,11 +198,11 @@
   ],
   "session-header": [
     {
-      "id": "e77b6264ee3408f1e02c9fc229eea35f84c66452267482c0f75b51e214dacfe9",
+      "id": "c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789",
       "path": "components/blocks/agent-workbench/navigation.tsx",
       "kind": "source",
-      "url": "/docs-code/e77b6264ee3408f1e02c9fc229eea35f84c66452267482c0f75b51e214dacfe9.json",
-      "lines": 377
+      "url": "/docs-code/c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789.json",
+      "lines": 469
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -406,11 +406,11 @@
   ],
   "agent-workbench": [
     {
-      "id": "0cf582ee64263f49367a47990321ca859c062b56fc6ad7fe160b01f2e8b02cf8",
+      "id": "12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/0cf582ee64263f49367a47990321ca859c062b56fc6ad7fe160b01f2e8b02cf8.json",
-      "lines": 333
+      "url": "/docs-code/12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c.json",
+      "lines": 340
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -422,11 +422,11 @@
   ],
   "task-inbox": [
     {
-      "id": "0cf582ee64263f49367a47990321ca859c062b56fc6ad7fe160b01f2e8b02cf8",
+      "id": "12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/0cf582ee64263f49367a47990321ca859c062b56fc6ad7fe160b01f2e8b02cf8.json",
-      "lines": 333
+      "url": "/docs-code/12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c.json",
+      "lines": 340
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -2754,11 +2754,11 @@
   ],
   "runtime-status-badge": [
     {
-      "id": "d12ec6e8e38e6ea65ef83f9f839e411802aa45d4f56aaefe09b7821d8bc0fea4",
+      "id": "cc409ffdbe4c27b27a8e1ff2a757f664c44a5400b446c965abbb57b0e116954b",
       "path": "components/ui/runtime-status-badge.tsx",
       "kind": "source",
-      "url": "/docs-code/d12ec6e8e38e6ea65ef83f9f839e411802aa45d4f56aaefe09b7821d8bc0fea4.json",
-      "lines": 63
+      "url": "/docs-code/cc409ffdbe4c27b27a8e1ff2a757f664c44a5400b446c965abbb57b0e116954b.json",
+      "lines": 72
     },
     {
       "id": "a1778a3e312b9ebab68882eb6582859b0292c6a3b26535ff0f9ef4a1146a9d43",
@@ -2860,11 +2860,11 @@
   ],
   "session-row": [
     {
-      "id": "8df18a0b6f74ba14504dcaba6a3c0d88d64d5b5421e1691b5b7e9016408483be",
+      "id": "670f8ae4b76b43c7e3304f366d765dce6b1b1901f55afacd5e8c1e0d2a0047e5",
       "path": "components/blocks/session-row.tsx",
       "kind": "source",
-      "url": "/docs-code/8df18a0b6f74ba14504dcaba6a3c0d88d64d5b5421e1691b5b7e9016408483be.json",
-      "lines": 95
+      "url": "/docs-code/670f8ae4b76b43c7e3304f366d765dce6b1b1901f55afacd5e8c1e0d2a0047e5.json",
+      "lines": 111
     },
     {
       "id": "765a0521688d57e0551c5b471ddd21fbba53415cca39876b1bdd94842fdee1af",

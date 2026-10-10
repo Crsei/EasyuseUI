@@ -36,7 +36,7 @@ import { acknowledgeDraft, type SessionSnapshot, type DraftState, type PanelStat
 const snapshot:SessionSnapshot={sessionId:"consumer-session",projectId:"consumer-project",activeRunId:"consumer-run",threadId:"consumer-thread",source:"independent consumer fixture",agent:{id:"consumer-agent",name:"Consumer agent"},title:"Installed workbench",revision:1,cursor:1,status:"completed",updatedAt:"2026-10-09T10:00:00Z",environment:{environmentId:"fixture",name:"Consumer fixture",branch:"main",connection:"connected",capabilities:[]},capabilities:{send:true,queue:false,steer:false,interrupt:false},contextSources:[],messages:[{messageId:"consumer-message",turnId:"consumer-turn",sequence:1,revision:1,state:"completed",role:"agent",parts:[{partId:"consumer-part",sequence:1,revision:1,kind:"text",text:"## Installed source\n\nSafe code and HTML text: <script>text</script>"}]}],history:{hasMore:false},tools:[],attention:[],artifacts:[],changes:{repositoryId:"consumer-repo",scope:"consumer",base:"a",head:"b",revision:"r1",files:[{fileId:"consumer-file",path:"src/example.ts",kind:"modified",lines:[{id:"consumer-line",kind:"add",text:"export const installed = true",newLine:1}]}]},plan:[],output:{text:"token=private-value\nPASS local fixture",source:"consumer source",timestamp:"2026-10-09"},dataState:"success"}
 const initial:DraftState={draftId:"consumer-draft",version:1,text:"",context:[],modelId:"fixture",permissionId:"ask",environmentId:"fixture",mode:"send"}
 function Preview(){const {locale,setLocale}=useI18n();const [draft,setDraft]=useState(initial);const [receipt,setReceipt]=useState<"pending"|"unknown"|"confirmed"|null>(null);const [submitted,setSubmitted]=useState(initial);const [panels,setPanels]=useState<PanelState>({activePanel:"changes",selectedFileId:"consumer-file",sidebarCollapsed:false,inspectorOpen:true,inspectorWidth:320,bottomOpen:false,bottomHeight:240});const [comments,setComments]=useState<ReviewComment[]>([]);const [change,setChange]=useState(snapshot.changes);const [layout,setLayout]=useState<"conversation"|"review">("conversation");const choices=[{id:"fixture",label:"Caller model"}];const composer=<AgentComposer session={snapshot} draft={draft} onChange={setDraft} models={choices} permissions={[{id:"ask",label:"Caller permission"}]} environments={choices} receipts={receipt?[{requestId:"consumer-request",targetId:snapshot.sessionId,action:"send",state:receipt,draftId:submitted.draftId,draftVersion:submitted.version}]:[]} onSubmit={value=>{setSubmitted(value);setReceipt("pending")}} onReconcile={()=>{setReceipt("confirmed");setDraft(current=>acknowledgeDraft(current,{requestId:"consumer-request",targetId:snapshot.sessionId,action:"send",state:"confirmed",draftId:submitted.draftId,draftVersion:submitted.version}))}}/>
-return <><div><button onClick={()=>setLocale(locale==="en"?"zh-CN":"en")}>Consumer locale</button><button onClick={()=>setLayout(layout==="conversation"?"review":"conversation")}>Consumer layout</button><button onClick={()=>setReceipt("unknown")}>Consumer lose receipt</button><button onClick={()=>setChange({...change,head:"consumer-next-head"})}>Consumer change head</button></div><div style={{height:700}}><AgentWorkbench presentation="workspace" header={<span>Consumer fixture</span>} reviewSplit={panels.reviewSplit} onReviewSplitChange={reviewSplit=>setPanels({...panels,reviewSplit})} session={snapshot} layout={layout} panelState={panels} onPanelStateChange={setPanels} navigation={<SessionNavigator projects={[{projectId:"consumer-project",repositoryId:"consumer-repo",name:"Consumer project"}]} sessions={[snapshot]} projectId="consumer-project" onProjectChange={()=>{}} onSelect={()=>{}} onNew={()=>setDraft({...draft,text:"New consumer task",version:draft.version+1})}/>} composer={composer} workspace={<ChangeReviewPanel changes={change} selectedFileId="consumer-file" onSelectFile={()=>{}} comments={comments} onCommentsChange={setComments} onFeedback={text=>setDraft({...draft,text:draft.text ? draft.text + "\n\n" + text : text,version:draft.version+1})}/>} inspector={<><ContextPicker references={[{id:"consumer-ref",kind:"file",label:"src/example.ts",availability:"available",included:true,removable:true}]} onPick={reference=>setDraft({...draft,context:[reference],version:draft.version+1})}/><ContextPanel references={draft.context} onRemove={()=>setDraft({...draft,context:[],version:draft.version+1})}/></>} bottom={<ExecutionOutputPanel {...snapshot.output}/>}/></div><PreviewPanel><MessageContent content="Caller report preview"/></PreviewPanel><output data-consumer-draft>{draft.text}</output><output data-consumer-receipt>{receipt}</output></>}
+return <><div><button onClick={()=>setLocale(locale==="en"?"zh-CN":"en")}>Consumer locale</button><button onClick={()=>setLayout(layout==="conversation"?"review":"conversation")}>Consumer layout</button><button onClick={()=>setReceipt("unknown")}>Consumer lose receipt</button><button onClick={()=>setChange({...change,head:"consumer-next-head"})}>Consumer change head</button></div><div style={{height:700}}><AgentWorkbench presentation="workspace" showBottomToggle={false} header={<span>Consumer fixture</span>} reviewSplit={panels.reviewSplit} onReviewSplitChange={reviewSplit=>setPanels({...panels,reviewSplit})} session={snapshot} layout={layout} panelState={panels} onPanelStateChange={setPanels} navigation={<SessionNavigator projects={[{projectId:"consumer-project",repositoryId:"consumer-repo",name:"Consumer project"}]} sessions={[snapshot]} presentation="sections" selectedId={snapshot.sessionId} selectedContent={<button data-consumer-session-view onClick={()=>setPanels({...panels,bottomOpen:!panels.bottomOpen})}>Consumer runtime</button>} projectId="consumer-project" onProjectChange={()=>{}} onSelect={()=>{}} onNew={()=>setDraft({...draft,text:"New consumer task",version:draft.version+1})}/>} composer={composer} workspace={<ChangeReviewPanel changes={change} selectedFileId="consumer-file" onSelectFile={()=>{}} comments={comments} onCommentsChange={setComments} onFeedback={text=>setDraft({...draft,text:draft.text ? draft.text + "\n\n" + text : text,version:draft.version+1})}/>} inspector={<><ContextPicker references={[{id:"consumer-ref",kind:"file",label:"src/example.ts",availability:"available",included:true,removable:true}]} onPick={reference=>setDraft({...draft,context:[reference],version:draft.version+1})}/><ContextPanel references={draft.context} onRemove={()=>setDraft({...draft,context:[],version:draft.version+1})}/></>} bottom={<ExecutionOutputPanel {...snapshot.output}/>}/></div><PreviewPanel><MessageContent content="Caller report preview"/></PreviewPanel><output data-consumer-draft>{draft.text}</output><output data-consumer-receipt>{receipt}</output></>}
 export default function Page(){return <I18nProvider><Preview/></I18nProvider>}
 `,
   )
@@ -57,6 +57,33 @@ export default function Page(){return <I18nProvider><Preview/></I18nProvider>}`,
 export async function verifyWorkbenchConsumer(page, origin) {
   await page.goto(origin + "/workbench/")
   await page.getByText("Installed source", { exact: true }).waitFor()
+  const navigation = page.locator('[data-session-navigation="sections"]')
+  const selectedSession = navigation.locator(
+    '[data-session-id="consumer-session"]',
+  )
+  assert.equal(await navigation.locator("[data-session-section]").count(), 3)
+  const status = selectedSession.locator('[data-runtime-status="completed"]')
+  assert.equal(await status.getAttribute("data-icon-only"), "true")
+  assert.ok(await status.getAttribute("title"))
+  assert.equal(await status.locator(".sr-only").count(), 1)
+  assert.ok(
+    (
+      await selectedSession
+        .getByRole("button", { name: /Installed workbench/ })
+        .getAttribute("aria-label")
+    ).includes(await status.getAttribute("title")),
+  )
+  assert.equal(
+    await page.getByRole("button", { name: "运行面板", exact: true }).count(),
+    0,
+  )
+  await selectedSession
+    .getByRole("button", { name: "Consumer runtime", exact: true })
+    .click()
+  await page.getByText("PASS local fixture", { exact: false }).waitFor()
+  await selectedSession
+    .getByRole("button", { name: "Consumer runtime", exact: true })
+    .click()
   const input = page.getByRole("textbox", { name: "消息输入", exact: true })
   await input.fill("Submitted consumer text")
   await page.getByRole("button", { name: "发送", exact: true }).click()
@@ -70,6 +97,13 @@ export async function verifyWorkbenchConsumer(page, origin) {
   await page.getByRole("button", { name: "Consumer layout" }).click()
   assert.equal(await input.inputValue(), "New consumer draft")
   await page.getByRole("button", { name: "Consumer locale" }).click()
+  assert.ok(
+    (
+      await selectedSession
+        .getByRole("button", { name: /Installed workbench/ })
+        .getAttribute("aria-label")
+    ).includes(await status.getAttribute("title")),
+  )
   assert.equal(
     await page
       .getByRole("textbox", { name: "Message input", exact: true })
@@ -151,7 +185,7 @@ export async function verifyWorkbenchConsumer(page, origin) {
   )
   assert.equal(await page.locator("article script").count(), 0)
   console.log(
-    "PASS: independently installed Agent workbench regions, draft version guards, unknown reconciliation, locale/layout retention and revision-bound review feedback",
+    "PASS: independently installed Agent workbench regions, draft version guards, unknown reconciliation, locale/layout retention, sectioned session navigation with accessible status icons and caller-owned runtime control, and revision-bound review feedback",
   )
   await page.goto(origin + "/workbench-resource/")
   await page

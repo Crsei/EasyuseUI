@@ -1,6 +1,19 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.sessionNavigation.reviewControls":
+      "默认显示审阅控制；会话辅助面板可保留布局并省略重复导航。",
+    "site.sessionNavigation.navSections":
+      "可选分区列表；默认保留筛选呈现，归档优先且会话不重复。",
+    "site.sessionNavigation.navSelectedContent":
+      "选中会话下方的调用方内容槽，仅负责展示。",
+    "site.sessionNavigation.statusIconOnly":
+      "可选图标呈现；保留可读状态名称与悬停提示，默认显示文字。",
+    "site.sessionNavigation.rowStatusIconOnly":
+      "可选左侧运行图标；不改变受控运行状态与选择语义。",
+    "site.sessionNavigation.bottomToggle":
+      "默认显示运行面板开关；调用方可在侧栏提供同一受控开关。",
+
     "workbenchCatalog.resourceContract": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
     "workbenchCatalog.resourcePreview": "统一只读文件小窗；文本、Markdown、图片、JSON、CSV 与安全源码降级。",
     "workbenchCatalog.resourceTabs": "临时预览与固定标签分离；关闭不删除来源文件。",
@@ -2294,7 +2307,7 @@ export const siteMessages = {
     "site.additionalStylingSemanticColorsComeFromSharedTokensPages":
       "追加样式；语义颜色来自统一token，业务页面不重新映射。",
     "site.eachStateDisplaysBothAnIconAndTextColor":
-      "每个状态同时显示图标与文字，颜色不是唯一信息。",
+      "默认同时显示图标与文字；图标模式保留可读名称，颜色不是唯一信息。",
     "site.dataReadSuccessUiLoadingAndRuntimeCompletionAre":
       "数据读取success、UI loading与runtime completed是独立状态轴。",
     "site.theCallerControlsStatusTheComponentDoesNotInfer":
@@ -2850,6 +2863,19 @@ export const siteMessages = {
 "site.gapAudit.detail5":"交互单元格使用separate，避免嵌套按钮。"
 },
   en: {
+    "site.sessionNavigation.reviewControls":
+      "Show review controls by default; auxiliary session panels may retain their layout while omitting duplicate navigation.",
+    "site.sessionNavigation.navSections":
+      "Optional sectioned list; filters remain the default, archived sessions take priority and each session appears once.",
+    "site.sessionNavigation.navSelectedContent":
+      "Caller-provided content below the selected session; presentation only.",
+    "site.sessionNavigation.statusIconOnly":
+      "Optional icon display retaining an accessible status name and hover title; text is visible by default.",
+    "site.sessionNavigation.rowStatusIconOnly":
+      "Optional leading runtime icon; controlled runtime and selection semantics stay intact.",
+    "site.sessionNavigation.bottomToggle":
+      "Show the runtime toggle by default; callers may provide the same controlled toggle in the sidebar.",
+
     "workbenchCatalog.resourceContract": "Portable resource identities, revisions, bounded content, document tabs and command snapshots.",
     "workbenchCatalog.resourcePreview": "Read-only quick look for text, Markdown, raster images, JSON, CSV and inert source fallbacks.",
     "workbenchCatalog.resourceTabs": "Separate transient previews from pinned documents; closing a tab does not delete its source.",
@@ -5219,7 +5245,7 @@ export const siteMessages = {
     "site.additionalStylingSemanticColorsComeFromSharedTokensPages":
       "Additional styling. Semantic colors come from shared tokens; pages do not remap them.",
     "site.eachStateDisplaysBothAnIconAndTextColor":
-      "Each state displays both an icon and text. Color is not the sole information channel.",
+      "States display icons and text by default; icon mode retains accessible names. Color is not the sole information channel.",
     "site.dataReadSuccessUiLoadingAndRuntimeCompletionAre":
       "Data-read success, UI loading and runtime completion are independent axes.",
     "site.theCallerControlsStatusTheComponentDoesNotInfer":

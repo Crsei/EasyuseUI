@@ -1,6 +1,13 @@
 "use client"
 import Link from "next/link"
-import { Info, X } from "lucide-react"
+import {
+  Info,
+  X,
+  MessageSquare,
+  Layers,
+  ListTodo,
+  Terminal,
+} from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import {
   useEffect,
@@ -1151,6 +1158,68 @@ export function WorkbenchDemo({
   )
   const sessionNavigation = (
     <SessionNavigator
+      presentation={level === "app" ? "sections" : "filters"}
+      selectedContent={
+        level === "app" ? (
+          <div className={styles.sessionViews} data-session-views>
+            {(
+              [
+                {
+                  id: "conversation",
+                  label: t("workbench.conversation"),
+                  icon: MessageSquare,
+                },
+                { id: "context", label: t("workbench.context"), icon: Layers },
+                { id: "plan", label: t("workbench.plan"), icon: ListTodo },
+              ] as const
+            ).map((view) => (
+              <Button
+                key={view.id}
+                size="sm"
+                variant="ghost"
+                data-navigation-close
+                data-sidebar-session-view={view.id}
+                data-workbench-layout={
+                  view.id === "conversation" ? "conversation" : undefined
+                }
+                aria-pressed={
+                  query.page === "session" &&
+                  (view.id === "conversation"
+                    ? activeView === "conversation"
+                    : activeView === "workspace" && activePanel === view.id)
+                }
+                onClick={() =>
+                  navigate({
+                    page: "session",
+                    layout:
+                      view.id === "conversation" ? "conversation" : "review",
+                    ...(view.id !== "conversation" ? { panel: view.id } : {}),
+                  })
+                }
+              >
+                <view.icon size={16} />
+                {view.label}
+              </Button>
+            ))}
+            <Button
+              size="sm"
+              variant="ghost"
+              data-navigation-close
+              data-sidebar-session-view="runtime"
+              aria-pressed={state.panels.bottomOpen}
+              onClick={() =>
+                onPanels({
+                  ...state.panels,
+                  bottomOpen: !state.panels.bottomOpen,
+                })
+              }
+            >
+              <Terminal size={16} />
+              {t("workbench.bottom")}
+            </Button>
+          </div>
+        ) : undefined
+      }
       newLabel={locale === "en" ? "New session" : "新建会话"}
       newDisabled={readOnly}
       projects={query.scenario === "empty" ? [] : visibleProjects}
@@ -1480,11 +1549,28 @@ export function WorkbenchDemo({
                       : preview(),
     }),
   )
-  const workspace = (
+  const sessionPanel =
+    level === "app" && ["context", "plan"].includes(activePanel)
+  const resourcePanels =
+    level === "app"
+      ? panelDescriptors.filter(({ id }) => !["context", "plan"].includes(id))
+      : panelDescriptors
+  const [resourcePanel, setResourcePanel] = useState<WorkbenchPanelId>(
+    sessionPanel ? "changes" : activePanel,
+  )
+  if (level === "app" && !sessionPanel && resourcePanel !== activePanel) {
+    setResourcePanel(activePanel)
+  }
+  const resourcePanelValue = sessionPanel ? resourcePanel : activePanel
+  const resourceWorkspace = (
     <DeferredWorkbenchPanels
-      panels={panelDescriptors}
-      primaryPanels={["changes", "files", "plan"]}
-      value={activePanel}
+      panels={resourcePanels}
+      primaryPanels={
+        level === "app"
+          ? ["changes", "files", "artifacts"]
+          : ["changes", "files", "plan"]
+      }
+      value={resourcePanelValue}
       onChange={(id) => {
         dispatch({
           type: "panels",
@@ -1494,6 +1580,16 @@ export function WorkbenchDemo({
       }}
     />
   )
+  const workspace =
+    level === "app" ? (
+      <>
+        <div hidden={sessionPanel}>{resourceWorkspace}</div>
+        {sessionPanel &&
+          panelDescriptors.find(({ id }) => id === activePanel)?.render()}
+      </>
+    ) : (
+      resourceWorkspace
+    )
   function openChange(fileId: string) {
     dispatch({
       type: "panels",
@@ -1504,7 +1600,7 @@ export function WorkbenchDemo({
   }
   const resourceSidebar = (
     <DeferredWorkbenchPanels
-      panels={panelDescriptors.map((panel) => ({
+      panels={resourcePanels.map((panel) => ({
         ...panel,
         render: () =>
           panel.id === "changes" ? (
@@ -1538,8 +1634,12 @@ export function WorkbenchDemo({
             panel.render()
           ),
       }))}
-      value={activePanel}
-      primaryPanels={["changes", "files", "plan"]}
+      value={resourcePanelValue}
+      primaryPanels={
+        level === "app"
+          ? ["changes", "files", "artifacts"]
+          : ["changes", "files", "plan"]
+      }
       onChange={(panel) => navigate({ panel })}
     />
   )
@@ -2415,13 +2515,15 @@ export function WorkbenchDemo({
           onPanelStateChange={onPanels}
           navigation={navigation}
           activityBar={activityBar}
-          activeView={query.page === "review" ? "workspace" : activeView}
+          activeView={activeView}
           showViewSwitch={level !== "app"}
+          showReviewControls={!sessionPanel}
           onActiveViewChange={setActiveView}
           composer={composer}
           workspace={main}
           inspector={resourceSidebar}
           bottom={isSession ? runtimePanel : undefined}
+          showBottomToggle={level !== "app"}
           bottomBadge={
             commands.filter(
               (command) =>
@@ -2429,37 +2531,34 @@ export function WorkbenchDemo({
             ).length
           }
           toolbar={
-            <div className={styles.row}>
-              {isSession && (
-                <>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => {
-                      setActiveView("workspace")
-                      navigate({ panel: "context", layout: "review" })
-                    }}
-                  >
-                    {t("workbench.context")}
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => {
-                      setActiveView("workspace")
-                      navigate({ panel: "plan", layout: "review" })
-                    }}
-                  >
-                    {t("workbench.plan")}
-                  </Button>
-                </>
-              )}
-              {isSession &&
-                workbenchLayouts
-                  .filter(
-                    (layout) => level !== "app" || layout === "conversation",
-                  )
-                  .map((layout) => (
+            level !== "app" ? (
+              <div className={styles.row}>
+                {isSession && (
+                  <>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => {
+                        setActiveView("workspace")
+                        navigate({ panel: "context", layout: "review" })
+                      }}
+                    >
+                      {t("workbench.context")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => {
+                        setActiveView("workspace")
+                        navigate({ panel: "plan", layout: "review" })
+                      }}
+                    >
+                      {t("workbench.plan")}
+                    </Button>
+                  </>
+                )}
+                {isSession &&
+                  workbenchLayouts.map((layout) => (
                     <Button
                       key={layout}
                       size="sm"
@@ -2482,7 +2581,8 @@ export function WorkbenchDemo({
                       {t(`workbench.${layout}`)}
                     </Button>
                   ))}
-            </div>
+              </div>
+            ) : undefined
           }
           headerActions={environmentDetails(true)}
           onRename={

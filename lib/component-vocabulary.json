@@ -1635,7 +1635,7 @@
     "source": "components/ui/runtime-status-badge.tsx",
     "usage": "import { RuntimeStatusBadge } from \"@/components/ui/runtime-status-badge\"\n\n<RuntimeStatusBadge status=\"running\" />",
     "notes": [
-      "每个状态同时显示图标与文字，颜色不是唯一信息。"
+      "默认同时显示图标与文字；图标模式保留可读名称，颜色不是唯一信息。"
     ]
   },
   {

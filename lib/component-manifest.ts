@@ -541,6 +541,17 @@ const sourceManifest: ComponentManifestEntry[] = [
   "usage": "import { SessionNavigator } from \"@/components/blocks/agent-workbench/navigation\"",
   "props": [
     {
+      "name": "presentation",
+      "type": "\"filters\" | \"sections\"",
+      "description": "可选分区列表；默认保留筛选呈现，归档优先且会话不重复。"
+    },
+    {
+      "name": "selectedContent",
+      "type": "ReactNode",
+      "description": "选中会话下方的调用方内容槽，仅负责展示。"
+    },
+
+    {
       "name": "projects",
       "type": "readonly ProjectRef[]",
       "description": "稳定对象标识、版本、能力与独立操作回执。"
@@ -1511,6 +1522,17 @@ const sourceManifest: ComponentManifestEntry[] = [
   "example": "components/examples/agent-workbench/component-demos.tsx",
   "usage": "import { AgentWorkbench } from \"@/components/blocks/agent-workbench\"",
   "props": [
+    {
+      "name": "showBottomToggle",
+      "type": "boolean",
+      "description": "默认显示运行面板开关；调用方可在侧栏提供同一受控开关。"
+    },
+    {
+      "name": "showReviewControls",
+      "type": "boolean",
+      "description": "默认显示审阅控制；会话辅助面板可保留布局并省略重复导航。"
+    },
+
     {
       "name": "session",
       "type": "SessionSnapshot",
@@ -5975,6 +5997,12 @@ const sourceManifest: ComponentManifestEntry[] = [
       'import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"\n\n<RuntimeStatusBadge status="running" />',
     props: [
       {
+        name: "iconOnly",
+        type: "boolean",
+        description: "可选图标呈现；保留可读状态名称与悬停提示，默认显示文字。",
+      },
+
+      {
         name: "status",
         type: "RuntimeStatus | string",
         description:
@@ -5987,7 +6015,7 @@ const sourceManifest: ComponentManifestEntry[] = [
       },
     ],
     notes: [
-      "每个状态同时显示图标与文字，颜色不是唯一信息。",
+      "默认同时显示图标与文字；图标模式保留可读名称，颜色不是唯一信息。",
       "数据读取success、UI loading与runtime completed是独立状态轴。",
       "状态由调用方控制，组件不推断运行结果。",
     ],
@@ -6180,6 +6208,12 @@ const sourceManifest: ComponentManifestEntry[] = [
     usage:
       '<SessionRow session={session} selected={selectedId === session.id} onSelect={() => select(session.id)} action={{ label: "继续", onAction: resume }} />',
     props: [
+      {
+        name: "statusIconOnly",
+        type: "boolean",
+        description: "可选左侧运行图标；不改变受控运行状态与选择语义。",
+      },
+
       {
         name: "session",
         type: "SessionRecord",
