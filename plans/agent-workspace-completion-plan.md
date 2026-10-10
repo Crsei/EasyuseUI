@@ -1,5 +1,7 @@
 # Agent Workspace 首轮 Pi 接入补全执行计划
 
+2026-10-12 的技术更新与展示打磨按[明日实施计划](2026-10-12-agent-workspace-work-items-plan.md)执行：P0 协议校验、Pi 回归与展示；查询缓存试点为 P1。此增量目前仅完成规划，沿用 AW0–AW5 与 DL 的已有证据，后续编码服务仍按 CW0–CW6 独立交付。
+
 日期：2026-10-10；开发方向更新：2026-10-11。状态：首轮 Pi AW0–AW5 已实现；实际工程与服务验收见[首轮实施记录](agent-workspace-completion-log.md)。完整参考设计的 UI 范围已按[设计实施记录](agent-workspace-design-completion-log.md)完成；S2–S4、AW6–AW8 及下述 DG 增量仍待实施。
 
 **第一个补全执行计划先用于接入 Pi。** 首轮目标是在现有 Agent Workspace 中完成“连接本地 Pi 服务 → 选择项目/会话 → 展示历史 → 发送消息与流式回复 → 展示真实工具 → 停止 → 刷新/断线恢复 → 带旧上下文继续聊天”。完整代码编辑器、Git、PTY、Checkpoint 和多 Agent 界面不作为 Pi 接入的前置条件。
