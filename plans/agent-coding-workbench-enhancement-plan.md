@@ -1,5 +1,7 @@
 # Agent 编码工作台：侧边工具栏、设置对话框与文件预览增强计划
 
+2026-10-11 计划增量：E6 的编码服务部分细化为[第 11 节 CW0–CW6](#11-agent-编码工作台技术补充与服务实施计划)，涵盖编辑器、文件/Git、命令/PTY 与分层验收；当前均待实施。前文 E0–E5 的历史范围和完成记录保留。
+
 日期：2026-10-09。状态：E0–E5 已实现并通过本地fixture、静态与独立安装验收，见 [实施记录](./agent-coding-workbench-enhancement-log.md)；E6 为独立后续。计划调研基线：`6ed0cc5dc782a0d726c88e1e408e7f7a47ea1af7`。
 
 目标：在现有 Agent 编码工作台上，把侧边入口、对话输入、设置、上下文、工具执行、命令输出、生成产物和文件预览组织成连续的工作流程。主要改造入口为 `/examples/agent-workbench/app/?template=coding&page=session`，并同步区域实验室；三种模板继续共用组件和状态。
@@ -275,3 +277,107 @@ WorkspaceShell（唯一布局所有者）
 ### 10.4 E0–E5 实施交付
 
 E0–E5完成矩阵、接口边界、验收命令、浏览器回归、独立安装与长内容测量见 [实施记录](./agent-coding-workbench-enhancement-log.md)。以上勾选对应本地fixture和公共组件契约；真实日志订阅、服务执行、权限持久化及业务验收仍由E6宿主适配器提供。E4可选非模态浮窗保持后置，当前使用可访问Dialog和主区停靠。
+
+## 11. Agent 编码工作台技术补充与服务实施计划
+
+更新：2026-10-11。状态：仅完成本节规划，CW0–CW6 均待实施。承接 [Development Guide](../DEVELOPMENT-GUIDE.md) DG2/DG3、[Workspace 补全计划](agent-workspace-completion-plan.md) S2/S3 和本计划 E6。E0–E5、Pi AW0–AW5 及参考设计 DL 的已有完成范围不变；本节不代表安装依赖、启用写工具或真实编码服务已经完成。
+
+### 11.1 当前源码与目标
+
+| 区域 | 已核对的源码/能力 | 待补缺口 |
+| --- | --- | --- |
+| 文件/Diff | `components/blocks/agent-workbench/review.tsx` 的 FileViewer/DiffViewer；有界、脱敏、只读文本及差异行 | 可编辑文档、选区/撤销保留、保存版本和真实 Git 来源 |
+| 文档身份 | `lib/workbench-resource-model.ts` 的 ResourceIdentity/ResourceSnapshot、固定标签与 revision | 可保存正文与预览分离、dirty 草稿、文件读取/保存能力与冲突合同 |
+| 输出 | `components/blocks/agent-workbench/panels.tsx` 的 ExecutionOutputPanel，已有 terminal 插槽 | 真实命令生命周期、PTY 双向输入、resize、退出、流控和重连 |
+| 状态 | `components/examples/agent-workbench/provider.tsx` 的 Context/reducer；Pi 私有 Provider/Client | 扩展适配合同，查询/草稿/回执分责，保留现有已验证恢复逻辑 |
+| Pi Host | `services/pi-host/`，SDK 只启用 read/grep/find/ls | 独立、显式配置的文件/Git/命令/PTY 服务能力；不能由 UI 开关开启 Agent 写入工具 |
+
+目标路径：会话定位文件 → 查看来源版本 → 编辑 → 显式保存 → 查询确认结果 → 查看实际 Diff → 执行命令并查看退出结果 → 返回会话。当前原生 SDK 的模型/工具能力与用户主动编辑/执行的宿主能力分别授权、分别记录。
+
+### 11.2 技术决策与可行性门槛
+
+| 方向 | 候选决策 | CW0 必须得到的证据 |
+| --- | --- | --- |
+| 编辑器 | 优先验证 CodeMirror 6；Monaco 仅在明确 IDE/语言服务需求时对照；最终只选择一种 | 当前 React/静态导出可用，客户端按需加载；IME、主题、选区和 undo 不因切面板重置；记录依赖、许可与加载成本 |
+| Diff | 保留现有受控 DiffViewer；若需可编辑合并，单独验证选定编辑器的差异扩展 | 基础/当前版本、行反馈与文件身份一致；显示差异不等于已应用变更 |
+| PTY 前端 | xterm.js 与适用尺寸适配扩展，通过已有 terminal 插槽接入 | 首次打开才加载；0 尺寸隐藏面板不错误 resize；显式输入/粘贴，退出面板释放视图订阅 |
+| PTY Host | node-pty 为候选；复用现有独立 Host 的生命周期边界，必要时隔离原生模块 | Node 24.21.0 / GLIBC 2.28 下安装或编译、spawn/input/resize/exit 通过；原生模块失败时明确不可用，不把 child_process 日志冒充 PTY |
+| 传输 | 保留消息 SSE；命令可用现有 HTTP/事件合同扩展，交互 PTY 采用独立双向协议 | 鉴权、Origin、terminalId/generation、输入序号、输出游标、ACK/流控和断线语义可复现 |
+| 协议/缓存 | 复用 DG2 的 Zod schema 与 TanStack Query 只读试点 | 新边界负载校验；缓存键含服务、授权作用域、项目/工作树/对象；旧 HTTP 不覆盖新事件 |
+| UI/状态 | 沿用 Base UI、Lucide、共享 token、Context/reducer | 无第二套 Shell/焦点/主题系统；Zustand、dnd kit、TanStack Table 不作为本切片前置 |
+
+锁定实际版本后才修改依赖。CW0 产物是可运行的小范围兼容验证、选择理由和基线；文档列出候选不等于兼容已证实。原生 PTY 验证独立于文件编辑交付，不阻塞 CW1/CW2。
+
+### 11.3 页面级增量声明
+
+| 页面/来源 | 目标、信息归属与区域 | 布局与默认状态 | 保留与验收 |
+| --- | --- | --- | --- |
+| PG04 `/examples/agent-workbench/app/?template=coding&page=session`、PG08 `/workspace/`，fixture | 展示编辑/保存/冲突/Git/命令/PTY 协议；示例适配器提供确定性快照与回执 | 保留当前会话分区及会话内视图入口；Main 按需显示编辑/审阅，底栏默认收起；场景控件折叠且明确演示来源 | 从文件回消息保留草稿、选择、滚动和面板比例；刷新按 fixture 边界处理，不宣称文件已落盘 |
+| PG05 `/examples/agent-workbench/pi/`，真实本地服务 | 复用相同模块；Host 提供身份、权限、文件版本、进程和回执；只显示实际能力 | 既有 Header/Composer 保持；获得能力后才开放编辑/命令/PTY；不改变首轮只读默认 | 临时工作项目完成编辑/命令路径；刷新/重启/迟到响应/两标签及 unknown 分别验证 |
+| PG02 区域实验室，fixture | 独立复现 CW-M1–M3 状态，不启动真实 shell | 复用模块与正式 token；状态控制置于模块外，日志/终端有独立有界区域 | 可重复 reset，失败/拒绝/冲突/断线与输出缺口可见；不能用 ANSI 演示流证明真实 PTY |
+
+尺寸沿用 PG/MD/V 的既有合同：侧栏、Header 和内容列保持当前页面声明，桌面编辑器复用宽 Main 分屏/最大化，底栏展开默认240px、范围200–400px；工具条32px、正文14px、代码等宽12/20、中性表面和1px分隔。窄容器依现有 Shell 收敛为单主视图，390px 可在对话/文件/运行间显式切换；编辑区和输出区独立滚动，不能挤走保存或 Composer 主操作。
+
+切主题/语言不重建活动编辑文档，不清输入和阅读锚点，不触发保存/执行。软键盘、短视口、粗指针44px目标与 reduced-motion 分别验证。模块 ID 映射如下；实现改变布局时同步本节和总设计计划，保留唯一共享合同。
+
+### 11.4 模块级增量声明
+
+| 模块 / 对应 MD / host pages | 职责、受控输入与复用 | 状态与长内容 | 副作用与验收 |
+| --- | --- | --- | --- |
+| CW-M1 编辑器 / MD16 / PG02、PG04、PG05、PG08 | 复用文档标签、DataRegion、Button、宽 Main；拟新增受控 CodeEditor 适配。输入为完整文档身份、baseRevision、文本、draftVersion、只读/权限；回调分别表达草稿修改和保存意图 | 编辑正文中性表面、等宽12/20；dirty、saving、conflict、unknown 与焦点/选择独立；加载失败保留可恢复视图。大文件/二进制/截断资源只读且说明原因 | 调用方持有草稿与保存回执；IME、查找、撤销、选区、切文件/主题/语言及 dirty 关闭验证；保存快捷键仅作用于当前编辑区域 |
+| CW-M2 文件/Git / MD10、MD15、MD16 / 同上 | 复用 Tree、FileViewer、DiffViewer、ChangeReviewPanel、DataRegion；输入 worktreeId/resourceId/path/revision 和来源差异；保存、应用、回退、提交分别有能力及回执 | 文件列表紧凑 Item，不套嵌套 Card；选择与焦点分开，增删颜色仍用语义 token；冲突、缺失、无权限和过期差异持续可见 | Host 校验路径、版本和范围；关闭 Diff 不写文件。键盘可打开同一对象与对应版本；外部修改后重新读取，不覆盖 dirty 草稿 |
+| CW-M3 命令/PTY / MD11、MD17 / 同上 | 复用 ExecutionSessionList、ExecutionOutputPanel.terminal、RuntimeStatusBadge；输入 commandId/runId/terminalId/generation、cwd、连接与结果；启动、停止、输入、resize、detach 分责 | 底栏默认收起、异常数量可见；运行/连接/读取状态独立，未知 exitCode 显示“—”；文本日志有界脱敏，交互终端另有受授权通道 | Host 拥有进程，面板关闭只解除视图订阅；停止等来源退出，断线保留已知结果。键盘/粘贴/触摸、中文输入、resize、快速输出流控和清理验证 |
+
+CodeEditor/终端适配名称为提案，实施前核对实际导出后决定公共提取范围。新增可分发组件必须补 Demo、Manifest、Registry、便携 CSS/双语消息及独立安装；Host、认证和私有协议适配不进入公共组件依赖。
+
+### 11.5 文件、Git 与命令合同
+
+**文档与保存：** 编辑文档身份包含 projectId、worktreeId、resourceId/path 和 baseRevision，草稿单独有 draftVersion。预览的 ResourceSnapshot.text 可能已经脱敏/截断，不能直接用于保存；服务只向具有编辑权限的调用方返回完整可编辑文本。无法提供完整正文的资源维持只读。日志/错误/导出仍遵守脱敏边界。
+
+保存请求携带 requestId、明确目标、baseRevision 和提交的 draftVersion；Host 在受控项目根内验证路径及符号链接边界，执行条件写入并返回新 revision。revision 冲突不覆盖来源；成功只确认已提交版本，新输入继续 dirty。超时和丢回执进入 unknown，先查原 requestId，不能换键自动补写。外部进程同时修改必须可检测并保留冲突，不能把进程内锁称作跨进程事务。CW2 的首切片差异来自保存前后完整文件版本，并标明比较来源；Git HEAD/index/工作区差异另由 CW3 提供。
+
+**Git：** 读取 status/diff 时固定工作树、HEAD/index/工作区来源；路径使用明确参数传递而非 shell 拼接。Apply、Revert、Stage、Commit 分别定义作用域，执行前展示受影响路径/版本。已有 staged 和无关修改必须保留；首版明确限制不支持的冲突/子模块/二进制场景。禁止用自动 reset/clean/stash 或推送来“修复”状态。Commit 不隐含 push；浏览 Diff 不产生 Git 写入。
+
+**命令：** 区分非交互 command 和交互 terminal。非交互命令记录身份、cwd、开始/结束、stdout/stderr、截断、退出码/信号和来源状态；requestId 在执行前登记，超时先查进程/回执，不自动重跑命令。停止目标绑定当前 commandId/runId，旧回执不能停止新进程。用户主动运行的能力与 Pi Agent 工具能力独立。
+
+**PTY：** terminalId/generation 绑定进程与连接会话；create/attach/input/resize/detach/terminate 分别定义。WS 升级和后续消息校验来源/凭据，凭据不放 URL；浏览器认证机制在 CW0 固定。输入序号与重连结果明确，无法确认的输入不自动重放；断线不新建 shell。输出 ACK 和有界重放/缺口策略配套流控，快速生产者不会无限占用内存。面板关闭不结束服务进程，只有明确终止或声明的 Host 生命周期策略生效。
+
+PTY 原始交互流与可复制/导出的日志分别处理：调用方只提供获准访问的终端会话，不宣称任意 ANSI/交互程序输出已经自动脱敏；禁止自动复制、上传或执行输出中的命令/链接。日志导出和诊断记录继续脱敏、有界，并标注来源截断。
+
+### 11.6 文件安排与分阶段出口
+
+| 位置 | 计划职责 |
+| --- | --- |
+| `components/blocks/agent-workbench/` 与按需独立编辑器/终端模块 | 复用 File/Diff/Output 槽位，增加受控 UI；重依赖不进入普通聊天首屏 |
+| `lib/workbench-resource-model.ts` 与独立编辑/运行协议模块 | 可编辑文档、草稿、保存/冲突、Git/命令/终端身份；不导入 Node SDK |
+| `components/examples/agent-workbench/`、`components/examples/agent-workspace/` | 编码模板、区域场景、确定性文件/命令/ANSI fixture 和双语说明 |
+| `components/examples/pi-workspace/` | 真实 client/Provider 能力与快照适配，保留首轮对话逻辑 |
+| `services/pi-host/` 下独立文件/Git/命令/PTY 模块 | 项目范围、权限、写入与进程权威；原生 PTY 按能力加载，具体文件名在 CW0 冻结 |
+| 现有 model/浏览器测试及 Host test | 版本竞态、回执、输出/连接边界、跨模块和独立安装验收 |
+
+| 阶段 | 交付 | 退出条件 | 前置 / 状态 |
+| --- | --- | --- | --- |
+| CW0 选型与合同 | 冻结版本、源码与页面/模块基线；编辑器、PTY、schema/查询技术验证 | 当前主机/静态导出兼容，协议、权限、容量、日志/终端边界可审阅；明确 PTY 可用或阻塞 | 起点；待实施 |
+| CW1 编辑器 UI/fixture | 受控编辑器、文档草稿、保存意图、readonly/conflict/unknown | 实际编辑、撤销、选区/草稿保持，截图/键盘/窄屏通过；明确只证明 fixture | CW0 编辑器部分；待实施 |
+| CW2 真实文件服务 | 完整读取、版本条件保存、写回执、冲突与恢复 | 临时项目实际字节变化正确；迟到确认不清新草稿，外部修改不被覆盖，unknown 可查询 | CW1 + DG2 适用合同；待实施 |
+| CW3 真实 Git | status/diff 读取及逐项启用的应用/回退/暂存/提交 | 明确路径和版本；临时仓库验证冲突、已有暂存及无关修改保留；不隐含 push | CW2；待实施 |
+| CW4 非交互命令 | 启动、输出、取消、退出与结构化测试结果 | 真实退出码/信号，重复请求不重复启动，刷新/断线/超时可核对 | CW2；待实施 |
+| CW5 交互 PTY | xterm.js 槽位、Host PTY 与双向通道 | 输入/resize/退出/重连、流控与终止清理有实际进程证据；不以普通日志替代 | CW0 PTY验证 + CW4；待实施 |
+| CW6 组合与分发 | 编码链路、三模板回归、公共分发、性能和文档 | 完成范围与未启用能力清楚；fixture/Host/真实provider/业务结果分别记录 | 对已启用 CW1–CW5 分批验收；待实施 |
+
+首个真实切片：CW0 → CW1 → CW2 → CW4 → CW6 适用项。CW3 和 CW5 单独补齐，S4 的 Checkpoint/队列/协作后置。首切片只证明文件编辑与非交互命令；完整 S2/S3 必须覆盖实际启用的 Git 和交互 PTY。DG2 的 schema/查询试点由 Pi 技术计划承接，不因 CW 再维护一份重复协议。
+
+### 11.7 验收矩阵与交付边界
+
+- [ ] 文件→编辑→保存→实际 Diff→命令结果→原消息/Composer，保留关联、选区、草稿与阅读位置。
+- [ ] 同文件两标签、外部修改、rename/delete、无权限、二进制/大文件/截断/脱敏预览，均不静默覆盖或错误开放保存。
+- [ ] 保存时继续输入、回执迟到、重复请求、Host 重启和未知结果先对账；Git 操作不吸收无关 staged/dirty 文件。
+- [ ] 命令无输出/非零退出/信号中断/启动失败/停止迟到；PTY 真正输入、resize、断线、输出缺口、快速输出、终止与资源释放。
+- [ ] 1440px、1024px 容器、390px/短视口、双语/双主题、键盘/IME/触摸/reduced-motion；隐藏面板不残留可聚焦控件。
+- [ ] 冻结文件/历史/输出规模，记录首次编辑器/终端可用时间、JS 加载、内存、滚动与输入响应；未打开的页面不下载重型依赖。
+- [ ] lint/typecheck/Webpack build、Host 类型与服务测试、浏览器恢复回归通过；公共源码/CSS/Registry 变化时独立安装验证；真实 Pi 首轮功能无退化。
+- [ ] 实施记录分别登记 CW 与 S/E/DG 对应范围、失败/复测、UI/fixture、真实本地文件/进程、真实 provider、业务验收与 Git 交付；规划本身不勾选实现完成。
+
+检查只在明确归属的隔离项目/仓库/进程中运行；不拿当前共享工作树执行保存、回退或命令破坏性场景。工程动作遵循 AGENTS.md 的既有交付授权。
+
+技术资料：[CodeMirror 示例](https://codemirror.net/examples/basic/)、[xterm.js 流控](https://xtermjs.org/docs/guides/flowcontrol/)、[node-pty](https://github.com/microsoft/node-pty)。这些是选型参考；当前主机兼容、包体和真实服务能力仍须 CW0 及后续实际验证。

@@ -91,6 +91,24 @@ TanStack Query 试点先覆盖只读列表与历史页，验证 query key 隔离
 
 ## 7. 执行顺序与完成等级
 
+### Agent 编码工作台的具体补充
+
+2026-10-11，当前重点补充编码模板 `/examples/agent-workbench/app/?template=coding&page=session` 及共享入口 `/workspace/`；真实能力由 `/examples/agent-workbench/pi/` 的 Host 适配承接。具体实施包见[编码工作台 CW0–CW6](./plans/agent-coding-workbench-enhancement-plan.md#11-agent-编码工作台技术补充与服务实施计划)。本轮仅补文档，以下技术均未因此安装，服务能力未扩展。
+
+| 能力 | 当前实现 | 补充方向与技术选择 |
+| --- | --- | --- |
+| 文件与代码 | FileViewer 有界只读文本，DiffViewer 展示调用方提供的差异；Shiki 主要用于文档代码高亮 | 优先验证 CodeMirror 6 的按需语言、搜索、选区和编辑；Monaco 作为需要 IDE 级能力时的备选，CW0 比较后锁定一种，不同时引入 |
+| 保存与 Git | 资源已有身份/revision，尚无真实保存/Git 服务 | Host 提供完整可编辑快照、版本条件保存、操作回执和明确路径范围的 Git；编辑草稿与确认版本分开 |
+| 命令与终端 | ExecutionOutputPanel 提供有界日志与 terminal 插槽，尚无真实 PTY | xterm.js 前端 + 可选 Host PTY 适配；node-pty 是候选，先验证 Node 24 / GLIBC 2.28 的加载和编译；消息 SSE 保留，PTY 双向通道单独设计 |
+| 服务协议 | PiClient 手写 fetch/SSE 与信封检查，Context/Hook 管理读取/草稿/回执 | 复用 DG2 的 Zod 边界验证和 TanStack Query 只读试点；保存、Git、命令与终端生命周期仍由命令/对账层负责 |
+| 状态与规模 | 已有 reducer、面板偏好和有界预览 | 保留现有实现；按测量决定细粒度 store 或虚拟化，不把 Zustand/dnd kit/TanStack Table 作为编码切片前置 |
+
+最小可交付链路为“从会话打开文件 → 编辑 → 显式保存并确认版本 → 查看实际 Diff → 执行一次命令 → 查看来源退出结果 → 回到原会话草稿”。编辑/命令能力由独立宿主配置显式开启，不因加载新 UI 自动给 Pi Agent 启用写文件或 Bash。交互 PTY、Git 写操作和 Checkpoint 分别验收；首个切片不依赖多 Agent 或完整 IDE。
+
+特别约束：被截断或脱敏的预览不可作为可保存文件正文；确认保存只确认提交的草稿版本，较新输入继续保留。终端关闭面板不结束进程，断线不重放输入或自动重建 shell；输出流控与重连缺口有明确可见状态。具体容量、布局、权限、冲突及测试矩阵以 CW 计划为准。
+
+### 总体工作包映射
+
 | 工作包 | 下一步 | 对应计划 | 当前状态 |
 | --- | --- | --- | --- |
 | DG1 流程与关联 | 固定对象关系、页面/模块声明，制作项目流程 fixture | AW7 的前置示例；复用 PG/MD | 待实施 |
