@@ -6060,7 +6060,7 @@ const sourceManifest: ComponentManifestEntry[] = [
       },
     ],
     notes: [
-      "完整基础页在/workspace/；窄容器的Inspector改为带焦点约束的抽屉。",
+      "完整基础页在/workspace/shell/；窄容器的Inspector改为带焦点约束的抽屉。",
       "按容器宽度响应：≥1280px停靠Inspector；<1280px改为浮层；<1024px使用窄导航。",
       "支持指针拖动、方向键每次8px、Home/End尺寸边界；关闭后恢复焦点。",
       "示例数据和消息只在本地内存，不连接Agent、模型或网络服务。",

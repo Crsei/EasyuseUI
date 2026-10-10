@@ -371,6 +371,9 @@ test("source late responses cannot replace another selected file; copy failure i
   await source
     .getByRole("button", { name: "读取所选文件", exact: true })
     .click()
+  await expect(
+    source.getByRole("button", { name: "正在读取源码…", exact: true }),
+  ).toBeDisabled()
   await source.getByRole("combobox").selectOption(sourceFiles[2].id)
   await source
     .getByRole("button", { name: "读取所选文件", exact: true })

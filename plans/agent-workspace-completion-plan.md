@@ -13,7 +13,7 @@
 - [工作台组件计划](./agent-workbench-components-plan.md) 已有 M0–M5 记录；[编码工作台增强计划](./agent-coding-workbench-enhancement-plan.md) 已有 E0–E5 记录。本计划保留已实现的公共组件、预览、设置、工具组和示例，不重复实施其完整清单。
 - 本计划负责**先接入 Pi 的执行顺序、必需 UI 补齐及验收**；[Pi 接入技术计划](./pi-agent-workspace-integration-plan.md) 负责进程、历史、事件、回执和模型执行。两者使用同一套 Session/Run/Message/ToolCall 身份与能力映射。
 - [具体设计与布局计划](./agent-workspace-plan.md) 是 [reference 原文](./reference/agent-workspace-plan.md) 的完整内容副本，仅整理展示并增加执行声明/清单。它负责“每个页面怎样布局、每个模块怎样显示”，本计划负责“何时实现、依赖什么、怎样证明接入完成”。设计计划中的 PG/MD/V/DL 编号是本计划 UI 工作的明确依据。
-- 主改造入口是 `/examples/agent-workbench/app/`，同步 `/regions/`、`/layouts/` 与总览。`/examples/agent-workbench/pi/` 用同一组公共区域组件承接真实数据；`/workspace/` 保持通用 Shell 示例职责。
+- 主改造入口是 `/examples/agent-workbench/app/`，同步 `/regions/`、`/layouts/` 与总览。`/examples/agent-workbench/pi/` 用同一组公共区域组件承接真实数据；2026-10-11 按用户要求将 `/workspace/` 改为新版会话示例入口，通用 Shell 示例移至 `/workspace/shell/`，见[入口迁移记录](workspace-entry-migration-log.md)。
 - Pi 第一版仍遵守已定范围：本地单用户、历史恢复、真实对话和只读工具。完整写文件、Git、PTY、检查点和多 Agent 调度作为独立服务工作包，不因本计划画出对应控件而自动变为可用。
 
 ### 1.1 reference 带来的补充要求

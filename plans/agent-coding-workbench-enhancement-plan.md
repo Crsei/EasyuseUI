@@ -12,7 +12,7 @@
 
 - 正式契约：[Design-rules](../Design-rules.md)、[Component-Specification](../Component-Specification.md)、[UI-PATTERNS](../UI-PATTERNS.md)、[UI-STATES](../UI-STATES.md)、[AGENT-WORKBENCH](../AGENT-WORKBENCH.md)。采用本库组件复用模式。
 - 当前实现：[公共组合](../components/blocks/agent-workbench.tsx)、[纯模型](../lib/agent-workbench-model.ts)、[示例控制器](../components/examples/agent-workbench/workbench-demo.tsx)、[Provider](../components/examples/agent-workbench/provider.tsx)、[Reducer](../components/examples/agent-workbench/reducer.ts)。组件可用性同时核对 [Manifest](../lib/component-manifest.ts) 与 [Registry](../registry.json)。
-- 示例层级：总览 `/examples/agent-workbench/`；区域 `/examples/agent-workbench/regions/`；布局 `/examples/agent-workbench/layouts/`；完整应用 `/examples/agent-workbench/app/`。`/workspace/` 是通用 Shell 展示，不是本次主改造页。
+- 示例层级：总览 `/examples/agent-workbench/`；区域 `/examples/agent-workbench/regions/`；布局 `/examples/agent-workbench/layouts/`；完整应用 `/examples/agent-workbench/app/`。2026-10-11 `/workspace/` 改为新版会话示例，通用 Shell 展示移至 `/workspace/shell/`；见[入口迁移记录](workspace-entry-migration-log.md)。
 - 本轮通过现有 3010 开发服务查看编码会话、设置、审阅页面，视口 1440×900、会话窄屏 390×844；设置和审阅等待对应懒加载区域出现后复查。此项是现状观察，不是新交互验收或真实服务验证。
 
 ### 1.2 已有能力与本轮增量

@@ -1210,6 +1210,8 @@ PG02 的人工介入增量页为 `/examples/agent-workbench/regions/intervention
 
 PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/reference/`。其 PG02-R 页面声明、MD01–MD17 增量、V01–V12 参数映射，以及 PG03/PG04/PG06 的宽工作区和底栏规则见[完整设计实施记录](agent-workspace-design-completion-log.md)。页面使用明确的内存 fixture；真实编码服务、任务树持久化及 AW6–AW8 保持补全计划的独立服务范围。
 
+2026-10-11 按用户要求新增 PG08 `/workspace/` 作为 PG04 新版会话示例的直接入口；原通用 Shell 示例移至 PG09 `/workspace/shell/`。页面声明、共享模块的 host pages、入口默认查询与验收路径见[入口迁移记录](workspace-entry-migration-log.md)。本次复用同一 fixture，不新增真实服务能力。
+
 ## 模块级设计声明
 
 | 模块 ID / reference | 职责与复用入口 | 明确的展示与布局规则 | 状态、交互和服务边界 | 适用页面 |

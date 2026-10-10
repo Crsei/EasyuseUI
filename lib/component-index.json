@@ -4482,7 +4482,7 @@
     "docOrder": 38,
     "aliases": [],
     "notes": [
-      "完整基础页在/workspace/；窄容器的Inspector改为带焦点约束的抽屉。"
+      "完整基础页在/workspace/shell/；窄容器的Inspector改为带焦点约束的抽屉。"
     ]
   },
   {

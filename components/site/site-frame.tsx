@@ -22,6 +22,8 @@ export function SiteFrame({ children }: { children: ReactNode }) {
   )
   if (
     /^\/examples\/agent-workbench\/(app|layouts|pi)\/?$/.test(pathname) ||
+    pathname === "/workspace" ||
+    pathname === "/workspace/" ||
     pathname === "/examples/workflow-analytics" ||
     pathname === "/examples/workflow-analytics/" ||
     pathname === "/workspace/agents" ||

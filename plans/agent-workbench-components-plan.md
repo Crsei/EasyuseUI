@@ -51,7 +51,7 @@
 
 并行新增的 Sidebar、Attachment、Questionnaire、Resizable，以及 Conversation.actionsRef 等增强可以作为候选依赖。它们当前有未提交实现或修改；M0 核对合并与验证状态后再采用。使用 WorkspaceShell 时不能再套一层独立 Sidebar 布局所有者；Questionnaire 仅用于补充问题，不能替代权限审批。
 
-当前 `/workspace/` 为 WorkspaceShell 展示，`/workspace/agents/` 为运行看板；两者都不等于本计划的编码对话工作台。保留现有入口和语义。`lib/example-manifest.ts` 中已有“Agent 工作台”展示名称，新条目建议命名“Agent 编码工作台”，避免混淆。
+2026-10-11 `/workspace/` 按用户要求复用新版编码对话工作台并默认进入会话；WorkspaceShell 展示移至 `/workspace/shell/`，`/workspace/agents/` 继续承担运行看板。见[入口迁移记录](workspace-entry-migration-log.md)。`lib/example-manifest.ts` 中的“Agent 编码工作台”仍链接分层示例总览。
 
 ## 4. 区域划分与组件建设
 

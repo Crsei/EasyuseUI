@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { Info, X } from "lucide-react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import {
   useEffect,
   useCallback,
@@ -183,15 +183,23 @@ const ReviewView = lazyExample<
 
 export function WorkbenchDemo({
   level = "overview",
+  defaultPage = "home",
 }: {
   level?: "overview" | "regions" | "layouts" | "app"
+  defaultPage?: "home" | "session"
 }) {
   const { state, dispatch, clearPanelPreferences } = useWorkbenchExample()
   const { locale, setLocale, t, builtIn } = useI18n()
   const x = exampleMessages[locale]
   const { theme, setTheme } = useTheme()
   const router = useRouter()
-  const params = useSearchParams()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const params = useMemo(() => {
+    const next = new URLSearchParams(searchParams)
+    if (!next.get("page")) next.set("page", defaultPage)
+    return next
+  }, [searchParams, defaultPage])
   const query = parseShowcaseQuery(
     params,
     state.sessions.map((s) => s.sessionId),
@@ -475,6 +483,12 @@ export function WorkbenchDemo({
     })
     navigate({ scenario: "default" })
   }, [dispatch, current.sessionId, navigate])
+  function appHref(values: Record<string, string | undefined>) {
+    const href = showcaseHref("app", values)
+    return level === "app"
+      ? `${pathname.replace(/\/$/, "")}/${href.slice(href.indexOf("?"))}`
+      : href
+  }
   function openAppPage(page: string) {
     if (level === "app") navigate({ page })
     else
@@ -1867,7 +1881,7 @@ export function WorkbenchDemo({
       area={area}
       page={query.page}
       href={(page) =>
-        showcaseHref("app", {
+        appHref({
           template: query.template,
           page,
           session: session.sessionId,
@@ -2089,7 +2103,9 @@ export function WorkbenchDemo({
         <Button
           onClick={() =>
             router.replace(
-              `/examples/agent-workbench/${level === "overview" ? "" : `${level}/`}`,
+              level === "app"
+                ? pathname
+                : `/examples/agent-workbench/${level === "overview" ? "" : `${level}/`}`,
               { scroll: false },
             )
           }

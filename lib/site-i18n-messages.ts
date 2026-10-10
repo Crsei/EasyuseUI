@@ -2313,7 +2313,7 @@ export const siteMessages = {
     "site.defaultDemoHeight680pxCustomizableWithStyles":
       "默认演示高度680px，可通过样式调整。",
     "site.theCompleteFoundationPageIsWorkspaceInNarrowContainers":
-      "完整基础页在/workspace/；窄容器的Inspector改为带焦点约束的抽屉。",
+      "完整基础页在/workspace/shell/；窄容器的Inspector改为带焦点约束的抽屉。",
     "site.respondsToContainerWidthInspectorDocksAt1280pxOverlays":
       "按容器宽度响应：≥1280px停靠Inspector；<1280px改为浮层；<1024px使用窄导航。",
     "site.supportsPointerResizing8pxArrowKeyStepsAndHome":
@@ -5239,7 +5239,7 @@ export const siteMessages = {
     "site.defaultDemoHeight680pxCustomizableWithStyles":
       "Default demo height 680px, customizable with styles.",
     "site.theCompleteFoundationPageIsWorkspaceInNarrowContainers":
-      "The complete foundation page is /workspace/. In narrow containers, Inspector becomes a focus-contained drawer.",
+      "The complete foundation page is /workspace/shell/. In narrow containers, Inspector becomes a focus-contained drawer.",
     "site.respondsToContainerWidthInspectorDocksAt1280pxOverlays":
       "Responds to container width: Inspector docks at ≥1280px, overlays below 1280px, with narrow navigation below 1024px.",
     "site.supportsPointerResizing8pxArrowKeyStepsAndHome":

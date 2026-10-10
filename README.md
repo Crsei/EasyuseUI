@@ -28,7 +28,9 @@ Agent 可按任务读取 [UI Skills 分类与入口](./skills/README.md)：视�
 
 打开 http://localhost:3010/workspace/svg/ 使用 SVG 工作台：60 个固定来源素材、基本绘图、图层/属性/源码编辑、可撤销优化，以及 SVG、独立 TSX 与来源清单导出。仅本地处理，刷新前导出；指南见 [SVG-WORKBENCH.md](./SVG-WORKBENCH.md)。
 
-打开 http://localhost:3010/workspace/ 查看按规范初始化的工作台。可切换五种数据状态与十种运行状态、选择对象、折叠侧栏、打开/关闭和调整 Inspector，以及在 Chat 添加本地消息。页面使用内存 fixture，不连接模型或 Agent 服务。
+打开 http://localhost:3010/workspace/ 直接查看新版 Agent 编码会话示例：会话导航、对话与工具记录、稳定输入、资源标签、宽 Diff 和默认收起的运行面板。与 `/examples/agent-workbench/app/` 复用同一实现；后者默认进入首页，`/workspace/` 默认进入会话，显式 URL 查询仍可选择页面和会话。页面使用内存 fixture，不连接模型或 Agent 服务；真实 Pi 入口见 [PI-WORKSPACE.md](./PI-WORKSPACE.md)。
+
+原通用 Shell 示例位于 http://localhost:3010/workspace/shell/ ，保留五种数据状态、十种运行状态、对象选择、Inspector 调整和本地 Chat 消息。入口迁移声明与验证见[实施记录](./plans/workspace-entry-migration-log.md)。
 
 | 层级             | 已实现内容                                                                                                                                          |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

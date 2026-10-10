@@ -350,7 +350,7 @@ test("style edits, baseline and sample input survive English switch and dark the
 test("workspace chat draft and selected object survive switching language", async ({
   page,
 }) => {
-  await page.goto("/workspace/")
+  await page.goto("/workspace/shell/")
   await page
     .getByRole("navigation", { name: "工作台页面" })
     .getByRole("button", { name: "Chat", exact: true })

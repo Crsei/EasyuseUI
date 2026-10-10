@@ -108,7 +108,7 @@ test("workspace selection, local creation and runtime state stay in sync with In
 }) => {
   const errors: string[] = []
   page.on("pageerror", (error) => errors.push(error.message))
-  await page.goto("/workspace/")
+  await page.goto("/workspace/shell/")
   const inspector = page.getByRole("complementary", {
     name: "Inspector",
     exact: true,
@@ -144,7 +144,7 @@ test("workspace selection, local creation and runtime state stay in sync with In
 test("workspace data states keep existing content on refresh failure", async ({
   page,
 }) => {
-  await page.goto("/workspace/")
+  await page.goto("/workspace/shell/")
   const control = page.getByLabel("数据状态", { exact: true })
   const first = page.getByRole("button", {
     name: /整理组件规范 session-design/,
@@ -173,7 +173,7 @@ test("workspace data states keep existing content on refresh failure", async ({
 test("desktop shell dimensions, pointer resizing, keyboard resizing and focus restore", async ({
   page,
 }) => {
-  await page.goto("/workspace/")
+  await page.goto("/workspace/shell/")
   const nav = page.getByRole("complementary", { name: "工作区导航" })
   const inspector = page.getByRole("complementary", {
     name: "Inspector",
@@ -218,7 +218,7 @@ test("desktop shell dimensions, pointer resizing, keyboard resizing and focus re
 test("chat preserves messages, distinguishes tool calls and respects IME", async ({
   page,
 }) => {
-  await page.goto("/workspace/")
+  await page.goto("/workspace/shell/")
   await page
     .getByRole("navigation", { name: "工作台页面" })
     .getByRole("button", { name: "Chat", exact: true })
@@ -253,7 +253,7 @@ test("mobile drawer traps and restores focus, touch targets and narrow layouts f
   })
   const page = await context.newPage()
   try {
-    await page.goto("/workspace/")
+    await page.goto("/workspace/shell/")
     const opener = page.getByRole("button", { name: "打开 Inspector" })
     await expect(
       page.getByRole("complementary", { name: "Inspector", exact: true }),
@@ -313,7 +313,7 @@ test("mobile drawer traps and restores focus, touch targets and narrow layouts f
 test("workspace light and dark desktop render without overflow", async ({
   page,
 }, testInfo) => {
-  await page.goto("/workspace/")
+  await page.goto("/workspace/shell/")
   await page.screenshot({
     path: testInfo.outputPath("workspace-desktop.png"),
     fullPage: true,

@@ -6,7 +6,14 @@ const root =
 const input = (page: Page) =>
   page.getByRole("textbox", { name: "消息输入", exact: true })
 async function command(page: Page, name: string) {
-  await page.getByRole("button", { name: "/ 命令菜单", exact: true }).click()
+  const search = page.getByRole("button", { name: "搜索工作台", exact: true }).filter({ visible: true })
+  const more = page.getByRole("button", { name: "更多工作台工具", exact: true })
+  await expect.poll(async () => await search.isVisible() || await more.isVisible()).toBe(true)
+  if (await search.isVisible()) await search.click()
+  else {
+    await more.click()
+    await page.getByRole("menuitem", { name: "搜索工作台", exact: true }).click()
+  }
   const dialog = page.getByRole("dialog")
   await dialog.getByRole("combobox").fill(name)
   await dialog.getByRole("option").filter({ hasText: name }).first().click()
@@ -66,7 +73,7 @@ test("activity navigation, URL history and file docking preserve the composer in
   await expect(field).toHaveAttribute("data-instance", "retained")
   await page.goForward()
   await expect(page.getByRole("tab", { name: /workbench.md @fixture-1/ })).toBeVisible()
-  await page.getByRole("button", { name: "对话", exact: true }).click()
+  await page.locator('[data-workbench-layout="conversation"]').click()
   await expect(field).toHaveValue(composedDraft)
   await expect(field).toHaveAttribute("data-instance", "retained")
 })
@@ -122,7 +129,8 @@ test("context picker confirms a selection set, previews bytes and removes only t
 }) => {
   await page.goto(root)
   await input(page).fill("引用前草稿")
-  await page.getByRole("button", { name: "@ 添加引用", exact: true }).click()
+  await page.getByRole("button", { name: "上下文", exact: true }).click()
+  await page.getByRole("button", { name: "添加引用", exact: true }).click()
   let dialog = page.getByRole("dialog")
   await dialog.getByRole("textbox", { name: "搜索来源" }).fill("src/filter.ts")
   await dialog.getByRole("checkbox").last().check()
@@ -130,7 +138,7 @@ test("context picker confirms a selection set, previews bytes and removes only t
   await expect(
     page.locator("[data-composer-references] [data-invalid]", { hasText: "src/filter.ts" }),
   ).toHaveCount(0)
-  await page.getByRole("button", { name: "@ 添加引用", exact: true }).click()
+  await page.getByRole("button", { name: "添加引用", exact: true }).click()
   dialog = page.getByRole("dialog")
   await dialog.getByRole("textbox", { name: "搜索来源" }).fill("src/filter.ts")
   await dialog.getByRole("checkbox").last().check()
@@ -202,43 +210,42 @@ test("command-to-tool-to-file navigation keeps unknown exit codes and disconnect
   await input(page).fill("Keep the draft while viewing commands")
   await input(page).evaluate((node) => node.setAttribute("data-instance", "retained"))
   await command(page, "fixture watch")
-  await expect(page).toHaveURL(/panel=terminal/)
-  await expect(
-    page.getByRole("region", { name: "底部工作面板", exact: true }),
-  ).toHaveCount(0)
+  const bottom = page.getByRole("region", { name: "底部工作面板", exact: true })
+  await expect(bottom).toHaveAttribute("data-collapsed", "false")
   await expect(input(page)).toHaveValue("Keep the draft while viewing commands")
   await expect(input(page)).toHaveAttribute("data-instance", "retained")
-  let output = page.locator('[data-command-id="command-running-empty"]')
+  let output = bottom.locator('[data-command-id="command-running-empty"]').filter({ visible: true })
   await expect(output).toContainText("运行中，尚无输出")
   await expect(output.locator("[data-command-exit]")).toHaveText("—")
-  await page.getByRole("button", { name: /fixture failing test/ }).click()
-  output = page.locator('[data-command-id="command-failed"]')
+  await bottom.getByRole("button", { name: /fixture failing test/ }).click()
+  output = bottom.locator('[data-command-id="command-failed"]').filter({ visible: true })
   await expect(output.locator("[data-command-exit]")).toHaveText("2")
   await expect(output).toContainText("[REDACTED]")
-  await page
+  await bottom
     .getByRole("button", { name: /fixture disconnected output/ })
     .click()
-  output = page.locator('[data-command-id="command-disconnected"]')
+  output = bottom.locator('[data-command-id="command-disconnected"]').filter({ visible: true })
   await expect(output).toContainText("环境连接中断")
   await expect(output).toContainText("Partial output retained")
-  await page.getByRole("button", { name: /fixture unknown outcome/ }).click()
+  await bottom.getByRole("button", { name: /fixture unknown outcome/ }).click()
   await expect(
-    page.locator('[data-command-id="command-unknown"]'),
+    bottom.locator('[data-command-id="command-unknown"]').filter({ visible: true }),
   ).toContainText("结果未确认")
-  await page.getByRole("region", { name: "命令记录", exact: true }).getByRole("button", { name: /^run_tests/ }).click()
-  output = page.locator('[data-command-id="command-tool-session-filter"]')
+  await bottom.getByRole("region", { name: "命令记录", exact: true }).getByRole("button", { name: /^run_tests/ }).click()
+  output = bottom.locator('[data-command-id="command-tool-session-filter"]').filter({ visible: true })
   await output.getByRole("button", { name: /文件 · file-filter/ }).click()
-  await expect(page.getByRole("dialog")).toContainText("item.toLowerCase()")
+  await expect(page.getByRole("tabpanel", { name: /filter.ts @diff-1/ })).toContainText("item.toLowerCase()")
 })
-test("conversation and tool command links open main output without restoring the bottom panel", async ({
+test("conversation and tool command links open bottom output and retain source navigation", async ({
   page,
 }) => {
   await page.goto(root)
   // Running/exceptional calls stay outside compact read/search groups.
   await expect(page.locator('[data-follow-tail-list] [data-call-id="tool-session-filter"]')).toBeVisible()
-  await page.locator("[data-follow-tail-list]").getByRole("button", { name: "命令记录", exact: true }).click()
-  await expect(page).toHaveURL(/panel=terminal/)
-  const output = page.locator('[data-command-id="command-tool-session-filter"]')
+  await page.locator('[data-follow-tail-list] [data-call-id="tool-session-filter"]').locator("..").getByRole("button", { name: "命令记录", exact: true }).click()
+  const bottom = page.getByRole("region", { name: "底部工作面板", exact: true })
+  await expect(bottom).toHaveAttribute("data-collapsed", "false")
+  const output = bottom.locator('[data-command-id="command-tool-session-filter"]').filter({ visible: true })
   await expect(output).toBeVisible()
   await output.getByRole("button", { name: "本轮工具记录", exact: true }).click()
   await expect(page).toHaveURL(/panel=activity/)
@@ -246,11 +253,8 @@ test("conversation and tool command links open main output without restoring the
     .locator('[data-tool-target="tool-session-filter"]')
     .getByRole("button", { name: "命令记录", exact: true })
     .click()
-  await expect(page).toHaveURL(/panel=terminal/)
   await expect(output).toBeVisible()
-  await expect(
-    page.getByRole("region", { name: "底部工作面板", exact: true }),
-  ).toHaveCount(0)
+  await expect(bottom).toHaveAttribute("data-collapsed", "false")
   await expect(page.locator("[data-request-id]")).toHaveCount(0)
 })
 for (const [width, height] of [
@@ -309,7 +313,7 @@ test("bounded large file, 1000 messages and continuous output record actual inte
   await expect(page.locator("[data-message-id]")).toHaveCount(1002)
   await command(page, "fixture continuous output")
   await expect(
-    page.locator('[data-command-id="command-continuous"]'),
+    page.getByRole("region", { name: "底部工作面板", exact: true }).locator('[data-command-id="command-continuous"]').filter({ visible: true }),
   ).toContainText("来源或本地预览已截断")
   const scrollResponseMs = await page.evaluate(async () => {
     const scroll = document.querySelector<HTMLElement>("[data-follow-tail-list]")?.parentElement
@@ -377,14 +381,12 @@ test("touch rail, navigation Sheet, locale and reduced motion retain drafts and 
   await expect(
     page.getByRole("button", { name: "展开侧栏", exact: true }),
   ).toBeFocused()
-  await page
+  const sessionLink = page
     .getByRole("link", { name: "会话", exact: true })
     .filter({ visible: true })
-    .click()
-  await page
-    .getByRole("button", { name: "工作台设置", exact: true })
-    .last()
-    .click()
+  await sessionLink.focus()
+  await sessionLink.press("Enter")
+  await openSettings(page)
   dialog = page.getByRole("dialog")
   await dialog.getByRole("button", { name: "外观与布局", exact: true }).click()
   await dialog
@@ -433,7 +435,7 @@ test("fast resource changes and revised source keep titles and bodies on the sam
     .getByRole("button", { name: "模拟新 Diff 版本", exact: true })
     .click()
   await page.keyboard.press("Escape")
-  await page.getByRole("button", { name: "对话", exact: true }).click()
+  await page.locator('[data-workbench-layout="conversation"]').click()
   const revised = await file(page, "filter.ts")
   await revised.getByRole("button", { name: "固定标签", exact: true }).click()
   await expect(

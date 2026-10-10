@@ -8,7 +8,7 @@
 
 | 项目 | 当前事实及实施含义 |
 | --- | --- |
-| 工作台入口 | `/examples/agent-workbench/app/` 使用 `WorkbenchDemo`；`/workspace/` 是更早的 `WorkspaceShellDemo`。本次基于前者的公共组件组合 |
+| 工作台入口 | `/examples/agent-workbench/app/` 使用 `WorkbenchDemo`；2026-10-11 `/workspace/` 复用该新版示例并默认进入会话，原 `WorkspaceShellDemo` 移至 `/workspace/shell/`。Pi 继续复用前者的公共组件组合；见[入口迁移记录](workspace-entry-migration-log.md) |
 | 数据来源 | `components/examples/agent-workbench/provider.tsx` 使用 fixture reducer；现有浏览器存储主要保存面板偏好，不是真实会话库 |
 | 可复用组件 | `AgentWorkbench`、`SessionNavigator`、`ProjectSwitcher`、`AgentConversation`、`AgentComposer`、`ToolCall`、`Inspector`、`DataRegion` |
 | 数据模型 | `lib/agent-workbench-model.ts` 已有 `SessionSnapshot`、`DraftState`、`OperationReceipt`、历史分页和环境能力；传输状态需要在适配层补充 |

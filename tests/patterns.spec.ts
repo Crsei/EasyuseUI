@@ -471,7 +471,7 @@ test("new patterns fit narrow screens, keep touch targets and reduced motion", a
       ))
         expect(box.height, `${route}: ${box.text}`).toBeGreaterThanOrEqual(44)
     }
-    await page.goto("/workspace/")
+    await page.goto("/workspace/shell/")
     await page.getByRole("button", { name: "层级视图", exact: true }).click()
     await expect(
       page.getByRole("tree", { name: "工作台 Session 层级" }),
