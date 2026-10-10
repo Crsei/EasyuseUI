@@ -1,5 +1,12 @@
 "use client"
-import { useState, type ReactNode } from "react"
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from "react"
+import { ResizableHandle } from "@/components/ui/resizable"
 import { WorkspaceShell } from "@/components/blocks/workspace-shell"
 import { Inspector } from "@/components/blocks/inspector"
 import { AgentRunList } from "@/components/blocks/agent-run-list"
@@ -69,7 +76,16 @@ export type AgentWorkbenchProps = {
   onActiveViewChange?: (view: "conversation" | "workspace") => void
   workspace: ReactNode
   inspector?: ReactNode
+  inspectorTitle?: ReactNode
+  inspectorMode?: "metadata" | "resource"
+  presentation?: "default" | "workspace"
+  /** View preferences only. The caller may persist the bounded 0–1 ratio. */
+  reviewSplit?: number
+  onReviewSplitChange?: (ratio: number) => void
+  workspaceMaximized?: boolean
+  onWorkspaceMaximizedChange?: (maximized: boolean) => void
   bottom?: ReactNode
+  bottomBadge?: number
   header?: ReactNode
   headerActions?: ReactNode
   toolbar?: ReactNode
@@ -91,7 +107,15 @@ export function AgentWorkbench({
   onActiveViewChange,
   workspace,
   inspector,
+  inspectorTitle,
+  inspectorMode = "metadata",
+  presentation = "default",
+  reviewSplit,
+  onReviewSplitChange,
+  workspaceMaximized,
+  onWorkspaceMaximizedChange,
   bottom,
+  bottomBadge,
   header,
   headerActions,
   toolbar,
@@ -101,6 +125,44 @@ export function AgentWorkbench({
   className,
 }: AgentWorkbenchProps) {
   const { t } = useI18n()
+  const panesRef = useRef<HTMLDivElement>(null)
+  const [paneWidth, setPaneWidth] = useState(0)
+  const [internalSplit, setInternalSplit] = useState(0.45)
+  const [internalMaximized, setInternalMaximized] = useState(false)
+  const maximized = workspaceMaximized ?? internalMaximized
+  const requestedSplit = reviewSplit ?? internalSplit
+  const split = Number.isFinite(requestedSplit)
+    ? Math.max(0.2, Math.min(0.8, requestedSplit))
+    : 0.45
+  const available = Math.max(
+    0,
+    paneWidth -
+      (typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches
+        ? 44
+        : 8),
+  )
+  const splitWidth = Math.max(440, Math.min(available - 480, available * split))
+  const minSplitWidth = Math.max(440, available * 0.2)
+  const maxSplitWidth = Math.min(available - 480, available * 0.8)
+  const wideReview = layout === "review" && available >= 920 && !maximized
+  useEffect(() => {
+    const element = panesRef.current
+    if (!element) return
+    const observer = new ResizeObserver(([entry]) =>
+      setPaneWidth(entry.contentRect.width),
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+  function changeSplit(ratio: number) {
+    setInternalSplit(ratio)
+    onReviewSplitChange?.(ratio)
+  }
+  function changeMaximized(value: boolean) {
+    setInternalMaximized(value)
+    onWorkspaceMaximizedChange?.(value)
+  }
   const [pane, setPane] = useState<{
     layout: WorkbenchLayout
     view: "conversation" | "workspace"
@@ -131,22 +193,24 @@ export function AgentWorkbench({
       onInspectorOpenChange={(inspectorOpen) => patch({ inspectorOpen })}
       inspectorWidth={panelState.inspectorWidth}
       onInspectorWidthChange={(inspectorWidth) => patch({ inspectorWidth })}
-      inspectorTitle={t("workbench.context")}
+      inspectorTitle={inspectorTitle ?? t("workbench.context")}
       inspector={
         <>
-          <Inspector
-            object={{
-              id: session.sessionId,
-              title: session.title,
-              kind: "Session",
-              status: session.status,
-              metadata: [
-                { label: "Session", value: session.sessionId },
-                { label: "Run", value: session.activeRunId },
-                { label: t("workbench.revision"), value: session.revision },
-              ],
-            }}
-          />
+          {inspectorMode === "metadata" && (
+            <Inspector
+              object={{
+                id: session.sessionId,
+                title: session.title,
+                kind: "Session",
+                status: session.status,
+                metadata: [
+                  { label: "Session", value: session.sessionId },
+                  { label: "Run", value: session.activeRunId },
+                  { label: t("workbench.revision"), value: session.revision },
+                ],
+              }}
+            />
+          )}
           {inspector}
         </>
       }
@@ -167,34 +231,80 @@ export function AgentWorkbench({
               onClick={() => patch({ bottomOpen: !panelState.bottomOpen })}
             >
               {t("workbench.bottom")}
+              {bottomBadge !== undefined &&
+                bottomBadge > 0 &&
+                ` (${bottomBadge})`}
             </Button>
           )}
         </>
       }
     >
-      <div className={styles.body}>
-        {showViewSwitch && <div className={cn(styles.toolbar, styles.viewSwitch)}>
-          {(["conversation", "workspace"] as const).map((v) => (
-            <Button
-              key={v}
-              size="sm"
-              variant="ghost"
-              aria-pressed={view === v}
-              onClick={() => {
-                setPane({ layout, view: v })
-                onActiveViewChange?.(v)
-              }}
-            >
-              {v === "conversation"
-                ? t("workbench.conversation")
-                : t("workbench.details")}
-            </Button>
-          ))}
-        </div>}
+      <div className={styles.body} data-workbench-presentation={presentation}>
+        {presentation === "workspace" && (
+          <SessionHeader
+            session={session}
+            presentation="workspace"
+            onRename={onRename}
+            actions={headerActions}
+          />
+        )}
+        {(showViewSwitch || layout === "review") && (
+          <div
+            className={cn(styles.toolbar, styles.viewSwitch)}
+            data-review-controls={layout === "review" || undefined}
+          >
+            {(["conversation", "workspace"] as const).map((v) => (
+              <Button
+                key={v}
+                size="sm"
+                variant="ghost"
+                aria-pressed={view === v}
+                onClick={() => {
+                  if (v === "conversation") changeMaximized(false)
+                  setPane({ layout, view: v })
+                  onActiveViewChange?.(v)
+                }}
+              >
+                {v === "conversation"
+                  ? t("workbench.conversation")
+                  : t("workbench.details")}
+              </Button>
+            ))}
+            {layout === "review" && (
+              <>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  aria-pressed={maximized}
+                  onClick={() => changeMaximized(!maximized)}
+                >
+                  {t(
+                    maximized
+                      ? "workbench.restoreEditor"
+                      : "workbench.maximizeEditor",
+                  )}
+                </Button>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => changeSplit(0.45)}
+                >
+                  {t("workbench.resetSplit")}
+                </Button>
+              </>
+            )}
+          </div>
+        )}
         <div
+          ref={panesRef}
           className={styles.panes}
           data-layout={layout}
           data-view={layout === "tasks" ? "workspace" : view}
+          data-maximized={maximized && layout === "review"}
+          data-wide-review={wideReview}
+          style={
+            { "--workbench-chat-width": `${splitWidth}px` } as CSSProperties
+          }
         >
           <div className={styles.chat}>
             <AgentConversation
@@ -203,6 +313,17 @@ export function AgentWorkbench({
               composer={composer}
             />
           </div>
+          {wideReview && (
+            <ResizableHandle
+              unstyled
+              className={styles.reviewResize}
+              label={t("workbench.resizeSplit")}
+              value={splitWidth}
+              min={minSplitWidth}
+              max={maxSplitWidth}
+              onValueChange={(value) => changeSplit(value / available)}
+            />
+          )}
           <div className={styles.workspace}>{workspace}</div>
         </div>
       </div>

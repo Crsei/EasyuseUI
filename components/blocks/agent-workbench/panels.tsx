@@ -3,6 +3,7 @@ import { useId, useState, type ReactNode } from "react"
 import { Tabs, TabsList, TabsTab } from "@/components/ui/tabs"
 import { Tabs as BaseTabs } from "@base-ui/react/tabs"
 import { Button } from "@/components/ui/button"
+import { Menu, MenuTrigger, MenuContent, MenuItem } from "@/components/ui/menu"
 import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
 import { Input } from "@/components/ui/input"
 import { uiMessage } from "@/lib/i18n-core"
@@ -23,12 +24,24 @@ export function WorkbenchPanelTabs({
   panels,
   value,
   onChange,
+  primaryPanels,
 }: {
   panels: readonly WorkbenchPanelDescriptor[]
   value: WorkbenchPanelId
   onChange: (id: WorkbenchPanelId) => void
+  /** Optional compact navigation; other panels remain available in a keyboard menu. */
+  primaryPanels?: readonly WorkbenchPanelId[]
 }) {
   const { t } = useI18n()
+  const primary = primaryPanels
+    ? primaryPanels.flatMap((id) => panels.filter((p) => p.id === id))
+    : [...panels]
+  const active = panels.find((p) => p.id === value)
+  if (primaryPanels && active && !primary.some((p) => p.id === value)) {
+    if (primary.length >= 3) primary.pop()
+    primary.push(active)
+  }
+  const more = panels.filter((p) => !primary.some((item) => item.id === p.id))
   return (
     <Tabs
       value={value}
@@ -36,14 +49,31 @@ export function WorkbenchPanelTabs({
         if (panels.some((p) => p.id === v)) onChange(v as WorkbenchPanelId)
       }}
     >
-      <TabsList className={styles.tabs}>
-        {panels.map((p) => (
-          <TabsTab key={p.id} value={p.id}>
-            {p.label}
-            {p.badge !== undefined && ` (${p.badge})`}
-          </TabsTab>
-        ))}
-      </TabsList>
+      <div className={styles.panelNavigation} data-panel-navigation>
+        <TabsList className={styles.tabs}>
+          {primary.map((p) => (
+            <TabsTab key={p.id} value={p.id}>
+              {p.label}
+              {p.badge !== undefined && ` (${p.badge})`}
+            </TabsTab>
+          ))}
+        </TabsList>
+        {primaryPanels && more.length > 0 && (
+          <Menu>
+            <MenuTrigger render={<Button variant="ghost" size="sm" />}>
+              {t("workbench.morePanels")}
+            </MenuTrigger>
+            <MenuContent>
+              {more.map((p) => (
+                <MenuItem key={p.id} onClick={() => onChange(p.id)}>
+                  {p.label}
+                  {p.badge !== undefined && ` (${p.badge})`}
+                </MenuItem>
+              ))}
+            </MenuContent>
+          </Menu>
+        )}
+      </div>
       {panels.map((p) => (
         <BaseTabs.Panel
           key={p.id}

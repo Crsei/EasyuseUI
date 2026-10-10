@@ -96,6 +96,10 @@ export type WorkbenchTool = {
   exitCode?: number
   outputTruncated?: boolean
   outcome?: "known" | "unknown"
+  /** Explicit source associations; never inferred from output text. */
+  fileIds?: string[]
+  changeRevision?: string
+  duration?: string
 }
 export type ChangeLine = {
   id: string
@@ -186,6 +190,7 @@ export type PanelState = {
   inspectorWidth: number
   bottomHeight: number
   readingMessageId?: string
+  reviewSplit?: number
 }
 export type SessionSnapshot = {
   sessionId: string

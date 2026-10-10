@@ -93,6 +93,8 @@ import { parseShowcaseQuery, showcaseHref } from "./showcase-model"
 import { lazyExample } from "./lazy-module"
 import { WorkbenchFrame } from "./workbench-frame"
 import { DeferredWorkbenchPanels } from "./deferred-panels"
+import { RuntimePanel } from "../agent-workspace/runtime-panel"
+import referenceTokens from "../agent-workspace/reference-tokens.module.css"
 import styles from "./demo.module.css"
 
 const AgentConversation = lazyExample<
@@ -204,12 +206,26 @@ export function WorkbenchDemo({
   const [commandOpen, setCommandOpen] = useState(false)
   const [helpOpen, setHelpOpen] = useState(false)
   const [area, setArea] = useState<ActivityArea>("sessions")
-  const viewKey = JSON.stringify([current.sessionId, query.page, params.get("layout")])
-  const [paneSelection, setPaneSelection] = useState<{ key: string; view: "conversation" | "workspace" }>()
-  const activeView = paneSelection?.key === viewKey
-    ? paneSelection.view
-    : query.page === "review" || params.get("layout") === "review" ? "workspace" : "conversation"
-  const setActiveView = useCallback((view: "conversation" | "workspace") => setPaneSelection({ key: viewKey, view }), [viewKey])
+  const viewKey = JSON.stringify([
+    current.sessionId,
+    query.page,
+    params.get("layout"),
+  ])
+  const [paneSelection, setPaneSelection] = useState<{
+    key: string
+    view: "conversation" | "workspace"
+  }>()
+  const activeView =
+    paneSelection?.key === viewKey
+      ? paneSelection.view
+      : query.page === "review" || params.get("layout") === "review"
+        ? "workspace"
+        : "conversation"
+  const setActiveView = useCallback(
+    (view: "conversation" | "workspace") =>
+      setPaneSelection({ key: viewKey, view }),
+    [viewKey],
+  )
   const [openedResources, setOpenedResources] = useState<
     Record<string, ResourceSnapshot | undefined>
   >({})
@@ -287,7 +303,10 @@ export function WorkbenchDemo({
   )
   function dockResource(resource: ResourceSnapshot, pinned = true) {
     // The fixture source already has bytes; never pin the delayed quick-look loading shell.
-    resource = resources.find((candidate) => resourceKey(candidate) === resourceKey(resource)) ?? resource
+    resource =
+      resources.find(
+        (candidate) => resourceKey(candidate) === resourceKey(resource),
+      ) ?? resource
     resourceReadSequence.current++
     if (!previewFocus.current?.isConnected)
       previewFocus.current = mainRef.current
@@ -359,7 +378,10 @@ export function WorkbenchDemo({
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
         const editor = document.activeElement
-        if (editor instanceof HTMLTextAreaElement && composerRef.current?.contains(editor))
+        if (
+          editor instanceof HTMLTextAreaElement &&
+          composerRef.current?.contains(editor)
+        )
           editor.scrollIntoView({ block: "nearest", inline: "nearest" })
       })
     }
@@ -694,11 +716,17 @@ export function WorkbenchDemo({
       ...before,
       [session.sessionId]: commandId,
     }))
+    if (level !== "regions") {
+      dispatch({
+        type: "panels",
+        panels: { ...state.panels, bottomOpen: true },
+      })
+      return
+    }
     setActiveView("workspace")
     navigate({
       panel: "terminal",
       layout: "review",
-      ...(level === "app" ? { page: "session" } : {}),
       ...(level === "regions" ? { region: "output" } : {}),
     })
   }
@@ -727,6 +755,30 @@ export function WorkbenchDemo({
       }}
       onSource={(messageId) => locateMessage(session.sessionId, messageId)}
       onReconnect={() => retryRead()}
+    />
+  )
+  const runtimePanel = (
+    <RuntimePanel
+      session={session}
+      commands={commands}
+      selectedId={selectedCommands[session.sessionId]}
+      onSelect={(id) =>
+        setSelectedCommands((before) => ({
+          ...before,
+          [session.sessionId]: id,
+        }))
+      }
+      onOpenTool={(id) => {
+        setLocatedTool(id)
+        setActiveView("workspace")
+        navigate({ panel: "activity", layout: "review", page: "session" })
+      }}
+      onOpenResource={(id) => {
+        const resource = resources.find((r) => r.resourceId === id)
+        if (resource) dockResource(resource)
+      }}
+      onSource={(messageId) => locateMessage(session.sessionId, messageId)}
+      onReconnect={retryRead}
     />
   )
   const contextPanel = (
@@ -960,12 +1012,14 @@ export function WorkbenchDemo({
         session={session}
         draft={draft}
         onChange={setDraft}
-        quickControls
         onOpenContext={() => setContextOpen(true)}
         onCommandMenu={() => setCommandOpen(true)}
         onOpenSettings={openSettings}
         referenceStrip={
-          <div className={enhancementStyles.referenceStrip} data-composer-references>
+          <div
+            className={enhancementStyles.referenceStrip}
+            data-composer-references
+          >
             {draft.context.map((reference) => (
               <div
                 key={reference.id}
@@ -996,6 +1050,28 @@ export function WorkbenchDemo({
                 >
                   <X />
                 </Button>
+                {["stale", "missing", "error", "unknown"].includes(
+                  reference.availability,
+                ) && (
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={() =>
+                      dispatch({
+                        type: "retry-context",
+                        id: session.sessionId,
+                        referenceId: reference.id,
+                      })
+                    }
+                    disabled={state.receipts.some(
+                      (r) =>
+                        r.targetId === `${session.sessionId}:${reference.id}` &&
+                        ["pending", "unknown"].includes(r.state),
+                    )}
+                  >
+                    {t("workspaceShellDemo.retryRead")}
+                  </Button>
+                )}
               </div>
             ))}
           </div>
@@ -1061,6 +1137,8 @@ export function WorkbenchDemo({
   )
   const sessionNavigation = (
     <SessionNavigator
+      newLabel={locale === "en" ? "New session" : "新建会话"}
+      newDisabled={readOnly}
       projects={query.scenario === "empty" ? [] : visibleProjects}
       sessions={
         ["empty", "loading", "no-projects", "no-sessions"].includes(
@@ -1107,44 +1185,47 @@ export function WorkbenchDemo({
           : undefined,
       }}
       footer={
-        level === "app" ? (
-          <div className={styles.row}>
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => openAppPage("home")}
-            >
-              {x.home}
-            </Button>
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => openAppPage("project")}
-            >
-              {x.project}
-            </Button>
-          </div>
-        ) : (
-          <div className={styles.row}>
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => openAppPage("inbox")}
-            >
-              {x.inbox}
-            </Button>
-            <Button size="sm" variant="ghost" onClick={openSettings}>
-              {x.settings}
-            </Button>
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => setSearchOpen(true)}
-            >
-              {t("workbench.searchSessions")}
-            </Button>
-          </div>
-        )
+        <>
+          {readOnly && <p className={styles.meta}>{x.readOnly}</p>}
+          {level === "app" ? (
+            <div className={styles.row}>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => openAppPage("home")}
+              >
+                {x.home}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => openAppPage("project")}
+              >
+                {x.project}
+              </Button>
+            </div>
+          ) : (
+            <div className={styles.row}>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => openAppPage("inbox")}
+              >
+                {x.inbox}
+              </Button>
+              <Button size="sm" variant="ghost" onClick={openSettings}>
+                {x.settings}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => setSearchOpen(true)}
+              >
+                {t("workbench.searchSessions")}
+              </Button>
+            </div>
+          )}
+        </>
       }
     />
   )
@@ -1387,11 +1468,8 @@ export function WorkbenchDemo({
   )
   const workspace = (
     <DeferredWorkbenchPanels
-      panels={
-        level === "app"
-          ? panelDescriptors.filter((panel) => panel.id === activePanel)
-          : panelDescriptors
-      }
+      panels={panelDescriptors}
+      primaryPanels={["changes", "files", "plan"]}
       value={activePanel}
       onChange={(id) => {
         dispatch({
@@ -1400,6 +1478,55 @@ export function WorkbenchDemo({
         })
         navigate({ panel: id })
       }}
+    />
+  )
+  function openChange(fileId: string) {
+    dispatch({
+      type: "panels",
+      panels: { ...state.panels, selectedFileId: fileId },
+    })
+    setActiveView("workspace")
+    navigate({ page: "review", panel: "changes", layout: "review" })
+  }
+  const resourceSidebar = (
+    <DeferredWorkbenchPanels
+      panels={panelDescriptors.map((panel) => ({
+        ...panel,
+        render: () =>
+          panel.id === "changes" ? (
+            <DataRegion
+              state={session.changes.files.length ? session.dataState : "empty"}
+              hasContent={session.changes.files.length > 0}
+              emptyTitle={t("workbench.noChanges")}
+              error={{
+                category: "network",
+                message: session.error ?? x.readError,
+                reason: x.readError,
+              }}
+              onRetry={retryRead}
+            >
+              {session.changes.files.map((file) => (
+                <Item
+                  key={file.fileId}
+                  title={file.path}
+                  description={`${file.kind} · ${session.changes.revision}`}
+                  onSelect={() => openChange(file.fileId)}
+                />
+              ))}
+            </DataRegion>
+          ) : panel.id === "files" ? (
+            <FileNavigation
+              resources={resources}
+              onOpen={openResource}
+              onPin={(resource) => dockResource(resource)}
+            />
+          ) : (
+            panel.render()
+          ),
+      }))}
+      value={activePanel}
+      primaryPanels={["changes", "files", "plan"]}
+      onChange={(panel) => navigate({ panel })}
     />
   )
   function inbox() {
@@ -1982,9 +2109,22 @@ export function WorkbenchDemo({
           {x.verification}
         </Link>
         <div className={styles.overview}>
+          <Link
+            prefetch={false}
+            href="/examples/agent-workbench/regions/reference/"
+          >
+            <strong>
+              {locale === "en" ? "Complete reference states" : "完整参考状态"}
+            </strong>
+            <span>MD01–MD17 · V2 · fixture</span>
+          </Link>
           <Link prefetch={false} href="/examples/agent-workbench/pi/">
             <strong>Pi Workspace</strong>
-            <span>{locale === "en" ? "Real local service · conversation and history" : "真实本地服务 · 对话与历史"}</span>
+            <span>
+              {locale === "en"
+                ? "Real local service · conversation and history"
+                : "真实本地服务 · 对话与历史"}
+            </span>
           </Link>
           <Link
             prefetch={false}
@@ -2201,38 +2341,61 @@ export function WorkbenchDemo({
       id="main-content"
       ref={mainRef}
       tabIndex={-1}
-      className={styles.root}
+      className={`${styles.root} ${referenceTokens.tokens}`}
       data-workbench-template={query.template}
       data-workbench-page={query.page}
       data-session-id={session.sessionId}
     >
       {sourceSheet}
       {overlays}
-      <div className={styles.top}>
-        {level === "app" ? (
-          <Link prefetch={false} href="/examples/agent-workbench/">
-            EasyuseUI · Agent
-          </Link>
-        ) : (
-          links
-        )}
-        <span className={styles.meta}>{x.local}</span>
-        {controls}
-      </div>
+      {!isSession && (
+        <div className={styles.top}>
+          {level === "app" ? (
+            <Link prefetch={false} href="/examples/agent-workbench/">
+              EasyuseUI · Agent
+            </Link>
+          ) : (
+            links
+          )}
+          <span className={styles.meta}>{x.local}</span>
+          {controls}
+        </div>
+      )}
       <div className={styles.product}>
         <WorkbenchFrame
           sessionActive={isSession}
           session={session}
+          presentation="workspace"
+          className={styles.referenceShell}
+          inspectorMode="resource"
+          inspectorTitle={locale === "en" ? "Session resources" : "会话资源"}
           header={
             !isSession ? (
               <span>
                 {x[query.page as keyof typeof x]} ·{" "}
                 {state.projects.find((p) => p.projectId === projectId)?.name}
               </span>
-            ) : undefined
+            ) : (
+              <div className={styles.globalIdentity}>
+                <Link prefetch={false} href="/examples/agent-workbench/">
+                  EasyuseUI
+                </Link>
+                <small>{x.local}</small>
+                <strong>{project?.name}</strong>
+                <span>
+                  {session.environment.name} ·{" "}
+                  {session.environment.branch ?? "—"}
+                </span>
+                {controls}
+              </div>
+            )
           }
           layout={isSession ? selectedLayout : "tasks"}
           panelState={{ ...state.panels, activePanel }}
+          reviewSplit={state.panels.reviewSplit}
+          onReviewSplitChange={(reviewSplit) =>
+            onPanels({ ...state.panels, reviewSplit })
+          }
           onPanelStateChange={onPanels}
           navigation={navigation}
           activityBar={activityBar}
@@ -2241,7 +2404,14 @@ export function WorkbenchDemo({
           onActiveViewChange={setActiveView}
           composer={composer}
           workspace={main}
-          inspector={contextPanel}
+          inspector={resourceSidebar}
+          bottom={isSession ? runtimePanel : undefined}
+          bottomBadge={
+            commands.filter(
+              (command) =>
+                command.status === "failed" || command.outcome === "unknown",
+            ).length
+          }
           toolbar={
             <div className={styles.row}>
               {isSession && (
@@ -2269,29 +2439,33 @@ export function WorkbenchDemo({
                 </>
               )}
               {isSession &&
-                workbenchLayouts.filter((layout) => level !== "app" || layout === "conversation").map((layout) => (
-                  <Button
-                    key={layout}
-                    size="sm"
-                    variant="ghost"
-                    aria-pressed={selectedLayout === layout}
-                    data-workbench-layout={layout}
-                    onClick={() =>
-                      navigate({
-                        layout,
-                        page:
-                          layout === "review"
-                            ? "review"
-                            : layout === "tasks"
-                              ? "inbox"
-                              : "session",
-                        ...(layout === "review" ? { panel: "changes" } : {}),
-                      })
-                    }
-                  >
-                    {t(`workbench.${layout}`)}
-                  </Button>
-                ))}
+                workbenchLayouts
+                  .filter(
+                    (layout) => level !== "app" || layout === "conversation",
+                  )
+                  .map((layout) => (
+                    <Button
+                      key={layout}
+                      size="sm"
+                      variant="ghost"
+                      aria-pressed={selectedLayout === layout}
+                      data-workbench-layout={layout}
+                      onClick={() =>
+                        navigate({
+                          layout,
+                          page:
+                            layout === "review"
+                              ? "review"
+                              : layout === "tasks"
+                                ? "inbox"
+                                : "session",
+                          ...(layout === "review" ? { panel: "changes" } : {}),
+                        })
+                      }
+                    >
+                      {t(`workbench.${layout}`)}
+                    </Button>
+                  ))}
             </div>
           }
           headerActions={environmentDetails(true)}
@@ -2316,6 +2490,7 @@ export function WorkbenchDemo({
             onOpenReference: openReference,
             groupTools: true,
             onOpenTool: (id) => openCommandOutput(`command-${id}`),
+            onOpenChange: openChange,
           }}
         />
       </div>

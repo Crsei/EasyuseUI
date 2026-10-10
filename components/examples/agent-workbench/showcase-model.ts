@@ -611,6 +611,7 @@ export function readPanelPreferences(): Partial<PanelState> | undefined {
     for (const [key, min, max] of [
       ["inspectorWidth", 280, 360],
       ["bottomHeight", 200, 400],
+      ["reviewSplit", 0.2, 0.8],
     ] as const)
       if (Number.isFinite(value[key]))
         result[key] = Math.min(max, Math.max(min, value[key]))
@@ -629,6 +630,7 @@ export function savePanelPreferences(panels: PanelState) {
         bottomOpen: panels.bottomOpen,
         inspectorWidth: panels.inspectorWidth,
         bottomHeight: panels.bottomHeight,
+        reviewSplit: panels.reviewSplit,
       }),
     )
   } catch {}

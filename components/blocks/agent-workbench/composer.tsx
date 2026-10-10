@@ -198,9 +198,17 @@ export function AgentComposer({
           field = input.getBoundingClientRect()
         const top = bounds.top + root.clientTop + 2
         const bottom = bounds.top + root.clientTop + root.clientHeight - 2
+        const primary = root.querySelector<HTMLButtonElement>(
+          'button[type="submit"]',
+        )
+        const actionBottom =
+          primary?.getBoundingClientRect().bottom ?? field.bottom
+        // Keep both input and Send visible when the soft keyboard reduces the dock.
+        const targetBottom =
+          actionBottom - field.top <= bottom - top ? actionBottom : field.bottom
         if (field.top < top) root.scrollTop -= Math.ceil(top - field.top)
-        else if (field.bottom > bottom)
-          root.scrollTop += Math.ceil(field.bottom - bottom)
+        else if (targetBottom > bottom)
+          root.scrollTop += Math.ceil(targetBottom - bottom)
       })
     }
     const observer =

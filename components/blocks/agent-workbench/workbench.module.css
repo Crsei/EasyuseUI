@@ -46,6 +46,12 @@
   order: 3;
   flex-basis: 100%;
 }
+.sessionHeader {
+  min-height: 64px;
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
 .nav {
   display: flex;
   flex-direction: column;
@@ -188,6 +194,45 @@
   display: block;
   flex: 1.2;
 }
+.panes[data-wide-review="true"] .chat {
+  flex: 0 0 var(--workbench-chat-width);
+}
+.panes[data-wide-review="true"] .workspace {
+  flex: 1;
+}
+.reviewResize {
+  width: 8px;
+  cursor: col-resize;
+  background: var(--border);
+}
+.reviewResize:hover,
+.reviewResize:focus-visible {
+  background: var(--ring);
+}
+.panes[data-maximized="true"] .chat {
+  display: none;
+}
+.panes[data-maximized="true"] .workspace {
+  display: block;
+  border-left: 0;
+}
+.viewSwitch[data-review-controls] {
+  display: flex;
+}
+.panelNavigation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  border-bottom: 1px solid var(--border);
+}
+.panelNavigation .tabs {
+  border-bottom: 0;
+  flex: 1;
+}
+.panelNavigation > button {
+  margin-right: 4px;
+}
 .panes[data-layout="tasks"] .chat {
   display: none;
 }
@@ -238,6 +283,11 @@
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
+}
+.phase[data-initial="true"] {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 .fileLayout {
   display: grid;
@@ -361,6 +411,24 @@
   background: var(--selection);
   outline: 1px solid var(--ring);
 }
+.panes[data-layout="review"][data-maximized="true"] .workspace {
+  display: block;
+}
+.panes[data-layout="review"][data-wide-review="false"][data-view="conversation"]:not(
+    [data-maximized="true"]
+  )
+  .workspace {
+  display: none;
+}
+.panes[data-layout="review"][data-wide-review="false"][data-view="workspace"]
+  .chat {
+  display: none;
+}
+.panes[data-layout="review"][data-wide-review="false"][data-view="workspace"]
+  .workspace {
+  display: block;
+  border-left: 0;
+}
 .commandPanel {
   display: flex;
   flex-wrap: wrap;
@@ -392,6 +460,50 @@
 .toolGroup {
   border: 1px solid var(--border);
   border-radius: 6px;
+}
+.body[data-workbench-presentation="workspace"] .toolGroup,
+.planSummary {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.planSummary {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.changeSummary {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 8px;
+}
+.changeSummary button {
+  width: 100%;
+  justify-content: space-between;
+  height: auto;
+  min-height: 32px;
+  text-align: left;
+  white-space: normal;
+}
+.changeSummary code {
+  overflow-wrap: anywhere;
+}
+.additions {
+  color: var(--status-success);
+}
+.deletions {
+  color: var(--status-error);
+}
+.messagePart:has(> [data-public-progress]) {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+@media (pointer: coarse) {
+  .changeSummary button {
+    min-height: 44px;
+  }
+  .reviewResize {
+    width: 44px;
+  }
 }
 .toolGroup > summary {
   cursor: pointer;

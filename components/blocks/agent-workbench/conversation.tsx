@@ -98,6 +98,7 @@ export type AgentConversationProps = {
   onOpenTool?: (toolCallId: string) => void
   groupTools?: boolean
   presentation?: "default" | "workspace"
+  onOpenChange?: (fileId: string) => void
 }
 export function AgentConversation({
   session,
@@ -111,6 +112,7 @@ export function AgentConversation({
   onOpenTool,
   groupTools = false,
   presentation = "default",
+  onOpenChange,
 }: AgentConversationProps) {
   const { t, locale } = useI18n()
   const messages = useMemo(
@@ -118,6 +120,7 @@ export function AgentConversation({
       session.messages.map((m) => ({
         id: m.messageId,
         role: m.role,
+        author: m.role === "agent" ? session.agent.name : undefined,
         state: m.state,
         time: m.timestamp
           ? new Date(m.timestamp).toLocaleTimeString(locale, {
@@ -196,7 +199,11 @@ export function AgentConversation({
                   parts.map((part) => (
                     <div className={styles.messagePart} key={part.partId}>
                       {part.kind === "phase" ? (
-                        <div className={styles.phase} data-phase={part.phase}>
+                        <div
+                          className={styles.phase}
+                          data-phase={part.phase}
+                          data-initial={m.parts.indexOf(part) === 0}
+                        >
                           {t(
                             part.phase === "action"
                               ? "workbench.phaseAction"
@@ -206,7 +213,16 @@ export function AgentConversation({
                           )}
                         </div>
                       ) : part.kind === "text" ? (
-                        <MessageContent content={part.text} />
+                        <div
+                          data-public-progress={
+                            m.parts
+                              .slice(0, m.parts.indexOf(part))
+                              .filter((p) => p.kind === "phase")
+                              .at(-1)?.phase === "thinking" || undefined
+                          }
+                        >
+                          <MessageContent content={part.text} />
+                        </div>
                       ) : part.kind === "code" ? (
                         <MessageContent
                           content={`\`\`\`${part.language ?? ""}\n${part.text}\n\`\`\``}
@@ -225,6 +241,59 @@ export function AgentConversation({
                                   tool.outcome === "unknown"
                                 }
                               />
+                              {Boolean(tool.fileIds?.length) &&
+                                tool.changeRevision ===
+                                  session.changes.revision && (
+                                  <div className={styles.changeSummary}>
+                                    {session.changes.files
+                                      .filter((file) =>
+                                        tool.fileIds!.includes(file.fileId),
+                                      )
+                                      .map((file) => (
+                                        <Button
+                                          key={file.fileId}
+                                          variant="ghost"
+                                          size="sm"
+                                          disabled={!onOpenChange}
+                                          onClick={() =>
+                                            onOpenChange?.(file.fileId)
+                                          }
+                                        >
+                                          <code>{file.path}</code>
+                                          {file.truncated ? (
+                                            <span>
+                                              {t("workbench.truncated")}
+                                            </span>
+                                          ) : (
+                                            <span>
+                                              <span
+                                                className={styles.additions}
+                                              >
+                                                +
+                                                {
+                                                  file.lines.filter(
+                                                    (line) =>
+                                                      line.kind === "add",
+                                                  ).length
+                                                }
+                                              </span>{" "}
+                                              <span
+                                                className={styles.deletions}
+                                              >
+                                                −
+                                                {
+                                                  file.lines.filter(
+                                                    (line) =>
+                                                      line.kind === "remove",
+                                                  ).length
+                                                }
+                                              </span>
+                                            </span>
+                                          )}
+                                        </Button>
+                                      ))}
+                                  </div>
+                                )}
                               {onOpenTool && (
                                 <Button
                                   variant="ghost"
@@ -241,6 +310,28 @@ export function AgentConversation({
                             </p>
                           )
                         })()
+                      ) : part.kind === "plan" &&
+                        session.plan.some(
+                          (step) => step.id === part.referenceId,
+                        ) ? (
+                        <div className={styles.planSummary}>
+                          <span>
+                            {t("agentBoard.steps", {
+                              completed: session.plan.filter(
+                                (step) => step.status === "completed",
+                              ).length,
+                              total: session.plan.length,
+                            })}
+                          </span>{" "}
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            disabled={!onOpenReference}
+                            onClick={() => onOpenReference?.(part)}
+                          >
+                            {part.label}
+                          </Button>
+                        </div>
                       ) : (
                         <Button
                           variant="ghost"
@@ -262,6 +353,10 @@ export function AgentConversation({
     [
       session.messages,
       session.tools,
+      session.plan,
+      session.changes,
+      session.agent.name,
+      onOpenChange,
       onOpenReference,
       onOpenTool,
       groupTools,

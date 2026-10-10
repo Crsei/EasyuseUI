@@ -1,5 +1,6 @@
 import type {
   WorkbenchState,
+  MessagePart,
   SessionSnapshot,
   DraftState,
   ContextReference,
@@ -337,6 +338,85 @@ export function initialWorkbench(): WorkbenchState {
       "failed",
     ),
   ]
+  const coding = sessions[0]
+  coding.tools.push(
+    {
+      id: "fixture-read-filter",
+      name: "Read",
+      status: "completed",
+      target: "src/filter.ts",
+      output: "Read source snapshot a1",
+      duration: "12 ms",
+    },
+    {
+      id: "fixture-search-filter",
+      name: "Search",
+      status: "completed",
+      target: "tests/filter.test.ts",
+      output: "One matching source reference",
+      duration: "8 ms",
+    },
+    {
+      id: "fixture-edit-filter",
+      name: "Edit",
+      status: "completed",
+      target: "src/filter.ts",
+      output: "Local fixture source confirms the diff-1 change",
+      fileIds: ["file-filter"],
+      changeRevision: "diff-1",
+      duration: "24 ms",
+    },
+  )
+  const parts = coding.messages[1].parts
+  coding.messages[1].parts = (
+    [
+      {
+        partId: "fixture-phase-thinking",
+        sequence: 1,
+        revision: 1,
+        kind: "phase",
+        phase: "thinking",
+        label: "Public progress",
+      },
+      ...parts.slice(0, 2),
+      {
+        partId: "fixture-phase-action",
+        sequence: 4,
+        revision: 1,
+        kind: "phase",
+        phase: "action",
+        label: "Action",
+      },
+      ...[
+        "fixture-read-filter",
+        "fixture-search-filter",
+        "fixture-edit-filter",
+      ].map((referenceId, index) => ({
+        partId: `part-${referenceId}`,
+        sequence: 5 + index,
+        revision: 1,
+        kind: "tool" as const,
+        referenceId,
+        label: referenceId,
+      })),
+      ...parts.slice(2),
+      {
+        partId: "fixture-phase-output",
+        sequence: 10,
+        revision: 1,
+        kind: "phase",
+        phase: "output",
+        label: "Output",
+      },
+      {
+        partId: "fixture-output-summary",
+        sequence: 11,
+        revision: 1,
+        kind: "text",
+        text: "The fixture source supplied a file change. Focused tests are still running; no final test result has been reported.",
+      },
+    ] satisfies MessagePart[]
+  ).map((part, index) => ({ ...part, sequence: index + 1 }))
   sessions[1].tools = [
     {
       ...sessions[1].tools[0],
@@ -517,7 +597,7 @@ export function initialWorkbench(): WorkbenchState {
     drafts,
     receipts: [],
     panels: {
-      activePanel: "context",
+      activePanel: "changes",
       selectedFileId: "file-filter",
       sidebarCollapsed: false,
       inspectorOpen: true,

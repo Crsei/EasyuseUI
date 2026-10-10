@@ -305,10 +305,7 @@ test("project scope, review filtering and sort retain selection without approvin
   await page
     .getByRole("combobox", { name: "项目", exact: true })
     .selectOption("project-empty")
-  await page
-    .getByRole("link", { name: "任务", exact: true })
-    .first()
-    .click()
+  await page.getByRole("link", { name: "任务", exact: true }).first().click()
   await expect(
     page
       .getByText("Write report artifact", { exact: true })
@@ -353,7 +350,7 @@ test("plan locates the specific tool without starting a request", async ({
   await expect(page.getByText("request-1", { exact: false })).toHaveCount(0)
 })
 for (const width of [1440, 390]) {
-  test(`bottom execution panel stays hidden with legacy preferences at ${width}px`, async ({
+  test(`bottom execution panel starts collapsed with legacy preferences at ${width}px`, async ({
     page,
   }) => {
     await page.setViewportSize({ width, height: 900 })
@@ -371,15 +368,19 @@ for (const width of [1440, 390]) {
     ]) {
       await page.goto(`${root}/${route}`)
       await expect(page.locator("main[data-session-id]")).toBeVisible()
-      await expect(
-        page.getByRole("button", { name: "运行面板", exact: true }),
-      ).toHaveCount(0)
-      await expect(
-        page.getByRole("region", { name: "底部工作面板", exact: true }),
-      ).toHaveCount(0)
+      await expect(page.getByRole("button", { name: /^运行面板/ })).toHaveCount(
+        route.includes("page=home") ? 0 : 1,
+      )
+      const bottom = page.getByRole("region", {
+        name: "底部工作面板",
+        exact: true,
+      })
+      if (route.includes("page=home")) await expect(bottom).toHaveCount(0)
+      else await expect(bottom).toHaveAttribute("data-collapsed", "true")
+      await expect(bottom.locator("[data-runtime-panel]")).toHaveCount(0)
       await expect(
         page.getByRole("button", { name: /^(展开|收起)底部面板$/ }),
-      ).toHaveCount(0)
+      ).toHaveCount(route.includes("page=home") ? 0 : 1)
     }
   })
 }
@@ -500,22 +501,38 @@ test("output reconnect and preview switch perform local read navigation and reta
     "真实模型、文件、Git、PTY 和浏览器服务尚未连接。",
   )
 })
-test("settings retry retains effective configuration and validates unapplied drafts without sending", async ({ page }) => {
+test("settings retry retains effective configuration and validates unapplied drafts without sending", async ({
+  page,
+}) => {
   await page.goto(`${root}/app/?page=settings&scenario=refresh-error`)
-  const model = page.getByRole("combobox", { name: "模型（下次发送）", exact: true }).filter({ visible: true })
+  const model = page
+    .getByRole("combobox", { name: "模型（下次发送）", exact: true })
+    .filter({ visible: true })
   await expect(model).toHaveText("Local demonstration model")
-  await page.getByRole("button", { name: /重试/ }).filter({ visible: true }).first().click()
+  await page
+    .getByRole("button", { name: /重试/ })
+    .filter({ visible: true })
+    .first()
+    .click()
   await expect(model).toHaveText("Local demonstration model")
   await expect(page.getByText("request-1", { exact: false })).toHaveCount(0)
   await page.getByRole("button", { name: "项目与环境", exact: true }).click()
-  const environment = page.getByRole("combobox", { name: "环境（下次发送）", exact: true }).filter({ visible: true })
+  const environment = page
+    .getByRole("combobox", { name: "环境（下次发送）", exact: true })
+    .filter({ visible: true })
   await environment.click()
   await page.getByRole("option", { name: "未配置", exact: true }).click()
-  await expect(page.getByText("请配置有效的模型和环境后再提交", { exact: true })).toBeVisible()
-  await expect(page.getByText("已生效值: local-demo", { exact: true })).toBeVisible()
+  await expect(
+    page.getByText("请配置有效的模型和环境后再提交", { exact: true }),
+  ).toBeVisible()
+  await expect(
+    page.getByText("已生效值: local-demo", { exact: true }),
+  ).toBeVisible()
   await environment.click()
   await page.getByRole("option", { name: "Local fixture", exact: true }).click()
-  await expect(page.getByText("请配置有效的模型和环境后再提交", { exact: true })).toHaveCount(0)
+  await expect(
+    page.getByText("请配置有效的模型和环境后再提交", { exact: true }),
+  ).toHaveCount(0)
   await expect(page.getByText("request-1", { exact: false })).toHaveCount(0)
 })
 

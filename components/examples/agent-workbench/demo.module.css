@@ -50,7 +50,63 @@
   flex-direction: column;
   flex-shrink: 1;
   min-height: 0;
-  max-height: 100%;
+  max-height: min(300px, 55dvh);
+  overflow: auto;
+  overscroll-behavior: contain;
+  margin: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.referenceShell > header {
+  min-height: 48px;
+}
+.referenceShell > div > div:first-child:has(nav[aria-label]) {
+  flex-basis: 56px;
+  width: 56px;
+}
+.globalIdentity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.globalIdentity strong {
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.globalIdentity > span {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.globalIdentity > small {
+  font-size: 12px;
+  white-space: nowrap;
+  color: var(--muted-foreground);
+}
+.referenceShell nav [data-session-id] {
+  border: 0;
+  padding-top: 0;
+}
+.referenceShell nav [data-selected="true"] {
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--primary) 16%, var(--surface));
+}
+.referenceShell nav [data-selected="true"] button > span > span:first-child {
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .globalIdentity > span {
+    display: none;
+  }
+  .referenceShell > div > div:first-child:has(nav[aria-label]) {
+    flex-basis: 48px;
+    width: 100%;
+  }
+  .composerMount {
+    margin: 4px 8px;
+  }
 }
 .title {
   font-size: 20px;

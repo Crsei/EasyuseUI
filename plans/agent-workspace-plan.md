@@ -1,6 +1,6 @@
 # Agent Workspace 具体设计与布局执行计划
 
-日期：2026-10-10。状态：首轮 Pi DL1–DL2 已实现；DL3 的审批双层呈现、Queue/Steer fixture 已实现，见[人工介入记录](agent-workspace-intervention-log.md)。完整参考界面及 DL3–DL5 的剩余范围待执行；Pi 证据见[首轮记录](agent-workspace-completion-log.md)。
+日期：2026-10-10。状态：首轮 Pi DL1–DL2 已实现；DL0 基线、DL3 完整参考 fixture、DL4 代码工作区 UI 和 DL5 验收已完成，见[完整设计实施记录](agent-workspace-design-completion-log.md)。审批/Queue/Steer 证据保留在[人工介入记录](agent-workspace-intervention-log.md)；真实 Pi 证据见[首轮记录](agent-workspace-completion-log.md)，AW6–AW8 仍为独立服务范围。
 
 本文件是 [reference 原文](./reference/agent-workspace-plan.md) 的完整内容副本，负责具体视觉、页面布局、模块展示和交互细节。原文全部保留，仅增加标题层级、线框图代码围栏和本文件的执行声明/清单；原文中的对话、示例产品名、后续建议均作为设计来源保留，不表示已实现功能或新的执行指令。
 
@@ -1208,6 +1208,8 @@ ChatWorkspace
 
 PG02 的人工介入增量页为 `/examples/agent-workbench/regions/intervention/`。其 PG02-I 页面声明与 MD13-I/MD14-I 模块变体、尺寸、状态和验收路径见[人工介入实施记录](agent-workspace-intervention-log.md)。它是独立内存 fixture，不启用 PG05 的 Queue/Steer 或审批能力。
 
+PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/reference/`。其 PG02-R 页面声明、MD01–MD17 增量、V01–V12 参数映射，以及 PG03/PG04/PG06 的宽工作区和底栏规则见[完整设计实施记录](agent-workspace-design-completion-log.md)。页面使用明确的内存 fixture；真实编码服务、任务树持久化及 AW6–AW8 保持补全计划的独立服务范围。
+
 ## 模块级设计声明
 
 | 模块 ID / reference | 职责与复用入口 | 明确的展示与布局规则 | 状态、交互和服务边界 | 适用页面 |
@@ -1234,14 +1236,14 @@ PG02 的人工介入增量页为 `/examples/agent-workbench/regions/intervention
 
 ## 设计与布局执行清单
 
-首轮 Pi 适用项按实际源码、挂载与验证勾选；其余保持未完成。完整基线和全部参考参数的条目不因 Pi 首轮通过而自动完成。PG/MD/V 编号用于执行追踪，不能把引用编号当作完成证明。
+首轮 Pi 和完整参考 UI 均按各自源码、挂载与验证勾选。本轮 DL0/DL3–DL5 的完整基线和参考参数有独立证据，不由 Pi 首轮通过自动推定；AW6–AW8 仍按补全计划另行实施。PG/MD/V 编号用于执行追踪，不能把引用编号当作完成证明。
 
 ### DL0 实施前声明和基线
 
 - [x] 阅读补全执行计划、Pi 技术计划、本文件原文与 PG/MD/V 声明，固定本轮首要目标为 Pi 接入。
 - [x] 核对实际 exports、Manifest/Registry、Provider 和并行修改；记录将修改的页面、模块及复用/新增范围。
-- [ ] 按当前页面记录桌面/移动、浅深主题、空/加载/失败基线；明确哪些由 fixture 验证、哪些需要 Pi。
-- [ ] 为 V01–V12 建立示例局部参数映射；更新发生变化的设计声明后再改 UI，不要求额外用户确认例行实现。
+- [x] 按当前页面记录桌面/移动、浅深主题、空/加载/失败基线；明确哪些由 fixture 验证、哪些需要 Pi。
+- [x] 为 V01–V12 建立示例局部参数映射；更新发生变化的设计声明后再改 UI，不要求额外用户确认例行实现。
 
 ### DL1 首轮 Pi 页面布局
 
@@ -1263,21 +1265,21 @@ PG02 的人工介入增量页为 `/examples/agent-workbench/regions/intervention
 
 MD13/MD14 的独立人工介入 fixture 与 MD12 输入稳定性按[人工介入记录](agent-workspace-intervention-log.md)单独实施；本阶段的全模块/全页面覆盖仍分别验收。
 
-- [ ] 在 PG02 明确 fixture 的情况下覆盖 MD01–MD17 的默认/hover/focus/selected/disabled/loading/error 及适用数据五态。
-- [ ] 展示 User、开放 Agent 正文、Thinking、Plan、Read/Search、Edit、Shell/Test、Output 的差异，不统一套大 Card。
+- [x] 在 PG02 明确 fixture 的情况下覆盖 MD01–MD17 的默认/hover/focus/selected/disabled/loading/error 及适用数据五态。
+- [x] 展示 User、开放 Agent 正文、Thinking、Plan、Read/Search、Edit、Shell/Test、Output 的差异，不统一套大 Card。
 - [x] 对照 A2-08 验证审批双层呈现：历史阅读时提醒可发现、Review定位、确认后留审计；unknown保持锁。（PG02-I 独立 fixture）
 - [x] 对照 A2-07 验证 Queue/Steer 外观稳定与队列最多两条；这些fixture不计作Pi服务能力。（PG02-I 独立 fixture）
 
 ### DL4 完整桌面与代码工作区
 
-- [ ] 补齐 PG03/PG04/PG06 的 Chat/Review 布局和 MD15–MD17 联动，选择Changes/文件/测试可到同一来源对象。
-- [ ] 宽 Editor/Diff 支持可调分屏、最大化、退出恢复；右侧资源导航不占用完整代码阅读空间。
-- [ ] 右侧只保留常用三个Tab，其余更多菜单/固定；底栏默认收起，出现异常先提示而不抢焦点。
-- [ ] 完整时间/任务树、归类、生命周期和高级服务遵循补全计划的后续清单，不纳入首轮 Pi 前置依赖。
+- [x] 补齐 PG03/PG04/PG06 的 Chat/Review 布局和 MD15–MD17 联动，选择Changes/文件/测试可到同一来源对象。
+- [x] 宽 Editor/Diff 支持可调分屏、最大化、退出恢复；右侧资源导航不占用完整代码阅读空间。
+- [x] 右侧只保留常用三个Tab，其余更多菜单/固定；底栏默认收起，出现异常先提示而不抢焦点。
+- [x] 完整时间/任务树、归类、生命周期和高级服务的清单归属已确认：遵循 AW6–AW8 后续范围；本项为范围登记，不代表这些服务已实现。
 
 ### DL5 视觉和行为验收
 
-- [ ] 在 1440×900 桌面、390px移动、短视口、200%布局、双主题/双语下逐项检查 PG/MD/V，截图标明来源版本。
+- [x] 在 1440×900 桌面、390px移动、短视口、200%布局、双主题/双语下逐项检查 PG/MD/V，截图标明来源版本。
 - [x] 检查1px阶段线、16px间距、选中与焦点区别、消息操作不遮正文、代码/路径可选中、粗指针命中区。
 - [x] 用长历史、混合工具/正文、失败/unknown、来源缺失、迟到数据验证顺序、阅读锚点和恢复。
 - [x] 运行改动所需 lint/typecheck/build/浏览器回归；公共源码/CSS/Registry 变更执行独立安装验证。

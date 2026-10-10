@@ -50,6 +50,12 @@ export function RegionLab({
         {navigation}
         <Link
           prefetch={false}
+          href="/examples/agent-workbench/regions/reference/"
+        >
+          {en ? "MD01–MD17 reference states" : "MD01–MD17 参考状态"}
+        </Link>
+        <Link
+          prefetch={false}
           href="/examples/agent-workbench/regions/intervention/"
         >
           {en ? "Approval and queue fixture" : "审批与队列 fixture"}

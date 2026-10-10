@@ -42,7 +42,7 @@ export function WorkbenchExampleProvider({
     if (saved)
       dispatch({
         type: "panels",
-        panels: { ...initialWorkbench().panels, ...saved },
+        panels: { ...initialWorkbench().panels, ...saved, bottomOpen: false },
       })
   }, [])
   useEffect(() => {

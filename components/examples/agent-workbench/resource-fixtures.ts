@@ -81,7 +81,12 @@ export function workbenchResourceFixtures(
         download: file.kind === "binary" ? undefined : snapshot.download,
         source: {
           label: "ChangeSet head snapshot",
-          toolCallId: session.tools[0]?.id,
+          toolCallId:
+            session.tools.find(
+              (tool) =>
+                tool.changeRevision === session.changes.revision &&
+                tool.fileIds?.includes(file.fileId),
+            )?.id ?? session.tools[0]?.id,
         },
         context: { ...snapshot.context!, version: session.changes.revision },
       }
@@ -92,7 +97,10 @@ export function workbenchResourceFixtures(
       "fixtures/large.ts",
       "text",
       "text/plain",
-      Array.from({ length: 1005 }, (_, i) => `export const line${i + 1} = ${i + 1}`).join("\n"),
+      Array.from(
+        { length: 1005 },
+        (_, i) => `export const line${i + 1} = ${i + 1}`,
+      ).join("\n"),
     ),
     text(
       "resource-json",

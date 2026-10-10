@@ -1,0 +1,170 @@
+.root {
+  min-height: 100%;
+  min-width: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.header h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+.header span {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  min-width: 0;
+}
+.controls select {
+  height: 32px;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  padding-inline: 8px;
+}
+.controls select:focus-visible {
+  outline: 2px solid var(--ring);
+}
+.notice {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  overflow-wrap: anywhere;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  min-width: 0;
+}
+.layout > nav {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 4px;
+  border-right: 1px solid var(--border);
+}
+.layout > nav button {
+  justify-content: flex-start;
+}
+.layout > nav button[aria-current] {
+  background: var(--selection);
+  border-left: 2px solid var(--primary);
+}
+.preview {
+  min-width: 0;
+  padding: 12px;
+}
+.viewport {
+  height: 600px;
+  min-width: 0;
+  border: 1px solid var(--border);
+  padding: 0;
+  background: var(--surface);
+  container-type: inline-size;
+}
+.module {
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+}
+.module[hidden],
+.viewport[hidden] {
+  display: none;
+}
+.module > div {
+  min-height: 0;
+}
+.global {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.rail {
+  width: 56px;
+  height: 100%;
+  border-right: 1px solid var(--border);
+}
+.dock {
+  max-height: min(300px, 55dvh);
+  overflow: auto;
+  margin: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.runtime {
+  min-width: 0;
+  font-size: 13px;
+}
+.runtime [role="tablist"] {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.runtime [role="tab"] {
+  flex-shrink: 0;
+}
+.module [data-session-id] {
+  border: 0;
+}
+.module [data-selected="true"] {
+  border-radius: 8px;
+  background: var(--selection);
+}
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .layout > nav {
+    display: none;
+  }
+  .preview {
+    padding: 8px;
+  }
+  .controls {
+    gap: 8px;
+    padding: 8px;
+  }
+  .viewport {
+    height: 560px;
+  }
+}
+@media (pointer: coarse) {
+  .controls select,
+  .header a {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .root * {
+    transition: none;
+    scroll-behavior: auto;
+  }
+}

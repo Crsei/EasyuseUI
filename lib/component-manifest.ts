@@ -250,7 +250,8 @@ const sourceManifest: ComponentManifestEntry[] = [
     "input",
     "redact",
     "runtime-status-badge",
-    "workbench-resource-model"
+    "workbench-resource-model",
+    "menu"
   ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -929,7 +930,12 @@ const sourceManifest: ComponentManifestEntry[] = [
       "name": "onRetry",
       "type": "() => void",
       "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
-    }
+    },
+      {
+        "name": "onOpenChange",
+        "type": "(fileId: string) => void",
+        "description": "打开明确关联同一 ChangeSet revision 的文件；回调不执行写入。"
+      }
   ],
   "notes": [
     "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -1300,7 +1306,8 @@ const sourceManifest: ComponentManifestEntry[] = [
   "input",
   "redact",
   "runtime-status-badge",
-  "workbench-resource-model"
+  "workbench-resource-model",
+  "menu"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1326,7 +1333,12 @@ const sourceManifest: ComponentManifestEntry[] = [
       "name": "onChange",
       "type": "(id: WorkbenchPanelId) => void",
       "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
-    }
+    },
+      {
+        "name": "primaryPanels",
+        "type": "readonly WorkbenchPanelId[]",
+        "description": "可选紧凑标签；其余面板进入可访问更多菜单。"
+      }
   ],
   "notes": [
     "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -1351,7 +1363,8 @@ const sourceManifest: ComponentManifestEntry[] = [
   "input",
   "redact",
   "runtime-status-badge",
-  "workbench-resource-model"
+  "workbench-resource-model",
+  "menu"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1422,7 +1435,8 @@ const sourceManifest: ComponentManifestEntry[] = [
   "input",
   "redact",
   "runtime-status-badge",
-  "workbench-resource-model"
+  "workbench-resource-model",
+  "menu"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1484,7 +1498,8 @@ const sourceManifest: ComponentManifestEntry[] = [
     "agent-workbench-conversation",
     "agent-workbench-composer",
     "agent-workbench-review",
-    "agent-workbench-panels"
+    "agent-workbench-panels",
+    "resizable"
   ],
   "installType": "block",
   "displayCategory": "workspace",
@@ -1550,7 +1565,37 @@ const sourceManifest: ComponentManifestEntry[] = [
       "name": "onRename",
       "type": "(title: string) => void",
       "description": "选择与执行分离；未知结果先查询，确认前保留草稿。"
-    }
+    },
+      {
+        "name": "presentation",
+        "type": "\"default\" | \"workspace\"",
+        "description": "workspace 把会话标题放在 Main，header 承载全局身份。"
+      },
+      {
+        "name": "reviewSplit",
+        "type": "number",
+        "description": "受控分屏比例；尺寸和持久化由调用方负责。"
+      },
+      {
+        "name": "onReviewSplitChange",
+        "type": "(ratio: number) => void",
+        "description": "有界分屏偏好变更，不执行服务操作。"
+      },
+      {
+        "name": "workspaceMaximized",
+        "type": "boolean",
+        "description": "仅改变可见布局，保留编辑器和会话状态。"
+      },
+      {
+        "name": "onWorkspaceMaximizedChange",
+        "type": "(maximized: boolean) => void",
+        "description": "最大化和退出的受控视图回调。"
+      },
+      {
+        "name": "inspectorMode",
+        "type": "\"metadata\" | \"resource\"",
+        "description": "resource 直接展示调用方提供的资源区域。"
+      }
   ],
   "notes": [
     "本地 fixture 只证明组件交互；真实模型、文件、Git、PTY 与浏览器服务需另行接入。"
@@ -1582,7 +1627,8 @@ const sourceManifest: ComponentManifestEntry[] = [
     "agent-workbench-conversation",
     "agent-workbench-composer",
     "agent-workbench-review",
-    "agent-workbench-panels"
+    "agent-workbench-panels",
+    "resizable"
   ],
   "installType": "block",
   "displayCategory": "workspace",

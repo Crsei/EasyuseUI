@@ -3909,7 +3909,8 @@
         "input",
         "redact",
         "runtime-status-badge",
-        "workbench-resource-model"
+        "workbench-resource-model",
+        "menu"
       ],
       "files": [
         {
@@ -3974,7 +3975,8 @@
         "agent-workbench-conversation",
         "agent-workbench-composer",
         "agent-workbench-review",
-        "agent-workbench-panels"
+        "agent-workbench-panels",
+        "resizable"
       ],
       "files": [
         {

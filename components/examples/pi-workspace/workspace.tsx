@@ -26,6 +26,7 @@ import type { PiSession } from "@/lib/pi-workspace-protocol"
 import { PiWorkspaceProvider, usePiWorkspace } from "./provider"
 import { emptyDraft, workbenchSnapshot } from "./model"
 import { piMessages } from "./messages"
+import referenceTokens from "../agent-workspace/reference-tokens.module.css"
 import styles from "./workspace.module.css"
 
 const panelDefaults: PanelState = {
@@ -230,7 +231,7 @@ function WorkspaceView() {
   )
   return (
     <main
-      className={styles.root}
+      className={`${styles.root} ${referenceTokens.tokens}`}
       ref={root}
       data-pi-workspace
       data-connection={state.connection}
