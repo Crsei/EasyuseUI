@@ -1,6 +1,6 @@
 # Agent Workspace 首轮 Pi 接入补全执行计划
 
-日期：2026-10-10。状态：首轮 Pi AW0–AW5 已实现；实际工程与服务验收见[首轮实施记录](agent-workspace-completion-log.md)。AW6–AW8 与完整参考设计保持后续范围。
+日期：2026-10-10；开发方向更新：2026-10-11。状态：首轮 Pi AW0–AW5 已实现；实际工程与服务验收见[首轮实施记录](agent-workspace-completion-log.md)。完整参考设计的 UI 范围已按[设计实施记录](agent-workspace-design-completion-log.md)完成；S2–S4、AW6–AW8 及下述 DG 增量仍待实施。
 
 **第一个补全执行计划先用于接入 Pi。** 首轮目标是在现有 Agent Workspace 中完成“连接本地 Pi 服务 → 选择项目/会话 → 展示历史 → 发送消息与流式回复 → 展示真实工具 → 停止 → 刷新/断线恢复 → 带旧上下文继续聊天”。完整代码编辑器、Git、PTY、Checkpoint 和多 Agent 界面不作为 Pi 接入的前置条件。
 
@@ -252,6 +252,22 @@ AW0–AW5 现明确为首轮 Pi 接入执行顺序，与 Pi 技术计划 P0–P5
 设计计划 DL3/DL4 可通过 fixture 验证高级组件协议，但 Pi AW3/AW4 必须接入真实 Host 并验证实际数据恢复。要宣称“完整编码闭环可用”，S2/S3 与实际启用的 S4 操作必须补齐真实证据。公共库仍不承载这些服务的运行权威。
 
 ## 9. 验收与证据
+
+### 9.0 开发指南增量与执行顺序
+
+依据 [Development Guide](../DEVELOPMENT-GUIDE.md)，后续先验证连续项目流程和对象关联，再补协议/适配层与真实编码能力。此增量不重开已完成的 Pi 首轮，也不把参考 UI 的完成扩展为真实服务完成。
+
+| 指南工作包 | 本计划落点 | 退出条件 | 状态 |
+| --- | --- | --- | --- |
+| DG1 流程与关联 | AW7 的前置 fixture，关联 U03/U05/U07/U12/U13 | 显式 project/workItem/session/run/artifact 关系；任务→会话→产物→分析可往返；保留筛选、选择、草稿与阅读位置 | 待实施 |
+| DG2 边界与适配 | Pi 后续加固；适用模块的 fixture/service 合同 | HTTP/SSE/schema 错误保留已确认数据；只读缓存和界面状态分责；旧 epoch、迟到页和 unknown 恢复不退化 | 待实施 |
+| DG3 真实编码 | S2 → S3 → 实际启用的 S4 | 版本化保存/Git、命令/PTY、恢复操作分别取得真实服务证据，能力由 Host 提供 | 待实施 |
+| DG4 长期产品能力 | AW6–AW8 | 真实调度、项目关系持久化、跨会话与观测/自动化分别验收 | 待实施 |
+
+- DG 编号只映射增量，不重复统计 AW/S 的完成度。DG1 的 fixture 不关闭 AW7 的持久化验收；独立 DG2 工作可先行。
+- 技术选择沿用 Base UI、Recharts、React Flow 和 Lucide。Zod、TanStack Query、Zustand、TanStack Table、dnd kit、编辑器/终端依赖按指南的具体缺口评估，不整套安装。
+- 公共受控组件不持有全局业务 store、认证或执行服务。查询缓存、界面草稿和命令回执分责；执行完成、产物审阅和任务验收分别建模。
+- DG1 的新页面/路由与模块声明先在设计计划补齐；DG2 的具体协议和回归由[Pi 技术计划增量](pi-agent-workspace-integration-plan.md#10-开发指南增量协议与适配层加固)承接。当前只更新文档，新增工作包均未验收。
 
 ### 9.1 必须走通的用户路径
 

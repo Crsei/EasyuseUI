@@ -8,6 +8,8 @@
 
 先阅读 [Design Rules](./Design-rules.md) 和 [Component Specification](./Component-Specification.md)。后者规定基础与产品组件的尺寸、交互态、数据态、运行态、键盘模型、触摸命中、响应式与验收要求。[AGENTS.md](./AGENTS.md) 是项目 Agent 的实际指引文件。
 
+[Development Guide](./DEVELOPMENT-GUIDE.md) 记录技术选型、项目流程组合示例、fixture/service 适配、协议验证、状态职责与后续执行顺序；新增方向的实现状态由 Agent Workspace 配套计划和验收记录维护。
+
 | 查阅文档                                 | 回答的问题                   | 内容                                                                         |
 | ---------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------- |
 | [UI 视觉词典](./UI-VISUAL-DICTIONARY.md) | 这个东西叫什么？             | 中文外观反查、英文名/别名、胶囊语义、阴影与高度、九类视觉词汇、现有实现映射  |
