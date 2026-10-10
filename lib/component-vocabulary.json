@@ -198,6 +198,17 @@
     ]
   },
   {
+    "slug": "code-preview",
+    "name": "CodePreview",
+    "category": "组合模块",
+    "description": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+    "source": "components/blocks/code-preview.tsx",
+    "usage": "import { CodePreview } from \"@/components/blocks/code-preview\"",
+    "notes": [
+      "本地 fixture 只证明组件交互；文件读取、授权和完整内容由调用方提供。"
+    ]
+  },
+  {
     "slug": "file-viewer",
     "name": "FileViewer",
     "category": "组合模块",

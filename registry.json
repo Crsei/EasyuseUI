@@ -3834,6 +3834,42 @@
       "files": []
     },
     {
+      "name": "code-preview",
+      "type": "registry:block",
+      "title": "CodePreview",
+      "description": "Bounded, redacted, read-only code preview with line numbers and search.",
+      "dependencies": [
+        "@codemirror/state@6.7.6",
+        "@codemirror/view@6.43.14",
+        "@codemirror/search@6.7.2",
+        "@codemirror/language@6.13.1",
+        "@codemirror/lang-javascript@6.2.5",
+        "@lezer/highlight@1.2.5",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "button",
+        "input",
+        "data-region",
+        "redact",
+        "runtime-status"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/code-preview.tsx",
+          "type": "registry:block",
+          "target": "components/blocks/code-preview.tsx"
+        },
+        {
+          "path": "components/blocks/code-preview.module.css",
+          "type": "registry:block",
+          "target": "components/blocks/code-preview.module.css"
+        }
+      ]
+    },
+    {
       "name": "agent-workbench-review",
       "type": "registry:block",
       "title": "agent-workbench-review",
@@ -3847,7 +3883,8 @@
         "button",
         "data-region",
         "redact",
-        "workbench-resource-model"
+        "workbench-resource-model",
+        "code-preview"
       ],
       "files": [
         {

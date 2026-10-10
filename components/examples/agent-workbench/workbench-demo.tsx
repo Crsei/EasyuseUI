@@ -2225,6 +2225,12 @@ export function WorkbenchDemo({
           {x.verification}
         </Link>
         <div className={styles.overview}>
+          <Link prefetch={false} href="/examples/agent-workbench/elements/">
+            <strong>
+              {locale === "en" ? "Element gallery" : "元素集中展示"}
+            </strong>
+            <span>MD01–MD17 · {locale === "en" ? "presentation / specification / technology" : "效果 / 规范 / 技术"}</span>
+          </Link>
           <Link
             prefetch={false}
             href="/examples/agent-workbench/regions/reference/"

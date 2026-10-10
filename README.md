@@ -1,8 +1,10 @@
 # EasyuseUI
 
-可组合、可修改的 React 组件库，配套中文文档、交互演示和 shadcn Registry。
+面向简单组件展示、复杂组件构建与项目示例组合的 React 组件工作坊，配套双语文档、交互演示和 shadcn Registry。
 
-目前提供 **Button、Input、Badge、Tag、Chip、Dialog、Item、RuntimeStatusBadge、DataRegion、Tree、SessionRow、AgentRow、ActivityTimeline、Inspector、ChatMessage / Conversation / ChatComposer、ToolCall、TaskPanel、ScrollPlayground、StyleWorkbench、WorkspaceShell**。所有示例中的保存、创建、任务控制和权限动作均为本地演示。
+开发顺序为：核对参考与技术栈 → 声明页面和模块规范 → 构建组件并在统一元素页展示 → 组装项目页面 → 验证实际效果。页面通过组件组合；样式和交互实现沉淀到组件层。详见 [开发指南](./DEVELOPMENT-GUIDE.md) 和 [Agent Workspace 迁移计划](./plans/agent-workspace-component-first-plan.md)。
+
+目前提供 **Button、Input、Badge、Tag、Chip、Dialog、Item、RuntimeStatusBadge、DataRegion、Tree、SessionRow、AgentRow、ActivityTimeline、Inspector、ChatMessage / Conversation / ChatComposer、ToolCall、TaskPanel、ScrollPlayground、StyleWorkbench、WorkspaceShell**。组件演示中的保存、创建、任务控制和权限动作使用本地 fixture；真实 Pi 服务入口及其能力边界见 [PI-WORKSPACE.md](./PI-WORKSPACE.md)。
 
 ## 设计规范与初始化
 
@@ -31,6 +33,8 @@ Agent 可按任务读取 [UI Skills 分类与入口](./skills/README.md)：视�
 打开 http://localhost:3010/workspace/svg/ 使用 SVG 工作台：60 个固定来源素材、基本绘图、图层/属性/源码编辑、可撤销优化，以及 SVG、独立 TSX 与来源清单导出。仅本地处理，刷新前导出；指南见 [SVG-WORKBENCH.md](./SVG-WORKBENCH.md)。
 
 打开 http://localhost:3010/workspace/ 直接查看新版 Agent 编码会话示例：会话导航、对话与工具记录、稳定输入、资源标签、宽 Diff 和默认收起的运行面板。与 `/examples/agent-workbench/app/` 复用同一实现；后者默认进入首页，`/workspace/` 默认进入会话，显式 URL 查询仍可选择页面和会话。页面使用内存 fixture，不连接模型或 Agent 服务；真实 Pi 入口见 [PI-WORKSPACE.md](./PI-WORKSPACE.md)。
+
+打开 http://localhost:3010/examples/agent-workbench/elements/ 查看 Agent Workspace 统一元素画廊：同页浏览 MD01–MD17，切换“展示效果 / 设计规范 / 技术栈”，再进入组合工作台或精细状态实验室。文件代码预览先以独立 CodePreview 组件构建，再由 FileViewer 复用；新增 CodeMirror 只读高亮与搜索，真实编辑保存仍按服务计划推进。
 
 原通用 Shell 示例位于 http://localhost:3010/workspace/shell/ ，保留五种数据状态、十种运行状态、对象选择、Inspector 调整和本地 Chat 消息。入口迁移声明与验证见[实施记录](./plans/workspace-entry-migration-log.md)。
 

@@ -1,5 +1,5 @@
 "use client"
-import { useId, useState } from "react"
+import { lazy, Suspense, useId, useState } from "react"
 import { Tree } from "@/components/ui/tree"
 import { Button } from "@/components/ui/button"
 import { DataRegion } from "@/components/ui/data-region"
@@ -13,6 +13,14 @@ import styles from "./workbench.module.css"
 import { redactText } from "@/lib/redact"
 import type { ResourceSnapshot } from "@/lib/workbench-resource-model"
 import { reviewCommentIsCurrent } from "@/lib/agent-workbench-model"
+import type { ResourceIdentity } from "@/lib/workbench-resource-model"
+
+const CodePreview = lazy(() =>
+  import("@/components/blocks/code-preview").then((module) => ({
+    default: module.CodePreview,
+  })),
+)
+
 export function FileViewer({
   file,
   resource,
@@ -21,7 +29,8 @@ export function FileViewer({
   maximumLines = 1000,
 }: {
   file?: ChangedFile
-  resource?: Pick<ResourceSnapshot, "path" | "text" | "complete">
+  resource?: Pick<ResourceSnapshot, "path" | "text" | "complete"> &
+    Partial<Pick<ResourceSnapshot, keyof ResourceIdentity | "dataState" | "updatedAt">>
   range?: { start: number; end: number }
   revision: string
   maximumLines?: number
@@ -30,15 +39,21 @@ export function FileViewer({
   if (!file && !resource)
     return <p className={styles.section}>{t("workbench.noFile")}</p>
   const path = resource?.path ?? file!.path
-  const lines = redactText(
-    resource?.text ??
-      file!.content ??
-      file!.lines
-        .filter((l) => l.kind !== "remove")
-        .map((l) => l.text)
-        .join("\n"),
-  ).split("\n")
   const maximum = Math.max(1, Math.min(5000, maximumLines))
+  const source =
+    resource?.text ??
+    file?.content ??
+    file?.lines
+      .filter((line) => line.kind !== "remove")
+      .slice(0, maximum + 1)
+      .map((line) => line.text)
+      .join("\n") ??
+    ""
+  const identity = JSON.stringify([
+    resource?.projectId ?? "",
+    resource?.sessionId ?? "",
+    resource?.resourceId ?? file?.fileId ?? path,
+  ])
   return (
     <section className={styles.section} aria-label={path}>
       <h3 className={styles.heading}>{path}</h3>
@@ -48,26 +63,23 @@ export function FileViewer({
       {file?.kind === "binary" ? (
         <p>{t("workbench.binary")}</p>
       ) : (
-        <pre className={styles.code} tabIndex={0}>
-          {lines.slice(0, maximum).map((text, i) => (
-            <div
-              key={i}
-              data-file-line={i + 1}
-              data-highlighted={Boolean(
-                range && i + 1 >= range.start && i + 1 <= range.end,
-              )}
-            >
-              <span aria-hidden="true">{String(i + 1).padStart(4, " ")} </span>
-              {text.slice(0, 8192)}
-            </div>
-          ))}
-        </pre>
-      )}
-      {(file?.truncated ||
-        (resource && !resource.complete) ||
-        lines.length > maximum ||
-        lines.some((l) => l.length > 8192)) && (
-        <p role="status">{t("workbench.truncated")}</p>
+        <Suspense fallback={<p role="status">{t("dataRegion.loading")}</p>}>
+          <CodePreview
+            identity={identity}
+            revision={revision}
+            path={path}
+            code={source}
+            highlightRange={range}
+            maximumLines={maximum}
+            state={resource?.dataState}
+            updatedAt={resource?.updatedAt}
+            incomplete={Boolean(
+              file?.truncated ||
+              (file && !file.content && file.lines.length > maximum) ||
+              (resource && !resource.complete),
+            )}
+          />
+        </Suspense>
       )}
     </section>
   )

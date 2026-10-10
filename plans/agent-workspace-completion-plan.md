@@ -321,3 +321,7 @@ AW0–AW5 现明确为首轮 Pi 接入执行顺序，与 Pi 技术计划 P0–P5
 - [Cursor Agent](https://cursor.com/docs/agent/overview)：工具、检查点、排队与 steer 的工作方式。其文档区分文件恢复与聊天记录；本计划据此明确不同恢复作用域，并由各 Adapter 分别声明支持情况。
 
 上述参考用于交互设计，不将任何产品的具体命令、检查点、权限模式或多 Agent 能力视为 Pi 或 EasyuseUI 已具备的功能。最终验收依据本项目真实导出、挂载行为和服务证据。
+
+## 组件先行迁移的独立验收
+
+2026-10-11：项目定位和元素展示迁移见 [CF0–CF4](agent-workspace-component-first-plan.md)。CF 负责组件、统一画廊、技术说明和只读代码展示；它不关闭 CW2–CW5 或 AW6–AW8 服务缺口。新增依赖须先有组件/Demo/Registry与挂载证据，再用于页面；展示效果与设计规范分别验收。

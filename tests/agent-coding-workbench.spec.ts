@@ -203,6 +203,26 @@ test("typed previews download actual bytes, redact JSON, render quoted CSV and k
     dialog.getByRole("button", { name: "下载源文件", exact: true }),
   ).toBeDisabled()
 })
+
+test("code preview remains read-only and supports keyboard search", async ({ page }) => {
+  await page.goto(root)
+  const dialog = await file(page, "filter.ts")
+  const preview = dialog.locator("[data-code-preview]")
+  const content = preview.locator(".cm-content")
+  await expect(content).toHaveAttribute("aria-readonly", "true")
+  await expect(content).toHaveAttribute("contenteditable", "false")
+  const original = await content.textContent()
+  await content.focus()
+  await page.keyboard.type("cannot change snapshot")
+  await expect(content).toHaveText(original ?? "")
+  await content.press("ControlOrMeta+f")
+  const search = preview.getByRole("searchbox", { name: "搜索代码" })
+  await expect(search).toBeVisible()
+  await search.fill("filter")
+  await search.press("Enter")
+  await expect(preview.locator(".cm-searchMatch").first()).toBeVisible()
+  await expect(preview.locator(".cm-searchMatch-selected")).toHaveCount(1)
+})
 test("command-to-tool-to-file navigation keeps unknown exit codes and disconnection separate from runtime", async ({
   page,
 }) => {
@@ -301,7 +321,14 @@ test("bounded large file, 1000 messages and continuous output record actual inte
   const start = performance.now()
   const dialog = await file(page, "large.ts")
   await expect(dialog).toContainText("来源或本地预览已截断")
-  expect(await dialog.locator("[data-file-line]").count()).toBe(1000)
+  const code = dialog.locator("[data-code-preview]")
+  await expect(code).toHaveAttribute("data-preview-lines", "1000")
+  expect(await code.locator(".cm-line").count()).toBeLessThan(1000)
+  await code.locator(".cm-editor").evaluate((editor) => {
+    const viewport = editor.parentElement
+    if (viewport) viewport.scrollTop = viewport.scrollHeight
+  })
+  await expect(code.locator(".cm-line").last()).toContainText("line1000")
   const fileMs = performance.now() - start
   await page.keyboard.press("Escape")
   await page.getByRole("button", { name: "示例设置", exact: true }).click()

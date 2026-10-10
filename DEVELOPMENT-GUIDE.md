@@ -1,6 +1,6 @@
 # Development Guide
 
-日期：2026-10-11。适用于 EasyuseUI 组件库、组合 examples 和 Agent Workspace 服务适配。本文记录开发方向与技术选择依据；新增工作包仍待实现，不以指南发布代表能力交付。
+日期：2026-10-11。适用于 EasyuseUI 组件库、组合 examples 和 Agent Workspace 服务适配。本文记录开发方向与技术选择依据；各工作包以对应实施记录确认，不以指南发布代表能力交付。
 
 ## 1. 目标与合同
 
@@ -9,6 +9,23 @@
 设计以 [Design Rules](./Design-rules.md)、[Component Specification](./Component-Specification.md)、[UI Patterns](./UI-PATTERNS.md)、[UI States](./UI-STATES.md) 和 [I18N](./I18N.md) 为准。本文不替代尺寸、状态或页面/模块声明。Agent Workspace 的工作包见[补全计划](./plans/agent-workspace-completion-plan.md)，具体布局见[设计计划](./plans/agent-workspace-plan.md)，Pi 协议与进程见[技术计划](./plans/pi-agent-workspace-integration-plan.md)。
 
 当前完成基线：Pi AW0–AW5 / P0–P5、参考设计 DL0–DL5 的已记录 UI 范围。真实文件/Git/PTY/Checkpoint、多 Agent、项目长期存储和自动化仍按 S2–S4 / AW6–AW8 独立交付。已有 fixture 和真实 provider 证据分别保留。
+
+### 项目重新定位：组件工作坊与项目组合验证
+
+EasyuseUI 的主线为“简单组件展示 → 复杂组件构建 → 项目示例组合”。可以采用成熟开源项目与库作为基础，记录来源、版本、许可、适配边界；项目示例用于检验组件在真实信息结构中的效果和交互。Agent Runtime、业务存储与部署仍由宿主承担。
+
+每次构建示例先列出完整元素清单，逐项关联实际组件和技术；缺失项先构建组件，再集中挂载到统一元素展示页。展示页必须能看到全部适用元素的真实效果，并可检查状态和组合关系；只有组件名称清单或一次仅显示一个模块不算完成。之后页面通过组件组装，不能直接手写页面 CSS/内联视觉样式绕过组件层。Tailwind、CSS Modules 和计算布局值应归属组件，共享值消费主题 token。
+
+交付分为两份关联成果：
+
+| 成果 | 内容与完成证据 |
+| --- | --- |
+| 页面展示效果 | 统一元素画廊、实际项目页面、状态变体、窄屏/深浅主题/双语截图和交互路径 |
+| 设计规范 | 页面与模块声明、尺寸/token、组件来源与 API、状态/权限/副作用边界、技术栈及验证结果 |
+
+每个示例填写技术清单：技术/实际版本、负责模块、组件入口、来源/许可、已采用或计划、按需加载策略、为什么优于现状、验收证据。技术说明放开发展示页和文档；产品工作流只出现用户决策所需信息。现有示例逐项迁移，不因新规范发布而自动视为已符合。
+
+Agent Workspace 首轮按[组件先行迁移计划](./plans/agent-workspace-component-first-plan.md)执行：MD01–MD17 统一展示，展示效果与设计规范分离，文件代码预览采用可复用编辑器引擎组件；后续表格、图表、关系图、拖拽和服务数据层按缺口引入。
 
 ## 2. 技术选择与引入条件
 
@@ -25,7 +42,7 @@
 | TanStack Table | 已有受控 DataTable | 多列排序、列固定、分组或复杂服务端分页需要时评估可选适配；不改变既有受控语义 |
 | dnd kit | 已有 Tree、看板的移动接口与交互 | 跨容器、自动滚动和复杂碰撞需求出现时评估；保留键盘替代及调用方确认 |
 | Faker | 已有确定性 fixture | 可用于开发期规模数据；固定版本、seed、时间和稳定 ID，故障轨迹显式构造 |
-| CodeMirror / Monaco / xterm.js | 当前以受控预览及能力边界为基础 | 在 S2/S3 中评估编辑器和终端；按面板加载，验证保存版本和真实 PTY 生命周期 |
+| CodeMirror / Monaco / xterm.js | CF 本轮引入 CodeMirror 6 只读 CodePreview；Monaco/xterm.js 仍是候选 | 代码阅读与搜索先按组件交付；可编辑文档、保存与真实 PTY 继续按 CW/S2/S3 验证，版本和分发证据见 CF 实施记录 |
 | ESLint / Prettier / Playwright | 已采用，另有 Registry 独立安装检查 | 保留工程、浏览器、分发与性能的分层证据 |
 | Vercel / 自行托管 | 部署选择 | 按静态站点和独立服务分别设计，不作为组件运行依赖 |
 
@@ -93,11 +110,11 @@ TanStack Query 试点先覆盖只读列表与历史页，验证 query key 隔离
 
 ### Agent 编码工作台的具体补充
 
-2026-10-11，当前重点补充编码模板 `/examples/agent-workbench/app/?template=coding&page=session` 及共享入口 `/workspace/`；真实能力由 `/examples/agent-workbench/pi/` 的 Host 适配承接。具体实施包见[编码工作台 CW0–CW6](./plans/agent-coding-workbench-enhancement-plan.md#11-agent-编码工作台技术补充与服务实施计划)。本轮仅补文档，以下技术均未因此安装，服务能力未扩展。
+2026-10-11，当前重点补充编码模板 `/examples/agent-workbench/app/?template=coding&page=session` 及共享入口 `/workspace/`；真实能力由 `/examples/agent-workbench/pi/` 的 Host 适配承接。具体实施包见[编码工作台 CW0–CW6](./plans/agent-coding-workbench-enhancement-plan.md#11-agent-编码工作台技术补充与服务实施计划)。该 CW 段最初为文档规划；后续 CF 迁移引入 CodeMirror 只读预览，不等同于完成 CW 的编辑、保存或服务能力。
 
 | 能力 | 当前实现 | 补充方向与技术选择 |
 | --- | --- | --- |
-| 文件与代码 | FileViewer 有界只读文本，DiffViewer 展示调用方提供的差异；Shiki 主要用于文档代码高亮 | 优先验证 CodeMirror 6 的按需语言、搜索、选区和编辑；Monaco 作为需要 IDE 级能力时的备选，CW0 比较后锁定一种，不同时引入 |
+| 文件与代码 | FileViewer 接入 CF 的有界只读 CodePreview，DiffViewer 展示调用方提供的差异；Shiki 用于文档高亮 | CodeMirror 先支持阅读/搜索；编辑、选区/撤销与保存合同仍须 CW0/CW1 验证。Monaco 仅在明确 IDE 需求时重新评估，不同时引入 |
 | 保存与 Git | 资源已有身份/revision，尚无真实保存/Git 服务 | Host 提供完整可编辑快照、版本条件保存、操作回执和明确路径范围的 Git；编辑草稿与确认版本分开 |
 | 命令与终端 | ExecutionOutputPanel 提供有界日志与 terminal 插槽，尚无真实 PTY | xterm.js 前端 + 可选 Host PTY 适配；node-pty 是候选，先验证 Node 24 / GLIBC 2.28 的加载和编译；消息 SSE 保留，PTY 双向通道单独设计 |
 | 服务协议 | PiClient 手写 fetch/SSE 与信封检查，Context/Hook 管理读取/草稿/回执 | 复用 DG2 的 Zod 边界验证和 TanStack Query 只读试点；保存、Git、命令与终端生命周期仍由命令/对账层负责 |
@@ -137,4 +154,4 @@ DG1 可先验证流程，DG2 的独立协议工作可在不依赖新页面时推
 - [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview)：服务状态读取、缓存和同步的候选实现。
 - [Zod](https://zod.dev/basics)：运行时 schema 和验证错误处理的候选实现。
 
-上述外部资料作为结构与技术参考；本项目可用能力仍以当前源码、正式合同、挂载行为和服务证据为准。本文落地为开发指南和计划增量，没有安装新依赖或实现 DG1–DG4。
+上述外部资料作为结构与技术参考；本项目可用能力仍以当前源码、正式合同、挂载行为和服务证据为准。本指南最初以文档增量落地；后续 CF 组件迁移的依赖与实际交付见对应实施记录，不能据此勾选 DG1–DG4 服务工作。

@@ -98,6 +98,20 @@
 .module > div {
   min-height: 0;
 }
+.galleryFieldset {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.codePreview {
+  min-width: 0;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+.codePreview h4 { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
 .global {
   display: flex;
   align-items: center;

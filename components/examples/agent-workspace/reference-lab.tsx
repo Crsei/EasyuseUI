@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useReducer, useRef, useState } from "react"
+import { useId, useReducer, useRef, useState } from "react"
 import { useTheme } from "next-themes"
 import { AgentConversation } from "@/components/blocks/agent-workbench/conversation"
 import { AgentComposer } from "@/components/blocks/agent-workbench/composer"
@@ -14,6 +14,8 @@ import { ChangeReviewPanel } from "@/components/blocks/agent-workbench/review"
 import { ContextPanel } from "@/components/blocks/agent-workbench/context"
 import { ApprovalRequestPanel } from "@/components/blocks/approval-request-panel"
 import { Button } from "@/components/ui/button"
+import { Field } from "@/components/ui/field"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { DataRegion } from "@/components/ui/data-region"
 import { RuntimeStatusBadge } from "@/components/ui/runtime-status-badge"
 import { Item } from "@/components/ui/item"
@@ -48,6 +50,9 @@ import {
   interventionReducer,
 } from "./intervention-model"
 import { RuntimePanel } from "./runtime-panel"
+import { ElementGallery } from "@/components/docs/element-gallery"
+import { galleryModuleInfo, galleryTechnologies } from "./element-gallery-data"
+import { CodePreviewDemo } from "../code-preview-demo"
 import referenceTokens from "./reference-tokens.module.css"
 import styles from "./reference.module.css"
 
@@ -72,12 +77,15 @@ export const referenceModules = [
 ] as const
 
 /** All source controls are explicit in-memory fixtures. No transport or execution. */
-export function ReferenceLab() {
+export function ReferenceLab({ view = "reference" }: { view?: "reference" | "gallery" }) {
   const { locale, setLocale, t } = useI18n()
   const { theme, setTheme } = useTheme()
   const en = locale === "en"
   const [fixture] = useState(initialWorkbench)
+  const approvalAnchorId = useId()
   const [selected, setSelected] = useState("MD07")
+  const [navigationToken, setNavigationToken] = useState(0)
+  const [galleryView, setGalleryView] = useState("preview")
   const [data, setData] = useState<DataState>("success")
   const [interaction, setInteraction] = useState("default")
   const [runtime, setRuntime] = useState("running")
@@ -99,6 +107,11 @@ export function ReferenceLab() {
     initialIntervention,
   )
   const reading = useRef<ConversationActions>(null)
+  function navigateModule(id: string) {
+    setSelected(id)
+    setNavigationToken((token) => token + 1)
+    setGalleryView("preview")
+  }
   const session: SessionSnapshot = {
     ...fixture.sessions[0],
     status: runtime,
@@ -177,15 +190,15 @@ export function ReferenceLab() {
         onLoadHistory={() => setHistoryLoaded(true)}
         onOpenChange={(id) => {
           setFileId(id)
-          setSelected("MD16")
+          navigateModule("MD16")
         }}
         onOpenReference={() => {
           setPanel("plan")
-          setSelected("MD15")
+          navigateModule("MD15")
         }}
         onOpenTool={(id) => {
           setCommand(`command-${id}`)
-          setSelected("MD17")
+          navigateModule("MD17")
         }}
       />
     )
@@ -205,7 +218,7 @@ export function ReferenceLab() {
             description={session.changes.revision}
             onSelect={() => {
               setFileId(file.fileId)
-              setSelected("MD16")
+              navigateModule("MD16")
             }}
           />
         ))
@@ -219,7 +232,7 @@ export function ReferenceLab() {
               step.toolId
                 ? () => {
                     setCommand(`command-${step.toolId}`)
-                    setSelected("MD17")
+                    navigateModule("MD17")
                   }
                 : undefined
             }
@@ -265,11 +278,11 @@ export function ReferenceLab() {
           href={(page) =>
             `/examples/agent-workbench/app/?template=coding&page=${page}`
           }
-          onNavigate={() => setSelected("MD15")}
+          onNavigate={() => navigateModule("MD15")}
           onArea={setArea}
-          onSearch={() => setSelected("MD03")}
-          onSettings={() => setSelected("MD12")}
-          onHelp={() => setSelected("MD07")}
+          onSearch={() => navigateModule("MD03")}
+          onSettings={() => navigateModule("MD12")}
+          onHelp={() => navigateModule("MD07")}
           settingsOpen={false}
           taskCount={session.attention.length}
           changeCount={session.changes.files.length}
@@ -285,7 +298,7 @@ export function ReferenceLab() {
         selectedId={sessionId}
         onProjectChange={setProjectId}
         onSelect={setSessionId}
-        onNew={() => setSelected("MD12")}
+        onNew={() => navigateModule("MD12")}
         newLabel={en ? "New session" : "新建会话"}
       />
     ),
@@ -335,10 +348,10 @@ export function ReferenceLab() {
         <InterventionAttentionStrip
           operation={approval}
           onReview={() =>
-            document.getElementById("reference-approval")?.focus()
+            document.getElementById(approvalAnchorId)?.focus()
           }
         />
-        <div id="reference-approval" tabIndex={-1}>
+        <div id={approvalAnchorId} tabIndex={-1}>
           <ApprovalRequestPanel
             request={{
               ...fixture.sessions[1].attention[0],
@@ -388,14 +401,93 @@ export function ReferenceLab() {
         commands={commands}
         selectedId={command}
         onSelect={setCommand}
-        onOpenTool={() => setSelected("MD11")}
+        onOpenTool={() => navigateModule("MD11")}
         onOpenResource={(id) => {
           setFileId(id)
-          setSelected("MD16")
+          navigateModule("MD16")
         }}
-        onSource={() => setSelected("MD05")}
+        onSource={() => navigateModule("MD05")}
       />
     ),
+  }
+  if (view === "gallery") {
+    const info = galleryModuleInfo(en)
+    const galleryModules = referenceModules.map(([id, zh, label]) => ({
+      id,
+      title: en ? label : zh,
+      ...info[id],
+      preview: (
+        <fieldset className={styles.galleryFieldset} disabled={interaction === "disabled"}>
+          <legend className="sr-only">{id}</legend>
+          {id === "MD16" ? (
+            <>
+              {modules[id]}
+              <section className={styles.codePreview} aria-label={en ? "Read-only code preview" : "只读代码预览"}>
+                <h4>{en ? "Read-only source" : "只读源码"}</h4>
+                <CodePreviewDemo />
+              </section>
+            </>
+          ) : modules[id]}
+        </fieldset>
+      ),
+    }))
+    return (
+      <div className={referenceTokens.tokens} data-reference-version="V2" data-data-state={data}>
+        <ElementGallery
+          title={en ? "Agent Workspace elements" : "Agent Workspace 元素展示"}
+          description={en
+            ? "All 17 real modules in one scrollable fixture, before page assembly."
+            : "17 个真实模块集中展示，再验证页面组合。"}
+          fixtureNotice={en
+            ? "Explicit local fixture · V2 · no service writes. Data, runtime and operation states are separate; refresh failure retains the prior snapshot."
+            : "明确本地 fixture · V2 · 无服务写入。数据、运行和操作状态分离；刷新失败保留原快照。"}
+          modules={galleryModules}
+          technologies={galleryTechnologies(en)}
+          selected={selected}
+          onSelect={navigateModule}
+          navigationToken={navigationToken}
+          view={galleryView}
+          onViewChange={setGalleryView}
+          dataState={data}
+          onRetry={() => setData("success")}
+          en={en}
+          controls={(
+            <>
+              <GallerySelectControl
+                label={en ? "Data state" : "数据状态"}
+                value={data}
+                options={["success", "loading", "empty", "partial", "error"].map((value) => ({ value, label: value }))}
+                onChange={(value) => setData(value as DataState)}
+              />
+              <GallerySelectControl
+                label={en ? "Interaction" : "交互状态"}
+                value={interaction}
+                options={["default", "disabled", "pending", "unknown"].map((value) => ({ value, label: value }))}
+                onChange={setInteraction}
+              />
+              <GallerySelectControl
+                label="Runtime"
+                value={runtime}
+                options={[...runtimeStatuses, "source-status-unrecognized"].map((value) => ({ value, label: value }))}
+                onChange={setRuntime}
+              />
+              <GallerySelectControl
+                label={en ? "Theme" : "主题"}
+                value={theme === "dark" ? "dark" : "light"}
+                options={[{ value: "light", label: "Light" }, { value: "dark", label: "Dark" }]}
+                onChange={setTheme}
+              />
+              <GallerySelectControl
+                label={en ? "Language" : "语言"}
+                value={locale}
+                options={[{ value: "zh-CN", label: "简体中文" }, { value: "en", label: "English" }]}
+                onChange={(value) => setLocale(value === "en" ? "en" : "zh-CN")}
+              />
+            </>
+          )}
+        />
+      </div>
+    )
   }
   return (
     <main
@@ -407,6 +499,9 @@ export function ReferenceLab() {
       <header className={styles.header}>
         <Link href="/examples/agent-workbench/regions/">
           ← {en ? "Regions" : "区域实验室"}
+        </Link>
+        <Link href="/examples/agent-workbench/elements/">
+          {en ? "All elements" : "元素集中展示"}
         </Link>
         <h1>
           {en ? "Agent Workspace reference states" : "Agent Workspace 参考状态"}
@@ -545,5 +640,38 @@ export function ReferenceLab() {
         </section>
       </div>
     </main>
+  )
+}
+
+function GallerySelectControl({
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  label: string
+  value: string
+  options: { value: string; label: string }[]
+  onChange: (value: string) => void
+}) {
+  return (
+    <Field label={label}>
+      {(field) => (
+        <Select
+          items={Object.fromEntries(options.map((option) => [option.value, option.label]))}
+          value={value}
+          onValueChange={(next) => { if (next) onChange(String(next)) }}
+        >
+          <SelectTrigger {...field}>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {options.map((option) => (
+              <SelectItem key={option.value} value={option.value}>{option.label}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
+    </Field>
   )
 }

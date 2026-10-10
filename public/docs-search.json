@@ -13722,6 +13722,104 @@
       "keywords": "agent-composer 源码 Source"
     },
     {
+      "id": "code-preview",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CodePreview",
+        "en": "CodePreview"
+      },
+      "summary": {
+        "zh-CN": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+        "en": "Read-only CodeMirror 6 source snapshots, redacted and bounded before line numbers, search and selection."
+      },
+      "href": "/docs/code-preview/",
+      "keywords": "code-preview agent"
+    },
+    {
+      "id": "code-preview-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CodePreview · 安装",
+        "en": "CodePreview · Installation"
+      },
+      "summary": {
+        "zh-CN": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+        "en": "Read-only CodeMirror 6 source snapshots, redacted and bounded before line numbers, search and selection."
+      },
+      "href": "/docs/code-preview/#installation",
+      "keywords": "code-preview 安装 Installation"
+    },
+    {
+      "id": "code-preview-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CodePreview · 使用",
+        "en": "CodePreview · Usage"
+      },
+      "summary": {
+        "zh-CN": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+        "en": "Read-only CodeMirror 6 source snapshots, redacted and bounded before line numbers, search and selection."
+      },
+      "href": "/docs/code-preview/#usage",
+      "keywords": "code-preview 使用 Usage"
+    },
+    {
+      "id": "code-preview-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CodePreview · API",
+        "en": "CodePreview · API"
+      },
+      "summary": {
+        "zh-CN": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+        "en": "Read-only CodeMirror 6 source snapshots, redacted and bounded before line numbers, search and selection."
+      },
+      "href": "/docs/code-preview/#api",
+      "keywords": "code-preview API API"
+    },
+    {
+      "id": "code-preview-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CodePreview · 状态与交互",
+        "en": "CodePreview · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+        "en": "Read-only CodeMirror 6 source snapshots, redacted and bounded before line numbers, search and selection."
+      },
+      "href": "/docs/code-preview/#states",
+      "keywords": "code-preview 状态与交互 States and interaction"
+    },
+    {
+      "id": "code-preview-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CodePreview · 完整示例",
+        "en": "CodePreview · Complete example"
+      },
+      "summary": {
+        "zh-CN": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+        "en": "Read-only CodeMirror 6 source snapshots, redacted and bounded before line numbers, search and selection."
+      },
+      "href": "/docs/code-preview/#example",
+      "keywords": "code-preview 完整示例 Complete example"
+    },
+    {
+      "id": "code-preview-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "CodePreview · 源码",
+        "en": "CodePreview · Source"
+      },
+      "summary": {
+        "zh-CN": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+        "en": "Read-only CodeMirror 6 source snapshots, redacted and bounded before line numbers, search and selection."
+      },
+      "href": "/docs/code-preview/#source",
+      "keywords": "code-preview 源码 Source"
+    },
+    {
       "id": "file-viewer",
       "kind": "components",
       "title": {

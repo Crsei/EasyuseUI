@@ -1115,6 +1115,42 @@ const sourceManifest: ComponentManifestEntry[] = [
   ]
 },
 {
+  "slug": "code-preview",
+  "docPath": "/docs/code-preview/",
+  "registryId": "code-preview",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "button",
+    "input",
+    "data-region",
+    "redact",
+    "runtime-status"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "CodePreview",
+  "category": "组合模块",
+  "description": "CodeMirror 6 只读代码快照：先脱敏与有界预览，再提供行号、搜索及选区。",
+  "source": "components/blocks/code-preview.tsx",
+  "example": "components/examples/code-preview-demo.tsx",
+  "usage": "import { CodePreview } from \"@/components/blocks/code-preview\"",
+  "props": [
+    { "name": "identity", "type": "string", "description": "调用方持有的稳定资源身份。" },
+    { "name": "code", "type": "string", "description": "受控源码快照；组件脱敏后限制预览体积。" },
+    { "name": "path", "type": "string | undefined", "description": "可选路径，用于语法选择和可访问名称。" },
+    { "name": "state", "type": "DataState | undefined", "description": "独立数据态；错误保留当前可读快照。" },
+    { "name": "highlightRange", "type": "{ start: number; end: number } | undefined", "description": "来源行范围，仅影响只读高亮。" }
+  ],
+  "notes": [
+    "本地 fixture 只证明组件交互；文件读取、授权和完整内容由调用方提供。"
+  ],
+  "widePreview": true,
+  "docGroup": "agent",
+  "related": ["file-viewer", "data-region"]
+},
+{
   "slug": "file-viewer",
   "docPath": "/docs/file-viewer/",
   "registryId": "agent-workbench-review",
@@ -1126,7 +1162,8 @@ const sourceManifest: ComponentManifestEntry[] = [
   "button",
   "data-region",
   "redact",
-  "workbench-resource-model"
+  "workbench-resource-model",
+  "code-preview"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1176,7 +1213,8 @@ const sourceManifest: ComponentManifestEntry[] = [
   "button",
   "data-region",
   "redact",
-  "workbench-resource-model"
+  "workbench-resource-model",
+  "code-preview"
 ],
   "installType": "block",
   "displayCategory": "patterns",
@@ -1231,7 +1269,8 @@ const sourceManifest: ComponentManifestEntry[] = [
   "button",
   "data-region",
   "redact",
-  "workbench-resource-model"
+  "workbench-resource-model",
+  "code-preview"
 ],
   "installType": "block",
   "displayCategory": "patterns",

@@ -308,13 +308,29 @@
       "lines": 290
     }
   ],
+  "code-preview": [
+    {
+      "id": "226ddf855bde3bb5980db5d59d8c5c2fe2db28e3ffaba4325348230b66f2ff3d",
+      "path": "components/blocks/code-preview.tsx",
+      "kind": "source",
+      "url": "/docs-code/226ddf855bde3bb5980db5d59d8c5c2fe2db28e3ffaba4325348230b66f2ff3d.json",
+      "lines": 352
+    },
+    {
+      "id": "3041d244edc02a66cf2589c32151c841c76a099c4322aa3936a55e39c80685e4",
+      "path": "components/examples/code-preview-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/3041d244edc02a66cf2589c32151c841c76a099c4322aa3936a55e39c80685e4.json",
+      "lines": 49
+    }
+  ],
   "file-viewer": [
     {
-      "id": "05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726",
+      "id": "94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726.json",
-      "lines": 425
+      "url": "/docs-code/94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269.json",
+      "lines": 437
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -326,11 +342,11 @@
   ],
   "diff-viewer": [
     {
-      "id": "05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726",
+      "id": "94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726.json",
-      "lines": 425
+      "url": "/docs-code/94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269.json",
+      "lines": 437
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -342,11 +358,11 @@
   ],
   "change-review-panel": [
     {
-      "id": "05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726",
+      "id": "94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/05446b480ff6080ac4c19e9062498eff4aded19c725893adcce6a7aac5c90726.json",
-      "lines": 425
+      "url": "/docs-code/94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269.json",
+      "lines": 437
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -2123,11 +2139,11 @@
       "lines": 135
     },
     {
-      "id": "ed71c7aebcf839897d689dc511cf17553ddb19222e936a6f63cb6ad8e7eada72",
+      "id": "ac765ff9f5a9cccfb6f5cef9f5e9cf40531147764c3ec9386bfa2ac18605d852",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/ed71c7aebcf839897d689dc511cf17553ddb19222e936a6f63cb6ad8e7eada72.json",
-      "lines": 3661
+      "url": "/docs-code/ac765ff9f5a9cccfb6f5cef9f5e9cf40531147764c3ec9386bfa2ac18605d852.json",
+      "lines": 3679
     }
   ],
   "canvas-service-panel": [
@@ -3584,11 +3600,11 @@
       "lines": 217
     },
     {
-      "id": "805f54748383af3ca5088683fe4e50082c65f8e973d887ceb67713cb155ff6a7",
+      "id": "378cf132c8f3d74315ea88cb40e2e6fd34465ecc100a8b229d3c93316f6808e0",
       "path": "components/blocks/work-items-board-base.module.css",
       "kind": "related",
-      "url": "/docs-code/805f54748383af3ca5088683fe4e50082c65f8e973d887ceb67713cb155ff6a7.json",
-      "lines": 60
+      "url": "/docs-code/378cf132c8f3d74315ea88cb40e2e6fd34465ecc100a8b229d3c93316f6808e0.json",
+      "lines": 63
     }
   ],
   "agent-dependency-graph": [

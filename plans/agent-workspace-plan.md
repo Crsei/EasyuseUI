@@ -38,6 +38,12 @@
 
 CW 验收须走通文件→编辑→保存回执→Diff→命令结果→原会话，独立覆盖交互 PTY、Git 写入、版本冲突、来源缺失和 unknown。CW0–CW6 均待实施；这些声明不修改已完成 DL0–DL5 的历史证据，也不以 fixture 关闭 S2/S3 服务验收。
 
+## 组件先行与统一元素展示增量
+
+2026-10-11 按最新项目定位，新增 [组件先行迁移计划](agent-workspace-component-first-plan.md)：先审计 MD01–MD17、建立共享组件和统一元素画廊 PG10 `/examples/agent-workbench/elements/`，分别提供页面展示效果、设计规范与实际技术说明，然后在组合页面复用。原 PG02 精细状态实验室保留；本轮 CodeMirror 只读 CodePreview 先独立构建再替换 FileViewer，编辑保存/Git/PTY 仍按 CW。
+
+本增量优先约束后续页面开发流程，尺寸和状态继续沿用正式合同；不改写下面参考原文。CF0–CF4 进度与实际截图/分发证据分别在迁移计划和实施记录登记；已安装技术不等于 Workspace 已采用。
+
 ## 设计原文完整副本
 
 <!-- reference-content:start -->
