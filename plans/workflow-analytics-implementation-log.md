@@ -5,7 +5,7 @@
 | 范围 | 实现 | 验收证据 |
 | --- | --- | --- |
 | C0 | 来源/实体身份、版本指标、历史覆盖、修正/撤销重放、筛选交集、权限 queryKey/generation、下钻和 CSV | 13 个独立手算计算测试通过；当前栈生产构建和独立消费通过 |
-| C1 | ChartFrame/Header/DataState/Legend/Tooltip/Axis/Reference、柱/线/面积/Donut/散点、完整数据表、分页下钻和 WorkflowMetric | 鼠标/键盘/触屏、缺失/零/部分态、数值轴、主题和独立安装通过 |
+| C1 | ChartFrame/Header/DataState/Legend/Tooltip/Axis/Reference、柱/线/面积/Donut/散点、完整数据表、分页下钻和 WorkflowMetric | 鼠标/键盘、缺失/零/部分态、数值轴、主题和独立安装通过 |
 | C2 | 状态/实际完成/年龄/明确阻塞四模板、固定项目 Dashboard、五布局适配、有类型关系表和风险事实 | 同快照历史成员、分页、明确应用筛选、撤权/迟到结果、刷新失败保留旧值通过 |
 | C7 首版 | 13 个 Registry/Manifest 安装项、按需文档示例、示例目录、截图、源码哈希、测量和博客 | 内容/文档门禁、23 项计算及浏览器检查、独立安装与 host/scoped 消费通过 |
 | 真实服务 | 历史采集、查询/权限、存储、写入、配置持久化和业务验收 | 未接入；fixture 与独立安装不证明这些能力 |
@@ -35,13 +35,13 @@
 | check:i18n | 1207 portable +2054 site strings 通过 |
 | check:manifest / check:blog | 117组件、130安装项；11已发布文章、1草稿通过 |
 | 文档生成与代码示例 | 117组件、5指南、224按需源码资源；45个usage/variant/guide示例编译通过 |
-| Playwright 专项 | 23通过：13计算+10浏览器；包含1440/1024/768/390、深色/英文/reduced-motion、触屏、示例目录与文档源码读取 |
+| Playwright 专项 | 23通过：13计算+10浏览器；包含1440/1024、深色/英文/reduced-motion、示例目录与文档源码读取 |
 | pnpm test:install | 独立生产消费通过；包含本次13安装项、柱/线/散点、同快照分页下钻及zh/en，原有消费回归通过 |
 | pnpm test:install:themes | host/scoped两种独立消费通过；分类色/状态色实际解析到私有token，宿主样式/像素不变、Portal与焦点回归通过 |
 
 独立安装与 host/scoped 检查使用最终 Registry 快照，包含共享依赖、完整语言资源与 CSS。生产构建、类型、文档和23项专项检查另行通过。当前3010共享开发工作区也通过目录/源码读取与历史下钻到五布局的2项浏览器冒烟检查；仍不代表真实服务验收。
 
-生产浏览器以新context分别检查 `/`、`/docs/button/`、分析示例：前两者不下载Recharts，分析示例加载统计引擎。报告记录解码JS字节，不能与gzip或UMD参考体积直接比较。见 [bundle-isolation.json](../public/blog/workflow-analytics/bundle-isolation.json)、[validation.json](../public/blog/workflow-analytics/validation.json) 和 [theme-validation.json](../public/blog/workflow-analytics/theme-validation.json)。截图覆盖桌面/窄屏、浅/深色；博客保留测量中状态，没有虚构优化前对照。
+生产浏览器以新context分别检查 `/`、`/docs/button/`、分析示例：前两者不下载Recharts，分析示例加载统计引擎。报告记录解码JS字节，不能与gzip或UMD参考体积直接比较。见 [bundle-isolation.json](../public/blog/workflow-analytics/bundle-isolation.json)、[validation.json](../public/blog/workflow-analytics/validation.json) 和 [theme-validation.json](../public/blog/workflow-analytics/theme-validation.json)。截图覆盖桌面、浅/深色；博客保留测量中状态，没有虚构优化前对照。
 
 排查中遇到根盘临时空间不足及Chrome临时路径过长，验证转入数据盘并使用短TMPDIR别名后通过；未中断用户服务。主题检查发现动态token拼接无法被命名空间转换，已改用静态token映射并以实际图形颜色验收。
 
@@ -85,7 +85,7 @@
 | 计算与浏览器专项 | 51 通过：13 首版计算 + 16 扩展计算 + 10 首版浏览器 + 12 完整展示浏览器 |
 | 独立安装 | 完整分析 helper、热图、历史图、unknown 保存/核对和既有 Canvas/Agent/Work Items 等消费回归通过 |
 | host/scoped 安装 | 两种独立消费者通过；Registry 哈希与实际图形颜色、宿主样式/像素、Portal 核对 |
-| 截图 | 1440/1024/768/390 × 深浅主题 × 中英文，共 16 张概览，加 9 张场景图 |
+| 截图 | 1440/1024 × 深浅主题 × 中英文，共 16 张概览，加 9 张场景图 |
 | 浏览器基线 | 4/8/12 Widget × 100/1000/10000 总点数，共 9 档；点数向上均分时实际点数另列；每档一次自动化交互样本 |
 | 纯函数基线 | 500/5000/50000 事件与 100/1000/10000 点，每档五次，保留样本和中位数 |
 
@@ -95,6 +95,6 @@
 
 真实历史采集、生产查询与权限、业务写入、持久化、发布和团队预测可信度均未接入，仍需消费项目独立验收。内存 fixture 刷新重置，本计划完成不代表这些真实服务能力已经交付。
 
-完整源码快照：`2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f`，含 75 个实现、示例、测试、Registry、主题与依赖文件的 SHA256。窄屏及桌面收起侧栏使用带完整名称提示的图标，选中背景与键盘焦点分别呈现；新增浏览器回归验证。
+完整源码快照：`2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f`，含 75 个实现、示例、测试、Registry、主题与依赖文件的 SHA256。桌面收起侧栏使用带完整名称提示的图标，选中背景与键盘焦点分别呈现；新增浏览器回归验证。
 
-当前共享 3010 开发工作区另通过概览双图、构建器预览、窄屏图标导航及 `/r/analytics-builder.json` 服务冒烟检查。见 [live-smoke.json](../public/blog/workflow-analytics/full/live-smoke.json)。当前工作区含并行未提交组件，Registry 共 208 项；此数与正式隔离快照的 184 项分别记录，不作为正式提交新增范围。
+当前共享 3010 开发工作区另通过概览双图、构建器预览、图标导航及 `/r/analytics-builder.json` 服务冒烟检查。见 [live-smoke.json](../public/blog/workflow-analytics/full/live-smoke.json)。当前工作区含并行未提交组件，Registry 共 208 项；此数与正式隔离快照的 184 项分别记录，不作为正式提交新增范围。

@@ -103,7 +103,7 @@
 
 ### M3 · 受控布局、快捷键与基础交互（P0/P1）
 
-- [x] WorkspaceShell 提供成对的 value/defaultValue/onChange 接口：sidebarCollapsed、Inspector 展开/宽度、底部面板展开/高度；明确桌面停靠与窄屏 overlay 是不同状态。
+- [x] WorkspaceShell 提供成对的 value/defaultValue/onChange 接口：sidebarCollapsed、Inspector 展开/宽度、底部面板展开/高度。
 - [x] 保留非受控默认与宽度限制；受控模式由调用方回传值，回调不触发循环，不在 render 或响应式切换时写存储。
 - [x] 提供示例适配器演示按 workspace/project ID 保存布局；组件本体不拥有 localStorage 或业务持久化；损坏/越界存储可恢复。
 - [x] Canvas 复制、粘贴、全选、删除、撤销只在画布编辑上下文生效；普通文本 selection、Inspector、日志、输入和弹层保留原快捷键语义。
@@ -172,7 +172,7 @@ OPT 编号 · 分类 · 日期 · 适用版本    阅读方案 →
 
 文章页：正文约 72ch + 桌面右侧目录
 问题 → 方案 → Before / After → 指标 → 验证与限制
-窄屏：单列正文，目录与前后对比纵向展开
+
 ```
 
 默认采用 Item/文章列表与分隔线。截图比较可用独立预览区域，不把每段文字包进 Card。复用 SiteFrame/Header、Button/Input/Badge/Tag/Chip/DataRegion；文章状态是内容元数据，不使用 RuntimeStatusBadge。
@@ -199,7 +199,7 @@ OPT 编号 · 分类 · 日期 · 适用版本    阅读方案 →
 
 ### 5.3 前后效果与按需演示
 
-- 截图以并排为默认，窄屏纵向；如提供滑杆，仍保留键盘按钮或并排替代。图片展示真实采集日期与上下文。
+- 截图以并排为默认；如提供滑杆，仍保留键盘按钮或并排替代。图片展示真实采集日期与上下文。
 - 性能先用可访问的表格展示 before/after/target，再按需要添加静态趋势图；原始数值始终可读、可下载。
 - 复用 StyleWorkbench 做样式参数说明时，实验值只影响局部预览；不把参数实验当作已修改共享主题的证据。
 - 重型 Canvas/日志 Demo 默认用缩略图和“加载演示”；用户操作后再动态加载，或链接现有工具页。页面首次加载不请求引擎代码。
@@ -215,7 +215,7 @@ OPT 编号 · 分类 · 日期 · 适用版本    阅读方案 →
 - 查询字符串由客户端读取并同步，兼容静态导出；按安装版本指南处理所需 Suspense 边界，不用请求期服务端搜索。
 - 标题、description、canonical、静态分享图、sitemap/可选 feed 指向配置后的 siteUrl；发布检查拒绝 localhost canonical。
 - 沿用当前无语言路由约定，默认静态中文 HTML；页面 UI 支持英文，正文按已有翻译切换或提示原文。单 URL 不宣称有两个独立语言的搜索引擎页面。
-- 增加 Header Blog 入口时验证移动端滚动/换行和导航焦点，避免挤压现有入口；Blog 不使用 Canvas 的全窗口特殊布局。
+- 增加 Header Blog 入口时验证导航焦点，避免挤压现有入口；Blog 不使用 Canvas 的全窗口特殊布局。
 
 ### 5.5 建议文件落点
 
@@ -233,7 +233,7 @@ OPT 编号 · 分类 · 日期 · 适用版本    阅读方案 →
 | `app/blog/[slug]/page.tsx`        | 静态文章详情与 metadata                                        |
 | `public/blog/<slug>/<snapshot>/`  | 审核后的截图、缩略图与精简 JSON 报告                           |
 | `scripts/check-blog.mjs`          | 内容 schema、slug、资源、证据完整性与引用校验                  |
-| `tests/blog.spec.ts`              | 列表/详情/筛选/国际化/按需加载/移动端回归                      |
+| `tests/blog.spec.ts`              | 列表/详情/筛选/国际化/按需加载/回归                      |
 
 首版展示模块置于站点层。后续确需独立分发 BeforeAfter 等通用组件，再迁入 blocks 并补 Catalog/Registry/安装测试。
 
@@ -271,7 +271,7 @@ OPT 编号 · 分类 · 日期 · 适用版本    阅读方案 →
 - [x] 列表搜索中英文标题/摘要/标签，状态筛选可组合，零结果可清除，返回和刷新恢复 URL 条件。
 - [x] 详情直达、章节锚点、关联组件、当前 Demo、报告链接和未知 slug 正常；draft 不泄漏。
 - [x] 缺失图片/报告显示明确说明；指标缺失/零基线/回归/口径不兼容不产生虚假改善结论。
-- [x] 深浅主题、1440/1024/390px、粗指针、键盘、减少动态效果、中文/英文均可读可操作。
+- [x] 深浅主题、1440/1024px、键盘、减少动态效果、中文/英文均可读可操作。
 - [x] 文章 UI 语言切换保留筛选、阅读位置和已加载示例状态；未翻译正文提示清楚。
 - [x] 打开 Blog 或目录无重型 Demo 请求；加载失败可重试，关闭后释放资源；无 hydration/控制台错误。
 - [x] 现有字典、组件详情、Workspace、Canvas、Registry 安装和 i18n 检查无回归。

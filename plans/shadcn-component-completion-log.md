@@ -17,7 +17,7 @@
 | -------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | [Textarea](../components/ui/textarea.tsx)          | 原生多行输入、ref、受控/非受控、可调整高度、表单属性           | 错误保留草稿，语言切换保留同一 DOM，提交原始文本，禁用状态             |
 | [Label](../components/ui/label.tsx)                | 原生 htmlFor/ref 标签                                          | 标签点击将焦点交给关联输入；完整错误关联继续使用 Field                 |
-| [NativeSelect](../components/ui/native-select.tsx) | select/option/optgroup、multiple/size、原生表单与移动端选择器  | 双语显示标签与协议值分离、分组/禁用、多选提交、44px触摸目标            |
+| [NativeSelect](../components/ui/native-select.tsx) | select/option/optgroup、multiple/size、原生表单  | 双语显示标签与协议值分离、分组/禁用、多选提交、44px触摸目标            |
 | [Switch](../components/ui/switch.tsx)              | Base UI 受控/非受控、name/form/value/uncheckedValue、只读/禁用 | Space、表单值、只读/禁用、焦点与选中、深色主题和减少动效、44px触摸目标 |
 | [RadioGroup](../components/ui/radio-group.tsx)     | 泛型 Group/Item、受控/非受控、原生表单接口                     | 箭头键跳过禁用项、值与语言分离、表单提交、44px触摸目标；Segmented 保留 |
 

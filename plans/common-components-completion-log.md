@@ -25,7 +25,7 @@
 | C15 | ImageUpload | 本地File、类型/大小/读取/解码、替换/移除、取消旧读取 | 失败保留旧图、迟到读取、重试与移除 |
 | C16 | 原生滚动 | 不新增 ScrollArea；沿用 overflow:auto 与现有滚动条 | 表格、Sheet与命令结果的键盘/触摸入口 |
 | C17 | WorkspaceShell侧栏 | 可选resize、受控宽度/边界，默认256/48不变 | 指针与键盘、边界、按实例持久化示例 |
-| C18 | FilterToolbar | 筛选/排序/计数槽，窄屏Sheet；只挂载一组筛选控件 | 390px筛选、44px目标、状态不丢失 |
+| C18 | FilterToolbar | 筛选/排序/计数槽；只挂载一组筛选控件 | 44px目标、状态不丢失 |
 | C19 | MetricSummary / RatingDisplay | dl指标；1–10星、半星、未知、只读 | 九列非CRM fixture、文本替代 |
 
 新增17个公开项和内部 `controllable-value` 工具；Tabs、Select、Popover、Menu、WorkspaceShell、ThemeBoundary复用现有基础。总计59个目录组件、72项Registry。每个新增公开项都有实际源码、示例、Manifest、按需loader、Registry及中英文资源。词典关联真实组件，不凭术语推断可安装项。

@@ -13,9 +13,9 @@
 | W4 Workspace/分发 | 完成 | Shell/详情抽屉、受控快照；11 个文档项、11 个 Registry 项及按需示例。独立消费应用经 CLI 安装、类型检查、生产构建与操作验证。 |
 | S0 基线 | 范围已记录 | 冻结 24 项、5 状态、4 优先级、日期 2026-10-08 与 URL 白名单。Plane 源码链已核对；仅公共入口可访问，未取得登录后的工作项视觉基线。 |
 | S1 List/详情 | 完成 | 创建→筛选→查看→编辑；只读/空数据/无匹配/加载/刷新失败/字段拒绝；失败不丢旧数据和草稿。 |
-| S2 Board闭环 | 完成 | 跨状态/优先级、列内排序、空目标组；指针与触屏替代；拒绝和 unknown 对账，三视图读取同一份记录。 |
+| S2 Board闭环 | 完成 | 跨状态/优先级、列内排序、空目标组；指针与键盘替代；拒绝和 unknown 对账，三视图读取同一份记录。 |
 | S3 Table/跨视图 | 完成 | URL 显式编解码，设置 replace、详情 push；直接打开/刷新/后退；共享选择、详情与权限，每布局保存滚动位置。 |
-| S4 展示/证据 | 完成 | 双主题、zh-CN/en、1440×1000 / 1024×768 / 390×844 截图；Blog、行为回归、安装与 50/200/1000 项实际挂载基线。 |
+| S4 展示/证据 | 完成 | 双主题、zh-CN/en、1440×1000 / 1024×768 截图；Blog、行为回归、安装与 50/200/1000 项实际挂载基线。 |
 
 按用户确认，本轮通用 Board 的路径/安装 ID 为 `work-items-board-base`，公开导出仍是 Board/BoardColumn/BoardItem，以独立 Ideas 示例展示业务无关性。Agent Board 保留已提交的 `item-board`；两轮先使用独立源码、CSS、安装目标，后续再统一。AvatarGroup/PropertyOverflow 与字段选择器随 `work-item-properties` 安装，Row/Card 随 `work-item` 安装，三个视图随 `work-items-views` 安装。文档安装指令使用实际 registryId。
 
@@ -27,7 +27,7 @@
 
 - `pnpm lint`、`pnpm typecheck`、`pnpm build`：通过。
 - `pnpm check:i18n`、`pnpm check:manifest`、`pnpm check:blog`：通过。
-- 最终生产版本 `work-items.spec.ts` + `work-items-docs.spec.ts` 定向复验：19/19 通过（37.3s）；其中工作项行为 13/13，文档与文章 6/6，含真实鼠标拖动、触屏菜单、44px 把手、axe、字段失败草稿、unknown 跨布局/语言、分页失败重试及视口高度。
+- 最终生产版本 `work-items.spec.ts` + `work-items-docs.spec.ts` 定向复验：19/19 通过（37.3s）；其中工作项行为 13/13，文档与文章 6/6，含真实鼠标拖动、44px 把手、axe、字段失败草稿、unknown 跨布局/语言、分页失败重试及视口高度。
 - 现有 common-components / workspace / canvas-workspace / i18n 回归：47/47 通过；这是已提交基线的组件回归，不是并行未交付 CRM/Agent Board 页面验收。
 - 首次集成回归 119 项中 118 项通过，1 项因通用 Board 文档示例被替换而失败；恢复 Agent Board 的 Note 示例并分离本轮 Ideas 示例后，最终完整浏览器回归 **224/224 通过**，涵盖 Agent Board、Work Items、文档/Blog、common、Workspace、Canvas、语言和无障碍。
 - `pnpm test:install`：通过。组合消费应用 `easyuse-ui-consumer-DUsQyi` 实际安装 WorkItemsWorkspace 与业务无关 Board 的依赖闭包；验证 List→Board unknown→Table 对账→List 详情编辑，并执行已提交 Agent Board 及原有 common/Canvas 安装操作。不是每个安装项分别建一个应用，也不是生产服务证明。
@@ -56,7 +56,7 @@ Plane 参考提交为 `1fec307f91003df96351557af32ce87891a3678a`。`reference.js
 | 保存视图 | WorkItemsSavedViews、受控视图列表/版本/能力/数据态与回执 | 另存、应用、更新/重命名、确认删除；拒绝保留名称，unknown 在浮层重挂载/语言切换后仍锁定并可查询。只保存配置，示例仅页面内存；持久化和账户范围由消费方提供。 |
 | 大数据 | 查询/分组/层级索引缓存、共享属性 memo、可选 deferOffscreen | 屏外保留可读字段、选择与导航，编辑器在可见或聚焦时挂载，之后保留至条目卸载；200 项浏览器验证屏外可读、聚焦后编辑及焦点稳定。全部条目仍在 DOM，没有窗口化；Table 保持原生表格。 |
 
-`tests/work-items-enhancements.spec.ts` 覆盖上述边界，并验证 390px 深色英文触屏、44px 目标、reduced-motion、axe 及没有嵌套交互元素。原 Work Items / 文档测试继续覆盖三视图、指针移动、分页、拒绝草稿与 unknown 恢复。独立消费应用通过 CLI 安装后实际操作层级展开、批量修改、泳道移动、保存及应用视图。
+`tests/work-items-enhancements.spec.ts` 覆盖上述边界，并验证 深色英文、reduced-motion、axe 及没有嵌套交互元素。原 Work Items / 文档测试继续覆盖三视图、指针移动、分页、拒绝草稿与 unknown 恢复。独立消费应用通过 CLI 安装后实际操作层级展开、批量修改、泳道移动、保存及应用视图。
 
 ### 本次工程与分发验证
 
@@ -80,7 +80,7 @@ Plane 参考提交为 `1fec307f91003df96351557af32ce87891a3678a`。`reference.js
 
 测量包含 Playwright 操作、两个动画帧、120ms fixture 回执与共享主机噪声，三轮中位数不是 p95、服务延迟或生产容量保证。1000 项仍保留完整 DOM，开启优化后仍有明显耗时；需要消费方结合权威分页限制同时加载的条目，不宣称达到交互 SLA。
 
-证据在 `public/blog/work-items-enhancements/`：18 次测量、6 张截图、截图索引、核心源码 SHA-256 和验证记录。采集脚本检查 13 个明确列出的文件在采集前后未变；这不是整个 Git 树哈希。图片包括泳道、子项、批量预览/混合回执、保存视图及 390px 深色英文。Blog 追加相同证据、开关对照与服务限制，保留旧版图片及基线的原始来源 ID。
+证据在 `public/blog/work-items-enhancements/`：18 次测量、6 张截图、截图索引、核心源码 SHA-256 和验证记录。采集脚本检查 13 个明确列出的文件在采集前后未变；这不是整个 Git 树哈希。图片包括泳道、子项、批量预览/混合回执、保存视图及深色英文。Blog 追加相同证据、开关对照与服务限制，保留旧版图片及基线的原始来源 ID。
 
 本次交付证明公开源码、确定性本地行为及独立安装。没有新增真实 Plane 登录态视觉对照、生产权限/批量事务/持久化服务或人工读屏验收证据。页面内存 fixture 和保存视图刷新清除；语言切换不改协议值、不触发服务写入。
 
@@ -92,14 +92,14 @@ Plane 参考提交为 `1fec307f91003df96351557af32ce87891a3678a`。`reference.js
 | --- | --- | --- |
 | W6 | `schedule-date-utils.ts`、`schedule-view-model.ts`、可选 startDate、五布局视图配置、WorkItemDateRangeField | 严格日历日期、闰年/DST/显式时区、含首尾区间、旧记录和保存视图兼容。平移/两端调整/截止日/成对设置/清除分别校验；一个 operationId 与一次原子日期意图，检查 revision/queryKey/权限/previousDates。 |
 | W7 | 通用 Timeline/Axis/Row/Bar 与 WorkItemTimeline | 周/月/季度、今天和展开、共享纵向滚动、固定侧栏与轴头、范围裁切/完整日期、单端与非法历史数据。真实 Pointer Events 平移、独立手柄、Escape；表单替代、手动排序独立、只读及范围分页恢复。 |
-| W8 | 通用 Calendar/Header/Day/Agenda 与 WorkItemCalendar/Entry | 月/周按 dueDate 定位；原生拖放只改截止日，早于 startDate 拒绝。每日分页/错误保留/未知总量、本地更多与远程加载区分、周末任务入口、日期键盘导航和390px当日Agenda。 |
+| W8 | 通用 Calendar/Header/Day/Agenda 与 WorkItemCalendar/Entry | 月/周按 dueDate 定位；原生拖放只改截止日，早于 startDate 拒绝。每日分页/错误保留/未知总量、本地更多与远程加载区分、周末任务入口、日期键盘导航。 |
 | W9 | Workspace/URL/保存视图、共享日期草稿与详情、未排期队列、范围控制、文档和 Registry | 五布局共享选择、筛选、对象和回执，分组偏好保留。独立时间锚点、时间线滚动保留；未发送/拒绝草稿跨布局/语言保留，unknown 先对账。新增7项 Catalog/Registry 与非WorkItem发布窗口/便笺示例。 |
 
 日期草稿由 `onDateDraftChange`（字段为 `onDraftChange`，详情 presentation 为 `onScheduleDraftChange`）交给调用方保留，只有 `onScheduleChange` 表达写入。远程范围/日期/未排期快照由调用方授权查询，组件不从一页推断全量总数；`mergeSchedulePage` 按 queryKey、日期/范围去重并丢弃迟到页。原有三布局保持字段兼容；新增 `startDate` 不覆盖已有 `dueDate`。
 
 ### 本轮验证
 
-W6–W9 新增 `tests/work-items-schedule.spec.ts` 17 项；核心生产版本四个 Work Items 测试文件共 **46/46 通过**，包含原有29项。范围包括原生指针平移/左右调整、真实Calendar拖放、历史日期修正、跨年裁切、权限与并发版本、分页迟到/去重/失败重试、拒绝/unknown、未发送草稿、手动重排独立、触屏44px目标与粗指针手柄替代、axe、双主题与英文390px工具栏边界。
+W6–W9 新增 `tests/work-items-schedule.spec.ts` 17 项；核心生产版本四个 Work Items 测试文件共 **46/46 通过**，包含原有29项。范围包括原生指针平移/左右调整、真实Calendar拖放、历史日期修正、跨年裁切、权限与并发版本、分页迟到/去重/失败重试、拒绝/unknown、未发送草稿、手动重排独立、axe、双主题与英文工具栏边界。
 
 最终工程、完整回归与独立消费应用结果在 `public/blog/work-items-schedule/verification.json` 中记录。
 
@@ -107,11 +107,11 @@ W6–W9 新增 `tests/work-items-schedule.spec.ts` 17 项；核心生产版本�
 - 最终隔离生产输出完整浏览器回归 **261/261 通过**，包含新增17项、原有Work Items与最终文章证据，以及Agent/common/Workspace/Canvas/语言/Blog等基线；不包含并行尚未交付的CRM页面。
 - `pnpm test:install`：通过。独立消费应用 `easyuse-ui-consumer-OWIlVc` 经CLI安装依赖闭包、类型检查与生产构建，实际操作业务无关Timeline/Calendar、成对日期修改、日历仅改截止日且保留开始日，以及既有Work Items/common/Agent/Canvas消费场景。
 
-开发入口另经只读浏览器复核，Timeline与Calendar可交互，英文390px布局按钮均在可视区。Blog首次导航load等待超过30秒后，按DOM就绪复核通过，文章、Registry与测量文件可访问且无页面错误；未改配置或重启服务。该复核与隔离生产检查分别记录。
+开发入口另经只读浏览器复核，Timeline与Calendar可交互，英文布局按钮均在可视区。Blog首次导航load等待超过30秒后，按DOM就绪复核通过，文章、Registry与测量文件可访问且无页面错误；未改配置或重启服务。该复核与隔离生产检查分别记录。
 
 ### 本轮截图与性能
 
-`scripts/capture-work-items-schedule.mjs` 在独立 Webpack/WASM 生产预览33116采集12张截图，覆盖三档时间刻度、1024px、月/周日历、390px浅色中文/深色英文、未排期、只读、拒绝和unknown。保留 W0–W5 的旧图片与原始来源ID。核心来源快照为 `eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264`，列出23个明确文件并在采集前后检查字节未变，不是整个Git树哈希。
+`scripts/capture-work-items-schedule.mjs` 在独立 Webpack/WASM 生产预览33116采集12张截图，覆盖三档时间刻度、1024px、月/周日历、浅色中文/深色英文、未排期、只读、拒绝和unknown。保留 W0–W5 的旧图片与原始来源ID。核心来源快照为 `eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264`，列出23个明确文件并在采集前后检查字节未变，不是整个Git树哈希。
 
 50/200/1000项 × 两种时间布局 × 三轮，共18次观察。下表操作为三次中位数（ms）；DOM及实际挂载实体由浏览器读取。布局与范围分别为往返一次，已加载/总数指完整本地fixture快照。Calendar每日溢出会折叠，所以挂载实体数可以小于已加载数；Timeline保留全部行，二者均不宣称窗口化。
 
@@ -136,4 +136,4 @@ W6–W9 新增 `tests/work-items-schedule.spec.ts` 17 项；核心生产版本�
 
 WORK-ITEMS、展示计划和既有 Blog 更新当前入口；历史截图、测量和来源 ID 保留采集时内容。该迁移无需重新解释历史性能结果，也不新增真实服务证据。
 
-验证完成：隔离副本的 `pnpm lint`、`pnpm typecheck`、`pnpm build`、`pnpm check:i18n`、`pnpm check:manifest`、`pnpm check:blog` 全部通过；首轮完整回归263/264，发现英文客户端导航标题被延迟元数据覆盖；站点语言层补充带清理和差异检查的标题/描述同步，最终生产输出完整浏览器回归 **264/264 通过**。新增3项覆盖导航与五布局新地址、旧静态入口的参数/片段/对象/返回历史，以及双语/双主题390px真实粗指针、axe和页面标题。本地3010另经浏览器复核“示例索引→Timeline→返回示例”及英文移动标题，无页面错误；未重启共享服务。此次仅迁移站点路由、导航与文档，不修改可分发组件/CSS/Registry依赖；并行CRM工作保持原样。
+验证完成：隔离副本的 `pnpm lint`、`pnpm typecheck`、`pnpm build`、`pnpm check:i18n`、`pnpm check:manifest`、`pnpm check:blog` 全部通过；首轮完整回归263/264，发现英文客户端导航标题被延迟元数据覆盖；站点语言层补充带清理和差异检查的标题/描述同步，最终生产输出完整浏览器回归 **264/264 通过**。新增3项覆盖导航与五布局新地址、旧静态入口的参数/片段/对象/返回历史，以及双语/双主题、axe和页面标题。本地3010另经浏览器复核“示例索引→Timeline→返回示例”及英文标题，无页面错误；未重启共享服务。此次仅迁移站点路由、导航与文档，不修改可分发组件/CSS/Registry依赖；并行CRM工作保持原样。

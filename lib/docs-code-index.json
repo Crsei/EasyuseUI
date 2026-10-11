@@ -422,11 +422,11 @@
   ],
   "agent-workbench": [
     {
-      "id": "1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1",
+      "id": "8225852a84e40436673185a20500de3080289ef5ef044018baf5965058cb96c1",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1.json",
-      "lines": 349
+      "url": "/docs-code/8225852a84e40436673185a20500de3080289ef5ef044018baf5965058cb96c1.json",
+      "lines": 352
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -438,11 +438,11 @@
   ],
   "task-inbox": [
     {
-      "id": "1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1",
+      "id": "8225852a84e40436673185a20500de3080289ef5ef044018baf5965058cb96c1",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1.json",
-      "lines": 349
+      "url": "/docs-code/8225852a84e40436673185a20500de3080289ef5ef044018baf5965058cb96c1.json",
+      "lines": 352
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -2793,11 +2793,11 @@
   ],
   "workspace-shell": [
     {
-      "id": "be9113fd63b0761678b4785f72ab93152cc1668a53ae957d4d2a8877f59bfccd",
+      "id": "85306ade724894115ef192a80778c0a5b7c806c5c235ed810c1d09bb13afbff3",
       "path": "components/blocks/workspace-shell.tsx",
       "kind": "source",
-      "url": "/docs-code/be9113fd63b0761678b4785f72ab93152cc1668a53ae957d4d2a8877f59bfccd.json",
-      "lines": 510
+      "url": "/docs-code/85306ade724894115ef192a80778c0a5b7c806c5c235ed810c1d09bb13afbff3.json",
+      "lines": 516
     },
     {
       "id": "82be09674e5c713d6c6805d6d32223accff8915b154108cf05406ba650b23a0e",
@@ -2814,11 +2814,11 @@
       "lines": 150
     },
     {
-      "id": "28e13164d1e7def69ed2146c598ece0a4076d8e622a1789b67f2856acf41e751",
+      "id": "c7742ae5d53085f233a5233468616817659a6c898b21a045112a33c1756f8971",
       "path": "components/blocks/workspace-shell.module.css",
       "kind": "related",
-      "url": "/docs-code/28e13164d1e7def69ed2146c598ece0a4076d8e622a1789b67f2856acf41e751.json",
-      "lines": 281
+      "url": "/docs-code/c7742ae5d53085f233a5233468616817659a6c898b21a045112a33c1756f8971.json",
+      "lines": 294
     },
     {
       "id": "19269f7c115860370f6fff139e98a84c4a05a8e63f77b84d685ca659c693700d",

@@ -4,7 +4,7 @@
 
 | ID | 已实现内容 | 验收入口 |
 | --- | --- | --- |
-| G01 | Dialog 视口高度上限、滚动正文、可选 Header/Body/Footer，CommandPalette 可收缩列表 | short viewport / coarse pointer 浏览器场景 |
+| G01 | Dialog 视口高度上限、滚动正文、可选 Header/Body/Footer，CommandPalette 可收缩列表 | short viewport 浏览器场景 |
 | G02 | OverlayLayer 共享视觉深度；Dialog/Sheet/Popover/Menu/Select/Combobox/Tooltip/AlertDialog/Workspace 浮层复用 | 嵌套命中、主题、Escape、焦点返回 |
 | G03 | README 指向 Manifest；词典同步检查；可用性映射生成；故意失配测试 | check:ui-contracts / ui-contract-model |
 | G04 | Inspector 契约统一300–360，ARIA 与实际像素一致 | inspector dimensions 浏览器场景；保留既有受控布局测试 |

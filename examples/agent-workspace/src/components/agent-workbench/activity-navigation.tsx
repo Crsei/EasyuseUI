@@ -9,13 +9,11 @@ import {
   ListTodo,
   Settings,
   CircleHelp,
-  Menu as MenuIcon,
 } from "lucide-react"
 import { ButtonTooltip } from "@easyuse-ui/ui/components/ui/button-tooltip"
 import { buttonVariants } from "@easyuse-ui/ui/components/ui/button"
 import { cn } from "@easyuse-ui/ui/lib/utils"
 import { Button } from "@easyuse-ui/ui/components/ui/button"
-import { Menu, MenuTrigger, MenuContent, MenuItem } from "@easyuse-ui/ui/components/ui/menu"
 import { useI18n } from "@easyuse-ui/ui/lib/i18n-provider"
 import styles from "./enhancement.module.css"
 export type ActivityArea = "sessions" | "files"
@@ -147,48 +145,7 @@ export function ActivityNavigation({
           </Button>
         </div>
       </div>
-      <div className={styles.mobileRail}>
-        {link(links[0])}
-        <Button
-          variant="ghost"
-          size="icon"
-          className={styles.railButton}
-          aria-label={t("workbench.files")}
-          aria-pressed={area === "files"}
-          onClick={() => onArea("files")}
-        >
-          <Files />
-        </Button>
-        {link(links[3])}
-        <Menu>
-          <MenuTrigger
-            render={
-              <Button
-                variant="ghost"
-                size="icon"
-                className={styles.railButton}
-                aria-label={en ? "More workbench tools" : "更多工作台工具"}
-              />
-            }
-          >
-            <MenuIcon />
-          </MenuTrigger>
-          <MenuContent>
-            {links.slice(1, 3).map((entry) => (
-              <MenuItem key={entry.page} onClick={() => onNavigate(entry.page)}>
-                {entry.label} ({entry.count})
-              </MenuItem>
-            ))}
-            <MenuItem onClick={onSearch}>
-              {en ? "Search workbench" : "搜索工作台"}
-            </MenuItem>
-            <MenuItem onClick={onSettings}>{t("resource.settings")}</MenuItem>
-            <MenuItem onClick={onHelp}>
-              {en ? "Keyboard shortcuts" : "快捷键说明"}
-            </MenuItem>
-          </MenuContent>
-        </Menu>
-      </div>
+
     </nav>
   )
 }

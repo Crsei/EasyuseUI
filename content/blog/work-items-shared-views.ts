@@ -175,12 +175,12 @@ export const workItemsSharedViews: BlogPost = {
       image: {
         src: "/blog/work-items/detail-1440-light-zh-CN.png",
         alt: {
-          "zh-CN": "详情使用同一对象快照；宽屏 Inspector，窄屏抽屉。",
-          en: "Details receive the same object snapshot, using an Inspector on wide screens and a drawer on narrow screens.",
+          "zh-CN": "详情使用同一对象快照。",
+          en: "Details receive the same object snapshot.",
         },
         caption: {
-          "zh-CN": "详情使用同一对象快照；宽屏 Inspector，窄屏抽屉。",
-          en: "Details receive the same object snapshot, using an Inspector on wide screens and a drawer on narrow screens.",
+          "zh-CN": "详情使用同一对象快照。",
+          en: "Details receive the same object snapshot.",
         },
         sourceSnapshotId:
           "449f494cdf3ca5834ef01c5b5ef9d446523d7c5e53f1abddf0e4da52886c74d7",
@@ -242,10 +242,10 @@ export const workItemsSharedViews: BlogPost = {
     },
     {
       type: "heading",
-      id: "mobile-and-navigation",
+      id: "navigation-and-recovery",
       text: {
-        "zh-CN": "窄屏、URL 与数据恢复",
-        en: "Narrow screens, URLs and data recovery",
+        "zh-CN": "URL 与数据恢复",
+        en: "URLs and data recovery",
       },
     },
     {
@@ -254,32 +254,6 @@ export const workItemsSharedViews: BlogPost = {
         "zh-CN":
           "URL 白名单保存布局、分组、排序、搜索、过滤、字段显隐及稳定 item ID；设置使用 replace，详情导航使用 push。只读、空数据、无匹配、部分加载、刷新失败、拒绝、unknown 和模拟 Agent 通过收起的场景面板切换。读取失败保留旧内容；选择、焦点、业务状态与运行态分别建模。",
         en: "An explicit URL whitelist stores layout, grouping, sorting, search, filters, visible fields and stable item IDs. Settings use replace; detail navigation uses push. A collapsed scenario panel provides read-only, empty, no-match, partial, refresh failure, rejection, unknown and simulated Agent fixtures. Failed reads preserve existing content. Selection, focus, business state and runtime state remain separate.",
-      },
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/work-items/board-390-dark-en.png",
-        alt: {
-          "zh-CN":
-            "390×844：紧凑导航、横向看板和触屏移动替代；截图为深色英文。",
-          en: "390×844: compact navigation, horizontal board and touch movement alternative, shown in dark English.",
-        },
-        caption: {
-          "zh-CN":
-            "390×844：紧凑导航、横向看板和触屏移动替代；截图为深色英文。",
-          en: "390×844: compact navigation, horizontal board and touch movement alternative, shown in dark English.",
-        },
-        sourceSnapshotId:
-          "449f494cdf3ca5834ef01c5b5ef9d446523d7c5e53f1abddf0e4da52886c74d7",
-        capturedAt: "2026-10-08T11:24:23.196Z",
-        fixture: "24 deterministic local work items",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "dark",
-        locale: "en",
       },
     },
     {
@@ -631,30 +605,6 @@ export const workItemsSharedViews: BlogPost = {
       },
     },
     {
-      type: "image",
-      image: {
-        src: "/blog/work-items-enhancements/swimlanes-390-dark-en.png",
-        alt: {
-          "zh-CN": "390px 触屏、深色英文泳道；横向滚动留在看板区域。",
-          en: "390px touch, dark English swimlanes keep horizontal scrolling inside the Board.",
-        },
-        caption: {
-          "zh-CN": "390px 触屏、深色英文泳道；横向滚动留在看板区域。",
-          en: "390px touch, dark English swimlanes keep horizontal scrolling inside the Board.",
-        },
-        sourceSnapshotId:
-          "fbe79d80c5dc8a32b1e0625a49984f281d48cc9617c9f6021ac6b4f13df92e23",
-        capturedAt: "2026-10-08T15:07:00.394Z",
-        fixture: "deterministic local W5/S5 fixtures; no live services",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "dark",
-        locale: "en",
-      },
-    },
-    {
       type: "paragraph",
       text: {
         "zh-CN":
@@ -854,8 +804,8 @@ export const workItemsSharedViews: BlogPost = {
         },
         {
           "zh-CN":
-            "390px使用日期选择加当日Agenda；方向键、Home/End、翻月、Enter与Escape提供键盘路径。粗指针日期目标至少44px，时间线使用日期表单替代精细手柄。",
-          en: "390px uses date selection plus a day Agenda. Arrow keys, Home/End, month paging, Enter and Escape provide keyboard navigation. Coarse-pointer date targets are at least 44px; Timeline offers date forms instead of fine resize handles.",
+            "方向键、Home/End、翻月、Enter与Escape提供键盘路径。时间线可用日期表单精确输入。",
+          en: "Arrow keys, Home/End, month paging, Enter and Escape provide keyboard navigation. Timeline also offers date forms for precise input.",
         },
       ],
     },
@@ -1130,56 +1080,6 @@ export const workItemsSharedViews: BlogPost = {
         },
         theme: "light",
         locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/work-items-schedule/calendar-agenda-390.png",
-        alt: {
-          "zh-CN":
-            "390px 当日 Agenda：标题优先，属性另起一行，日期操作与选择分离。",
-          en: "390px day Agenda: titles precede metadata, with separate selection and date actions.",
-        },
-        caption: {
-          "zh-CN":
-            "390px 当日 Agenda：标题优先，属性另起一行，日期操作与选择分离。",
-          en: "390px day Agenda: titles precede metadata, with separate selection and date actions.",
-        },
-        sourceSnapshotId:
-          "eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264",
-        capturedAt: "2026-10-08T22:52:54.887Z",
-        fixture: "Local deterministic Work Items",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "light",
-        locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/work-items-schedule/calendar-agenda-390-dark-en.png",
-        alt: {
-          "zh-CN": "390px 深色英文：日期值与工作项原文保持不变。",
-          en: "390px dark English: protocol dates and caller-authored work-item text remain unchanged.",
-        },
-        caption: {
-          "zh-CN": "390px 深色英文：日期值与工作项原文保持不变。",
-          en: "390px dark English: protocol dates and caller-authored work-item text remain unchanged.",
-        },
-        sourceSnapshotId:
-          "eef839f673dce9e5db734625f3cd4df7b3ee16d7e70cb9fdc611aee91499b264",
-        capturedAt: "2026-10-08T22:52:54.887Z",
-        fixture: "Local deterministic Work Items",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "dark",
-        locale: "en",
       },
     },
     {
@@ -1533,7 +1433,7 @@ export const workItemsSharedViews: BlogPost = {
       environment:
         "Shared GLIBC 2.28 host, Next 16.3.8 Webpack/WASM production preview, Chromium",
       method:
-        "Production preview of deterministic fixtures; week/month/quarter, month/week Calendar, 1024px, 390px light Chinese/dark English, queue, read-only, rejected and unknown states.",
+        "Production preview of deterministic fixtures; week/month/quarter, month/week Calendar, 1024px, light Chinese/dark English, queue, read-only, rejected and unknown states.",
       sampleCount: 12,
       scope: {
         "zh-CN": "W6–W9本地确定性行为与源码分发；真实服务由消费方验收。",

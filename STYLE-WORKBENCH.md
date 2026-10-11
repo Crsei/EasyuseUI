@@ -126,6 +126,6 @@ export function StyleLab() {
 
 2026-10-08 功能实现时，lint、typecheck、生产构建和51项全量浏览器测试通过；修正安装模块名后重新构建并复测6项工作台测试，通过独立消费项目39个源码文件的 CLI 安装、依赖解析、主题注入与 TypeScript 检查。这是当次结果，后续修改需重新验证。
 
-[style-workbench.spec.ts](./tests/style-workbench.spec.ts) 覆盖实际计算样式、A 与共享 token 不受 B 修改、输入/选择同步、阴影/材质/字体、CSS/JSON 复制、预设/固定/恢复、数值边界与空值、主题切换、词典入口、窄容器、触屏与减少动态效果。读取主题失败和剪贴板失败有恢复提示，当前六项测试未单独注入这两类故障。
+[style-workbench.spec.ts](./tests/style-workbench.spec.ts) 覆盖实际计算样式、A 与共享 token 不受 B 修改、输入/选择同步、阴影/材质/字体、CSS/JSON 复制、预设/固定/恢复、数值边界与空值、主题切换、词典入口、窄容器、减少动态效果。读取主题失败和剪贴板失败有恢复提示，当前六项测试未单独注入这两类故障。
 
 行为变更运行 `pnpm test`；可分发源码、CSS 或 Registry 变更运行 `pnpm test:install`；工程检查遵循 [AGENTS.md](./AGENTS.md)。修改参数范围或预设时，同步更新本指南与组件契约。

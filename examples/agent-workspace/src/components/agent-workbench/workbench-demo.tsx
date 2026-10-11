@@ -363,7 +363,6 @@ export function WorkbenchDemo({
   const project = state.projects.find((p) => p.projectId === projectId)
   const visibleProjects = query.scenario === "no-projects" ? [] : state.projects
   const readOnly = Boolean(project?.readOnly || query.scenario === "readonly")
-  const [narrow, setNarrow] = useState(false)
   const [mode, setMode] = useState<"unified" | "split">("unified")
   const [attentionDrafts, setAttentionDrafts] = useState<
     Record<string, string>
@@ -1907,8 +1906,6 @@ export function WorkbenchDemo({
         projectId={projectId}
         current={current}
         level={level}
-        narrow={narrow}
-        setNarrow={setNarrow}
       />
     )
   }
@@ -2396,7 +2393,6 @@ export function WorkbenchDemo({
         <RegionLab
           region={query.region}
           scenario={query.scenario}
-          narrow={narrow}
           navigation={links}
           controls={sourceControls()}
           onRegionChange={(region) => navigate({ region })}

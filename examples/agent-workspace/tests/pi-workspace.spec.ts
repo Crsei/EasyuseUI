@@ -281,24 +281,21 @@ test("lost reply is queried using its original request ID and newer draft surviv
       .getByText("lost receipt instruction", { exact: true }),
   ).toHaveCount(1)
 })
-test("390px touch and reduced motion retain composer, sheet navigation, locale and keyboard actions", async ({
+test("desktop navigation and reduced motion retain composer, locale and keyboard actions", async ({
   browser,
 }, testInfo) => {
   const context = await browser.newContext({
-    viewport: { width: 390, height: 700 },
-    hasTouch: true,
-    isMobile: true,
+    viewport: { width: 1280, height: 700 },
     reducedMotion: "reduce",
   })
   const page = await context.newPage()
   await open(page)
-  await page.getByRole("button", { name: "展开侧栏", exact: true }).click()
   await newSession(page)
   await page.keyboard.press("Escape")
   const input = page.locator("textarea")
   await expect(input).toBeVisible()
   await expect(page.locator("[data-follow-tail-id]")).toHaveCount(0)
-  await input.fill("mobile draft")
+  await input.fill("desktop draft")
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,
@@ -306,10 +303,10 @@ test("390px touch and reduced motion retain composer, sheet navigation, locale a
   ).toBe(true)
   const send = page.getByRole("button", { name: "发送", exact: true }),
     bounds = (await send.boundingBox())!
-  expect(bounds.height).toBeGreaterThanOrEqual(44)
+  expect(bounds.height).toBeGreaterThanOrEqual(32)
   await page.getByRole("button", { name: "切换语言", exact: true }).click()
-  await expect(input).toHaveValue("mobile draft")
-  await page.screenshot({ path: testInfo.outputPath("pi-mobile-en.png") })
+  await expect(input).toHaveValue("desktop draft")
+  await page.screenshot({ path: testInfo.outputPath("pi-desktop-en.png") })
   await context.close()
 })
 
@@ -478,7 +475,7 @@ test("viewport matrix and short viewport keep the mounted composer reachable", a
   await open(page)
   await newSession(page)
   for (const viewport of [
-    { width: 768, height: 700 },
+    { width: 1280, height: 700 },
     { width: 1024, height: 700 },
     { width: 1440, height: 400 },
   ]) {

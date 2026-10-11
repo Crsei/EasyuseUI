@@ -222,27 +222,6 @@ export const workflowAnalyticsFull: BlogPost = {
       }
     },
     {
-      "type": "image",
-      "image": {
-        "src": "/blog/workflow-analytics/full/overview-390-dark-en.png",
-        "alt": {
-          "zh-CN": "窄屏深色英文项目概览"
-        },
-        "caption": {
-          "zh-CN": "确定性本地 fixture；截图不代表真实服务或业务验收。"
-        },
-        "sourceSnapshotId": "2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f",
-        "capturedAt": "2026-10-09T02:47:21.329Z",
-        "fixture": "workflow-fixture-90d-v2; alpha; 30d; asOf; Asia/Shanghai",
-        "viewport": {
-          "width": 390,
-          "height": 1000
-        },
-        "theme": "dark",
-        "locale": "en"
-      }
-    },
-    {
       "type": "paragraph",
       "text": {
         "zh-CN": "最终专项共 51 项通过：29 项独立计算与 22 项浏览器行为；另完成独立安装、host/scoped 主题隔离及 16 张概览与 9 张场景截图。截图与测量保留逐文件来源哈希，首版证据继续冻结。"

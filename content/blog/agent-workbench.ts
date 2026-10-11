@@ -187,8 +187,8 @@ export const agentWorkbenchPost: BlogPost = {
       type: "heading",
       id: "responsive",
       text: {
-        "zh-CN": "宽 Diff 与移动端",
-        en: "Wide Diff and mobile layouts",
+        "zh-CN": "宽 Diff 与桌面布局",
+        en: "Wide Diff and desktop layouts",
       },
     },
     {
@@ -218,54 +218,6 @@ export const agentWorkbenchPost: BlogPost = {
         viewport: {
           width: 1440,
           height: 900,
-        },
-        theme: "dark",
-        locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/agent-workbench/mobile-light.jpg",
-        alt: {
-          "zh-CN": "实际路由截图：移动端，浅色；字体加载完成后的本地 fixture。",
-          en: "Actual route capture: mobile, light; local fixture after fonts loaded.",
-        },
-        caption: {
-          "zh-CN": "实际路由截图：移动端，浅色；字体加载完成后的本地 fixture。",
-          en: "Actual route capture: mobile, light; local fixture after fonts loaded.",
-        },
-        sourceSnapshotId:
-          "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943",
-        capturedAt: "2026-10-09T03:44:50.805Z",
-        fixture: "initial fixture; session-filter; session",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "light",
-        locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/agent-workbench/mobile-dark.jpg",
-        alt: {
-          "zh-CN": "实际路由截图：移动端，深色；字体加载完成后的本地 fixture。",
-          en: "Actual route capture: mobile, dark; local fixture after fonts loaded.",
-        },
-        caption: {
-          "zh-CN": "实际路由截图：移动端，深色；字体加载完成后的本地 fixture。",
-          en: "Actual route capture: mobile, dark; local fixture after fonts loaded.",
-        },
-        sourceSnapshotId:
-          "d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943",
-        capturedAt: "2026-10-09T03:44:53.101Z",
-        fixture: "initial fixture; session-filter; session",
-        viewport: {
-          width: 390,
-          height: 844,
         },
         theme: "dark",
         locale: "zh-CN",
@@ -359,7 +311,7 @@ export const agentWorkbenchPost: BlogPost = {
         "TMPDIR=/tmp EASYUSEUI_BASELINE_VERSION=<verified foundation SHA> node scripts/capture-agent-workbench.mjs <isolated-build> <evidence>",
       environment: "Debian GLIBC 2.28; Chrome 138; static Webpack export",
       method:
-        "Actual routes, fixed fixture, document.fonts.ready, desktop/mobile and light/dark captures",
+        "Actual routes, fixed fixture, document.fonts.ready, the recorded viewports and light/dark captures",
       sampleCount: 12,
       scope: {
         "zh-CN": "三种模板的12张实际页面截图；不证明真实服务。",

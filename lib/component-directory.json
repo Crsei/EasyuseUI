@@ -1069,7 +1069,7 @@
   {
     "slug": "native-select",
     "name": "NativeSelect",
-    "description": "原生选择器、选项与分组，保留移动端系统选择器。",
+    "description": "原生选择器、选项与分组。",
     "displayCategory": "primitives",
     "docPath": "/docs/native-select/",
     "installType": "ui",
@@ -1256,7 +1256,7 @@
   {
     "slug": "filter-toolbar",
     "name": "FilterToolbar",
-    "description": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+    "description": "组合筛选、排序与计数。",
     "displayCategory": "patterns",
     "docPath": "/docs/filter-toolbar/",
     "installType": "block",

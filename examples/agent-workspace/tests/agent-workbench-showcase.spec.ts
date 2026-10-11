@@ -74,8 +74,6 @@ for (const [width, height] of [
   [1440, 900],
   [1280, 800],
   [1024, 768],
-  [768, 1024],
-  [390, 844],
 ]) {
   test(`lab directory, controls and contracts work at ${width}x${height}`, async ({
     page,
@@ -86,27 +84,9 @@ for (const [width, height] of [
     await input(page).evaluate((el) =>
       el.setAttribute("data-instance", "stable"),
     )
-    if (width < 768) {
-      await page.getByRole("button", { name: "示例设置", exact: true }).click()
-      await expect(page.getByRole("dialog")).toBeVisible()
-    } else {
-      await page
-        .getByRole("button", { name: "收起场景控制", exact: true })
-        .click()
-      await expect(
-        page.getByRole("combobox", { name: "展示场景", exact: true }),
-      ).toHaveCount(0)
-      await page
-        .getByRole("button", { name: "展开场景控制", exact: true })
-        .click()
-    }
-    await page.getByRole("checkbox", { name: "窄容器", exact: true }).check()
-    if (width < 768) {
-      await page.keyboard.press("Escape")
-      await expect(
-        page.getByRole("button", { name: "示例设置", exact: true }),
-      ).toBeFocused()
-    }
+    await page.getByRole("button", { name: "收起场景控制", exact: true }).click()
+    await expect(page.getByRole("combobox", { name: "展示场景", exact: true })).toHaveCount(0)
+    await page.getByRole("button", { name: "展开场景控制", exact: true }).click()
     await expect(input(page)).toHaveValue("Persistent lab draft")
     await expect(input(page)).toHaveAttribute("data-instance", "stable")
     for (const label of ["组件映射", "数据合同", "验收说明"]) {
@@ -349,7 +329,7 @@ test("plan locates the specific tool without starting a request", async ({
   ).toBeFocused()
   await expect(page.getByText("request-1", { exact: false })).toHaveCount(0)
 })
-for (const width of [1440, 390]) {
+for (const width of [1440, 1024]) {
   test(`bottom execution panel starts collapsed with legacy preferences at ${width}px`, async ({
     page,
   }) => {
@@ -369,7 +349,7 @@ for (const width of [1440, 390]) {
       await page.goto(`${root}/${route}`)
       await expect(page.locator("main[data-session-id]")).toBeVisible()
       await expect(page.getByRole("button", { name: /^运行面板/ })).toHaveCount(
-        route.includes("page=home") || (width < 768 && route.startsWith("app/"))
+        route.includes("page=home")
           ? 0
           : 1,
       )
@@ -413,12 +393,11 @@ test("preferences retain panels through refresh and clear safely without clearin
     page.getByRole("button", { name: "折叠侧栏", exact: true }),
   ).toBeVisible()
 })
-test("English, dark mode, zoom, reduced motion and coarse targets remain accessible", async ({
+test("English, dark mode, short windows and keyboard navigation remain accessible", async ({
   browser,
 }) => {
   const context = await browser.newContext({
-    viewport: { width: 720, height: 450 },
-    hasTouch: true,
+    viewport: { width: 1024, height: 450 },
     colorScheme: "dark",
     reducedMotion: "reduce",
   })
@@ -428,14 +407,11 @@ test("English, dark mode, zoom, reduced motion and coarse targets remain accessi
   })
   const page = await context.newPage()
   await page.goto(`${root}/regions/?region=composer`)
-  await expect(
-    page.getByRole("button", { name: "Example settings", exact: true }),
-  ).toBeVisible()
-  await page
-    .getByRole("button", { name: "Example settings", exact: true })
-    .click()
-  await expect(page.getByRole("dialog")).toBeVisible()
-  await page.keyboard.press("Escape")
+  const controlsToggle = page.getByRole("button", { name: "Collapse scenario controls", exact: true })
+  await controlsToggle.click()
+  const expand = page.getByRole("button", { name: "Expand scenario controls", exact: true })
+  await expand.focus()
+  await expand.press("Enter")
   expect(
     (
       await new AxeBuilder({ page })
@@ -444,9 +420,9 @@ test("English, dark mode, zoom, reduced motion and coarse targets remain accessi
     ).violations,
   ).toEqual([])
   const box = await page
-    .getByRole("combobox", { name: "Region laboratory", exact: true })
+    .getByRole("navigation", { name: "Region laboratory", exact: true }).getByRole("button").first()
     .boundingBox()
-  expect(box!.height).toBeGreaterThanOrEqual(44)
+  expect(box!.height).toBeGreaterThanOrEqual(32)
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth > innerWidth,

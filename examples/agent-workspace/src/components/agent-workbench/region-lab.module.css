@@ -77,11 +77,6 @@
   flex-direction: column;
   overflow: auto;
 }
-.previewViewport[data-narrow="true"] {
-  width: min(390px, 100%);
-  margin-inline: auto;
-  border-inline: 1px solid var(--border);
-}
 .scenarios {
   min-width: 0;
   border-left: 1px solid var(--border);
@@ -127,69 +122,4 @@
 .contracts ul {
   margin: 8px 0;
   padding-left: 20px;
-}
-.mobileToolbar {
-  display: none;
-}
-@media (max-width: 1100px) and (min-width: 768px) {
-  .grid {
-    grid-template-columns: 152px minmax(0, 1fr) 240px;
-  }
-  .grid[data-controls-open="false"] {
-    grid-template-columns: 152px minmax(0, 1fr) 44px;
-  }
-}
-@media (max-width: 767px) {
-  .grid,
-  .grid[data-controls-open="false"] {
-    display: block;
-  }
-  .directory,
-  .scenarios {
-    display: none;
-  }
-  .mobileToolbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: end;
-    justify-content: space-between;
-    padding: 8px;
-    gap: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-  .mobileToolbar label {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    font-size: 12px;
-  }
-  .mobileToolbar select {
-    min-height: 32px;
-    padding: 4px 8px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--surface);
-    color: var(--foreground);
-    max-width: 100%;
-  }
-  .contracts {
-    display: block;
-  }
-  .contracts details {
-    border-right: 0;
-    border-bottom: 1px solid var(--border);
-  }
-}
-@media (pointer: coarse) {
-  .navigation a,
-  .previewHeader a,
-  .contracts summary {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-  }
-  .directory button,
-  .mobileToolbar select {
-    min-height: 44px;
-  }
 }

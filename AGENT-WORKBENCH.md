@@ -28,7 +28,7 @@ import { AgentWorkbench } from "@/components/blocks/agent-workbench"
 
 WorkspaceShell 是唯一布局所有者。侧栏默认256/折叠48，Inspector320，允许280–360；可选底栏展开240，允许200–400。仅提供 `bottom` 插槽时显示底栏及运行面板入口。Header48、Toolbar40。Inspector 的旧300px下限已与受控实现统一为280px，未改变既有运行布局行为。
 
-对话优先使用受控 Inspector；审阅优先将宽 Files/Diff 放在 Main，元数据详情按需打开。主区容器不足920px时用键盘可达的对话/详情切换，不挤压两个文本区。切换布局通过 CSS 隐藏保留已挂载 Composer；窄屏导航和 Inspector 由 Shell 的焦点受约束浮层承载。底栏关闭仅改变可见性。
+对话优先使用受控 Inspector；审阅优先将宽 Files/Diff 放在 Main，元数据详情按需打开。主区容器不足920px时用键盘可达的对话/详情切换，不挤压两个文本区。切换布局通过 CSS 隐藏保留已挂载 Composer。底栏关闭仅改变可见性。
 
 ## 区域 API
 
@@ -87,7 +87,7 @@ ExecutionOutputPanel 脱敏后再筛选、展示和复制，最多200行/32KiB�
 
 ## 网页展示与本地偏好
 
-区域实验室采用桌面三栏与移动端选择器/Sheet。场景 ID、区域、布局、模板、页面、会话、项目和面板可进入导航 URL；输入正文、附件内容和凭据不进入 URL。可选窄容器仅改变同一预览的宽度。底部提供组件映射、数据合同和验收说明。
+区域实验室采用桌面三栏。场景 ID、区域、布局、模板、页面、会话、项目和面板可进入导航 URL；输入正文、附件内容和凭据不进入 URL。底部提供组件映射、数据合同和验收说明。
 
 完整示例隐藏底部运行面板及其开关，不受旧底栏偏好影响；命令菜单、工具记录与对话中的命令入口改为打开主区「运行输出」，区域实验室的输出预览仍保留。隐藏面板不取消运行、不清空输出或草稿。
 
@@ -99,7 +99,7 @@ ExecutionOutputPanel 脱敏后再筛选、展示和复制，最多200行/32KiB�
 
 ## 编码增强 API
 
-`AgentWorkbench.activityBar`传入可选活动入口；`activeView/onActiveViewChange`控制窄主区的对话/详情选择，默认旧调用仍保留内部选择。WorkspaceShell是唯一布局所有者，活动栏与辅助侧栏展开共304px；窄屏辅助导航使用Sheet。
+`AgentWorkbench.activityBar`传入可选活动入口；`activeView/onActiveViewChange`控制窄主区的对话/详情选择，默认旧调用仍保留内部选择。WorkspaceShell是唯一布局所有者，活动栏与辅助侧栏展开共304px。
 
 `AgentComposer.quickControls`启用常驻模型/权限/环境/调度栏；`referenceStrip/onOpenContext/onCommandMenu/onOpenSettings`由宿主提供。旧简化调用和原生选择方式保持可用。`ContextPicker.searchable`启用搜索多选Dialog，`onPickMany`一次提交选择集合；取消不改变引用。仅引用用量不代表模型全部上下文预算。
 
@@ -111,7 +111,7 @@ import { resourceKey, openDocument, acceptResourceRead } from "@/lib/workbench-r
 
 可单独安装`workbench-file-preview`/`workbench-resource-model`/`execution-session-list`，或安装对应Catalog别名。来源renderer、availability、dataState、完整字节下载能力由宿主提供；资源名不选择renderer。字段、格式与边界见增强记录。设置组合仍在示例层，不将fixture表单发布成可执行服务设置。
 
-`AgentWorkbench.showViewSwitch` 默认保留内置视图切换；关闭时调用方负责提供对话/主区入口。应用示例通过活动栏和紧凑工具栏承担导航。窄屏常驻配置行使用原生横向滚动，选择器文案截断但可访问标签保留；触摸目标仍至少44px。
+`AgentWorkbench.showViewSwitch` 默认保留内置视图切换；关闭时调用方负责提供对话/主区入口。应用示例通过活动栏和紧凑工具栏承担导航。
 
 ## Pi 首轮新增的兼容接口
 
@@ -127,3 +127,7 @@ Pi Host 和网页凭据、持久化、SSE、SDK 运行均留在私有示例/服�
 ## Agent Workspace 独立应用（2026-10-11）
 
 完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。
+
+## 桌面布局模式
+
+`WorkspaceShell.layoutMode` 与 `AgentWorkbench.layoutMode` 支持 `"adaptive" | "desktop"`，默认 `adaptive` 保留既有组件消费者行为；独立 Agent 应用显式使用 `desktop`。桌面模式始终停靠侧栏和 Inspector，展开/收起与 resize 仍由调用方控制，不由窗口尺寸改写偏好。应用复用 `DesktopFrame` 提供 1024px 最小画布及外层滚动；主区按自身宽度保留对话/审阅切换。区域实验室使用单一目录和可折叠场景栏。

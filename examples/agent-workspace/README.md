@@ -1,5 +1,7 @@
 # Agent Workspace
 
+桌面 Web 应用：最小画布宽 1024px，竖向活动栏，侧栏与 Inspector 停靠。更小浏览器窗口通过画布滚动访问内容，主区仍按可用空间切换对话/审阅并保留草稿。
+
 独立的 Next 16.3.8 / React 19.3 / TypeScript / Tailwind 4 静态应用；Node 24、pnpm 11.9、Webpack。三种模板属于同一应用；fixture 与 Pi Provider 分离。复用 `@easyuse-ui/ui` 单一源码及 `@easyuse-ui/pi-protocol`，没有文档站或兄弟应用源码依赖。
 
 从仓库根安装：`pnpm install --frozen-lockfile`。

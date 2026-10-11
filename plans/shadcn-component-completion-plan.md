@@ -39,7 +39,7 @@ DatePicker 是参考文档中的组合示例，单独纳入 S5；DataTable 已�
 
 - [x] Textarea：原生 textarea props/ref、value/defaultValue、name/form、disabled/readOnly/required、aria-invalid；32px 基线以上的多行高度、用户可调整尺寸、错误保留草稿。
 - [x] Label：原生 label props/ref，htmlFor 关联，不替代 Field 对说明和错误的关联。
-- [x] NativeSelect：原生 select、option、optgroup，支持 name/form/required/disabled/value/defaultValue；标签与协议值分离，保留原生键盘与移动端选择器。
+- [x] NativeSelect：原生 select、option、optgroup，支持 name/form/required/disabled/value/defaultValue；标签与协议值分离，保留原生键盘。
 - [x] Switch：沿用已安装 Base UI 1.8 Root API，checked/defaultChecked/onCheckedChange、name/form/value/uncheckedValue、disabled/readOnly/required；32px/44px 操作目标，状态与焦点独立。
 - [x] RadioGroup/RadioGroupItem：沿用 Base UI Group/Radio，泛型 value/defaultValue/onValueChange、name/form、disabled/readOnly/required；组/项标签、箭头键和 roving focus；不修改现有 Segmented。
 - [x] 每项提供正常、禁用和受控状态示例；组合验证错误关联、表单提交、双语言草稿不丢失。

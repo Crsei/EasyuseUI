@@ -24,7 +24,7 @@
 | [Codex App Server](https://learn.chatgpt.com/docs/app-server) | thread、turn、item 生命周期；初始化握手、继续会话和事件通知 | UI 使用稳定标识和受控快照；引擎协议在适配器映射，不直接散落在组件里 |
 | [Cursor Agent](https://cursor.com/docs/agent/overview) | Agent 使用工具、模型和指令；区分排队消息与途中引导；检查点只回退文件，不删除对话 | Composer 区分 send/queue/steer；“恢复文件”与“恢复对话”必须有不同语义 |
 | [Cursor 2.0 界面发布说明](https://cursor.com/changelog/2-0) | Agent/计划侧栏、多文件审阅、内嵌浏览器；并行任务使用 worktree 或远程环境隔离 | 左栏组织任务，主区承载工作产物；环境隔离属于服务能力。此来源只证明该版本设计，不作为当前全部功能清单 |
-| [Claude Code Desktop](https://code.claude.com/docs/en/desktop) | 会话侧栏；输入前选择环境、项目、模型和权限；chat/diff/browser/terminal/file 等面板可组合；Diff 支持逐行反馈 | 新会话页明确执行范围；会话中的工具区保留当前任务关系；窄屏切换面板 |
+| [Claude Code Desktop](https://code.claude.com/docs/en/desktop) | 会话侧栏；输入前选择环境、项目、模型和权限；chat/diff/browser/terminal/file 等面板可组合；Diff 支持逐行反馈 | 新会话页明确执行范围；会话中的工具区保留当前任务关系 |
 | [OpenHands 公开架构](https://github.com/OpenHands/OpenHands/blob/main/docs/architecture.md) | React/TypeScript 前端分离 API、组件、hooks、stores 与 mocks；conversation/files/browser/terminal 等区域可打包，执行依赖 Agent Server | 区域组件、示例控制器和服务适配器分层；演示数据与真实执行使用不同证据 |
 
 上述事实不足以证明 Codex、Cursor、Claude Desktop 的内部 React 组件、存储或布局引擎实现。本计划的组件名、路由、布局和状态接口是 EasyuseUI 的设计提案。
@@ -76,7 +76,7 @@ F 区域通过描述符接入面板：id、label、可用性、未读/待处理�
 
 ## 5. 布局与视觉契约
 
-沿用 [Design-rules](../Design-rules.md) 和 [Component Specification](../Component-Specification.md)：Compact、4px 网格、中性背景、1px 分隔线、默认32px控件、粗指针44px命中区域。数据列表采用 Item/List/Table；不把每条消息、工具、会话都包装成 Card。
+沿用 [Design-rules](../Design-rules.md) 和 [Component Specification](../Component-Specification.md)：Compact、4px 网格、中性背景、1px 分隔线、默认32px控件44px命中区域。数据列表采用 Item/List/Table；不把每条消息、工具、会话都包装成 Card。
 
 ```text
 ┌──────────┬────────────────────────────────────────────────────┐
@@ -99,7 +99,7 @@ F 区域通过描述符接入面板：id、label、可用性、未读/待处理�
 - 对话优先布局使用标准 Inspector；审阅优先布局在 Main 展示宽 Diff，窄 Inspector 仅呈现属性。宽工作区建议最小480，对话建议最小440，为本场景局部约束。
 - 先收起 Inspector，再折叠侧栏；主区空间不足时切换 Conversation/Workspace 单面板。以容器剩余宽度判断，不仅判断浏览器宽度。
 - 底部默认收起，展开默认240、范围200–400。关闭只改变可见性，不停止任务或进程。
-- 小屏把导航和详情放入 Sheet；输入区避开软键盘；面板切换保留草稿、选区和滚动位置。
+- 面板切换保留草稿、选区和滚动位置。
 
 ## 6. 数据模型与动作边界
 

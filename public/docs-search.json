@@ -401,8 +401,8 @@
         "en": "NativeSelect"
       },
       "summary": {
-        "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-        "en": "Native select, options, and groups with the mobile system picker."
+        "zh-CN": "原生选择器、选项与分组。",
+        "en": "Native select, options, and groups."
       },
       "href": "/docs/native-select/",
       "keywords": "native-select interaction"
@@ -415,8 +415,8 @@
         "en": "NativeSelect · Installation"
       },
       "summary": {
-        "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-        "en": "Native select, options, and groups with the mobile system picker."
+        "zh-CN": "原生选择器、选项与分组。",
+        "en": "Native select, options, and groups."
       },
       "href": "/docs/native-select/#installation",
       "keywords": "native-select 安装 Installation"
@@ -429,8 +429,8 @@
         "en": "NativeSelect · Usage"
       },
       "summary": {
-        "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-        "en": "Native select, options, and groups with the mobile system picker."
+        "zh-CN": "原生选择器、选项与分组。",
+        "en": "Native select, options, and groups."
       },
       "href": "/docs/native-select/#usage",
       "keywords": "native-select 使用 Usage"
@@ -443,8 +443,8 @@
         "en": "NativeSelect · API"
       },
       "summary": {
-        "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-        "en": "Native select, options, and groups with the mobile system picker."
+        "zh-CN": "原生选择器、选项与分组。",
+        "en": "Native select, options, and groups."
       },
       "href": "/docs/native-select/#api",
       "keywords": "native-select API API"
@@ -457,8 +457,8 @@
         "en": "NativeSelect · States and interaction"
       },
       "summary": {
-        "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-        "en": "Native select, options, and groups with the mobile system picker."
+        "zh-CN": "原生选择器、选项与分组。",
+        "en": "Native select, options, and groups."
       },
       "href": "/docs/native-select/#states",
       "keywords": "native-select 状态与交互 States and interaction"
@@ -471,8 +471,8 @@
         "en": "NativeSelect · Complete example"
       },
       "summary": {
-        "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-        "en": "Native select, options, and groups with the mobile system picker."
+        "zh-CN": "原生选择器、选项与分组。",
+        "en": "Native select, options, and groups."
       },
       "href": "/docs/native-select/#example",
       "keywords": "native-select 完整示例 Complete example"
@@ -485,8 +485,8 @@
         "en": "NativeSelect · Source"
       },
       "summary": {
-        "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-        "en": "Native select, options, and groups with the mobile system picker."
+        "zh-CN": "原生选择器、选项与分组。",
+        "en": "Native select, options, and groups."
       },
       "href": "/docs/native-select/#source",
       "keywords": "native-select 源码 Source"
@@ -9809,8 +9809,8 @@
         "en": "FilterToolbar"
       },
       "summary": {
-        "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-        "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+        "zh-CN": "组合筛选、排序与计数。",
+        "en": "Filter, sort and count slots."
       },
       "href": "/docs/filter-toolbar/",
       "keywords": "filter-toolbar data"
@@ -9823,8 +9823,8 @@
         "en": "FilterToolbar · Installation"
       },
       "summary": {
-        "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-        "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+        "zh-CN": "组合筛选、排序与计数。",
+        "en": "Filter, sort and count slots."
       },
       "href": "/docs/filter-toolbar/#installation",
       "keywords": "filter-toolbar 安装 Installation"
@@ -9837,8 +9837,8 @@
         "en": "FilterToolbar · Usage"
       },
       "summary": {
-        "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-        "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+        "zh-CN": "组合筛选、排序与计数。",
+        "en": "Filter, sort and count slots."
       },
       "href": "/docs/filter-toolbar/#usage",
       "keywords": "filter-toolbar 使用 Usage"
@@ -9851,8 +9851,8 @@
         "en": "FilterToolbar · API"
       },
       "summary": {
-        "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-        "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+        "zh-CN": "组合筛选、排序与计数。",
+        "en": "Filter, sort and count slots."
       },
       "href": "/docs/filter-toolbar/#api",
       "keywords": "filter-toolbar API API"
@@ -9865,8 +9865,8 @@
         "en": "FilterToolbar · States and interaction"
       },
       "summary": {
-        "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-        "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+        "zh-CN": "组合筛选、排序与计数。",
+        "en": "Filter, sort and count slots."
       },
       "href": "/docs/filter-toolbar/#states",
       "keywords": "filter-toolbar 状态与交互 States and interaction"
@@ -9879,8 +9879,8 @@
         "en": "FilterToolbar · Complete example"
       },
       "summary": {
-        "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-        "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+        "zh-CN": "组合筛选、排序与计数。",
+        "en": "Filter, sort and count slots."
       },
       "href": "/docs/filter-toolbar/#example",
       "keywords": "filter-toolbar 完整示例 Complete example"
@@ -9893,8 +9893,8 @@
         "en": "FilterToolbar · Source"
       },
       "summary": {
-        "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-        "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+        "zh-CN": "组合筛选、排序与计数。",
+        "en": "Filter, sort and count slots."
       },
       "href": "/docs/filter-toolbar/#source",
       "keywords": "filter-toolbar 源码 Source"
@@ -20225,8 +20225,8 @@
         "en": "Compose a workspace · Run a complete example"
       },
       "summary": {
-        "zh-CN": "从示例库进入 Agent、Work Items 或 Canvas，检查窄屏、语言、状态恢复和键盘路径。本地演示只证明这些组件行为，不证明真实执行、存储或业务验收。",
-        "en": "Open Agent, Work Items or Canvas from the gallery. Check narrow layouts, locales, recovery and keyboard paths. Local demonstrations prove component behavior, not real execution, storage or business acceptance."
+        "zh-CN": "从示例库进入 Agent、Work Items 或 Canvas，检查语言、状态恢复和键盘路径。本地演示只证明这些组件行为，不证明真实执行、存储或业务验收。",
+        "en": "Open Agent, Work Items or Canvas from the gallery. Check locales, recovery and keyboard paths. Local demonstrations prove component behavior, not real execution, storage or business acceptance."
       },
       "href": "/docs/composing-workspaces/#examples",
       "keywords": "composing-workspaces"
@@ -20407,7 +20407,7 @@
         "en": "Putting workspace layout state under caller control"
       },
       "summary": {
-        "zh-CN": "成对受控接口、独立移动端浮层与按工作区保存的示例适配器。",
+        "zh-CN": "成对受控接口、按工作区保存的示例适配器。",
         "en": "Putting workspace layout state under caller control"
       },
       "href": "/blog/controlled-layout/",

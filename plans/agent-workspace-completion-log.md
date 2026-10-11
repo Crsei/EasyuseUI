@@ -8,7 +8,7 @@
 
 执行来源：[设计计划](agent-workspace-plan.md) PG01/PG05、MD01/03–07/09/12，V01–V11；[公共设计原则](../Design-rules.md)、[组件合同](../Component-Specification.md)、[状态](../UI-STATES.md)、[工作台合同](../AGENT-WORKBENCH.md)。
 
-PG05：本地单用户真实服务页 `/examples/agent-workbench/pi/`。主要流程为连接 → 项目 → 会话 → 历史/复制继续 → 发送/停止 → 刷新恢复。Host 持有会话、执行、认证、能力和回执，网页仅保存视图及逐会话草稿；外部历史只读。全局栏48px，导航轨56px，会话Header64px，侧栏256px；主区独立滚动，内容列760px，Composer固定底部。Inspector/底栏首轮收起，不展示虚构资源；390px用Shell导航Sheet。选中会话不停止后台任务；对象切换丢弃迟到请求，保留每会话草稿。切语言/主题不触发写入。浏览器验证入口、恢复、IME、历史锚点、窄屏、双语/双主题。
+PG05：本地单用户真实服务页 `/examples/agent-workbench/pi/`。主要流程为连接 → 项目 → 会话 → 历史/复制继续 → 发送/停止 → 刷新恢复。Host 持有会话、执行、认证、能力和回执，网页仅保存视图及逐会话草稿；外部历史只读。全局栏48px，导航轨56px，会话Header64px，侧栏256px；主区独立滚动，内容列760px，Composer固定底部。Inspector/底栏首轮收起，不展示虚构资源。选中会话不停止后台任务；对象切换丢弃迟到请求，保留每会话草稿。切语言/主题不触发写入。浏览器验证入口、恢复、IME、历史锚点、双语/双主题。
 
 MD01/02/03/04：复用 WorkspaceShell、ProjectSwitcher、SessionNavigator、SessionHeader 和 RuntimeStatusBadge。会话选中底色/2px指示与运行状态独立，单行40px/双行56px/触摸44px；真实环境显示来源路径，缺失branch为未知。新会话与复制有持久化回执；视图切换确认前禁止发到旧会话，旧草稿保留，停止仍按真实运行能力。
 
@@ -27,7 +27,7 @@ MD12：复用 AgentComposer/ChatComposer。输入版本与会话身份绑定，�
 | AW0 / P0 | 完成锁定 SDK、协议、身份、能力和 PG05/MD 声明 | 项目依赖 1.1.0；Node 24.21.0；独立协议和无扩展只读 Driver |
 | AW1 / P1 | 项目/会话、只读默认分支、压缩记录、复制继续和有界分页 | Host 原生 JSONL 服务测试；原文件字节及 mtime 不变；两个项目隔离 |
 | AW2 / P2 | 真实 prompt/subscribe/abort、来源接受回执、单写者和 SSE | Host 8 项测试；真实 provider 浏览器调用；请求 ID 同键去重、runId 停止、epoch 重连 |
-| AW3 / P3 | PG05 与 PG01 入口、核心受控模块和参考 V2 外观 | 生产挂载页面；用户蓝色气泡、开放 Agent 正文、阶段线和固定输入；390/768/1024/1440px |
+| AW3 / P3 | PG05 与 PG01 入口、核心受控模块和参考 V2 外观 | 生产挂载页面；用户蓝色气泡、开放 Agent 正文、阶段线和固定输入；1024/1440px |
 | AW4 / P4 | 草稿/刷新/迟到响应/重启/并发与 unknown 锁 | 9 项受控浏览器场景；双标签并发、丢回执查询、迟到复制、历史锚点和新建等待保护 |
 | AW5 / P5 | 首轮工程与真实模型验收，公共组件独立分发 | 最终候选 lint/typecheck/build、Host 类型/服务检查、Pi 10 项端到端、旧工作台回归及独立安装；Git SHA 以承载本记录的提交及最终远端核验为准 |
 
@@ -43,7 +43,7 @@ U01–U06 交付 Pi 必需的项目/环境、导航、会话、Header、对话�
 - `pnpm test:install`：全新 consumer 的 Registry 安装、TypeScript、Webpack 生产构建和实际挂载；公共模块不依赖 Pi、Next 站点认证或服务目录。
 - 静态构建使用 `EASYUSEUI_LOCAL_BUILD=1 NEXT_PUBLIC_SITE_URL=http://127.0.0.1:3011`；这是本地验收源，不是公开部署地址。GLIBC 2.28 使用 Next WASM SWC 回退完成构建。
 
-截图与基线在未提交的 `.local/pi-delivery-evidence/`：`real-provider-desktop.png`、`real-provider-stop.png`、`pi-mobile-en.png`、`pi-short-dark.png`。实际检查了页面布局和消息/工具模块；移动采用触摸/reduced-motion 浏览器上下文，短视口和 200% 等效 CSS 布局是自动化模拟，不是手机硬件或人工辅助技术验收。
+截图与基线在未提交的 `.local/pi-delivery-evidence/`：`real-provider-desktop.png`、`real-provider-stop.png`、`pi-short-dark.png`。实际检查了页面布局和消息/工具模块；短视口和 200% 等效 CSS 布局是自动化模拟，不是人工辅助技术验收。
 
 ### 真实 provider 和恢复
 
@@ -67,4 +67,4 @@ U01–U06 交付 Pi 必需的项目/环境、导航、会话、Header、对话�
 
 ### 后续边界
 
-AW6–AW8、DL3–DL4 及 DL5 的完整参考页面验收保留未完成；首轮只完成 Pi 适用项。编辑/写文件、Git、PTY、Checkpoint、Queue/Steer、审批、附件和多 Agent 没有真实服务能力。实际业务项目验收、真实手机软键盘、人工屏幕阅读器及性能 SLA 仍需要独立证据。
+AW6–AW8、DL3–DL4 及 DL5 的完整参考页面验收保留未完成；首轮只完成 Pi 适用项。编辑/写文件、Git、PTY、Checkpoint、Queue/Steer、审批、附件和多 Agent 没有真实服务能力。实际业务项目验收、人工屏幕阅读器及性能 SLA 仍需要独立证据。

@@ -3024,7 +3024,7 @@
     "availability": "available",
     "name": "NativeSelect",
     "category": "基础组件",
-    "description": "原生选择器、选项与分组，保留移动端系统选择器。",
+    "description": "原生选择器、选项与分组。",
     "source": "components/ui/native-select.tsx",
     "example": "components/examples/form-primitives-demo.tsx",
     "usage": "import { NativeSelect, NativeSelectOption, NativeSelectOptGroup } from \"@/components/ui/native-select\"",
@@ -3476,7 +3476,7 @@
     "availability": "available",
     "name": "FilterToolbar",
     "category": "组合模块",
-    "description": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+    "description": "组合筛选、排序与计数。",
     "source": "components/blocks/filter-toolbar.tsx",
     "example": "components/examples/filter-toolbar-demo.tsx",
     "usage": "import { FilterToolbar } from \"@/components/blocks/filter-toolbar\"",
@@ -4514,12 +4514,12 @@
     "description": "紧凑Agent工作台骨架：Sidebar、Main、可调整的Inspector与可选底部面板。",
     "source": "components/blocks/workspace-shell.tsx",
     "example": "components/examples/workspace-shell-demo.tsx",
-    "usage": "import { WorkspaceShell } from \"@/components/blocks/workspace-shell\"\n\n<WorkspaceShell title=\"Agent Workspace\" sidebar={<Navigation />} inspector={<ObjectDetails />} inspectorTitle=\"Session\">\n  <SessionList />\n</WorkspaceShell>",
+    "usage": "import { WorkspaceShell } from \"@/components/blocks/workspace-shell\"\n\n<WorkspaceShell layoutMode=\"desktop\" title=\"Agent Workspace\" sidebar={<Navigation />} inspector={<ObjectDetails />} inspectorTitle=\"Session\">\n  <SessionList />\n</WorkspaceShell>",
     "docGroup": "workspace",
     "docOrder": 38,
     "aliases": [],
     "notes": [
-      "完整基础页在/workspace/shell/；窄容器的Inspector改为带焦点约束的抽屉。"
+      "完整基础页在/workspace/shell/；桌面模式通过 layoutMode 显式启用。"
     ]
   },
   {

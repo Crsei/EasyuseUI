@@ -31,6 +31,7 @@ test("workbench article binds actual captures and verification to the same sourc
     "Agent 工作台：从独立区域到三种完整网页",
   )
   await expect(page.locator('[data-demo-mounted="true"]')).toHaveCount(0)
+  await expect(page.locator('main img[src*="mobile"]')).toHaveCount(0)
   for (const image of await page.locator("main img").all()) {
     await image.scrollIntoViewIfNeeded()
     await expect(image).not.toHaveJSProperty("naturalWidth", 0)

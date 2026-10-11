@@ -25,7 +25,7 @@ W02 由并行 Work Items 实现补齐。本次 AgentRunBoard 直接使用 `item-
 - 示例适配器保留草稿和操作锁，以 generation、request revision 和 operationId 拒绝迟到回执。运行只接受更高 revision；事件按 eventId 去重。
 - 数据区覆盖五态；刷新失败保留运行和产物，断连保留最后快照；筛选隐藏选中对象时继续展示详情并提示。
 - URL 保存 view/run/q/agent/model/status/task/kind；非法视图回落，来源未知运行状态可作为有效筛选恢复，前进/后退保持对象。
-- 桌面 Inspector、窄屏 Sheet；关闭恢复焦点；390/768/1440px、触摸、中英文和减少动画均有验证。
+- 桌面 Inspector；关闭恢复焦点；1440px、触摸、中英文和减少动画均有验证。
 - 用量按来源 ID 去重，父级明确包含的子观测不重复汇总；包含关系未知单列，币种分开，缺失值不补零。所有统计限于当前筛选已加载观测。
 
 ## 验证边界与环境
@@ -47,15 +47,15 @@ W02 由并行 Work Items 实现补齐。本次 AgentRunBoard 直接使用 `item-
 - `pnpm lint`、`pnpm typecheck`、`pnpm build`（Webpack）、`pnpm check:manifest`、`pnpm check:i18n` 与 Blog 资源检查通过。
 - 相关浏览器回归 46 项通过；最终视觉修正后 `pnpm exec playwright test --config=playwright.agent-board.config.ts tests/agent-board.spec.ts` 20 项通过。两轮有重叠，不将总和当成独立案例数量。
 - `pnpm test:install` 通过：全新消费项目独立安装、生产构建及 Agent 工作台浏览器操作（选择、Sheet、List、Insights、缺失用量）均通过，并保留已有 Common/Canvas 安装回归。
-- `node scripts/capture-agent-board.mjs` 采集 12 张截图，人工复核 Board、390px Sheet 与深色英文，尺寸、主题、语言、场景及源码文件散列见 [截图清单](../public/blog/agent-board/captures.json)。
+- `node scripts/capture-agent-board.mjs` 采集 12 张截图，人工复核 Board 与深色英文，尺寸、主题、语言、场景及源码文件散列见 [截图清单](../public/blog/agent-board/captures.json)。
 - [验证报告](../public/blog/agent-board/validation.json)，源码快照 `6d9ceae38768996679248d8f082bf76ddc671a0ec1760171b45b57d9a74a3393`。Blog 展示全部实图并提供可下载证据。
 - 首版未提供优化前后的性能或效率测量；当时文章保留 `measuring`。P2 的同源 DOM 比较现已补齐，见下文。这不影响 AG0–AG4 的组件、文档和本地交互/安装交付。
 
 复跑时使用可用端口：配置默认 3027，截图默认 3028；保留现有服务。此主机短数据盘 `TMPDIR` 可避免根盘不足和 Chrome profile 路径过长。
 
-最终复核修正了工具审批回执的展示：确认响应不会将 ToolCall 标为 completed；只有调用方 `tool.status` 可以更新执行状态。未知结果核对用例同时断言仍为 waiting、没有 completed。修正后 20 项 Agent 场景与独立安装均重新通过，截图绑定新快照。新增文章验收覆盖全部截图、下载链接、窄屏布局、中英文及跳转入口。
+最终复核修正了工具审批回执的展示：确认响应不会将 ToolCall 标为 completed；只有调用方 `tool.status` 可以更新执行状态。未知结果核对用例同时断言仍为 waiting、没有 completed。修正后 20 项 Agent 场景与独立安装均重新通过，截图绑定新快照。新增文章验收覆盖全部截图、下载链接、中英文及跳转入口。
 
-文章专属浏览器验收最终 1 项通过（12 张图片加载、来源快照关联、下载链接、1440/768/390px、中英文与工作台入口）。现有 Next/Image 在客户端将 src 规范为绝对地址，测试使用解析后的 URL 核对。共享工作区合并后 lint、typecheck、Registry 与 Blog 检查通过，3010 的 `/workspace/agents/` 返回 HTTP 200；其他服务未重启。
+文章专属浏览器验收最终 1 项通过（12 张图片加载、来源快照关联、下载链接、1440px、中英文与工作台入口）。现有 Next/Image 在客户端将 src 规范为绝对地址，测试使用解析后的 URL 核对。共享工作区合并后 lint、typecheck、Registry 与 Blog 检查通过，3010 的 `/workspace/agents/` 返回 HTTP 200；其他服务未重启。
 
 
 ## 继续实施：P2 展示与测量
@@ -75,7 +75,7 @@ W02 由并行 Work Items 实现补齐。本次 AgentRunBoard 直接使用 `item-
 在 `24d1d7b`（正式 Work Items 交付）之上合并 P2。共享 Catalog、Registry、双语资源、懒加载与全窗口路由保留 Work Items 的正式实现；CRM 未提交修改保持原任务归属。新增三个独立安装项，Agent Catalog 共19项；交付快照总计90个 Catalog组件、104个 Registry 项，无新增 npm 依赖。
 
 - lint、typecheck、Webpack生产构建、Manifest/Registry、i18n 与 Blog 检查通过。
-- 最终 Agent/扩展/原文章回归30项通过（20 + 9 + 1）。测试包括模块加载失败重读、循环/缺失依赖、历史断点/多币种/有效0、1,000行键盘导航、触屏与失去入口后的焦点恢复。
+- 最终 Agent/扩展/原文章回归30项通过（20 + 9 + 1）。测试包括模块加载失败重读、循环/缺失依赖、历史断点/多币种/有效0、1,000行键盘导航、失去入口后的焦点恢复。
 - `pnpm test:install` 通过：独立 CLI 安装、CSS/依赖解析、TypeScript、生产构建和浏览器验收；覆盖来源依赖、有效0历史、1,000虚拟行及既有 common/Canvas/Work Items 消费流程。
 - [P2 实图与源码清单](../public/blog/agent-board/p2/captures.json)：8张新增截图；保留首版12张及其原始快照。
 - [同源测量](../public/blog/agent-board/p2/measurements.json)：同一快照、1,000条来源行、AgentRunRow、分组、1440×1000视口、560px列表区、zh-CN/light/reduced motion；每模式3次独立上下文。DOM挂载行数中位数普通1,000、虚拟8，行高均120px；首条详情均一次点击。

@@ -10,7 +10,7 @@
 | Input               | `components/ui/input.tsx`                | input                | 原生input属性；label/校验说明由组合层负责                                                               |
 | Textarea            | `components/ui/textarea.tsx`             | textarea             | 原生textarea属性/ref；value/defaultValue；Field负责说明与错误关联                                       |
 | Label               | `components/ui/label.tsx`                | label                | 原生htmlFor/ref；不替代Field的完整字段关联                                                              |
-| NativeSelect        | `components/ui/native-select.tsx`        | native-select        | 原生select/option/optgroup；保留multiple/size与系统移动端选择器                                         |
+| NativeSelect        | `components/ui/native-select.tsx`        | native-select        | 原生select/option/optgroup；保留multiple/size                                         |
 | Switch              | `components/ui/switch.tsx`               | switch               | Base UI checked/defaultChecked/onCheckedChange；name/form、disabled/readOnly；设置保存属于调用方        |
 | RadioGroup / Item   | `components/ui/radio-group.tsx`          | radio-group          | 泛型value/defaultValue/onValueChange；原生表单与键盘；Segmented保留分段选择用途                         |
 | Badge               | `components/ui/badge.tsx`                | badge                | 只读；通用tone不替代runtime映射                                                                         |

@@ -50,7 +50,7 @@
 | 名称—值属性              | Description List / Metadata      | Inspector 内嵌                                 |
 | 当前对象详情             | Inspector / Context Panel        | `Inspector` 接收完整受控快照                   |
 | 列表选对象，详情跟随     | Master–Detail                    | 行组件 + Inspector；选择不执行运行操作         |
-| 导航、主内容、上下文分栏 | Workspace / Split Pane           | `WorkspaceShell`；内嵌停靠、窄屏浮层和 resize  |
+| 导航、主内容、上下文分栏 | Workspace / Split Pane           | `WorkspaceShell`；内嵌停靠、resize  |
 | 连续工作流消息           | Conversation / Chat Thread       | `ChatMessage`、`Conversation`、`ChatComposer`  |
 | 可展开的工具记录         | Tool Call / Disclosure           | `ToolCall`，独立审批、脱敏及未知结果对账       |
 | 相同内容比较样式参数     | Style Workbench / A/B Playground | `StyleWorkbench`，局部预览，不能自动改共享主题 |

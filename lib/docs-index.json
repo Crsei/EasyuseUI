@@ -58,8 +58,8 @@
     "name": "NativeSelect",
     "docPath": "/docs/native-select/",
     "description": {
-      "zh-CN": "原生选择器、选项与分组，保留移动端系统选择器。",
-      "en": "Native select, options, and groups with the mobile system picker."
+      "zh-CN": "原生选择器、选项与分组。",
+      "en": "Native select, options, and groups."
     },
     "docGroup": "interaction",
     "docOrder": 4,
@@ -1219,8 +1219,8 @@
     "name": "FilterToolbar",
     "docPath": "/docs/filter-toolbar/",
     "description": {
-      "zh-CN": "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
-      "en": "Filter, sort and count slots with a Sheet for narrow-screen filters."
+      "zh-CN": "组合筛选、排序与计数。",
+      "en": "Filter, sort and count slots."
     },
     "docGroup": "data",
     "docOrder": 214,

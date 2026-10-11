@@ -37,7 +37,7 @@
 | `apps/web/core/components/gantt-chart/blocks/block.tsx`、`helpers/blockResizables/use-gantt-resizable.ts` | 有一个端点即可显示，有两个端点才允许整条平移；左右手柄分别调整日期 | 显式表达缺失端点，不把单日期伪装为完整工期；提供键盘替代 |
 | `apps/web/core/components/issues/issue-layouts/gantt/blocks.tsx` | 工作项条与侧栏编号/标题、预览、详情导航 | 复用 WorkItemIdentifier/Properties/Detail，条内内容保持紧凑 |
 | `apps/web/core/components/issues/issue-layouts/calendar/base-calendar-root.tsx` | 按可见范围查询，以 `target_date` 分组，月/周采用不同分页大小，每日可继续加载 | Calendar 默认按 dueDate 定位；每日独立分页，不以当前加载数冒充总数 |
-| `apps/web/core/components/issues/issue-layouts/calendar/calendar.tsx`、`header.tsx`、`dropdowns/options-dropdown.tsx` | 月/周、前后翻页、月份选择、今天、周末显隐；窄屏选日期后看当日条目 | 月/周与当日 Agenda；提供与桌面等价的日期修改入口 |
+| `apps/web/core/components/issues/issue-layouts/calendar/calendar.tsx`、`header.tsx`、`dropdowns/options-dropdown.tsx` | 月/周、前后翻页、月份选择、今天、周末显隐 | 月/周与当日 Agenda；提供与桌面等价的日期修改入口 |
 | `apps/web/core/components/issues/issue-layouts/calendar/day-tile.tsx`、`utils.ts` | 拖放只更新 `target_date`，目标截止日不能早于 start_date | Calendar 改截止日与 Timeline 整段平移采用不同命令 |
 | `apps/web/core/components/issues/issue-layouts/calendar/issue-blocks.tsx`、`quick-add-issue-actions.tsx` | 日期格内新增预填截止日；按日加载更多；可给无截止日的已有项补日期 | 新建草稿和未排期项安排日期都必须显式触发 |
 | `apps/web/core/store/issue/issue_calendar_view.store.ts` | 活跃月/周、周起始偏好和可见日期范围 | 日期视口受控，周首日、时区和本地化不混入业务日期值 |
@@ -138,16 +138,16 @@ Plane Gantt 根组件还传递 `enableDependency` 和 `updateBlockDates` 接口�
 - 手动排序时支持同组重排；按日期/优先级等自动排序时禁用自由位置排序，跨组修改后按现有规则重新排序。
 - MoveIntent 包含 itemId、来源/目标组、目标前后邻居 ID、baseRevision、operationId；不用当前可见数组索引代表服务端全局顺序。
 - 未加载边界或跨分页位置无法明确时，只允许可确定的邻居落点，或交给调用方明确的追加命令；禁止猜测未加载项排序。
-- 指针落点、触屏操作与键盘“移动到组/上移/下移”调用同一权限与规则。Escape 取消，成功播报目标，失败保持焦点可定位。
+- 指针落点操作与键盘“移动到组/上移/下移”调用同一权限与规则。Escape 取消，成功播报目标，失败保持焦点可定位。
 - 拖动临时位置是展示态，不提前修改权威记录。明确拒绝恢复，超时/断线保留 unknown，先查询后重试；重挂载不得绕过锁定。
 - 锁定只作用相关条目/操作，不能因一项失败冻结整个工作区。并发变化通过版本冲突处理，不以回滚覆盖新快照。
 
 ### 5.5 Timeline 时间线布局
 
-- Timeline 表达任务排期，与已有 ActivityTimeline 的事件时间线不同。左侧固定编号/标题和可选属性，右侧时间轴与日期网格；两侧共用行高与垂直滚动，轴头吸顶，横向滚动仅发生在时间区域，窄屏可收窄侧栏。
+- Timeline 表达任务排期，与已有 ActivityTimeline 的事件时间线不同。左侧固定编号/标题和可选属性，右侧时间轴与日期网格；两侧共用行高与垂直滚动，轴头吸顶，横向滚动仅发生在时间区域。
 - 首版包含周/月/季度三种刻度、今天标记与定位、前后范围导航、可选展开视图。切换刻度保留日期锚点和选中项，不把工作项拖动位移解释为刻度单位；写入始终按完整日历日吸附。
 - 完整区间展示时间条，跨范围条在边缘裁切并标明延伸方向，完整日期可通过焦点提示或详情读取。单端只标示已知端点及“缺少开始/截止日期”，不生成假工期；完全无日期的行保留并提供安排日期入口。
-- 拖动条身平移，左右手柄改变对应日期，拖动中显示预览日期和天数；松手才发意图，Escape 取消。鼠标、触屏和“修改排期”表单共享同一校验；季度刻度下也提供可精确指定日期的表单。
+- 拖动条身平移，左右手柄改变对应日期，拖动中显示预览日期和天数；松手才发意图，Escape 取消。鼠标和“修改排期”表单共享同一校验；季度刻度下也提供可精确指定日期的表单。
 - 已实现行最小44px、时间条视觉高度24px；焦点和操作使用独立命中区，粗指针模式调整为至少44px且不重叠。只读时无拖动光标和手柄，状态用文字/图标与共享颜色表达。
 - 手动排序才开放行重排，日期平移与行重排具有不同把手和命令；其他排序下日期更新后由调用方重新排序。第一版时间线采用平铺行，不将 Board 泳道/分组条件直接套入日期轴。
 - 行分页、范围加载、无排期、过滤无匹配、部分记录缺失分别表达；读取失败保留轴和已加载条。切换日期范围、排序或筛选增加 generation，旧响应不得覆盖新视口。
@@ -159,7 +159,7 @@ Plane Gantt 根组件还传递 `enableDependency` 和 `updateBlockDates` 接口�
 - 日期格内为 WorkItemCalendarEntry，复用编号、标题、状态和属性，不直接塞入完整 Board 卡片。预留数量与新增入口；溢出显示可展开的“更多/加载更多”，区分已载入但折叠与远程尚未加载。
 - 按日维护数据态、分页游标和计数；总数未知显示已加载数。隐藏周末后仍能通过“周末任务”入口/当日 Agenda 找到任务，未安排截止日的项进入明确的未排期队列；都不能被解释为任务不存在。
 - “在此日新增”只预填草稿 dueDate，保存才创建；安排已有未排期项只改日期，不重复建任务。拖到其他日期与详情中的截止日修改共用命令，不平移 startDate，也不改变组内排序。
-- 窄屏采用日期选择加当日 Agenda 的模式，沿用 Item/列表而非挤压七列完整卡片。触屏和键盘可用“更改截止日”完成与拖动等价的操作；无日期项也可直接安排或保持未排期。
+- 键盘可用“更改截止日”完成与拖动等价的操作；无日期项也可直接安排或保持未排期。
 - 日期网格采用可访问的焦点模型：方向键移日/周、Home/End移到周首/尾、PageUp/PageDown翻月、Enter选日；日期内条目通过明确入口进入，Escape返回日期。只有完整支持网格键盘行为后才使用 grid 角色，避免数百条目进入默认 Tab 顺序。
 
 ### 5.7 五布局协作
@@ -172,7 +172,7 @@ List/Board/Table/Timeline/Calendar 共用 records、筛选、selectedIds、activ
 
 | 阶段 | 优先级/依赖 | 下一动作 | 验收出口 |
 | --- | --- | --- | --- |
-| W0 契约与技术验证 | P0，无 | 固定模型/API/分组语义；验证 Item/Combobox/DataTable组合；选择能覆盖触屏/键盘的拖动方案 | 无嵌套交互目标；确定命令、分页与未知结果边界；最小安装验证 |
+| W0 契约与技术验证 | P0，无 | 固定模型/API/分组语义；验证 Item/Combobox/DataTable组合；选择能覆盖键盘的拖动方案 | 无嵌套交互目标；确定命令、分页与未知结果边界；最小安装验证 |
 | W1 属性与单条展示 | P0，W0 | W03–W08、基础详情；覆盖长标题、多标签、多负责人、只读和字段错误 | Row/Card共享字段行为、主题和语言；无虚构计数/状态 |
 | W2 分组列表与Table | P0，W1 | GroupedList、WorkItemList/Table、Toolbar/DisplayOptions、QuickCreate | 分组/排序/属性切换一致；查看/多选分离；五态可恢复 |
 | W3 Board编辑闭环 | P0，W1/W2 | 通用 Board、WorkItemBoard、列内排序/跨组移动、键盘替代 | 指针/键盘同语义；分页边界、权限、拒绝/unknown均覆盖 |
@@ -180,7 +180,7 @@ List/Board/Table/Timeline/Calendar 共用 records、筛选、selectedIds、activ
 | W5 复杂场景增强 | P1，W4；已完成 | 泳道、子项、批量操作、保存视图接口、可选屏外延迟与索引缓存 | 五项独立验收通过；18 次性能观察保留改善与退化，服务及大数据限制见实施记录 |
 | W6 日期与视口契约 | P0，W4/W5；已完成 | W18、日历日期工具、startDate兼容、ScheduleChangeIntent、范围查询与视图序列化 | 旧数据/保存视图继续工作；成对改期、缺失日期、DST与unknown契约固定 |
 | W7 Timeline 组件 | P0，W6；已完成 | W14/W15，侧栏与时间轴、三档刻度、平移/两端调整、未排期入口 | 跨月/跨年裁切正确；拖动和表单同语义；只读、分页、并发与键盘恢复通过 |
-| W8 Calendar 组件 | P0，W6；已完成 | W16/W17/W19，月/周、当日Agenda、按日分页、周末与未排期队列 | 按截止日归组；修改只影响截止日；逐日数据态、窄屏和键盘通过 |
+| W8 Calendar 组件 | P0，W6；已完成 | W16/W17/W19，月/周、当日Agenda、按日分页、周末与未排期队列 | 按截止日归组；修改只影响截止日；逐日数据态、键盘通过 |
 | W9 五布局展示与分发 | P0，W7/W8；已完成 | Workspace/URL/保存视图兼容，补充页面计划、组件示例、Blog、Manifest/Registry与安装验收 | 五布局共享选择与写入；时间布局独立安装及展示证据齐全；旧三布局回归通过 |
 
 首版完成定义为 W0–W4。W5 不提前显示可操作占位入口，不将后续能力计入首版验收。通用 Board 另以非 WorkItem 条目演示，证明无业务绑定。
@@ -206,7 +206,7 @@ List/Board/Table/Timeline/Calendar 共用 records、筛选、selectedIds、activ
 - 每个公开组件具备示例、API、Manifest、Registry、词典实现标记与完整 CSS/lib/i18n 依赖；内部零件明确归属父项，不机械拆成数十个安装包。
 - 使用当前 `lib/component-manifest.ts`、`components/docs/demo-loader.tsx` 和 Registry 工作流；文档目录不静态挂载所有重型视图。自动生成索引通过脚本更新。
 - 测试覆盖空/部分分组、重复/迟到分页、隐藏选择、字段失败、自动排序、分页落点、跨组冲突、unknown对账和权限变化。
-- 代表性组合覆盖深浅主题、中文/英文、1440/1024/390px、键盘/触摸、读屏名称、reduced-motion；Portal继承ThemeBoundary。
+- 代表性组合覆盖深浅主题、中文/英文、1440/1024px、键盘/触摸、读屏名称、reduced-motion；Portal继承ThemeBoundary。
 - 运行 `pnpm lint`、`pnpm typecheck`、`pnpm build`、`pnpm check:i18n`、`pnpm check:manifest`、浏览器测试及 `pnpm test:install`，并实际操作独立消费项目的列表/看板。
 - 记录50/200/1000项的分组、选择、字段更新与移动测量，先建立基线再决定窗口化。不得为了虚拟化破坏焦点、拖放、阅读顺序与可访问计数。
 - 开始构建/服务前检查3010/3011进程归属，使用Webpack；必要时在携带完整改动的隔离副本验证，保留共享工作。
@@ -225,7 +225,7 @@ List/Board/Table/Timeline/Calendar 共用 records、筛选、selectedIds、activ
 | 权限与无变化 | 只允许改一端时禁止平移；只读、拖回原日、Escape取消不发修改请求 |
 | 冲突与未知结果 | 拒绝保留草稿/恢复预览，unknown跨布局保留锁定；先对账，不拆两端请求造成半成功 |
 | 范围查询与分页 | 包含横跨整个视口的任务；按日加载失败局部重试；迟到/重复响应不污染新范围，无虚构总数 |
-| 可访问与窄屏 | 纯键盘完成选日、查看、改期和关闭；390px Agenda/改期表单可用，焦点归还，中英/深浅主题一致 |
+| 可访问性 | 纯键盘完成选日、查看、改期和关闭；改期表单可用，焦点归还，中英/深浅主题一致 |
 | 兼容与规模 | 旧记录/旧URL/旧保存视图继续工作；50/200/1000项测量日期运算、视口切换与布局成本，不直接套用W5指标 |
 
 新增纯日期/命令测试、Timeline/Calendar浏览器场景及独立安装操作；验证日期变更在五布局和详情一致。组件展示的截图分别覆盖月/周日历、三档时间线、未排期、只读和保存异常。参考源码事实、EasyuseUI实现证据与真实服务验收分开记录。

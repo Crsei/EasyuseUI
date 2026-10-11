@@ -25,7 +25,7 @@ export function WorkbenchFrame({
   if (sessionActive || entered)
     return (
       <div className="contents" data-workbench-module="session">
-        <AgentWorkbench {...props} />
+        <AgentWorkbench {...props} layoutMode="desktop" />
       </div>
     )
   const panels = props.panelState
@@ -33,6 +33,7 @@ export function WorkbenchFrame({
     props.onPanelStateChange({ ...panels, ...value })
   return (
     <WorkspaceShell
+      layoutMode="desktop"
       className={styles.shell}
       title={props.header}
       sidebar={props.navigation}

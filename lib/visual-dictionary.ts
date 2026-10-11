@@ -580,7 +580,7 @@ const seeds: Seed[] = [
     "navigation",
     "tabs",
     "切换同一上下文的内容面板。",
-    "工作台窄屏有内容切换模式。",
+    "工作台支持内容切换。",
     "不代替跨页面导航；导航应使用链接。",
     {
       componentSlug: "tabs",
@@ -807,7 +807,7 @@ const seeds: Seed[] = [
     "overlays",
     "drawer",
     "从侧边或底部进入的面板。",
-    "WorkspaceShell 已有窄屏侧栏和详情。",
+    "WorkspaceShell 提供侧栏和详情槽位。",
     "这是呈现方式，不改变内容职责。",
     {
       componentSlug: "drawer",

@@ -25,15 +25,11 @@ export function SourceControls({
   projectId,
   current,
   level,
-  narrow,
-  setNarrow,
 }: WorkbenchViewProps & {
   preferences: ReactNode
   projectId: string
   current: SessionSnapshot
   level: "overview" | "regions" | "layouts" | "app"
-  narrow: boolean
-  setNarrow: (value: boolean) => void
 }) {
   const { locale, t } = useI18n()
   const x = exampleMessages[locale]
@@ -93,14 +89,6 @@ export function SourceControls({
               </option>
             ))}
         </select>
-      </label>
-      <label className={styles.row}>
-        <input
-          type="checkbox"
-          checked={narrow}
-          onChange={(e) => setNarrow(e.target.checked)}
-        />
-        {x.narrow}
       </label>
       <Button
         variant="secondary"

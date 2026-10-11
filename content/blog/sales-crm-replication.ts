@@ -366,52 +366,6 @@ export const salesCrmReplication: BlogPost = {
       },
     },
     {
-      type: "comparison",
-      before: {
-        src: "/blog/sales-crm/reference/default-390.png",
-        alt: {
-          "zh-CN": "参考：390px移动列表",
-          en: "Reference: 390px mobile list",
-        },
-        caption: {
-          "zh-CN": "冻结参考；替代资产与允许差异见清单",
-          en: "Frozen reference; substitutions and differences are listed",
-        },
-        sourceSnapshotId:
-          "9700e58d87fb4a8b04b319d63e455e6d99acba181e31adbf9c92890d6aff8739",
-        capturedAt: "2026-10-08T10:22:43.059Z",
-        fixture: "18 source records; Microsoft selected; TODAY 2026-09-14",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        locale: "en",
-        theme: "dark",
-      },
-      after: {
-        src: "/blog/sales-crm/replica/default-390.png",
-        alt: {
-          "zh-CN": "复刻：390px移动列表",
-          en: "Replica: 390px mobile list",
-        },
-        caption: {
-          "zh-CN": "当前生产复刻；仅本地fixture",
-          en: "Current production replica; local fixtures only",
-        },
-        sourceSnapshotId:
-          "981f6768a2505df6a7ee6fb14b3d1728a3bf9c1e790ced0ad479b2b472595628",
-        capturedAt: "2026-10-08T10:44:59.147Z",
-        fixture:
-          "same 18 numeric source records; Microsoft selected; TODAY 2026-09-14; initials replace assets",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        locale: "en",
-        theme: "dark",
-      },
-    },
-    {
       type: "heading",
       id: "behavior",
       text: {
@@ -439,8 +393,8 @@ export const salesCrmReplication: BlogPost = {
         },
         {
           "zh-CN":
-            "Ctrl/Cmd+K在本示例范围内搜索，文本编辑和IME不抢键。移动端提供导航Sheet、底部筛选和横向表格。折叠场景面板覆盖五种数据态及刷新保留。",
-          en: "Ctrl/Cmd+K searches within this example without intercepting text editing or IME. Mobile layouts provide navigation sheets, bottom filters and horizontal tables. A collapsed scenario panel covers five data states and preserved content on refresh failure.",
+            "Ctrl/Cmd+K在本示例范围内搜索，文本编辑和IME不抢键。折叠场景面板覆盖五种数据态及刷新保留。",
+          en: "Ctrl/Cmd+K searches within this example without intercepting text editing or IME. A collapsed scenario panel covers five data states and preserved content on refresh failure.",
         },
       ],
     },

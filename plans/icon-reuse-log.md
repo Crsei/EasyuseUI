@@ -29,7 +29,7 @@
 
 Chip 原移除 SVG 虽写 width=12，但受 Button 的默认 SVG CSS 影响实际为 16px。本次显式覆盖尺寸与坐标笔画，落实原计划的 12px 图形槽；主/移除触摸目标仍至少 44×44px。Lucide Check/X 的圆端点、圆连接属于已评审的视觉变化。
 
-Examples 的 light/zh-CN/1440、dark/en/1440、light/en/390、dark/zh-CN/390 前后截图、9 个链接的测量、Enter 导航，以及两主题下 Chip/Dialog 粗指针目标和 Spinner reduced-motion 记录，保存在本地 `../.tmp/icon-reuse-20261009/{before,after}/`。窄屏无整页横向溢出；目标图标均 aria-hidden，由原文字或 label 提供名称。截图只证明外观，交互由独立浏览器断言与回归用例证明。
+Examples 的 light/zh-CN/1440、dark/en/1440 前后截图、9 个链接的测量、Enter 导航，以及两主题下 Chip/Dialog 粗指针目标和 Spinner reduced-motion 记录，保存在本地 `../.tmp/icon-reuse-20261009/{before,after}/`。目标图标均 aria-hidden，由原文字或 label 提供名称。截图只证明外观，交互由独立浏览器断言与回归用例证明。
 
 最终文档构建后补验：Button/Chip/Spinner 的英文说明显示正确；320px Examples 无整页横向溢出；组件目录与示例文章链接均可 Enter 导航；Spinner 正常模式旋转、reduced-motion 下停止。13 个源码/分发文件逐字节匹配测试快照，哈希存于本地 `../.tmp/icon-reuse-20261009/final-source-hashes.json`。
 

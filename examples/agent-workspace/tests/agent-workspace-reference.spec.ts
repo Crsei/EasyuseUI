@@ -121,9 +121,9 @@ test("resource navigation stays compact and command, problem, tool and file link
 for (const configuration of [
   { width: 1440, height: 900, theme: "light", locale: "zh-CN" },
   { width: 1440, height: 900, theme: "dark", locale: "en" },
-  { width: 390, height: 844, theme: "light", locale: "en" },
-  { width: 390, height: 500, theme: "dark", locale: "zh-CN" },
-  { width: 720, height: 450, theme: "light", locale: "zh-CN" },
+  { width: 1280, height: 844, theme: "light", locale: "en" },
+  { width: 1280, height: 500, theme: "dark", locale: "zh-CN" },
+  { width: 1024, height: 450, theme: "light", locale: "zh-CN" },
 ])
   test(`V2 page matrix ${configuration.width}×${configuration.height} ${configuration.theme} ${configuration.locale}`, async ({
     browser,
@@ -131,8 +131,7 @@ for (const configuration of [
     test.setTimeout(120_000)
     const context = await browser.newContext({
       viewport: { width: configuration.width, height: configuration.height },
-      deviceScaleFactor: configuration.width === 720 ? 2 : 1,
-      hasTouch: configuration.width === 390,
+      deviceScaleFactor: configuration.width === 1024 ? 2 : 1,
       reducedMotion: "reduce",
     })
     await context.addInitScript((configuration) => {

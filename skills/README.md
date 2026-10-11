@@ -11,7 +11,7 @@
 | 基本原则系 `ui-principles/`     | [easyuseui-patterns](./ui-principles/easyuseui-patterns/SKILL.md)                        | 选择列表/树/表格、主从布局、Inspector、对话与工具记录等模式    |
 | 基本原则系 `ui-principles/`     | [easyuseui-states](./ui-principles/easyuseui-states/SKILL.md)                            | 定义交互、数据、运行、消息、连接、审批及未知结果的恢复路径     |
 | 组件实现系 `implementation/`    | [easyuseui-component-contracts](./implementation/easyuseui-component-contracts/SKILL.md) | 复用/扩展现有组件，或在其他技术栈实现具有同等语义的组件        |
-| 验收系 `validation/`            | [easyuseui-ui-review](./validation/easyuseui-ui-review/SKILL.md)                         | 检查设计契约、键盘触摸、数据恢复、权限与执行结果的证据         |
+| 验收系 `validation/`            | [easyuseui-ui-review](./validation/easyuseui-ui-review/SKILL.md)                         | 检查设计契约、键盘操作、数据恢复、权限与执行结果的证据         |
 
 ```text
 skills/

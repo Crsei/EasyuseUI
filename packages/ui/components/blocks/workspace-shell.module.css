@@ -72,17 +72,17 @@
   transform: translateX(-100%);
 }
 @container workspace-shell (max-width: 767px) {
-  .shell[data-activity-bar] .layout {
+  .shell[data-activity-bar]:not([data-layout-mode="desktop"]) .layout {
     flex-direction: column;
   }
-  .shell[data-activity-bar] .activity {
+  .shell[data-activity-bar]:not([data-layout-mode="desktop"]) .activity {
     flex: 0 0 48px;
     width: 100%;
     height: 48px;
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }
-  .shell[data-activity-bar] .main {
+  .shell[data-activity-bar]:not([data-layout-mode="desktop"]) .main {
     height: auto;
     width: 100%;
   }
@@ -277,4 +277,17 @@
   .sidebarResize {
     width: 44px;
   }
+}
+
+.shell[data-layout-mode="desktop"] .sidebar {
+  width: var(--sidebar-current-width, var(--workspace-sidebar-width));
+}
+.shell[data-layout-mode="desktop"][data-sidebar-collapsed="true"] .sidebar {
+  width: var(--workspace-sidebar-collapsed);
+}
+.shell[data-layout-mode="desktop"] .sidebarToggle {
+  display: inline-flex;
+}
+.shell[data-layout-mode="desktop"] .sidebarResize {
+  display: block;
 }

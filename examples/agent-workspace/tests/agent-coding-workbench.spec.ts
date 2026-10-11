@@ -1,18 +1,23 @@
 import { test, expect, type Page } from "@playwright/test"
 import AxeBuilder from "@axe-core/playwright"
 import { readFile, writeFile } from "node:fs/promises"
-const root =
-  "/app/?template=coding&page=session&session=session-filter"
+const root = "/app/?template=coding&page=session&session=session-filter"
 const input = (page: Page) =>
   page.getByRole("textbox", { name: "消息输入", exact: true })
 async function command(page: Page, name: string) {
-  const search = page.getByRole("button", { name: "搜索工作台", exact: true }).filter({ visible: true })
+  const search = page
+    .getByRole("button", { name: "搜索工作台", exact: true })
+    .filter({ visible: true })
   const more = page.getByRole("button", { name: "更多工作台工具", exact: true })
-  await expect.poll(async () => await search.isVisible() || await more.isVisible()).toBe(true)
+  await expect
+    .poll(async () => (await search.isVisible()) || (await more.isVisible()))
+    .toBe(true)
   if (await search.isVisible()) await search.click()
   else {
     await more.click()
-    await page.getByRole("menuitem", { name: "搜索工作台", exact: true }).click()
+    await page
+      .getByRole("menuitem", { name: "搜索工作台", exact: true })
+      .click()
   }
   const dialog = page.getByRole("dialog")
   await dialog.getByRole("combobox").fill(name)
@@ -39,9 +44,14 @@ async function openSettings(page: Page) {
   const more = page.getByRole("button", { name: "更多工作台工具", exact: true })
   if (await more.isVisible()) {
     await more.click()
-    await page.getByRole("menuitem", { name: "工作台设置", exact: true }).click()
+    await page
+      .getByRole("menuitem", { name: "工作台设置", exact: true })
+      .click()
   } else {
-    await page.getByRole("navigation", { name: "工作台工具" }).getByRole("button", { name: "工作台设置", exact: true }).click()
+    await page
+      .getByRole("navigation", { name: "工作台工具" })
+      .getByRole("button", { name: "工作台设置", exact: true })
+      .click()
   }
 }
 test("activity navigation, URL history and file docking preserve the composer instance and IME draft", async ({
@@ -67,12 +77,16 @@ test("activity navigation, URL history and file docking preserve the composer in
   await expect(
     page.getByRole("tab", { name: /workbench.md @fixture-1/ }),
   ).toBeVisible()
-  await expect(page.getByRole("tabpanel", { name: /workbench.md/ })).toContainText("这是可以下载的真实 fixture 文本")
+  await expect(
+    page.getByRole("tabpanel", { name: /workbench.md/ }),
+  ).toContainText("这是可以下载的真实 fixture 文本")
   await page.goBack()
   await expect(field).toHaveValue(composedDraft)
   await expect(field).toHaveAttribute("data-instance", "retained")
   await page.goForward()
-  await expect(page.getByRole("tab", { name: /workbench.md @fixture-1/ })).toBeVisible()
+  await expect(
+    page.getByRole("tab", { name: /workbench.md @fixture-1/ }),
+  ).toBeVisible()
   await page.locator('[data-workbench-layout="conversation"]').click()
   await expect(field).toHaveValue(composedDraft)
   await expect(field).toHaveAttribute("data-instance", "retained")
@@ -93,7 +107,9 @@ test("settings use shared drafts, topmost Escape and source receipts; cancel nev
     exact: true,
   })
   await select.click()
-  await expect(page.getByRole("option", { name: "Read only", exact: true })).toBeVisible()
+  await expect(
+    page.getByRole("option", { name: "Read only", exact: true }),
+  ).toBeVisible()
   await page.keyboard.press("Escape")
   await expect(select).toHaveAttribute("aria-expanded", "false")
   await expect(dialog).toBeVisible()
@@ -136,7 +152,9 @@ test("context picker confirms a selection set, previews bytes and removes only t
   await dialog.getByRole("checkbox").last().check()
   await dialog.getByRole("button", { name: "取消", exact: true }).click()
   await expect(
-    page.locator("[data-composer-references] [data-invalid]", { hasText: "src/filter.ts" }),
+    page.locator("[data-composer-references] [data-invalid]", {
+      hasText: "src/filter.ts",
+    }),
   ).toHaveCount(0)
   await page.getByRole("button", { name: "添加引用", exact: true }).click()
   dialog = page.getByRole("dialog")
@@ -204,7 +222,9 @@ test("typed previews download actual bytes, redact JSON, render quoted CSV and k
   ).toBeDisabled()
 })
 
-test("code preview remains read-only and supports keyboard search", async ({ page }) => {
+test("code preview remains read-only and supports keyboard search", async ({
+  page,
+}) => {
   await page.goto(root)
   const dialog = await file(page, "filter.ts")
   const preview = dialog.locator("[data-code-preview]")
@@ -228,46 +248,75 @@ test("command-to-tool-to-file navigation keeps unknown exit codes and disconnect
 }) => {
   await page.goto(root)
   await input(page).fill("Keep the draft while viewing commands")
-  await input(page).evaluate((node) => node.setAttribute("data-instance", "retained"))
+  await input(page).evaluate((node) =>
+    node.setAttribute("data-instance", "retained"),
+  )
   await command(page, "fixture watch")
   const bottom = page.getByRole("region", { name: "底部工作面板", exact: true })
   await expect(bottom).toHaveAttribute("data-collapsed", "false")
   await expect(input(page)).toHaveValue("Keep the draft while viewing commands")
   await expect(input(page)).toHaveAttribute("data-instance", "retained")
-  let output = bottom.locator('[data-command-id="command-running-empty"]').filter({ visible: true })
+  let output = bottom
+    .locator('[data-command-id="command-running-empty"]')
+    .filter({ visible: true })
   await expect(output).toContainText("运行中，尚无输出")
   await expect(output.locator("[data-command-exit]")).toHaveText("—")
   await bottom.getByRole("button", { name: /fixture failing test/ }).click()
-  output = bottom.locator('[data-command-id="command-failed"]').filter({ visible: true })
+  output = bottom
+    .locator('[data-command-id="command-failed"]')
+    .filter({ visible: true })
   await expect(output.locator("[data-command-exit]")).toHaveText("2")
   await expect(output).toContainText("[REDACTED]")
   await bottom
     .getByRole("button", { name: /fixture disconnected output/ })
     .click()
-  output = bottom.locator('[data-command-id="command-disconnected"]').filter({ visible: true })
+  output = bottom
+    .locator('[data-command-id="command-disconnected"]')
+    .filter({ visible: true })
   await expect(output).toContainText("环境连接中断")
   await expect(output).toContainText("Partial output retained")
   await bottom.getByRole("button", { name: /fixture unknown outcome/ }).click()
   await expect(
-    bottom.locator('[data-command-id="command-unknown"]').filter({ visible: true }),
+    bottom
+      .locator('[data-command-id="command-unknown"]')
+      .filter({ visible: true }),
   ).toContainText("结果未确认")
-  await bottom.getByRole("region", { name: "命令记录", exact: true }).getByRole("button", { name: /^run_tests/ }).click()
-  output = bottom.locator('[data-command-id="command-tool-session-filter"]').filter({ visible: true })
+  await bottom
+    .getByRole("region", { name: "命令记录", exact: true })
+    .getByRole("button", { name: /^run_tests/ })
+    .click()
+  output = bottom
+    .locator('[data-command-id="command-tool-session-filter"]')
+    .filter({ visible: true })
   await output.getByRole("button", { name: /文件 · file-filter/ }).click()
-  await expect(page.getByRole("tabpanel", { name: /filter.ts @diff-1/ })).toContainText("item.toLowerCase()")
+  await expect(
+    page.getByRole("tabpanel", { name: /filter.ts @diff-1/ }),
+  ).toContainText("item.toLowerCase()")
 })
 test("conversation and tool command links open bottom output and retain source navigation", async ({
   page,
 }) => {
   await page.goto(root)
   // Running/exceptional calls stay outside compact read/search groups.
-  await expect(page.locator('[data-follow-tail-list] [data-call-id="tool-session-filter"]')).toBeVisible()
-  await page.locator('[data-follow-tail-list] [data-call-id="tool-session-filter"]').locator("..").getByRole("button", { name: "命令记录", exact: true }).click()
+  await expect(
+    page.locator(
+      '[data-follow-tail-list] [data-call-id="tool-session-filter"]',
+    ),
+  ).toBeVisible()
+  await page
+    .locator('[data-follow-tail-list] [data-call-id="tool-session-filter"]')
+    .locator("..")
+    .getByRole("button", { name: "命令记录", exact: true })
+    .click()
   const bottom = page.getByRole("region", { name: "底部工作面板", exact: true })
   await expect(bottom).toHaveAttribute("data-collapsed", "false")
-  const output = bottom.locator('[data-command-id="command-tool-session-filter"]').filter({ visible: true })
+  const output = bottom
+    .locator('[data-command-id="command-tool-session-filter"]')
+    .filter({ visible: true })
   await expect(output).toBeVisible()
-  await output.getByRole("button", { name: "本轮工具记录", exact: true }).click()
+  await output
+    .getByRole("button", { name: "本轮工具记录", exact: true })
+    .click()
   await expect(page).toHaveURL(/panel=activity/)
   await page
     .locator('[data-tool-target="tool-session-filter"]')
@@ -281,9 +330,6 @@ for (const [width, height] of [
   [1440, 900],
   [1280, 800],
   [1024, 768],
-  [768, 1024],
-  [390, 844],
-  [390, 240],
 ]) {
   test(`workbench dialogs retain actions and focus at ${width}x${height}`, async ({
     page,
@@ -340,16 +386,23 @@ test("bounded large file, 1000 messages and continuous output record actual inte
   await expect(page.locator("[data-message-id]")).toHaveCount(1002)
   await command(page, "fixture continuous output")
   await expect(
-    page.getByRole("region", { name: "底部工作面板", exact: true }).locator('[data-command-id="command-continuous"]').filter({ visible: true }),
+    page
+      .getByRole("region", { name: "底部工作面板", exact: true })
+      .locator('[data-command-id="command-continuous"]')
+      .filter({ visible: true }),
   ).toContainText("来源或本地预览已截断")
   const scrollResponseMs = await page.evaluate(async () => {
-    const scroll = document.querySelector<HTMLElement>("[data-follow-tail-list]")?.parentElement
+    const scroll = document.querySelector<HTMLElement>(
+      "[data-follow-tail-list]",
+    )?.parentElement
     if (!scroll) throw new Error("Conversation scroll region missing")
     const samples: number[] = []
     for (let i = 0; i < 10; i++) {
       const start = performance.now()
       scroll.scrollTop = i % 2 ? scroll.scrollHeight : 0
-      await new Promise<void>((done) => requestAnimationFrame(() => requestAnimationFrame(() => done())))
+      await new Promise<void>((done) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => done())),
+      )
       samples.push(performance.now() - start)
     }
     return samples
@@ -362,17 +415,17 @@ test("bounded large file, 1000 messages and continuous output record actual inte
     ).memory?.usedJSHeapSize,
   }))
   const measured = JSON.stringify(
-      {
-        fileMs,
-        firstActionMs,
-        scrollResponseMs,
-        ...metrics,
-        virtualized: false,
-        renderer: "bounded native text",
-      },
-      null,
-      2,
-    )
+    {
+      fileMs,
+      firstActionMs,
+      scrollResponseMs,
+      ...metrics,
+      virtualized: false,
+      renderer: "bounded native text",
+    },
+    null,
+    2,
+  )
   const capacityPath = info.outputPath("measured-capacity.json")
   await writeFile(capacityPath, measured)
   await info.attach("measured-capacity", {
@@ -381,18 +434,16 @@ test("bounded large file, 1000 messages and continuous output record actual inte
   })
 })
 
-test("touch rail, navigation Sheet, locale and reduced motion retain drafts and stable focus", async ({
+test("desktop rail, docked navigation, locale and reduced motion retain drafts and stable focus", async ({
   browser,
 }) => {
   const context = await browser.newContext({
-    viewport: { width: 390, height: 844 },
-    hasTouch: true,
-    isMobile: true,
+    viewport: { width: 1280, height: 844 },
     reducedMotion: "reduce",
   })
   const page = await context.newPage()
   await page.goto(root)
-  await input(page).fill("移动端草稿")
+  await input(page).fill("桌面草稿")
   const rail = page.getByRole("navigation", { name: "工作台工具" })
   const fileEntry = rail
     .getByRole("button", { name: "文件", exact: true })
@@ -401,20 +452,23 @@ test("touch rail, navigation Sheet, locale and reduced motion retain drafts and 
   expect(bounds!.width).toBeGreaterThanOrEqual(44)
   expect(bounds!.height).toBeGreaterThanOrEqual(44)
   await fileEntry.click()
+  const navigation = page.getByRole("complementary", {
+    name: "工作区导航",
+    exact: true,
+  })
+  await expect(navigation.getByRole("tree", { name: "项目文件" })).toBeVisible()
+  await page.getByRole("button", { name: "折叠侧栏", exact: true }).click()
+  await expect(navigation).toBeHidden()
   await page.getByRole("button", { name: "展开侧栏", exact: true }).click()
-  let dialog = page.getByRole("dialog")
-  await expect(dialog.getByRole("tree", { name: "项目文件" })).toBeVisible()
-  await page.keyboard.press("Escape")
-  await expect(
-    page.getByRole("button", { name: "展开侧栏", exact: true }),
-  ).toBeFocused()
+  await expect(navigation).toBeVisible()
+  await expect(page.getByRole("dialog")).toHaveCount(0)
   const sessionLink = page
     .getByRole("link", { name: "会话", exact: true })
     .filter({ visible: true })
   await sessionLink.focus()
   await sessionLink.press("Enter")
   await openSettings(page)
-  dialog = page.getByRole("dialog")
+  const dialog = page.getByRole("dialog")
   await dialog.getByRole("button", { name: "外观与布局", exact: true }).click()
   await dialog
     .getByRole("combobox", { name: "语言", exact: true })
@@ -425,7 +479,7 @@ test("touch rail, navigation Sheet, locale and reduced motion retain drafts and 
   await page.keyboard.press("Escape")
   await expect(
     page.getByRole("textbox", { name: "Message input", exact: true }),
-  ).toHaveValue("移动端草稿")
+  ).toHaveValue("桌面草稿")
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth > innerWidth,
@@ -443,7 +497,11 @@ test("fast resource changes and revised source keep titles and bodies on the sam
 }) => {
   await page.goto(root)
   await command(page, "filter.ts")
-  await expect(page.getByRole("dialog").getByRole("heading", { name: "filter.ts", exact: true })).toBeVisible()
+  await expect(
+    page
+      .getByRole("dialog")
+      .getByRole("heading", { name: "filter.ts", exact: true }),
+  ).toBeVisible()
   await page.keyboard.press("Escape")
   await expect(page.getByRole("dialog")).toHaveCount(0)
   const preview = await file(page, "result.json")

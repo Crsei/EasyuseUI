@@ -34,20 +34,6 @@
   flex-direction: column;
   gap: 4px;
 }
-.mobileRail {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  padding: 0 8px;
-}
-@container workbench-tools (min-width: 80px) {
-  .desktopRail {
-    display: none;
-  }
-  .mobileRail {
-    display: flex;
-  }
-}
 .fileNavigation {
   padding: 8px;
   display: flex;
@@ -139,21 +125,4 @@
 }
 .reference[data-invalid="true"] {
   border-color: var(--warning);
-}
-@media (max-width: 600px) {
-  .settingsColumns {
-    grid-template-columns: 1fr;
-  }
-  .categories {
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
-  }
-  .settingsDialog {
-    width: calc(100% - 16px);
-    max-height: calc(100dvh - 16px);
-    height: calc(100dvh - 16px);
-    padding: 12px;
-  }
 }

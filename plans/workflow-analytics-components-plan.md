@@ -168,11 +168,11 @@ P2 ForecastChart接收调用方ForecastResult：method/version、历史窗口、
 
 ## 7. 图表视觉 交互与可访问性
 
-- Dashboard采用12列桌面、6列中屏、单列窄屏；Widget间距16px/窄屏12px，内边距16px，圆角12px细边框，普通图表无强阴影。标题14–16px，坐标/元数据12px；工具栏遵守32px及触摸44px规则。
-- 图表基础高度建议240/320/400px三个档位，Header、图例、轴与Plot分别预留空间；ResizeObserver响应容器，不依赖window宽度猜测。宽预览不令页面横溢，390px可切数据表或展开详情。
+- Dashboard采用桌面12列；Widget间距16px，内边距16px，圆角12px细边框，普通图表无强阴影。标题14–16px，坐标/元数据12px；工具栏遵守32px规则。
+- 图表基础高度建议240/320/400px三个档位，Header、图例、轴与Plot分别预留空间；ResizeObserver响应容器，不依赖window宽度猜测。宽预览不令页面横溢。
 - `styles/theme.css`集中维护chart分类色/网格/参考线/选中token；状态色、类别色、容量顺序色与风险阈值色区分。同一seriesId跨图保持颜色，不随排序重新分配。用标签、线型、图案补充颜色。
 - 柱状默认零基线，折线非零轴须明确范围；不同单位分图，双轴仅显式配置并标单位。Donut分母/未知占比可读；连续时间保持真实间隔，不为了平滑插值掩盖缺口。
-- Hover只高亮和提示；点击、触屏点选、键盘Enter产生相同稳定选择。Tooltip展示完整值、单位、时间范围、覆盖/估算标记，不承载唯一可用的导航或错误信息。
+- Hover只高亮和提示；点击、键盘Enter产生相同稳定选择。Tooltip展示完整值、单位、时间范围、覆盖/估算标记，不承载唯一可用的导航或错误信息。
 - Legend支持键盘开关与状态播报；缩放/框选/Brush有范围表单与重置入口。缩放不改变统计口径，重采样只改变绘制密度；抽样图说明代表性并保留精确查询能力。
 - 提供图表标题、简短结论、结构化数据表和键盘等价操作；避免给每个一万散点都加Tab停靠。可以采用图内游标/受控焦点模型和外部表格，不能仅依赖底层库accessibilityLayer宣称无障碍通过。
 - 数据轴覆盖loading/empty/partial/error/success；空原因区分无匹配、真实零、尚未采集、历史不足。权限/过期/断连单独表达；无权限区域不显示旧数据。一个Widget失败不替换整个Dashboard。
@@ -207,7 +207,7 @@ DashboardDefinition与AnalyticsQuery分开。保存包含baseRevision和operatio
 | 阶段 | 优先级与依赖 | 交付 | 验收出口 |
 | --- | --- | --- | --- |
 | C0 契约与底座验证 | P0，无 | 指标/历史/权限/下钻模型、来源哈希；Recharts当前栈小样与依赖测量 | 口径可解释，按ID下钻，静态导出/主题/键盘/独立安装最小验证通过 |
-| C1 基础图表 | P0，C0 | C01–C03、C05/C06、series主题、数据表、原始事件到DrilldownSelection适配 | 常规图形+未知/零/部分态；鼠标键盘触屏都能定位同一集合 |
+| C1 基础图表 | P0，C0 | C01–C03、C05/C06、series主题、数据表、原始事件到DrilldownSelection适配 | 常规图形+未知/零/部分态；鼠标和键盘都能定位同一集合 |
 | C2 固定项目模板 | P0，C1 | C07、V01/V02、D01–D04项目模板、RiskEvidenceList | 状态→趋势→阻塞/年龄→任务详情完整闭环；无历史时不伪造趋势 |
 | C3 执行与资源模板 | P1，C2 | C04/C10、V03/V04、AgentOperationsDashboard及导出 | 币种/父子用量不重复，容量不足可解释，实际执行与计划区间分开 |
 | C4 可选进度包与Dashboard配置 | P1，C2/C3 | C08、D05；固定模板基础上选择/重排/保存Widget | scope变化/重开/估算有依据；保存拒绝/unknown可恢复，键盘重排可用 |
@@ -222,7 +222,7 @@ DashboardDefinition与AnalyticsQuery分开。保存包含baseRevision和operatio
 - 指标正确性：独立手算fixture与期初/事件重放对照；撤销/重开、scope增减、跨时区桶、缺失、重复事件、负数/NaN、分母0、多负责人分摊、币种隔离和父子包含关系。
 - 下钻一致性：图表、聚合表和明细在同快照/权限下对应；historical membership不被current status替换；大集合分页、权限撤回、查询切换迟到响应都有明确行为。
 - 专业图表：CFD每日阶段和等于有效范围量；Burnup两条线口径一致；Burndown scope变化可追溯；Cycle Time排除无起点样本并显示覆盖率；容量未知不标过载，预测不足不补曲线。
-- 图形/交互：深浅主题、中英、1440/1024/768/390px，零/单点/长标签/高基数、键盘/触屏、reduced-motion、主题隔离及Portal；数据表具有完整替代路径。
+- 图形/交互：深浅主题、中英、1440/1024px，零/单点/长标签/高基数、键盘、reduced-motion、主题隔离及Portal；数据表具有完整替代路径。
 - 性能：固定500/5000/50000条事件、100/1000/10000可绘制点、4/8/12 Widget分别测量；这些是测试档位，不是支持容量承诺。大数据优先消费端聚合与分页，再决定抽样/Worker/窗口化。
 - 门禁：lint、typecheck、Webpack build、check:i18n、check:manifest、check:blog、相关浏览器测试及test:install；首页/普通文档不得因图表上线自动下载统计引擎。构建前检查服务占用，共享工作树按路径保留并行修改。
 

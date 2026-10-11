@@ -6,7 +6,7 @@
 - `visual-review.json`：逐图核对、DOM尺寸与保留差异。
 - `verification.json`、`verification/`：工程检查、浏览器回归、独立安装及最终文章检查。全量回归和最后的CRM/Blog专项分别记录，不能将中间失败当作通过。
 
-参考使用Webpack开发副本，复刻使用Webpack生产静态导出。截图固定Chrome、英文、UTC、DPR1、减少动态效果。390px截图和真实粗指针测试是两种证据：后者另外覆盖390/768/1024px。
+参考使用Webpack开发副本，复刻使用Webpack生产静态导出。截图固定Chrome、英文、UTC、DPR1、减少动态效果。
 
 复现脚本：`scripts/capture-sales-crm-reference.mjs`、`scripts/capture-sales-crm.mjs`、`scripts/compare-sales-crm.py`。复刻采集时用`CRM_SOURCE_ROOT`指定实际服务所用的完整隔离源码，`CRM_REPLICA_ORIGIN`指定该构建的预览地址；参考通过`CRM_REFERENCE_ORIGIN`指定冻结副本服务。
 

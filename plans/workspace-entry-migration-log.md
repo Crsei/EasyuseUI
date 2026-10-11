@@ -6,7 +6,7 @@
 
 | 页面                                  | 声明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| PG08 `/workspace/`                    | 直接挂载 PG04 的 `WorkbenchDemo` 与 `WorkbenchExampleProvider`，默认 coding/session/首个 fixture 会话。用户可读对话、输入、切会话、检查工具和宽 Diff；URL 显式 page/session/layout/scenario 优先于入口默认值。48px 全局栏、56px 导航轨、256px 侧栏、64px 会话标题、760px 聊天列；资源按既有偏好展开，底栏初始收起。使用 `SiteFrame` 全窗口分支，不叠加站点页头页脚；聊天、资源、底栏分别滚动。390px 沿用共享 Sheet/菜单，短视口保留输入与发送。会话切换保留各会话草稿，面板/主题/语言切换保留编辑器实例和阅读位置；刷新仅恢复 URL 选择与面板偏好，业务 fixture 重置。数据、运行、权限与回执由现有内存 Provider 提供；此入口不连接 Pi 或增加真实服务能力。影响 MD01–MD12、MD15–MD17。 |
+| PG08 `/workspace/`                    | 直接挂载 PG04 的 `WorkbenchDemo` 与 `WorkbenchExampleProvider`，默认 coding/session/首个 fixture 会话。用户可读对话、输入、切会话、检查工具和宽 Diff；URL 显式 page/session/layout/scenario 优先于入口默认值。48px 全局栏、56px 导航轨、256px 侧栏、64px 会话标题、760px 聊天列；资源按既有偏好展开，底栏初始收起。使用 `SiteFrame` 全窗口分支，不叠加站点页头页脚；聊天、资源、底栏分别滚动。短视口保留输入与发送。会话切换保留各会话草稿，面板/主题/语言切换保留编辑器实例和阅读位置；刷新仅恢复 URL 选择与面板偏好，业务 fixture 重置。数据、运行、权限与回执由现有内存 Provider 提供；此入口不连接 Pi 或增加真实服务能力。影响 MD01–MD12、MD15–MD17。 |
 | PG09 `/workspace/shell/`              | 保留原 `WorkspaceShellDemo` 的通用 Shell/Inspector/数据与运行状态实验，页名为 Workspace Shell；继续使用站点阅读布局，保留 Agent Board 与 SVG 工作台链接。原有组件行为测试迁移到此地址。数据与动作仍为明确本地 fixture，刷新重置；沿用原尺寸、响应式、键盘、主题和语言行为。                                                                                                                                                                                                                                                                                                                                                                                                          |
 | PG04 `/examples/agent-workbench/app/` | 保留原默认 home 与显式查询行为；普通工作区导航留在当前入口，链接复制/新标签页使用同一入口的明确查询。PG01 总览、Pi、Agent Board、Canvas、SVG 和 Work Items 路由继续可达。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
@@ -23,7 +23,7 @@
 1. 直接打开 `/workspace/`，验证会话、工具、输入、资源栏、初始收起底栏与全窗口高度；没有旧 Shell 的数据状态控件。
 2. 输入草稿 → 键盘进入 Changes/Review → 返回会话，保留草稿与输入实例；查询和可复制链接保留 `/workspace/`，刷新恢复显式页面/会话。
 3. 打开非法 page → 恢复入口，返回 `/workspace/` 的默认会话；原 `/examples/agent-workbench/app/` 仍默认 home。
-4. 390px、浅/深、zh-CN/en、粗指针与 reduced-motion，验证无横向溢出、输入可用及语言/面板切换的草稿保持。
+4. 浅/深、zh-CN/en与 reduced-motion，验证无横向溢出、输入可用及语言/面板切换的草稿保持。
 5. `/workspace/shell/` 的既有选择、Inspector、五态、触摸、IME、主题/语言测试；回归共享工作台与站点框架。
 
 ## 执行清单
@@ -44,7 +44,7 @@
 
 验证使用从 `c8e9e7f` 建立的隔离候选，只复制本次任务文件；共享 `3010` 开发服务仅作 smoke，正式浏览器验证使用独立的 `3011` 生产预览。最终 lint、typecheck、Webpack build 与 `check:manifest` 通过；生产页面的 WorkspaceShell 路径说明已实际验证 zh-CN/en。构建使用该主机的 WASM SWC fallback。
 
-生产浏览器累计通过 105 个不同用例：共享编码工作台、区域及参考设计的 56 项在广泛回归中通过；最终构建重跑入口、旧 Shell、站点及相关语言/触摸路径的 49 项全部通过。此前广泛回归的源码晚响应时序失败经上述等待修正，在最终轮通过。开发服务 smoke 的 2 项也通过，并检查了实际桌面与移动端页面；`/workspace/`、`/workspace/shell/` 和 Pi 入口在当前开发服务均返回 HTTP 200。
+生产浏览器累计通过 105 个不同用例：共享编码工作台、区域及参考设计的 56 项在广泛回归中通过；最终构建重跑入口、旧 Shell、站点及相关语言/触摸路径的 49 项全部通过。此前广泛回归的源码晚响应时序失败经上述等待修正，在最终轮通过。开发服务 smoke 的 2 项也通过，并检查了实际桌面页面；`/workspace/`、`/workspace/shell/` 和 Pi 入口在当前开发服务均返回 HTTP 200。
 
 原始证据位于工作区上级 `.tmp/`：`workspace-entry-lint-final.log`、`workspace-entry-typecheck-final.log`、`workspace-entry-build-final.log`、`workspace-entry-production-accepted.log`、`workspace-entry-final-browser.log`、`workspace-entry-smoke-final.log`、`workspace-entry-i18n-baseline.log`；截图及失败追踪保留在对应 results 目录。
 

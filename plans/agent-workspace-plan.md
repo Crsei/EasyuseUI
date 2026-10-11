@@ -1206,13 +1206,13 @@ ChatWorkspace
 
 | ID | reference 要求 | 本例采用方式与作用域 | 验证要求 |
 | --- | --- | --- | --- |
-| V01 | 全局栏 48–56px，导航轨 56px | 全局栏 48px；Agent Workspace 示例导航轨 56px 作为局部布局参数，公共 Shell 默认 48px 不变 | 首屏和窄屏无重复空白轨，触摸命中不少于 44px |
-| V02 | V2 Session Header 64px | 当前会话双行 Header 基准 64px；窄屏内容必要时增高；不修改全局栏或公共组件的默认 48px | Header 不随消息滚走，不截断状态或控制按钮 |
-| V03 | 内容列 760px；用户气泡 72%、R16、12px 16px | 宽屏最大内容宽 760px，气泡靠右、最大 72%、圆角 16px；小屏允许放宽至可用宽度，保留外侧间距 | 长文本、代码、附件可读；无页面横向溢出 |
+| V01 | 全局栏 48–56px，导航轨 56px | 全局栏 48px；Agent Workspace 示例导航轨 56px 作为局部布局参数，公共 Shell 默认 48px 不变 | 首屏无重复空白轨 |
+| V02 | V2 Session Header 64px | 当前会话双行 Header 基准 64px；不修改全局栏或公共组件的默认 48px | Header 不随消息滚走，不截断状态或控制按钮 |
+| V03 | 内容列 760px；用户气泡 72%、R16、12px 16px | 内容最大宽 760px，气泡靠右、最大 72%、圆角 16px | 长文本、代码、附件可读；无页面横向溢出 |
 | V04 | 用户浅蓝 `#EDF4FF` / 描边 `#DBEAFE` | 作为浅色示例参考值；语义化为本例 scoped token，暗色使用对应可读配色；不将固定浅色扩散到所有 ChatMessage | 双主题对比度、选中文字与焦点清楚 |
 | V05 | Agent 回复和 Output 的卡片描述与 V2 开放正文有差异 | 按 V2：正文、Thinking、Output 无统一外包大卡片；工具、计划摘要、批准区才有有意义的边界 | 内容层级依赖排版/分隔，长对话不变成嵌套卡片列表 |
 | V06 | Divider `#E5E7EB`；阶段间距 14–18px / token 18px | 分隔线映射主题 `--border`，1px；选 16px 上下间距以符合 4px 网格；Turn 间距 32px | 只在实际阶段切换时出现，重复 Thinking/Action 保留顺序 |
-| V07 | Session 32–40px、R8、加深选中底色及 2–3px 指示条 | 单行 40px、粗指针至少 44px、双行按公共 56px；本例 R8，左指示条 2px、选中标题加重；不采用可选内阴影 | selected、hover、focus、runtime 可叠加而不混淆，选中不挤动内容 |
+| V07 | Session 32–40px、R8、加深选中底色及 2–3px 指示条 | 单行 40px、双行按公共 56px；本例 R8，左指示条 2px、选中标题加重；不采用可选内阴影 | selected、hover、focus、runtime 可叠加而不混淆，选中不挤动内容 |
 | V08 | V1 running 偏绿、waiting/idle 合并灰态 | 保留原文供追溯；实施遵循 `runtime-status.ts`：running 蓝、waiting 琥珀、idle 中性、completed 绿 | 不能从选中或连接颜色推导运行成功；未知状态保留原值 |
 | V09 | Plan/Tool R10，Composer R16、最大 300px | 本例计划/工具摘要容器 R10、Composer 外容器 R16 为局部例外；内层 Button/Input 继续遵循公共尺寸；输入最大高度 300px 并受当前视口限制 | 短视口保留输入和主操作，选择器不变成厚重大按钮 |
 | V10 | 底栏 180–240px，拖拽与折叠 | 初始 240px，范围沿用 Shell 200–400px；默认收起；与消息滚动独立 | 面板打开/关闭不取消命令，键盘可调整高度 |
@@ -1222,6 +1222,8 @@ ChatWorkspace
 局部 token 在示例私有样式/ThemeBoundary 中声明，值引用共享主题语义。公共组件需要复用这些选项时通过兼容 variant/props 表达，并同步文档和安装验证；不更改其他示例的外观。V01–V12 是本次用户指定参考下的预先声明，无需为这些已明确的例行取舍另起审批流程。
 
 ## 页面级设计声明
+
+独立 Agent 应用采用桌面布局：`DesktopFrame` 最小画布宽 1024px；`WorkspaceShell` / `AgentWorkbench` 使用 `layoutMode="desktop"`，导航轨保持纵向，侧栏和 Inspector 停靠；小于画布的窗口允许外层滚动。主区保留按内容宽度切换对话/审阅、草稿与编辑器实例保持。区域实验室保留一套目录与可折叠场景栏。
 
 页面声明先确定“用户在这里完成什么”和区域归属，模块声明再固定区域内部的展示。以下为 Agent Workspace 的首份页面声明；以后修改某页时更新该行及关联模块，不让 Agent 从截图自行猜测。
 
@@ -1250,7 +1252,7 @@ PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/refere
 | 模块 ID / reference | 职责与复用入口 | 明确的展示与布局规则 | 状态、交互和服务边界 | 适用页面 |
 | --- | --- | --- | --- | --- |
 | MD01 / [01] 全局栏 | 项目/环境/工作树身份，复用项目选择器和 Badge | 48px、中性底、底部 1px 分隔；项目与环境横排，搜索/通知/设置靠右；不重复 Session 标题 | 显示实际环境/连接；未知不显示 Healthy；切项目不自动终止旧任务 | PG04–PG07 |
-| MD02 / [02] 导航轨 | 全局页面入口，复用 Shell activityBar、Button/Menu | 本例 56px；默认弱图标，hover 浅底，当前入口更深底/主色标记；icon label+tooltip | 选择与 focus 区分；Files/Terminal 属于当前工作区工具；小屏收敛到可达菜单 | PG03–PG07 |
+| MD02 / [02] 导航轨 | 全局页面入口，复用 Shell activityBar、Button/Menu | 本例 56px；默认弱图标，hover 浅底，当前入口更深底/主色标记；icon label+tooltip | 选择与 focus 区分；Files/Terminal 属于当前工作区工具 | PG03–PG07 |
 | MD03 / [03] 会话侧栏 | Project/Task/Session 及 recent/attention，复用 SessionNavigator/Tree/Item | New Session 主按钮、New Task 次按钮；搜索与树平铺；选中加深背景、2px 条、加重标题；按 V07 控制行高 | selected 与 running/attention 独立；时间/树共享数据，归类不执行任务；Pi 首轮先实现必要项目/会话列表 | PG03–PG07 |
 | MD04 / [04-A], A2-01① Header | 当前 Session 标题和运行控制，复用 SessionHeader | 64px 基准，标题/元信息两行，底分隔；运行阶段可读，动作紧凑 | Stop/Fork/History/Checkpoint 按能力；提交停止先 pending，不能点击即 cancelled | PG04–PG06 |
 | MD05 / A2-01②, A2-09 ChatViewport | 历史阅读，复用 Conversation | 独立纵向滚动，居中最大 760px；日期/元信息弱化；BottomDock 固定且不遮正文 | ≤64px 跟随；向上阅读保持锚点，显示 New Activities；补历史不跳动/重复 | PG02–PG06 |
@@ -1285,7 +1287,7 @@ PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/refere
 - [x] PG05 复用 Shell、导航、Header、Conversation、Composer；PG01 提供清楚的真实 Pi 入口。
 - [x] 实现 MD01–MD06/MD12 的首轮必要展示：真实环境/会话、加深选中态、右对齐浅蓝气泡、760px内容列、稳定Header/BottomDock。
 - [x] 首屏能选会话、读历史、输入发送和停止；无服务/无模型/无权限均有明确恢复路径。
-- [x] 小屏和软键盘下保留主操作；切语言/面板保持输入实例、草稿和阅读位置。
+- [x] 切语言/面板保持输入实例、草稿和阅读位置。
 
 ### DL2 首轮 Pi 对话展示
 
@@ -1294,7 +1296,7 @@ PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/refere
 - [x] MD08/MD10/MD11/MD13/MD14 仅按真实能力出现；没有计划/变更/测试/队列/批准事实不生成样板成功结果。
 - [x] 与补全计划 AW1–AW5 联合验证真实发送、工具、停止、刷新、断线、重启和旧上下文继续。
 
-首轮勾选范围只覆盖 PG05 和受影响公共模块；真实手机软键盘、完整参考页面、全部 V01–V12 参数验收仍单列后续，见首轮记录。
+首轮勾选范围只覆盖 PG05 和受影响公共模块；完整参考页面、全部 V01–V12 参数验收仍单列后续，见首轮记录。
 
 ### DL3 参考完整状态与区域演示
 
@@ -1314,8 +1316,8 @@ MD13/MD14 的独立人工介入 fixture 与 MD12 输入稳定性按[人工介入
 
 ### DL5 视觉和行为验收
 
-- [x] 在 1440×900 桌面、390px移动、短视口、200%布局、双主题/双语下逐项检查 PG/MD/V，截图标明来源版本。
-- [x] 检查1px阶段线、16px间距、选中与焦点区别、消息操作不遮正文、代码/路径可选中、粗指针命中区。
+- [x] 在 1440×900 桌面、短视口、200%布局、双主题/双语下逐项检查 PG/MD/V，截图标明来源版本。
+- [x] 检查1px阶段线、16px间距、选中与焦点区别、消息操作不遮正文、代码/路径可选中。
 - [x] 用长历史、混合工具/正文、失败/unknown、来源缺失、迟到数据验证顺序、阅读锚点和恢复。
 - [x] 运行改动所需 lint/typecheck/build/浏览器回归；公共源码/CSS/Registry 变更执行独立安装验证。
 - [x] 在实施记录中分别登记设计一致性、fixture、真实 Pi、其它服务和 Git 交付；不得用完成设计清单替代真实执行验收。
@@ -1323,3 +1325,5 @@ MD13/MD14 的独立人工介入 fixture 与 MD12 输入稳定性按[人工介入
 ### 变更记录要求
 
 后续修改 reference 或实施取舍时，保持原文来源可追溯，更新完整性基线及对应 PG/MD/V/DL 条目。新增页面必须先补页面声明，新增模块必须先补模块声明；只改一个模块时按影响范围更新，不要求重写整份设计文件。
+
+本轮主界面高保真还原及逐图验收见 [线框图还原记录](agent-workspace-wireframe-restoration.md)。历史 DL 勾选不能替代当前主页面的视觉对照。

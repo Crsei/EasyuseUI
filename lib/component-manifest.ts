@@ -2415,7 +2415,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     {
       "name": "DashboardWidget.id / title / width / data",
       "type": "string / string / 6 | 12 / DataRegion options",
-      "description": "桌面12列、中屏6列、窄屏单列；独立读态。"
+      "description": "桌面12列布局；独立读态。"
     },
     {
       "name": "WidgetActions / WidgetInspector",
@@ -4315,7 +4315,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     availability: "available",
     name: "NativeSelect",
     category: "基础组件",
-    description: "原生选择器、选项与分组，保留移动端系统选择器。",
+    description: "原生选择器、选项与分组。",
     source: "components/ui/native-select.tsx",
     example: "components/examples/form-primitives-demo.tsx",
     usage:
@@ -4756,7 +4756,7 @@ const sourceManifest: ComponentManifestEntry[] = [
     availability: "available",
     name: "FilterToolbar",
     category: "组合模块",
-    description: "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+    description: "组合筛选、排序与计数。",
     source: "components/blocks/filter-toolbar.tsx",
     example: "components/examples/filter-toolbar-demo.tsx",
     usage: 'import { FilterToolbar } from "@/components/blocks/filter-toolbar"',
@@ -6080,18 +6080,24 @@ const sourceManifest: ComponentManifestEntry[] = [
     ],
     example: "components/examples/workspace-shell-demo.tsx",
     usage:
-      'import { WorkspaceShell } from "@/components/blocks/workspace-shell"\n\n<WorkspaceShell title="Agent Workspace" sidebar={<Navigation />} inspector={<ObjectDetails />} inspectorTitle="Session">\n  <SessionList />\n</WorkspaceShell>',
+      'import { WorkspaceShell } from "@/components/blocks/workspace-shell"\n\n<WorkspaceShell layoutMode="desktop" title="Agent Workspace" sidebar={<Navigation />} inspector={<ObjectDetails />} inspectorTitle="Session">\n  <SessionList />\n</WorkspaceShell>',
     props: [
+      {
+        name: "layoutMode",
+        type: '"adaptive" | "desktop"',
+        default: "adaptive",
+        description: "桌面模式始终停靠侧栏与Inspector；主区保留容器宽度约束。",
+      },
       {
         name: "sidebarCollapsed / inspectorOpen / inspectorWidth / bottomPanelOpen / bottomPanelHeight",
         type: "value / defaultValue / onChange",
         description:
-          "布局支持受控与非受控；桌面停靠和窄屏浮层独立，存储由调用方管理。",
+          "布局支持受控与非受控；存储由调用方管理。",
       },
       {
         name: "inspectorOverlayOpen / defaultInspectorOverlayOpen / onInspectorOverlayOpenChange",
         type: "boolean / boolean / (open: boolean) => void",
-        description: "窄屏浮层状态独立；响应式测量不回写业务偏好。",
+        description: "浮层状态由调用方控制；尺寸测量不回写业务偏好。",
       },
       {
         name: "title / sidebar / children",
@@ -6127,8 +6133,8 @@ const sourceManifest: ComponentManifestEntry[] = [
       },
     ],
     notes: [
-      "完整基础页在/workspace/shell/；窄容器的Inspector改为带焦点约束的抽屉。",
-      "按容器宽度响应：≥1280px停靠Inspector；<1280px改为浮层；<1024px使用窄导航。",
+      "完整基础页在/workspace/shell/；桌面模式通过 layoutMode 显式启用。",
+      "桌面模式始终停靠侧栏与Inspector；主区保留容器宽度约束。",
       "支持指针拖动、方向键每次8px、Home/End尺寸边界；关闭后恢复焦点。",
       "示例数据和消息只在本地内存，不连接Agent、模型或网络服务。",
       "工作台使用独立 Tree、ActivityTimeline、SessionRow、AgentRow、Inspector、ChatMessage 和 ToolCall；各组件均可单独安装。",
@@ -6479,7 +6485,7 @@ const sourceManifest: ComponentManifestEntry[] = [
       {
         name: "Conversation",
         type: "ConversationProps",
-        description: "受控消息数组、数据态、工作区和 Composer；窄屏切换视图。",
+        description: "受控消息数组、数据态、工作区和 Composer。",
       },
       {
         name: "ChatComposer",

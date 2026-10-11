@@ -1,5 +1,7 @@
 # Agent Workspace UI Design Rules
 
+项目交付范围为桌面 Web。设计与验收以桌面窗口、鼠标、键盘、缩放、双主题和双语为准；保留面板尺寸约束、焦点恢复与草稿保持。Agent Workspace 使用 1024px 最小桌面画布、竖向导航和停靠面板。
+
 > Version 1.1 · 2026-10-08\
 > 适用于 Agent Harness、Coding Agent Runtime、Session Management、Chat Workspace、AI Activity、Ideas、Automation 等产品页面。
 
@@ -18,7 +20,7 @@
 - 强工具属性
 - 适合长时间使用
 - 适合复杂 Agent 工作流
-- 同时支持鼠标、键盘和触摸操作
+- 同时支持鼠标和键盘操作
 
 整体视觉方向：
 
@@ -978,12 +980,6 @@ Icon 必须保持相同 Stroke Weight。
 28–32px
 ```
 
-但移动端实际可触摸区域应该接近：
-
-```text
-44px
-```
-
 ---
 
 # 28. Button Hierarchy
@@ -1170,4 +1166,4 @@ Expandable
 
 样式工作台的实验值仅作用于预览容器。预设、固定基准和导出用于比较与记录，不自动改变产品默认。产品页面继续遵循本文件的紧凑密度、中性表面、细分隔线和语义状态规则。
 
-将实验结果作为共享设计规则前，在真实组件与长内容、深浅主题、键盘、触屏场景中检查可读性与操作效率。确认后同步修订组件契约与 `packages/ui/styles/theme.css`，复用现有组件，并完成工程与行为验收。参数范围与操作步骤见 [样式工作台指南](./STYLE-WORKBENCH.md)。
+将实验结果作为共享设计规则前，在真实组件与长内容、深浅主题、键盘场景中检查可读性与操作效率。确认后同步修订组件契约与 `packages/ui/styles/theme.css`，复用现有组件，并完成工程与行为验收。参数范围与操作步骤见 [样式工作台指南](./STYLE-WORKBENCH.md)。

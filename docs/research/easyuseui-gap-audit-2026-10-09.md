@@ -38,7 +38,7 @@ P1 表示应优先收口的现有契约/可用性问题或高影响组合风险�
 
 | ID  | 优先级 | 状态                 | 问题与下一步                                                                  |
 | --- | ------ | -------------------- | ----------------------------------------------------------------------------- |
-| G01 | P1     | 浏览器确认短视口问题 | Dialog 缺少默认高度约束；CommandPalette 在 390×240 时关闭按钮大部分位于视口外 |
+| G01 | P1     | 浏览器确认短视口问题 | Dialog 缺少默认高度约束；CommandPalette 短视口中关闭按钮大部分位于视口外 |
 | G02 | P1     | 待复现风险           | 浮层硬编码层级分散；验证 Sheet 内 Dialog 与多层确认                           |
 | G03 | P1     | 部分被并行修改修正   | 词典标记已更新；README 登记入口仍落后，元数据同步仍需收口                     |
 | G04 | P1     | 已确认               | Inspector 最小宽度在同一契约中出现 280 与 300；统一约定                       |
@@ -55,11 +55,11 @@ P1 表示应优先收口的现有契约/可用性问题或高影响组合风险�
 
 **触发：**消费方放入较长表单/错误说明，或者用户在很短的视口中打开对话框。居中内容可能超出上下边界；背景又处于模态约束，不能依赖页面滚动找回操作。
 
-**实测：**使用基线生产导出的原始 DialogDemo 和 CommandPaletteDemo，未注入 DOM 内容。390×844 时二者均在视口内；390×320 时 CommandPalette 高 335px，顶部 -7.5px；390×240 时顶部 -47.5px，关闭按钮顶部 -30.5px、高 44px，仅底部 13.5px 位于视口内。Popup 的 computed `max-height:none`、`overflow-y:visible`。普通 Dialog 在 240px 高度时只确认边框/内边距越界，按钮仍在视口内，不能把两者影响混写。六个场景 Escape 关闭与焦点恢复均成功。见 [原始测量](./evidence/dialog-viewport-probe.json) 和 [可复跑探查脚本](./evidence/dialog-viewport-probe.mjs)。
+**实测：**使用基线生产导出的原始 DialogDemo 和 CommandPaletteDemo，未注入 DOM 内容。短视口下 CommandPalette 的关闭按钮部分越界。Popup 的 computed `max-height:none`、`overflow-y:visible`。普通 Dialog 在 240px 高度时只确认边框/内边距越界，按钮仍在视口内，不能把两者影响混写。六个场景 Escape 关闭与焦点恢复均成功。见 [原始测量](./evidence/dialog-viewport-probe.json) 和 [可复跑探查脚本](./evidence/dialog-viewport-probe.mjs)。
 
 **下一步：**为默认 Dialog 定义可用视口高度与长内容策略，评估 Header/Body/Footer 槽位；不改变 Base UI 的焦点和关闭责任。先保留短视口实测记录，再确定修复范围。
 
-**验收：**390px 宽、短视口、长描述、长表单和错误追加后，标题/关闭/提交均能触达；Tab、Shift+Tab、Escape 和焦点恢复正确；正文滚动不拖动背景。普通内容不必强制固定高度。
+**验收：**短视口、长描述、长表单和错误追加后，标题/关闭/提交均能触达；Tab、Shift+Tab、Escape 和焦点恢复正确；正文滚动不拖动背景。普通内容不必强制固定高度。
 
 ### G02 嵌套浮层的视觉与行为顺序
 
@@ -101,7 +101,7 @@ P1 表示应优先收口的现有契约/可用性问题或高影响组合风险�
 
 ### G06 通用命令工具栏与空间不足
 
-**依据：**[FilterToolbar](../../components/blocks/filter-toolbar.tsx) 是 `role=group`，将搜索/筛选/排序/摘要组合并在窄屏打开 Sheet；工作区 `components/ui/button-group.tsx` 是布局组。本轮冻结的 Registry 没有 `toolbar` 项，未发现可复用的方向键命令 Toolbar 或优先级 overflow 模型。
+**依据：**[FilterToolbar](../../components/blocks/filter-toolbar.tsx) 是 `role=group`，将搜索/筛选/排序/摘要组合；工作区 `components/ui/button-group.tsx` 是布局组。本轮冻结的 Registry 没有 `toolbar` 项，未发现可复用的方向键命令 Toolbar 或优先级 overflow 模型。
 
 **下一步：**对于 Canvas 等命令密集场景，评估已安装的 `@base-ui/react/toolbar`，借鉴 Fluent 的优先级可见项模型。普通筛选组继续保留自己的语义；已有 Menu 和 Button 应复用。
 

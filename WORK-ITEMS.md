@@ -62,7 +62,7 @@ Board 回调包含 itemId、sourceGroup、targetGroup、beforeId/afterId、query
 
 单值状态/优先级分组可移动。自动排序允许跨组修改，禁止列内自由重排。部分分页只允许明确已加载邻居；向未知尾部追加必须显式提供 allowAppend 能力。多值负责人/标签分组不在首版移动范围。
 
-指针拖动仅由独立把手启动，触摸把手使用 Pointer Events。键盘/触屏使用“移动到组、上移、下移”入口，走相同回调；Escape 取消。折叠、删除目标、queryKey变化和权限变化后重新校验，不能修改旧对象。拖动预览不写权威记录。
+指针拖动仅由独立把手启动。键盘使用“移动到组、上移、下移”入口，走相同回调；Escape 取消。折叠、删除目标、queryKey变化和权限变化后重新校验，不能修改旧对象。拖动预览不写权威记录。
 
 ### 结果与分页
 
@@ -86,7 +86,7 @@ URL 仅保存支持的布局、分组、排序、搜索、过滤、字段显隐�
 
 `WorkItemBoard` / `WorkItemsWorkspace.lanes` 接收 `WorkItemsLaneSnapshot[]`，每个泳道有独立的 `groups`、组数据态、计数、分页和折叠。`view.subGroupBy` 可为 `none/state/priority`，必须不同于 `groupBy`。`groupWorkItemLanes` 仅适用于已掌握全部数据的本地适配器；远程数据应直接提供权威泳道和分组，不能用一页数据推断总数。
 
-`onMove` 收到原有移动意图以及 `laneKey`；指针、触屏菜单和键盘均只能在当前泳道内操作。调用方验证所属泳道、查询代次、基础版本、权限及目标邻居。跨泳道会同时影响第二个字段，本版不定义这种写命令，也不会自动修改两个属性。`onCreateInLane(laneKey, groupKey)` 显式提供两个预设；加载更多/重试使用 `onLoadMoreInLane` / `onRetryInLane`。
+`onMove` 收到原有移动意图以及 `laneKey`；指针、菜单和键盘均只能在当前泳道内操作。调用方验证所属泳道、查询代次、基础版本、权限及目标邻居。跨泳道会同时影响第二个字段，本版不定义这种写命令，也不会自动修改两个属性。`onCreateInLane(laneKey, groupKey)` 显式提供两个预设；加载更多/重试使用 `onLoadMoreInLane` / `onRetryInLane`。
 
 List/Table 保留泳道偏好但仍是原有布局。没有当前查询的泳道快照时明确提示并展示原始分组，不补虚构总数。示例的部分加载场景只提供一级分组的权威快照。
 
@@ -156,7 +156,7 @@ Timeline 采用共享垂直滚动、固定侧栏和吸附表头，右侧支持�
 
 远程 Timeline 查询必须使用区间相交，包含起点在窗口之前但仍跨入窗口的任务。缺失日期策略由调用方明确；`scheduleIntersects()` 只用于完整本地来源。`ScheduleRangeSnapshot` 和 `DateBucketSnapshot` 携带 queryKey、IDs、loadedCount、可空 totalCount、游标、hasMore、五数据态与错误。组件丢弃不匹配查询/范围的快照；调用方也须丢弃迟到响应，合并分页使用 `mergeSchedulePage()` 去重且检查代次和范围。unknown total 不补零，刷新失败保留同范围已加载数据。
 
-Calendar 按截止日单次归组，显示整周（含相邻月份）、可控周首日、周末显隐、月/周切换与当日 Agenda。周末隐藏后任务仍可从周末 Agenda 进入；无截止日任务在去重的未排期队列中。已加载条目的折叠与远程分页分别有入口。按日期新建只预填草稿，保存才创建；排期已有任务修改原对象。390px 隐藏格内条目，日期选择后进入 Agenda。日期采用 roving tabindex：方向键、Home/End、PageUp/Down；Enter 进入 Agenda，Escape 返回日期；不添加不完整的 ARIA grid。
+Calendar 按截止日单次归组，显示整周（含相邻月份）、可控周首日、周末显隐、月/周切换与当日 Agenda。周末隐藏后任务仍可从周末 Agenda 进入；无截止日任务在去重的未排期队列中。已加载条目的折叠与远程分页分别有入口。按日期新建只预填草稿，保存才创建；排期已有任务修改原对象。日期采用 roving tabindex：方向键、Home/End、PageUp/Down；Enter 进入 Agenda，Escape 返回日期；不添加不完整的 ARIA grid。
 
 URL 白名单支持 `layout=timeline&scale=month&date=2026-10-09` 与 `layout=calendar&mode=month&date=2026-10-09`，另存 timelineDate/calendarDate/selectedDate 等独立偏好。切时间布局不应用 groupBy/subGroupBy，返回原布局时恢复。服务查询、真实权限、持久化、依赖调度/关键路径、会议/重复事件均不由这些组件实现。
 

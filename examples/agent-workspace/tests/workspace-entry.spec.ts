@@ -52,13 +52,11 @@ test("workspace opens the new session and preserves draft identity through revie
   expect(errors).toEqual([])
 })
 
-test("workspace mobile retains the composer across locale and theme changes while explicit queries win", async ({
+test("workspace retains the composer across locale and theme changes while explicit queries win", async ({
   browser,
 }, testInfo) => {
   const context = await browser.newContext({
-    viewport: { width: 390, height: 844 },
-    isMobile: true,
-    hasTouch: true,
+    viewport: { width: 1280, height: 844 },
     reducedMotion: "reduce",
   })
   const page = await context.newPage()
@@ -70,7 +68,7 @@ test("workspace mobile retains the composer across locale and theme changes whil
     })
     await composer.fill("My 未发送 draft")
     await composer.evaluate((node) =>
-      node.setAttribute("data-entry-instance", "mobile"),
+      node.setAttribute("data-entry-instance", "desktop"),
     )
     await page.getByRole("button", { name: "示例设置", exact: true }).click()
     const settings = page.getByRole("dialog")
@@ -88,7 +86,7 @@ test("workspace mobile retains the composer across locale and theme changes whil
     await expect(englishComposer).toHaveValue("My 未发送 draft")
     await expect(englishComposer).toHaveAttribute(
       "data-entry-instance",
-      "mobile",
+      "desktop",
     )
     await expect(page.locator("html")).toHaveClass(/dark/)
     await expect(page.locator("html")).toHaveAttribute("lang", "en")
@@ -98,7 +96,7 @@ test("workspace mobile retains the composer across locale and theme changes whil
       ),
     ).toBe(true)
     await page.screenshot({
-      path: testInfo.outputPath("workspace-mobile-dark-en.png"),
+      path: testInfo.outputPath("workspace-desktop-dark-en.png"),
     })
 
     await page.goto("/?page=home")
@@ -233,44 +231,46 @@ test("session sidebar owns views and groups with accessible runtime icons", asyn
   await expect(feedback).toHaveAttribute("data-review-instance", "retained")
 })
 
-test("mobile session views close the navigation sheet and preserve the composer", async ({
-  browser,
+test("desktop sidebar views and resizing preserve the composer without navigation dialogs", async ({
+  page,
 }, info) => {
-  const context = await browser.newContext({
-    viewport: { width: 390, height: 844 },
-    hasTouch: true,
-    isMobile: true,
-    reducedMotion: "reduce",
-  })
-  const page = await context.newPage()
-  try {
-    await page.goto("/")
-    const field = page.getByRole("textbox", { name: "消息输入", exact: true })
-    await field.fill("移动侧栏草稿")
-    await field.evaluate((node) =>
-      node.setAttribute("data-entry-instance", "mobile-views"),
-    )
-    const retained = page.locator('[data-entry-instance="mobile-views"]')
-    for (const view of ["context", "plan", "conversation"]) {
-      await page.getByRole("button", { name: "展开侧栏", exact: true }).tap()
-      const sheet = page.getByRole("dialog")
-      const entry = sheet.locator(`[data-sidebar-session-view="${view}"]`)
-      const box = (await entry.boundingBox())!
-      expect(box.height).toBeGreaterThanOrEqual(44)
-      await entry.tap()
-      await expect(sheet).toHaveCount(0)
-      await expect(retained).toHaveValue("移动侧栏草稿")
-      expect(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth,
-        ),
-      ).toBe(true)
-    }
-    await page.getByRole("button", { name: "展开侧栏", exact: true }).tap()
-    await page.screenshot({
-      path: info.outputPath("session-sidebar-mobile.png"),
+  await page.goto("/")
+  const field = page.getByRole("textbox", { name: "消息输入", exact: true })
+  await field.fill("侧栏草稿")
+  await field.evaluate((node) =>
+    node.setAttribute("data-entry-instance", "desktop-views"),
+  )
+  const retained = page.locator('[data-entry-instance="desktop-views"]')
+  for (const width of [1440, 1024, 800, 1440]) {
+    await page.setViewportSize({ width, height: 900 })
+    await expect(page.locator('[data-layout-mode="desktop"]')).toBeVisible()
+    const nav = page.getByRole("complementary", {
+      name: "工作区导航",
+      exact: true,
     })
-  } finally {
-    await context.close()
+    await expect(nav).toBeVisible()
+    for (const view of ["context", "plan", "conversation"]) {
+      await nav.locator(`[data-sidebar-session-view="${view}"]`).click()
+      await expect(page.getByRole("dialog")).toHaveCount(0)
+      await expect(retained).toHaveValue("侧栏草稿")
+    }
+    const frame = page.locator("[data-desktop-canvas]")
+    expect((await frame.boundingBox())!.width).toBeGreaterThanOrEqual(1024)
   }
+  await page.setViewportSize({ width: 1024, height: 900 })
+  const inspector = page.locator("[data-inspector-docked]")
+  if (!(await inspector.isVisible()))
+    await page.getByRole("button", { name: "打开 Inspector", exact: true }).click()
+  await expect(inspector).toBeVisible()
+  await expect(page.getByRole("dialog")).toHaveCount(0)
+  const resize = page.getByRole("separator", { name: "调整 Inspector 宽度", exact: true })
+  await resize.focus()
+  await resize.press("Home")
+  await expect(resize).toHaveAttribute("aria-valuenow", "300")
+  await page.getByRole("button", { name: "关闭 Inspector", exact: true }).click()
+  await expect(inspector).toHaveCount(0)
+  await expect(retained).toHaveValue("侧栏草稿")
+  await page.screenshot({
+    path: info.outputPath("session-sidebar-desktop.png"),
+  })
 })

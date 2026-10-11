@@ -111,7 +111,7 @@
 | Sidebar / Side Navigation      | 左侧纵向导航                     | 稳定的产品入口；对象元信息放 Inspector      | 已有 `Sidebar` 和 `WorkspaceShell`；256/48px      |
 | Navbar / Navigation Bar        | 顶部或边缘导航条                 | 产品级入口；避免和当前页面工具栏混为一层    | 内嵌：文档站导航；不是可分发通用 Navbar           |
 | Breadcrumb                     | 面包屑 `Project / Session / Run` | 层级位置与返回上级；不要代替对象状态        | 已有 `Breadcrumb`                                 |
-| Tabs / Tab Panel               | 标签页及其关联内容面板           | 同一上下文内切换内容；跨页面导航用链接      | 已有 Tabs；工作台窄屏切换仍保持原兼容接口         |
+| Tabs / Tab Panel               | 标签页及其关联内容面板           | 同一上下文内切换内容；跨页面导航用链接      | 已有 Tabs         |
 | Tree / Tree View               | 层级树 `▸ Project`               | 父子关系、展开/折叠；无层级列表不要强行树化 | 已有 `Tree`，单选、键盘导航、受控移动             |
 | Command Palette / Command Menu | 可搜索的命令面板                 | 快速执行或跳转；重要操作仍应有可发现入口    | 已有 `CommandPalette`（模态）和 `Command`（内嵌） |
 | Toolbar / Command Bar          | 当前内容附近的一排动作           | 当前页面/对象的操作；少用同权重主按钮       | 已有：`Toolbar`；[源码](components/ui/toolbar.tsx) / [文档](/docs/toolbar/) / Registry `toolbar` |
@@ -139,10 +139,10 @@
 | Context Menu                  | 右键/上下文动作菜单               | 当前对象快捷动作；必须另有键盘、触摸可达入口           | 已有 `ContextMenu`；需提供可见菜单替代             |
 | Dialog                        | 对话框，独立标题、内容、动作      | 专注任务、确认；普通元信息无需每次弹框                 | 已有 `Dialog`                                      |
 | Modal / Modal Dialog          | 模态 / 模态对话框，背景暂不可操作 | 必须处理的聚焦流程；不是独立形状或所有 Dialog 的同义词 | 已有 Dialog 及 WorkspaceShell 移动浮层采用模态交互 |
-| Drawer / Sheet / Bottom Sheet | 侧边/底部滑出的面板               | 窄屏导航、上下文详情；名称边界随设计系统而异           | 已有 `Sheet` 与 `Drawer`；可选底部手柄滑动关闭     |
+| Drawer / Sheet / Bottom Sheet | 侧边/底部滑出的面板               | 上下文详情；名称边界随设计系统而异           | 已有 `Sheet` 与 `Drawer`；可选底部手柄滑动关闭     |
 | Backdrop / Scrim              | 浮层后的遮罩                      | 表达模态范围、隔开背景；不能只变暗而仍让焦点跑到背景   | 内嵌：Dialog、WorkspaceShell                       |
 
-Dialog 描述内容容器，Modal 描述交互模式，Drawer/Sheet 描述空间呈现方式，Inspector 描述内容职责。同一个 Inspector 可以在桌面停靠，在窄屏以模态侧面板打开。
+Dialog 描述内容容器，Modal 描述交互模式，Drawer/Sheet 描述空间呈现方式，Inspector 描述内容职责。Inspector 可以在桌面停靠，由用户控制展开和收起。
 
 ## 9. Feedback · 反馈
 

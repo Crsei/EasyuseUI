@@ -42,7 +42,7 @@ Next/React/TypeScript/Tailwind、Base UI/shadcn 分发、Lucide、ESLint/Prettie
 
 ## 检查与截图
 
-基线截图在现有 3010 开发服务取得，确认参考页一次仅显示一个模块；未重启服务。独立浏览器检查首版 PG10 在 1440/1024/390 下均为 17/17 实际可见、页面无水平溢出、无重复 DOM ID。最终生产产物验收另行登记。
+基线截图在现有 3010 开发服务取得，确认参考页一次仅显示一个模块；未重启服务。独立浏览器检查首版 PG10 在 1440/1024 下均为 17/17 实际可见、页面无水平溢出、无重复 DOM ID。最终生产产物验收另行登记。
 
 审查中发现并修正：语言标签被用作 React 分组 key 会重挂组件，改为稳定 groupId；同一目标重复导航不应因 selected 未变而失效，增加独立导航请求；CodeMirror 长内容要保留实际滚动容器，搜索高亮与只读搜索栏使用同一引擎查询。首轮隔离 lint 检出画廊 effect 同步设置视图，不将这次失败算作通过，修复后复测。
 
@@ -50,7 +50,7 @@ Next/React/TypeScript/Tailwind、Base UI/shadcn 分发、Lucide、ESLint/Prettie
 
 独立安装首轮在 lazy preview 尚未挂载时执行旧脱敏断言而失败；修正等待顺序并保留断言，复测结果在最终工程表记录。双语检查同时发现已有8条 Catalog 描述缺译，与新组件描述/props一起补齐；`check:i18n` 已通过。
 
-截图目录：`../.tmp/easyuseui-component-first-z2s7gcqe/screenshots/`（相对仓库根）。`before-reference-1440x1000.png` 为原实验室；`final-elements-desktop.png`、`final-elements-mobile.png` 和 `final-code-preview.png` 为修正网格对齐后的展示。独立复核另有英文深色/中文浅色桌面与手机截图 `after-elements-*-top.png`。完整长图的吸顶头位置是截图行为，检查效果优先使用首屏与模块图。
+截图目录：`../.tmp/easyuseui-component-first-z2s7gcqe/screenshots/`（相对仓库根）。`before-reference-1440x1000.png` 为原实验室；`final-elements-desktop.png` 和 `final-code-preview.png` 为修正网格对齐后的展示。独立复核另有英文深色/中文浅色桌面截图 `after-elements-*-top.png`。完整长图的吸顶头位置是截图行为，检查效果优先使用首屏与模块图。
 
 正式环境：Node 24.21.0、GLIBC 2.28、Webpack/WASM SWC、系统 Chrome；组件状态和浏览器测试均为明确 fixture，不调用真实 Pi/provider。
 

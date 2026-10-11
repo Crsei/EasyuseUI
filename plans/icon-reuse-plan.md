@@ -115,7 +115,7 @@ I0 原计划只做静态核查；本轮 I1–I3 的工程、浏览器与独立�
 
 实施运行 `pnpm lint`、`pnpm typecheck`、`pnpm build`，并进行相应浏览器检查；公共源码/CSS/Registry 依赖变化运行 `pnpm test:install`。构建与生产验证隔离共享开发服务及并行工作。
 
-- E01–E03：浅/深色、中英文、窄屏，文字不挤压；Tab 可达、Enter 导航、URL/prefetch 不变，无新增外链语义或重复可访问名称。
+- E01–E03：浅/深色、中英文，文字不挤压；Tab 可达、Enter 导航、URL/prefetch 不变，无新增外链语义或重复可访问名称。
 - E04：改变任一筛选后显示按钮；点击/键盘激活恢复三项默认值；默认状态仍隐藏；翻译 label、tooltip、触摸目标保持。
 - C01–C04：选中/disabled、过滤/空态、键盘高亮、Escape/焦点恢复、Chip 选择/移除分别验证。
 - C05–C06：loading 阻止重复提交，status/文案不重复，reduced-motion 与布局宽度不退化。

@@ -342,8 +342,8 @@ export function EnglishUI({ children }: { children: ReactNode }) {
         title: { "zh-CN": "运行完整示例", en: "Run a complete example" },
         body: {
           "zh-CN":
-            "从示例库进入 Agent、Work Items 或 Canvas，检查窄屏、语言、状态恢复和键盘路径。本地演示只证明这些组件行为，不证明真实执行、存储或业务验收。",
-          en: "Open Agent, Work Items or Canvas from the gallery. Check narrow layouts, locales, recovery and keyboard paths. Local demonstrations prove component behavior, not real execution, storage or business acceptance.",
+            "从示例库进入 Agent、Work Items 或 Canvas，检查语言、状态恢复和键盘路径。本地演示只证明这些组件行为，不证明真实执行、存储或业务验收。",
+          en: "Open Agent, Work Items or Canvas from the gallery. Check locales, recovery and keyboard paths. Local demonstrations prove component behavior, not real execution, storage or business acceptance.",
         },
         links: [
           {

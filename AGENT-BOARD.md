@@ -20,7 +20,7 @@
 | `agent-usage-summary`：AgentUsageSummary                                     | `runs`、`observations`、`scopeLabel`；稳定来源 ID 去重，已明确包含的子用量不重复计入；包含关系未知单列，费用按币种，缺失不补零。                                                                                                                                                       |
 | `agent-board-toolbar`：AgentBoardToolbar                                     | `records`、`viewState`、`onViewChange`；共享搜索/Agent/模型/状态/任务筛选，Inbox 类别独立保留。                                                                                                                                                                                        |
 | `agent-run-inspector`：AgentRunInspector                                     | `snapshot` 完整对象、`drafts`、`onDraftChange`、`onAction`、`canReconcile`、`onOpen`；概览/执行/产物，不发起数据请求。                                                                                                                                                                 |
-| `agent-board-workspace`：AgentBoardWorkspace                                 | `records`、`attention`、`usage`、`viewState`、`selectedRunId`、`detail`、`connection`、`onViewChange`、`onOpen`、`data`、`totalCount`、`loadedCount`、`inspector`、`scopeLabel`；可选 sidebar / exampleControls / headerActions / fill。桌面 Inspector，窄屏 Sheet，关闭恢复入口焦点。 |
+| `agent-board-workspace`：AgentBoardWorkspace                                 | `records`、`attention`、`usage`、`viewState`、`selectedRunId`、`detail`、`connection`、`onViewChange`、`onOpen`、`data`、`totalCount`、`loadedCount`、`inspector`、`scopeLabel`；可选 sidebar / exampleControls / headerActions / fill。桌面 Inspector，关闭恢复入口焦点。 |
 
 每个安装项的独立示例在 `/docs/<安装项>/`，数据态控件提供 loading/empty/partial/error/success，运行控件提供十种状态和未知值；工作台示例提供完整组合。
 

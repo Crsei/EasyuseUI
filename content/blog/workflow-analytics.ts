@@ -87,28 +87,6 @@ export const workflowAnalytics: BlogPost = {
       },
     },
     {
-      type: "image",
-      image: {
-        src: "/blog/workflow-analytics/project-dark-390.png",
-        alt: {
-          "zh-CN": "窄屏深色英文项目概览",
-        },
-        caption: {
-          "zh-CN": "本地确定性 fixture；不代表真实服务或业务验收。",
-        },
-        sourceSnapshotId:
-          "3e2b461c82531a3de81e086e61ff7730b25e6d77050b65d7007eded3431c1c88",
-        capturedAt: "2026-10-09T01:41:12.789Z",
-        fixture: "fixture-snapshot-9; success; alpha; all members",
-        viewport: {
-          width: 390,
-          height: 1000,
-        },
-        theme: "dark",
-        locale: "en",
-      },
-    },
-    {
       type: "heading",
       id: "distribution",
       text: { "zh-CN": "轻量摘要与统计引擎分开安装" },

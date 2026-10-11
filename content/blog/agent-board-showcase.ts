@@ -298,54 +298,6 @@ export const agentBoardShowcase: BlogPost = {
     {
       type: "image",
       image: {
-        src: "/blog/agent-board/list-390.png",
-        alt: {
-          "zh-CN": "390px：紧凑列表与可访问筛选",
-          en: "390px: compact list and accessible filters",
-        },
-        caption: {
-          "zh-CN": "390px：紧凑列表与可访问筛选；本地确定性样例。",
-          en: "390px: compact list and accessible filters. Deterministic local fixture.",
-        },
-        sourceSnapshotId:
-          "6d9ceae38768996679248d8f082bf76ddc671a0ec1760171b45b57d9a74a3393",
-        capturedAt: "2026-10-08T10:53:12.396Z",
-        fixture: "local-deterministic-v1",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "light",
-        locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/agent-board/detail-390.png",
-        alt: {
-          "zh-CN": "390px：Sheet 详情及焦点恢复",
-          en: "390px: Sheet detail and focus restoration",
-        },
-        caption: {
-          "zh-CN": "390px：Sheet 详情及焦点恢复；本地确定性样例。",
-          en: "390px: Sheet detail and focus restoration. Deterministic local fixture.",
-        },
-        sourceSnapshotId:
-          "6d9ceae38768996679248d8f082bf76ddc671a0ec1760171b45b57d9a74a3393",
-        capturedAt: "2026-10-08T10:53:14.286Z",
-        fixture: "local-deterministic-v1",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "light",
-        locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
         src: "/blog/agent-board/dark-en-1440.png",
         alt: {
           "zh-CN": "深色英文：界面文案切换，调用方标题保持原文",
@@ -547,54 +499,6 @@ export const agentBoardShowcase: BlogPost = {
     {
       type: "image",
       image: {
-        src: "/blog/agent-board/p2/dependencies-390.png",
-        alt: {
-          "zh-CN": "390px：只读依赖与可访问列表",
-          en: "390px: read-only dependencies and accessible list",
-        },
-        caption: {
-          "zh-CN": "390px：只读依赖与可访问列表；确定性本地样例。",
-          en: "390px: read-only dependencies and accessible list. Deterministic local fixture.",
-        },
-        sourceSnapshotId:
-          "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b",
-        capturedAt: "2026-10-08T11:52:59.236Z",
-        fixture: "local-timestamped-dependencies-v1",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "light",
-        locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/agent-board/p2/virtual-390.png",
-        alt: {
-          "zh-CN": "390px：End 到末行，焦点可见",
-          en: "390px: End reaches the last row with visible focus",
-        },
-        caption: {
-          "zh-CN": "390px：End 到末行，焦点可见；确定性本地样例。",
-          en: "390px: End reaches the last row with visible focus. Deterministic local fixture.",
-        },
-        sourceSnapshotId:
-          "62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b",
-        capturedAt: "2026-10-08T11:53:01.154Z",
-        fixture: "local-1000-source-runs-v1",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "light",
-        locale: "zh-CN",
-      },
-    },
-    {
-      type: "image",
-      image: {
         src: "/blog/agent-board/p2/dark-history-en.png",
         alt: {
           "zh-CN": "深色英文：历史指标切换保持观测口径",
@@ -712,7 +616,7 @@ export const agentBoardShowcase: BlogPost = {
       sampleCount: 12,
       scope: {
         "zh-CN":
-          "通过：四种视图、详情、未知回执、刷新失败、移动端和深色英文截图。",
+          "通过：四种视图、详情、未知回执、刷新失败、深色英文截图。",
         en: "Passed: four views, detail, unknown receipt, refresh failure, phone and dark English captures.",
       },
     },
@@ -731,8 +635,8 @@ export const agentBoardShowcase: BlogPost = {
       sampleCount: 8,
       scope: {
         "zh-CN":
-          "通过：依赖、两种历史指标、大集合普通/虚拟列表、390px 和深色英文实图。",
-        en: "Passed: dependencies, two history metrics, native/virtual large lists, 390px and dark English captures.",
+          "通过：依赖、两种历史指标、大集合普通/虚拟列表和深色英文实图。",
+        en: "Passed: dependencies, two history metrics, native/virtual large lists, and dark English captures.",
       },
     },
     {

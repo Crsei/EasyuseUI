@@ -135,6 +135,7 @@ test("unopened panels stay unloaded; visited editors and drafts survive navigati
     .getByRole("navigation", { name: "Workbench tools", exact: true })
     .getByRole("link", { name: "Sessions", exact: true })
     .click()
+  await expect(page).toHaveURL(/page=session/)
   const englishInput = page
     .getByRole("textbox", { name: "Message input", exact: true })
     .filter({ visible: true })
@@ -147,6 +148,7 @@ test("unopened panels stay unloaded; visited editors and drafts survive navigati
     "review",
   )
   await page.goForward()
+  await expect(page).toHaveURL(/page=session/)
   await expect(englishInput).toHaveAttribute("data-instance", "retained")
   await page.getByRole("button", { name: "Home", exact: true }).click()
   await expect(englishInput).toHaveValue("home draft")

@@ -35,14 +35,14 @@
 | C15 | ImageUpload | `components/blocks/image-upload.tsx` | 选择/拖放、预览、替换、移除、读取失败恢复 |
 | C16 | ScrollArea | `components/ui/scroll-area.tsx` | 可选统一滚动条；不承担窗口化 |
 | C17 | ResizableSidebar | 扩展 WorkspaceShell，必要时抽出 ResizeHandle | 左栏受控宽度与可配置边界，复用现有分隔条语义 |
-| C18 | FilterToolbar | `components/blocks/filter-toolbar.tsx` | 组合筛选、排序、计数与移动端筛选容器 |
+| C18 | FilterToolbar | `components/blocks/filter-toolbar.tsx` | 组合筛选、排序、计数 |
 | C19 | MetricSummary / RatingDisplay | `components/blocks/metric-summary.tsx`、`components/ui/rating-display.tsx` | 指标名/值/单位、只读评分及文本替代 |
 
 首版不增加复杂 DataGrid、列拖拽、单元格编辑、Calendar、分页、通用图表平台或动画播放器。Combobox 可作为 Select 后续增强；固定选项不以新增可搜索组件为前置条件。通用 Toast、Alert、Breadcrumb 继续归优化计划按实际场景推进。
 
 ## 3. 共同实现契约
 
-- Foundation → Primitive → Pattern → Workspace → Page；默认 Compact、4px 网格、32px 输入/按钮、粗指针命中至少44px。
+- Foundation → Primitive → Pattern → Workspace → Page；默认 Compact、4px 网格、32px 输入/按钮。
 - 优先检查已安装 Base UI 的类型与示例，复用对应无障碍行为；不照搬参考项目的 Radix API，不为相同能力并列引入两套交互基础库。实施新增框架代码前阅读安装版本 Next.js 指南。
 - 可编辑值使用 value/defaultValue/onChange 或明确对应接口；列表数据、行选择、业务写入结果由调用方控制。只在 uncontrolled 模式维护内部值。
 - 所有 Portal 接入 ThemeBoundary；局部颜色、密度、语言不会丢失到 body。两个主题实例同时存在必须可用。
@@ -109,7 +109,7 @@ G1 与 G2 可按组件依赖交错实施，不要求用多 Agent。CRM 主表格
 - 每个公开项提供可运行例子、实际 props、安装依赖与状态说明；重型 DataTable/Command 示例按需加载。
 - 通用组件测试使用非 CRM fixture，覆盖受控/非受控、主题、键盘、触摸、错误、语言切换；有实际边界价值才补纯逻辑测试。
 - 必须执行 lint、typecheck、build、check:i18n、check:manifest 及相应浏览器测试；源码/CSS/依赖分发变更执行 test:install，并浏览器检查安装后的代表性组合。
-- 双主题/双语言、1440/1024/390px、粗指针、reduced-motion 覆盖代表性组合；截图与 axe 仅是证据的一部分，保留人工键盘/读屏记录。
+- 双主题/双语言、1440/1024px、reduced-motion 覆盖代表性组合；截图与 axe 仅是证据的一部分，保留人工键盘/读屏记录。
 - 开始构建/服务前检查3010/3011进程归属；使用 Webpack，保留共享工作，必要时携带完整改动在隔离副本验证。
 
 ## 7. 完成标准

@@ -61,7 +61,7 @@
       "en": "Putting workspace layout state under caller control"
     },
     "summary": {
-      "zh-CN": "成对受控接口、独立移动端浮层与按工作区保存的示例适配器。",
+      "zh-CN": "成对受控接口、按工作区保存的示例适配器。",
       "en": "Putting workspace layout state under caller control"
     }
   },

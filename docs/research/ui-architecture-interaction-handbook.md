@@ -129,7 +129,6 @@ EasyuseUI 应区分：层级（primary/secondary/ghost/destructive）、尺寸�
 | busy + 原标签               | 是否防重复；宽度和名称是否稳定   |
 | disabled + 错误说明         | 是否仍可理解不能操作的原因       |
 | 暗色 + destructive          | 边界、文字和焦点是否可辨         |
-| 中文长标签 + coarse pointer | 44px 目标是否真实存在且不重叠    |
 | ThemeBoundary + Portal      | 浮层是否继承同一主题             |
 | partial + unknown           | 缺失和未确认是否被误画成零或成功 |
 
@@ -156,7 +155,7 @@ EasyuseUI 应区分：层级（primary/secondary/ghost/destructive）、尺寸�
 
 [Magic UI BorderBeam][magic-beam] 用 motion 的 offset path 做无限循环；[NumberTicker][magic-number] 使用进入视口检测与弹簧数值。[React Bits Magnet][bits-magnet] 监听鼠标移动并更新偏移；[Particles][bits-particles] 使用 OGL 和 requestAnimationFrame，并清理监听器及帧请求。它们分别适合研究路径动画、数值插值、指针响应和 GPU 效果，成本和无障碍要求不同。
 
-对紧凑工作台，连续的磁吸位移会干扰命中位置，背景粒子会增加长时间运行成本。需要这些效果时，应放在独立预览或营销区域，并补上 reduced-motion、粗指针、屏外暂停和卸载清理。不能因为某个示例没有写该策略，就推断其依赖库一定已代为处理。
+对紧凑工作台，连续的磁吸位移会干扰命中位置，背景粒子会增加长时间运行成本。需要这些效果时，应放在独立预览或营销区域，并补上 reduced-motion、屏外暂停和卸载清理。不能因为某个示例没有写该策略，就推断其依赖库一定已代为处理。
 
 [Aceternity 官方组件目录](https://ui.aceternity.com/components) 可作为视觉发现入口；本轮没有本地完整源码，也没有对单个付费或在线组件完成源码审查，不给它们附加“已验证可移植”的结论。
 
@@ -170,7 +169,7 @@ EasyuseUI 应区分：层级（primary/secondary/ghost/destructive）、尺寸�
 
 ### 5.1 布局与状态所有权
 
-[Mantine AppShell][mantine-shell] 通过 navbar、aside、header、footer 与响应式配置拆分布局责任。EasyuseUI 已有 WorkspaceShell，适合继续把侧栏偏好、Inspector 展示、底部高度和窄屏浮层状态分开，而不是替换整个外壳。
+[Mantine AppShell][mantine-shell] 通过 navbar、aside、header、footer 与响应式配置拆分布局责任。EasyuseUI 已有 WorkspaceShell，适合继续把侧栏偏好、Inspector 展示、底部高度和浮层状态分开，而不是替换整个外壳。
 
 组件负责受控布局；适配层按 workspace ID 保存偏好；调用方按 object ID 管理草稿和读取。跨断点变化不应回写桌面偏好；编辑区域如果要卸载，必须先将需要保留的草稿移到稳定所有者。
 

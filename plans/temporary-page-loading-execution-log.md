@@ -35,7 +35,7 @@
 
 没有改动服务端 CodeBlock/Shiki：静态生产预览的 TTFB 不支持把它判断为浏览器首开瓶颈。没有全局开启预取、删除语言或把同步翻译改为异步请求。
 
-延迟挂载暴露了两个实际回归，均已修复：会话 actions 晚于导航 effect 就绪时，由实际 ref 就绪回调补交来源消息的滚动和焦点；延迟 CSS 晚到时，示例层限定会话外壳高度，防止文档用的 680px 最小高度将触屏输入区推出视口。便携组件及其 CSS 不变。
+延迟挂载暴露了两个实际回归，均已修复：会话 actions 晚于导航 effect 就绪时，由实际 ref 就绪回调补交来源消息的滚动和焦点；延迟 CSS 晚到时，示例层限定会话外壳高度，防止文档用的 680px 最小高度将输入区推出视口。便携组件及其 CSS 不变。
 
 正式 `final9` 测量另外发现第一次进入 session/review/settings 分别增加 250/284/283ms，超过原调查线。以浏览器 click 时间和 MutationObserver 记录控件实际可用时间，确认并非仅自动化轮询：session 从 73ms 变成 352ms，review 从 57ms 变成 344ms，settings 从 46ms 变成 345ms（均 5 轮中位数）。本机已安装 `react-dom/cjs/react-dom-client.production.js:12185` 的回退重试逻辑为 `globalMostRecentFallbackTime + 300 - now()`。
 
@@ -61,13 +61,13 @@ Chrome `/usr/bin/google-chrome`、1440×900、zh-CN、light、reduced motion；�
 
 `B/final11-{lint,typecheck,build,check-i18n}.log` 保存最终运行代码的全部成功记录。原生 SWC 的 GLIBC_2.29 警告由 Webpack/WASM 回退处理，构建成功。首次非交互 pnpm 依赖检查触发 no-TTY 拒绝，随后显式复用既有依赖；没有执行依赖重装。
 
-最终浏览器覆盖 180 个不同用例（7 个 spec）：工作台、触屏、来源焦点、历史档案、首页/文档、加载预算、语言、主动 Canvas、模块局部重试和元数据。`final11-browser-results.json` 记录 179/180 通过；唯一失败 trace 显示测试在 URL 状态仍为 home 时填写了首页 draft-new，随后把会话空草稿误判为丢失。加强测试，等目标页面进入 session 后填写，再原样验证实例与草稿保留。重复测试又揭示 description 的单节点假设：两个继承/流式标签已经均为正确英文，但 strict locator 拒绝两个节点。改为对非空节点集合逐项断言正确文案，要求更强。
+最终浏览器覆盖 180 个不同用例（7 个 spec）：工作台、来源焦点、历史档案、首页/文档、加载预算、语言、主动 Canvas、模块局部重试和元数据。`final11-browser-results.json` 记录 179/180 通过；唯一失败 trace 显示测试在 URL 状态仍为 home 时填写了首页 draft-new，随后把会话空草稿误判为丢失。加强测试，等目标页面进入 session 后填写，再原样验证实例与草稿保留。重复测试又揭示 description 的单节点假设：两个继承/流式标签已经均为正确英文，但 strict locator 拒绝两个节点。改为对非空节点集合逐项断言正确文案，要求更强。
 
 最终 `final12-recheck-browser-results.json` 记录上述 9 个加载/元数据用例连续两轮 18/18 通过（0 retries、0 skipped）；加上同构建的其余 171 个通过项，180 个不同必要用例全部覆盖通过。`final12-recheck-{lint,typecheck}.log` 校验最新测试源码。保留首轮失败 trace 和源码副本；未为测试修正重复构建完全相同的运行代码。`B/final9-*` 的候选 67/67 和更早失败记录也保留。
 
 早期候选修复了 TS6 动态组件泛型、Next 预取参数和测试定位；首次行为验证修复了语言选择在 hydration 前丢失事件。后续资源验证定位到 404 的 Next Link 客户端引用，而不是工作台直接导入整站资源。错误模块实际已显示 DataRegion 的带分类错误与“重试读取”按钮，测试改为断言真实公共组件输出。
 
-工作台、触屏、来源焦点、展示/历史源档案回归在 `final5` 的六个 spec 中通过 163 项，唯一失败为 Button 加载预算；此后预算经资源精简达到原门槛，已在 `final9` 重验通过。`final8` 的 96 项验证中，博客与 CRM 业务回归等 94 项通过，两个失败分别为测试过早发送 Escape 和 CRM 流式 description 不同步；最终 67 项已覆盖并通过这两项。没有把早期失败记录删除或称作全套最终成功。可分发组件、主题 CSS、Registry 依赖均未改变，本轮不触发独立安装测试。
+工作台、来源焦点、展示/历史源档案回归在 `final5` 的六个 spec 中通过 163 项，唯一失败为 Button 加载预算；此后预算经资源精简达到原门槛，已在 `final9` 重验通过。`final8` 的 96 项验证中，博客与 CRM 业务回归等 94 项通过，两个失败分别为测试过早发送 Escape 和 CRM 流式 description 不同步；最终 67 项已覆盖并通过这两项。没有把早期失败记录删除或称作全套最终成功。可分发组件、主题 CSS、Registry 依赖均未改变，本轮不触发独立安装测试。
 
 ## 正式结果
 
@@ -156,7 +156,7 @@ Chrome `/usr/bin/google-chrome`、1440×900、zh-CN、light、reduced motion；�
 | 无意图 | 130 [106, 151] | 122 [102, 147] |
 | 有意图 | 123 [100, 139] | 127 [113, 139] |
 
-重复访问的额外缓存/阅读位置检查见 `B/measurements/repeat-cache.json`：两版各 5 个独立上下文，从 Button 离开再返回，均没有新增 JS 请求，已加载模块被复用；均恢复到实际离开时的位置，语言保留。原始检查的 480px 与返回 14px 不同，因为自动化点击屏幕外的 Header 前先滚到 14px；随后以 click 事件记录实际离开位置，验证 14px → 14px，保留原检查 `repeat-cache-initial-scroll.json`。不把没有新 JS 请求换算为 HTTP 磁盘缓存命中率。工作台 5 轮循环中的首页/会话草稿保留由原始断言通过；目录/TOC 历史状态与触屏焦点另由浏览器回归验证。
+重复访问的额外缓存/阅读位置检查见 `B/measurements/repeat-cache.json`：两版各 5 个独立上下文，从 Button 离开再返回，均没有新增 JS 请求，已加载模块被复用；均恢复到实际离开时的位置，语言保留。原始检查的 480px 与返回 14px 不同，因为自动化点击屏幕外的 Header 前先滚到 14px；随后以 click 事件记录实际离开位置，验证 14px → 14px，保留原检查 `repeat-cache-initial-scroll.json`。不把没有新 JS 请求换算为 HTTP 磁盘缓存命中率。工作台 5 轮循环中的首页/会话草稿保留由原始断言通过；目录/TOC 历史状态与焦点另由浏览器回归验证。
 
 ## 预取试验
 

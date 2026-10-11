@@ -1,5 +1,7 @@
 # Component Specification
 
+项目交付范围为桌面 Web。设计与验收以桌面窗口、鼠标、键盘、缩放、双主题和双语为准；保留面板尺寸约束、焦点恢复与草稿保持。Agent Workspace 使用 1024px 最小桌面画布、竖向导航和停靠面板。
+
 Version 1.4 · 2026-10-08 · EasyuseUI / Agent Workspace
 
 本文件把 [Design-rules.md](./Design-rules.md) 的原则收敛为可实现、可验收的尺寸与状态契约。适用于 Button、Item、Tree、Activity、Session、Agent、Inspector、Chat Message、Tool Call、Badge / Tag / Chip，以及 StyleWorkbench、Canvas 工作台与图元。除显式注明外，所有数字均为 CSS px，尺寸包含边框，默认 `box-sizing: border-box`，密度为 Compact。
@@ -27,7 +29,6 @@ Design Rules 规定方向，本文规定组件契约，`packages/ui/styles/theme
 | 边框          | 1 solid `--border`；hover 使用 `--border-hover`；selected indicator 2            |
 | 键盘焦点      | 2 solid `--ring`，offset 2；紧凑列表允许 inset 2，不能被父级裁切                 |
 | 阴影          | 普通 Item / 列表 / 主体面板无阴影；只有浮层使用 `--shadow-floating`              |
-| 触摸命中      | `pointer: coarse` 下交互控件、行、图标按钮最小命中区域 44 × 44；区域不能互相覆盖 |
 
 字号写法为 `font-size / line-height`。单行行高不随标题长度增长；标题单行省略，完整值通过详情或可键盘访问的 tooltip 提供。说明与正文允许换行，不以固定高度截断业务信息。
 
@@ -124,7 +125,7 @@ UI 不用定时器把真实 running 改成 completed。取消请求发出后，�
 | icon    |   32 |       32 |            0 | 无可见文字 | 16         |
 | icon-lg |   36 |       36 |            0 | 无可见文字 | 18         |
 
-所有 Button radius=6，边框=1；`pointer: coarse` 的实际高度及 icon 宽度最小 44，文本按钮最小宽度仍至少 64。组件布局必须为触摸命中面积留出真实空间，不通过负 margin 或重叠伪元素扩展。
+所有 Button radius=6，边框=1；文本按钮最小宽度至少 64。
 
 层级仅 Primary / Secondary / Ghost / Destructive；Icon 是尺寸和内容模式，继承上述层级。API 允许旧 `default → primary`、`outline → secondary` 兼容别名。每个操作区域最多 1 个 Primary；更多操作进入菜单。
 
@@ -141,7 +142,7 @@ UI 不用定时器把真实 running 改成 completed。取消请求发出后，�
 | loading  | disabled + aria-busy=true；保留可访问标签及文字，16 指示图标；禁止重复提交；调用方保持标签或指定 min-width 以避免动态文案跳宽 |
 | error    | 使用 aria-invalid=true 与 destructive 边界；旁边关联错误说明；不自动把按钮改成 Destructive 业务层级                           |
 
-Icon Button 必须有 accessible label、tooltip、focus、disabled；tooltip 同时可通过 hover 和 focus 触发，移动端操作名能从可访问标签或菜单文字获知。Enter / Space 触发；render 成链接时遵守链接语义，不以 disabled 属性假装禁用导航。
+Icon Button 必须有 accessible label、tooltip、focus、disabled；tooltip 同时可通过 hover 和 focus 触发。Enter / Space 触发；render 成链接时遵守链接语义，不以 disabled 属性假装禁用导航。
 
 ## 3. Item
 
@@ -172,10 +173,10 @@ default 无底色；交互 hover=surface-hover；pressed=surface-pressed；selec
 
 | 项目         | 契约                                                                          |
 | ------------ | ----------------------------------------------------------------------------- |
-| Node height  | 32；触摸最小 44；有第二行元数据的业务节点使用 Item 双行 56，不挤入普通树行    |
+| Node height  | 32；有第二行元数据的业务节点使用 Item 双行 56，不挤入普通树行    |
 | 左右 padding | 8                                                                             |
 | 每级 indent  | 16；root=0；行内容起点为 8 + depth×16                                         |
-| Chevron slot | 16，leaf 保留占位；chevron 图标 12、实际点击目标 28；触摸扩至 44 并调整行布局 |
+| Chevron slot | 16，leaf 保留占位；chevron 图标 12、实际点击目标 28 |
 | Entity icon  | 16；chevron 与 icon 间距 4；icon 与 title 间距 8                              |
 | 字体         | title 13/20；metadata / status 12/16                                          |
 | 尾部         | status max-width 88；action 28；标签与状态之间最小 gap 8                      |
@@ -240,18 +241,16 @@ start / pause / resume / cancel / configure / inspect 的显示以显式能力�
 
 | 项目           | 契约                                                                            |
 | -------------- | ------------------------------------------------------------------------------- |
-| Desktop dock   | 容器 ≥1280；默认宽 320，min 280，max 360；右侧 border-left=1；不设阴影          |
-| Tablet overlay | 768–1279；宽 320，最大可用宽减 32；位于右侧，带 backdrop 与 floating shadow     |
-| Mobile drawer  | <768；宽 min(360, viewport−32)，右侧滑入；header、action 命中最小 44            |
+| Desktop dock   | 桌面模式始终停靠；默认宽 320，min 280，max 360；右侧 border-left=1；不设阴影          |
 | Collapsed      | 面板从布局移除；Toolbar 保留一个「打开 Inspector」按钮；不能留下空白 320 列     |
-| Resize handle  | 可见线 1；命中宽 8；触摸时 16；不得覆盖相邻内容控件                             |
+| Resize handle  | 可见线 1；命中宽 8；不得覆盖相邻内容控件                             |
 | Header         | min-height 48；padding x=16 / y=8；title 14/20、500；close action=32            |
 | Sections       | padding=16；section gap=24；section title 13/20、500；内容 gap=12               |
 | Metadata row   | min-height 32；label col=96；value minmax(0,1fr)，12/16；长 ID 可复制并换行     |
-| Footer         | min-height 56；padding=12；1 Primary + 最多 1 Secondary；触摸允许高度随控件增长 |
+| Footer         | min-height 56；padding=12；1 Primary + 最多 1 Secondary |
 | Scroll         | header / footer 固定；body 独立 overflow-y:auto；正文不得滑入操作区下面         |
 
-桌面 Shell：global header=48，sidebar=256 / collapsed=48，main min-width=0，bottom panel default=240 / min=200 / max=400；Main 自适应。Page Header min-height=56，Toolbar=40。容器缩小时先收起 Inspector，再折叠 Sidebar，不能用整页缩放维持三栏。
+桌面 Shell：global header=48，sidebar=256 / collapsed=48，main min-width=0，bottom panel default=240 / min=200 / max=400；Main 自适应。Page Header min-height=56，Toolbar=40。`layoutMode="desktop"` 保持停靠与调用方控制的折叠状态；示例外层提供 1024px 最小画布与横向滚动。默认 `adaptive` 模式保留按容器宽度切换面板的行为，不能用整页缩放维持三栏。
 
 ### 8.2 状态与行为
 
@@ -272,10 +271,10 @@ Resize 使用 pointer capture，尺寸 clamp 在 280–360；键盘可聚焦 sep
 | 标题                       | 消息内 h3 16/24、500；不超过页面层级                                               |
 | 代码                       | 12/20 等宽，padding=12、radius=6、border=1；max-height=320，独立横纵滚动           |
 | 附件                       | min-height 32 的 Item；icon=16；gap=8                                              |
-| Actions                    | Button icon-sm 28；gap=4；hover 或 focus-within 显示，触摸常显；复制反馈不移动正文 |
+| Actions                    | Button icon-sm 28；gap=4；hover 或 focus-within 显示；复制反馈不移动正文 |
 | Streaming indicator        | 可选静态 2×16 caret；独立状态文字；不能用永久 Spinner 代替内容                     |
 
-Composer：border-top=1、padding=12；textarea min-height=80 / max-height=200、正文14/24、radius=6；附件行32；发送/停止按钮32（触摸44）；左右控件 gap=8。Conversation 与 Files / Diff / Terminal / Preview 工作区分栏时，分隔线1、各自 min-width=0，窄屏改成切换视图，不挤掉 Composer。
+Composer：border-top=1、padding=12；textarea min-height=80 / max-height=200、正文14/24、radius=6；附件行32；发送/停止按钮32；左右控件 gap=8。Conversation 与 Files / Diff / Terminal / Preview 工作区分栏时，分隔线1、各自 min-width=0；桌面主区不足以并排阅读时切换视图，不挤掉 Composer。
 
 ### 9.2 状态与行为
 
@@ -297,7 +296,7 @@ Conversation 数据态 loading / empty / partial / error / success 与共享契�
 
 ### 10.1 几何与内容
 
-Tool Call 是独立的执行记录，允许在消息流内使用一条有边界的 disclosure，不使用聊天气泡或通知卡片。border=1、radius=6、无阴影；collapsed header min-height=40、padding x=12 / y=8；tool icon=16；title 13/20、500；gap=8；status 12/16；duration slot=64；chevron=16、命中28（触摸44）。
+Tool Call 是独立的执行记录，允许在消息流内使用一条有边界的 disclosure，不使用聊天气泡或通知卡片。border=1、radius=6、无阴影；collapsed header min-height=40、padding x=12 / y=8；tool icon=16；title 13/20、500；gap=8；status 12/16；duration slot=64；chevron=16、命中28。
 
 expanded body padding=12、border-top=1；分区 gap=16；标签12/16、参数/输出12/20等宽；输入与输出分别 max-height=320、内部滚动。最大预览=200行或32KiB，超出显示真实截断说明与「展开完整输出/下载」入口；未提供完整数据时不能声称按钮能还原内容。
 
@@ -323,11 +322,11 @@ idle / thinking / paused 仅在真实工具协议存在此状态时使用统一�
 
 Badge 和 Tag 是只读标签，不进入 Tab 顺序，不提供点击或 hover 行为。字体12/16，默认 min-height=24，sm=20；padding x=8，sm=4；1px 语义边框。Badge 默认圆角6，可显式选择 pill；Tag 固定中性分类语义和 pill 外观。形状使用 `--pill-radius`，高度使用 `--label-height` / `--label-height-sm`，不得另造主题常量。通用 Badge 的 tone 不代替 RuntimeStatusBadge 的运行态映射。
 
-Chip 展示一个受控值，字体13/20、默认高32、胶囊圆角。`onSelectedChange` 存在才渲染主选择按钮，以 `aria-pressed` 表达选择；`onRemove` 存在才渲染独立移除按钮。两个目标必须是兄弟，不能嵌套；没有选择能力时文字为静态内容。移除按钮必须有可访问名称和 hover/focus 提示。粗指针下每个交互目标至少44×44，目标区域不重叠。
+Chip 展示一个受控值，字体13/20、默认高32、胶囊圆角。`onSelectedChange` 存在才渲染主选择按钮，以 `aria-pressed` 表达选择；`onRemove` 存在才渲染独立移除按钮。两个目标必须是兄弟，不能嵌套；没有选择能力时文字为静态内容。移除按钮必须有可访问名称和 hover/focus 提示。
 
 Chip 支持 default / hover / pressed / focused / selected / disabled / busy；focused 与 selected 独立。disabled / busy 同时阻止选择和移除；busy 保留值并提供 `aria-busy` 和处理中说明。错误由调用方保留值并关联错误区，不推断成功、不自行删除、不发网络请求。移除后的焦点恢复、真实异步状态与数据更新由调用方负责；本地示例移除后将焦点移到重置入口。
 
-新增这三类组件必须提供演示、Catalog、Registry、键盘/触摸浏览器证据和独立安装验证。只读标签不强制扩大成44px，交互 Chip 仍需满足触摸契约。
+新增这三类组件必须提供演示、Catalog、Registry、键盘浏览器证据和独立安装验证。
 
 ## 12. StyleWorkbench 样式工作台
 
@@ -335,11 +334,11 @@ Chip 支持 default / hover / pressed / focused / selected / disabled / busy；f
 
 基础样式工作台用于解释参数变化，不改变产品列表或共享主题。以同一份内容、输入值和选择态渲染 A / B，避免把内容差异误认为样式差异。A 从未修改的主题探针读取实际计算值；B 在 A 上叠加局部修改。所有实验变量只作用于预览容器，禁止写入 `packages/ui/styles/theme.css` 或根元素。`initialSection` 只控制初始参数分类，不绑定站点主题组件或路由。
 
-支持尺寸与间距、阴影、颜色与材质、字体四组参数：圆角、控件高度、内边距、间距、边框宽度；阴影开关、内阴影、水平/垂直偏移、模糊、扩散、颜色和透明度；表面/正文/强调/边框颜色及适用透明度、背景模糊；字号、行高和字重。滑块支持键盘，数值输入提交时按步长和范围收敛，空值或无效值恢复上次有效值；间距与高度遵循4px步长。粗指针下真实交互目标至少44px，即使实验控件高度低于44。
+支持尺寸与间距、阴影、颜色与材质、字体四组参数：圆角、控件高度、内边距、间距、边框宽度；阴影开关、内阴影、水平/垂直偏移、模糊、扩散、颜色和透明度；表面/正文/强调/边框颜色及适用透明度、背景模糊；字号、行高和字重。滑块支持键盘，数值输入提交时按步长和范围收敛，空值或无效值恢复上次有效值；间距与高度遵循4px步长。
 
 差异表只列已改变参数，数值展示带单位的正负差，颜色和开关显示「已更改」。预设替换当前 B 的局部修改；「B 设为基准 A」固定完整参数快照；「重置 B」回到当前 A；「恢复项目默认」解除固定并读取当前主题。主题变化更新未固定的 A 和未修改的 B 参数，保留用户明确修改值。固定基准后切换主题不改变其参数快照。
 
-读取主题时显示 loading；读取失败明确报错并支持重试，有旧数据时保留。复制失败提供手动复制提示。CSS 导出为局部容器变量和对应规则，JSON 导出版本及完整 A/B 参数；无后台写入、自动持久化或真实运行状态。窄容器将并排预览改为上下比较，不造成整页横向溢出。需验证计算样式变化、A 与共享 token 不被修改、预设/固定/恢复、主题切换、键盘与触屏、复制和独立安装。
+读取主题时显示 loading；读取失败明确报错并支持重试，有旧数据时保留。复制失败提供手动复制提示。CSS 导出为局部容器变量和对应规则，JSON 导出版本及完整 A/B 参数；无后台写入、自动持久化或真实运行状态。窄容器将并排预览改为上下比较，不造成整页横向溢出。需验证计算样式变化、A 与共享 token 不被修改、预设/固定/恢复、主题切换、键盘、复制和独立安装。
 
 ## 13. Canvas Foundation 与编辑契约
 
@@ -347,8 +346,8 @@ Canvas 使用受控 `CanvasDocument`（schemaVersion=1、id、revision、nodes�
 
 | 对象               | 几何与职责                                                                                                                                                                                                |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CanvasNode         | 宽240、radius8、border1；Header min40、padding8×12；正文12/20、padding12；端口行32（粗指针44）。选中边界与键盘焦点分别显示，中性表面；运行态复用 RuntimeStatusBadge，校验 warning 与 unknown outcome 独立 |
-| CanvasPort         | 统一圆形，视觉直径12；名称、方向与 string/number/boolean/object/array/message/tool/model 类型文字可读。支持鼠标连线及键盘连接表单，触屏有替代操作                                                         |
+| CanvasNode         | 宽240、radius8、border1；Header min40、padding8×12；正文12/20、padding12；端口行32。选中边界与键盘焦点分别显示，中性表面；运行态复用 RuntimeStatusBadge，校验 warning 与 unknown outcome 独立 |
+| CanvasPort         | 统一圆形，视觉直径12；名称、方向与 string/number/boolean/object/array/message/tool/model 类型文字可读。支持鼠标连线及键盘连接表单                                                         |
 | CanvasEdge         | 贝塞尔路径，默认线宽1.5、选中2、交互路径24；条件文字独立显示。连接与插边先校验，失败保留原图；删除节点不自动桥接                                                                                          |
 | CanvasFrame / Note | Frame 只组织视觉，移动成员保持相对位置、删除默认解组；Note 是流程说明，不冒充协作评论或执行节点                                                                                                           |
 | NodePalette        | 分类、搜索、无匹配与清除；点击与拖放共用新增命令，Quick Add 同一注册表。只读不允许新增                                                                                                                    |
@@ -369,15 +368,15 @@ Canvas 执行动效：当前版本的来源节点状态与连线状态分别驱�
 
 | 验收项         | 必须验证的证据                                                                               |
 | -------------- | -------------------------------------------------------------------------------------------- |
-| 几何           | default / compact、长标题、320 / 390 / 768 / 1440 宽度；实际 computed size，不只看 class 名  |
+| 几何           | default / compact、长标题、1024 / 1440 宽度；实际 computed size，不只看 class 名  |
 | 交互           | hover 与 selected 分离、鼠标 pressed、键盘 focus / activation、disabled / loading 防重复操作 |
 | 数据           | loading / empty / partial / error / success；刷新失败不清空已有内容                          |
 | Runtime        | 十种状态的文案和 token 一致；未知状态不冒充成功；动作按能力开放                              |
 | Tree           | 完整键盘、展开后焦点、折叠后焦点、拖拽替代操作（仅实现拖拽能力时）                           |
-| Inspector      | open/close、焦点恢复、resize 边界和键盘、窄屏 drawer、对象切换不混数据                       |
+| Inspector      | open/close、焦点恢复、resize 边界和键盘、对象切换不混数据                       |
 | Chat / Tool    | streaming 保留正文、IME、滚动锚点、局部溢出、脱敏、权限明确批准                              |
-| StyleWorkbench | 计算样式、A/B 同内容、局部作用域、主题与固定快照、数值边界、导出、窄容器与触屏               |
-| 主题 / 动效    | Light / Dark、系统 reduced-motion、触摸最小44命中；颜色不作为唯一状态                        |
+| StyleWorkbench | 计算样式、A/B 同内容、局部作用域、主题与固定快照、数值边界、导出、窄容器               |
+| 主题 / 动效    | Light / Dark、系统 reduced-motion；颜色不作为唯一状态                        |
 | 安装           | 新组件必须有 example、catalog、registry；消费项目可独立安装和 typecheck                      |
 | 工程检查       | `pnpm lint`、`pnpm typecheck`、`pnpm build`；行为变更运行 Playwright                         |
 
@@ -399,18 +398,18 @@ Canvas 性能与整理补充：索引按实际 nodes/frames/edges/definitions/is
 
 `WorkflowCanvas.onMeasurementsChange` 输出临时引擎尺寸，不能写入图文档或撤销历史。`CanvasWorkspace.fixedNodeIds` 是调用方的自动布局约束，不增加业务权限或节点锁定字段。“更多工具”提供当前作用域 DAG 整理、JSON 和帮助；整理使用实际尺寸，缺失尺寸按端口数量估算，保留固定节点和分组边界。计算可取消，结果绑定完整源对象、定义与固定节点输入；旧结果不应用。预览不提交，应用只发出一次 `move` 坐标命令；循环、子流程、无效图和分组空间不足保留原图并说明原因。布局不承诺连线无交叉。既有 500 节点/1000 连线导入与命令限制继续有效；1000 节点压力样例仅探测显示容量。
 
-WorkspaceShell 同时支持 `value/defaultValue/onChange` 配对（具体属性为 `sidebarCollapsed/defaultSidebarCollapsed/onSidebarCollapsedChange`、`inspectorOpen`、`inspectorWidth`、`bottomPanelOpen`、`bottomPanelHeight` 及各自 default/onChange）。受控模式由调用方回传；Inspector 宽度限定 280–360px，底部高度 200–400px。`inspectorOverlayOpen` 是独立的窄屏浮层状态；响应式测量不回写桌面偏好。原 `bottomPanelCollapsed` 接口继续兼容。组件不读取 localStorage；`/workspace/layout/` 展示按 workspace ID 保存、校验和重置偏好的适配器。
+WorkspaceShell 同时支持 `value/defaultValue/onChange` 配对（具体属性为 `sidebarCollapsed/defaultSidebarCollapsed/onSidebarCollapsedChange`、`inspectorOpen`、`inspectorWidth`、`bottomPanelOpen`、`bottomPanelHeight` 及各自 default/onChange）。受控模式由调用方回传；Inspector 宽度限定 280–360px，底部高度 200–400px。`inspectorOverlayOpen` 是独立的浮层状态；响应式测量不回写桌面偏好。原 `bottomPanelCollapsed` 接口继续兼容。组件不读取 localStorage；`/workspace/layout/` 展示按 workspace ID 保存、校验和重置偏好的适配器。
 
 Conversation 与 ActivityTimeline 可选 `revision: string | number`。调用方须在追加、历史修订、删除、重排和状态变化时推进；省略时继续检测完整相关字段。输入使用不可变记录；去重保留首次位置和最后 payload。未变化的消息/事件行跳过重复渲染，64px 跟随阈值与补历史锚点继续生效。未默认启用窗口化，浏览器全文查找和复制仍覆盖全部记录。`deferOffscreen` 默认 false，开启后使用浏览器 content-visibility 延迟屏外布局，记录仍保留在 DOM；不支持该 CSS 的浏览器回退完整布局。
 
-Menu 表达动作，Select/Combobox 表达选值，Tabs 表达关联内容面板，Segmented 使用单选 radio 语义。Popover 是补充信息层。基础组件沿用 Base UI 1.8 的受控/非受控接口和焦点行为；正常目标高 32px，粗指针至少 44px；焦点环与选中样式独立，浮层使用 `--shadow-floating`。Tabs 默认方向键只移动焦点，Enter/Space 激活；Select/Combobox 提供键盘选择和 Escape；Menu 禁用动作不可执行。业务结果仅由真实回调提供。
+Menu 表达动作，Select/Combobox 表达选值，Tabs 表达关联内容面板，Segmented 使用单选 radio 语义。Popover 是补充信息层。基础组件沿用 Base UI 1.8 的受控/非受控接口和焦点行为；正常目标高 32px；焦点环与选中样式独立，浮层使用 `--shadow-floating`。Tabs 默认方向键只移动焦点，Enter/Space 激活；Select/Combobox 提供键盘选择和 Escape；Menu 禁用动作不可执行。业务结果仅由真实回调提供。
 
 ThemeBoundary 新安装使用 `/r/host/` 或 `/r/scoped/` 的命名空间源码；不要把 canonical legacy 组件与私有变量模式混用。`legacyAliases` 仅用于渐进迁移，并只在 boundary 内声明别名。Portal 必须进入对应 boundary；原 `/r/<item>.json` 保持原行为。主题核心仍由 `packages/ui/styles/theme.css` 生成，不能另维护色表。
 
 
 ## 通用表格、浮层与表单契约增量
 
-通用组件补齐遵循 [计划及固定接口](plans/common-components-completion-plan.md)。Checkbox 可视图标16、实际目标32/粗指针44；Table 默认行40，保留 caption、th scope 和横向滚动。选择、当前查看与焦点独立，全选仅改变当前可选行，隐藏选择保留。排序只请求变更，数据和汇总由调用方提供。
+通用组件补齐遵循 [计划及固定接口](plans/common-components-completion-plan.md)。Checkbox 可视图标16、实际目标32；Table 默认行40，保留 caption、th scope 和横向滚动。选择、当前查看与焦点独立，全选仅改变当前可选行，隐藏选择保留。排序只请求变更，数据和汇总由调用方提供。
 
 Sheet 左/右/底部可配，首尾固定、正文滚动，复用 Dialog 焦点/关闭及 ThemeBoundary；嵌套浮层只由最上层消费 Escape。Field 关联 label/id、description/error IDs，失败保留草稿。CommandPalette 使用 combobox/listbox、方向键与 Home/End/Enter、IME防误选，默认无全局键盘监听。ImageUpload 验证类型/大小、读取与解码后交付本地 File，替换失败保留旧值，卸载或新请求取消旧读取。
 
@@ -421,9 +420,9 @@ CommandPalette 的 `className` 只覆盖当前浮层样式；`renderItem(item)` 
 
 ## shadcn 对照 S1 基础表单增量
 
-Textarea 保留原生 textarea 属性、ref、表单关联与可调整高度，默认3行/min-height80；错误关联由 Field 负责，失败保留调用方草稿。Label 为原生 htmlFor 标签，不复制 Field 的校验责任。NativeSelect 保留原生 option/optgroup、键盘和移动端系统选择器，单行高32/粗指针44；multiple/size>1 使用列表高度；显示标签与协议值分开。
+Textarea 保留原生 textarea 属性、ref、表单关联与可调整高度，默认3行/min-height80；错误关联由 Field 负责，失败保留调用方草稿。Label 为原生 htmlFor 标签，不复制 Field 的校验责任。NativeSelect 保留原生 option/optgroup、键盘，单行高32；multiple/size>1 使用列表高度；显示标签与协议值分开。
 
-Switch 沿用 Base UI checked/defaultChecked/onCheckedChange、name/form/value/uncheckedValue、disabled/readOnly/required；操作目标44×32、粗指针44×44，轨道32×20、圆点14。RadioGroup/RadioGroupItem 沿用 Base UI 泛型单选与表单接口，项操作目标32×32/粗指针44×44、圆形标记16；方向键选择和焦点行为由 Base UI 管理。状态与焦点分别呈现，减少动效关闭 Switch 位移过渡。组件只报告值变化；真实设置保存、权限和异步错误由调用方负责。现有 Segmented 继续用于分段选择。
+Switch 沿用 Base UI checked/defaultChecked/onCheckedChange、name/form/value/uncheckedValue、disabled/readOnly/required；操作目标44×32，轨道32×20、圆点14。RadioGroup/RadioGroupItem 沿用 Base UI 泛型单选与表单接口，项操作目标32×32、圆形标记16；方向键选择和焦点行为由 Base UI 管理。状态与焦点分别呈现，减少动效关闭 Switch 位移过渡。组件只报告值变化；真实设置保存、权限和异步错误由调用方负责。现有 Segmented 继续用于分段选择。
 
 ## Work Items W5 增强契约
 
@@ -435,7 +434,7 @@ WorkItemsBatchActions 只提交状态/优先级 patch 与每项基础版本，�
 
 ## Work Items W6–W9 时间布局契约
 
-详见 [WORK-ITEMS.md](./WORK-ITEMS.md)。Timeline 行最小44px、时间条视觉24px，侧栏与轴共用垂直滚动；周/月/季度按日吸附，裁切保留完整日期、单端记录不虚构工期。粗指针使用44px日期表单目标，隐藏细小拖动把手。Calendar 是截止日布局，月/周格与当日Agenda分责，390px使用日期选择与Agenda；今日、选中日期与当前对象分开呈现。周末与无日期任务保留可达入口。
+详见 [WORK-ITEMS.md](./WORK-ITEMS.md)。Timeline 行最小44px、时间条视觉24px，侧栏与轴共用垂直滚动；周/月/季度按日吸附，裁切保留完整日期、单端记录不虚构工期。Calendar 是截止日布局，月/周格与当日Agenda分责；今日、选中日期与当前对象分开呈现。周末与无日期任务保留可达入口。
 
 日期使用严格有效日历字符串、包含两端，不按本地24小时毫秒差计算。shift成对提交，resize仅改一端，Calendar只改dueDate；共同校验权限、基础版本、queryKey与pending/unknown锁。已确认快照与日期草稿分开，失败/未知保留并由调用方对账。远程范围/按日分页、总数与游标是调用方权威快照，不从已加载页推断完整计数。五布局共享对象、选择、详情和回执；旧记录/保存视图保持兼容，分组偏好在日期布局不生效。
 
@@ -459,3 +458,5 @@ Form 复用原生提交和 Field；不绑定业务验证库。Sidebar 默认256/
 ## Agent 工作台组合合同
 
 见 [AGENT-WORKBENCH.md](./AGENT-WORKBENCH.md)。WorkspaceShell 唯一管理布局，宽 Diff 属于 Main；输入按会话与版本隔离，unknown 操作先查询。ChatMessage 的 renderContent 只替换一份正文；ChatComposer 的 sendDisabled 只限制提交，仍可编辑草稿。上下文 availability、操作 receipt、runtime 与 data state 保持分轴。代码、日志与 Diff 预览有界；真实运行、权限、文件/Git/PTY/浏览器由宿主提供。
+
+`WorkspaceShell` 和 `AgentWorkbench` 的 `layoutMode="desktop"` 固定侧栏和 Inspector 为停靠布局；窗口变化不触发导航重排。Agent 应用的 `DesktopFrame` 提供 1024px 最小画布，窗口更小时允许外层滚动；主区内容仍按容器尺寸切换，保留编辑器实例与草稿。通用组件的默认 `adaptive` 模式为既有消费者保留。

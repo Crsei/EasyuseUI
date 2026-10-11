@@ -36,12 +36,12 @@ async function openConversation(page: Page) {
   await expect(page).toHaveURL(/page=session/)
   await expect(page).toHaveURL(/layout=conversation/)
 }
-test("complete templates retain accessible controls on desktop and mobile", async ({
+test("complete templates retain accessible controls on desktop window sizes", async ({
   page,
 }) => {
   test.slow()
-  for (const width of [1440, 390]) {
-    await page.setViewportSize({ width, height: width === 390 ? 844 : 900 })
+  for (const width of [1440, 1024]) {
+    await page.setViewportSize({ width, height: 900 })
     for (const route of [
       "template=coding&page=session&session=session-filter",
       "template=artifacts&page=artifacts&session=session-report",
@@ -546,11 +546,11 @@ test("1000 history records and a long Diff report actual mounted counts and pres
     contentType: "application/json",
   })
 })
-for (const width of [390, 768, 1024, 1280, 1440])
+for (const width of [1024, 1280, 1440])
   test(`full workbench container fits ${width}px with drafts and accessible navigation`, async ({
     page,
   }) => {
-    await page.setViewportSize({ width, height: width === 390 ? 844 : 900 })
+    await page.setViewportSize({ width, height: 900 })
     await page.goto(`${root}/app/?page=session`)
     await input(page).fill(`Draft ${width}`)
     expect(
@@ -579,25 +579,24 @@ for (const width of [390, 768, 1024, 1280, 1440])
     }
     await expect(input(page)).toHaveValue(`Draft ${width}`)
   })
-test.describe("touch and reduced motion", () => {
+test.describe("desktop and reduced motion", () => {
   test.use({
-    viewport: { width: 390, height: 844 },
-    hasTouch: true,
+    viewport: { width: 1280, height: 844 },
     reducedMotion: "reduce",
   })
-  test("sheets trap focus, restore focus, and soft keyboard resizing retains the draft", async ({
+  test("sheets trap focus, restore focus, and window resizing retains the draft", async ({
     page,
   }) => {
     await page.goto(`${root}/app/?page=session`)
-    await input(page).fill("Touch draft")
+    await input(page).fill("Desktop draft")
     const trigger = page.getByRole("button", { name: "示例设置", exact: true })
-    await trigger.tap()
+    await trigger.click()
     await expect(page.getByRole("dialog")).toBeVisible()
     await page.keyboard.press("Escape")
     await expect(trigger).toBeFocused()
-    await input(page).tap()
-    await page.setViewportSize({ width: 390, height: 500 })
-    await expect(input(page)).toHaveValue("Touch draft")
+    await input(page).click()
+    await page.setViewportSize({ width: 1280, height: 500 })
+    await expect(input(page)).toHaveValue("Desktop draft")
     await expect(input(page)).toBeInViewport({ ratio: 1 })
     expect(
       await page.evaluate(
@@ -605,12 +604,12 @@ test.describe("touch and reduced motion", () => {
       ),
     ).toBe(true)
     const box = await trigger.boundingBox()
-    expect(box!.height).toBeGreaterThanOrEqual(44)
+    expect(box!.height).toBe(28)
   })
 })
 test.describe("200 percent effective layout", () => {
-  test.use({ viewport: { width: 720, height: 450 }, deviceScaleFactor: 2 })
-  test("1440px output at 720 CSS pixels keeps keyboard access and drafts", async ({
+  test.use({ viewport: { width: 1024, height: 450 }, deviceScaleFactor: 2 })
+  test("2048px output at 1024 CSS pixels keeps keyboard access and drafts", async ({
     page,
   }, info) => {
     await page.goto(`${root}/app/?page=session`)
@@ -631,7 +630,7 @@ test.describe("200 percent effective layout", () => {
       body: JSON.stringify({
         ...metrics,
         method:
-          "1440px physical output represented by 720 CSS pixels at DPR 2; effective layout equivalent, not browser toolbar automation",
+          "2048px physical output represented by 1024 CSS pixels at DPR 2; effective layout equivalent, not browser toolbar automation",
       }),
       contentType: "application/json",
     })

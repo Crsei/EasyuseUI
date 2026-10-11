@@ -36,9 +36,8 @@ Foundation → Primitive Components → Product Patterns → Workspace Layout �
 | 边框   | 1px hairline；选中指示可用2px，不挤动内容                           |
 | 焦点   | 可见2px ring，offset2或紧凑列表 inset；不被父容器裁切               |
 | 图标   | 默认16、分区18、空态20；统一图标库及线宽；本库使用 Lucide 1.75      |
-| 粗指针 | 交互控件、行、图标操作实际命中至少44×44；区域不能重叠               |
 
-只读标签不强制扩大为44px。触摸目标通过真实布局留出空间，不以重叠伪元素或负 margin 假扩大。
+
 
 ## 颜色与表面
 
@@ -56,7 +55,7 @@ Foundation → Primitive Components → Product Patterns → Workspace Layout �
 
 ## 样式实验
 
-比较参数时使用相同内容、值和交互状态；优先每次改变一个维度，并检查长内容、深浅主题、键盘和触屏。
+比较参数时使用相同内容、值和交互状态；优先每次改变一个维度，并检查长内容、深浅主题、键盘。
 
 - 复用模式可使用 `StyleWorkbench`，按 `STYLE-WORKBENCH.md` 核对 API 与参数；实验限制在预览容器，不能自动改根主题。
 - 独立实现使用目标项目的预览工具或局部 CSS；保持基准和实验分离，不要求安装样式工作台。

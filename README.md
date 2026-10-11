@@ -10,7 +10,7 @@
 
 ## 设计规范与初始化
 
-先阅读 [Design Rules](./Design-rules.md) 和 [Component Specification](./Component-Specification.md)。后者规定基础与产品组件的尺寸、交互态、数据态、运行态、键盘模型、触摸命中、响应式与验收要求。[AGENTS.md](./AGENTS.md) 是项目 Agent 的实际指引文件。
+先阅读 [Design Rules](./Design-rules.md) 和 [Component Specification](./Component-Specification.md)。后者规定基础与产品组件的尺寸、交互态、数据态、运行态、键盘模型、桌面布局与验收要求。[AGENTS.md](./AGENTS.md) 是项目 Agent 的实际指引文件。
 
 [Development Guide](./DEVELOPMENT-GUIDE.md) 记录技术选型、项目流程组合示例、fixture/service 适配、协议验证、状态职责与后续执行顺序；新增方向的实现状态由 Agent Workspace 配套计划和验收记录维护。
 
@@ -45,7 +45,7 @@ Agent 可按任务读取 [UI Skills 分类与入口](./skills/README.md)：视�
 | Foundation       | 中性深浅主题、统一颜色/密度/控件尺寸和 motion tokens，集中在 `styles/theme.css`                                                                     |
 | Primitive        | Button / Input / Badge / Tag / Chip、Item 加载与错误、RuntimeStatusBadge、DataRegion 五种数据态；完整单选 ARIA Tree、懒加载状态、受控拖拽与键盘移动 |
 | Product Patterns | SessionRow、AgentRow、ActivityTimeline、Inspector、ChatMessage / Conversation / ChatComposer、ToolCall                                              |
-| Workspace        | WorkspaceShell：导航256/48、Inspector320（300–360）、窄屏抽屉、焦点恢复、键盘/指针 resize；Session 列表/层级切换、Chat 对话/工作区分栏              |
+| Workspace        | WorkspaceShell：导航256/48、Inspector320（300–360）、焦点恢复、键盘/指针 resize；Session 列表/层级切换、Chat 对话/工作区分栏              |
 | Visual tools     | 视觉词典 `/dictionary/`、样式工作台 `/style-workbench/`、滚动实验室 `/scroll/`；样式工作台和滚动演示可独立安装                                      |
 | Service boundary | 组件接收数据和能力回调；真实 Agent/Session 控制、流式网络传输、工具执行、权限审批权威和持久化由消费项目接入                                         |
 
@@ -57,7 +57,7 @@ ToolCall 展示作用范围和风险，并且只通过明确批准/拒绝回调�
 
 每个新组件都有 `/docs/<slug>/` 交互文档与独立 Registry 条目。
 
-打开 http://localhost:3010/scroll/ 体验六种滚动交互：Scroll-triggered（卡片淡入）、Scroll-linked（阅读进度）、Parallax（背景视差）、Sticky（通讯录分组吸顶）、Scroll Snap（整屏吸附）、Horizontal Scroll（纵向滚动驱动横向卡片）。每个演示可独立滚动、重置，支持键盘、触屏、深浅主题和减少动态效果设置。组件文档在 `/docs/scroll-playground/`。
+打开 http://localhost:3010/scroll/ 体验六种滚动交互：Scroll-triggered（卡片淡入）、Scroll-linked（阅读进度）、Parallax（背景视差）、Sticky（通讯录分组吸顶）、Scroll Snap（整屏吸附）、Horizontal Scroll（纵向滚动驱动横向卡片）。每个演示可独立滚动、重置，支持键盘、深浅主题和减少动态效果设置。组件文档在 `/docs/scroll-playground/`。
 
 ## 本地开发
 

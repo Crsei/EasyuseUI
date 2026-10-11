@@ -175,7 +175,7 @@ export const siteMessages = {
     "site.workflowAnalytics.catalog.43": "固定响应网格、独立 Widget、口径查看与受控工具栏。",
     "site.workflowAnalytics.catalog.44": "复用WorkspaceShell，填充有明确高度的父容器。",
     "site.workflowAnalytics.catalog.45": "受控范围、成员、刷新与数据时间；筛选归调用方。",
-    "site.workflowAnalytics.catalog.46": "桌面12列、中屏6列、窄屏单列；独立读态。",
+    "site.workflowAnalytics.catalog.46": "桌面12列布局；独立读态。",
     "site.workflowAnalytics.catalog.47": "口径与允许导出；不显示无法保存的编辑。",
     "site.workflowAnalytics.catalog.48": "组合状态、趋势、年龄、阻塞、指标和风险事实的固定项目模板。",
     "site.workflowAnalytics.catalog.49": "每项有稳定id/query/result及独立data态。",
@@ -303,7 +303,7 @@ export const siteMessages = {
     "site.shadcnForms.contract.textarea": "支持受控和非受控值；错误不会清空草稿。",
     "site.shadcnForms.catalog.label": "独立字段标签，沿用原生 htmlFor 与 ref。",
     "site.shadcnForms.contract.label": "只负责标签关联；完整说明与错误关联使用 Field。",
-    "site.shadcnForms.catalog.native-select": "原生选择器、选项与分组，保留移动端系统选择器。",
+    "site.shadcnForms.catalog.native-select": "原生选择器、选项与分组。",
     "site.shadcnForms.contract.native-select": "显示标签与提交值分开，支持多选和原生表单属性。",
     "site.shadcnForms.catalog.switch": "受控或非受控开关，保留原生表单与只读状态。",
     "site.shadcnForms.contract.switch": "32px操作目标、粗指针44px；回调只报告设置值变化。",
@@ -495,7 +495,7 @@ export const siteMessages = {
     "site.commonContracts.contract13":
       "替换失败保留旧File；迟到读取丢弃，卸载取消读取；上传及远程结果由调用方负责。",
     "site.commonContracts.description14":
-      "组合筛选、排序与计数，窄屏使用Sheet容纳筛选。",
+      "组合筛选、排序与计数。",
     "site.commonContracts.contract14":
       "筛选值由调用方持有；切换布局只挂载一组筛选控件，避免重复ID。",
     "site.commonContracts.description15":
@@ -611,9 +611,9 @@ export const siteMessages = {
     "site.optimization.portalScopeNote": "弹窗继承触发它的主题作用域。",
     "site.optimization.exampleAction": "示例操作",
     "site.optimization.layoutContract":
-      "布局支持受控与非受控；桌面停靠和窄屏浮层独立，存储由调用方管理。",
+      "布局支持受控与非受控；存储由调用方管理。",
     "site.optimization.overlayContract":
-      "窄屏浮层状态独立；响应式测量不回写业务偏好。",
+      "浮层状态由调用方控制；尺寸测量不回写业务偏好。",
     "site.optimization.revisionContract":
       "可选变更提示；追加、历史修订、删除、重排与状态变化均需推进，省略时保留兼容检测。",
     "site.optimization.controlledLayoutDemo": "受控布局示例",
@@ -2341,9 +2341,9 @@ export const siteMessages = {
     "site.defaultDemoHeight680pxCustomizableWithStyles":
       "默认演示高度680px，可通过样式调整。",
     "site.theCompleteFoundationPageIsWorkspaceInNarrowContainers":
-      "完整基础页在/workspace/shell/；窄容器的Inspector改为带焦点约束的抽屉。",
+      "完整基础页在/workspace/shell/；桌面模式通过 layoutMode 显式启用。",
     "site.respondsToContainerWidthInspectorDocksAt1280pxOverlays":
-      "按容器宽度响应：≥1280px停靠Inspector；<1280px改为浮层；<1024px使用窄导航。",
+      "桌面模式始终停靠侧栏与Inspector；主区保留容器宽度约束。",
     "site.supportsPointerResizing8pxArrowKeyStepsAndHome":
       "支持指针拖动、方向键每次8px、Home/End尺寸边界；关闭后恢复焦点。",
     "site.exampleDataAndMessagesLiveInLocalMemoryWithout":
@@ -2433,7 +2433,7 @@ export const siteMessages = {
     "site.sameAxisMessagesIndependentToolSlotsInterruptibleOutputConversation":
       "同轴消息、独立工具槽、可中断输出、对话/工作区分栏与 IME 安全输入。",
     "site.controlledMessagesDataStateWorkspaceAndComposerNarrowScreens":
-      "受控消息数组、数据态、工作区和 Composer；窄屏切换视图。",
+      "受控消息数组、数据态、工作区和 Composer。",
     "site.controlledDraftOnsendPendingStreamingExplicitStopCallbackAnd":
       "受控草稿、onSend、pending/streaming、显式停止回调与附件。",
     "site.followsOnlyWithin64pxOfTheBottomEarlierHistory":
@@ -2606,7 +2606,7 @@ export const siteMessages = {
     "site.notAReplacementForObjectRuntimeState": "不代替对象运行状态。",
     "site.switchContentPanelsWithinOneContext": "切换同一上下文的内容面板。",
     "site.theNarrowWorkspaceEmbedsContentSwitching":
-      "工作台窄屏有内容切换模式。",
+      "工作台支持内容切换。",
     "site.notGlobalNavigationNoGenericComponentIsAvailableYet":
       "不代替跨页面导航；导航应使用链接。",
     "site.changeOneValueAmongAFewMutuallyExclusiveOptions":
@@ -2682,7 +2682,7 @@ export const siteMessages = {
       "普通对象属性优先 Inspector。",
     "site.aPanelEnteringFromTheSideOrBottom": "从侧边或底部进入的面板。",
     "site.workspaceshellEmbedsNarrowScreenNavigationAndDetails":
-      "WorkspaceShell 已有窄屏侧栏和详情。",
+      "WorkspaceShell 提供侧栏和详情槽位。",
     "site.presentationChangesContentResponsibilityRemainsTheSame":
       "这是呈现方式，不改变内容职责。",
     "site.separateModalContentFromItsBackground": "隔开模态内容与背景。",
@@ -3052,7 +3052,7 @@ export const siteMessages = {
     "site.workflowAnalytics.catalog.43": "Fixed responsive grids, independent widgets, metric inspection and controlled toolbars.",
     "site.workflowAnalytics.catalog.44": "Reuses WorkspaceShell to fill a parent with an explicit height.",
     "site.workflowAnalytics.catalog.45": "Controlled scope, members, refresh and data time; filtering belongs to callers.",
-    "site.workflowAnalytics.catalog.46": "Twelve columns on desktop, six on medium screens and one on narrow screens; independent read states.",
+    "site.workflowAnalytics.catalog.46": "Twelve columns on desktop; independent read states.",
     "site.workflowAnalytics.catalog.47": "Metric definitions and permitted export; no editing controls without saving support.",
     "site.workflowAnalytics.catalog.48": "A fixed project template combining status, trends, aging, blockers, metrics and risk facts.",
     "site.workflowAnalytics.catalog.49": "Each widget has stable id, query, result and an independent data state.",
@@ -3180,7 +3180,7 @@ export const siteMessages = {
     "site.shadcnForms.contract.textarea": "Supports controlled and uncontrolled values; errors preserve the draft.",
     "site.shadcnForms.catalog.label": "A standalone field label with native htmlFor and ref support.",
     "site.shadcnForms.contract.label": "Associates a label with a control; use Field for descriptions and errors.",
-    "site.shadcnForms.catalog.native-select": "Native select, options, and groups with the mobile system picker.",
+    "site.shadcnForms.catalog.native-select": "Native select, options, and groups.",
     "site.shadcnForms.contract.native-select": "Separates display labels from submitted values; supports multiple selection and native form props.",
     "site.shadcnForms.catalog.switch": "A controlled or uncontrolled switch with form and read-only support.",
     "site.shadcnForms.contract.switch": "Uses 32px targets and 44px for coarse pointers; callbacks only report value changes.",
@@ -3378,7 +3378,7 @@ export const siteMessages = {
     "site.commonContracts.contract13":
       "Failed replacement keeps the old File; late reads are discarded and unmount cancels reads. Callers own uploads and remote outcomes.",
     "site.commonContracts.description14":
-      "Filter, sort and count slots with a Sheet for narrow-screen filters.",
+      "Filter, sort and count slots.",
     "site.commonContracts.contract14":
       "Callers own filter values; layout changes mount one set of filter controls to avoid duplicate IDs.",
     "site.commonContracts.description15":
@@ -5295,9 +5295,9 @@ export const siteMessages = {
     "site.defaultDemoHeight680pxCustomizableWithStyles":
       "Default demo height 680px, customizable with styles.",
     "site.theCompleteFoundationPageIsWorkspaceInNarrowContainers":
-      "The complete foundation page is /workspace/shell/. In narrow containers, Inspector becomes a focus-contained drawer.",
+      "The complete foundation page is /workspace/shell/. Set layoutMode to desktop to keep panels docked.",
     "site.respondsToContainerWidthInspectorDocksAt1280pxOverlays":
-      "Responds to container width: Inspector docks at ≥1280px, overlays below 1280px, with narrow navigation below 1024px.",
+      "Desktop mode keeps navigation and Inspector docked; Main retains its container constraints.",
     "site.supportsPointerResizing8pxArrowKeyStepsAndHome":
       "Supports pointer resizing, 8px arrow-key steps and Home/End limits; closing restores focus.",
     "site.exampleDataAndMessagesLiveInLocalMemoryWithout":
@@ -5387,7 +5387,7 @@ export const siteMessages = {
     "site.sameAxisMessagesIndependentToolSlotsInterruptibleOutputConversation":
       "Same-axis messages, independent tool slots, interruptible output, conversation/workspace panes and IME-safe input.",
     "site.controlledMessagesDataStateWorkspaceAndComposerNarrowScreens":
-      "Controlled messages, data state, workspace and Composer; narrow screens switch views.",
+      "Controlled messages, data state, workspace and Composer.",
     "site.controlledDraftOnsendPendingStreamingExplicitStopCallbackAnd":
       "Controlled draft, onSend, pending/streaming, explicit stop callback and attachments.",
     "site.followsOnlyWithin64pxOfTheBottomEarlierHistory":
@@ -5603,7 +5603,7 @@ export const siteMessages = {
     "site.switchContentPanelsWithinOneContext":
       "Switch content panels within one context.",
     "site.theNarrowWorkspaceEmbedsContentSwitching":
-      "The narrow workspace embeds content switching.",
+      "The workspace supports content switching.",
     "site.notGlobalNavigationNoGenericComponentIsAvailableYet":
       "Not global navigation; no generic component is available yet.",
     "site.changeOneValueAmongAFewMutuallyExclusiveOptions":
@@ -5696,7 +5696,7 @@ export const siteMessages = {
     "site.aPanelEnteringFromTheSideOrBottom":
       "A panel entering from the side or bottom.",
     "site.workspaceshellEmbedsNarrowScreenNavigationAndDetails":
-      "WorkspaceShell embeds narrow-screen navigation and details.",
+      "WorkspaceShell provides navigation and detail slots.",
     "site.presentationChangesContentResponsibilityRemainsTheSame":
       "Presentation changes; content responsibility remains the same.",
     "site.separateModalContentFromItsBackground":

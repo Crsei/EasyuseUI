@@ -44,7 +44,7 @@ export const themeModes: BlogPost = {
       type: "paragraph",
       text: {
         "zh-CN":
-          "host 模式从宿主语义变量映射到 --eu-*，scoped 模式使用局部 EasyuseUI 私有主题。两者不注入全局 root 默认值、字体或 reset；原有 /r/<item>.json 继续兼容。每个作用域提供 Portal 容器，Dialog、Tooltip、Menu、Popover、Select、Combobox 和窄屏 Workspace 浮层都继承自己的边界。",
+          "host 模式从宿主语义变量映射到 --eu-*，scoped 模式使用局部 EasyuseUI 私有主题。两者不注入全局 root 默认值、字体或 reset；原有 /r/<item>.json 继续兼容。每个作用域提供 Portal 容器，Dialog、Tooltip、Menu、Popover、Select、Combobox 和 Workspace 浮层都继承自己的边界。",
       },
     },
     {

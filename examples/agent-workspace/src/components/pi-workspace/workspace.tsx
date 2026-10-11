@@ -279,6 +279,7 @@ function WorkspaceView() {
       )}
       <div className={styles.product}>
         <AgentWorkbench
+          layoutMode="desktop"
           session={session}
           layout="conversation"
           className={styles.shell}

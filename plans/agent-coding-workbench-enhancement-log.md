@@ -4,7 +4,7 @@
 
 ## 接口与职责
 
-- `WorkspaceShell.activityBar` 是可选48px活动栏；未传时保留原导航行为。容器不足1024时辅助导航进入焦点受约束的Sheet，窄屏轨道提供会话/文件/任务和更多菜单；Inspector和主区依据实际容器宽度收敛。首次进入和保留挂载的 `WorkbenchFrame` 使用同一槽位。
+- `WorkspaceShell.activityBar` 是可选48px活动栏；未传时保留原导航行为。Inspector和主区依据实际容器宽度收敛。首次进入和保留挂载的 `WorkbenchFrame` 使用同一槽位。
 - 页面/会话导航使用URL链接；同页活动区与文档选择是视图状态。设置使用Dialog；停止/批准/发送沿用独立请求回执。Mod+K仍搜索会话，新增命令菜单只跳转或打开表单，不直接执行命令。
 - `ResourceSnapshot` 与 `ChangedFile` 分开。资源键包含project/session/resource/revision；可选range不改变文件身份。`openDocument`只替换临时标签，固定标签及旧修订保留；关闭标签不删除来源。`acceptResourceRead`拒绝错身份/错修订，刷新失败保留同对象正文，无权限不会保留旧正文。
 - `WorkbenchFilePreview` / `WorkbenchResourceContent` / `WorkbenchDocumentTabs` 共用来源renderer。文本最多1000行/8192字符每行/256KiB；Markdown32KiB，JSON/CSV64KiB，CSV最多100个数据行/64列。图片只允许有界raster data或宿主明确允许的HTTP(S) origin；无嵌入凭据，不自动播放动图。HTML/SVG仅源码，不插入主文档、不执行脚本或外部资源。
@@ -19,7 +19,7 @@
 | --- | --- | --- |
 | E0 基线与接口 | 保留白名单URL、原Session/Draft/receipt、三个模板；统一Inspector契约残留文字为280–360，未修改尺寸token | 通过模型、URL、草稿及兼容回归 |
 | E1 侧边入口 | 活动栏、导航收敛、文件树、辅助Sheet、顶部只保留示例返回/fixture/示例设置 | 通过宽窄容器、浏览器前进后退、停靠后返回草稿 |
-| E2 设置与输入 | 设置Dialog/同源设置页、常驻模型权限环境与调度、引用条、搜索多选上下文、独立命令菜单 | 通过取消/应用/unknown核对、IME、双语、焦点及软键盘回归 |
+| E2 设置与输入 | 设置Dialog/同源设置页、常驻模型权限环境与调度、引用条、搜索多选上下文、独立命令菜单 | 通过取消/应用/unknown核对、IME、双语、焦点回归 |
 | E3 文件与产物 | 文本/Markdown/raster/Diff小窗、临时/固定文档、类型与来源、上下文添加、真实字节下载、读取身份与修订 | 通过格式、安全、晚到读取、固定旧修订和下载字节验证 |
 | E4 工具与运行 | 工具折叠组、命令身份/异常fixture、工具/输出/文件/消息联动、JSON/CSV、HTML/SVG源码降级 | 通过失败/空输出/断线/unknown和来源联动；可选非模态浮窗未启用 |
 | E5 展示与分发 | 区域实验室、三模板、五个Catalog条目、Registry依赖与独立消费者、双语/主题/短视口/触摸 | 通过静态检查、浏览器回归和独立安装 |
@@ -57,7 +57,7 @@
 - 首轮浏览器发现活动栏Button包装改变链接语义，已改为原生Link+既有tooltip；移动flex行可能把主区压为0宽，已改为纵向布局。
 - 新增上下文测试最初误将Inspector继承来源计入草稿，已按Composer引用条限定断言。读写身份、错误结果和权限边界不降低断言。
 - 关闭/停靠后迟到读取曾可能重新打开小窗；关闭、停靠、来源切换均使旧读取序号失效。固定文档从匹配来源的快照保留正文；不同revision的引用保留元数据降级。
-- 软键盘使500px高视口中的Composer受到重复区域开关挤压；增强示例使用现有活动栏和工具栏入口，隐藏重复开关，并在聚焦输入框时响应窗口/visualViewport调整。
+- 增强示例使用现有活动栏和工具栏入口，隐藏重复开关，并在聚焦输入框时响应窗口/visualViewport调整。
 - 文件停靠后的浏览器返回曾保留旧pane选择；页面或布局URL导航清除旧局部选择，前进后退保持同一Composer实例和草稿。
 - 独立消费者最初位于较深且嵌套的临时目录，pnpm父级工作区和Chrome本地socket受目录影响；改为仓库外短路径，恢复共享依赖后完成完整安装验证。未改package/lock或绕过安装检查。
 

@@ -66,6 +66,7 @@ export function TaskInbox({
   )
 }
 export type AgentWorkbenchProps = {
+  layoutMode?: "adaptive" | "desktop"
   session: SessionSnapshot
   layout: WorkbenchLayout
   panelState: PanelState
@@ -99,6 +100,7 @@ export type AgentWorkbenchProps = {
 }
 /** One Shell owns docking; wide review belongs to Main. Hidden panes retain their editors. */
 export function AgentWorkbench({
+  layoutMode = "adaptive",
   session,
   layout,
   panelState,
@@ -184,6 +186,7 @@ export function AgentWorkbench({
     onPanelStateChange({ ...panelState, ...value })
   return (
     <WorkspaceShell
+      layoutMode={layoutMode}
       className={cn(styles.shell, className)}
       title={
         header ?? (

@@ -5,7 +5,7 @@
 ## 页面声明
 
 - AW-EX-P01：独立 origin 的 `/` 为三模板工作台，`/layouts/` 为布局回归，`/regions/` 为应用交互场景，`/pi/` 为真实服务客户端。沿用 PG03–PG08 的层级、尺寸、默认折叠和固定滚动区域；首页默认会话，模板/page/session/project/panel/layout/scenario 等公共查询参数继续受原解析器校验。fixture 与 Pi Provider 分开，跨页面不把 fixture 注入 Pi。原能力边界及 V2 聊天样式保持。主题和语言只更新 Provider，不重建编辑器；草稿、选择、阅读位置继续按原对象语义维护。不同 origin 的旧存储不自动迁移、不清除、不转发凭据或 pending。
-- AW-EX-P02：主站 `/examples/agent-workbench/elements/` 为 canonical 画廊；旧总览/app/layouts/regions/pi/workspace 入口挂组件画廊及独立入口。reference/intervention 精细 fixture 留主站。画廊实际展示 MD01–MD17，保留状态/规范/技术视图、窄容器、双主题双语、键盘和减少动效合同；默认展示全部模块，页面滚动、长内容区域内滚动。无 Pi 客户端、连接凭据和应用 Provider。
+- AW-EX-P02：主站 `/examples/agent-workbench/elements/` 为 canonical 画廊；旧总览/app/layouts/regions/pi/workspace 入口挂组件画廊及独立入口。reference/intervention 精细 fixture 留主站。画廊实际展示 MD01–MD17，保留状态/规范/技术视图、双主题双语、键盘和减少动效合同；默认展示全部模块，页面滚动、长内容区域内滚动。无 Pi 客户端、连接凭据和应用 Provider。
 
 ## 模块声明
 

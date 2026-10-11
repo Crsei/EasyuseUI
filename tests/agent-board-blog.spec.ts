@@ -20,7 +20,7 @@ test("Agent article exposes source-bound captures, reports and the workspace ent
   ).json()
   expect(captures.sourceSnapshotId).toBe(report.sourceSnapshotId)
   expect(captures.captures).toHaveLength(12)
-  for (const width of [1440, 768, 390]) {
+  for (const width of [1440, 1280, 1024]) {
     await page.setViewportSize({ width, height: 1000 })
     expect(
       await page.evaluate(
@@ -28,10 +28,10 @@ test("Agent article exposes source-bound captures, reports and the workspace ent
       ),
     ).toBe(true)
   }
-  for (const capture of captures.captures) {
-    const image = page
-      .locator("main img")
-      .nth(captures.captures.indexOf(capture))
+  for (const capture of captures.captures.filter(
+    (capture: { viewport: { width: number } }) => capture.viewport.width >= 1024,
+  )) {
+    const image = page.locator(`main img[src$="${capture.file}"]`)
     await expect(image).toHaveJSProperty(
       "src",
       new URL(capture.file, page.url()).href,
@@ -116,13 +116,15 @@ test("P2 article binds comparable rendering samples, eight captures and the larg
       .filter({ hasText: "首条详情打开步骤" })
       .locator('[data-change="unchanged"]'),
   ).toBeVisible()
-  for (const capture of captures.captures) {
+  for (const capture of captures.captures.filter(
+    (capture: { viewport: { width: number } }) => capture.viewport.width >= 1024,
+  )) {
     const image = page.locator(`main img[src$="${capture.file}"]`)
     await image.scrollIntoViewIfNeeded()
     await expect(image).not.toHaveJSProperty("naturalWidth", 0)
     expect((await request.get(capture.file)).ok()).toBe(true)
   }
-  await page.setViewportSize({ width: 390, height: 844 })
+  await page.setViewportSize({ width: 1024, height: 768 })
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

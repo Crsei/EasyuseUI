@@ -6,7 +6,7 @@ export const controlledLayout: BlogPost = {
     en: "Putting workspace layout state under caller control",
   },
   summary: {
-    "zh-CN": "成对受控接口、独立移动端浮层与按工作区保存的示例适配器。",
+    "zh-CN": "成对受控接口、按工作区保存的示例适配器。",
     en: "Putting workspace layout state under caller control",
   },
   originalLocale: "zh-CN",
@@ -46,7 +46,7 @@ export const controlledLayout: BlogPost = {
       type: "paragraph",
       text: {
         "zh-CN":
-          "WorkspaceShell 为侧栏折叠、Inspector 展开/宽度、底部展开/高度提供 value/default/onChange 成对接口，保留非受控默认。桌面停靠与窄屏 overlay 分开；测量和切换语言不回写偏好。组件不拥有 localStorage。",
+          "WorkspaceShell 为侧栏折叠、Inspector 展开/宽度、底部展开/高度提供 value/default/onChange 成对接口，保留非受控默认。测量和切换语言不回写偏好。组件不拥有 localStorage。",
       },
     },
     {

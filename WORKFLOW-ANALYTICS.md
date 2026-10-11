@@ -57,7 +57,7 @@ import { StatisticalChart } from "@/components/blocks/charts/statistical-chart"
 
 ## 选择、下钻与恢复
 
-所有鼠标、触屏、数据表与键盘入口都生成稳定 seriesId/bucketId 的 DrilldownSelection。图例只改变系列可见性；分母和其他 Widget 保持不变。点选默认打开来源；只有“应用为筛选”回调才请求改变全局查询。
+所有鼠标、数据表与键盘入口都生成稳定 seriesId/bucketId 的 DrilldownSelection。图例只改变系列可见性；分母和其他 Widget 保持不变。点选默认打开来源；只有“应用为筛选”回调才请求改变全局查询。
 
 `ChartDrilldownPanel.response` 必须带 queryKey、snapshotId、seriesId、bucketId、records、totalCount。不匹配时不展示旧记录；2/5 的分页显示为已加载 2/5。小集合可提供 entityRefs，大集合使用受控 predicate/token 并由调用方分页。历史聚合不能用今天的状态重新构造；缺少可重建成员描述时不提供 drilldown，组件展示不可下钻原因。
 

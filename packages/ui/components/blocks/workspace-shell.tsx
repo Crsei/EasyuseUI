@@ -36,6 +36,8 @@ function useLayoutValue<T>(
 }
 
 export type WorkspaceShellProps = {
+  /** Desktop keeps navigation and Inspector docked regardless of container width. */
+  layoutMode?: "adaptive" | "desktop"
   sidebarWidth?: number
   defaultSidebarWidth?: number
   onSidebarWidthChange?: (width: number) => void
@@ -76,6 +78,7 @@ export type WorkspaceShellProps = {
 }
 
 export function WorkspaceShell({
+  layoutMode = "adaptive",
   title,
   activityBar,
   sidebar,
@@ -143,8 +146,10 @@ export function WorkspaceShell({
   const ref = useRef<HTMLDivElement>(null)
   const openerRef = useRef<HTMLButtonElement>(null)
   const panelRef = useRef<HTMLElement>(null)
-  const [wide, setWide] = useState(false)
-  const [sidebarInline, setSidebarInline] = useState(false)
+  const [measuredWide, setWide] = useState(false)
+  const [measuredSidebarInline, setSidebarInline] = useState(false)
+  const wide = layoutMode === "desktop" || measuredWide
+  const sidebarInline = layoutMode === "desktop" || measuredSidebarInline
   const [navigationOpen, setNavigationOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useLayoutValue(
     controlledSidebar,
@@ -236,6 +241,7 @@ export function WorkspaceShell({
     <div
       ref={ref}
       className={cn(styles.shell, className)}
+      data-layout-mode={layoutMode}
       data-sidebar-collapsed={sidebarCollapsed}
       data-activity-bar={activityBar !== undefined || undefined}
       style={

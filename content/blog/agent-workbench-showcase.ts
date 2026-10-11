@@ -122,8 +122,8 @@ export const agentWorkbenchShowcasePost: BlogPost = {
       type: "paragraph",
       text: {
         "zh-CN":
-          "两张图展示不同页面职责：基线为完整编码模板，本轮为独立区域实验室。它们不是同一页面的性能前后测量。移动端目录改成选择器，场景控制进入 Sheet；底部收纳组件映射、数据合同与验收说明。",
-        en: "These images show different page responsibilities: the baseline is a complete coding template and the current image is an individual region lab. They are not a performance comparison of the same page. Mobile uses a region selector and Sheet controls, with component mappings, data contracts and acceptance details below.",
+          "两张图展示不同页面职责：基线为完整编码模板，本轮为独立区域实验室。它们不是同一页面的性能前后测量。底部收纳组件映射、数据合同与验收说明。",
+        en: "These images show different page responsibilities: the baseline is a complete coding template and the current image is an individual region lab. They are not a performance comparison of the same page. Component mappings, data contracts and acceptance details appear below.",
       },
     },
     {
@@ -166,30 +166,6 @@ export const agentWorkbenchShowcasePost: BlogPost = {
           en: "Output / Artifacts: logs are bounded and reconnect restores local read state. Actual availability and format determine artifact preview, copy and download; missing PTY or browser hosts have explicit reasons.",
         },
       ],
-    },
-    {
-      type: "image",
-      image: {
-        src: "/blog/agent-workbench-showcase/region-composer-mobile-light.jpg",
-        alt: {
-          "zh-CN": "移动端输入区域：主预览与 Sheet 场景设置。",
-          en: "Mobile composer region: main preview and Sheet scenario controls.",
-        },
-        caption: {
-          "zh-CN": "移动端输入区域：主预览与 Sheet 场景设置。",
-          en: "Mobile composer region: main preview and Sheet scenario controls.",
-        },
-        sourceSnapshotId:
-          "476017e821453b9e770a5e0109f19cf1b487e9f8eb37ab66dcf2e5c0251e766c",
-        capturedAt: "2026-10-09T05:37:55.400Z",
-        fixture: "initial stable fixture; default source case",
-        viewport: {
-          width: 390,
-          height: 844,
-        },
-        theme: "light",
-        locale: "zh-CN",
-      },
     },
     {
       type: "heading",
@@ -365,7 +341,7 @@ export const agentWorkbenchShowcasePost: BlogPost = {
       text: {
         "zh-CN":
           "64 张截图覆盖 10 区域、3 布局、3 模板的桌面/移动 × 浅色/深色。捕获前等待字体加载，记录视口、主题、语言、路由和 23 个运行源码文件的指纹，检查页面异常与横向溢出。专项 174 项验证通过；完整命令结果与后续回归数保存在 verification.json 和展示实施记录。",
-        en: "64 captures cover ten regions, three layouts and three templates on desktop/mobile in light/dark themes. Capture waits for loaded fonts, records viewport, theme, locale, route and fingerprints of 23 runtime source files, and checks page errors and horizontal overflow. All 174 workbench checks pass; command results and full regression counts are recorded in verification.json and the showcase implementation log.",
+        en: "64 captures cover ten regions, three layouts and three templates on the recorded viewports in light/dark themes. Capture waits for loaded fonts, records viewport, theme, locale, route and fingerprints of 23 runtime source files, and checks page errors and horizontal overflow. All 174 workbench checks pass; command results and full regression counts are recorded in verification.json and the showcase implementation log.",
       },
     },
   ],

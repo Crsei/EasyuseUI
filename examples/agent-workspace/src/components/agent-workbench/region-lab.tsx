@@ -5,12 +5,7 @@ import Link from "next/link"
 import { DocsLink } from "@/components/docs-link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@easyuse-ui/ui/components/ui/button"
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetTitle,
-} from "@easyuse-ui/ui/components/ui/sheet"
+
 import { useI18n } from "@easyuse-ui/ui/lib/i18n-provider"
 import { regionDefinitions } from "./showcase-model"
 import styles from "./region-lab.module.css"
@@ -18,7 +13,6 @@ import styles from "./region-lab.module.css"
 export function RegionLab({
   region,
   scenario,
-  narrow,
   onRegionChange,
   navigation,
   controls,
@@ -27,7 +21,6 @@ export function RegionLab({
 }: {
   region: string
   scenario: string
-  narrow: boolean
   onRegionChange: (id: string) => void
   navigation: ReactNode
   controls: ReactNode
@@ -59,30 +52,6 @@ export function RegionLab({
           {en ? "Local interactive example" : "本地交互示例"}
         </span>
       </div>
-      <div className={styles.mobileToolbar}>
-        <label>
-          {en ? "Region laboratory" : "区域实验室"}
-          <select
-            value={region}
-            onChange={(e) => onRegionChange(e.target.value)}
-          >
-            {regionDefinitions.map((r, i) => (
-              <option key={r.id} value={r.id}>
-                R{i + 1} {r.title[locale]}
-              </option>
-            ))}
-          </select>
-        </label>
-        <Sheet>
-          <SheetTrigger render={<Button variant="secondary" size="sm" />}>
-            {en ? "Example settings" : "示例设置"}
-          </SheetTrigger>
-          <SheetContent side="right">
-            <SheetTitle>{label}</SheetTitle>
-            {controls}
-          </SheetContent>
-        </Sheet>
-      </div>
       <div className={styles.grid} data-controls-open={controlsOpen}>
         <nav
           className={styles.directory}
@@ -112,7 +81,6 @@ export function RegionLab({
           <div
             className={styles.previewViewport}
             data-preview-container
-            data-narrow={narrow}
           >
             {preview}
           </div>

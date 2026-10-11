@@ -45,12 +45,13 @@ test("redesign article binds real screenshot pairs and scoped production observa
     const comparisons = homepageAndDocs.body.filter(
       (block) => block.type === "comparison",
     )
-    expect(comparisons).toHaveLength(4)
+    expect(comparisons).toHaveLength(2)
     for (const comparison of comparisons) {
       expect(comparison.before?.viewport).toEqual(comparison.after?.viewport)
       expect(comparison.before?.theme).toBe(comparison.after?.theme)
       expect(comparison.before?.locale).toBe(comparison.after?.locale)
       const picture = comparison[phase]!
+      expect(picture.viewport!.width).toBeGreaterThanOrEqual(1024)
       expect(picture.sourceSnapshotId).toBe(report.source.id)
       const image = await request.get(picture.src)
       expect(image.ok()).toBe(true)

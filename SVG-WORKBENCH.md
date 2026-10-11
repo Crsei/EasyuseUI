@@ -63,4 +63,4 @@ export function ArtworkEditor({ library }: {
 
 内置文案通过 `lib/i18n-svg.ts` 共用可移植 I18nProvider 的 locale 和类型化翻译合同；`lib/i18n-svg-messages.ts` 仅随 SVG 组件加载，避免给其他工具页增加全部 SVG 文案。中英文切换不重挂编辑器，不改写调用方文本或用户草稿。
 
-桌面复用 WorkspaceShell 的 256px 侧栏、320px Inspector 和默认收起的 240px 底部面板；正式页面铺满窗口。窄屏使用素材/源码/属性 Sheet。组件文档有独立区域 Demo，素材 Demo 可检查五种数据态。工程、浏览器、独立安装和性能记录见 [实施验证记录](plans/svg-workbench-validation.md)。W5 的钢笔、布尔运算、PNG/ICO、sprite 和批量导出未纳入 V1。
+桌面复用 WorkspaceShell 的 256px 侧栏、320px Inspector 和默认收起的 240px 底部面板；正式页面铺满窗口。组件文档有独立区域 Demo，素材 Demo 可检查五种数据态。工程、浏览器、独立安装和性能记录见 [实施验证记录](plans/svg-workbench-validation.md)。W5 的钢笔、布尔运算、PNG/ICO、sprite 和批量导出未纳入 V1。

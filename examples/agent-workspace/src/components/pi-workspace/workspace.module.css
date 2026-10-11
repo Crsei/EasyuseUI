@@ -117,7 +117,6 @@
   max-height: min(300px, 55dvh);
   overflow: auto;
   background: var(--surface);
-  padding-bottom: env(safe-area-inset-bottom);
 }
 .dock section {
   border-radius: 16px;
@@ -139,34 +138,6 @@
 }
 .root[data-connection="disconnected"] .actions > span {
   color: var(--status-waiting);
-}
-@media (max-width: 767px) {
-  .shell > div > div:first-child:has(> .rail) {
-    flex-basis: 48px;
-    width: 100%;
-  }
-  .rail {
-    flex-direction: row;
-    padding: 0 4px;
-  }
-  .global .path {
-    display: none;
-  }
-  .sessionHeader {
-    gap: 4px;
-    padding-block: 4px;
-  }
-  .sessionHeader > div:first-child {
-    flex-basis: 100%;
-  }
-  .dock {
-    max-height: min(300px, 55dvh);
-  }
-}
-@media (pointer: coarse) {
-  .navigator a {
-    min-height: 44px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .root * {

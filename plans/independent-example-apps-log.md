@@ -35,9 +35,9 @@
 | 分发 | pnpm test:install、pnpm test:install:themes | 独立 CLI 源码安装、生产构建与浏览器验证通过；replace/host/scoped 模式、portal、Canvas、locale 与私有主题 token 通过 |
 | 目录与规范 | check:i18n、check:manifest、check:blog、check:docs、check:ui-contracts | 1573 portable +124 SVG +2246 site +166 CRM 消息；203 组件/223 Registry；15 已发布博客/1 草稿；316 源码资源、74 文档片段与203契约映射通过 |
 | CI 选择 | node scripts/select-quality-jobs.mjs --self-test | 应用私有、公共包、站点元数据、锁文件四组输入通过；实际远程 CI 未在本地冒充完成 |
-| 导航与视觉 | 主站旧 workspace → 显式独立应用链接 → 3021；深链接刷新、390px草稿；截图见下方 | 通过，不转发测试 token；主站17模块、桌面应用与移动输入分别实挂审阅 |
+| 导航与视觉 | 主站旧 workspace → 显式独立应用链接 → 3021；深链接刷新、草稿；截图见下方 | 通过，不转发测试 token；主站17模块、桌面应用分别实挂审阅 |
 
-回归中修正了迟到的会话列表读取覆盖新建/显式选择的竞态：按视图版本与正在创建的请求决定是否恢复旧选择。新增受控延迟读取用例，确认新建选择保持。测试定位限定可见审批对象；Pi 文件的 fixture Host 使用串行文件内调度，避免同一端口被并行 beforeAll 争用。移动端底部面板验收分别检查应用侧栏和布局展示工具条，没有隐藏实际失败状态或放宽断言预算。
+回归中修正了迟到的会话列表读取覆盖新建/显式选择的竞态：按视图版本与正在创建的请求决定是否恢复旧选择。新增受控延迟读取用例，确认新建选择保持。测试定位限定可见审批对象；Pi 文件的 fixture Host 使用串行文件内调度，避免同一端口被并行 beforeAll 争用。
 
 ### 故障隔离与可重复步骤
 
@@ -51,7 +51,7 @@
 
 ### 留存证据
 
-[主站画廊](evidence/agent-workspace-migration/gallery-light-zh.png)、[桌面应用](evidence/agent-workspace-migration/application-light-zh.png)、[移动应用](evidence/agent-workspace-migration/application-mobile-zh.png)、[真实 provider](evidence/agent-workspace-migration/pi-real-provider.png)、[地址未配置](evidence/agent-workspace-migration/docs-unconfigured.png)。机器结果与版本/产物/分发 snapshot 见 [validation.json](evidence/agent-workspace-migration/validation.json)。本机完整原始日志留在 .local/agent-migration；生产浏览器矩阵截图与 traces 按 docs/Agent 各自输出目录隔离。
+[主站画廊](evidence/agent-workspace-migration/gallery-light-zh.png)、[桌面应用](evidence/agent-workspace-migration/application-light-zh.png)、[真实 provider](evidence/agent-workspace-migration/pi-real-provider.png)、[地址未配置](evidence/agent-workspace-migration/docs-unconfigured.png)。机器结果与版本/产物/分发 snapshot 见 [validation.json](evidence/agent-workspace-migration/validation.json)。本机完整原始日志留在 .local/agent-migration；生产浏览器矩阵截图与 traces 按 docs/Agent 各自输出目录隔离。
 
 ### 后续边界
 
