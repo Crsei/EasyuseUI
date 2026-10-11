@@ -1,5 +1,27 @@
 [
   {
+    "slug": "component-selection-model",
+    "name": "Component selection model",
+    "category": "组合模块",
+    "description": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+    "source": "lib/component-selection-model.ts",
+    "usage": "import { createSelectionDraft, parseSelectionDraft } from \"@/lib/component-selection-model\"",
+    "notes": [
+      "示例仅包含本地选择方案与 fixture 预览；执行范围遵循用户当前授权。"
+    ]
+  },
+  {
+    "slug": "component-selection-workbench",
+    "name": "ComponentSelectionWorkbench",
+    "category": "组合模块",
+    "description": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+    "source": "components/blocks/component-selection-workbench.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ComponentSelectionWorkbench } from \"@/components/blocks/component-selection-workbench\"\nexport function Example(props: ComponentProps<typeof ComponentSelectionWorkbench>) {\n  return <ComponentSelectionWorkbench {...props} />\n}",
+    "notes": [
+      "示例仅包含本地选择方案与 fixture 预览；执行范围遵循用户当前授权。"
+    ]
+  },
+  {
     "slug": "workbench-resource-model",
     "name": "WorkbenchResourceModel",
     "category": "组合模块",

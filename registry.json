@@ -4,6 +4,45 @@
   "homepage": "http://localhost:3010",
   "items": [
     {
+      "name": "component-selection-model",
+      "type": "registry:lib",
+      "title": "Component selection model",
+      "files": [
+        {
+          "path": "lib/component-selection-model.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "component-selection-workbench",
+      "type": "registry:block",
+      "title": "ComponentSelectionWorkbench",
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "component-selection-model",
+        "button",
+        "input",
+        "textarea",
+        "field",
+        "native-select",
+        "item",
+        "data-region"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/component-selection-workbench.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "components/blocks/component-selection-workbench.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/component-selection-workbench.module.css"
+        }
+      ]
+    },
+    {
       "name": "workbench-resource-model",
       "type": "registry:lib",
       "title": "Workbench resource model",

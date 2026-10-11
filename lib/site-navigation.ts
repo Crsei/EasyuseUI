@@ -5,6 +5,7 @@ export const primaryNavigation = [
   { href: "/blog/", key: "site.optimization.blog" },
 ] as const
 export const resourceNavigation = [
+  { href: "/component-selection/", key: "site.componentSelection" },
   { href: "/dictionary/", key: "site.visualDictionary" },
   { href: "/style-workbench/", key: "site.styleWorkbench" },
   { href: "/scroll/", key: "site.scrollLab" },

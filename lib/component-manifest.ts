@@ -33,6 +33,107 @@ export type ComponentManifestEntry = {
 
 const sourceManifest: ComponentManifestEntry[] = [
 {
+  "slug": "component-selection-model",
+  "docPath": "/docs/component-selection-model/",
+  "registryId": "component-selection-model",
+  "registryDependencies": [],
+  "installType": "lib",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "Component selection model",
+  "category": "组合模块",
+  "description": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+  "source": "lib/component-selection-model.ts",
+  "example": "components/examples/component-selection/selection-demo.tsx",
+  "relatedSources": [],
+  "usage": "import { createSelectionDraft, parseSelectionDraft } from \"@/lib/component-selection-model\"",
+  "props": [
+    {
+      "name": "SelectionTemplate / ComponentSelectionDraft",
+      "type": "Controlled template and draft",
+      "description": "候选和方案按稳定 ID 与模板修订归属，首选唯一，保留备选与批注。"
+    },
+    {
+      "name": "parseSelectionDraft",
+      "type": "(source, template) => SelectionImportResult",
+      "description": "128KiB 上限、完整候选集合与唯一首选校验；失败不修改当前数据。"
+    },
+    {
+      "name": "createSelectionHandoff",
+      "type": "Caller-owned handoff and actions",
+      "description": "持久化、复制、下载与 Agent 执行由适配器持有。"
+    }
+  ],
+  "notes": [
+    "示例仅包含本地选择方案与 fixture 预览；执行范围遵循用户当前授权。"
+  ],
+  "widePreview": true,
+  "docGroup": "workspace",
+  "related": [
+    "component-selection-workbench"
+  ]
+},
+{
+  "slug": "component-selection-workbench",
+  "docPath": "/docs/component-selection-workbench/",
+  "registryId": "component-selection-workbench",
+  "registryDependencies": [
+    "theme",
+    "i18n",
+    "component-selection-model",
+    "button",
+    "input",
+    "textarea",
+    "field",
+    "native-select",
+    "item",
+    "data-region"
+  ],
+  "installType": "block",
+  "displayCategory": "patterns",
+  "availability": "available",
+  "name": "ComponentSelectionWorkbench",
+  "category": "组合模块",
+  "description": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+  "source": "components/blocks/component-selection-workbench.tsx",
+  "example": "components/examples/component-selection/selection-demo.tsx",
+  "relatedSources": [
+    "components/blocks/component-selection-workbench.module.css"
+  ],
+  "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { ComponentSelectionWorkbench } from \"@/components/blocks/component-selection-workbench\"\nexport function Example(props: ComponentProps<typeof ComponentSelectionWorkbench>) {\n  return <ComponentSelectionWorkbench {...props} />\n}",
+  "props": [
+    {
+      "name": "template / value / onChange",
+      "type": "Controlled template and draft",
+      "description": "候选和方案按稳定 ID 与模板修订归属，首选唯一，保留备选与批注。"
+    },
+    {
+      "name": "renderPreview",
+      "type": "(candidate, group) => ReactNode",
+      "description": "挂载调用方真实组件预览，不将预览操作当成方案选择。"
+    },
+    {
+      "name": "handoff / actions / onExport / onCopy",
+      "type": "Caller-owned handoff and actions",
+      "description": "持久化、复制、下载与 Agent 执行由适配器持有。"
+    }
+  ],
+  "notes": [
+    "示例仅包含本地选择方案与 fixture 预览；执行范围遵循用户当前授权。"
+  ],
+  "widePreview": true,
+  "docGroup": "workspace",
+  "related": [
+    "component-selection-model",
+    "tree",
+    "tabs",
+    "item",
+    "data-table",
+    "inspector",
+    "card"
+  ]
+},
+{
   "slug": "workbench-resource-model",
   "docPath": "/docs/workbench-resource-model/",
   "registryId": "workbench-resource-model",

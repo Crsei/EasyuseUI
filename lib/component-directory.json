@@ -1,5 +1,27 @@
 [
   {
+    "slug": "component-selection-model",
+    "name": "Component selection model",
+    "description": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/component-selection-model/",
+    "installType": "lib",
+    "registryId": "component-selection-model",
+    "docGroup": "workspace",
+    "docOrder": 100
+  },
+  {
+    "slug": "component-selection-workbench",
+    "name": "ComponentSelectionWorkbench",
+    "description": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/component-selection-workbench/",
+    "installType": "block",
+    "registryId": "component-selection-workbench",
+    "docGroup": "workspace",
+    "docOrder": 101
+  },
+  {
     "slug": "workbench-resource-model",
     "name": "WorkbenchResourceModel",
     "description": "资源身份、修订、有界内容、文档标签与命令快照的可移植合同。",
@@ -8,7 +30,7 @@
     "installType": "lib",
     "registryId": "workbench-resource-model",
     "docGroup": "agent",
-    "docOrder": 100
+    "docOrder": 102
   },
   {
     "slug": "workbench-file-preview",
@@ -19,7 +41,7 @@
     "installType": "block",
     "registryId": "workbench-file-preview",
     "docGroup": "agent",
-    "docOrder": 101
+    "docOrder": 103
   },
   {
     "slug": "workbench-document-tabs",
@@ -30,7 +52,7 @@
     "installType": "block",
     "registryId": "workbench-file-preview",
     "docGroup": "agent",
-    "docOrder": 102
+    "docOrder": 104
   },
   {
     "slug": "workbench-resource-content",
@@ -41,7 +63,7 @@
     "installType": "block",
     "registryId": "workbench-file-preview",
     "docGroup": "agent",
-    "docOrder": 103
+    "docOrder": 105
   },
   {
     "slug": "execution-session-list",
@@ -52,7 +74,7 @@
     "installType": "block",
     "registryId": "agent-workbench-panels",
     "docGroup": "agent",
-    "docOrder": 104
+    "docOrder": 106
   },
   {
     "slug": "svg-canvas",
@@ -63,7 +85,7 @@
     "installType": "block",
     "registryId": "svg-canvas",
     "docGroup": "workspace",
-    "docOrder": 105
+    "docOrder": 107
   },
   {
     "slug": "svg-icon-library",
@@ -74,7 +96,7 @@
     "installType": "block",
     "registryId": "svg-icon-library",
     "docGroup": "workspace",
-    "docOrder": 106
+    "docOrder": 108
   },
   {
     "slug": "svg-properties",
@@ -85,7 +107,7 @@
     "installType": "block",
     "registryId": "svg-properties",
     "docGroup": "workspace",
-    "docOrder": 107
+    "docOrder": 109
   },
   {
     "slug": "svg-workbench",
@@ -96,7 +118,7 @@
     "installType": "block",
     "registryId": "svg-workbench",
     "docGroup": "workspace",
-    "docOrder": 108
+    "docOrder": 110
   },
   {
     "slug": "session-navigator",
@@ -107,7 +129,7 @@
     "installType": "block",
     "registryId": "agent-workbench-navigation",
     "docGroup": "agent",
-    "docOrder": 109
+    "docOrder": 111
   },
   {
     "slug": "project-switcher",
@@ -118,7 +140,7 @@
     "installType": "block",
     "registryId": "agent-workbench-navigation",
     "docGroup": "agent",
-    "docOrder": 110
+    "docOrder": 112
   },
   {
     "slug": "session-header",
@@ -129,7 +151,7 @@
     "installType": "block",
     "registryId": "agent-workbench-navigation",
     "docGroup": "agent",
-    "docOrder": 111
+    "docOrder": 113
   },
   {
     "slug": "context-panel",
@@ -140,7 +162,7 @@
     "installType": "block",
     "registryId": "agent-workbench-context",
     "docGroup": "agent",
-    "docOrder": 112
+    "docOrder": 114
   },
   {
     "slug": "context-picker",
@@ -151,7 +173,7 @@
     "installType": "block",
     "registryId": "agent-workbench-context",
     "docGroup": "agent",
-    "docOrder": 113
+    "docOrder": 115
   },
   {
     "slug": "message-content",
@@ -162,7 +184,7 @@
     "installType": "block",
     "registryId": "agent-workbench-conversation",
     "docGroup": "agent",
-    "docOrder": 114
+    "docOrder": 116
   },
   {
     "slug": "agent-conversation",
@@ -173,7 +195,7 @@
     "installType": "block",
     "registryId": "agent-workbench-conversation",
     "docGroup": "agent",
-    "docOrder": 115
+    "docOrder": 117
   },
   {
     "slug": "composer-controls",
@@ -184,7 +206,7 @@
     "installType": "block",
     "registryId": "agent-workbench-composer",
     "docGroup": "agent",
-    "docOrder": 116
+    "docOrder": 118
   },
   {
     "slug": "agent-composer",
@@ -195,7 +217,7 @@
     "installType": "block",
     "registryId": "agent-workbench-composer",
     "docGroup": "agent",
-    "docOrder": 117
+    "docOrder": 119
   },
   {
     "slug": "code-preview",
@@ -206,7 +228,7 @@
     "installType": "block",
     "registryId": "code-preview",
     "docGroup": "agent",
-    "docOrder": 118
+    "docOrder": 120
   },
   {
     "slug": "file-viewer",
@@ -217,7 +239,7 @@
     "installType": "block",
     "registryId": "agent-workbench-review",
     "docGroup": "agent",
-    "docOrder": 119
+    "docOrder": 121
   },
   {
     "slug": "diff-viewer",
@@ -228,7 +250,7 @@
     "installType": "block",
     "registryId": "agent-workbench-review",
     "docGroup": "agent",
-    "docOrder": 120
+    "docOrder": 122
   },
   {
     "slug": "change-review-panel",
@@ -239,7 +261,7 @@
     "installType": "block",
     "registryId": "agent-workbench-review",
     "docGroup": "agent",
-    "docOrder": 121
+    "docOrder": 123
   },
   {
     "slug": "workbench-panel-tabs",
@@ -250,7 +272,7 @@
     "installType": "block",
     "registryId": "agent-workbench-panels",
     "docGroup": "agent",
-    "docOrder": 122
+    "docOrder": 124
   },
   {
     "slug": "execution-output-panel",
@@ -261,7 +283,7 @@
     "installType": "block",
     "registryId": "agent-workbench-panels",
     "docGroup": "agent",
-    "docOrder": 123
+    "docOrder": 125
   },
   {
     "slug": "preview-panel",
@@ -272,7 +294,7 @@
     "installType": "block",
     "registryId": "agent-workbench-panels",
     "docGroup": "agent",
-    "docOrder": 124
+    "docOrder": 126
   },
   {
     "slug": "agent-workbench",
@@ -283,7 +305,7 @@
     "installType": "block",
     "registryId": "agent-workbench",
     "docGroup": "agent",
-    "docOrder": 125
+    "docOrder": 127
   },
   {
     "slug": "task-inbox",
@@ -294,7 +316,7 @@
     "installType": "block",
     "registryId": "agent-workbench",
     "docGroup": "agent",
-    "docOrder": 126
+    "docOrder": 128
   },
   {
     "slug": "agent-workbench-model",
@@ -305,7 +327,7 @@
     "installType": "lib",
     "registryId": "agent-workbench-model",
     "docGroup": "agent",
-    "docOrder": 127
+    "docOrder": 129
   },
   {
     "slug": "analytics-model",
@@ -316,7 +338,7 @@
     "installType": "lib",
     "registryId": "analytics-model",
     "docGroup": "data",
-    "docOrder": 128
+    "docOrder": 130
   },
   {
     "slug": "chart-model",
@@ -327,7 +349,7 @@
     "installType": "lib",
     "registryId": "chart-model",
     "docGroup": "data",
-    "docOrder": 129
+    "docOrder": 131
   },
   {
     "slug": "chart-frame",
@@ -338,7 +360,7 @@
     "installType": "ui",
     "registryId": "chart-frame",
     "docGroup": "data",
-    "docOrder": 130
+    "docOrder": 132
   },
   {
     "slug": "chart-data-table",
@@ -349,7 +371,7 @@
     "installType": "block",
     "registryId": "chart-data-table",
     "docGroup": "data",
-    "docOrder": 131
+    "docOrder": 133
   },
   {
     "slug": "statistical-chart",
@@ -360,7 +382,7 @@
     "installType": "block",
     "registryId": "statistical-chart",
     "docGroup": "data",
-    "docOrder": 132
+    "docOrder": 134
   },
   {
     "slug": "chart-drilldown-panel",
@@ -371,7 +393,7 @@
     "installType": "block",
     "registryId": "chart-drilldown-panel",
     "docGroup": "data",
-    "docOrder": 133
+    "docOrder": 135
   },
   {
     "slug": "workflow-metric",
@@ -382,7 +404,7 @@
     "installType": "block",
     "registryId": "workflow-metric",
     "docGroup": "data",
-    "docOrder": 134
+    "docOrder": 136
   },
   {
     "slug": "workflow-charts",
@@ -393,7 +415,7 @@
     "installType": "block",
     "registryId": "workflow-charts",
     "docGroup": "data",
-    "docOrder": 135
+    "docOrder": 137
   },
   {
     "slug": "risk-evidence-list",
@@ -404,7 +426,7 @@
     "installType": "block",
     "registryId": "risk-evidence-list",
     "docGroup": "data",
-    "docOrder": 136
+    "docOrder": 138
   },
   {
     "slug": "work-traceability-view",
@@ -415,7 +437,7 @@
     "installType": "block",
     "registryId": "work-traceability-view",
     "docGroup": "data",
-    "docOrder": 137
+    "docOrder": 139
   },
   {
     "slug": "work-items-view-adapter",
@@ -426,7 +448,7 @@
     "installType": "block",
     "registryId": "work-items-view-adapter",
     "docGroup": "data",
-    "docOrder": 138
+    "docOrder": 140
   },
   {
     "slug": "dashboard",
@@ -437,7 +459,7 @@
     "installType": "block",
     "registryId": "dashboard",
     "docGroup": "workspace",
-    "docOrder": 139
+    "docOrder": 141
   },
   {
     "slug": "project-overview-dashboard",
@@ -448,7 +470,7 @@
     "installType": "block",
     "registryId": "project-overview-dashboard",
     "docGroup": "workspace",
-    "docOrder": 140
+    "docOrder": 142
   },
   {
     "slug": "analytics-resource-model",
@@ -459,7 +481,7 @@
     "installType": "lib",
     "registryId": "analytics-resource-model",
     "docGroup": "data",
-    "docOrder": 141
+    "docOrder": 143
   },
   {
     "slug": "analytics-history-metrics",
@@ -470,7 +492,7 @@
     "installType": "lib",
     "registryId": "analytics-history-metrics",
     "docGroup": "data",
-    "docOrder": 142
+    "docOrder": 144
   },
   {
     "slug": "analytics-builder-model",
@@ -481,7 +503,7 @@
     "installType": "lib",
     "registryId": "analytics-builder-model",
     "docGroup": "data",
-    "docOrder": 143
+    "docOrder": 145
   },
   {
     "slug": "dashboard-edit-session",
@@ -492,7 +514,7 @@
     "installType": "lib",
     "registryId": "dashboard-edit-session",
     "docGroup": "data",
-    "docOrder": 144
+    "docOrder": 146
   },
   {
     "slug": "analytics-image-export",
@@ -503,7 +525,7 @@
     "installType": "lib",
     "registryId": "analytics-image-export",
     "docGroup": "data",
-    "docOrder": 145
+    "docOrder": 147
   },
   {
     "slug": "heatmap",
@@ -514,7 +536,7 @@
     "installType": "block",
     "registryId": "heatmap",
     "docGroup": "data",
-    "docOrder": 146
+    "docOrder": 148
   },
   {
     "slug": "resource-allocation-view",
@@ -525,7 +547,7 @@
     "installType": "block",
     "registryId": "resource-allocation-view",
     "docGroup": "data",
-    "docOrder": 147
+    "docOrder": 149
   },
   {
     "slug": "agent-execution-timeline",
@@ -536,7 +558,7 @@
     "installType": "block",
     "registryId": "agent-execution-timeline",
     "docGroup": "data",
-    "docOrder": 148
+    "docOrder": 150
   },
   {
     "slug": "workflow-history-charts",
@@ -547,7 +569,7 @@
     "installType": "block",
     "registryId": "workflow-history-charts",
     "docGroup": "data",
-    "docOrder": 149
+    "docOrder": 151
   },
   {
     "slug": "forecast-chart",
@@ -558,7 +580,7 @@
     "installType": "block",
     "registryId": "forecast-chart",
     "docGroup": "data",
-    "docOrder": 150
+    "docOrder": 152
   },
   {
     "slug": "agent-operations-dashboard",
@@ -569,7 +591,7 @@
     "installType": "block",
     "registryId": "agent-operations-dashboard",
     "docGroup": "data",
-    "docOrder": 151
+    "docOrder": 153
   },
   {
     "slug": "work-dependency-view",
@@ -580,7 +602,7 @@
     "installType": "block",
     "registryId": "work-dependency-view",
     "docGroup": "data",
-    "docOrder": 152
+    "docOrder": 154
   },
   {
     "slug": "dashboard-layout-editor",
@@ -591,7 +613,7 @@
     "installType": "block",
     "registryId": "dashboard-layout-editor",
     "docGroup": "data",
-    "docOrder": 153
+    "docOrder": 155
   },
   {
     "slug": "analytics-builder",
@@ -602,7 +624,7 @@
     "installType": "block",
     "registryId": "analytics-builder",
     "docGroup": "data",
-    "docOrder": 154
+    "docOrder": 156
   },
   {
     "slug": "button-group",
@@ -613,7 +635,7 @@
     "installType": "ui",
     "registryId": "button-group",
     "docGroup": "interaction",
-    "docOrder": 155
+    "docOrder": 157
   },
   {
     "slug": "input-group",
@@ -624,7 +646,7 @@
     "installType": "ui",
     "registryId": "input-group",
     "docGroup": "interaction",
-    "docOrder": 156
+    "docOrder": 158
   },
   {
     "slug": "toggle",
@@ -635,7 +657,7 @@
     "installType": "ui",
     "registryId": "toggle",
     "docGroup": "interaction",
-    "docOrder": 157
+    "docOrder": 159
   },
   {
     "slug": "toggle-group",
@@ -646,7 +668,7 @@
     "installType": "ui",
     "registryId": "toggle-group",
     "docGroup": "interaction",
-    "docOrder": 158
+    "docOrder": 160
   },
   {
     "slug": "input-otp",
@@ -657,7 +679,7 @@
     "installType": "ui",
     "registryId": "input-otp",
     "docGroup": "interaction",
-    "docOrder": 159
+    "docOrder": 161
   },
   {
     "slug": "separator",
@@ -668,7 +690,7 @@
     "installType": "ui",
     "registryId": "separator",
     "docGroup": "interaction",
-    "docOrder": 160
+    "docOrder": 162
   },
   {
     "slug": "collapsible",
@@ -679,7 +701,7 @@
     "installType": "ui",
     "registryId": "collapsible",
     "docGroup": "interaction",
-    "docOrder": 161
+    "docOrder": 163
   },
   {
     "slug": "accordion",
@@ -690,7 +712,7 @@
     "installType": "ui",
     "registryId": "accordion",
     "docGroup": "interaction",
-    "docOrder": 162
+    "docOrder": 164
   },
   {
     "slug": "tooltip",
@@ -701,7 +723,7 @@
     "installType": "ui",
     "registryId": "tooltip",
     "docGroup": "interaction",
-    "docOrder": 163
+    "docOrder": 165
   },
   {
     "slug": "alert-dialog",
@@ -712,7 +734,7 @@
     "installType": "ui",
     "registryId": "alert-dialog",
     "docGroup": "interaction",
-    "docOrder": 164
+    "docOrder": 166
   },
   {
     "slug": "hover-card",
@@ -723,7 +745,7 @@
     "installType": "ui",
     "registryId": "hover-card",
     "docGroup": "interaction",
-    "docOrder": 165
+    "docOrder": 167
   },
   {
     "slug": "context-menu",
@@ -734,7 +756,7 @@
     "installType": "ui",
     "registryId": "context-menu",
     "docGroup": "interaction",
-    "docOrder": 166
+    "docOrder": 168
   },
   {
     "slug": "skeleton",
@@ -745,7 +767,7 @@
     "installType": "ui",
     "registryId": "skeleton",
     "docGroup": "interaction",
-    "docOrder": 167
+    "docOrder": 169
   },
   {
     "slug": "spinner",
@@ -756,7 +778,7 @@
     "installType": "ui",
     "registryId": "spinner",
     "docGroup": "interaction",
-    "docOrder": 168
+    "docOrder": 170
   },
   {
     "slug": "empty",
@@ -767,7 +789,7 @@
     "installType": "ui",
     "registryId": "empty",
     "docGroup": "interaction",
-    "docOrder": 169
+    "docOrder": 171
   },
   {
     "slug": "alert",
@@ -778,7 +800,7 @@
     "installType": "ui",
     "registryId": "alert",
     "docGroup": "interaction",
-    "docOrder": 170
+    "docOrder": 172
   },
   {
     "slug": "progress",
@@ -789,7 +811,7 @@
     "installType": "ui",
     "registryId": "progress",
     "docGroup": "interaction",
-    "docOrder": 171
+    "docOrder": 173
   },
   {
     "slug": "toast",
@@ -800,7 +822,7 @@
     "installType": "ui",
     "registryId": "toast",
     "docGroup": "interaction",
-    "docOrder": 172
+    "docOrder": 174
   },
   {
     "slug": "sonner",
@@ -811,7 +833,7 @@
     "installType": "ui",
     "registryId": "sonner",
     "docGroup": "interaction",
-    "docOrder": 173
+    "docOrder": 175
   },
   {
     "slug": "date-calendar",
@@ -822,7 +844,7 @@
     "installType": "ui",
     "registryId": "date-calendar",
     "docGroup": "interaction",
-    "docOrder": 174
+    "docOrder": 176
   },
   {
     "slug": "date-picker",
@@ -833,7 +855,7 @@
     "installType": "ui",
     "registryId": "date-picker",
     "docGroup": "interaction",
-    "docOrder": 175
+    "docOrder": 177
   },
   {
     "slug": "pagination",
@@ -844,7 +866,7 @@
     "installType": "ui",
     "registryId": "pagination",
     "docGroup": "interaction",
-    "docOrder": 176
+    "docOrder": 178
   },
   {
     "slug": "breadcrumb",
@@ -855,7 +877,7 @@
     "installType": "ui",
     "registryId": "breadcrumb",
     "docGroup": "interaction",
-    "docOrder": 177
+    "docOrder": 179
   },
   {
     "slug": "menubar",
@@ -866,7 +888,7 @@
     "installType": "ui",
     "registryId": "menubar",
     "docGroup": "interaction",
-    "docOrder": 178
+    "docOrder": 180
   },
   {
     "slug": "navigation-menu",
@@ -877,7 +899,7 @@
     "installType": "ui",
     "registryId": "navigation-menu",
     "docGroup": "interaction",
-    "docOrder": 179
+    "docOrder": 181
   },
   {
     "slug": "direction",
@@ -888,7 +910,7 @@
     "installType": "ui",
     "registryId": "direction",
     "docGroup": "interaction",
-    "docOrder": 180
+    "docOrder": 182
   },
   {
     "slug": "attachment",
@@ -899,7 +921,7 @@
     "installType": "ui",
     "registryId": "attachment",
     "docGroup": "interaction",
-    "docOrder": 181
+    "docOrder": 183
   },
   {
     "slug": "marker",
@@ -910,7 +932,7 @@
     "installType": "ui",
     "registryId": "marker",
     "docGroup": "interaction",
-    "docOrder": 182
+    "docOrder": 184
   },
   {
     "slug": "questionnaire",
@@ -921,7 +943,7 @@
     "installType": "block",
     "registryId": "questionnaire",
     "docGroup": "other",
-    "docOrder": 183
+    "docOrder": 185
   },
   {
     "slug": "bubble",
@@ -932,7 +954,7 @@
     "installType": "ui",
     "registryId": "bubble",
     "docGroup": "interaction",
-    "docOrder": 184
+    "docOrder": 186
   },
   {
     "slug": "card",
@@ -943,7 +965,7 @@
     "installType": "ui",
     "registryId": "card",
     "docGroup": "interaction",
-    "docOrder": 185
+    "docOrder": 187
   },
   {
     "slug": "aspect-ratio",
@@ -954,7 +976,7 @@
     "installType": "ui",
     "registryId": "aspect-ratio",
     "docGroup": "interaction",
-    "docOrder": 186
+    "docOrder": 188
   },
   {
     "slug": "carousel",
@@ -965,7 +987,7 @@
     "installType": "ui",
     "registryId": "carousel",
     "docGroup": "interaction",
-    "docOrder": 187
+    "docOrder": 189
   },
   {
     "slug": "chart",
@@ -976,7 +998,7 @@
     "installType": "block",
     "registryId": "chart",
     "docGroup": "other",
-    "docOrder": 188
+    "docOrder": 190
   },
   {
     "slug": "form",
@@ -987,7 +1009,7 @@
     "installType": "ui",
     "registryId": "form",
     "docGroup": "interaction",
-    "docOrder": 189
+    "docOrder": 191
   },
   {
     "slug": "sidebar",
@@ -998,7 +1020,7 @@
     "installType": "block",
     "registryId": "sidebar",
     "docGroup": "other",
-    "docOrder": 190
+    "docOrder": 192
   },
   {
     "slug": "resizable",
@@ -1009,7 +1031,7 @@
     "installType": "ui",
     "registryId": "resizable",
     "docGroup": "interaction",
-    "docOrder": 191
+    "docOrder": 193
   },
   {
     "slug": "scroll-area",
@@ -1020,7 +1042,7 @@
     "installType": "ui",
     "registryId": "scroll-area",
     "docGroup": "interaction",
-    "docOrder": 192
+    "docOrder": 194
   },
   {
     "slug": "command",
@@ -1031,7 +1053,7 @@
     "installType": "block",
     "registryId": "command",
     "docGroup": "other",
-    "docOrder": 193
+    "docOrder": 195
   },
   {
     "slug": "drawer",
@@ -1042,7 +1064,7 @@
     "installType": "ui",
     "registryId": "drawer",
     "docGroup": "interaction",
-    "docOrder": 194
+    "docOrder": 196
   },
   {
     "slug": "textarea",
@@ -1141,7 +1163,7 @@
     "installType": "ui",
     "registryId": "avatar",
     "docGroup": "data",
-    "docOrder": 203
+    "docOrder": 205
   },
   {
     "slug": "segment-bar",
@@ -1152,7 +1174,7 @@
     "installType": "ui",
     "registryId": "segment-bar",
     "docGroup": "interaction",
-    "docOrder": 204
+    "docOrder": 206
   },
   {
     "slug": "sparkline",
@@ -1163,7 +1185,7 @@
     "installType": "ui",
     "registryId": "sparkline",
     "docGroup": "interaction",
-    "docOrder": 205
+    "docOrder": 207
   },
   {
     "slug": "dropdown-menu",
@@ -1196,7 +1218,7 @@
     "installType": "block",
     "registryId": "command-palette",
     "docGroup": "other",
-    "docOrder": 208
+    "docOrder": 210
   },
   {
     "slug": "kbd",
@@ -1207,7 +1229,7 @@
     "installType": "ui",
     "registryId": "kbd",
     "docGroup": "interaction",
-    "docOrder": 209
+    "docOrder": 211
   },
   {
     "slug": "field",
@@ -1218,7 +1240,7 @@
     "installType": "ui",
     "registryId": "field",
     "docGroup": "interaction",
-    "docOrder": 210
+    "docOrder": 212
   },
   {
     "slug": "form-section",
@@ -1229,7 +1251,7 @@
     "installType": "block",
     "registryId": "form-section",
     "docGroup": "other",
-    "docOrder": 211
+    "docOrder": 213
   },
   {
     "slug": "slider",
@@ -1240,7 +1262,7 @@
     "installType": "ui",
     "registryId": "slider",
     "docGroup": "interaction",
-    "docOrder": 212
+    "docOrder": 214
   },
   {
     "slug": "image-upload",
@@ -1251,7 +1273,7 @@
     "installType": "block",
     "registryId": "image-upload",
     "docGroup": "other",
-    "docOrder": 213
+    "docOrder": 215
   },
   {
     "slug": "filter-toolbar",
@@ -1262,7 +1284,7 @@
     "installType": "block",
     "registryId": "filter-toolbar",
     "docGroup": "data",
-    "docOrder": 214
+    "docOrder": 216
   },
   {
     "slug": "metric-summary",
@@ -1273,7 +1295,7 @@
     "installType": "block",
     "registryId": "metric-summary",
     "docGroup": "data",
-    "docOrder": 215
+    "docOrder": 217
   },
   {
     "slug": "rating-display",
@@ -1284,7 +1306,7 @@
     "installType": "ui",
     "registryId": "rating-display",
     "docGroup": "data",
-    "docOrder": 216
+    "docOrder": 218
   },
   {
     "slug": "menu",
@@ -1339,7 +1361,7 @@
     "installType": "ui",
     "registryId": "segmented",
     "docGroup": "interaction",
-    "docOrder": 221
+    "docOrder": 223
   },
   {
     "slug": "tabs",
@@ -1361,7 +1383,7 @@
     "installType": "ui",
     "registryId": "theme-boundary",
     "docGroup": "interaction",
-    "docOrder": 223
+    "docOrder": 225
   },
   {
     "slug": "i18n",
@@ -1372,7 +1394,7 @@
     "installType": "lib",
     "registryId": "i18n",
     "docGroup": "interaction",
-    "docOrder": 224
+    "docOrder": 226
   },
   {
     "slug": "canvas-service-panel",
@@ -1383,7 +1405,7 @@
     "installType": "block",
     "registryId": "canvas-service-panel",
     "docGroup": "canvas",
-    "docOrder": 225
+    "docOrder": 227
   },
   {
     "slug": "canvas-project-workspace",
@@ -1394,7 +1416,7 @@
     "installType": "block",
     "registryId": "canvas-project-workspace",
     "docGroup": "canvas",
-    "docOrder": 226
+    "docOrder": 228
   },
   {
     "slug": "canvas-config-editor",
@@ -1405,7 +1427,7 @@
     "installType": "block",
     "registryId": "canvas-config-editor",
     "docGroup": "canvas",
-    "docOrder": 227
+    "docOrder": 229
   },
   {
     "slug": "canvas-execution-panel",
@@ -1416,7 +1438,7 @@
     "installType": "block",
     "registryId": "canvas-execution-panel",
     "docGroup": "canvas",
-    "docOrder": 228
+    "docOrder": 230
   },
   {
     "slug": "canvas-workspace",
@@ -1471,7 +1493,7 @@
     "installType": "block",
     "registryId": "canvas-frame",
     "docGroup": "canvas",
-    "docOrder": 233
+    "docOrder": 235
   },
   {
     "slug": "canvas-note",
@@ -1482,7 +1504,7 @@
     "installType": "block",
     "registryId": "canvas-note",
     "docGroup": "canvas",
-    "docOrder": 234
+    "docOrder": 236
   },
   {
     "slug": "workflow-canvas",
@@ -1504,7 +1526,7 @@
     "installType": "ui",
     "registryId": "canvas-node",
     "docGroup": "canvas",
-    "docOrder": 236
+    "docOrder": 238
   },
   {
     "slug": "canvas-port",
@@ -1515,7 +1537,7 @@
     "installType": "ui",
     "registryId": "canvas-port",
     "docGroup": "canvas",
-    "docOrder": 237
+    "docOrder": 239
   },
   {
     "slug": "canvas-edge",
@@ -1526,7 +1548,7 @@
     "installType": "ui",
     "registryId": "canvas-edge",
     "docGroup": "canvas",
-    "docOrder": 238
+    "docOrder": 240
   },
   {
     "slug": "style-workbench",
@@ -1537,7 +1559,7 @@
     "installType": "block",
     "registryId": "style-workbench",
     "docGroup": "workspace",
-    "docOrder": 239
+    "docOrder": 241
   },
   {
     "slug": "badge",
@@ -1548,7 +1570,7 @@
     "installType": "ui",
     "registryId": "badge",
     "docGroup": "interaction",
-    "docOrder": 240
+    "docOrder": 242
   },
   {
     "slug": "tag",
@@ -1559,7 +1581,7 @@
     "installType": "ui",
     "registryId": "tag",
     "docGroup": "interaction",
-    "docOrder": 241
+    "docOrder": 243
   },
   {
     "slug": "chip",
@@ -1570,7 +1592,7 @@
     "installType": "ui",
     "registryId": "chip",
     "docGroup": "interaction",
-    "docOrder": 242
+    "docOrder": 244
   },
   {
     "slug": "button",
@@ -1614,7 +1636,7 @@
     "installType": "block",
     "registryId": "task-panel",
     "docGroup": "other",
-    "docOrder": 246
+    "docOrder": 248
   },
   {
     "slug": "scroll-playground",
@@ -1625,7 +1647,7 @@
     "installType": "block",
     "registryId": "scroll-playground",
     "docGroup": "other",
-    "docOrder": 247
+    "docOrder": 249
   },
   {
     "slug": "item",
@@ -1636,7 +1658,7 @@
     "installType": "ui",
     "registryId": "item",
     "docGroup": "interaction",
-    "docOrder": 248
+    "docOrder": 250
   },
   {
     "slug": "runtime-status-badge",
@@ -1757,7 +1779,7 @@
     "installType": "block",
     "registryId": "agent-run-properties",
     "docGroup": "agent",
-    "docOrder": 259
+    "docOrder": 261
   },
   {
     "slug": "run-stage-summary",
@@ -1768,7 +1790,7 @@
     "installType": "block",
     "registryId": "run-stage-summary",
     "docGroup": "other",
-    "docOrder": 260
+    "docOrder": 262
   },
   {
     "slug": "agent-run-row",
@@ -1779,7 +1801,7 @@
     "installType": "block",
     "registryId": "agent-run-row",
     "docGroup": "agent",
-    "docOrder": 261
+    "docOrder": 263
   },
   {
     "slug": "agent-run-card",
@@ -1790,7 +1812,7 @@
     "installType": "block",
     "registryId": "agent-run-card",
     "docGroup": "agent",
-    "docOrder": 262
+    "docOrder": 264
   },
   {
     "slug": "agent-run-list",
@@ -1801,7 +1823,7 @@
     "installType": "block",
     "registryId": "agent-run-list",
     "docGroup": "agent",
-    "docOrder": 263
+    "docOrder": 265
   },
   {
     "slug": "agent-run-board",
@@ -1812,7 +1834,7 @@
     "installType": "block",
     "registryId": "agent-run-board",
     "docGroup": "agent",
-    "docOrder": 264
+    "docOrder": 266
   },
   {
     "slug": "agent-run-inspector",
@@ -1823,7 +1845,7 @@
     "installType": "block",
     "registryId": "agent-run-inspector",
     "docGroup": "agent",
-    "docOrder": 265
+    "docOrder": 267
   },
   {
     "slug": "attention-queue",
@@ -1834,7 +1856,7 @@
     "installType": "block",
     "registryId": "attention-queue",
     "docGroup": "other",
-    "docOrder": 266
+    "docOrder": 268
   },
   {
     "slug": "approval-request-panel",
@@ -1845,7 +1867,7 @@
     "installType": "block",
     "registryId": "approval-request-panel",
     "docGroup": "other",
-    "docOrder": 267
+    "docOrder": 269
   },
   {
     "slug": "artifact-list",
@@ -1856,7 +1878,7 @@
     "installType": "block",
     "registryId": "artifact-list",
     "docGroup": "other",
-    "docOrder": 268
+    "docOrder": 270
   },
   {
     "slug": "review-summary",
@@ -1867,7 +1889,7 @@
     "installType": "block",
     "registryId": "review-summary",
     "docGroup": "other",
-    "docOrder": 269
+    "docOrder": 271
   },
   {
     "slug": "execution-trace-tree",
@@ -1878,7 +1900,7 @@
     "installType": "block",
     "registryId": "execution-trace-tree",
     "docGroup": "other",
-    "docOrder": 270
+    "docOrder": 272
   },
   {
     "slug": "agent-relationship-list",
@@ -1889,7 +1911,7 @@
     "installType": "block",
     "registryId": "agent-relationship-list",
     "docGroup": "agent",
-    "docOrder": 271
+    "docOrder": 273
   },
   {
     "slug": "agent-usage-summary",
@@ -1900,7 +1922,7 @@
     "installType": "block",
     "registryId": "agent-usage-summary",
     "docGroup": "agent",
-    "docOrder": 272
+    "docOrder": 274
   },
   {
     "slug": "agent-board-toolbar",
@@ -1911,7 +1933,7 @@
     "installType": "block",
     "registryId": "agent-board-toolbar",
     "docGroup": "agent",
-    "docOrder": 273
+    "docOrder": 275
   },
   {
     "slug": "agent-board-workspace",
@@ -1922,7 +1944,7 @@
     "installType": "block",
     "registryId": "agent-board-workspace",
     "docGroup": "agent",
-    "docOrder": 274
+    "docOrder": 276
   },
   {
     "slug": "grouped-list",
@@ -1933,7 +1955,7 @@
     "installType": "block",
     "registryId": "grouped-list",
     "docGroup": "data",
-    "docOrder": 275
+    "docOrder": 277
   },
   {
     "slug": "item-board",
@@ -1944,7 +1966,7 @@
     "installType": "block",
     "registryId": "item-board",
     "docGroup": "other",
-    "docOrder": 276
+    "docOrder": 278
   },
   {
     "slug": "work-item-properties",
@@ -1988,7 +2010,7 @@
     "installType": "block",
     "registryId": "work-items-views",
     "docGroup": "data",
-    "docOrder": 280
+    "docOrder": 282
   },
   {
     "slug": "work-item-board",
@@ -1999,7 +2021,7 @@
     "installType": "block",
     "registryId": "work-items-views",
     "docGroup": "data",
-    "docOrder": 281
+    "docOrder": 283
   },
   {
     "slug": "work-item-table",
@@ -2010,7 +2032,7 @@
     "installType": "block",
     "registryId": "work-items-views",
     "docGroup": "data",
-    "docOrder": 282
+    "docOrder": 284
   },
   {
     "slug": "work-items-toolbar",
@@ -2032,7 +2054,7 @@
     "installType": "block",
     "registryId": "work-item-detail",
     "docGroup": "data",
-    "docOrder": 284
+    "docOrder": 286
   },
   {
     "slug": "work-items-workspace",
@@ -2054,7 +2076,7 @@
     "installType": "block",
     "registryId": "work-items-board-base",
     "docGroup": "data",
-    "docOrder": 286
+    "docOrder": 288
   },
   {
     "slug": "agent-dependency-graph",
@@ -2065,7 +2087,7 @@
     "installType": "block",
     "registryId": "agent-dependency-graph",
     "docGroup": "agent",
-    "docOrder": 287
+    "docOrder": 289
   },
   {
     "slug": "agent-usage-history",
@@ -2076,7 +2098,7 @@
     "installType": "block",
     "registryId": "agent-usage-history",
     "docGroup": "agent",
-    "docOrder": 288
+    "docOrder": 290
   },
   {
     "slug": "agent-run-virtual-list",
@@ -2087,7 +2109,7 @@
     "installType": "block",
     "registryId": "agent-run-virtual-list",
     "docGroup": "agent",
-    "docOrder": 289
+    "docOrder": 291
   },
   {
     "slug": "work-items-batch-actions",
@@ -2098,7 +2120,7 @@
     "installType": "block",
     "registryId": "work-items-enhancements",
     "docGroup": "data",
-    "docOrder": 290
+    "docOrder": 292
   },
   {
     "slug": "work-items-saved-views",
@@ -2109,7 +2131,7 @@
     "installType": "block",
     "registryId": "work-items-enhancements",
     "docGroup": "data",
-    "docOrder": 291
+    "docOrder": 293
   },
   {
     "slug": "timeline",
@@ -2120,7 +2142,7 @@
     "installType": "block",
     "registryId": "timeline",
     "docGroup": "data",
-    "docOrder": 292
+    "docOrder": 294
   },
   {
     "slug": "calendar",
@@ -2131,7 +2153,7 @@
     "installType": "block",
     "registryId": "calendar",
     "docGroup": "data",
-    "docOrder": 293
+    "docOrder": 295
   },
   {
     "slug": "schedule-view-controls",
@@ -2142,7 +2164,7 @@
     "installType": "block",
     "registryId": "schedule-view-controls",
     "docGroup": "data",
-    "docOrder": 294
+    "docOrder": 296
   },
   {
     "slug": "work-item-date-range-field",
@@ -2153,7 +2175,7 @@
     "installType": "block",
     "registryId": "work-item-date-range-field",
     "docGroup": "data",
-    "docOrder": 295
+    "docOrder": 297
   },
   {
     "slug": "work-items-schedule",
@@ -2164,7 +2186,7 @@
     "installType": "block",
     "registryId": "work-items-schedule",
     "docGroup": "data",
-    "docOrder": 296
+    "docOrder": 298
   },
   {
     "slug": "work-item-timeline",
@@ -2175,7 +2197,7 @@
     "installType": "block",
     "registryId": "work-item-timeline",
     "docGroup": "data",
-    "docOrder": 297
+    "docOrder": 299
   },
   {
     "slug": "work-item-calendar",
@@ -2186,7 +2208,7 @@
     "installType": "block",
     "registryId": "work-item-calendar",
     "docGroup": "data",
-    "docOrder": 298
+    "docOrder": 300
   },
   {
     "slug": "toolbar",
@@ -2197,7 +2219,7 @@
     "installType": "ui",
     "registryId": "toolbar",
     "docGroup": "interaction",
-    "docOrder": 299
+    "docOrder": 301
   },
   {
     "slug": "command-toolbar",
@@ -2208,7 +2230,7 @@
     "installType": "block",
     "registryId": "command-toolbar",
     "docGroup": "interaction",
-    "docOrder": 300
+    "docOrder": 302
   },
   {
     "slug": "data-table-controls",
@@ -2219,7 +2241,7 @@
     "installType": "block",
     "registryId": "data-table-controls",
     "docGroup": "data",
-    "docOrder": 301
+    "docOrder": 303
   },
   {
     "slug": "data-table-model",
@@ -2230,6 +2252,6 @@
     "installType": "lib",
     "registryId": "data-table-model",
     "docGroup": "data",
-    "docOrder": 302
+    "docOrder": 304
   }
 ]

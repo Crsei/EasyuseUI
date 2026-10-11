@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./lib/component-selection-model": "./lib/component-selection-model.ts",
+    "./components/blocks/component-selection-workbench": "./components/blocks/component-selection-workbench.tsx",
+    "./components/blocks/component-selection-workbench.module.css": "./components/blocks/component-selection-workbench.module.css",
     "./lib/canvas-commands": "./lib/canvas-commands.ts",
     "./lib/canvas-model": "./lib/canvas-model.ts",
     "./lib/svg-workbench-worker": "./lib/svg-workbench-worker.ts",

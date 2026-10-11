@@ -1,5 +1,6 @@
 import {gapRegistryItems,createGapConsumer,verifyGapConsumer} from "./gap-contract-consumer.mjs"
 import { createSvgConsumer, verifySvgConsumer } from "./svg-workbench-consumer.mjs"
+import { createSelectionConsumer, verifySelectionConsumer } from "./component-selection-consumer.mjs"
 import { workbenchRegistryItems, createWorkbenchConsumer, verifyWorkbenchConsumer } from "./agent-workbench-consumer.mjs"
 import { workflowAnalyticsRegistryItems, createWorkflowAnalyticsConsumer, verifyWorkflowAnalyticsConsumer } from "./workflow-analytics-consumer.mjs"
 import {
@@ -235,6 +236,7 @@ export default function Consumer() {
 execFileSync("git", ["init", "--quiet"], { cwd: fixture })
 await createGapConsumer(fixture)
 await createSvgConsumer(fixture)
+await createSelectionConsumer(fixture)
 await createWorkflowAnalyticsConsumer(fixture)
 await createWorkbenchConsumer(fixture)
 await createCommonConsumer(fixture)
@@ -304,6 +306,7 @@ try {
         ...workItemsRegistryItems.map((name) => `${site}/r/${name}.json`),
         `${site}/r/agent-board-workspace.json`,
         `${site}/r/svg-workbench.json`,
+        `${site}/r/component-selection-workbench.json`,
         `${site}/r/task-panel.json`,
         `${site}/r/input.json`,
         `${site}/r/dialog.json`,
@@ -663,6 +666,7 @@ try {
   await verifyAgentBoardConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifyWorkItemsConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifySvgConsumer(page, `http://127.0.0.1:${server.address().port}`)
+  await verifySelectionConsumer(page, `http://127.0.0.1:${server.address().port}`)
   assert.deepEqual(errors, [])
   console.log(
     `PASS: installed Canvas production build, full-height layout and collapsed panels, browser mount, engine CSS, ports, edge, controlled selection, add, connect, undo, authoritative runtime/redaction, unknown save/publication reconciliation, subflow navigation and structured config. Evidence: ${fixture}/canvas-installed.png`,

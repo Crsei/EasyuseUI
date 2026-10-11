@@ -17642,6 +17642,202 @@
       "keywords": "inspector 源码 Source"
     },
     {
+      "id": "component-selection-model",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Component selection model",
+        "en": "Component selection model"
+      },
+      "summary": {
+        "zh-CN": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+        "en": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation."
+      },
+      "href": "/docs/component-selection-model/",
+      "keywords": "component-selection-model workspace"
+    },
+    {
+      "id": "component-selection-model-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Component selection model · 安装",
+        "en": "Component selection model · Installation"
+      },
+      "summary": {
+        "zh-CN": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+        "en": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation."
+      },
+      "href": "/docs/component-selection-model/#installation",
+      "keywords": "component-selection-model 安装 Installation"
+    },
+    {
+      "id": "component-selection-model-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Component selection model · 使用",
+        "en": "Component selection model · Usage"
+      },
+      "summary": {
+        "zh-CN": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+        "en": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation."
+      },
+      "href": "/docs/component-selection-model/#usage",
+      "keywords": "component-selection-model 使用 Usage"
+    },
+    {
+      "id": "component-selection-model-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Component selection model · API",
+        "en": "Component selection model · API"
+      },
+      "summary": {
+        "zh-CN": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+        "en": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation."
+      },
+      "href": "/docs/component-selection-model/#api",
+      "keywords": "component-selection-model API API"
+    },
+    {
+      "id": "component-selection-model-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Component selection model · 状态与交互",
+        "en": "Component selection model · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+        "en": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation."
+      },
+      "href": "/docs/component-selection-model/#states",
+      "keywords": "component-selection-model 状态与交互 States and interaction"
+    },
+    {
+      "id": "component-selection-model-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Component selection model · 完整示例",
+        "en": "Component selection model · Complete example"
+      },
+      "summary": {
+        "zh-CN": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+        "en": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation."
+      },
+      "href": "/docs/component-selection-model/#example",
+      "keywords": "component-selection-model 完整示例 Complete example"
+    },
+    {
+      "id": "component-selection-model-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Component selection model · 源码",
+        "en": "Component selection model · Source"
+      },
+      "summary": {
+        "zh-CN": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+        "en": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation."
+      },
+      "href": "/docs/component-selection-model/#source",
+      "keywords": "component-selection-model 源码 Source"
+    },
+    {
+      "id": "component-selection-workbench",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComponentSelectionWorkbench",
+        "en": "ComponentSelectionWorkbench"
+      },
+      "summary": {
+        "zh-CN": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+        "en": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions."
+      },
+      "href": "/docs/component-selection-workbench/",
+      "keywords": "component-selection-workbench workspace"
+    },
+    {
+      "id": "component-selection-workbench-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComponentSelectionWorkbench · 安装",
+        "en": "ComponentSelectionWorkbench · Installation"
+      },
+      "summary": {
+        "zh-CN": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+        "en": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions."
+      },
+      "href": "/docs/component-selection-workbench/#installation",
+      "keywords": "component-selection-workbench 安装 Installation"
+    },
+    {
+      "id": "component-selection-workbench-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComponentSelectionWorkbench · 使用",
+        "en": "ComponentSelectionWorkbench · Usage"
+      },
+      "summary": {
+        "zh-CN": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+        "en": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions."
+      },
+      "href": "/docs/component-selection-workbench/#usage",
+      "keywords": "component-selection-workbench 使用 Usage"
+    },
+    {
+      "id": "component-selection-workbench-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComponentSelectionWorkbench · API",
+        "en": "ComponentSelectionWorkbench · API"
+      },
+      "summary": {
+        "zh-CN": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+        "en": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions."
+      },
+      "href": "/docs/component-selection-workbench/#api",
+      "keywords": "component-selection-workbench API API"
+    },
+    {
+      "id": "component-selection-workbench-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComponentSelectionWorkbench · 状态与交互",
+        "en": "ComponentSelectionWorkbench · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+        "en": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions."
+      },
+      "href": "/docs/component-selection-workbench/#states",
+      "keywords": "component-selection-workbench 状态与交互 States and interaction"
+    },
+    {
+      "id": "component-selection-workbench-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComponentSelectionWorkbench · 完整示例",
+        "en": "ComponentSelectionWorkbench · Complete example"
+      },
+      "summary": {
+        "zh-CN": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+        "en": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions."
+      },
+      "href": "/docs/component-selection-workbench/#example",
+      "keywords": "component-selection-workbench 完整示例 Complete example"
+    },
+    {
+      "id": "component-selection-workbench-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "ComponentSelectionWorkbench · 源码",
+        "en": "ComponentSelectionWorkbench · Source"
+      },
+      "summary": {
+        "zh-CN": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+        "en": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions."
+      },
+      "href": "/docs/component-selection-workbench/#source",
+      "keywords": "component-selection-workbench 源码 Source"
+    },
+    {
       "id": "svg-canvas",
       "kind": "components",
       "title": {

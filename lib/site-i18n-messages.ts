@@ -1,6 +1,15 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.selection.catalogModel": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
+    "site.selection.catalogWorkbench": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
+    "site.selection.catalogContract": "候选和方案按稳定 ID 与模板修订归属，首选唯一，保留备选与批注。",
+    "site.selection.catalogPreview": "挂载调用方真实组件预览，不将预览操作当成方案选择。",
+    "site.selection.catalogImport": "128KiB 上限、完整候选集合与唯一首选校验；失败不修改当前数据。",
+    "site.selection.catalogActions": "持久化、复制、下载与 Agent 执行由适配器持有。",
+    "site.selection.catalogFixture": "示例仅包含本地选择方案与 fixture 预览；执行范围遵循用户当前授权。",
+
+    "site.componentSelection": "组件选择",
     "site.sessionNavigation.reviewControls":
       "默认显示审阅控制；会话辅助面板可保留布局并省略重复导航。",
     "site.sessionNavigation.navSections":
@@ -2878,6 +2887,15 @@ export const siteMessages = {
 "site.gapAudit.detail5":"交互单元格使用separate，避免嵌套按钮。"
 },
   en: {
+    "site.selection.catalogModel": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation.",
+    "site.selection.catalogWorkbench": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions.",
+    "site.selection.catalogContract": "Candidates and plans belong to stable IDs and template revisions; preferred choices are exclusive while alternatives and annotations are retained.",
+    "site.selection.catalogPreview": "Mount live caller-provided component previews; preview interactions do not change plan decisions.",
+    "site.selection.catalogImport": "Validate the 128KiB limit, complete candidate sets and unique preferred choices; failure preserves current data.",
+    "site.selection.catalogActions": "The adapter owns persistence, copying, downloads and Agent execution.",
+    "site.selection.catalogFixture": "The example contains local selection plans and fixture previews; execution follows the current user authorization.",
+
+    "site.componentSelection": "Component selection",
     "site.sessionNavigation.reviewControls":
       "Show review controls by default; auxiliary session panels may retain their layout while omitting duplicate navigation.",
     "site.sessionNavigation.navSections":

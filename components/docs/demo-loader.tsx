@@ -33,6 +33,8 @@ const loadCompletion6 = () =>
 
 // Explicit import paths let Webpack create isolated chunks. No eager demo imports.
 export const demoLoaders: Record<string, () => Promise<ComponentType>> = {
+  "component-selection-workbench": () => import("@/components/examples/component-selection/selection-demo").then((m) => m.ComponentSelectionDemo),
+  "component-selection-model": () => import("@/components/examples/component-selection/selection-demo").then((m) => m.ComponentSelectionDemo),
 "code-preview": () => import("@/components/examples/code-preview-demo").then((m) => m.CodePreviewDemo),
 "workbench-resource-model": () => import("@/components/examples/agent-workbench/resource-preview-demo").then((m) => m.ResourcePreviewDemo),
 "workbench-file-preview": () => import("@/components/examples/agent-workbench/resource-preview-demo").then((m) => m.ResourcePreviewDemo),

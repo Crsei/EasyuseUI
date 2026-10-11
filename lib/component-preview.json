@@ -1,5 +1,13 @@
 [
   {
+    "slug": "component-selection-model",
+    "widePreview": true
+  },
+  {
+    "slug": "component-selection-workbench",
+    "widePreview": true
+  },
+  {
     "slug": "workbench-resource-model",
     "widePreview": true
   },

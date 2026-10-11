@@ -1,4 +1,43 @@
 {
+  "component-selection-model": [
+    {
+      "id": "68c65579bd2c7536a4bfb744bb8054787abc17ca6bc105f22db5182d73d84a06",
+      "path": "lib/component-selection-model.ts",
+      "kind": "source",
+      "url": "/docs-code/68c65579bd2c7536a4bfb744bb8054787abc17ca6bc105f22db5182d73d84a06.json",
+      "lines": 233
+    },
+    {
+      "id": "c88e176e7e64c2c8becd53c4f2bdbb49b069094e4603d8d88f820828ae353588",
+      "path": "components/examples/component-selection/selection-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/c88e176e7e64c2c8becd53c4f2bdbb49b069094e4603d8d88f820828ae353588.json",
+      "lines": 415
+    }
+  ],
+  "component-selection-workbench": [
+    {
+      "id": "2bc78a2663d079d7839cbee3f0f96c6248a57e126c78b8d8962a176b6ee994cd",
+      "path": "components/blocks/component-selection-workbench.tsx",
+      "kind": "source",
+      "url": "/docs-code/2bc78a2663d079d7839cbee3f0f96c6248a57e126c78b8d8962a176b6ee994cd.json",
+      "lines": 411
+    },
+    {
+      "id": "c88e176e7e64c2c8becd53c4f2bdbb49b069094e4603d8d88f820828ae353588",
+      "path": "components/examples/component-selection/selection-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/c88e176e7e64c2c8becd53c4f2bdbb49b069094e4603d8d88f820828ae353588.json",
+      "lines": 415
+    },
+    {
+      "id": "dc8a99b2f9b3922de6db5ecf359564b656606395cbbe74bd47fb1b3b726018a1",
+      "path": "components/blocks/component-selection-workbench.module.css",
+      "kind": "related",
+      "url": "/docs-code/dc8a99b2f9b3922de6db5ecf359564b656606395cbbe74bd47fb1b3b726018a1.json",
+      "lines": 274
+    }
+  ],
   "workbench-resource-model": [
     {
       "id": "58badcbf0b5c6f5fdef868d8642dff467cb1dad39ee014b808b33004426f2e57",
@@ -2139,11 +2178,11 @@
       "lines": 135
     },
     {
-      "id": "f469883e9f8e173cdbf657a2c45ac24b33c4f442b5fadb2a4ecbe3a7fdcbeb80",
+      "id": "090b6872e02c5d8779667a0a8bc8447f0432e4ed758f6b2cc681e13c90de74c7",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/f469883e9f8e173cdbf657a2c45ac24b33c4f442b5fadb2a4ecbe3a7fdcbeb80.json",
-      "lines": 3703
+      "url": "/docs-code/090b6872e02c5d8779667a0a8bc8447f0432e4ed758f6b2cc681e13c90de74c7.json",
+      "lines": 3851
     }
   ],
   "canvas-service-panel": [
