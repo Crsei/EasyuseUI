@@ -10,7 +10,7 @@
 | PG03/PG04/PG06 | 保留既有 URL 和共享会话。全局栏 48px 显示项目/fixture 环境；Session Header 64px 放在 Main。Chat 默认显示资源 Changes/Files/Plan，其他由更多菜单进入。Review 将完整 Diff 放 Main，收起资源详情，Chat/Editor 初始 45/55，440/480px 最小宽度，不够时单面板切换。可键盘调整、复位、最大化和退出恢复；隐藏而非重挂 Composer/审阅实例。底栏默认收起、240px，200–400px，异常只加数量提示，关闭不更改来源运行状态。 |
 | PG01/PG05/PG07 | 总览增加完整参考 fixture 入口。Pi 只回归公共模块及视觉边界，不引入本轮假文件/测试事实。产物/任务模板保持现有作用域和来源对象。 |
 
-页面目标、所有权和恢复沿用[页面声明](agent-workspace-plan.md#页面级设计声明)；契约为 [Design-rules](../Design-rules.md)、[Component Specification](../Component-Specification.md)、[Patterns](../UI-PATTERNS.md)、[States](../UI-STATES.md)。本轮 UI 不建立文件/Git/PTY/多 Agent 服务。
+页面目标、所有权和恢复沿用[页面声明](../agent-workspace-plan.md#页面级设计声明)；契约为 [Design-rules](../../Design-rules.md)、[Component Specification](../../Component-Specification.md)、[Patterns](../../UI-PATTERNS.md)、[States](../../UI-STATES.md)。本轮 UI 不建立文件/Git/PTY/多 Agent 服务。
 
 ## 实施前模块声明
 
@@ -23,7 +23,7 @@
 | MD16 | AgentWorkbench 可选受控分屏比例/最大化；ResizableHandle 键盘、拖动、Home/End、复位；比例有界，最大化不卸载 Chat/Editor，退出恢复比例/反馈/阅读。ChangeReviewPanel/FileViewer/DiffViewer 仍只读。 |
 | MD17 | Shell bottom + ExecutionSessionList，Output/Tests/Problems/Events/Logs/Metrics/Terminal 按来源提供；无结构化 Tests/Metrics/PTY 时明确能力缺失，不填假0/成功。命令、工具、文件和消息入口绑定同来源身份。 |
 
-共享 CSS 使用语义 token，V04 气泡颜色局部映射双主题；V06 16px，V09 R10/R16，V10 240px，V11 12/13/14px。触摸44px、focus 与 selected 独立、减弱动效、zh-CN/en、长内容与五种数据态逐项验证。共同规则与 host pages 见[模块声明](agent-workspace-plan.md#模块级设计声明)。
+共享 CSS 使用语义 token，V04 气泡颜色局部映射双主题；V06 16px，V09 R10/R16，V10 240px，V11 12/13/14px。触摸44px、focus 与 selected 独立、减弱动效、zh-CN/en、长内容与五种数据态逐项验证。共同规则与 host pages 见[模块声明](../agent-workspace-plan.md#模块级设计声明)。
 
 ## V01–V12 参数与实现映射
 

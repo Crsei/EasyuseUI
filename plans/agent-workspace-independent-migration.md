@@ -19,4 +19,4 @@ Agent 应用自己的 package/config/TS/ESLint/Playwright/public/out/cache 与�
 
 ## 验收路径
 
-单独构建/类型检查 docs、Agent、Host；检查 docs 编译图无 Agent 私有源码、应用无站点/其他应用私有引用；候选副本注入 Agent 私有错误证明 docs 隔离。浏览器分别覆盖主站17模块/旧入口参数、独立三模板/布局/草稿/资源、Pi HTTP/SSE 发送/刷新/取消/unknown。运行 Registry 安装和主题模式验证。真实 provider 单独记录，fixture 不代替它。执行证据见 [迁移记录](independent-example-apps-log.md)。
+单独构建/类型检查 docs、Agent、Host；检查 docs 编译图无 Agent 私有源码、应用无站点/其他应用私有引用；候选副本注入 Agent 私有错误证明 docs 隔离。浏览器分别覆盖主站17模块/旧入口参数、独立三模板/布局/草稿/资源、Pi HTTP/SSE 发送/刷新/取消/unknown。运行 Registry 安装和主题模式验证。真实 provider 单独记录，fixture 不代替它。执行证据见 [迁移记录](logs/independent-example-apps-log.md)。

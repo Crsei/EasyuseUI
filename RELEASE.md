@@ -20,4 +20,4 @@
 
 第三方资源审核入口：React/Next/Base UI/React Flow/lucide-react/Shiki/Tailwind 的安装包许可文件和 package metadata；安装工具 shadcn 与测试工具 Playwright/axe 的许可；如后续引入字体、截图中的外部商标或图片，逐项记录来源与再分发范围。目前 Blog 封面为项目内 SVG，截图为确定性本地 fixture，不引入远程字体。
 
-升级说明：既有 URL 和安装 ID 保留；目录预览改为主动加载；host/scoped 是显式选择；WorkspaceShell 原底部折叠接口兼容；高频 Conversation/Activity 可选 revision，必须覆盖所有数据变化，未提供仍走兼容路径。Canvas 已在并行修改结束后完成本地隔离行为验收，稳定环境性能目标仍待校准。变更见 [Changelog](CHANGELOG.md)，证据与限制见 [实施记录](plans/optimization-and-blog-implementation-log.md)。
+升级说明：既有 URL 和安装 ID 保留；目录预览改为主动加载；host/scoped 是显式选择；WorkspaceShell 原底部折叠接口兼容；高频 Conversation/Activity 可选 revision，必须覆盖所有数据变化，未提供仍走兼容路径。Canvas 已在并行修改结束后完成本地隔离行为验收，稳定环境性能目标仍待校准。变更见 [Changelog](CHANGELOG.md)，证据与限制见 [实施记录](plans/logs/optimization-and-blog-implementation-log.md)。

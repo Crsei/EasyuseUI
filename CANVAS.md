@@ -1,6 +1,6 @@
 # Canvas 工作台与接入接口
 
-入口：[本地工作台](http://localhost:3010/workspace/canvas/)。当前覆盖 [计划](./plans/canvas-design-system-plan.md) 的 M0–M5 组件能力、M6 受控接口与本地验证；真实服务按用户选择稍后接入。验证结果、截图与限制记录在 [实施记录](./plans/canvas-implementation-log.md)。
+入口：[本地工作台](http://localhost:3010/workspace/canvas/)。当前覆盖 [计划](./plans/canvas-design-system-plan.md) 的 M0–M5 组件能力、M6 受控接口与本地验证；真实服务按用户选择稍后接入。验证结果、截图与限制记录在 [实施记录](./plans/logs/canvas-implementation-log.md)。
 
 ## 可以做什么
 

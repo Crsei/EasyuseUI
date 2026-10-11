@@ -1,6 +1,6 @@
 # 通用组件补齐实施记录
 
-日期：2026-10-08。配套：[计划](common-components-completion-plan.md)、[CRM复刻边界](sales-crm-replication-plan.md)。
+日期：2026-10-08。配套：[计划](../common-components-completion-plan.md)、[CRM复刻边界](../sales-crm-replication-plan.md)。
 
 本轮只实现与验证，不提交或推送。通用组件不导入 CRM 类型、store、站点资源或 Next 路由；数据请求、筛选、排序、计数、上传及持久化由调用方负责。
 

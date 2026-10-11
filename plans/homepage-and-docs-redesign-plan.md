@@ -1,7 +1,7 @@
 # EasyuseUI 首页与文档站改版计划
 
 日期：2026-10-09
-状态：D0–D5 已实现并通过本地验收（2026-10-09）。详见 [实施记录](./homepage-and-docs-redesign-log.md)；公开部署及远程CI未在本轮执行。
+状态：D0–D5 已实现并通过本地验收（2026-10-09）。详见 [实施记录](./logs/homepage-and-docs-redesign-log.md)；公开部署及远程CI未在本轮执行。
 
 将首页改为突出真实工作台场景的产品入口，将文档改为便于检索、阅读、预览和安装的组件手册。首页用 Agent、Work Items、Canvas 的组合效果说明 EasyuseUI 的价值；文档帮助使用者从一个组件走到可运行的界面。
 
@@ -181,4 +181,4 @@ shadcn本地搜索使用Fumadocs查询能力；本项目保持静态导出，采
 
 D0 建立生产性能基线并固定预算后再验收，不预填提升比例；沿用现有 `tests/loading-budget.spec.ts` 等门禁，不为了视觉展示放宽引擎加载限制。浏览器覆盖首页、目录、安装、五类代表文档、示例库及现有Agent/Canvas/Work Items入口。
 
-改版文章展示同尺寸、同主题、同语言的前后截图，解释导航收敛、场景展示和文档阅读的变化；性能结论附构建版本、fixture、环境及原始测量。新增 `plans/homepage-and-docs-redesign-log.md` 记录完成、部分完成、未验收及下一动作，复用现有Blog证据模型，不另建发布系统。
+改版文章展示同尺寸、同主题、同语言的前后截图，解释导航收敛、场景展示和文档阅读的变化；性能结论附构建版本、fixture、环境及原始测量。新增 `plans/logs/homepage-and-docs-redesign-log.md` 记录完成、部分完成、未验收及下一动作，复用现有Blog证据模型，不另建发布系统。

@@ -1,6 +1,6 @@
 # Agent 工作台：组件评估与建设计划
 
-日期：2026-10-09。状态：M0–M5 已完成，M6 为后续服务集成；见 [实施记录](./agent-workbench-implementation-log.md)。
+日期：2026-10-09。状态：M0–M5 已完成，M6 为后续服务集成；见 [实施记录](./logs/agent-workbench-implementation-log.md)。
 
 目标：用 EasyuseUI 构建 Codex 类型的 Agent 工作台。先按区域设计、实现并提供独立网页展示，再组合布局，最后形成可以连续操作的完整网页示例。展示顺序、路由和场景见 [网页展示计划](./agent-workbench-showcase-plan.md)。
 
@@ -51,7 +51,7 @@
 
 并行新增的 Sidebar、Attachment、Questionnaire、Resizable，以及 Conversation.actionsRef 等增强可以作为候选依赖。它们当前有未提交实现或修改；M0 核对合并与验证状态后再采用。使用 WorkspaceShell 时不能再套一层独立 Sidebar 布局所有者；Questionnaire 仅用于补充问题，不能替代权限审批。
 
-2026-10-11 `/workspace/` 按用户要求复用新版编码对话工作台并默认进入会话；WorkspaceShell 展示移至 `/workspace/shell/`，`/workspace/agents/` 继续承担运行看板。见[入口迁移记录](workspace-entry-migration-log.md)。`lib/example-manifest.ts` 中的“Agent 编码工作台”仍链接分层示例总览。
+2026-10-11 `/workspace/` 按用户要求复用新版编码对话工作台并默认进入会话；WorkspaceShell 展示移至 `/workspace/shell/`，`/workspace/agents/` 继续承担运行看板。见[入口迁移记录](logs/workspace-entry-migration-log.md)。`lib/example-manifest.ts` 中的“Agent 编码工作台”仍链接分层示例总览。
 
 ## 4. 区域划分与组件建设
 
@@ -139,7 +139,7 @@ components/examples/agent-workbench/        # fixtures、reducer、场景、浏�
 app/examples/agent-workbench/               # 展示路由，薄装配
 tests/agent-workbench-*.spec.ts              # 模型、区域与完整行为
 AGENT-WORKBENCH.md                           # 组件合同与集成说明
-plans/agent-workbench-implementation-log.md  # 逐阶段验收记录
+plans/logs/agent-workbench-implementation-log.md  # 逐阶段验收记录
 ```
 
 - 可分发组件只收props/快照/回调，不依赖Next路由、站点资源、认证、网络服务和本机路径。
@@ -164,7 +164,7 @@ plans/agent-workbench-implementation-log.md  # 逐阶段验收记录
 
 ## 9. 验证范围与交付记录
 
-M0–M5 已完成；隔离验证与逐项结果见 [实施记录](./agent-workbench-implementation-log.md)。必须运行 `pnpm lint`、`pnpm typecheck`、`pnpm build`，涉及便携源码/CSS/Registry运行 `pnpm test:install`；行为变更运行浏览器测试。
+M0–M5 已完成；隔离验证与逐项结果见 [实施记录](./logs/agent-workbench-implementation-log.md)。必须运行 `pnpm lint`、`pnpm typecheck`、`pnpm build`，涉及便携源码/CSS/Registry运行 `pnpm test:install`；行为变更运行浏览器测试。
 
 必须覆盖：跨会话草稿隔离、乱序/重复事件、旧请求迟到、历史锚点、发送确认丢失、审批确认丢失、取消未确认、上下文失效、Diff版本变化、输出截断、刷新保留已有内容、无能力操作、IME、键盘焦点、触摸、减弱动效与切语言保留编辑状态。
 

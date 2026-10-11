@@ -1,6 +1,6 @@
 # 工作流分析实施记录
 
-日期：2026-10-09。当前范围：组件 C0–C7、展示 S0–S6 已完成。下文先保留首版冻结证据，再记录完整实现；真实服务接入仍由消费项目另行验收。源码与调用方契约见 [WORKFLOW-ANALYTICS.md](../WORKFLOW-ANALYTICS.md)。本记录的通过只针对注明的证据层级。
+日期：2026-10-09。当前范围：组件 C0–C7、展示 S0–S6 已完成。下文先保留首版冻结证据，再记录完整实现；真实服务接入仍由消费项目另行验收。源码与调用方契约见 [WORKFLOW-ANALYTICS.md](../../WORKFLOW-ANALYTICS.md)。本记录的通过只针对注明的证据层级。
 
 | 范围 | 实现 | 验收证据 |
 | --- | --- | --- |
@@ -22,7 +22,7 @@
 
 纯函数测量为 500/5,000/50,000 事件、100/1,000/10,000 点，每档5次，保存原始样本与中位数；这不是图形绘制或服务容量承诺。Recharts 3.10.1 的 UMD参考体积为593,114 bytes，gzip155,441 bytes；不等于应用路由下载量。
 
-报告：[measurements.json](../public/blog/workflow-analytics/measurements.json)。复合源码快照 `3e2b461c82531a3de81e086e61ff7730b25e6d77050b65d7007eded3431c1c88` 保存实现/fixture/测试/依赖/主题的逐文件SHA256，以及六个本地参考库HEAD；交付快照逐文件核对一致。没有复制参考库源码。
+报告：[measurements.json](../../public/blog/workflow-analytics/measurements.json)。复合源码快照 `3e2b461c82531a3de81e086e61ff7730b25e6d77050b65d7007eded3431c1c88` 保存实现/fixture/测试/依赖/主题的逐文件SHA256，以及六个本地参考库HEAD；交付快照逐文件核对一致。没有复制参考库源码。
 
 ## 验证结果
 
@@ -41,7 +41,7 @@
 
 独立安装与 host/scoped 检查使用最终 Registry 快照，包含共享依赖、完整语言资源与 CSS。生产构建、类型、文档和23项专项检查另行通过。当前3010共享开发工作区也通过目录/源码读取与历史下钻到五布局的2项浏览器冒烟检查；仍不代表真实服务验收。
 
-生产浏览器以新context分别检查 `/`、`/docs/button/`、分析示例：前两者不下载Recharts，分析示例加载统计引擎。报告记录解码JS字节，不能与gzip或UMD参考体积直接比较。见 [bundle-isolation.json](../public/blog/workflow-analytics/bundle-isolation.json)、[validation.json](../public/blog/workflow-analytics/validation.json) 和 [theme-validation.json](../public/blog/workflow-analytics/theme-validation.json)。截图覆盖桌面、浅/深色；博客保留测量中状态，没有虚构优化前对照。
+生产浏览器以新context分别检查 `/`、`/docs/button/`、分析示例：前两者不下载Recharts，分析示例加载统计引擎。报告记录解码JS字节，不能与gzip或UMD参考体积直接比较。见 [bundle-isolation.json](../../public/blog/workflow-analytics/bundle-isolation.json)、[validation.json](../../public/blog/workflow-analytics/validation.json) 和 [theme-validation.json](../../public/blog/workflow-analytics/theme-validation.json)。截图覆盖桌面、浅/深色；博客保留测量中状态，没有虚构优化前对照。
 
 排查中遇到根盘临时空间不足及Chrome临时路径过长，验证转入数据盘并使用短TMPDIR别名后通过；未中断用户服务。主题检查发现动态token拼接无法被命名空间转换，已改用静态token映射并以实际图形颜色验收。
 
@@ -89,7 +89,7 @@
 | 浏览器基线 | 4/8/12 Widget × 100/1000/10000 总点数，共 9 档；点数向上均分时实际点数另列；每档一次自动化交互样本 |
 | 纯函数基线 | 500/5000/50000 事件与 100/1000/10000 点，每档五次，保留样本和中位数 |
 
-完整证据位于 [full/validation.json](../public/blog/workflow-analytics/full/validation.json)、[full/capture.json](../public/blog/workflow-analytics/full/capture.json)、[full/aggregation.json](../public/blog/workflow-analytics/full/aggregation.json) 与 [full/theme-validation.json](../public/blog/workflow-analytics/full/theme-validation.json)。源码逐文件哈希绑定到完整快照，Registry 安装另保留分发哈希。首页和普通 Button 文档仍不下载统计引擎；首版分析路由的解码 JS 字节另见 [bundle-isolation.json](../public/blog/workflow-analytics/full/bundle-isolation.json)。
+完整证据位于 [full/validation.json](../../public/blog/workflow-analytics/full/validation.json)、[full/capture.json](../../public/blog/workflow-analytics/full/capture.json)、[full/aggregation.json](../../public/blog/workflow-analytics/full/aggregation.json) 与 [full/theme-validation.json](../../public/blog/workflow-analytics/full/theme-validation.json)。源码逐文件哈希绑定到完整快照，Registry 安装另保留分发哈希。首页和普通 Button 文档仍不下载统计引擎；首版分析路由的解码 JS 字节另见 [bundle-isolation.json](../../public/blog/workflow-analytics/full/bundle-isolation.json)。
 
 浏览器图表耗时是准备 Widget 布局后的点数更新，包含 Playwright 交互与两帧等待；筛选为本地切换，来源下钻只打开一条合成记录。纯函数聚合、图形交互、截图和安装不是同一种性能或业务证据。Blog 保留 measuring 状态，没有前后优化对照或真实服务容量承诺。
 
@@ -97,4 +97,4 @@
 
 完整源码快照：`2ce90bb001468a616e789b293c10565c47d186b0d9f719990005ac6800b3668f`，含 75 个实现、示例、测试、Registry、主题与依赖文件的 SHA256。桌面收起侧栏使用带完整名称提示的图标，选中背景与键盘焦点分别呈现；新增浏览器回归验证。
 
-当前共享 3010 开发工作区另通过概览双图、构建器预览、图标导航及 `/r/analytics-builder.json` 服务冒烟检查。见 [live-smoke.json](../public/blog/workflow-analytics/full/live-smoke.json)。当前工作区含并行未提交组件，Registry 共 208 项；此数与正式隔离快照的 184 项分别记录，不作为正式提交新增范围。
+当前共享 3010 开发工作区另通过概览双图、构建器预览、图标导航及 `/r/analytics-builder.json` 服务冒烟检查。见 [live-smoke.json](../../public/blog/workflow-analytics/full/live-smoke.json)。当前工作区含并行未提交组件，Registry 共 208 项；此数与正式隔离快照的 184 项分别记录，不作为正式提交新增范围。

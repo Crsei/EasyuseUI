@@ -168,4 +168,4 @@ P1 表示应优先收口的现有契约/可用性问题或高影响组合风险�
 
 ## 6 后续实施（保留上述历史基线）
 
-2026-10-09 已启动 G01–G10 的组件改进，详见 [实施与验证记录](../../plans/ui-gap-audit-implementation-log.md)。当前源码可用性由 [生成映射](../component-availability.md) 与 Manifest/Registry 检查，组件交互示例位于 `/examples/component-contracts/`；后续结果不改变本报告原始测量和证据范围。
+2026-10-09 已启动 G01–G10 的组件改进，详见 [实施与验证记录](../../plans/logs/ui-gap-audit-implementation-log.md)。当前源码可用性由 [生成映射](../component-availability.md) 与 Manifest/Registry 检查，组件交互示例位于 `/examples/component-contracts/`；后续结果不改变本报告原始测量和证据范围。

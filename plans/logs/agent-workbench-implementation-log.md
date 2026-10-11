@@ -51,7 +51,7 @@ ChatMessage增加单份正文renderContent，Conversation增加可选fill布局�
 
 最后处理的失败：Chrome在非/tmp的临时目录启动SIGTRAP，浏览器与安装统一使用TMPDIR=/tmp；长历史导航检查等待已选布局生效再断言可见Diff。新增示例使图集中的分析示例移到折叠线下，其缩略图按原生lazy加载；图集验收先滚到目标再检查图片加载，不把未进入视口的图片视为加载失败。新合入的触摸测试使用硬编码3011，而隔离预览使用3017；改为继承baseURL并复测。目录与词典页初始JavaScript估算gzip分别超出原预算2861/2072字节；追踪静态HTML脚本后确认首页场景预览被Webpack合入共享页面chunk。将首页预览拆成独立站点模块后复测全部7个预算，预算值保持不变。两轮之间可分发工作台运行时源码未变化，站点预览模块及触摸测试配置有上述修正；原始失败与复测记录均保留。
 
-截图在实际路由、固定fixture、字体加载完成后捕获，无页面水平溢出。来源指纹：`d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943`。公开证据：[captures.json](../public/blog/agent-workbench/captures.json)、[verification.json](../public/blog/agent-workbench/verification.json)。博客引用同一指纹的图片与检查记录。
+截图在实际路由、固定fixture、字体加载完成后捕获，无页面水平溢出。来源指纹：`d2fff2d077b7352ceb0a26608aa71fc9d35970f3c7207e0d1073f08d28891943`。公开证据：[captures.json](../../public/blog/agent-workbench/captures.json)、[verification.json](../../public/blog/agent-workbench/verification.json)。博客引用同一指纹的图片与检查记录。
 
 ## 入口
 

@@ -3,7 +3,7 @@
 2026-10-12 新增展示批次见[明日实施计划](2026-10-12-agent-workspace-work-items-plan.md)：新增场景索引及产品待办、迭代看板、缺陷分诊、发布排期、团队日历、我的任务六页；页面 WI-PG00–06 与模块 WI-M01–05 已声明，均待实施。保留本页原五布局示例与旧入口兼容。
 
 日期：2026-10-08；更新：2026-10-09
-状态：S0–S5 与 W9 五布局增量已实施；新增时间布局、文章和独立证据见文末。Plane 登录态视觉对照尚未取得，范围与证据见[实施记录](./work-items-implementation-log.md)。
+状态：S0–S5 与 W9 五布局增量已实施；新增时间布局、文章和独立证据见文末。Plane 登录态视觉对照尚未取得，范围与证据见[实施记录](./logs/work-items-implementation-log.md)。
 组件前置：[Work Items 通用组件建设计划](./work-items-components-plan.md)。
 
 ## 1. 页面目标与范围

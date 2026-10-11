@@ -2,7 +2,7 @@
 
 2026-10-11 计划增量：E6 的编码服务部分细化为[第 11 节 CW0–CW6](#11-agent-编码工作台技术补充与服务实施计划)，涵盖编辑器、文件/Git、命令/PTY 与分层验收；当前均待实施。前文 E0–E5 的历史范围和完成记录保留。
 
-日期：2026-10-09。状态：E0–E5 已实现并通过本地fixture、静态与独立安装验收，见 [实施记录](./agent-coding-workbench-enhancement-log.md)；E6 为独立后续。计划调研基线：`6ed0cc5dc782a0d726c88e1e408e7f7a47ea1af7`。
+日期：2026-10-09。状态：E0–E5 已实现并通过本地fixture、静态与独立安装验收，见 [实施记录](./logs/agent-coding-workbench-enhancement-log.md)；E6 为独立后续。计划调研基线：`6ed0cc5dc782a0d726c88e1e408e7f7a47ea1af7`。
 
 目标：在现有 Agent 编码工作台上，把侧边入口、对话输入、设置、上下文、工具执行、命令输出、生成产物和文件预览组织成连续的工作流程。主要改造入口为 `/examples/agent-workbench/app/?template=coding&page=session`，并同步区域实验室；三种模板继续共用组件和状态。
 
@@ -14,7 +14,7 @@
 
 - 正式契约：[Design-rules](../Design-rules.md)、[Component-Specification](../Component-Specification.md)、[UI-PATTERNS](../UI-PATTERNS.md)、[UI-STATES](../UI-STATES.md)、[AGENT-WORKBENCH](../AGENT-WORKBENCH.md)。采用本库组件复用模式。
 - 当前实现：[公共组合](../components/blocks/agent-workbench.tsx)、[纯模型](../lib/agent-workbench-model.ts)、[示例控制器](../components/examples/agent-workbench/workbench-demo.tsx)、[Provider](../components/examples/agent-workbench/provider.tsx)、[Reducer](../components/examples/agent-workbench/reducer.ts)。组件可用性同时核对 [Manifest](../lib/component-manifest.ts) 与 [Registry](../registry.json)。
-- 示例层级：总览 `/examples/agent-workbench/`；区域 `/examples/agent-workbench/regions/`；布局 `/examples/agent-workbench/layouts/`；完整应用 `/examples/agent-workbench/app/`。2026-10-11 `/workspace/` 改为新版会话示例，通用 Shell 展示移至 `/workspace/shell/`；见[入口迁移记录](workspace-entry-migration-log.md)。
+- 示例层级：总览 `/examples/agent-workbench/`；区域 `/examples/agent-workbench/regions/`；布局 `/examples/agent-workbench/layouts/`；完整应用 `/examples/agent-workbench/app/`。2026-10-11 `/workspace/` 改为新版会话示例，通用 Shell 展示移至 `/workspace/shell/`；见[入口迁移记录](logs/workspace-entry-migration-log.md)。
 - 本轮通过现有 3010 开发服务查看编码会话、设置、审阅页面，视口 1440×900；设置和审阅等待对应懒加载区域出现后复查。此项是现状观察，不是新交互验收或真实服务验证。
 
 ### 1.2 已有能力与本轮增量
@@ -219,7 +219,7 @@ WorkspaceShell（唯一布局所有者）
 
 ## 9. 分阶段实施与完成门槛
 
-各阶段先做区域示例，再接入完整编码模板；不要同时重构三个模板。进入实施后新增独立 `plans/agent-coding-workbench-enhancement-log.md` 记录实际提交、截图、命令和失败，不改写前两轮完成记录。
+各阶段先做区域示例，再接入完整编码模板；不要同时重构三个模板。进入实施后新增独立 `plans/logs/agent-coding-workbench-enhancement-log.md` 记录实际提交、截图、命令和失败，不改写前两轮完成记录。
 
 | 阶段 | 工作包 | 产出与完成门槛 | 依赖 |
 | --- | --- | --- | --- |
@@ -276,7 +276,7 @@ WorkspaceShell（唯一布局所有者）
 
 ### 10.4 E0–E5 实施交付
 
-E0–E5完成矩阵、接口边界、验收命令、浏览器回归、独立安装与长内容测量见 [实施记录](./agent-coding-workbench-enhancement-log.md)。以上勾选对应本地fixture和公共组件契约；真实日志订阅、服务执行、权限持久化及业务验收仍由E6宿主适配器提供。E4可选非模态浮窗保持后置，当前使用可访问Dialog和主区停靠。
+E0–E5完成矩阵、接口边界、验收命令、浏览器回归、独立安装与长内容测量见 [实施记录](./logs/agent-coding-workbench-enhancement-log.md)。以上勾选对应本地fixture和公共组件契约；真实日志订阅、服务执行、权限持久化及业务验收仍由E6宿主适配器提供。E4可选非模态浮窗保持后置，当前使用可访问Dialog和主区停靠。
 
 ## 11. Agent 编码工作台技术补充与服务实施计划
 

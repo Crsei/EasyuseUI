@@ -1,6 +1,6 @@
 # 示例项目独立构建与主站组件展示迁移计划
 
-日期：2026-10-11。状态：按用户优先级先实施 Agent Workspace；具体声明见 [Agent迁移声明](agent-workspace-independent-migration.md)，证据见 [实施记录](independent-example-apps-log.md)。其余应用、apps/docs目录迁移和EX0–EX7整体验收仍待后续；未切换Bun。
+日期：2026-10-11。状态：按用户优先级先实施 Agent Workspace；具体声明见 [Agent迁移声明](agent-workspace-independent-migration.md)，证据见 [实施记录](logs/independent-example-apps-log.md)。其余应用、apps/docs目录迁移和EX0–EX7整体验收仍待后续；未切换Bun。
 
 ## 1. 目标、适用原则与完成定义
 

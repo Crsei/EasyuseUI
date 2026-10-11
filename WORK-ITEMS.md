@@ -78,7 +78,7 @@ GroupSnapshot 的 totalCount 为 null/undefined 时显示“已加载”，不�
 
 URL 仅保存支持的布局、分组、排序、搜索、过滤、字段显隐、空组和稳定 item ID。配置使用 replace，详情导航使用 push；静态导出在 Suspense 中解析。公共组件不读路由。
 
-工作台默认收起场景说明。包含空数据、无匹配、加载、部分组、刷新失败、只读、明确拒绝、未知结果及模拟 Agent；压力数据为50/200/1000条。源码、fixture浏览器、安装和真实服务证据分开记录在 `plans/work-items-implementation-log.md`。本轮没有真实 Plane/生产服务接入证据。
+工作台默认收起场景说明。包含空数据、无匹配、加载、部分组、刷新失败、只读、明确拒绝、未知结果及模拟 Agent；压力数据为50/200/1000条。源码、fixture浏览器、安装和真实服务证据分开记录在 `plans/logs/work-items-implementation-log.md`。本轮没有真实 Plane/生产服务接入证据。
 
 1000项场景会实际挂载全部条目，当前没有窗口化。W0–W4 的单次基线与 W5/S5 的重复测量分别保留，均包含自动化开销和120ms模拟回执延迟，不作为生产服务SLA。消费方可使用权威分页控制已加载数量。
 
@@ -122,7 +122,7 @@ List/Table 保留泳道偏好但仍是原有布局。没有当前查询的泳道
 
 50/200/1000 项的同环境开关对照由 `scripts/measure-work-items-enhancements.mjs` 记录已加载/已挂载数量、DOM、选择/字段更新/切布局/移动/分组耗时。结果包含浏览器自动化和本地 120ms 回执开销，不能解释为生产服务延迟或 p95。旧版单次基线仍单独保留，不与新运行的硬件噪声混成改善保证。
 
-每项增强的源码、浏览器和独立安装结果见 [实施记录](plans/work-items-implementation-log.md)。本地示例与分发验证均不证明真实 Plane、生产权限、批量事务或持久化服务接入。
+每项增强的源码、浏览器和独立安装结果见 [实施记录](plans/logs/work-items-implementation-log.md)。本地示例与分发验证均不证明真实 Plane、生产权限、批量事务或持久化服务接入。
 
 ## Timeline / Calendar（W6–W9）
 

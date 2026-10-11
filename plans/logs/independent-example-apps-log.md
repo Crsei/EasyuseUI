@@ -4,7 +4,7 @@
 
 用户指定本轮先迁移 Agent Workspace，覆盖计划中所需的共享包、Agent 应用边界、主站组件展示、Pi 协议/服务回归和 CI/部署入口。其余六个应用、主站整体移动到 apps/docs、全七应用 EX0–EX7 与 A09 冷热性能比较仍待后续；不能由本轮结果推定全部计划完成。
 
-设计依据：[迁移声明](agent-workspace-independent-migration.md)、[逐文件/路由/17模块账本](agent-workspace-migration-files.json)、[原页面与模块合同](agent-workspace-plan.md)、[独立应用 README](../examples/agent-workspace/README.md)。本轮延续原 Pi 会话、历史、request ID、unknown 对账与权限合同，没有加入 Git/PTY/编辑写入或多 Agent 服务。
+设计依据：[迁移声明](../agent-workspace-independent-migration.md)、[逐文件/路由/17模块账本](../agent-workspace-migration-files.json)、[原页面与模块合同](../agent-workspace-plan.md)、[独立应用 README](../../examples/agent-workspace/README.md)。本轮延续原 Pi 会话、历史、request ID、unknown 对账与权限合同，没有加入 Git/PTY/编辑写入或多 Agent 服务。
 
 ### 交付结构
 
@@ -51,7 +51,7 @@
 
 ### 留存证据
 
-[主站画廊](evidence/agent-workspace-migration/gallery-light-zh.png)、[桌面应用](evidence/agent-workspace-migration/application-light-zh.png)、[真实 provider](evidence/agent-workspace-migration/pi-real-provider.png)、[地址未配置](evidence/agent-workspace-migration/docs-unconfigured.png)。机器结果与版本/产物/分发 snapshot 见 [validation.json](evidence/agent-workspace-migration/validation.json)。本机完整原始日志留在 .local/agent-migration；生产浏览器矩阵截图与 traces 按 docs/Agent 各自输出目录隔离。
+[主站画廊](../evidence/agent-workspace-migration/gallery-light-zh.png)、[桌面应用](../evidence/agent-workspace-migration/application-light-zh.png)、[真实 provider](../evidence/agent-workspace-migration/pi-real-provider.png)、[地址未配置](../evidence/agent-workspace-migration/docs-unconfigured.png)。机器结果与版本/产物/分发 snapshot 见 [validation.json](../evidence/agent-workspace-migration/validation.json)。本机完整原始日志留在 .local/agent-migration；生产浏览器矩阵截图与 traces 按 docs/Agent 各自输出目录隔离。
 
 ### 后续边界
 

@@ -218,7 +218,7 @@
         "status": "matches_head"
       },
       {
-        "path": "plans/shadcn-component-completion-log.md",
+        "path": "plans/logs/shadcn-component-completion-log.md",
         "sha256": "93477c21fe05e69999be819c8641312f36caa60d818c3d814b403979d82a004a",
         "status": "matches_head"
       },

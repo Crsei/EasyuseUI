@@ -1,7 +1,7 @@
 # Agent 看板组件与示例展示计划
 
 日期：2026-10-08
-状态：AG0–AG4 与 P2 展示扩展、可复现测量均已完成并归档；真实服务接入由消费项目提供；实施与证据见 [实施记录](./agent-board-implementation-log.md)。
+状态：AG0–AG4 与 P2 展示扩展、可复现测量均已完成并归档；真实服务接入由消费项目提供；实施与证据见 [实施记录](./logs/agent-board-implementation-log.md)。
 
 建设以运行看板为入口的 Agent 工作台，让用户快速判断谁在执行什么、哪里需要介入、产生了哪些结果，以及结果是否经过审阅。先补齐可复用展示组件，再通过同一组示例数据展示 Board、List、Inbox 和 Insights。
 
@@ -144,7 +144,7 @@ P2 已补齐依赖图、历史趋势和大集合虚拟列表，交付与验收�
 | `app/workspace/agents/page.tsx` | 页面入口；按已安装 Next 文档和现有静态导出约束实施 |
 | `tests/agent-board.spec.ts` | 核心浏览器行为与状态恢复场景 |
 | `content/blog/agent-board-showcase.ts` | 沿用现有 Blog 模型记录方案、截图及验证证据 |
-| `plans/agent-board-implementation-log.md` | 实施状态、验证命令、结果、遗留问题及证据位置 |
+| `plans/logs/agent-board-implementation-log.md` | 实施状态、验证命令、结果、遗留问题及证据位置 |
 
 AgentRunSnapshot 最少包含 runId、agentId、sessionId（可缺）、workItemRef（可缺）、attempt/parentRunId（可缺）、runtimeStatus、stage、时间、revision、来源和数据完整度。状态原因、连接快照、请求结果与业务审阅分字段建模，不堆入 status 字符串。
 

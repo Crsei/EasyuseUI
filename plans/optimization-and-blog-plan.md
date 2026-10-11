@@ -1,7 +1,7 @@
 # EasyuseUI 优化与 Blog 效果展示实施计划
 
 日期：2026-10-08  
-状态：本地实现、专项隔离验证和受影响范围的集成复测已交付。稳定 CI 性能校准、人工辅助技术验收和公开发布仍待完成。详见 [实施记录](./optimization-and-blog-implementation-log.md)。  
+状态：本地实现、专项隔离验证和受影响范围的集成复测已交付。稳定 CI 性能校准、人工辅助技术验收和公开发布仍待完成。详见 [实施记录](./logs/optimization-and-blog-implementation-log.md)。
 依据：[参考评估](./reference/chatgpt-plan.md)、当前工作区源码、[设计规则](../Design-rules.md)、[组件契约](../Component-Specification.md)、[交互模式](../UI-PATTERNS.md)、[状态规范](../UI-STATES.md)、[国际化约定](../I18N.md)。
 
 ## 1. 目标与范围
@@ -13,7 +13,7 @@
 1. 工程优化：按需加载、Canvas/长会话性能、受控布局、主题隔离、基础组件复用、文档一致性及发布质量。
 2. 展示与反馈：用 Blog 记录每项优化的方案、实施状态、适用版本、前后效果、测试方法与已知限制。
 
-本计划承接 [Canvas 建设计划](./canvas-design-system-plan.md) 与 [Canvas 实施记录](./canvas-implementation-log.md)，以当前已存在的 Canvas 为优化对象，不重新执行初始化。优化不得改变图文档、运行状态、审批、持久化、URL 和调用方权限语义。
+本计划承接 [Canvas 建设计划](./canvas-design-system-plan.md) 与 [Canvas 实施记录](./logs/canvas-implementation-log.md)，以当前已存在的 Canvas 为优化对象，不重新执行初始化。优化不得改变图文档、运行状态、审批、持久化、URL 和调用方权限语义。
 
 当前工作区有进行中的国际化与其他改动。实施前重新检查差异，按文件/代码块合并，保留用户工作；本次计划不提交或推送这些改动。
 

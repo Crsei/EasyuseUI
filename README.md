@@ -38,7 +38,7 @@ Agent 可按任务读取 [UI Skills 分类与入口](./skills/README.md)：视�
 
 打开 http://localhost:3010/examples/agent-workbench/elements/ 查看 Agent Workspace 统一元素画廊：同页浏览 MD01–MD17，切换“展示效果 / 设计规范 / 技术栈”，再进入组合工作台或精细状态实验室。文件代码预览先以独立 CodePreview 组件构建，再由 FileViewer 复用；新增 CodeMirror 只读高亮与搜索，真实编辑保存仍按服务计划推进。
 
-原通用 Shell 示例位于 http://localhost:3010/workspace/shell/ ，保留五种数据状态、十种运行状态、对象选择、Inspector 调整和本地 Chat 消息。入口迁移声明与验证见[实施记录](./plans/workspace-entry-migration-log.md)。
+原通用 Shell 示例位于 http://localhost:3010/workspace/shell/ ，保留五种数据状态、十种运行状态、对象选择、Inspector 调整和本地 Chat 消息。入口迁移声明与验证见[实施记录](./plans/logs/workspace-entry-migration-log.md)。
 
 | 层级             | 已实现内容                                                                                                                                          |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -170,11 +170,11 @@ Registry 构建器使用 shadcn 的官方 Schema 验证输出，并从 `styles/t
 
 ## 流程画布
 
-入口 `/workspace/canvas/`。支持构图、配置、结构化上游变量、分组/便笺、原子撤销重做、只读与脱敏 JSON 导入导出。复用现有 WorkspaceShell / Inspector / Tree / DataRegion。已加入受控运行调试、显式审批、嵌套子流程、Loop/Iteration 约束、高级配置和服务接口。当前示例为本地 fixture，真实运行、保存、协作和发布由消费方提供。用法与安装见 [CANVAS.md](./CANVAS.md)，阶段与证据见 [实施记录](./plans/canvas-implementation-log.md)。
+入口 `/workspace/canvas/`。支持构图、配置、结构化上游变量、分组/便笺、原子撤销重做、只读与脱敏 JSON 导入导出。复用现有 WorkspaceShell / Inspector / Tree / DataRegion。已加入受控运行调试、显式审批、嵌套子流程、Loop/Iteration 约束、高级配置和服务接口。当前示例为本地 fixture，真实运行、保存、协作和发布由消费方提供。用法与安装见 [CANVAS.md](./CANVAS.md)，阶段与证据见 [实施记录](./plans/logs/canvas-implementation-log.md)。
 
 ## shadcn 职责补齐（S1–S9）
 
-参考本机 shadcn 63 项的逐项职责、实际导出和复用边界见 [组件对照表](plans/shadcn-component-coverage.md)，执行与验证见 [清单](plans/shadcn-component-completion-plan.md) 和 [记录](plans/shadcn-component-completion-log.md)。新增组件均可在 `/docs/<registry-id>/` 查看示例。
+参考本机 shadcn 63 项的逐项职责、实际导出和复用边界见 [组件对照表](plans/shadcn-component-coverage.md)，执行与验证见 [清单](plans/shadcn-component-completion-plan.md) 和 [记录](plans/logs/shadcn-component-completion-log.md)。新增组件均可在 `/docs/<registry-id>/` 查看示例。
 
 ```bash
 pnpm dlx shadcn@4.21.2 add http://localhost:3010/r/date-picker.json
@@ -194,9 +194,9 @@ ScrollArea 使用原生滚动；Resizable 与 Sidebar 的偏好由调用方持�
 
 ### Agent 编码工作台
 
-区域实验室、三种布局与完整编码/产物/任务示例：`/examples/agent-workbench/`。安装及受控服务边界见 [AGENT-WORKBENCH.md](./AGENT-WORKBENCH.md)，组件验收见 [实施记录](plans/agent-workbench-implementation-log.md)，网页展示验收见 [展示记录](plans/agent-workbench-showcase-log.md)。
+区域实验室、三种布局与完整编码/产物/任务示例：`/examples/agent-workbench/`。安装及受控服务边界见 [AGENT-WORKBENCH.md](./AGENT-WORKBENCH.md)，组件验收见 [实施记录](plans/logs/agent-workbench-implementation-log.md)，网页展示验收见 [展示记录](plans/logs/agent-workbench-showcase-log.md)。
 
 
 ## Agent Workspace 独立应用（2026-10-11）
 
-完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。
+完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/logs/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。

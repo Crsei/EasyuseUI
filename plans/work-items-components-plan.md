@@ -1,14 +1,14 @@
 # Work Items 通用组件与展示模式建设计划
 
 日期：2026-10-08；更新：2026-10-09
-状态：W0–W9 已实施。W6–W9 的日期契约、Timeline、Calendar、五布局组合与分发另有本轮浏览器、独立安装和采集证据，不复用 W0–W5 的旧验收结论。真实服务接入由消费方另行验收。见[实施记录](./work-items-implementation-log.md)。
+状态：W0–W9 已实施。W6–W9 的日期契约、Timeline、Calendar、五布局组合与分发另有本轮浏览器、独立安装和采集证据，不复用 W0–W5 的旧验收结论。真实服务接入由消费方另行验收。见[实施记录](./logs/work-items-implementation-log.md)。
 配套：[Work Items 示例页面展示计划](./work-items-showcase-plan.md)。
 
 ## 1. 目标与现有基础
 
 建设共享数据、共享属性、不同布局的 Work Items 组件体系。已交付的第一版提供 List、Board、Table；本次补齐 Timeline（排期甘特图）和 Calendar（截止日日历），形成五种布局。通用 GroupedList/Board、Timeline/Calendar 容器分别服务分组流程、区间排期和按日展示，不绑定工作项服务。
 
-承接 [通用组件补齐计划](./common-components-completion-plan.md) 与 [实施记录](./common-components-completion-log.md)。当前源码已有 DataTable、Checkbox、Avatar、Tabs、Segmented、Select、Combobox、Menu、Popover、Sheet、Field、FilterToolbar、WorkspaceShell、ThemeBoundary；不将这些列为待重建组件。实施前复核实际 API、依赖与验证状态。
+承接 [通用组件补齐计划](./common-components-completion-plan.md) 与 [实施记录](./logs/common-components-completion-log.md)。当前源码已有 DataTable、Checkbox、Avatar、Tabs、Segmented、Select、Combobox、Menu、Popover、Sheet、Field、FilterToolbar、WorkspaceShell、ThemeBoundary；不将这些列为待重建组件。实施前复核实际 API、依赖与验证状态。
 
 遵循 [设计规则](../Design-rules.md)、[组件契约](../Component-Specification.md)、[交互模式](../UI-PATTERNS.md)、[状态规范](../UI-STATES.md)、[国际化约定](../I18N.md)。本轮保留现有并行改动，不修改 Plane 项目。
 
@@ -230,4 +230,4 @@ List/Board/Table/Timeline/Calendar 共用 records、筛选、selectedIds、activ
 
 新增纯日期/命令测试、Timeline/Calendar浏览器场景及独立安装操作；验证日期变更在五布局和详情一致。组件展示的截图分别覆盖月/周日历、三档时间线、未排期、只读和保存异常。参考源码事实、EasyuseUI实现证据与真实服务验收分开记录。
 
-本轮 W6–W9 的实际验证、18 次测量和截图来源见[实施记录](./work-items-implementation-log.md#w6w9-日期与五布局补齐)。W0–W5 的历史结果和原始来源 ID 保留。
+本轮 W6–W9 的实际验证、18 次测量和截图来源见[实施记录](./logs/work-items-implementation-log.md#w6w9-日期与五布局补齐)。W0–W5 的历史结果和原始来源 ID 保留。

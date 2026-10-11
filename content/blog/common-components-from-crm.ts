@@ -113,8 +113,8 @@ export const commonComponentsFromCrm: BlogPost = {
       type: "paragraph",
       text: {
         "zh-CN":
-          "每个公开项登记Manifest、Registry、按需示例与国际化资源。独立消费项目经CLI安装并构建，不复用文档站源码。具体接口见 /docs/data-table/、/docs/sheet/、/docs/command-palette/ 和 /docs/image-upload/；实现与验收记录位于 plans/common-components-completion-log.md，业务页面边界见 plans/sales-crm-replication-plan.md。",
-        en: "Each public item registers its Manifest, Registry, lazy demo and translations. An independent consumer installs through the CLI and builds without reusing documentation-site source. APIs are documented at /docs/data-table/, /docs/sheet/, /docs/command-palette/ and /docs/image-upload/. Implementation evidence lives in plans/common-components-completion-log.md; business-page scope is defined in plans/sales-crm-replication-plan.md.",
+          "每个公开项登记Manifest、Registry、按需示例与国际化资源。独立消费项目经CLI安装并构建，不复用文档站源码。具体接口见 /docs/data-table/、/docs/sheet/、/docs/command-palette/ 和 /docs/image-upload/；实现与验收记录位于 plans/logs/common-components-completion-log.md，业务页面边界见 plans/sales-crm-replication-plan.md。",
+        en: "Each public item registers its Manifest, Registry, lazy demo and translations. An independent consumer installs through the CLI and builds without reusing documentation-site source. APIs are documented at /docs/data-table/, /docs/sheet/, /docs/command-palette/ and /docs/image-upload/. Implementation evidence lives in plans/logs/common-components-completion-log.md; business-page scope is defined in plans/sales-crm-replication-plan.md.",
       },
     },
     {

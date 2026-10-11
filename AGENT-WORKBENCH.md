@@ -4,13 +4,13 @@
 
 真实本地 Pi 入口：独立 Agent 应用的 `/pi/`（3020/3021）。原主站 `/examples/agent-workbench/pi/` 保留组件画廊与应用链接。启动、配置、历史来源和恢复见[PI-WORKSPACE.md](PI-WORKSPACE.md)。Host/HTTP/SSE仅在服务包与示例适配层，公共组件保持受控、可独立分发。
 
-完整 V2 参考状态入口：`/examples/agent-workbench/regions/reference/`，覆盖 MD01–MD17 和数据五态；审批/队列的来源确认与恢复继续在 `/regions/intervention/` 验证。设计声明及证据见[完整设计实施记录](plans/agent-workspace-design-completion-log.md)。这些页使用明确标记的内存 fixture。
+完整 V2 参考状态入口：`/examples/agent-workbench/regions/reference/`，覆盖 MD01–MD17 和数据五态；审批/队列的来源确认与恢复继续在 `/regions/intervention/` 验证。设计声明及证据见[完整设计实施记录](plans/logs/agent-workspace-design-completion-log.md)。这些页使用明确标记的内存 fixture。
 
 `AgentWorkbench` 可选 `presentation="workspace"` 将64px会话标题放在 Main，`header`承载全局身份；`inspectorMode="resource"`提供资源栏，`inspectorTitle`定义标题。`reviewSplit/onReviewSplitChange`为受控0–1比例，示例保存有界0.2–0.8偏好；可用宽度满足Chat440px/Editor480px才分屏。`workspaceMaximized/onWorkspaceMaximizedChange`只改变显示，保留编辑器、反馈、会话草稿和阅读位置。比例调整、Home/End和复位可用键盘完成。
 
 `WorkbenchPanelTabs.primaryPanels`支持三个常用标签和更多菜单，旧完整标签接口兼容。文件修改摘要只在工具明确提供`fileIds/changeRevision`且匹配当前ChangeSet时展示；`AgentConversation.onOpenChange`由调用方打开相同文件及版本。底部运行默认收起，`bottomBadge`仅提示来源异常；打开/关闭不取消任务。示例提供命令输出与来源退出码，未接入的结构化测试、指标和PTY保持明确缺失。
 
-后续改造见 [编码工作台增强计划](plans/agent-coding-workbench-enhancement-plan.md)：侧边工具入口、设置对话框、上下文、命令输出与多类型文件小窗的组件清单和 E0–E6 验收安排；E0–E5 本轮实施，结果见 [增强实施记录](plans/agent-coding-workbench-enhancement-log.md)；E6真实服务能力另行接入。
+后续改造见 [编码工作台增强计划](plans/agent-coding-workbench-enhancement-plan.md)：侧边工具入口、设置对话框、上下文、命令输出与多类型文件小窗的组件清单和 E0–E6 验收安排；E0–E5 本轮实施，结果见 [增强实施记录](plans/logs/agent-coding-workbench-enhancement-log.md)；E6真实服务能力另行接入。
 
 ## 安装与分层
 
@@ -83,7 +83,7 @@ ExecutionOutputPanel 脱敏后再筛选、展示和复制，最多200行/32KiB�
 
 ## 验收边界
 
-验收命令、视口、截图、测量与失败记录见 [实施记录](plans/agent-workbench-implementation-log.md)。区域/整页 fixture、独立消费者安装与真实服务分别记录。M6 真实模型、文件系统、Git、PTY、浏览器、鉴权和持久化仍需独立接入与来源回执验证。
+验收命令、视口、截图、测量与失败记录见 [实施记录](plans/logs/agent-workbench-implementation-log.md)。区域/整页 fixture、独立消费者安装与真实服务分别记录。M6 真实模型、文件系统、Git、PTY、浏览器、鉴权和持久化仍需独立接入与来源回执验证。
 
 ## 网页展示与本地偏好
 
@@ -95,7 +95,7 @@ ExecutionOutputPanel 脱敏后再筛选、展示和复制，最多200行/32KiB�
 
 示例适配器仅保存外观、语言和面板开关/尺寸；面板设置使用 `easyuseui-workbench-panels`。读取时白名单校验并限制尺寸，存储失败仍可继续操作。“清除本地偏好”保留未发送草稿；刷新重置业务数据。上下文重试有独立回执，来源替换后的旧确认不能覆盖新引用。
 
-本轮 S0–S6 记录见 [展示实施记录](plans/agent-workbench-showcase-log.md)，文章与截图入口为 `/blog/agent-workbench-showcase/`。前一轮组件建设记录与截图保留原版本；真实服务按 M6 单独验收。
+本轮 S0–S6 记录见 [展示实施记录](plans/logs/agent-workbench-showcase-log.md)，文章与截图入口为 `/blog/agent-workbench-showcase/`。前一轮组件建设记录与截图保留原版本；真实服务按 M6 单独验收。
 
 ## 编码增强 API
 
@@ -121,12 +121,12 @@ import { resourceKey, openDocument, acceptResourceRead } from "@/lib/workbench-r
 
 `AgentConversation.groupTools` 仅折叠相邻、已完成且结果已知的只读 Read/Search 调用，保留正文/工具源顺序与 `onOpenTool` 回调。运行、失败、等待和 unknown 不进入隐藏组；`ToolCall` 折叠时也保留脱敏错误摘要。新建/复制尚未完成视图切换时，Pi 私有适配器暂停发送并保留原会话草稿，切到其它对象不会被迟到响应拉回。
 
-Pi Host 和网页凭据、持久化、SSE、SDK 运行均留在私有示例/服务层；没有新的公共 Registry 服务组件。启动、协议与边界见 [PI-WORKSPACE.md](PI-WORKSPACE.md)，实际验证见 [首轮记录](plans/agent-workspace-completion-log.md)。
+Pi Host 和网页凭据、持久化、SSE、SDK 运行均留在私有示例/服务层；没有新的公共 Registry 服务组件。启动、协议与边界见 [PI-WORKSPACE.md](PI-WORKSPACE.md)，实际验证见 [首轮记录](plans/logs/agent-workspace-completion-log.md)。
 
 
 ## Agent Workspace 独立应用（2026-10-11）
 
-完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。
+完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/logs/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。
 
 ## 桌面布局模式
 

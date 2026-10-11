@@ -6,7 +6,7 @@
 
 ## AW0 页面和模块实施声明
 
-执行来源：[设计计划](agent-workspace-plan.md) PG01/PG05、MD01/03–07/09/12，V01–V11；[公共设计原则](../Design-rules.md)、[组件合同](../Component-Specification.md)、[状态](../UI-STATES.md)、[工作台合同](../AGENT-WORKBENCH.md)。
+执行来源：[设计计划](../agent-workspace-plan.md) PG01/PG05、MD01/03–07/09/12，V01–V11；[公共设计原则](../../Design-rules.md)、[组件合同](../../Component-Specification.md)、[状态](../../UI-STATES.md)、[工作台合同](../../AGENT-WORKBENCH.md)。
 
 PG05：本地单用户真实服务页 `/examples/agent-workbench/pi/`。主要流程为连接 → 项目 → 会话 → 历史/复制继续 → 发送/停止 → 刷新恢复。Host 持有会话、执行、认证、能力和回执，网页仅保存视图及逐会话草稿；外部历史只读。全局栏48px，导航轨56px，会话Header64px，侧栏256px；主区独立滚动，内容列760px，Composer固定底部。Inspector/底栏首轮收起，不展示虚构资源。选中会话不停止后台任务；对象切换丢弃迟到请求，保留每会话草稿。切语言/主题不触发写入。浏览器验证入口、恢复、IME、历史锚点、双语/双主题。
 

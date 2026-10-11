@@ -292,4 +292,4 @@ CanvasConfigEditor 已分发，内部包含 ConditionBuilder、扁平对象 Sche
 | Traceability / 工作关联 | work-traceability-view | Idea/WorkItem/Session/Run/Artifact明确关系，不是转化漏斗 |
 | Dashboard / 决策组合 | dashboard / project-overview-dashboard | 已有：`Dashboard`；[源码](components/blocks/dashboard/dashboard.tsx) / [文档](/docs/dashboard/) / Registry `dashboard` |
 
-详见 [组件与接入契约](WORKFLOW-ANALYTICS.md)、[本地示例](/examples/workflow-analytics/) 和 [实施证据](plans/workflow-analytics-implementation-log.md)。C3–C6计划中的热图、预测、依赖与构建器不属于本表已实现项。
+详见 [组件与接入契约](WORKFLOW-ANALYTICS.md)、[本地示例](/examples/workflow-analytics/) 和 [实施证据](plans/logs/workflow-analytics-implementation-log.md)。C3–C6计划中的热图、预测、依赖与构建器不属于本表已实现项。

@@ -1,6 +1,6 @@
 # Agent 工作台网页展示实施记录
 
-日期：2026-10-09。对应 [展示计划](./agent-workbench-showcase-plan.md)。基线为组件交付 `4daa7879f0f5c5fa7406581fb7aafac7e9e1d7a2`。状态：S0–S6 已完成；真实服务集成 M6 单独验收。
+日期：2026-10-09。对应 [展示计划](../agent-workbench-showcase-plan.md)。基线为组件交付 `4daa7879f0f5c5fa7406581fb7aafac7e9e1d7a2`。状态：S0–S6 已完成；真实服务集成 M6 单独验收。
 
 ## 批次与交付
 
@@ -55,9 +55,9 @@
 历史记录共 64 张截图，覆盖 10 区域、3 布局、3 模板及浅色/深色。捕获真实固定路由和初始 fixture，等待字体加载并检查 pageerror 与页面横向溢出。
 
 - [文章](/blog/agent-workbench-showcase/)
-- [路由、视口、字体和源码指纹](../public/blog/agent-workbench-showcase/captures.json)
-- [检查结果与服务边界](../public/blog/agent-workbench-showcase/verification.json)
-- [公共源码逐内容比较](../public/blog/agent-workbench-showcase/portable-payloads.json)
+- [路由、视口、字体和源码指纹](../../public/blog/agent-workbench-showcase/captures.json)
+- [检查结果与服务边界](../../public/blog/agent-workbench-showcase/verification.json)
+- [公共源码逐内容比较](../../public/blog/agent-workbench-showcase/portable-payloads.json)
 
 23 个相关运行源码文件的快照指纹：`476017e821453b9e770a5e0109f19cf1b487e9f8eb37ab66dcf2e5c0251e766c`。截图说明不同页面职责，不把旧完整模板与新区域实验室解释为性能前后测量。旧 `/blog/agent-workbench/` 资产保持原指纹；文档 content-addressed 历史资源保留。
 

@@ -268,8 +268,8 @@ export const workItemsSharedViews: BlogPost = {
       type: "paragraph",
       text: {
         "zh-CN":
-          "11 个文档项对应 11 个 Registry 安装项（含共用底层），Row/Card 共享 work-item，三视图共享 work-items-views，辅助字段随 work-item-properties 分发。文档安装指令采用真实 registryId。WorkItemsWorkspace 的依赖闭包已在独立应用经 CLI 安装、类型检查、生产构建和浏览器操作验证，不引用文档站或 Plane 服务。接口和边界见 WORK-ITEMS.md 及 plans/work-items-implementation-log.md。",
-        en: "Eleven documentation entries map to eleven Registry installation units, including shared foundations. Row/Card share work-item, the views share work-items-views, and field helpers ship with work-item-properties. Documentation commands use the actual registryId. The WorkItemsWorkspace dependency closure passed CLI installation, type checking, production build and browser actions in an independent app, without documentation-site or Plane-service imports. Contracts and limits are recorded in WORK-ITEMS.md and plans/work-items-implementation-log.md.",
+          "11 个文档项对应 11 个 Registry 安装项（含共用底层），Row/Card 共享 work-item，三视图共享 work-items-views，辅助字段随 work-item-properties 分发。文档安装指令采用真实 registryId。WorkItemsWorkspace 的依赖闭包已在独立应用经 CLI 安装、类型检查、生产构建和浏览器操作验证，不引用文档站或 Plane 服务。接口和边界见 WORK-ITEMS.md 及 plans/logs/work-items-implementation-log.md。",
+        en: "Eleven documentation entries map to eleven Registry installation units, including shared foundations. Row/Card share work-item, the views share work-items-views, and field helpers ship with work-item-properties. Documentation commands use the actual registryId. The WorkItemsWorkspace dependency closure passed CLI installation, type checking, production build and browser actions in an independent app, without documentation-site or Plane-service imports. Contracts and limits are recorded in WORK-ITEMS.md and plans/logs/work-items-implementation-log.md.",
       },
     },
     {

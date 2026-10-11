@@ -1,6 +1,6 @@
 # 项目与示例图标复用计划
 
-日期：2026-10-09。状态：已实施 I1–I3；验证与交付结果见 [实施记录](./icon-reuse-log.md)。I4 保留为按真实身份触发的条件项。
+日期：2026-10-09。状态：已实施 I1–I3；验证与交付结果见 [实施记录](./logs/icon-reuse-log.md)。I4 保留为按真实身份触发的条件项。
 
 本计划负责现有界面中的通用图标复用；SVG 素材编辑工具见独立的 [SVG 工作台计划](./svg-workbench-plan.md)。二者不互为实施前置条件。遵循 [Design-rules](../Design-rules.md)、[Component Specification](../Component-Specification.md)、[I18N](../I18N.md)；本仓库采用组件复用模式。
 
@@ -111,7 +111,7 @@ Tabler/Phosphor 映射仅证明已找到参考源码，不表示本项目已安�
 
 ## 8. 验证与验收
 
-I0 原计划只做静态核查；本轮 I1–I3 的工程、浏览器与独立安装证据分别记录在 [实施记录](./icon-reuse-log.md)，不将本地交互验证标记为真实服务集成。
+I0 原计划只做静态核查；本轮 I1–I3 的工程、浏览器与独立安装证据分别记录在 [实施记录](./logs/icon-reuse-log.md)，不将本地交互验证标记为真实服务集成。
 
 实施运行 `pnpm lint`、`pnpm typecheck`、`pnpm build`，并进行相应浏览器检查；公共源码/CSS/Registry 依赖变化运行 `pnpm test:install`。构建与生产验证隔离共享开发服务及并行工作。
 

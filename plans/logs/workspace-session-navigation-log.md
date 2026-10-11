@@ -1,6 +1,6 @@
 # 会话侧栏与视图导航调整
 
-日期：2026-10-11。依据：[Agent Workspace 计划 MD02/MD03/MD04](agent-workspace-plan.md)、[入口迁移](workspace-entry-migration-log.md)、[Design-rules](../Design-rules.md)、[Component Specification](../Component-Specification.md)。用户要求将上下文、计划、对话统一放入左侧 Sessions，并取消顶部“最近 / 执行中 / 归档”文字筛选条。本次指令更新 PG04/PG08 的导航组织；参考实验与 Pi 服务页保持各自适配职责。
+日期：2026-10-11。依据：[Agent Workspace 计划 MD02/MD03/MD04](../agent-workspace-plan.md)、[入口迁移](workspace-entry-migration-log.md)、[Design-rules](../../Design-rules.md)、[Component Specification](../../Component-Specification.md)。用户要求将上下文、计划、对话统一放入左侧 Sessions，并取消顶部“最近 / 执行中 / 归档”文字筛选条。本次指令更新 PG04/PG08 的导航组织；参考实验与 Pi 服务页保持各自适配职责。
 
 ## 页面声明
 

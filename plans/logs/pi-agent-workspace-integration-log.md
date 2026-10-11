@@ -17,4 +17,4 @@
 
 页面 history 保留压缩前可读条目，模型 context 由 SDK 原生规则恢复；不把二者等同。首屏50条，有界文本/工具、总传输预算、未知公开块提示和局部 partial，缓存按文件身份/版本与原始字节预算失效。没有全量 DOM 或 content-visibility 的虚拟列表承诺。
 
-真实业务项目、写文件/Git/PTY/审批/队列/Checkpoint/多Agent均不在首轮能力内；fixture 回归不等于这些服务已实现。启动和配置见 [PI-WORKSPACE.md](../PI-WORKSPACE.md)。
+真实业务项目、写文件/Git/PTY/审批/队列/Checkpoint/多Agent均不在首轮能力内；fixture 回归不等于这些服务已实现。启动和配置见 [PI-WORKSPACE.md](../../PI-WORKSPACE.md)。

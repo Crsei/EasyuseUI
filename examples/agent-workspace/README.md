@@ -20,7 +20,7 @@ PI_REAL_PROVIDER=1 pnpm --filter @easyuse-ui/example-agent-workspace test:real
 
 首页 `/` 默认编码会话；`/?template=artifacts&page=artifacts`、`/?template=console&page=inbox` 是其他模板。`/app/` 是应用内兼容别名；`/layouts/`、`/regions/` 是布局/交互 fixture；`/pi/` 为独立服务客户端。主站的17模块画廊和精细实验室保留在 `/examples/agent-workbench/elements/` 与 `/regions/reference/`，不继承应用状态。
 
-页面/模块合同：[迁移声明](../../plans/agent-workspace-independent-migration.md)、[原 PG/MD/V 声明](../../plans/agent-workspace-plan.md)、[组件先行](../../plans/agent-workspace-component-first-plan.md)、[Pi 合同](../../plans/pi-agent-workspace-integration-plan.md)。验收记录：[独立迁移记录](../../plans/independent-example-apps-log.md)。fixture 不能证明真实 provider、服务或业务验收。
+页面/模块合同：[迁移声明](../../plans/agent-workspace-independent-migration.md)、[原 PG/MD/V 声明](../../plans/agent-workspace-plan.md)、[组件先行](../../plans/agent-workspace-component-first-plan.md)、[Pi 合同](../../plans/pi-agent-workspace-integration-plan.md)。验收记录：[独立迁移记录](../../plans/logs/independent-example-apps-log.md)。fixture 不能证明真实 provider、服务或业务验收。
 
 ## 部署
 

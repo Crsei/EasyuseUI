@@ -19,9 +19,9 @@ Agent 的具体依据为[设计计划 PG/MD/V/DL](agent-workspace-plan.md)、[�
 | 项目                | 当前事实                                                                                                                                  | 明天增量                                                     |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | Workspace 入口      | `/workspace/` 复用编码工作台 fixture；原 Shell 在 `/workspace/shell/`                                                                     | 保留入口，改善展示和跨区域返回                               |
-| 最新导航修订        | [会话导航记录](workspace-session-navigation-log.md)将对话/上下文/计划/运行入口放到选中会话下；该变体目前用于 PG04/PG08                    | 以此修订为准，Pi 只接入实际支持的导航，不重新添加重复工具条  |
+| 最新导航修订        | [会话导航记录](logs/workspace-session-navigation-log.md)将对话/上下文/计划/运行入口放到选中会话下；该变体目前用于 PG04/PG08                    | 以此修订为准，Pi 只接入实际支持的导航，不重新添加重复工具条  |
 | Pi 真实页           | `/examples/agent-workbench/pi/`；独立 Host + HTTP/fetch SSE + SDK                                                                         | 补完整负载校验，复验发送、历史与恢复                         |
-| 已有证据            | [Pi 首轮记录](agent-workspace-completion-log.md)记载 AW0–AW5；[设计记录](agent-workspace-design-completion-log.md)记载 DL0–DL5 的 UI 范围 | 既有通过不等于明天改动已验收；按变更重跑适用项               |
+| 已有证据            | [Pi 首轮记录](logs/agent-workspace-completion-log.md)记载 AW0–AW5；[设计记录](logs/agent-workspace-design-completion-log.md)记载 DL0–DL5 的 UI 范围 | 既有通过不等于明天改动已验收；按变更重跑适用项               |
 | Pi 校验缺口         | `client.ts` 的 HTTP 成功响应使用 `as T`；SSE 检查部分信封字段，未完整验证 payload                                                         | 新增协议边界运行时验证，保留序号、身份和回执规则             |
 | Work Items          | 五布局、泳道、子项、批量动作、保存视图已有组件与 fixture                                                                                  | 用业务场景组合这些能力，不再增加同布局的空壳副本             |
 | Work Items 路由缺口 | `use-work-items-url.ts` 导入固定 catalog，编码始终返回 `/examples/work-items/`；`WorkItemsDemo` 无场景配置输入                            | 提取场景配置、catalog 和 basePath，保留原页及旧 URL 兼容     |

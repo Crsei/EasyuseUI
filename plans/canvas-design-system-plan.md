@@ -249,7 +249,7 @@
 
 性能预算保持2s/100ms/30fps，实测结果和共享主机负载限制见实施记录；不以调整预算掩盖未达项。每个后续接入版本重新执行 M7。
 
-实施证据见 [canvas-implementation-log.md](./canvas-implementation-log.md)，接口与使用说明见 [CANVAS.md](../CANVAS.md)。
+实施证据见 [canvas-implementation-log.md](./logs/canvas-implementation-log.md)，接口与使用说明见 [CANVAS.md](../CANVAS.md)。
 
 
 ## 9. 逐节点演示与执行动画增量

@@ -1,6 +1,6 @@
 # 工作流分析组件
 
-组件计划 C0–C7 与展示计划 S0–S6 已实现。入口 `/examples/workflow-analytics/` 提供十种分析场景；`/examples/workflow-analytics/baseline/` 保留首版手算示例。所有展示使用确定性内存 fixture，刷新重置；没有真实历史采集、服务查询、权限授予或业务写入。实施与验证见 [实施记录](plans/workflow-analytics-implementation-log.md)。
+组件计划 C0–C7 与展示计划 S0–S6 已实现。入口 `/examples/workflow-analytics/` 提供十种分析场景；`/examples/workflow-analytics/baseline/` 保留首版手算示例。所有展示使用确定性内存 fixture，刷新重置；没有真实历史采集、服务查询、权限授予或业务写入。实施与验证见 [实施记录](plans/logs/workflow-analytics-implementation-log.md)。
 
 ## 安装与分层
 
@@ -69,7 +69,7 @@ CSV 导出是显式回调。`analyticsCsv` 核对 queryKey，并包含快照、�
 
 ## 当前边界
 
-C3 资源/执行、C4 迭代进度/布局保存、C5 CFD/周期/预测/任务依赖、C6 通用构建器保留后续范围。DashboardDefinition 仅定义配置类型；尚未提供布局保存或后台查询服务。计算、fixture、截图、安装和真实服务证据分别记录在 [实施记录](plans/workflow-analytics-implementation-log.md)。
+C3 资源/执行、C4 迭代进度/布局保存、C5 CFD/周期/预测/任务依赖、C6 通用构建器保留后续范围。DashboardDefinition 仅定义配置类型；尚未提供布局保存或后台查询服务。计算、fixture、截图、安装和真实服务证据分别记录在 [实施记录](plans/logs/workflow-analytics-implementation-log.md)。
 
 底层尺寸和事件 API 按 [Recharts 官方文档](https://recharts.github.io/en-US/api/BarChart/) 与安装版本类型核对，组件业务事件不暴露底层库 payload。参考包只借鉴语义和组织，没有复制其源码；依赖采用 Recharts MIT 许可。
 

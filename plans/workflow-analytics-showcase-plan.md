@@ -1,7 +1,7 @@
 # 工作流分析与 Dashboard 示例展示计划
 
 日期：2026-10-09
-状态：S0–S6 已实现，十种场景、来源下钻、布局保存恢复、构建器与展示证据已完成；验收限于本地 fixture 和独立消费。配套 [组件计划](./workflow-analytics-components-plan.md) 与 [实施记录](./workflow-analytics-implementation-log.md)。
+状态：S0–S6 已实现，十种场景、来源下钻、布局保存恢复、构建器与展示证据已完成；验收限于本地 fixture 和独立消费。配套 [组件计划](./workflow-analytics-components-plan.md) 与 [实施记录](./logs/workflow-analytics-implementation-log.md)。
 
 展示目标是走通“看见问题 → 理解口径 → 定位对象 → 回到工作视图”的链路。以一组确定性工作项、历史事件、关系、执行和容量数据，分别演示 Views、Charts、Dashboards，再验证三者共享筛选和对象身份。
 
@@ -135,7 +135,7 @@ Chart组件目录仅静态缩略图或轻量摘要，主动预览时才加载一
 | `tests/workflow-analytics*.spec.ts` 与计算测试 | 图表选择、下钻、跨布局、状态恢复、配置和数据口径 |
 | `scripts/capture-workflow-analytics.mjs`、`public/blog/workflow-analytics/` | 固定矩阵截图、sourceSnapshot和测量原始数据 |
 | 现有组件Manifest/示例索引/Blog内容 | 文档、场景画廊与首页展示入口；沿用首页改版计划中的索引约定 |
-| `plans/workflow-analytics-implementation-log.md` | 每阶段实际完成范围、验证与已知限制 |
+| `plans/logs/workflow-analytics-implementation-log.md` | 每阶段实际完成范围、验证与已知限制 |
 
 | 阶段 | 对应组件前置 | 示例交付 | 验收出口 |
 | --- | --- | --- | --- |

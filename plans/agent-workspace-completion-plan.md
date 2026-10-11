@@ -2,7 +2,7 @@
 
 2026-10-12 的技术更新与展示打磨按[明日实施计划](2026-10-12-agent-workspace-work-items-plan.md)执行：P0 协议校验、Pi 回归与展示；查询缓存试点为 P1。此增量目前仅完成规划，沿用 AW0–AW5 与 DL 的已有证据，后续编码服务仍按 CW0–CW6 独立交付。
 
-日期：2026-10-10；开发方向更新：2026-10-11。状态：首轮 Pi AW0–AW5 已实现；实际工程与服务验收见[首轮实施记录](agent-workspace-completion-log.md)。完整参考设计的 UI 范围已按[设计实施记录](agent-workspace-design-completion-log.md)完成；S2–S4、AW6–AW8 及下述 DG 增量仍待实施。
+日期：2026-10-10；开发方向更新：2026-10-11。状态：首轮 Pi AW0–AW5 已实现；实际工程与服务验收见[首轮实施记录](logs/agent-workspace-completion-log.md)。完整参考设计的 UI 范围已按[设计实施记录](logs/agent-workspace-design-completion-log.md)完成；S2–S4、AW6–AW8 及下述 DG 增量仍待实施。
 
 **第一个补全执行计划先用于接入 Pi。** 首轮目标是在现有 Agent Workspace 中完成“连接本地 Pi 服务 → 选择项目/会话 → 展示历史 → 发送消息与流式回复 → 展示真实工具 → 停止 → 刷新/断线恢复 → 带旧上下文继续聊天”。完整代码编辑器、Git、PTY、Checkpoint 和多 Agent 界面不作为 Pi 接入的前置条件。
 
@@ -15,7 +15,7 @@
 - [工作台组件计划](./agent-workbench-components-plan.md) 已有 M0–M5 记录；[编码工作台增强计划](./agent-coding-workbench-enhancement-plan.md) 已有 E0–E5 记录。本计划保留已实现的公共组件、预览、设置、工具组和示例，不重复实施其完整清单。
 - 本计划负责**先接入 Pi 的执行顺序、必需 UI 补齐及验收**；[Pi 接入技术计划](./pi-agent-workspace-integration-plan.md) 负责进程、历史、事件、回执和模型执行。两者使用同一套 Session/Run/Message/ToolCall 身份与能力映射。
 - [具体设计与布局计划](./agent-workspace-plan.md) 是 [reference 原文](./reference/agent-workspace-plan.md) 的完整内容副本，仅整理展示并增加执行声明/清单。它负责“每个页面怎样布局、每个模块怎样显示”，本计划负责“何时实现、依赖什么、怎样证明接入完成”。设计计划中的 PG/MD/V/DL 编号是本计划 UI 工作的明确依据。
-- 主改造入口是 `/examples/agent-workbench/app/`，同步 `/regions/`、`/layouts/` 与总览。`/examples/agent-workbench/pi/` 用同一组公共区域组件承接真实数据；2026-10-11 按用户要求将 `/workspace/` 改为新版会话示例入口，通用 Shell 示例移至 `/workspace/shell/`，见[入口迁移记录](workspace-entry-migration-log.md)。
+- 主改造入口是 `/examples/agent-workbench/app/`，同步 `/regions/`、`/layouts/` 与总览。`/examples/agent-workbench/pi/` 用同一组公共区域组件承接真实数据；2026-10-11 按用户要求将 `/workspace/` 改为新版会话示例入口，通用 Shell 示例移至 `/workspace/shell/`，见[入口迁移记录](logs/workspace-entry-migration-log.md)。
 - Pi 第一版仍遵守已定范围：本地单用户、历史恢复、真实对话和只读工具。完整写文件、Git、PTY、检查点和多 Agent 调度作为独立服务工作包，不因本计划画出对应控件而自动变为可用。
 
 ### 1.1 reference 带来的补充要求
@@ -308,7 +308,7 @@ AW0–AW5 现明确为首轮 Pi 接入执行顺序，与 Pi 技术计划 P0–P5
 - 改公共源码/CSS/Registry 依赖时执行 `pnpm test:install`，同步示例、Manifest/Registry、双语资源与文档。服务包单独执行类型/集成检查。
 - 验证必须实际打开已挂载页面，不能仅以 Registry/Manifest 条目齐全作为 UI 完成证据。测试替身、本地服务、真实 provider、独立安装和用户业务验收分别记录。
 - 共享 3010 只用于现状观察/必要 smoke；正式验证采用冻结候选与明确端口的隔离构建，先核对进程归属。
-- 实施时新建 `plans/agent-workspace-completion-log.md`，逐项填写 U/AW/S 范围、版本、检查、失败与复测、未完成项。此计划阶段不写“已通过”的未来结果。
+- 实施时新建 `plans/logs/agent-workspace-completion-log.md`，逐项填写 U/AW/S 范围、版本、检查、失败与复测、未完成项。此计划阶段不写“已通过”的未来结果。
 - 原规划阶段更新本计划、新增reference完整设计副本与执行声明，并在AGENTS.md固定按页面/模块声明规则；规划本身不代表Pi或UI已实现。2026-10-10 的授权实现与实际验收另见首轮实施记录。实现达到对应阶段交付门槛后按AGENTS.md授权提交和普通推送：只纳入审阅过的任务路径，保留并行改动，验证远端SHA，不用大范围staging或强制覆盖取得干净状态。
 
 ## 10. 设计来源与适用边界

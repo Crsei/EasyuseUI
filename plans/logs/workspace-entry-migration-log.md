@@ -1,6 +1,6 @@
 # Workspace 新示例入口迁移
 
-日期：2026-10-11。来源：[Agent Workspace 设计计划](agent-workspace-plan.md)、[设计实施记录](agent-workspace-design-completion-log.md)、[Design-rules](../Design-rules.md)、[Component Specification](../Component-Specification.md)。用户要求将 `/workspace/` 改为新版示例；本记录更新此前该地址承担通用 Shell 示例的选择。
+日期：2026-10-11。来源：[Agent Workspace 设计计划](../agent-workspace-plan.md)、[设计实施记录](agent-workspace-design-completion-log.md)、[Design-rules](../../Design-rules.md)、[Component Specification](../../Component-Specification.md)。用户要求将 `/workspace/` 改为新版示例；本记录更新此前该地址承担通用 Shell 示例的选择。
 
 ## 页面声明
 

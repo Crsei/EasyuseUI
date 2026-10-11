@@ -12,4 +12,4 @@
 
 迁移：现有安装 ID、文档 URL、底部面板折叠接口保留。显式 `revision` 必须覆盖所有数据变化；主题模式由消费方选择。运行、权限和持久化仍由调用方提供。
 
-验收与限制见 [实施记录](plans/optimization-and-blog-implementation-log.md)。共享主机的 Canvas 冷启动与长会话追加仍有未达标项；尚未执行远程 CI 或公开发布。许可、域名和 Git tag 见 [发布前提](RELEASE.md)。
+验收与限制见 [实施记录](plans/logs/optimization-and-blog-implementation-log.md)。共享主机的 Canvas 冷启动与长会话追加仍有未达标项；尚未执行远程 CI 或公开发布。许可、域名和 Git tag 见 [发布前提](RELEASE.md)。

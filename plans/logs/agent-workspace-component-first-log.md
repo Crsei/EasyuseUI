@@ -1,6 +1,6 @@
 # Agent Workspace 组件先行实施记录
 
-日期：2026-10-11。计划：[CF0–CF4](agent-workspace-component-first-plan.md)。状态：CF0–CF4 已实现并通过隔离工程、生产浏览器及独立安装验收。
+日期：2026-10-11。计划：[CF0–CF4](../agent-workspace-component-first-plan.md)。状态：CF0–CF4 已实现并通过隔离工程、生产浏览器及独立安装验收。
 
 ## 范围与分工
 

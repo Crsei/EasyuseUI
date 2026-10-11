@@ -136,7 +136,7 @@ G1–G4 的必要公开能力与 G5 验证完成后，才将“组件补齐”�
 
 - C01–C19均有实现或明确复用决策：新增17个公开组件，扩展既有Select、Popover及WorkspaceShell；C16不新增ScrollArea。
 - 完整冻结回归183项通过，新增组件交互15项及逐项静态安装闭包17项包含在内；独立CLI消费项目的类型检查、生产构建和浏览器组合操作通过。
-- lint、typecheck、Webpack build、check:i18n、check:manifest通过；当前目录59个组件、Registry72项。具体检查范围与限制见[实施记录](common-components-completion-log.md)。
+- lint、typecheck、Webpack build、check:i18n、check:manifest通过；当前目录59个组件、Registry72项。具体检查范围与限制见[实施记录](logs/common-components-completion-log.md)。
 - 已增加文章 `/blog/common-components-from-crm/`、源码范围哈希及可下载验证报告。文章保留measuring状态：功能验证通过不等于性能前后对比。
 - 原有Canvas 200节点冷启动样本2815ms超过2000ms预算，未放宽阈值；Inspector p95为72.3ms、拖拽49fps。该样本不用于推断本轮组件的因果影响。
 - 本轮无Git提交或推送；CRM页面集成、真实服务及人工读屏验收继续作为独立后续工作。

@@ -2,7 +2,7 @@
 
 2026-10-12 技术增量按[明日计划 T1/T2](2026-10-12-agent-workspace-work-items-plan.md#2-技术栈更新决策)执行：补 HTTP/SSE/回执完整负载校验；只读列表查询缓存为条件试点。当前仅完成规划，协议 v1、现有只读能力与原回执/unknown 对账边界保持既有合同。
 
-日期：2026-10-10。状态：首轮 P0–P5 已实现，实际验证与边界见[实施记录](pi-agent-workspace-integration-log.md)。本计划承接 [工作台组件计划](./agent-workbench-components-plan.md) 的 M6 真实服务阶段；范围是本地单用户 Pi 接入示例。
+日期：2026-10-10。状态：首轮 P0–P5 已实现，实际验证与边界见[实施记录](logs/pi-agent-workspace-integration-log.md)。本计划承接 [工作台组件计划](./agent-workbench-components-plan.md) 的 M6 真实服务阶段；范围是本地单用户 Pi 接入示例。
 
 目标是在 EasyuseUI 示例网页中选择项目、浏览历史会话、恢复上下文继续聊天，并展示真实模型输出、工具调用和运行状态。关闭网页或刷新后，可以重新读取已持久化的聊天记录。UI、服务接入、真实模型验证分别记录证据。
 
@@ -10,7 +10,7 @@
 
 | 项目 | 当前事实及实施含义 |
 | --- | --- |
-| 工作台入口 | `/examples/agent-workbench/app/` 使用 `WorkbenchDemo`；2026-10-11 `/workspace/` 复用该新版示例并默认进入会话，原 `WorkspaceShellDemo` 移至 `/workspace/shell/`。Pi 继续复用前者的公共组件组合；见[入口迁移记录](workspace-entry-migration-log.md) |
+| 工作台入口 | `/examples/agent-workbench/app/` 使用 `WorkbenchDemo`；2026-10-11 `/workspace/` 复用该新版示例并默认进入会话，原 `WorkspaceShellDemo` 移至 `/workspace/shell/`。Pi 继续复用前者的公共组件组合；见[入口迁移记录](logs/workspace-entry-migration-log.md) |
 | 数据来源 | `components/examples/agent-workbench/provider.tsx` 使用 fixture reducer；现有浏览器存储主要保存面板偏好，不是真实会话库 |
 | 可复用组件 | `AgentWorkbench`、`SessionNavigator`、`ProjectSwitcher`、`AgentConversation`、`AgentComposer`、`ToolCall`、`Inspector`、`DataRegion` |
 | 数据模型 | `lib/agent-workbench-model.ts` 已有 `SessionSnapshot`、`DraftState`、`OperationReceipt`、历史分页和环境能力；传输状态需要在适配层补充 |
@@ -131,7 +131,7 @@ Pi 示例页面
 | `app/examples/agent-workbench/pi/page.tsx` | 静态路由薄装配，客户端连接服务 |
 | `tests/pi-workspace*.spec.ts` | 浏览器场景、历史锚点、刷新与恢复 |
 | `PI-WORKSPACE.md` | 安装、配置、启动、历史来源、能力限制和故障处理 |
-| `plans/pi-agent-workspace-integration-log.md` | 逐阶段实际结果、版本与证据 |
+| `plans/logs/pi-agent-workspace-integration-log.md` | 逐阶段实际结果、版本与证据 |
 | `package.json`、`pnpm-workspace.yaml`、`pnpm-lock.yaml` | 接入独立 Host 包与显式启动/检查命令；常规站点启动不自动启动模型任务 |
 
 全部内置文字支持 zh-CN/en；公共组件新增文字进入便携 typed messages，示例文案使用独立资源。切换语言或面板不得重挂输入框、清空草稿或发送请求。草稿按 sessionId 隔离；历史补载保持阅读锚点，距底部不超过 64px 才跟随新内容。

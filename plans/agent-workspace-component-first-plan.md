@@ -72,4 +72,4 @@ PG02 原实验室和 PG04/PG08 工作台增加可发现的开发入口时，保�
 - [x] CF3 实际检查：1440/1024、双主题/双语、键盘、搜索、只读、草稿/阅读保留、状态恢复、原实验室/工作台回归。
 - [x] CF4 工程与分发：lint、typecheck、Webpack build、浏览器验收、独立安装、文档/Registry一致性，记录截图与实际加载。
 
-实施记录使用 `plans/agent-workspace-component-first-log.md`，分别记录本轮完成与 CW/DG/服务剩余，不勾选未实现技术。生成文件与共享工作树中的并行修改单独核对，提交仅包含本任务增量。
+实施记录使用 `plans/logs/agent-workspace-component-first-log.md`，分别记录本轮完成与 CW/DG/服务剩余，不勾选未实现技术。生成文件与共享工作树中的并行修改单独核对，提交仅包含本任务增量。

@@ -2,7 +2,7 @@
 
 日期：2026-10-09。状态：S0–S9 已完成；工程、完整浏览器回归与独立安装全部通过。
 
-配套记录：[实施记录](./shadcn-component-completion-log.md)。遵循 [设计规则](../Design-rules.md)、[组件契约](../Component-Specification.md)、[国际化](../I18N.md) 和 [既有通用组件计划](./common-components-completion-plan.md)。
+配套记录：[实施记录](./logs/shadcn-component-completion-log.md)。遵循 [设计规则](../Design-rules.md)、[组件契约](../Component-Specification.md)、[国际化](../I18N.md) 和 [既有通用组件计划](./common-components-completion-plan.md)。
 
 ## 目标与基线
 

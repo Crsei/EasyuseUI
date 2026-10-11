@@ -46,7 +46,7 @@ Plane 参考提交为 `1fec307f91003df96351557af32ce87891a3678a`。`reference.js
 
 ## W5 / S5 增强实施与独立验收
 
-本次在 `24ebab1a64ad3215b5d69ed5b439e1ec78c94c16` 基线上实施；保留共享工作树内的 CRM 改动，工程检查和生产浏览器使用任务专用副本。未重启 3010 开发服务。新增两项按需文档入口及 `work-items-enhancements` Registry 安装包；WorkItemsWorkspace 的依赖闭包带入增强组件。接口详见 [WORK-ITEMS.md](../WORK-ITEMS.md)。
+本次在 `24ebab1a64ad3215b5d69ed5b439e1ec78c94c16` 基线上实施；保留共享工作树内的 CRM 改动，工程检查和生产浏览器使用任务专用副本。未重启 3010 开发服务。新增两项按需文档入口及 `work-items-enhancements` Registry 安装包；WorkItemsWorkspace 的依赖闭包带入增强组件。接口详见 [WORK-ITEMS.md](../../WORK-ITEMS.md)。
 
 | 增强 | 源码/接口 | 独立验收与边界 |
 | --- | --- | --- |
@@ -68,7 +68,7 @@ Plane 参考提交为 `1fec307f91003df96351557af32ce87891a3678a`。`reference.js
 
 ### 重复性能测量
 
-`measurements.json` 在同一份 W5 源码、Webpack 生产静态预览下，对 50/200/1000 项分别做三轮，轮换 `deferOffscreen` 关闭/开启顺序，共 18 次观察。实际已加载、fixture 总数、DOM 挂载实体数始终一致。下表为三次中位数，单位 ms，每格为“关闭 / 开启”；完整渲染耗时与 DOM 数见 [测量 JSON](../public/blog/work-items-enhancements/measurements.json)。
+`measurements.json` 在同一份 W5 源码、Webpack 生产静态预览下，对 50/200/1000 项分别做三轮，轮换 `deferOffscreen` 关闭/开启顺序，共 18 次观察。实际已加载、fixture 总数、DOM 挂载实体数始终一致。下表为三次中位数，单位 ms，每格为“关闭 / 开启”；完整渲染耗时与 DOM 数见 [测量 JSON](../../public/blog/work-items-enhancements/measurements.json)。
 
 | 已加载 / 总数 / 挂载 | 选择 | 字段更新 | 切 Board | 移动 | 重新分组 |
 | --- | --- | --- | --- | --- | --- |
@@ -124,7 +124,7 @@ W6–W9 新增 `tests/work-items-schedule.spec.ts` 17 项；核心生产版本�
 | 1000 / 1000 | timeline | 1000 | 20211–20211 | 4604 | 4886 | 6116 |
 | 1000 / 1000 | calendar | 295 | 4264–4264 | 712 | 4146 | 694 |
 
-测量包含Playwright操作、两个动画帧、120ms本地模拟写回执与共享主机噪声，不是服务延迟、p95、优化前后比较或生产容量保证。1000项时间线仍有明显延迟，需要消费方结合权威分页限制加载量。完整数据见 [measurements.json](../public/blog/work-items-schedule/measurements.json)。现有Work Items Blog追加五布局说明、截图、实际指标与通用容器演示，保留历史基线。
+测量包含Playwright操作、两个动画帧、120ms本地模拟写回执与共享主机噪声，不是服务延迟、p95、优化前后比较或生产容量保证。1000项时间线仍有明显延迟，需要消费方结合权威分页限制加载量。完整数据见 [measurements.json](../../public/blog/work-items-schedule/measurements.json)。现有Work Items Blog追加五布局说明、截图、实际指标与通用容器演示，保留历史基线。
 
 本轮只证明源码实现、本地确定性行为和独立分发。Plane源码核对保持 `1fec307f91003df96351557af32ce87891a3678a`，没有新增登录态Plane视觉证据、真实日期事务/存储/服务、自动排期或人工读屏验收；这些由消费方另行验收。
 

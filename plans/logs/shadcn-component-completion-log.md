@@ -1,6 +1,6 @@
 # shadcn 组件补齐实施记录
 
-日期：2026-10-09。配套：[执行清单](./shadcn-component-completion-plan.md)。
+日期：2026-10-09。配套：[执行清单](../shadcn-component-completion-plan.md)。
 
 ## S0 清单冻结
 
@@ -15,15 +15,15 @@
 
 | 项目                                               | 实现                                                           | 验证与边界                                                             |
 | -------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [Textarea](../components/ui/textarea.tsx)          | 原生多行输入、ref、受控/非受控、可调整高度、表单属性           | 错误保留草稿，语言切换保留同一 DOM，提交原始文本，禁用状态             |
-| [Label](../components/ui/label.tsx)                | 原生 htmlFor/ref 标签                                          | 标签点击将焦点交给关联输入；完整错误关联继续使用 Field                 |
-| [NativeSelect](../components/ui/native-select.tsx) | select/option/optgroup、multiple/size、原生表单  | 双语显示标签与协议值分离、分组/禁用、多选提交、44px触摸目标            |
-| [Switch](../components/ui/switch.tsx)              | Base UI 受控/非受控、name/form/value/uncheckedValue、只读/禁用 | Space、表单值、只读/禁用、焦点与选中、深色主题和减少动效、44px触摸目标 |
-| [RadioGroup](../components/ui/radio-group.tsx)     | 泛型 Group/Item、受控/非受控、原生表单接口                     | 箭头键跳过禁用项、值与语言分离、表单提交、44px触摸目标；Segmented 保留 |
+| [Textarea](../../components/ui/textarea.tsx)          | 原生多行输入、ref、受控/非受控、可调整高度、表单属性           | 错误保留草稿，语言切换保留同一 DOM，提交原始文本，禁用状态             |
+| [Label](../../components/ui/label.tsx)                | 原生 htmlFor/ref 标签                                          | 标签点击将焦点交给关联输入；完整错误关联继续使用 Field                 |
+| [NativeSelect](../../components/ui/native-select.tsx) | select/option/optgroup、multiple/size、原生表单  | 双语显示标签与协议值分离、分组/禁用、多选提交、44px触摸目标            |
+| [Switch](../../components/ui/switch.tsx)              | Base UI 受控/非受控、name/form/value/uncheckedValue、只读/禁用 | Space、表单值、只读/禁用、焦点与选中、深色主题和减少动效、44px触摸目标 |
+| [RadioGroup](../../components/ui/radio-group.tsx)     | 泛型 Group/Item、受控/非受控、原生表单接口                     | 箭头键跳过禁用项、值与语言分离、表单提交、44px触摸目标；Segmented 保留 |
 
-示例集中在 [form-primitives-demo.tsx](../components/examples/form-primitives-demo.tsx)，文档入口为 `/docs/textarea/`、`/docs/label/`、`/docs/native-select/`、`/docs/switch/`、`/docs/radio-group/`。公共源码没有内置站点文案；示例与 Catalog 增加34个双语站点资源键。词典已有 Textarea/RadioGroup/Switch 词条指向真实组件，Label/NativeSelect 由 Catalog 生成词条。
+示例集中在 [form-primitives-demo.tsx](../../components/examples/form-primitives-demo.tsx)，文档入口为 `/docs/textarea/`、`/docs/label/`、`/docs/native-select/`、`/docs/switch/`、`/docs/radio-group/`。公共源码没有内置站点文案；示例与 Catalog 增加34个双语站点资源键。词典已有 Textarea/RadioGroup/Switch 词条指向真实组件，Label/NativeSelect 由 Catalog 生成词条。
 
-补充 [组件契约](../Component-Specification.md) 和 [技能组件映射](../skills/implementation/easyuseui-component-contracts/references/component-map.md)，修正旧映射把已存在的 Tabs、Select 等列为缺失的说明。
+补充 [组件契约](../../Component-Specification.md) 和 [技能组件映射](../../skills/implementation/easyuseui-component-contracts/references/component-map.md)，修正旧映射把已存在的 Tabs、Select 等列为缺失的说明。
 
 ## 验证结果
 
@@ -48,7 +48,7 @@
 pnpm exec playwright test tests/form-primitives.spec.ts tests/common-components.spec.ts tests/common-distribution.spec.ts tests/primitives.spec.ts tests/i18n.spec.ts tests/components.spec.ts tests/dictionary.spec.ts tests/theme-namespace.spec.ts
 ```
 
-75项包括8项新增表单交互、22项独立分发闭包和45项既有组件/国际化/词典/主题回归。独立消费项目新增 [安装适配器](../scripts/form-primitives-consumer.mjs)，验证多选表单值、Textarea ref、只读/禁用开关、单选键盘及语言切换草稿保留；没有引入站点或Next路由依赖。
+75项包括8项新增表单交互、22项独立分发闭包和45项既有组件/国际化/词典/主题回归。独立消费项目新增 [安装适配器](../../scripts/form-primitives-consumer.mjs)，验证多选表单值、Textarea ref、只读/禁用开关、单选键盘及语言切换草稿保留；没有引入站点或Next路由依赖。
 
 首次浏览器轮次有一项测试错误地要求减少动效时duration严格为0；项目全局规则会将duration设为0.01ms。已改为验证实际 `transition-property: none`，最终提交候选75项全部通过。另一次参数误触发的全量运行已中止，保存在 `browser-unfiltered-interrupted.log`，不计入最终通过数量。
 
@@ -73,7 +73,7 @@ S1 交付时，下一阶段为 S2：ButtonGroup、InputGroup、Toggle、ToggleGr
 | S6   | Attachment、Marker、Questionnaire、Bubble                                            | 附件只呈现调用方状态；unknown 禁止移除；问卷答案受控、支持多种题型和回退/跳过；Bubble 用于独立引用，ChatMessage 同轴布局保持。                                                 |
 | S7   | Card、AspectRatio、Carousel、Chart                                                   | Card 用于独立内容；手动轮播支持键盘/触摸，隐藏项保留草稿；SVG 柱图/折线图有文本表，处理负值、缺失、极值与最多120项，无新增图表依赖。                                           |
 | S8   | Form、Sidebar、Resizable、ScrollArea、Command、Drawer；Conversation 定位接口         | Form 复用 Field；Sidebar 保留当前链接及标签；WorkspaceShell 复用 ResizableHandle；原生滚动；Command 支持内嵌；Drawer 可由显式手柄滑动关闭；Conversation 只定位已经加载的消息。 |
-| S9   | 63项最终对照、词典、技能映射、安装说明、工程与分发回归                               | [逐项对照](./shadcn-component-coverage.md)记录实际源码、导出、Registry 与语义边界；不存在以词汇表代替真实导出的 available 声明。                                               |
+| S9   | 63项最终对照、词典、技能映射、安装说明、工程与分发回归                               | [逐项对照](../shadcn-component-coverage.md)记录实际源码、导出、Registry 与语义边界；不存在以词汇表代替真实导出的 available 声明。                                               |
 
 七个示例文件覆盖40个新增文档入口；公共组件内置文字新增36个 typed 双语消息键。分发清单、lazy loader 与生成目录同步更新。组件契约与安装说明说明了命名、依赖和调用方责任。
 

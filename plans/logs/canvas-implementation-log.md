@@ -1,6 +1,6 @@
 # Canvas 实施记录
 
-日期：2026-10-08。对应 [实施计划](./canvas-design-system-plan.md)，使用和安装见 [CANVAS.md](../CANVAS.md)。
+日期：2026-10-08。对应 [实施计划](../canvas-design-system-plan.md)，使用和安装见 [CANVAS.md](../../CANVAS.md)。
 
 ## 当前交付
 

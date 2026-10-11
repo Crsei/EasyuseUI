@@ -1,6 +1,6 @@
 # 2026-10-09 组件差距改进实施记录
 
-对应 [原始审查 G01–G10](../docs/research/easyuseui-gap-audit-2026-10-09.md)。原审查的 08:40/08:51 快照与测量保留，不以实施结果覆盖历史证据。实施采用正式基线 `3b2dfead4a0073eb8e2c8c39ce9fc0c2a2b87ca9`，其中已包含完整工作流分析组件、场景与 S2–S9 基础组件补齐；Agent workbench、CRM 等并行未提交工作不纳入本次正式验证范围。
+对应 [原始审查 G01–G10](../../docs/research/easyuseui-gap-audit-2026-10-09.md)。原审查的 08:40/08:51 快照与测量保留，不以实施结果覆盖历史证据。实施采用正式基线 `3b2dfead4a0073eb8e2c8c39ce9fc0c2a2b87ca9`，其中已包含完整工作流分析组件、场景与 S2–S9 基础组件补齐；Agent workbench、CRM 等并行未提交工作不纳入本次正式验证范围。
 
 | ID | 已实现内容 | 验收入口 |
 | --- | --- | --- |
@@ -15,7 +15,7 @@
 | G09 | Manifest 变体编译与场景索引，系统强制颜色焦点/选择/错误/标签、axe | ui-contract-evidence / forced-colors 场景 |
 | G10 | 轻量 Chart 与正式分析侧分层；0与四类缺失原因分开、断线与可见表格 | chart 场景、既有 analytics 回归、独立安装 |
 
-交互入口：[组件边界示例](../app/examples/component-contracts/page.tsx)，站点路径 `/examples/component-contracts/`。可移植 API 与策略见 [组件契约](../docs/component-contracts.md)。本地查询/调用计数不表示真实服务、执行、存储或业务验收。
+交互入口：[组件边界示例](../../app/examples/component-contracts/page.tsx)，站点路径 `/examples/component-contracts/`。可移植 API 与策略见 [组件契约](../../docs/component-contracts.md)。本地查询/调用计数不表示真实服务、执行、存储或业务验收。
 
 ## 验证
 
@@ -37,7 +37,7 @@
 
 额外在共享主机强制执行临时 CI 目标时，200节点冷启动和5000条消息追加未达标；425个源码文件逐一核对一致的正式基线也单独复测。原始门槛与失败记录保留，不能将观测模式通过写成独立 CI 性能验收通过；稳定 CI 校准仍待执行。
 
-有界结果、源码摘要和性能测量见 [验证数据](../docs/research/evidence/gap-implementation-validation.json)，[修复后原始探查](../docs/research/evidence/dialog-viewport-after-gaps.json)，[强制颜色截图](../docs/research/evidence/component-contracts-forced-colors.png)。共享工作区的 Agent workbench、CRM 和其登记/翻译改动保留；它们不因本次隔离检查被认定完成或通过真实服务验收。
+有界结果、源码摘要和性能测量见 [验证数据](../../docs/research/evidence/gap-implementation-validation.json)，[修复后原始探查](../../docs/research/evidence/dialog-viewport-after-gaps.json)，[强制颜色截图](../../docs/research/evidence/component-contracts-forced-colors.png)。共享工作区的 Agent workbench、CRM 和其登记/翻译改动保留；它们不因本次隔离检查被认定完成或通过真实服务验收。
 
 ## 人工证据边界
 

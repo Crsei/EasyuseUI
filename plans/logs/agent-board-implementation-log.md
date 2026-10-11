@@ -1,6 +1,6 @@
 # Agent 看板实施与验证记录
 
-日期：2026-10-08。计划：[Agent 看板组件与示例展示计划](./agent-board-components-showcase-plan.md)。接口：[AGENT-BOARD.md](../AGENT-BOARD.md)。
+日期：2026-10-08。计划：[Agent 看板组件与示例展示计划](../agent-board-components-showcase-plan.md)。接口：[AGENT-BOARD.md](../../AGENT-BOARD.md)。
 
 ## 实施范围
 
@@ -47,8 +47,8 @@ W02 由并行 Work Items 实现补齐。本次 AgentRunBoard 直接使用 `item-
 - `pnpm lint`、`pnpm typecheck`、`pnpm build`（Webpack）、`pnpm check:manifest`、`pnpm check:i18n` 与 Blog 资源检查通过。
 - 相关浏览器回归 46 项通过；最终视觉修正后 `pnpm exec playwright test --config=playwright.agent-board.config.ts tests/agent-board.spec.ts` 20 项通过。两轮有重叠，不将总和当成独立案例数量。
 - `pnpm test:install` 通过：全新消费项目独立安装、生产构建及 Agent 工作台浏览器操作（选择、Sheet、List、Insights、缺失用量）均通过，并保留已有 Common/Canvas 安装回归。
-- `node scripts/capture-agent-board.mjs` 采集 12 张截图，人工复核 Board 与深色英文，尺寸、主题、语言、场景及源码文件散列见 [截图清单](../public/blog/agent-board/captures.json)。
-- [验证报告](../public/blog/agent-board/validation.json)，源码快照 `6d9ceae38768996679248d8f082bf76ddc671a0ec1760171b45b57d9a74a3393`。Blog 展示全部实图并提供可下载证据。
+- `node scripts/capture-agent-board.mjs` 采集 12 张截图，人工复核 Board 与深色英文，尺寸、主题、语言、场景及源码文件散列见 [截图清单](../../public/blog/agent-board/captures.json)。
+- [验证报告](../../public/blog/agent-board/validation.json)，源码快照 `6d9ceae38768996679248d8f082bf76ddc671a0ec1760171b45b57d9a74a3393`。Blog 展示全部实图并提供可下载证据。
 - 首版未提供优化前后的性能或效率测量；当时文章保留 `measuring`。P2 的同源 DOM 比较现已补齐，见下文。这不影响 AG0–AG4 的组件、文档和本地交互/安装交付。
 
 复跑时使用可用端口：配置默认 3027，截图默认 3028；保留现有服务。此主机短数据盘 `TMPDIR` 可避免根盘不足和 Chrome profile 路径过长。
@@ -77,9 +77,9 @@ W02 由并行 Work Items 实现补齐。本次 AgentRunBoard 直接使用 `item-
 - lint、typecheck、Webpack生产构建、Manifest/Registry、i18n 与 Blog 检查通过。
 - 最终 Agent/扩展/原文章回归30项通过（20 + 9 + 1）。测试包括模块加载失败重读、循环/缺失依赖、历史断点/多币种/有效0、1,000行键盘导航、失去入口后的焦点恢复。
 - `pnpm test:install` 通过：独立 CLI 安装、CSS/依赖解析、TypeScript、生产构建和浏览器验收；覆盖来源依赖、有效0历史、1,000虚拟行及既有 common/Canvas/Work Items 消费流程。
-- [P2 实图与源码清单](../public/blog/agent-board/p2/captures.json)：8张新增截图；保留首版12张及其原始快照。
-- [同源测量](../public/blog/agent-board/p2/measurements.json)：同一快照、1,000条来源行、AgentRunRow、分组、1440×1000视口、560px列表区、zh-CN/light/reduced motion；每模式3次独立上下文。DOM挂载行数中位数普通1,000、虚拟8，行高均120px；首条详情均一次点击。
-- [P2 验证报告](../public/blog/agent-board/p2/validation.json)，源码快照 `62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b`。文章状态更新为 `verified`，限定于本地交互、分发与记录的同源比较。
+- [P2 实图与源码清单](../../public/blog/agent-board/p2/captures.json)：8张新增截图；保留首版12张及其原始快照。
+- [同源测量](../../public/blog/agent-board/p2/measurements.json)：同一快照、1,000条来源行、AgentRunRow、分组、1440×1000视口、560px列表区、zh-CN/light/reduced motion；每模式3次独立上下文。DOM挂载行数中位数普通1,000、虚拟8，行高均120px；首条详情均一次点击。
+- [P2 验证报告](../../public/blog/agent-board/p2/validation.json)，源码快照 `62370c54e61b86c2333e692b2039622094c44fb1b425939d827138107a2f404b`。文章状态更新为 `verified`，限定于本地交互、分发与记录的同源比较。
 
 测量不证明延迟、内存、服务性能、真实 Agent 执行、授权或业务验收。依赖图只有来源明确的只读关系；历史只有已加载来源区间；虚拟列表不实现远程分页。根3010服务未重启，共享构建产物未覆盖；正式构建和浏览器证据来自数据盘隔离快照。
 

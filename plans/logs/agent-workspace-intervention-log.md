@@ -2,7 +2,7 @@
 
 ## 范围与并行边界
 
-2026-10-10，本轮 fixture 与验证完成。来源：[完整设计计划](agent-workspace-plan.md) PG02、MD12–MD14、A2-07/A2-08、V03–V06/V09/V11；[设计原则](../Design-rules.md)、[组件契约](../Component-Specification.md)、[状态契约](../UI-STATES.md)、[工作台契约](../AGENT-WORKBENCH.md)。
+2026-10-10，本轮 fixture 与验证完成。来源：[完整设计计划](../agent-workspace-plan.md) PG02、MD12–MD14、A2-07/A2-08、V03–V06/V09/V11；[设计原则](../../Design-rules.md)、[组件契约](../../Component-Specification.md)、[状态契约](../../UI-STATES.md)、[工作台契约](../../AGENT-WORKBENCH.md)。
 
 起始主目录已有另一进程负责 AW0–AW5 / Pi 接入、公共对话展示和真实 provider 回归；期间已交付 `7004e4d`。本轮以该提交的公共 API 为基线，保留全部并行工作，不接管 Pi 服务/Provider、共享消息资源、Registry 或首轮记录。只交付 DL3 中 MD13/MD14 的独立 fixture 及 MD12 稳定输入回归；不将完整 DL3 标记完成，不复写 Pi 验收结论。
 

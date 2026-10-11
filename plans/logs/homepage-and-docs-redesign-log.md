@@ -1,6 +1,6 @@
 # 首页与文档站改版实施记录
 
-日期：2026-10-09。范围：对应 [实施计划](./homepage-and-docs-redesign-plan.md) 的 D0–D5，全部实现并通过本地验收。
+日期：2026-10-09。范围：对应 [实施计划](../homepage-and-docs-redesign-plan.md) 的 D0–D5，全部实现并通过本地验收。
 
 ## 来源与交付范围
 
@@ -28,7 +28,7 @@
 
 ## 生产观测
 
-原始报告：[before.json](../public/blog/homepage-and-docs/before.json)、[after.json](../public/blog/homepage-and-docs/after.json)、[verification.json](../public/blog/homepage-and-docs/verification.json)。改版前UI/fixture快照 `5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a`；改版后快照 `8aab330d0eb24d917d34c90f3397d806aab3d1fc6d18d23c2f65afe724d46cc8`。
+原始报告：[before.json](../../public/blog/homepage-and-docs/before.json)、[after.json](../../public/blog/homepage-and-docs/after.json)、[verification.json](../../public/blog/homepage-and-docs/verification.json)。改版前UI/fixture快照 `5410c79915b6a97d302f16f0c03c9cd6b4ca3a9ad2ec4ca4a7aa87d0ccd0541a`；改版后快照 `8aab330d0eb24d917d34c90f3397d806aab3d1fc6d18d23c2f65afe724d46cc8`。
 
 每条路线3次新上下文，以下为中位数，单位bytes：
 

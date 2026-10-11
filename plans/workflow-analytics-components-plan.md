@@ -1,7 +1,7 @@
 # 工作流视图 分析图表与 Dashboard 组件建设计划
 
 日期：2026-10-09
-状态：C0–C7 已实现并完成组件、计算、浏览器及独立安装验收；真实服务接入不在本计划实施范围。验收与边界见 [实施记录](./workflow-analytics-implementation-log.md)。
+状态：C0–C7 已实现并完成组件、计算、浏览器及独立安装验收；真实服务接入不在本计划实施范围。验收与边界见 [实施记录](./logs/workflow-analytics-implementation-log.md)。
 配套：[工作流分析与 Dashboard 示例展示计划](./workflow-analytics-showcase-plan.md)。
 
 围绕工作状态、进度、流程效率、资源分配和风险，建立三个职责独立、共享数据与交互契约的设计系统域：工作流视图负责查看和操作对象，统计图表负责分析，Dashboard负责组织决策信息。每个可交互统计结果都应能解释其口径，并定位对应工作项或来源记录。
@@ -226,4 +226,4 @@ DashboardDefinition与AnalyticsQuery分开。保存包含baseRevision和operatio
 - 性能：固定500/5000/50000条事件、100/1000/10000可绘制点、4/8/12 Widget分别测量；这些是测试档位，不是支持容量承诺。大数据优先消费端聚合与分页，再决定抽样/Worker/窗口化。
 - 门禁：lint、typecheck、Webpack build、check:i18n、check:manifest、check:blog、相关浏览器测试及test:install；首页/普通文档不得因图表上线自动下载统计引擎。构建前检查服务占用，共享工作树按路径保留并行修改。
 
-产出 `plans/workflow-analytics-implementation-log.md` 记录组件、指标、示例、安装和真实服务五类证据。计算单测、fixture行为、视觉截图、安装测试、真实服务数据是不同验收层次；只在对应层次有证据时标记通过。
+产出 `plans/logs/workflow-analytics-implementation-log.md` 记录组件、指标、示例、安装和真实服务五类证据。计算单测、fixture行为、视觉截图、安装测试、真实服务数据是不同验收层次；只在对应层次有证据时标记通过。

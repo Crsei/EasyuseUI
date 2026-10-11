@@ -1,6 +1,6 @@
 # Agent Workspace 具体设计与布局执行计划
 
-日期：2026-10-10。状态：首轮 Pi DL1–DL2 已实现；DL0 基线、DL3 完整参考 fixture、DL4 代码工作区 UI 和 DL5 验收已完成，见[完整设计实施记录](agent-workspace-design-completion-log.md)。审批/Queue/Steer 证据保留在[人工介入记录](agent-workspace-intervention-log.md)；真实 Pi 证据见[首轮记录](agent-workspace-completion-log.md)，AW6–AW8 仍为独立服务范围。
+日期：2026-10-10。状态：首轮 Pi DL1–DL2 已实现；DL0 基线、DL3 完整参考 fixture、DL4 代码工作区 UI 和 DL5 验收已完成，见[完整设计实施记录](logs/agent-workspace-design-completion-log.md)。审批/Queue/Steer 证据保留在[人工介入记录](logs/agent-workspace-intervention-log.md)；真实 Pi 证据见[首轮记录](logs/agent-workspace-completion-log.md)，AW6–AW8 仍为独立服务范围。
 
 本文件是 [reference 原文](./reference/agent-workspace-plan.md) 的完整内容副本，负责具体视觉、页面布局、模块展示和交互细节。原文全部保留，仅增加标题层级、线框图代码围栏和本文件的执行声明/清单；原文中的对话、示例产品名、后续建议均作为设计来源保留，不表示已实现功能或新的执行指令。
 
@@ -1239,13 +1239,13 @@ ChatWorkspace
 
 所有页面共同遵循：Compact、4px 网格、语义 token、zh-CN/en、五种数据态、同对象刷新保留旧数据、键盘/触摸/reduced-motion；设计图中的示例路径和模型文字不成为运行配置。页面级验收必须检查实际挂载和区域布局，不能只检查路由和 Registry 存在。
 
-PG02 的人工介入增量页为 `/examples/agent-workbench/regions/intervention/`。其 PG02-I 页面声明与 MD13-I/MD14-I 模块变体、尺寸、状态和验收路径见[人工介入实施记录](agent-workspace-intervention-log.md)。它是独立内存 fixture，不启用 PG05 的 Queue/Steer 或审批能力。
+PG02 的人工介入增量页为 `/examples/agent-workbench/regions/intervention/`。其 PG02-I 页面声明与 MD13-I/MD14-I 模块变体、尺寸、状态和验收路径见[人工介入实施记录](logs/agent-workspace-intervention-log.md)。它是独立内存 fixture，不启用 PG05 的 Queue/Steer 或审批能力。
 
-PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/reference/`。其 PG02-R 页面声明、MD01–MD17 增量、V01–V12 参数映射，以及 PG03/PG04/PG06 的宽工作区和底栏规则见[完整设计实施记录](agent-workspace-design-completion-log.md)。页面使用明确的内存 fixture；真实编码服务、任务树持久化及 AW6–AW8 保持补全计划的独立服务范围。
+PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/reference/`。其 PG02-R 页面声明、MD01–MD17 增量、V01–V12 参数映射，以及 PG03/PG04/PG06 的宽工作区和底栏规则见[完整设计实施记录](logs/agent-workspace-design-completion-log.md)。页面使用明确的内存 fixture；真实编码服务、任务树持久化及 AW6–AW8 保持补全计划的独立服务范围。
 
-2026-10-11 按用户要求新增 PG08 `/workspace/` 作为 PG04 新版会话示例的直接入口；原通用 Shell 示例移至 PG09 `/workspace/shell/`。页面声明、共享模块的 host pages、入口默认查询与验收路径见[入口迁移记录](workspace-entry-migration-log.md)。本次复用同一 fixture，不新增真实服务能力。
+2026-10-11 按用户要求新增 PG08 `/workspace/` 作为 PG04 新版会话示例的直接入口；原通用 Shell 示例移至 PG09 `/workspace/shell/`。页面声明、共享模块的 host pages、入口默认查询与验收路径见[入口迁移记录](logs/workspace-entry-migration-log.md)。本次复用同一 fixture，不新增真实服务能力。
 
-2026-10-11 按用户对当前页面的修正，PG04/PG08 将对话、上下文、计划与运行面板入口收进选中 Session 下方；列表采用执行中/最近/归档分区和运行图标，替换顶部文字筛选条。MD03/MD04 增量及验收见[会话导航调整记录](workspace-session-navigation-log.md)。
+2026-10-11 按用户对当前页面的修正，PG04/PG08 将对话、上下文、计划与运行面板入口收进选中 Session 下方；列表采用执行中/最近/归档分区和运行图标，替换顶部文字筛选条。MD03/MD04 增量及验收见[会话导航调整记录](logs/workspace-session-navigation-log.md)。
 
 ## 模块级设计声明
 
@@ -1300,7 +1300,7 @@ PG02 的完整参考状态增量页为 `/examples/agent-workbench/regions/refere
 
 ### DL3 参考完整状态与区域演示
 
-MD13/MD14 的独立人工介入 fixture 与 MD12 输入稳定性按[人工介入记录](agent-workspace-intervention-log.md)单独实施；本阶段的全模块/全页面覆盖仍分别验收。
+MD13/MD14 的独立人工介入 fixture 与 MD12 输入稳定性按[人工介入记录](logs/agent-workspace-intervention-log.md)单独实施；本阶段的全模块/全页面覆盖仍分别验收。
 
 - [x] 在 PG02 明确 fixture 的情况下覆盖 MD01–MD17 的默认/hover/focus/selected/disabled/loading/error 及适用数据五态。
 - [x] 展示 User、开放 Agent 正文、Thinking、Plan、Read/Search、Edit、Shell/Test、Output 的差异，不统一套大 Card。
