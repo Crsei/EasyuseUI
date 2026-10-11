@@ -29,7 +29,7 @@ EasyuseUI 的主线为“简单组件展示 → 复杂组件构建 → 项目示
 
 Agent Workspace 首轮按[组件先行迁移计划](./plans/agent-workspace-component-first-plan.md)执行：MD01–MD17 统一展示，展示效果与设计规范分离，文件代码预览采用可复用编辑器引擎组件；后续表格、图表、关系图、拖拽和服务数据层按缺口引入。
 
-后续应用边界按[示例项目独立构建计划](./plans/independent-example-apps-plan.md)推进：主站迁至 apps/docs，七个完整示例分别进入 examples 下的独立应用，共享源码归 packages/ui，Pi Host 保持独立。主站项目页面只保留对应组件展示、设计规范和应用入口；独立应用不得反向进入主站构建依赖。Agent Workspace 已先迁至 examples/agent-workspace，共享源码与协议包已落地；主站仍在根目录，其余应用尚未迁移。根命令服务 docs，Agent 使用过滤包命令；Bun 迁移另行验证。
+后续应用边界按[示例项目独立构建计划](./plans/independent-example-apps-plan.md)推进：主站迁至 apps/docs，七个完整示例分别进入 examples 下的独立应用，共享源码归 packages/ui，Pi Host 保持独立。主站项目页面只保留对应组件展示、设计规范和应用入口；独立应用不得反向进入主站构建依赖。共享源码与协议包已落地；Agent Workspace 独立应用已按用户要求清空，主站仍在根目录，其余应用尚未迁移。根命令服务 docs；Bun 迁移另行验证。
 
 ## 2. 技术选择与引入条件
 
@@ -163,4 +163,4 @@ DG1 可先验证流程，DG2 的独立协议工作可在不依赖新页面时推
 
 ## Agent Workspace 独立应用（2026-10-11）
 
-完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/logs/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。
+2026-10-11：按用户要求清空 Agent Workspace 独立应用及其启动、构建、测试入口。主站保留 [17模块组件展示](/examples/agent-workbench/elements/)，共享源码 `packages/ui`、协议 `packages/pi-protocol` 与 Pi Host 服务保留；当前不提供独立工作台/Pi 浏览器客户端。原设计计划与历史验收记录保留作为参考，不代表独立应用仍可运行。

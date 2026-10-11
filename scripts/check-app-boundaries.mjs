@@ -19,24 +19,11 @@ function sources(config) {
     .map((source) => fs.realpathSync(source.fileName))
 }
 const docs = sources("tsconfig.json")
-const app = sources("examples/agent-workspace/tsconfig.json")
 const privateApp = path.join(root, "examples/")
 assert.ok(
   !docs.some((file) => file.startsWith(privateApp)),
-  "docs compile Agent private source",
+  "docs compile private example source",
 )
-for (const file of app) {
-  if (file.includes("/node_modules/")) continue
-  assert.ok(
-    !file.startsWith(path.join(root, "components/")) &&
-      !file.startsWith(path.join(root, "lib/")),
-    `Agent imports docs source: ${file}`,
-  )
-  assert.ok(
-    !/\/examples\/(?!agent-workspace\/)/.test(file),
-    `Sibling application source: ${file}`,
-  )
-}
 function visit(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const file = path.join(directory, entry.name)
@@ -56,9 +43,7 @@ function visit(directory) {
 visit(path.join(root, "packages/ui"))
 const report = {
   docsFiles: docs.length,
-  agentFiles: app.length,
-  docsPrivateAgentFiles: 0,
-  agentDocsFiles: 0,
+  docsPrivateExampleFiles: 0,
   source: "TypeScript resolved graph + public source imports",
 }
 fs.mkdirSync(path.join(root, ".local/agent-migration"), { recursive: true })

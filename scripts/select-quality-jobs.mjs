@@ -2,16 +2,15 @@ import assert from "node:assert/strict"
 import { execFileSync } from "node:child_process"
 import { pathToFileURL } from "node:url"
 export function selectQualityJobs(files) {
-  const jobs = { docs: false, agent: false, host: false }
+  const jobs = { docs: false, host: false }
   for (const file of files) {
-    if (file.startsWith("examples/agent-workspace/")) jobs.agent = true
-    else if (file.startsWith("services/pi-host/")) jobs.host = true
+    if (file.startsWith("services/pi-host/")) jobs.host = true
     else if (
       /^(packages\/|components\/(ui|blocks)\/|styles\/|pnpm-|package\.json$|tsconfig|next\.config|postcss|eslint|scripts\/|\.github\/)/.test(
         file,
       )
     )
-      Object.assign(jobs, { docs: true, agent: true, host: true })
+      Object.assign(jobs, { docs: true, host: true })
     else jobs.docs = true
   }
   return jobs
@@ -20,21 +19,18 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   if (process.argv.includes("--self-test")) {
     assert.deepEqual(
       selectQualityJobs(["examples/agent-workspace/src/providers.tsx"]),
-      { docs: false, agent: true, host: false },
+      { docs: true, host: false },
     )
     assert.deepEqual(selectQualityJobs(["packages/ui/lib/runtime-status.ts"]), {
       docs: true,
-      agent: true,
       host: true,
     })
     assert.deepEqual(selectQualityJobs(["lib/example-manifest.ts"]), {
       docs: true,
-      agent: false,
       host: false,
     })
     assert.deepEqual(selectQualityJobs(["pnpm-lock.yaml"]), {
       docs: true,
-      agent: true,
       host: true,
     })
     console.log("Quality selection: four change classes passed")

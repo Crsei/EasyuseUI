@@ -4,7 +4,7 @@
 
 开发顺序为：核对参考与技术栈 → 声明页面和模块规范 → 构建组件并在统一元素页展示 → 组装项目页面 → 验证实际效果。页面通过组件组合；样式和交互实现沉淀到组件层。详见 [开发指南](./DEVELOPMENT-GUIDE.md) 和 [Agent Workspace 迁移计划](./plans/agent-workspace-component-first-plan.md)。
 
-下一步架构调整见 [示例项目独立构建计划](./plans/independent-example-apps-plan.md)：七个完整示例拆为独立应用，主站保留对应组件展示与设计规范，共享 UI 单一来源。已先完成 Agent Workspace 独立迁移；主站仍在根目录，其余应用按计划继续。启动与部署见下文及应用 README。
+下一步架构调整见 [示例项目独立构建计划](./plans/independent-example-apps-plan.md)：七个完整示例拆为独立应用，主站保留对应组件展示与设计规范，共享 UI 单一来源。Agent Workspace 独立应用已按用户要求清空；主站仍在根目录，组件展示与设计计划保留。
 
 目前提供 **Button、Input、Badge、Tag、Chip、Dialog、Item、RuntimeStatusBadge、DataRegion、Tree、SessionRow、AgentRow、ActivityTimeline、Inspector、ChatMessage / Conversation / ChatComposer、ToolCall、TaskPanel、ScrollPlayground、StyleWorkbench、WorkspaceShell**。组件演示中的保存、创建、任务控制和权限动作使用本地 fixture；真实 Pi 服务入口及其能力边界见 [PI-WORKSPACE.md](./PI-WORKSPACE.md)。
 
@@ -199,4 +199,4 @@ ScrollArea 使用原生滚动；Resizable 与 Sidebar 的偏好由调用方持�
 
 ## Agent Workspace 独立应用（2026-10-11）
 
-完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/logs/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。
+2026-10-11：按用户要求清空 Agent Workspace 独立应用及其启动、构建、测试入口。主站保留 [17模块组件展示](/examples/agent-workbench/elements/)，共享源码 `packages/ui`、协议 `packages/pi-protocol` 与 Pi Host 服务保留；当前不提供独立工作台/Pi 浏览器客户端。原设计计划与历史验收记录保留作为参考，不代表独立应用仍可运行。

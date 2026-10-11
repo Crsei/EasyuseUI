@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       docs: ${{ steps.select.outputs.docs }}
-      agent: ${{ steps.select.outputs.agent }}
       host: ${{ steps.select.outputs.host }}
     steps:
       - uses: actions/checkout@v4.2.2
@@ -92,31 +91,6 @@ jobs:
             test-results/
           retention-days: 14
 
-  agent-workspace:
-    needs: changes
-    if: needs.changes.outputs.agent == 'true'
-    runs-on: ubuntu-24.04
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: pnpm/action-setup@v4.1.0
-        with:
-          version: 11.9.0
-      - uses: actions/setup-node@v4.4.0
-        with:
-          node-version: 24.21.0
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @easyuse-ui/example-agent-workspace lint
-      - run: pnpm --filter @easyuse-ui/example-agent-workspace typecheck
-      - run: pnpm --filter @easyuse-ui/example-agent-workspace build
-      - run: pnpm --filter @easyuse-ui/example-agent-workspace exec playwright install --with-deps chromium
-      - run: pnpm --filter @easyuse-ui/example-agent-workspace test
-      - uses: actions/upload-artifact@v4.6.2
-        if: always()
-        with:
-          name: agent-workspace-evidence
-          path: examples/agent-workspace/test-results/
   pi-host:
     needs: changes
     if: needs.changes.outputs.host == 'true'

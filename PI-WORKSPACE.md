@@ -82,4 +82,4 @@ PI_REAL_PROVIDER=1 pnpm exec playwright test --config=playwright.pi.config.ts te
 
 ## Agent Workspace 独立应用（2026-10-11）
 
-完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/logs/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。
+2026-10-11：按用户要求清空 Agent Workspace 独立应用及其启动、构建、测试入口。主站保留 [17模块组件展示](/examples/agent-workbench/elements/)，共享源码 `packages/ui`、协议 `packages/pi-protocol` 与 Pi Host 服务保留；当前不提供独立工作台/Pi 浏览器客户端。原设计计划与历史验收记录保留作为参考，不代表独立应用仍可运行。

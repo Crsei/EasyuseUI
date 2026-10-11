@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { IndependentExampleEntry } from "./independent-example-entry"
 import { useEffect, useId, type ReactNode } from "react"
 import { Button } from "@/components/ui/button"
 import { DataRegion } from "@/components/ui/data-region"
@@ -89,7 +88,6 @@ export function ElementGallery({
           <Link href="/examples/agent-workbench/regions/reference/">
             {en ? "State lab" : "精细状态实验室"}
           </Link>
-          <IndependentExampleEntry />
         </nav>
       </header>
       <div className={styles.controls}>{controls}</div>

@@ -4,8 +4,6 @@ export type SiteExample = {
   title: SiteLocalizedText
   description: SiteLocalizedText
   href: string
-  appId?: "agent-workspace"
-  appPath?: string
   thumbnail: {
     light: string
     dark: string
@@ -31,8 +29,6 @@ export const exampleManifest: SiteExample[] = [
       en: "Projects, sessions, context, tool approval and version-bound code review share a controlled snapshot.",
     },
     href: "/examples/agent-workbench/elements/?template=coding&page=home",
-    appId: "agent-workspace",
-    appPath: "/?template=coding&page=home",
     thumbnail: images("agent-coding-workbench"),
     components: ["session-navigator", "agent-conversation", "agent-composer", "context-panel", "change-review-panel"],
     article: "agent-workbench-showcase",
@@ -46,8 +42,6 @@ export const exampleManifest: SiteExample[] = [
       en: "Source references, report previews and feedback drafts form a local interaction flow without code execution.",
     },
     href: "/examples/agent-workbench/elements/?template=artifacts&page=artifacts&session=session-report",
-    appId: "agent-workspace",
-    appPath: "/?template=artifacts&page=artifacts&session=session-report",
     thumbnail: images("agent-artifacts-workbench"),
     components: ["context-panel", "message-content", "artifact-list", "preview-panel", "agent-composer"],
     article: "agent-workbench-showcase",
@@ -61,8 +55,6 @@ export const exampleManifest: SiteExample[] = [
       en: "Filter approvals, questions and failed tasks, inspect details, then explicitly enter a session.",
     },
     href: "/examples/agent-workbench/elements/?template=console&page=inbox&session=session-report",
-    appId: "agent-workspace",
-    appPath: "/?template=console&page=inbox&session=session-report",
     thumbnail: images("agent-console-workbench"),
     components: ["task-inbox", "attention-queue", "agent-run-list", "execution-trace-tree", "agent-workbench"],
     article: "agent-workbench-showcase",

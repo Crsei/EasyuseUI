@@ -36,12 +36,8 @@
     "pi:host": "pnpm --filter @easyuse-ui/pi-host start",
     "pi:typecheck": "pnpm --filter @easyuse-ui/pi-host typecheck",
     "pi:test": "pnpm --filter @easyuse-ui/pi-host test",
-    "dev:agent": "pnpm --filter @easyuse-ui/example-agent-workspace dev",
-    "build:agent": "pnpm --filter @easyuse-ui/example-agent-workspace build",
-    "test:agent": "pnpm --filter @easyuse-ui/example-agent-workspace test",
-    "build:examples": "pnpm --filter @easyuse-ui/example-agent-workspace build",
-    "build:all": "pnpm build && pnpm build:examples",
-    "check:all": "pnpm lint && pnpm typecheck && pnpm --filter @easyuse-ui/example-agent-workspace lint && pnpm --filter @easyuse-ui/example-agent-workspace typecheck && pnpm pi:typecheck",
+    "build:all": "pnpm build",
+    "check:all": "pnpm lint && pnpm typecheck && pnpm pi:typecheck",
     "check:boundaries": "node scripts/check-app-boundaries.mjs"
   },
   "dependencies": {
