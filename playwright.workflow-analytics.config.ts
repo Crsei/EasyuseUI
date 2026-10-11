@@ -14,7 +14,10 @@ export default defineConfig({
   reporter: "list",
   use: {
     baseURL: `http://127.0.0.1:${port}`,
-    viewport: { width: 1440, height: 1000 },
+    // 2560x1440 desktop at 150% scaling; allow 60 CSS px for browser chrome.
+    viewport: { width: 1707, height: 900 },
+    contextOptions: { screen: { width: 1707, height: 960 } },
+    deviceScaleFactor: 1.5,
     trace: "retain-on-failure",
     launchOptions: {
       executablePath: existsSync("/usr/bin/google-chrome")

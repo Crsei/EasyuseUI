@@ -24,7 +24,10 @@ export default defineConfig({
   retries: 0,
   use: {
     baseURL: "http://127.0.0.1:3021",
-    viewport: { width: 1440, height: 1000 },
+    // 2560x1440 desktop at 150% scaling; allow 60 CSS px for browser chrome.
+    viewport: { width: 1707, height: 900 },
+    contextOptions: { screen: { width: 1707, height: 960 } },
+    deviceScaleFactor: 1.5,
     colorScheme: "light",
     trace: "retain-on-failure",
     launchOptions: { executablePath, args: ["--disable-dev-shm-usage"] },
