@@ -1,6 +1,6 @@
 # Pi Workspace
 
-入口：`/examples/agent-workbench/pi/`。静态网页连接独立本地 Pi Host，支持项目、持久化会话、只读历史、复制继续、流式回复、只读工具、停止和断线恢复。设计与证据见[首轮计划](plans/agent-workspace-completion-plan.md)、[技术计划](plans/pi-agent-workspace-integration-plan.md)、[设计声明](plans/agent-workspace-plan.md)、[实施记录](plans/agent-workspace-completion-log.md)。
+当前入口：独立 Agent 应用的 `/pi/`（dev 3020 / preview 3021）；原主站 `/examples/agent-workbench/pi/` 现为组件画廊与应用链接。静态网页连接独立本地 Pi Host，支持项目、持久化会话、只读历史、复制继续、流式回复、只读工具、停止和断线恢复。设计与证据见[首轮计划](plans/agent-workspace-completion-plan.md)、[技术计划](plans/pi-agent-workspace-integration-plan.md)、[设计声明](plans/agent-workspace-plan.md)、[实施记录](plans/agent-workspace-completion-log.md)。
 
 ## 安装与启动
 
@@ -78,3 +78,8 @@ PI_REAL_PROVIDER=1 pnpm exec playwright test --config=playwright.pi.config.ts te
 该测试使用临时项目/合成历史、用户已配置Pi provider，覆盖真实流式/read工具/旧上下文/刷新/重启追问/停止。生产浏览器默认3011；本地调试可用`PI_BROWSER_BASE_URL=http://127.0.0.1:3010`，共享smoke不替代隔离证据。真实测试跳过须记录未验证。
 
 首轮与完整编辑器/Git/PTY/多Agent交付分开。实际验证结果见[首轮记录](plans/agent-workspace-completion-log.md)和[Pi记录](plans/pi-agent-workspace-integration-log.md)。
+
+
+## Agent Workspace 独立应用（2026-10-11）
+
+完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。

@@ -1,0 +1,14 @@
+@import "tailwindcss" source("../src");
+@import "@easyuse-ui/ui/styles/theme.css";
+@import "./ui-sources.css";
+@source ".";
+@custom-variant dark (&:where(.dark, .dark *));
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  ::selection { @apply bg-primary/20; }
+  :focus-visible { @apply outline-2 outline-offset-4 outline-ring; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

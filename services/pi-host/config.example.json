@@ -5,7 +5,11 @@
   "allowedOrigins": [
     "http://localhost:3010",
     "http://127.0.0.1:3010",
-    "http://127.0.0.1:3011"
+    "http://127.0.0.1:3011",
+    "http://localhost:3020",
+    "http://127.0.0.1:3020",
+    "http://localhost:3021",
+    "http://127.0.0.1:3021"
   ],
   "projects": [
     {

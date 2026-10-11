@@ -1,0 +1,2649 @@
+{
+  "scope": "Agent-first, remaining apps and root docs relocation deferred",
+  "files": [
+    {
+      "old": "components/blocks/activity-timeline.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/activity-timeline.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/activity-timeline.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/activity-timeline.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-board-p2.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-board-p2.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-board-toolbar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-board-toolbar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-board-workspace.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-board-workspace.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-board.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-board.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-dependency-graph.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-dependency-graph.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-relationship-list.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-relationship-list.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-row.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-row.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-run-board.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-run-board.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-run-card.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-run-card.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-run-inspector.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-run-inspector.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-run-list.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-run-list.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-run-properties.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-run-properties.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-run-row.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-run-row.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-run-virtual-list.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-run-virtual-list.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-usage-history.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-usage-history.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-usage-summary.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-usage-summary.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench/composer.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench/composer.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench/context.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench/context.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench/conversation.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench/conversation.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench/navigation.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench/navigation.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench/panels.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench/panels.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench/review.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench/review.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench/workbench.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench/workbench.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/agent-workbench.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/agent-workbench.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/agent-execution-timeline.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/agent-execution-timeline.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/agent-execution-timeline.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/agent-execution-timeline.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/agent-operations-dashboard.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/agent-operations-dashboard.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/analytics-builder.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/analytics-builder.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/resource-allocation-view.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/resource-allocation-view.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/risk-evidence-list.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/risk-evidence-list.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/work-dependency-view.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/work-dependency-view.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/work-items-view-adapter.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/work-items-view-adapter.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/work-traceability-view.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/work-traceability-view.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/workflow-charts.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/workflow-charts.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/analytics/workflow-metric.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/analytics/workflow-metric.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/approval-request-panel.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/approval-request-panel.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/artifact-list.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/artifact-list.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/attention-queue.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/attention-queue.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/calendar.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/calendar.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/calendar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/calendar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-annotations.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-annotations.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-config-editor.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-config-editor.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-connection-form.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-connection-form.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-controls.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-controls.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-execution-panel.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-execution-panel.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-frame.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-frame.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-note.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-note.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-project-workspace.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-project-workspace.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-service-panel.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-service-panel.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/canvas-workspace.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/canvas-workspace.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/chart.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/chart.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/chart-data-table.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/chart-data-table.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/chart-drilldown-panel.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/chart-drilldown-panel.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/forecast-chart.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/forecast-chart.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/heatmap.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/heatmap.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/heatmap.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/heatmap.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/statistical-chart.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/statistical-chart.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/statistical-chart.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/statistical-chart.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/charts/workflow-history-charts.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/charts/workflow-history-charts.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/chat-message.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/chat-message.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/chat-message.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/chat-message.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/code-preview.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/code-preview.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/code-preview.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/code-preview.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/command-palette.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/command-palette.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/command-toolbar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/command-toolbar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/command.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/command.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/dashboard/dashboard-layout-editor.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/dashboard/dashboard-layout-editor.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/dashboard/dashboard.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/dashboard/dashboard.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/dashboard/dashboard.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/dashboard/dashboard.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/dashboard/project-overview-dashboard.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/dashboard/project-overview-dashboard.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/data-table-controls.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/data-table-controls.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/data-table.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/data-table.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/data-table.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/data-table.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/entity-row.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/entity-row.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/execution-trace-tree.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/execution-trace-tree.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/filter-toolbar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/filter-toolbar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/form-section.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/form-section.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/grouped-list.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/grouped-list.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/grouped-list.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/grouped-list.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/image-upload.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/image-upload.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/inspector.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/inspector.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/inspector.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/inspector.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/item-board.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/item-board.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/item-board.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/item-board.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/metric-summary.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/metric-summary.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/node-inspector.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/node-inspector.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/node-palette.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/node-palette.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/questionnaire.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/questionnaire.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/run-stage-summary.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/run-stage-summary.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/schedule-view-controls.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/schedule-view-controls.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/schedule.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/schedule.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/scroll-playground.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/scroll-playground.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/scroll-playground.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/scroll-playground.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/session-row.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/session-row.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/sidebar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/sidebar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/style-workbench.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/style-workbench.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/style-workbench.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/style-workbench.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/svg-canvas.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/svg-canvas.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/svg-icon-library.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/svg-icon-library.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/svg-properties.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/svg-properties.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/svg-workbench.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/svg-workbench.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/svg-workbench.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/svg-workbench.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/task-panel.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/task-panel.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/timeline.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/timeline.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/timeline.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/timeline.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/tool-call.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/tool-call.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/tool-call.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/tool-call.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/variable-picker.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/variable-picker.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-item-calendar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-item-calendar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-item-date-range-field.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-item-date-range-field.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-item-detail.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-item-detail.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-item-properties.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-item-properties.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-item-timeline.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-item-timeline.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-item.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-item.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items-board-base.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items-board-base.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items-board-base.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items-board-base.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items-enhancements.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items-enhancements.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items-schedule.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items-schedule.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items-toolbar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items-toolbar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items-views.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items-views.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items-workspace.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items-workspace.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/work-items.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/work-items.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/workbench-file-preview.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/workbench-file-preview.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/workbench-file-preview.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/workbench-file-preview.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/workflow-canvas.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/workflow-canvas.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/workflow-canvas.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/workflow-canvas.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/workspace-shell.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/workspace-shell.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/blocks/workspace-shell.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/blocks/workspace-shell.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/accordion.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/accordion.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/alert-dialog.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/alert-dialog.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/alert.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/alert.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/aspect-ratio.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/aspect-ratio.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/attachment.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/attachment.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/avatar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/avatar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/badge.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/badge.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/badge.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/badge.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/breadcrumb.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/breadcrumb.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/bubble.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/bubble.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/button-group.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/button-group.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/button-tooltip.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/button-tooltip.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/button.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/button.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/canvas-edge.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/canvas-edge.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/canvas-edge.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/canvas-edge.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/canvas-node.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/canvas-node.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/canvas-node.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/canvas-node.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/canvas-port.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/canvas-port.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/card.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/card.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/carousel.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/carousel.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/chart.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/chart.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/chart.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/chart.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/checkbox.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/checkbox.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/chip.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/chip.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/chip.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/chip.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/collapsible.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/collapsible.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/combobox.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/combobox.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/context-menu.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/context-menu.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/data-region.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/data-region.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/data-region.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/data-region.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/date-calendar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/date-calendar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/date-picker.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/date-picker.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/dialog.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/dialog.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/direction.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/direction.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/drawer.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/drawer.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/dropdown-menu.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/dropdown-menu.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/empty.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/empty.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/field.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/field.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/form.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/form.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/hover-card.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/hover-card.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/input-group.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/input-group.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/input-otp.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/input-otp.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/input.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/input.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/item.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/item.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/item.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/item.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/kbd.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/kbd.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/label.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/label.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/marker.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/marker.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/menu.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/menu.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/menubar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/menubar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/native-select.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/native-select.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/navigation-menu.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/navigation-menu.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/pagination.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/pagination.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/popover.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/popover.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/progress.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/progress.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/radio-group.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/radio-group.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/rating-display.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/rating-display.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/resizable.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/resizable.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/runtime-status-badge.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/runtime-status-badge.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/scroll-area.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/scroll-area.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/segment-bar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/segment-bar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/segmented.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/segmented.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/select.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/select.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/separator.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/separator.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/sheet.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/sheet.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/sheet.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/sheet.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/skeleton.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/skeleton.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/slider.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/slider.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/sonner.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/sonner.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/sparkline.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/sparkline.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/spinner.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/spinner.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/switch.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/switch.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/table.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/table.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/tabs.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/tabs.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/tag.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/tag.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/textarea.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/textarea.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/theme-boundary.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/theme-boundary.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/toast.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/toast.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/toggle-group.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/toggle-group.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/toggle.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/toggle.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/toolbar.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/toolbar.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/tooltip.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/tooltip.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/tree.module.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/tree.module.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/ui/tree.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/components/ui/tree.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/agent-board-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/agent-board-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/agent-board-p2.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/agent-board-p2.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/agent-board-view.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/agent-board-view.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/agent-workbench-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/agent-workbench-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-builder-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-builder-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-dependency-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-dependency-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-forecast-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-forecast-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-history-metrics.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-history-metrics.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-history.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-history.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-metrics.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-metrics.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-query.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-query.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/analytics-resource-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/analytics-resource-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-commands.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-commands.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-config.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-config.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-index.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-index.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-layout.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-layout.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-project.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-project.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-runtime.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-runtime.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-services.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-services.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/canvas-validation.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/canvas-validation.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/chart-format.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/chart-format.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/chart-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/chart-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/command-toolbar-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/command-toolbar-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/dashboard-edit-session.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/dashboard-edit-session.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/dashboard-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/dashboard-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/data-table-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/data-table-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/date-calendar-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/date-calendar-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/grouped-items-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/grouped-items-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/i18n-core.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/i18n-core.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/i18n-messages.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/i18n-messages.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/i18n-provider.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/i18n-provider.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/i18n-svg-messages.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/i18n-svg-messages.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/i18n-svg.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/i18n-svg.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/overlay-layer.tsx",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/overlay-layer.tsx",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/redact.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/redact.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/runtime-status.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/runtime-status.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/schedule-date-utils.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/schedule-date-utils.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/schedule-view-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/schedule-view-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/style-workbench-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/style-workbench-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-assets/iconify-lucide.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-assets/iconify-lucide.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-assets/lobe.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-assets/lobe.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-assets/lucide.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-assets/lucide.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-assets/phosphor.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-assets/phosphor.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-assets/simple-icons.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-assets/simple-icons.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-assets/tabler.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-assets/tabler.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-workbench-assets.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-workbench-assets.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-workbench-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-workbench-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-workbench-parse.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-workbench-parse.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-workbench-task.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-workbench-task.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/svg-workbench-worker.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/svg-workbench-worker.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/use-canvas-persistence.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/use-canvas-persistence.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/use-canvas-runtime.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/use-canvas-runtime.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/use-controllable-value.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/use-controllable-value.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/use-follow-tail.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/use-follow-tail.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/utils.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/utils.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/work-items-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/work-items-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/work-items-view.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/work-items-view.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "lib/workbench-resource-model.ts",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/lib/workbench-resource-model.ts",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "styles/theme-boundary.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/styles/theme-boundary.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "styles/theme.css",
+      "owner": "@easyuse-ui/ui",
+      "new": "packages/ui/styles/theme.css",
+      "compatibility": "source symlink",
+      "kind": "shared component/model/style"
+    },
+    {
+      "old": "components/examples/agent-workbench/activity-navigation.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/activity-navigation.tsx",
+      "kind": "consumer component adapter"
+    },
+    {
+      "old": "components/examples/agent-workbench/artifacts-view.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/artifacts-view.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/component-demos.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/component-demos.tsx",
+      "kind": "consumer component adapter"
+    },
+    {
+      "old": "components/examples/agent-workbench/deferred-panels.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/deferred-panels.tsx",
+      "kind": "consumer component adapter"
+    },
+    {
+      "old": "components/examples/agent-workbench/demo.module.css",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/demo.module.css",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/enhancement.module.css",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/enhancement.module.css",
+      "kind": "consumer component adapter"
+    },
+    {
+      "old": "components/examples/agent-workbench/file-navigation.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/file-navigation.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/fixtures.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/fixtures.ts",
+      "kind": "isolated consumer fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/lazy-module.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/lazy-module.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/messages.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/messages.ts",
+      "kind": "isolated consumer fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/provider.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/provider.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/reducer.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/reducer.ts",
+      "kind": "isolated consumer fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/region-lab.module.css",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/region-lab.module.css",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/region-lab.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/region-lab.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/resource-fixtures.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/resource-fixtures.ts",
+      "kind": "isolated consumer fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/resource-preview-demo.tsx",
+      "kind": "consumer component adapter"
+    },
+    {
+      "old": "components/examples/agent-workbench/review-view.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/review-view.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/settings-dialog.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/settings-dialog.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/settings-form.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/settings-form.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/settings-view.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/settings-view.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/showcase-model.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/showcase-model.ts",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/source-controls.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/source-controls.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/view-props.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/view-props.ts",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/workbench-demo.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/workbench-demo.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workbench/workbench-frame.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/agent-workbench/workbench-frame.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/pi-workspace/client.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/pi-workspace/client.ts",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/pi-workspace/messages.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/pi-workspace/messages.ts",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/pi-workspace/model.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/pi-workspace/model.ts",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/pi-workspace/provider.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/pi-workspace/provider.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/pi-workspace/workspace.module.css",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/pi-workspace/workspace.module.css",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/pi-workspace/workspace.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/src/components/pi-workspace/workspace.tsx",
+      "kind": "moved private application"
+    },
+    {
+      "old": "components/examples/agent-workspace/runtime-panel.tsx",
+      "new": "packages/ui/components/blocks/agent-workbench/runtime-panel.tsx",
+      "owner": "@easyuse-ui/ui",
+      "kind": "shared controlled module"
+    },
+    {
+      "old": "components/examples/agent-workspace/reference-tokens.module.css",
+      "new": "packages/ui/components/blocks/agent-workbench/reference-tokens.module.css",
+      "owner": "@easyuse-ui/ui",
+      "kind": "shared controlled module"
+    },
+    {
+      "old": "lib/pi-workspace-protocol.ts",
+      "new": "packages/pi-protocol/src/index.ts",
+      "owner": "@easyuse-ui/pi-protocol",
+      "kind": "pure shared protocol"
+    },
+    {
+      "old": "tests/agent-workbench.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/tests/agent-workbench.spec.ts",
+      "kind": "application regression test"
+    },
+    {
+      "old": "tests/pi-workspace-real.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/tests/pi-workspace-real.spec.ts",
+      "kind": "application regression test"
+    },
+    {
+      "old": "tests/agent-workbench-model.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/tests/agent-workbench-model.spec.ts",
+      "kind": "application regression test"
+    },
+    {
+      "old": "tests/agent-workbench-showcase.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/tests/agent-workbench-showcase.spec.ts",
+      "kind": "application regression test"
+    },
+    {
+      "old": "tests/pi-workspace.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/tests/pi-workspace.spec.ts",
+      "kind": "application regression test"
+    },
+    {
+      "old": "tests/workspace-entry.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/tests/workspace-entry.spec.ts",
+      "kind": "application regression test"
+    },
+    {
+      "old": "tests/agent-workbench-showcase-model.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "new": "examples/agent-workspace/tests/agent-workbench-showcase-model.spec.ts",
+      "kind": "application regression test"
+    },
+    {
+      "old": "components/examples/agent-workbench/fixtures.ts",
+      "new": "components/examples/agent-workbench/fixtures.ts",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/reducer.ts",
+      "new": "components/examples/agent-workbench/reducer.ts",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/resource-fixtures.ts",
+      "new": "components/examples/agent-workbench/resource-fixtures.ts",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "new": "components/examples/agent-workbench/resource-preview-demo.tsx",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/component-demos.tsx",
+      "new": "components/examples/agent-workbench/component-demos.tsx",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/deferred-panels.tsx",
+      "new": "components/examples/agent-workbench/deferred-panels.tsx",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/enhancement.module.css",
+      "new": "components/examples/agent-workbench/enhancement.module.css",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/activity-navigation.tsx",
+      "new": "components/examples/agent-workbench/activity-navigation.tsx",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": "components/examples/agent-workbench/messages.ts",
+      "new": "components/examples/agent-workbench/messages.ts",
+      "owner": "@easyuse-ui/docs",
+      "kind": "bounded docs module demo/fixture"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/.env.example",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/README.md",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/(fixture)/app/page.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/(fixture)/layout.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/(fixture)/layouts/page.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/(fixture)/page.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/(fixture)/regions/page.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/globals.css",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/layout.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/pi/page.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/app/ui-sources.css",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/eslint.config.mjs",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/next.config.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/package.json",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/playwright.config.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/playwright.pi.config.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/postcss.config.mjs",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/public/.gitkeep",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/scripts/check-ui-sources.mjs",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/src/components/docs-link.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/src/providers.tsx",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/tests/agent-coding-workbench-model.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/tests/agent-coding-workbench.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/tests/agent-workspace-reference.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/tests/page-loading.spec.ts",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "examples/agent-workspace/tsconfig.json",
+      "owner": "@easyuse-ui/example-agent-workspace",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "packages/ui/README.md",
+      "owner": "@easyuse-ui/ui",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "packages/ui/components/blocks/agent-workbench/runtime-panel.module.css",
+      "owner": "@easyuse-ui/ui",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "packages/ui/lib/i18n-runtime-messages.ts",
+      "owner": "@easyuse-ui/ui",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "packages/ui/package.json",
+      "owner": "@easyuse-ui/ui",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "packages/pi-protocol/README.md",
+      "owner": "@easyuse-ui/pi-protocol",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    },
+    {
+      "old": null,
+      "new": "packages/pi-protocol/package.json",
+      "owner": "@easyuse-ui/pi-protocol",
+      "kind": "package-owned source, fixture, configuration or regression test"
+    }
+  ],
+  "routes": [
+    {
+      "old": "/examples/agent-workbench/",
+      "docs": "/examples/agent-workbench/elements/",
+      "application": "/",
+      "status": "implemented"
+    },
+    {
+      "old": "/examples/agent-workbench/app/",
+      "docs": "/examples/agent-workbench/elements/",
+      "application": "/",
+      "status": "implemented"
+    },
+    {
+      "old": "/examples/agent-workbench/layouts/",
+      "docs": "/examples/agent-workbench/elements/",
+      "application": "/layouts/",
+      "status": "implemented"
+    },
+    {
+      "old": "/examples/agent-workbench/regions/",
+      "docs": "/examples/agent-workbench/elements/",
+      "application": "/regions/",
+      "status": "implemented"
+    },
+    {
+      "old": "/examples/agent-workbench/pi/",
+      "docs": "/examples/agent-workbench/elements/",
+      "application": "/pi/",
+      "status": "implemented"
+    },
+    {
+      "old": "/workspace/",
+      "docs": "/examples/agent-workbench/elements/",
+      "application": "/",
+      "status": "implemented"
+    },
+    {
+      "old": "/examples/agent-workbench/regions/reference/",
+      "docs": "same route",
+      "application": null,
+      "status": "docs-only bounded fixture"
+    },
+    {
+      "old": "/examples/agent-workbench/regions/intervention/",
+      "docs": "same route",
+      "application": null,
+      "status": "docs-only controlled intervention fixture"
+    }
+  ],
+  "elements": [
+    {
+      "id": "MD01",
+      "implementation": "ProjectSwitcher",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD02",
+      "implementation": "ActivityNavigation (docs/app local controlled adapters)",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD03",
+      "implementation": "SessionNavigator",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD04",
+      "implementation": "SessionHeader",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD05",
+      "implementation": "AgentConversation",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD06",
+      "implementation": "ChatMessage via AgentConversation",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD07",
+      "implementation": "AgentConversation turn renderer",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD08",
+      "implementation": "AgentConversation plan part",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD09",
+      "implementation": "ToolCall compact group via AgentConversation",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD10",
+      "implementation": "ToolCall/change links via AgentConversation",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD11",
+      "implementation": "ToolCall/ExecutionSessionList",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD12",
+      "implementation": "AgentComposer",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD13",
+      "implementation": "InterventionQueuePreview",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD14",
+      "implementation": "ApprovalRequestPanel/InterventionAttentionStrip",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD15",
+      "implementation": "DeferredWorkbenchPanels/ContextPanel",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD16",
+      "implementation": "ChangeReviewPanel/CodePreview",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    },
+    {
+      "id": "MD17",
+      "implementation": "RuntimePanel/ExecutionSessionList",
+      "docsHost": "/examples/agent-workbench/elements/",
+      "design": "agent-workspace-plan.md MD/V declarations",
+      "dataOwner": "docs local fixture, application local fixture or Host snapshot according to host",
+      "acceptance": "elements/reference + independent application/Pi browser tests"
+    }
+  ],
+  "assets": {
+    "agentPrivatePublic": [],
+    "fonts": "system fonts",
+    "fixtures": "bounded memory resources; no complete public directory copy",
+    "shared": "packages/ui CSS Modules and original licensed render engines"
+  },
+  "integrationFiles": [
+    "pnpm-workspace.yaml",
+    "pnpm-lock.yaml",
+    "package.json",
+    "tsconfig.base.json",
+    "tsconfig.json",
+    "next.config.ts",
+    "eslint.config.mjs",
+    "app/globals.css",
+    ".github/workflows/quality.yml",
+    "scripts/shared-source.mjs",
+    "scripts/check-app-boundaries.mjs",
+    "scripts/select-quality-jobs.mjs",
+    "scripts/preview.mjs",
+    "components/docs/independent-example-entry.tsx",
+    "components/examples/agent-workspace/project-showcase.tsx",
+    "lib/independent-example-apps.ts",
+    "lib/example-manifest.ts",
+    "tests/independent-agent-migration.spec.ts"
+  ],
+  "scopeNotes": {
+    "rootCompatibility": "public source symlinks retained for unmigrated docs consumers; RuntimePanel facade uses a relative-free package export",
+    "docFixtures": "finite module demos stay docs-owned; application copies supply their own controlled data, not shared app controllers",
+    "tailwind": "Agent uses a generated resolved-public-source list, docs excludes examples private sources",
+    "future": "remaining apps, root relocation and seven-app performance comparison are pending"
+  }
+}

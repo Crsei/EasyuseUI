@@ -146,7 +146,7 @@ for (const item of registry.items) {
       !source.includes("@/components/site/") && !source.includes("site-i18n"),
       `${file.path}: site dependency in portable source`,
     )
-    if (/from\s*["']@\/lib\/i18n-/.test(source))
+    if (/from\s*["'](?:@\/lib\/|(?:\.\.?\/)+lib\/)i18n-/.test(source))
       assert.ok(
         item.name === "i18n" || item.registryDependencies?.includes("i18n"),
         `${item.name}: missing i18n Registry dependency`,
@@ -165,7 +165,7 @@ for (const item of registry.items) {
       if (key && ts.isStringLiteralLike(key))
         assert.ok(
           Object.hasOwn(
-            source.includes('from "@/lib/i18n-svg"')
+            /from\s*["'][^"']*\/i18n-svg["']/.test(source)
               ? svg["zh-CN"]
               : core["zh-CN"],
             key.text,

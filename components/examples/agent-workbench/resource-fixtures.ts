@@ -1,3 +1,4 @@
+/** Docs-owned bounded module fixture/adapter; no application Provider, routing controller or Pi transport. */
 import type {
   SessionSnapshot,
   ContextReference,

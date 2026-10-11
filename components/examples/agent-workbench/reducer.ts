@@ -1,3 +1,4 @@
+/** Docs-owned bounded module fixture/adapter; no application Provider, routing controller or Pi transport. */
 import {
   acknowledgeDraft,
   activeReceipt,
@@ -18,7 +19,6 @@ import {
   models,
   permissions,
 } from "./fixtures"
-import { prepareShowcaseScenario } from "./showcase-model"
 export type SettingsConfiguration = Pick<
   DraftState,
   "modelId" | "permissionId" | "environmentId"
@@ -337,7 +337,7 @@ export function exampleReducer(
         ],
       }
     }
-    return prepareShowcaseScenario(state, action.id, action.scenario)
+    return state // Docs component demos do not apply application URL scenarios.
   }
   if (action.type === "comments")
     return {

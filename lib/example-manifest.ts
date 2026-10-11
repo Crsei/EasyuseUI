@@ -4,6 +4,8 @@ export type SiteExample = {
   title: SiteLocalizedText
   description: SiteLocalizedText
   href: string
+  appId?: "agent-workspace"
+  appPath?: string
   thumbnail: {
     light: string
     dark: string
@@ -28,7 +30,9 @@ export const exampleManifest: SiteExample[] = [
       "zh-CN": "项目会话、上下文、工具批准与版本绑定的代码审阅，共享一份受控快照。",
       en: "Projects, sessions, context, tool approval and version-bound code review share a controlled snapshot.",
     },
-    href: "/examples/agent-workbench/app/?template=coding&page=home",
+    href: "/examples/agent-workbench/elements/?template=coding&page=home",
+    appId: "agent-workspace",
+    appPath: "/?template=coding&page=home",
     thumbnail: images("agent-coding-workbench"),
     components: ["session-navigator", "agent-conversation", "agent-composer", "context-panel", "change-review-panel"],
     article: "agent-workbench-showcase",
@@ -41,7 +45,9 @@ export const exampleManifest: SiteExample[] = [
       "zh-CN": "资料引用、报告预览和反馈草稿，形成不依赖代码执行的本地交互闭环。",
       en: "Source references, report previews and feedback drafts form a local interaction flow without code execution.",
     },
-    href: "/examples/agent-workbench/app/?template=artifacts&page=artifacts&session=session-report",
+    href: "/examples/agent-workbench/elements/?template=artifacts&page=artifacts&session=session-report",
+    appId: "agent-workspace",
+    appPath: "/?template=artifacts&page=artifacts&session=session-report",
     thumbnail: images("agent-artifacts-workbench"),
     components: ["context-panel", "message-content", "artifact-list", "preview-panel", "agent-composer"],
     article: "agent-workbench-showcase",
@@ -54,7 +60,9 @@ export const exampleManifest: SiteExample[] = [
       "zh-CN": "筛选待批准、待回答和失败任务，先查看详情，再显式进入对应会话。",
       en: "Filter approvals, questions and failed tasks, inspect details, then explicitly enter a session.",
     },
-    href: "/examples/agent-workbench/app/?template=console&page=inbox&session=session-report",
+    href: "/examples/agent-workbench/elements/?template=console&page=inbox&session=session-report",
+    appId: "agent-workspace",
+    appPath: "/?template=console&page=inbox&session=session-report",
     thumbnail: images("agent-console-workbench"),
     components: ["task-inbox", "attention-queue", "agent-run-list", "execution-trace-tree", "agent-workbench"],
     article: "agent-workbench-showcase",

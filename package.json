@@ -1,5 +1,5 @@
 {
-  "name": "easyuse-ui",
+  "name": "@easyuse-ui/docs",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,7 @@
     "dev": "pnpm registry:build && pnpm blog:build && pnpm docs:build && next dev --webpack --port 3010",
     "build": "node scripts/validate-site-url.mjs && pnpm registry:build && pnpm blog:build && pnpm docs:build && next build --webpack",
     "preview": "node scripts/preview.mjs",
-    "lint": "eslint .",
+    "lint": "eslint --no-warn-ignored app components lib packages/ui tests scripts *.ts *.mjs",
     "format": "prettier --write .",
     "typecheck": "next typegen && tsc --noEmit",
     "registry:build": "node scripts/build-registry.mjs",
@@ -35,7 +35,14 @@
     "svg:tsx": "node scripts/svg-to-tsx.mjs",
     "pi:host": "pnpm --filter @easyuse-ui/pi-host start",
     "pi:typecheck": "pnpm --filter @easyuse-ui/pi-host typecheck",
-    "pi:test": "pnpm --filter @easyuse-ui/pi-host test"
+    "pi:test": "pnpm --filter @easyuse-ui/pi-host test",
+    "dev:agent": "pnpm --filter @easyuse-ui/example-agent-workspace dev",
+    "build:agent": "pnpm --filter @easyuse-ui/example-agent-workspace build",
+    "test:agent": "pnpm --filter @easyuse-ui/example-agent-workspace test",
+    "build:examples": "pnpm --filter @easyuse-ui/example-agent-workspace build",
+    "build:all": "pnpm build && pnpm build:examples",
+    "check:all": "pnpm lint && pnpm typecheck && pnpm --filter @easyuse-ui/example-agent-workspace lint && pnpm --filter @easyuse-ui/example-agent-workspace typecheck && pnpm pi:typecheck",
+    "check:boundaries": "node scripts/check-app-boundaries.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",
@@ -58,7 +65,9 @@
     "saxes": "6.0.0",
     "shiki": "4.5.0",
     "svgo": "4.0.0",
-    "tailwind-merge": "^3.5.0"
+    "tailwind-merge": "^3.5.0",
+    "@easyuse-ui/ui": "workspace:*",
+    "@easyuse-ui/pi-protocol": "workspace:*"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

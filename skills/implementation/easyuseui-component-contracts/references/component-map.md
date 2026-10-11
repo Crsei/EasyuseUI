@@ -43,7 +43,7 @@
 
 ## 共享来源与接入
 
-- `styles/theme.css`：共享token，registry构建从此提取主题。
+- `packages/ui/styles/theme.css`：共享token，registry构建从此提取主题。
 - `lib/runtime-status.ts`：RuntimeStatus、DataState、ErrorCategory与统一映射。
 - `lib/use-follow-tail.ts`：对话/活动滚动跟随与历史锚点辅助。
 - `lib/redact.ts`：脱敏与有界预览；特殊业务凭据仍需适配层处理。

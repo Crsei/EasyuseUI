@@ -2,13 +2,13 @@ import { createServer } from "node:http"
 import { readFile, stat } from "node:fs/promises"
 import path from "node:path"
 
-const root = path.resolve(import.meta.dirname, "../out")
+const root = path.resolve(process.cwd(), "out")
 try {
   await stat(root)
 } catch {
   throw new Error("Missing out/. Run pnpm build first.")
 }
-const port = Number(process.env.PORT || 3011)
+const port = Number(process.env.PORT || (process.cwd().endsWith("/examples/agent-workspace") ? 3021 : 3011))
 const host = process.env.HOST || "127.0.0.1"
 const types = {
   ".html": "text/html; charset=utf-8",

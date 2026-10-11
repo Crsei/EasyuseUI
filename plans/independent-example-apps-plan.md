@@ -1,6 +1,6 @@
 # 示例项目独立构建与主站组件展示迁移计划
 
-日期：2026-10-11。状态：计划已编写，EX0–EX7 均待实施。本次只交付计划与文档入口；没有移动源码、拆分应用、改变服务或切换 Bun。
+日期：2026-10-11。状态：按用户优先级先实施 Agent Workspace；具体声明见 [Agent迁移声明](agent-workspace-independent-migration.md)，证据见 [实施记录](independent-example-apps-log.md)。其余应用、apps/docs目录迁移和EX0–EX7整体验收仍待后续；未切换Bun。
 
 ## 1. 目标、适用原则与完成定义
 
@@ -200,7 +200,7 @@ pnpm --filter @easyuse-ui/pi-host test
 | EX6 CI、旧入口与部署         | 拆 .github/workflows/quality.yml job 和分包 Playwright；更新 example/component Manifest、demo loaders、sitemap、搜索、博客链接、preview/capture/measure 脚本、README/开发指南/AGENTS/专项指南/技能 | 按变更集合选择消费者；七应用部署配置完整；旧链接有明确去向；主站不再含完整应用入口实现            |
 | EX7 隔离验证与收尾           | 执行第 10 节矩阵，记录到新的 independent-example-apps-log.md；比较固定环境性能；移除临时跨目录桥接和冗余源码                                                                                       | 独立构建与主站展示验收均通过；提交逐阶段证据，未完成的服务/性能项目单列                           |
 
-阶段顺序 EX0 → EX1 → EX2 → EX3 → EX4 → EX5 → EX6 → EX7。EX2 后先证明拆分方法有效再扩展；不要一次性移动所有目录再修全部引用。每个应用通过独立构建与行为验收后才替换主站旧完整应用入口，过渡期状态必须显式记录。
+原阶段顺序 EX0 → EX1 → EX2 → EX3 → EX4 → EX5 → EX6 → EX7；2026-10-11用户明确改为Agent Workspace优先，本轮执行所需共享包、Agent拆分和主站去耦，CRM/Board留后续。本轮先用 Agent 范围证明拆分方法有效再扩展，其余阶段继续按各自未完成范围执行；不要一次性移动所有目录再修全部引用。每个应用通过独立构建与行为验收后才替换主站旧完整应用入口，过渡期状态必须显式记录。
 
 ## 10. 验收矩阵与可复现证据
 
@@ -238,4 +238,13 @@ pnpm --filter @easyuse-ui/pi-host test
 - [ ] EX6 CI、兼容导航、部署、开发文档与技能同步。
 - [ ] EX7 A01–A10 全部完成并记录证据。
 
-计划发布不代表上述迁移已执行；实施记录分别标记组件展示、独立构建、fixture、真实服务、provider、分发与性能结论。
+上述未勾选的全计划阶段仍待实施；下方 Agent 工作包单独记录组件展示、独立构建、fixture、真实服务、provider、分发与性能结论。
+
+### Agent优先工作包
+
+- [x] 用户指定优先级、页面/模块声明、Agent路由/元素/文件账本。
+- [x] 独立Agent package/config/provider/routes与共享UI/协议单一源码。
+- [x] 主站Agent完整入口改为17模块展示；Pi客户端和应用Provider归独立应用。
+- [x] Agent范围独立构建、故障隔离、浏览器、Pi真实provider和Registry安装验收记录。
+
+全计划EX0–EX7仍按七应用完成定义分别核对，不能由本工作包完成推定。

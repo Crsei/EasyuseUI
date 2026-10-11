@@ -10,7 +10,28 @@ concurrency:
   group: quality-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  changes:
+    runs-on: ubuntu-24.04
+    outputs:
+      docs: ${{ steps.select.outputs.docs }}
+      agent: ${{ steps.select.outputs.agent }}
+      host: ${{ steps.select.outputs.host }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 24.21.0
+      - run: node scripts/select-quality-jobs.mjs --self-test
+      - id: select
+        env:
+          QUALITY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          QUALITY_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/select-quality-jobs.mjs >> "$GITHUB_OUTPUT"
   checks:
+    needs: changes
+    if: needs.changes.outputs.docs == 'true'
     env:
       NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3011
       EASYUSEUI_LOCAL_BUILD: "1"
@@ -70,3 +91,46 @@ jobs:
             playwright-report/
             test-results/
           retention-days: 14
+
+  agent-workspace:
+    needs: changes
+    if: needs.changes.outputs.agent == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 24.21.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @easyuse-ui/example-agent-workspace lint
+      - run: pnpm --filter @easyuse-ui/example-agent-workspace typecheck
+      - run: pnpm --filter @easyuse-ui/example-agent-workspace build
+      - run: pnpm --filter @easyuse-ui/example-agent-workspace exec playwright install --with-deps chromium
+      - run: pnpm --filter @easyuse-ui/example-agent-workspace test
+      - uses: actions/upload-artifact@v4.6.2
+        if: always()
+        with:
+          name: agent-workspace-evidence
+          path: examples/agent-workspace/test-results/
+  pi-host:
+    needs: changes
+    if: needs.changes.outputs.host == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 11.9.0
+      - uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 24.21.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm pi:typecheck
+      - run: pnpm pi:test

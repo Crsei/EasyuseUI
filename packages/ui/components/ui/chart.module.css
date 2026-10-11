@@ -1,0 +1,49 @@
+.frame {
+  min-width: 0;
+  color: var(--foreground);
+}
+.header {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.heading h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.header p,
+.meta {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-block: 8px;
+}
+.swatch {
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border-radius: 2px;
+}
+.tooltip {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  overflow-wrap: anywhere;
+}

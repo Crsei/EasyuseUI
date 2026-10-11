@@ -11,7 +11,7 @@ import {
 } from "node:fs"
 import { join } from "node:path"
 import { randomUUID } from "node:crypto"
-import type { PiReceipt } from "../../../lib/pi-workspace-protocol.ts"
+import type { PiReceipt } from "@easyuse-ui/pi-protocol"
 import { HostError } from "./history.ts"
 
 export type ManagedSession = {

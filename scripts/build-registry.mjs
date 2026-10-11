@@ -4,6 +4,7 @@ import { themeModes } from "./theme-modes.mjs"
 import { execFileSync } from "node:child_process"
 import path from "node:path"
 import { registrySchema, registryItemSchema } from "shadcn/schema"
+import { sharedSource } from "./shared-source.mjs"
 
 const root = path.resolve(import.meta.dirname, "..")
 const modes = await themeModes(root)
@@ -31,7 +32,7 @@ if (names.size !== registry.items.length)
 const output = path.join(root, "public/r")
 await mkdir(output, { recursive: true })
 
-const theme = await readFile(path.join(root, "styles/theme.css"), "utf8")
+const theme = await readFile(sharedSource(root, "styles/theme.css"), "utf8")
 function tokens(selector) {
   const body = theme.match(new RegExp(`${selector}\\s*\\{([^}]+)\\}`))?.[1]
   if (!body) throw new Error(`Missing theme selector: ${selector}`)
@@ -67,7 +68,7 @@ for (const item of registry.items) {
     files: await Promise.all(
       (item.files || []).map(async (file) => ({
         ...file,
-        content: await readFile(path.join(root, file.path), "utf8"),
+        content: await readFile(sharedSource(root, file.path), "utf8"),
       })),
     ),
   })

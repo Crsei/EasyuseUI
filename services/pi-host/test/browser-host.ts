@@ -103,7 +103,7 @@ const host = createPiHost(
     port: Number(process.env.PI_BROWSER_HOST_PORT ?? 3013),
     dataDir: join(dir, "host"),
     token,
-    allowedOrigins: ["http://127.0.0.1:3010", "http://127.0.0.1:3011"],
+    allowedOrigins: ["http://127.0.0.1:3010", "http://127.0.0.1:3011", "http://127.0.0.1:3021"],
     projects: [
       {
         projectId: "first",

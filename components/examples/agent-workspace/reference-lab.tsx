@@ -276,7 +276,7 @@ export function ReferenceLab({ view = "reference" }: { view?: "reference" | "gal
           area={area}
           page="session"
           href={(page) =>
-            `/examples/agent-workbench/app/?template=coding&page=${page}`
+            `#${page}`
           }
           onNavigate={() => navigateModule("MD15")}
           onArea={setArea}

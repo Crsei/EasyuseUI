@@ -1,0 +1,3 @@
+import { Suspense } from "react"
+import { WorkbenchDemo } from "@/components/agent-workbench/workbench-demo"
+export default function Page() { return <Suspense fallback={<div aria-busy="true">Loading…</div>}><WorkbenchDemo level="app" defaultPage="home" /></Suspense> }

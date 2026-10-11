@@ -4,7 +4,7 @@ Version 1.4 · 2026-10-08 · EasyuseUI / Agent Workspace
 
 本文件把 [Design-rules.md](./Design-rules.md) 的原则收敛为可实现、可验收的尺寸与状态契约。适用于 Button、Item、Tree、Activity、Session、Agent、Inspector、Chat Message、Tool Call、Badge / Tag / Chip，以及 StyleWorkbench、Canvas 工作台与图元。除显式注明外，所有数字均为 CSS px，尺寸包含边框，默认 `box-sizing: border-box`，密度为 Compact。
 
-Design Rules 规定方向，本文规定组件契约，`styles/theme.css` 是运行时 token 的唯一来源。三者不一致时先修订契约及 token，再修改实现，不在页面内临时发明另一套尺寸。外部用户明确要求的例外应在实现中说明。本文规定目标行为；具体初始化范围和已实现清单见 README，文档中的状态不代表已连接真实 Agent 服务。
+Design Rules 规定方向，本文规定组件契约，`packages/ui/styles/theme.css` 是运行时 token 的唯一来源。三者不一致时先修订契约及 token，再修改实现，不在页面内临时发明另一套尺寸。外部用户明确要求的例外应在实现中说明。本文规定目标行为；具体初始化范围和已实现清单见 README，文档中的状态不代表已连接真实 Agent 服务。
 
 设计规则第34节提供 Activity 的字段提纲；本文的 Activity 尺寸、状态和交互细则为补充约定。
 
@@ -333,7 +333,7 @@ Chip 支持 default / hover / pressed / focused / selected / disabled / busy；f
 
 使用步骤、24项参数范围、预设与导出说明见 [STYLE-WORKBENCH.md](./STYLE-WORKBENCH.md)。本节规定行为契约，具体值与实现以源码为准。
 
-基础样式工作台用于解释参数变化，不改变产品列表或共享主题。以同一份内容、输入值和选择态渲染 A / B，避免把内容差异误认为样式差异。A 从未修改的主题探针读取实际计算值；B 在 A 上叠加局部修改。所有实验变量只作用于预览容器，禁止写入 `styles/theme.css` 或根元素。`initialSection` 只控制初始参数分类，不绑定站点主题组件或路由。
+基础样式工作台用于解释参数变化，不改变产品列表或共享主题。以同一份内容、输入值和选择态渲染 A / B，避免把内容差异误认为样式差异。A 从未修改的主题探针读取实际计算值；B 在 A 上叠加局部修改。所有实验变量只作用于预览容器，禁止写入 `packages/ui/styles/theme.css` 或根元素。`initialSection` 只控制初始参数分类，不绑定站点主题组件或路由。
 
 支持尺寸与间距、阴影、颜色与材质、字体四组参数：圆角、控件高度、内边距、间距、边框宽度；阴影开关、内阴影、水平/垂直偏移、模糊、扩散、颜色和透明度；表面/正文/强调/边框颜色及适用透明度、背景模糊；字号、行高和字重。滑块支持键盘，数值输入提交时按步长和范围收敛，空值或无效值恢复上次有效值；间距与高度遵循4px步长。粗指针下真实交互目标至少44px，即使实验控件高度低于44。
 
@@ -355,7 +355,7 @@ Canvas 使用受控 `CanvasDocument`（schemaVersion=1、id、revision、nodes�
 | NodeInspector      | 复用 Inspector，完整受控对象；表单草稿与提交配置分开，错误保留草稿并定位。未知节点保留原数据、显示不可编辑占位                                                                                            |
 | ExecutionPanel     | 独立 runId、documentRevision、attemptId 关联，复用 ActivityTimeline/ToolCall。缺失元信息显示「—」，未知结果先对账；真实能力由消费方提供                                                                   |
 
-所有颜色、网格、端口、边与选中值集中在 `styles/theme.css`。图数据区覆盖五态；刷新失败保留已有图；只读允许导航、选择与缩放，但所有写入口均受约束。键盘提供节点列表、连接表单、移动/删除/撤销与定位；快捷键不抢占输入、IME 或浮层。布局复用 WorkspaceShell，Inspector 沿用停靠/抽屉与焦点恢复；底部面板展开时默认240、范围200–400，提供键盘与指针调整；允许收起为标签栏，展开恢复调整后的高度。CanvasWorkspace/CanvasProjectWorkspace 的 layout=fill 填满有明确高度的父容器，底部默认收起；preview 保持文档演示布局。正式画布页铺满窗口，使用紧凑导航，不被站点页脚和固定预览高度挤占。
+所有颜色、网格、端口、边与选中值集中在 `packages/ui/styles/theme.css`。图数据区覆盖五态；刷新失败保留已有图；只读允许导航、选择与缩放，但所有写入口均受约束。键盘提供节点列表、连接表单、移动/删除/撤销与定位；快捷键不抢占输入、IME 或浮层。布局复用 WorkspaceShell，Inspector 沿用停靠/抽屉与焦点恢复；底部面板展开时默认240、范围200–400，提供键盘与指针调整；允许收起为标签栏，展开恢复调整后的高度。CanvasWorkspace/CanvasProjectWorkspace 的 layout=fill 填满有明确高度的父容器，底部默认收起；preview 保持文档演示布局。正式画布页铺满窗口，使用紧凑导航，不被站点页脚和固定预览高度挤占。
 
 JSON 导入限制512KiB、500节点、1000连线、各类注释200项，校验版本、ID、端口和引用后整体替换，失败保留原图。导出仅图配置/引用与布局，先脱敏，不包含运行输出和凭据明文。示例标记本地草稿，刷新丢失；无实际执行/发布能力不提供假成功。实施阶段及证据记录见 [Canvas 计划](./plans/canvas-design-system-plan.md)。
 
@@ -405,7 +405,7 @@ Conversation 与 ActivityTimeline 可选 `revision: string | number`。调用方
 
 Menu 表达动作，Select/Combobox 表达选值，Tabs 表达关联内容面板，Segmented 使用单选 radio 语义。Popover 是补充信息层。基础组件沿用 Base UI 1.8 的受控/非受控接口和焦点行为；正常目标高 32px，粗指针至少 44px；焦点环与选中样式独立，浮层使用 `--shadow-floating`。Tabs 默认方向键只移动焦点，Enter/Space 激活；Select/Combobox 提供键盘选择和 Escape；Menu 禁用动作不可执行。业务结果仅由真实回调提供。
 
-ThemeBoundary 新安装使用 `/r/host/` 或 `/r/scoped/` 的命名空间源码；不要把 canonical legacy 组件与私有变量模式混用。`legacyAliases` 仅用于渐进迁移，并只在 boundary 内声明别名。Portal 必须进入对应 boundary；原 `/r/<item>.json` 保持原行为。主题核心仍由 `styles/theme.css` 生成，不能另维护色表。
+ThemeBoundary 新安装使用 `/r/host/` 或 `/r/scoped/` 的命名空间源码；不要把 canonical legacy 组件与私有变量模式混用。`legacyAliases` 仅用于渐进迁移，并只在 boundary 内声明别名。Portal 必须进入对应 boundary；原 `/r/<item>.json` 保持原行为。主题核心仍由 `packages/ui/styles/theme.css` 生成，不能另维护色表。
 
 
 ## 通用表格、浮层与表单契约增量

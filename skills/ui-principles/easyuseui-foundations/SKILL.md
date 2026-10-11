@@ -9,7 +9,7 @@ description: 为紧凑 Agent 工具界面建立字体、间距、颜色、密度
 
 ## 使用模式与规则优先级
 
-- **使用 EasyuseUI 组件：** 先在库根目录读 `Design-rules.md`，再读 `Component-Specification.md`；共享值只从 `styles/theme.css` 获取。消费项目使用实际安装的主题与组件，不在页面复制常量。
+- **使用 EasyuseUI 组件：** 先在库根目录读 `Design-rules.md`，再读 `Component-Specification.md`；共享值只从 `packages/ui/styles/theme.css` 获取。消费项目使用实际安装的主题与组件，不在页面复制常量。
 - **不使用 EasyuseUI 组件：** 使用本技能的原则和数值基线，通过目标项目的 token、CSS 或设计系统表达。保留已有正式主题与用户明确风格要求，不要求 React、Tailwind、Lucide 或本库变量名。
 
 本仓库默认复用；外部无本库依赖且未要求采用时默认独立实现。独立实现中的数值是起点，若目标项目已有契约则映射并说明差异；用户明确的例外优先。复用模式契约与 token 冲突时同步修订来源，不在单页发明替代体系。

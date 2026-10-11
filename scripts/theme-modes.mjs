@@ -1,8 +1,8 @@
+import { sharedSource } from "./shared-source.mjs"
 import { readFile, writeFile } from "node:fs/promises"
-import path from "node:path"
 
 export async function themeModes(root) {
-  const source = await readFile(path.join(root, "styles/theme.css"), "utf8")
+  const source = await readFile(sharedSource(root, "styles/theme.css"), "utf8")
   const tokens = (selector) => {
     const body = source.match(new RegExp(`${selector}\\s*\\{([^}]+)\\}`))?.[1]
     if (!body) throw new Error(`Missing theme selector ${selector}`)
@@ -66,7 +66,7 @@ export async function themeModes(root) {
     .join("\n")
   const aliases = names.map((key) => `  --${key}: var(--eu-${key});`).join("\n")
   const css = `/* Generated from styles/theme.css by scripts/theme-modes.mjs. No root defaults, resets or fonts. */\n:where([data-eu-mode]) {\n  color: var(--eu-foreground);\n  background: var(--eu-background);\n}\n:where([data-eu-mode="host"]) {\n${hostDeclarations}\n}\n:where([data-eu-mode="scoped"][data-eu-theme="light"]) {\n${declarations(light)}\n  color-scheme: light;\n}\n:where([data-eu-mode="scoped"][data-eu-theme="dark"]) {\n${declarations({ ...light, ...dark })}\n  color-scheme: dark;\n}\n:where([data-eu-legacy-aliases="true"]) {\n${aliases}\n}\n`
-  await writeFile(path.join(root, "styles/theme-boundary.css"), css)
+  await writeFile(sharedSource(root, "styles/theme-boundary.css"), css)
   const theme = {}
   for (const [key, value] of Object.entries(inline)) {
     if (key.startsWith("font-")) continue

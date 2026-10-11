@@ -5,7 +5,7 @@ import type {
   PiMessage,
   PiPart,
   PiTool,
-} from "../../../lib/pi-workspace-protocol.ts"
+} from "@easyuse-ui/pi-protocol"
 
 export type RawEntry = {
   type: string

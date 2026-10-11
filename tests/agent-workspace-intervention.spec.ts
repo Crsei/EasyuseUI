@@ -18,9 +18,9 @@ const confirm = (page: Page, name: "approval" | "queue") =>
 test("region entry identifies an isolated fixture and Review locates without approving", async ({
   page,
 }) => {
-  await page.goto("/examples/agent-workbench/regions/?region=composer")
+  await page.goto("/examples/agent-workbench/regions/")
   await page
-    .getByRole("link", { name: "审批与队列 fixture", exact: true })
+    .getByRole("link", { name: "队列来源确认与恢复", exact: true })
     .click()
   await expect(page).toHaveURL(new RegExp(`${route}$`))
   await expect(root(page)).toContainText("不连接 Pi，不执行命令")

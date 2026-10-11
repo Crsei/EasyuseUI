@@ -9,6 +9,10 @@
 | WorkbenchDocumentTabs | [源码](../components/blocks/workbench-file-preview.tsx) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | workbench-file-preview | /docs/workbench-document-tabs/ |
 | WorkbenchResourceContent | [源码](../components/blocks/workbench-file-preview.tsx) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | workbench-file-preview | /docs/workbench-resource-content/ |
 | ExecutionSessionList | [源码](../components/blocks/agent-workbench/panels.tsx) | [示例](../components/examples/agent-workbench/resource-preview-demo.tsx) | agent-workbench-panels | /docs/execution-session-list/ |
+| SvgCanvas | [源码](../components/blocks/svg-canvas.tsx) | [示例](../components/examples/svg-workbench/workbench-demo.tsx) | svg-canvas | /docs/svg-canvas/ |
+| SvgIconLibrary | [源码](../components/blocks/svg-icon-library.tsx) | [示例](../components/examples/svg-workbench/workbench-demo.tsx) | svg-icon-library | /docs/svg-icon-library/ |
+| SvgProperties | [源码](../components/blocks/svg-properties.tsx) | [示例](../components/examples/svg-workbench/workbench-demo.tsx) | svg-properties | /docs/svg-properties/ |
+| SvgWorkbench | [源码](../components/blocks/svg-workbench.tsx) | [示例](../components/examples/svg-workbench/workbench-demo.tsx) | svg-workbench | /docs/svg-workbench/ |
 | SessionNavigator | [源码](../components/blocks/agent-workbench/navigation.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-navigation | /docs/session-navigator/ |
 | ProjectSwitcher | [源码](../components/blocks/agent-workbench/navigation.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-navigation | /docs/project-switcher/ |
 | SessionHeader | [源码](../components/blocks/agent-workbench/navigation.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-navigation | /docs/session-header/ |
@@ -18,6 +22,7 @@
 | AgentConversation | [源码](../components/blocks/agent-workbench/conversation.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-conversation | /docs/agent-conversation/ |
 | ComposerControls | [源码](../components/blocks/agent-workbench/composer.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-composer | /docs/composer-controls/ |
 | AgentComposer | [源码](../components/blocks/agent-workbench/composer.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-composer | /docs/agent-composer/ |
+| CodePreview | [源码](../components/blocks/code-preview.tsx) | [示例](../components/examples/code-preview-demo.tsx) | code-preview | /docs/code-preview/ |
 | FileViewer | [源码](../components/blocks/agent-workbench/review.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-review | /docs/file-viewer/ |
 | DiffViewer | [源码](../components/blocks/agent-workbench/review.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-review | /docs/diff-viewer/ |
 | ChangeReviewPanel | [源码](../components/blocks/agent-workbench/review.tsx) | [示例](../components/examples/agent-workbench/component-demos.tsx) | agent-workbench-review | /docs/change-review-panel/ |

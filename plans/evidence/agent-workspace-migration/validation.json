@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-11",
+  "scope": "Agent Workspace migration only; remaining applications and apps/docs relocation pending",
+  "baselineCommit": "6c62825dbff85c676c471c29fc0d049a93d97eb5",
+  "versions": {
+    "node": "v24.21.0",
+    "pnpm": "11.9.0",
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "browser": "138.0.7204.92",
+    "builder": "Webpack with WASM SWC fallback"
+  },
+  "boundaries": {
+    "docsFiles": 2042,
+    "agentFiles": 1223,
+    "docsPrivateAgentFiles": 0,
+    "agentDocsFiles": 0,
+    "source": "TypeScript resolved graph + public source imports"
+  },
+  "builds": {
+    "docs": {
+      "status": "passed",
+      "generatedPages": 267
+    },
+    "agent": {
+      "status": "passed",
+      "generatedPages": 7
+    },
+    "stagedCandidateDocs": {
+      "status": "passed",
+      "generatedPages": 267,
+      "packageResolution": "candidate packages rather than original working-tree public sources"
+    }
+  },
+  "browser": {
+    "agent": {
+      "regularPassed": 223,
+      "realProviderSkippedInRegular": 1,
+      "execution": "221 passed in full run plus 2 corrected tests passed in targeted rerun"
+    },
+    "docs": {
+      "status": "passed across full run and targeted verification",
+      "passed": 771,
+      "fullRunPassed": 768,
+      "fullRunInitialFailures": 3,
+      "originalBudgetRerunPassed": 2,
+      "strictStagedCandidateSourceTestPassed": 1,
+      "fullRunElapsedMinutes": 16.3,
+      "performanceTaggedTests": "excluded; comparative performance acceptance deferred"
+    },
+    "realProvider": {
+      "passed": 1,
+      "elapsedSeconds": 25.7,
+      "steps": [
+        "stream",
+        "read tool",
+        "native context continuation",
+        "reload history",
+        "Host restart",
+        "source-confirmed stop"
+      ]
+    }
+  },
+  "piHost": {
+    "typecheck": "passed",
+    "testsPassed": 8
+  },
+  "distribution": {
+    "independentInstall": "passed",
+    "sourceSnapshotId": "9fff854e647d110b5c33ed4deea4c5957eec2e6f28a38f4fa723dce3afea3292",
+    "themeModes": [
+      "replace",
+      "host",
+      "scoped"
+    ],
+    "reports": [
+      {
+        "mode": "host",
+        "browser": "138.0.7204.92",
+        "hostScreenshotIdentical": true,
+        "portal": true,
+        "canvas": true,
+        "localeProvider": true,
+        "runtimeStatusPrivateColor": true,
+        "chartPrivateColors": true,
+        "focusRestored": true
+      },
+      {
+        "mode": "scoped",
+        "browser": "138.0.7204.92",
+        "hostScreenshotIdentical": true,
+        "portal": true,
+        "canvas": true,
+        "localeProvider": true,
+        "runtimeStatusPrivateColor": true,
+        "chartPrivateColors": true,
+        "focusRestored": true
+      }
+    ]
+  },
+  "checks": {
+    "lint": "docs + Agent passed",
+    "typecheck": "docs + Agent + Host passed",
+    "manifest": 203,
+    "registry": 223,
+    "documentationSnippets": 74,
+    "uiContracts": 203,
+    "ciSelectionClasses": 4,
+    "stagedCandidateSourcePreview": {
+      "passed": 1,
+      "reason": "parallel whitespace edit preserved outside commit; candidate source/index hashes match"
+    },
+    "docsTimeoutRerun": {
+      "passed": 2,
+      "elapsedSeconds": 9.7,
+      "budgetChanged": false
+    }
+  },
+  "isolation": {
+    "injectedOnlyInTemporaryCandidate": "Agent app/(fixture)/page.tsx: number assigned string",
+    "agentBuild": "TS2322 expected failure",
+    "docsBuild": "exit 0",
+    "unconfiguredModules": 17,
+    "piRequests": 0
+  },
+  "navigation": {
+    "configuredDocsToIndependentApp": "passed",
+    "credentialsForwarded": false,
+    "deepLinkReload": "passed",
+    "mobileDraftAcrossResize": "passed",
+    "unconfiguredAddress": "visible status"
+  },
+  "observations": {
+    "docsOutputBytes": 130735129,
+    "agentOutputBytes": 2415860,
+    "faultDocsWallClockSeconds": 366.82,
+    "faultDocsMaxRssKB": 6095536,
+    "performanceAcceptance": false,
+    "reason": "concurrent shared-host observation; fixed cold/hot comparative samples deferred"
+  },
+  "preservedParallelWork": [
+    "packages/ui/lib/i18n-messages.ts whitespace edit through original source compatibility path",
+    "plans/reference/development-plan.md",
+    "plans/svg-workbench-and-icon-reuse-plan.md"
+  ],
+  "screenshots": {
+    "application-light-zh.png": "f4169ab0190b5a493e37669220fbf06f3874f8b8fde6259665695d6ca2365dda",
+    "application-mobile-zh.png": "5c5c3f4a3e2c09ecbc0266f08c5c3669351a960c880ec9d52f619eecbfb515d9",
+    "docs-unconfigured.png": "ca67fced30319d2ddf71e7cffc2523db0406a2e7f9fc7e3b59631c0ff95367b5",
+    "gallery-light-zh.png": "a0deaa16e8ccdf636defe96bd8853581e6775a82a8d519e94304c2e5c9d0f50d",
+    "pi-real-provider.png": "5bb5e2c80c8033be48cb8273cba1c324975e508499736c03105471e17e7670d0"
+  }
+}

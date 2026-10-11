@@ -1,4 +1,2 @@
-import { PiWorkspace } from "@/components/examples/pi-workspace/workspace"
-export default function Page() {
-  return <PiWorkspace />
-}
+import { AgentProjectShowcase } from "@/components/examples/agent-workspace/project-showcase"
+export default function Page() { return <AgentProjectShowcase /> }

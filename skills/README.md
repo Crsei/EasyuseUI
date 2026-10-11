@@ -73,4 +73,6 @@ skills/ui-principles/easyuseui-states/SKILL.md，
 | [UI-STATES.md](../UI-STATES.md)                             | 状态分轴、恢复与执行结果确认         |
 | [STYLE-WORKBENCH.md](../STYLE-WORKBENCH.md)                 | 局部样式实验与 A/B 比较              |
 
-`styles/theme.css` 是共享 token 来源，`lib/runtime-status.ts` 是本库运行状态字典。修改来源契约时，更新相关技能的决策规则与包内参考；实现映射需重新核对源码、`lib/catalog.ts` 和 `registry.json`。不要把实验参数、文档预览风格或本地 fixture 结果提升为产品默认和真实服务证据。
+`packages/ui/styles/theme.css` 是共享 token 来源，`lib/runtime-status.ts` 是本库运行状态字典。修改来源契约时，更新相关技能的决策规则与包内参考；实现映射需重新核对源码、`lib/catalog.ts` 和 `registry.json`。不要把实验参数、文档预览风格或本地 fixture 结果提升为产品默认和真实服务证据。
+
+共享源码位于 `packages/ui`；旧 `components/ui`、`components/blocks` 和公共 lib 路径为单一源码兼容入口。Registry 消费路径保持原格式。Agent 完整应用适配器归 `examples/agent-workspace`，主站适配器仅用于局部组件展示。

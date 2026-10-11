@@ -6,7 +6,7 @@ import {
   SessionManager,
 } from "@earendil-works/pi-coding-agent"
 import { join } from "node:path"
-import type { PiModel } from "../../../lib/pi-workspace-protocol.ts"
+import type { PiModel } from "@easyuse-ui/pi-protocol"
 import type { RawMessage } from "./history.ts"
 import { HostError } from "./history.ts"
 

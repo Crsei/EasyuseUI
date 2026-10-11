@@ -1,4 +1,6 @@
 packages:
+  - examples/*
+  - packages/*
   - services/pi-host
 allowBuilds:
   '@google/genai': false

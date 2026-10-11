@@ -5,7 +5,7 @@ import path from "node:path"
 import { createHash } from "node:crypto"
 import { chromium } from "@playwright/test"
 const project = path.resolve(import.meta.dirname, "..")
-const buildRoot = path.resolve(process.argv[2] ?? project)
+const buildRoot = path.resolve(process.argv[2] ?? path.join(project, "examples/agent-workspace"))
 const evidence = path.resolve(
   process.argv[3] ?? path.join(buildRoot, "workbench-capture-evidence"),
 )
@@ -24,7 +24,7 @@ try {
 } catch (error) {
   if (error.message.includes("occupied")) throw error
 }
-const server = spawn(process.execPath, ["scripts/preview.mjs"], {
+const server = spawn(process.execPath, [path.join(project, "scripts/preview.mjs")], {
   cwd: buildRoot,
   env: { ...process.env, PORT: String(port), HOST: "127.0.0.1" },
   stdio: ["ignore", "pipe", "pipe"],
@@ -73,15 +73,15 @@ try {
     ].map((name) => `components/blocks/agent-workbench/${name}.tsx`),
     "components/blocks/agent-workbench/workbench.module.css",
     ...["fixtures", "reducer", "messages"].map(
-      (name) => `components/examples/agent-workbench/${name}.ts`,
+      (name) => `examples/agent-workspace/src/components/agent-workbench/${name}.ts`,
     ),
-    "components/examples/agent-workbench/workbench-demo.tsx",
-    "components/examples/agent-workbench/demo.module.css",
+    "examples/agent-workspace/src/components/agent-workbench/workbench-demo.tsx",
+    "examples/agent-workspace/src/components/agent-workbench/demo.module.css",
   ]
   const hashes = {}
   for (const file of sourceFiles)
     hashes[file] = createHash("sha256")
-      .update(await readFile(path.join(buildRoot, file)))
+      .update(await readFile(path.join(project, file)))
       .digest("hex")
   const snapshot = createHash("sha256")
     .update(JSON.stringify(hashes))
@@ -98,7 +98,7 @@ try {
     localStorage.setItem("easyuseui-locale", "zh-CN")
   })
   const baselinePage = await baselineContext.newPage()
-  await baselinePage.goto(`${origin}/workspace/agents/`)
+  await baselinePage.goto(`${process.env.DOCS_CAPTURE_ORIGIN || "http://127.0.0.1:3011"}/workspace/agents/`)
   await baselinePage.evaluate(() => document.fonts.ready)
   await baselinePage.waitForLoadState("networkidle")
   await baselinePage.screenshot({
@@ -108,7 +108,7 @@ try {
   })
   const baseline = {
     asset: "/blog/agent-workbench/baseline-board.jpg",
-    url: `${origin}/workspace/agents/`,
+    url: `${process.env.DOCS_CAPTURE_ORIGIN || "http://127.0.0.1:3011"}/workspace/agents/`,
     sourceSnapshotId: process.env.EASYUSEUI_BASELINE_VERSION,
     capturedAt: new Date().toISOString(),
     viewport: { width: 1440, height: 900 },
@@ -164,7 +164,7 @@ try {
         const page = await context.newPage()
         const errors = []
         page.on("pageerror", (error) => errors.push(error.message))
-        const url = `${origin}/examples/agent-workbench/app/?template=${scene.template}&page=${scene.page}&session=${scene.session}`
+        const url = `${origin}/app/?template=${scene.template}&page=${scene.page}&session=${scene.session}`
         await page.goto(url)
         await page.getByText("本地交互示例", { exact: true }).waitFor()
         await page.waitForFunction(

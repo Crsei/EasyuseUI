@@ -23,7 +23,7 @@ import type { DriverEvent, DriverFactory } from "../src/sdk.ts"
 import type {
   PiCommand,
   PiReceipt,
-} from "../../../lib/pi-workspace-protocol.ts"
+} from "@easyuse-ui/pi-protocol"
 
 const token = "test-only-credential-000000000000000"
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))

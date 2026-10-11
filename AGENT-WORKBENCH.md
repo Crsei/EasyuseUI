@@ -2,7 +2,7 @@
 
 入口：[/examples/agent-workbench/](/examples/agent-workbench/)。区域实验室 → 三种布局 → 编码、产物审阅、多任务三种完整示例。
 
-真实本地Pi入口：`/examples/agent-workbench/pi/`。启动、配置、历史来源和恢复见[PI-WORKSPACE.md](PI-WORKSPACE.md)。Host/HTTP/SSE仅在服务包与示例适配层，公共组件保持受控、可独立分发。
+真实本地 Pi 入口：独立 Agent 应用的 `/pi/`（3020/3021）。原主站 `/examples/agent-workbench/pi/` 保留组件画廊与应用链接。启动、配置、历史来源和恢复见[PI-WORKSPACE.md](PI-WORKSPACE.md)。Host/HTTP/SSE仅在服务包与示例适配层，公共组件保持受控、可独立分发。
 
 完整 V2 参考状态入口：`/examples/agent-workbench/regions/reference/`，覆盖 MD01–MD17 和数据五态；审批/队列的来源确认与恢复继续在 `/regions/intervention/` 验证。设计声明及证据见[完整设计实施记录](plans/agent-workspace-design-completion-log.md)。这些页使用明确标记的内存 fixture。
 
@@ -122,3 +122,8 @@ import { resourceKey, openDocument, acceptResourceRead } from "@/lib/workbench-r
 `AgentConversation.groupTools` 仅折叠相邻、已完成且结果已知的只读 Read/Search 调用，保留正文/工具源顺序与 `onOpenTool` 回调。运行、失败、等待和 unknown 不进入隐藏组；`ToolCall` 折叠时也保留脱敏错误摘要。新建/复制尚未完成视图切换时，Pi 私有适配器暂停发送并保留原会话草稿，切到其它对象不会被迟到响应拉回。
 
 Pi Host 和网页凭据、持久化、SSE、SDK 运行均留在私有示例/服务层；没有新的公共 Registry 服务组件。启动、协议与边界见 [PI-WORKSPACE.md](PI-WORKSPACE.md)，实际验证见 [首轮记录](plans/agent-workspace-completion-log.md)。
+
+
+## Agent Workspace 独立应用（2026-10-11）
+
+完整工作台/Pi 客户端迁至 [examples/agent-workspace](examples/agent-workspace/README.md)，主站旧入口保留 [17模块组件展示](/examples/agent-workbench/elements/)。独立命令、3020/3021端口、Origin、存储/部署边界与原合同映射见应用 README；[迁移声明](plans/agent-workspace-independent-migration.md)和[实施记录](plans/independent-example-apps-log.md)区分 fixture、真实 provider、分发与后续项目。历史主站 Pi/工作台命令为旧路径记录，新调用使用 `pnpm --filter @easyuse-ui/example-agent-workspace`。共享 canonical 源码位于 packages/ui，旧公共文件路径暂以源码兼容链接保留。

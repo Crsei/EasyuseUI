@@ -1,3 +1,4 @@
+/** Docs-owned bounded module fixture/adapter; no application Provider, routing controller or Pi transport. */
 "use client"
 import Link from "next/link"
 import {

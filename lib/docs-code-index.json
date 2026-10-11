@@ -17,10 +17,10 @@
   ],
   "workbench-file-preview": [
     {
-      "id": "0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62",
+      "id": "1c76ed52a35c4e641bbb398802d3f188730977c98015b75d1eee2d2e6e656590",
       "path": "components/blocks/workbench-file-preview.tsx",
       "kind": "source",
-      "url": "/docs-code/0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62.json",
+      "url": "/docs-code/1c76ed52a35c4e641bbb398802d3f188730977c98015b75d1eee2d2e6e656590.json",
       "lines": 476
     },
     {
@@ -40,10 +40,10 @@
   ],
   "workbench-document-tabs": [
     {
-      "id": "0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62",
+      "id": "1c76ed52a35c4e641bbb398802d3f188730977c98015b75d1eee2d2e6e656590",
       "path": "components/blocks/workbench-file-preview.tsx",
       "kind": "source",
-      "url": "/docs-code/0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62.json",
+      "url": "/docs-code/1c76ed52a35c4e641bbb398802d3f188730977c98015b75d1eee2d2e6e656590.json",
       "lines": 476
     },
     {
@@ -63,10 +63,10 @@
   ],
   "workbench-resource-content": [
     {
-      "id": "0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62",
+      "id": "1c76ed52a35c4e641bbb398802d3f188730977c98015b75d1eee2d2e6e656590",
       "path": "components/blocks/workbench-file-preview.tsx",
       "kind": "source",
-      "url": "/docs-code/0a57816641236efb31003397ee1c36fc9f00812367881ebf1fc0a67e8f292a62.json",
+      "url": "/docs-code/1c76ed52a35c4e641bbb398802d3f188730977c98015b75d1eee2d2e6e656590.json",
       "lines": 476
     },
     {
@@ -86,10 +86,10 @@
   ],
   "execution-session-list": [
     {
-      "id": "ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257",
+      "id": "e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10",
       "path": "components/blocks/agent-workbench/panels.tsx",
       "kind": "source",
-      "url": "/docs-code/ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257.json",
+      "url": "/docs-code/e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10.json",
       "lines": 341
     },
     {
@@ -102,10 +102,10 @@
   ],
   "svg-canvas": [
     {
-      "id": "8d757da22d2eef7e02fc24ef5a96c2a59a44a4aea265ff1de5aa854ef7353de9",
+      "id": "07f8cf93af3b97ddb3a32bc13d244ce138d53e10650e570d00440e03f63f534b",
       "path": "components/blocks/svg-canvas.tsx",
       "kind": "source",
-      "url": "/docs-code/8d757da22d2eef7e02fc24ef5a96c2a59a44a4aea265ff1de5aa854ef7353de9.json",
+      "url": "/docs-code/07f8cf93af3b97ddb3a32bc13d244ce138d53e10650e570d00440e03f63f534b.json",
       "lines": 539
     },
     {
@@ -118,10 +118,10 @@
   ],
   "svg-icon-library": [
     {
-      "id": "d3af0db1e8cf39fea303991cb249bb25d1887237988b6afb342c9139fd9f648b",
+      "id": "d103eed06f7ebba3ff93ff2cf71d5b41ac7f4caff8199b1fa35bc50eb45ea7a8",
       "path": "components/blocks/svg-icon-library.tsx",
       "kind": "source",
-      "url": "/docs-code/d3af0db1e8cf39fea303991cb249bb25d1887237988b6afb342c9139fd9f648b.json",
+      "url": "/docs-code/d103eed06f7ebba3ff93ff2cf71d5b41ac7f4caff8199b1fa35bc50eb45ea7a8.json",
       "lines": 232
     },
     {
@@ -134,10 +134,10 @@
   ],
   "svg-properties": [
     {
-      "id": "eaa6803d6f2eb15e654ce5649e44249a5223825affa2c1360c3f4611789668ff",
+      "id": "e63bef42365f13f500a9be949842b450298bfaef65d53ce1771b2c5361fa5b5a",
       "path": "components/blocks/svg-properties.tsx",
       "kind": "source",
-      "url": "/docs-code/eaa6803d6f2eb15e654ce5649e44249a5223825affa2c1360c3f4611789668ff.json",
+      "url": "/docs-code/e63bef42365f13f500a9be949842b450298bfaef65d53ce1771b2c5361fa5b5a.json",
       "lines": 303
     },
     {
@@ -150,10 +150,10 @@
   ],
   "svg-workbench": [
     {
-      "id": "57372afc50fe1d18b830c515f245c6094c1825fd9ded7838bbb62bfe2d9ceda8",
+      "id": "27528409f07e82407c3c3586bd919a6a157e03fe1c778176746d350c64dd4db9",
       "path": "components/blocks/svg-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/57372afc50fe1d18b830c515f245c6094c1825fd9ded7838bbb62bfe2d9ceda8.json",
+      "url": "/docs-code/27528409f07e82407c3c3586bd919a6a157e03fe1c778176746d350c64dd4db9.json",
       "lines": 1072
     },
     {
@@ -166,10 +166,10 @@
   ],
   "session-navigator": [
     {
-      "id": "c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789",
+      "id": "43cf5113fa7a35f7ee7c2fa5e5bcd995943e04d4f7d2cf2c3b5a15a06336fd65",
       "path": "components/blocks/agent-workbench/navigation.tsx",
       "kind": "source",
-      "url": "/docs-code/c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789.json",
+      "url": "/docs-code/43cf5113fa7a35f7ee7c2fa5e5bcd995943e04d4f7d2cf2c3b5a15a06336fd65.json",
       "lines": 469
     },
     {
@@ -182,10 +182,10 @@
   ],
   "project-switcher": [
     {
-      "id": "c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789",
+      "id": "43cf5113fa7a35f7ee7c2fa5e5bcd995943e04d4f7d2cf2c3b5a15a06336fd65",
       "path": "components/blocks/agent-workbench/navigation.tsx",
       "kind": "source",
-      "url": "/docs-code/c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789.json",
+      "url": "/docs-code/43cf5113fa7a35f7ee7c2fa5e5bcd995943e04d4f7d2cf2c3b5a15a06336fd65.json",
       "lines": 469
     },
     {
@@ -198,10 +198,10 @@
   ],
   "session-header": [
     {
-      "id": "c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789",
+      "id": "43cf5113fa7a35f7ee7c2fa5e5bcd995943e04d4f7d2cf2c3b5a15a06336fd65",
       "path": "components/blocks/agent-workbench/navigation.tsx",
       "kind": "source",
-      "url": "/docs-code/c9c23d7ad558cb7282763ce12f0ab689dc104b76136fc65278f31f3e6da12789.json",
+      "url": "/docs-code/43cf5113fa7a35f7ee7c2fa5e5bcd995943e04d4f7d2cf2c3b5a15a06336fd65.json",
       "lines": 469
     },
     {
@@ -214,10 +214,10 @@
   ],
   "context-panel": [
     {
-      "id": "82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b",
+      "id": "df10bff57105d0ba357f7796ccfac970c9e46b4b312eabe301a2de27be054aac",
       "path": "components/blocks/agent-workbench/context.tsx",
       "kind": "source",
-      "url": "/docs-code/82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b.json",
+      "url": "/docs-code/df10bff57105d0ba357f7796ccfac970c9e46b4b312eabe301a2de27be054aac.json",
       "lines": 273
     },
     {
@@ -230,10 +230,10 @@
   ],
   "context-picker": [
     {
-      "id": "82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b",
+      "id": "df10bff57105d0ba357f7796ccfac970c9e46b4b312eabe301a2de27be054aac",
       "path": "components/blocks/agent-workbench/context.tsx",
       "kind": "source",
-      "url": "/docs-code/82f2003dfca9f05a3227f79d5932ebab1114c4bc79f46794125afbdd05e7605b.json",
+      "url": "/docs-code/df10bff57105d0ba357f7796ccfac970c9e46b4b312eabe301a2de27be054aac.json",
       "lines": 273
     },
     {
@@ -246,10 +246,10 @@
   ],
   "message-content": [
     {
-      "id": "446c0b91d8b982a9bb6a9832cb403f4b1022dae3e908e03edb6191ff774cd8c7",
+      "id": "e0342f94c8d3814c7761bdcf65c6cb0ebff8fdd081c26bdce85d69a1c278b05c",
       "path": "components/blocks/agent-workbench/conversation.tsx",
       "kind": "source",
-      "url": "/docs-code/446c0b91d8b982a9bb6a9832cb403f4b1022dae3e908e03edb6191ff774cd8c7.json",
+      "url": "/docs-code/e0342f94c8d3814c7761bdcf65c6cb0ebff8fdd081c26bdce85d69a1c278b05c.json",
       "lines": 415
     },
     {
@@ -262,10 +262,10 @@
   ],
   "agent-conversation": [
     {
-      "id": "446c0b91d8b982a9bb6a9832cb403f4b1022dae3e908e03edb6191ff774cd8c7",
+      "id": "e0342f94c8d3814c7761bdcf65c6cb0ebff8fdd081c26bdce85d69a1c278b05c",
       "path": "components/blocks/agent-workbench/conversation.tsx",
       "kind": "source",
-      "url": "/docs-code/446c0b91d8b982a9bb6a9832cb403f4b1022dae3e908e03edb6191ff774cd8c7.json",
+      "url": "/docs-code/e0342f94c8d3814c7761bdcf65c6cb0ebff8fdd081c26bdce85d69a1c278b05c.json",
       "lines": 415
     },
     {
@@ -278,10 +278,10 @@
   ],
   "composer-controls": [
     {
-      "id": "1889169682ea3678178fb4fec5073b4f7932a60da0372a34d9cee92911e2a051",
+      "id": "d445e0c44857dacb8a868a165d429599e5568d635c66dacb7b3d88dbf1ba129a",
       "path": "components/blocks/agent-workbench/composer.tsx",
       "kind": "source",
-      "url": "/docs-code/1889169682ea3678178fb4fec5073b4f7932a60da0372a34d9cee92911e2a051.json",
+      "url": "/docs-code/d445e0c44857dacb8a868a165d429599e5568d635c66dacb7b3d88dbf1ba129a.json",
       "lines": 378
     },
     {
@@ -294,10 +294,10 @@
   ],
   "agent-composer": [
     {
-      "id": "1889169682ea3678178fb4fec5073b4f7932a60da0372a34d9cee92911e2a051",
+      "id": "d445e0c44857dacb8a868a165d429599e5568d635c66dacb7b3d88dbf1ba129a",
       "path": "components/blocks/agent-workbench/composer.tsx",
       "kind": "source",
-      "url": "/docs-code/1889169682ea3678178fb4fec5073b4f7932a60da0372a34d9cee92911e2a051.json",
+      "url": "/docs-code/d445e0c44857dacb8a868a165d429599e5568d635c66dacb7b3d88dbf1ba129a.json",
       "lines": 378
     },
     {
@@ -310,10 +310,10 @@
   ],
   "code-preview": [
     {
-      "id": "226ddf855bde3bb5980db5d59d8c5c2fe2db28e3ffaba4325348230b66f2ff3d",
+      "id": "055848690e08a7efd8e1d2b133889b03bead8aaeed7b7bf8219c6abe15a51950",
       "path": "components/blocks/code-preview.tsx",
       "kind": "source",
-      "url": "/docs-code/226ddf855bde3bb5980db5d59d8c5c2fe2db28e3ffaba4325348230b66f2ff3d.json",
+      "url": "/docs-code/055848690e08a7efd8e1d2b133889b03bead8aaeed7b7bf8219c6abe15a51950.json",
       "lines": 352
     },
     {
@@ -326,10 +326,10 @@
   ],
   "file-viewer": [
     {
-      "id": "94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269",
+      "id": "93219f4944ece1ef31b3680f3a6df8a7826195331f1e35989765eb764c0bf46d",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269.json",
+      "url": "/docs-code/93219f4944ece1ef31b3680f3a6df8a7826195331f1e35989765eb764c0bf46d.json",
       "lines": 437
     },
     {
@@ -342,10 +342,10 @@
   ],
   "diff-viewer": [
     {
-      "id": "94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269",
+      "id": "93219f4944ece1ef31b3680f3a6df8a7826195331f1e35989765eb764c0bf46d",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269.json",
+      "url": "/docs-code/93219f4944ece1ef31b3680f3a6df8a7826195331f1e35989765eb764c0bf46d.json",
       "lines": 437
     },
     {
@@ -358,10 +358,10 @@
   ],
   "change-review-panel": [
     {
-      "id": "94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269",
+      "id": "93219f4944ece1ef31b3680f3a6df8a7826195331f1e35989765eb764c0bf46d",
       "path": "components/blocks/agent-workbench/review.tsx",
       "kind": "source",
-      "url": "/docs-code/94e1aaf48c32e5d902737bd4dc45a52d18cdeb97224fc9297b2c097081f75269.json",
+      "url": "/docs-code/93219f4944ece1ef31b3680f3a6df8a7826195331f1e35989765eb764c0bf46d.json",
       "lines": 437
     },
     {
@@ -374,10 +374,10 @@
   ],
   "workbench-panel-tabs": [
     {
-      "id": "ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257",
+      "id": "e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10",
       "path": "components/blocks/agent-workbench/panels.tsx",
       "kind": "source",
-      "url": "/docs-code/ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257.json",
+      "url": "/docs-code/e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10.json",
       "lines": 341
     },
     {
@@ -390,10 +390,10 @@
   ],
   "execution-output-panel": [
     {
-      "id": "ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257",
+      "id": "e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10",
       "path": "components/blocks/agent-workbench/panels.tsx",
       "kind": "source",
-      "url": "/docs-code/ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257.json",
+      "url": "/docs-code/e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10.json",
       "lines": 341
     },
     {
@@ -406,10 +406,10 @@
   ],
   "preview-panel": [
     {
-      "id": "ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257",
+      "id": "e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10",
       "path": "components/blocks/agent-workbench/panels.tsx",
       "kind": "source",
-      "url": "/docs-code/ce9e79d66173c5a6b429b343e9a4711d154a42a6536260bdfa01c308344d5257.json",
+      "url": "/docs-code/e2235678e3c3d27fe3b573d4d3e5ec5e3b4ac849168199cdf125c05c08b75e10.json",
       "lines": 341
     },
     {
@@ -422,11 +422,11 @@
   ],
   "agent-workbench": [
     {
-      "id": "12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c",
+      "id": "1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c.json",
-      "lines": 340
+      "url": "/docs-code/1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1.json",
+      "lines": 349
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -438,11 +438,11 @@
   ],
   "task-inbox": [
     {
-      "id": "12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c",
+      "id": "1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1",
       "path": "components/blocks/agent-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/12be8746d60f96016a59b64525cec8243743d536f8c71c1b3f09bb08e9a4a79c.json",
-      "lines": 340
+      "url": "/docs-code/1d929fa0ae2884b45ea9ba3bc8da54af22f5f4e9fe12d90e0e3373a2f933daa1.json",
+      "lines": 349
     },
     {
       "id": "a4890bb108e7172eabbe5e619c85d4c9634160a45d0382210ae48cbfe75b48a1",
@@ -530,10 +530,10 @@
   ],
   "chart-frame": [
     {
-      "id": "dd87b6a4bba3b7c7cf499e0a8f1ae1eb09fbee3c547d5f1c536527d5e7d0d657",
+      "id": "0d761d39ae63bdcb40ef5bcc13b5803afc75d4221a4124c43b56864476fd56cf",
       "path": "components/ui/chart.tsx",
       "kind": "source",
-      "url": "/docs-code/dd87b6a4bba3b7c7cf499e0a8f1ae1eb09fbee3c547d5f1c536527d5e7d0d657.json",
+      "url": "/docs-code/0d761d39ae63bdcb40ef5bcc13b5803afc75d4221a4124c43b56864476fd56cf.json",
       "lines": 225
     },
     {
@@ -553,10 +553,10 @@
   ],
   "chart-data-table": [
     {
-      "id": "9afba5ef253ff18b7a6a94c04b0f59c8ec07b8906a8d5d629ddaef44332c425b",
+      "id": "04b1afe10b73cf6588228111f02b35c6f4970ff0368a9cab6d3fac4f7f6d24d8",
       "path": "components/blocks/charts/chart-data-table.tsx",
       "kind": "source",
-      "url": "/docs-code/9afba5ef253ff18b7a6a94c04b0f59c8ec07b8906a8d5d629ddaef44332c425b.json",
+      "url": "/docs-code/04b1afe10b73cf6588228111f02b35c6f4970ff0368a9cab6d3fac4f7f6d24d8.json",
       "lines": 122
     },
     {
@@ -569,10 +569,10 @@
   ],
   "statistical-chart": [
     {
-      "id": "0402be52b8423c6308775dc32657da60d37a9c851f59473ae0c450614e76c0b0",
+      "id": "21bdfbd23b30eea83f01a89a5f7ac9d0debacb197e79bbc88deba4f23946acf7",
       "path": "components/blocks/charts/statistical-chart.tsx",
       "kind": "source",
-      "url": "/docs-code/0402be52b8423c6308775dc32657da60d37a9c851f59473ae0c450614e76c0b0.json",
+      "url": "/docs-code/21bdfbd23b30eea83f01a89a5f7ac9d0debacb197e79bbc88deba4f23946acf7.json",
       "lines": 506
     },
     {
@@ -592,10 +592,10 @@
   ],
   "chart-drilldown-panel": [
     {
-      "id": "906182514e3b62d7ffe2957d8c050e0855b34c77c66e3bc4dd3410ac1e6f9386",
+      "id": "46e566bab7013174da81a31d6713a7e0d6553c1a629255531d086fc5627e11fd",
       "path": "components/blocks/charts/chart-drilldown-panel.tsx",
       "kind": "source",
-      "url": "/docs-code/906182514e3b62d7ffe2957d8c050e0855b34c77c66e3bc4dd3410ac1e6f9386.json",
+      "url": "/docs-code/46e566bab7013174da81a31d6713a7e0d6553c1a629255531d086fc5627e11fd.json",
       "lines": 159
     },
     {
@@ -608,10 +608,10 @@
   ],
   "workflow-metric": [
     {
-      "id": "cd31dba91561ee3cfba4bb5c8765e2b090746291afa7b2bf8d923023c6b00b11",
+      "id": "1e742dd0fe771f3fe90c25fd7319096253c162dbdd0d15eb6afd5851e312d5fc",
       "path": "components/blocks/analytics/workflow-metric.tsx",
       "kind": "source",
-      "url": "/docs-code/cd31dba91561ee3cfba4bb5c8765e2b090746291afa7b2bf8d923023c6b00b11.json",
+      "url": "/docs-code/1e742dd0fe771f3fe90c25fd7319096253c162dbdd0d15eb6afd5851e312d5fc.json",
       "lines": 66
     },
     {
@@ -624,10 +624,10 @@
   ],
   "workflow-charts": [
     {
-      "id": "c284dc32609227855bf87607b621c624dc9d40319794ade472b39b1403378030",
+      "id": "bf8acdde27796231e8a03ec54f03c47c0ce0061e881c92864865333d0ee1cfbb",
       "path": "components/blocks/analytics/workflow-charts.tsx",
       "kind": "source",
-      "url": "/docs-code/c284dc32609227855bf87607b621c624dc9d40319794ade472b39b1403378030.json",
+      "url": "/docs-code/bf8acdde27796231e8a03ec54f03c47c0ce0061e881c92864865333d0ee1cfbb.json",
       "lines": 120
     },
     {
@@ -640,10 +640,10 @@
   ],
   "risk-evidence-list": [
     {
-      "id": "8105be5527fe50668f6cc57d6198d43ca10b171bf6f4c409f82599cf862a7de3",
+      "id": "86860fc7394f56aa4e5d7351fbebba2a581795ef1c0035797bd04c948101a732",
       "path": "components/blocks/analytics/risk-evidence-list.tsx",
       "kind": "source",
-      "url": "/docs-code/8105be5527fe50668f6cc57d6198d43ca10b171bf6f4c409f82599cf862a7de3.json",
+      "url": "/docs-code/86860fc7394f56aa4e5d7351fbebba2a581795ef1c0035797bd04c948101a732.json",
       "lines": 59
     },
     {
@@ -656,10 +656,10 @@
   ],
   "work-traceability-view": [
     {
-      "id": "6f0c16a4496f721dde0212a5902e2c7bcda47073a3e5ca4647aa3a9775a75c87",
+      "id": "670e0e51c151c75c0d3ff58dea07337d4f2ac73b58aa9d58ce2840031e32ba20",
       "path": "components/blocks/analytics/work-traceability-view.tsx",
       "kind": "source",
-      "url": "/docs-code/6f0c16a4496f721dde0212a5902e2c7bcda47073a3e5ca4647aa3a9775a75c87.json",
+      "url": "/docs-code/670e0e51c151c75c0d3ff58dea07337d4f2ac73b58aa9d58ce2840031e32ba20.json",
       "lines": 69
     },
     {
@@ -672,10 +672,10 @@
   ],
   "work-items-view-adapter": [
     {
-      "id": "e46917f2f9346c65179044edbba9d1a51c26ee2b93653960cea37fbd7e425a87",
+      "id": "a2eac58f6f3b7a825d7d6a1af1a98448dfa01f1e39bbaa42c1cfa5d6d2929159",
       "path": "components/blocks/analytics/work-items-view-adapter.tsx",
       "kind": "source",
-      "url": "/docs-code/e46917f2f9346c65179044edbba9d1a51c26ee2b93653960cea37fbd7e425a87.json",
+      "url": "/docs-code/a2eac58f6f3b7a825d7d6a1af1a98448dfa01f1e39bbaa42c1cfa5d6d2929159.json",
       "lines": 29
     },
     {
@@ -688,10 +688,10 @@
   ],
   "dashboard": [
     {
-      "id": "494c4644a08a61574941c19e677a31b74940a509dced3c4d91fff45270cd662a",
+      "id": "8e83f17095cac8064da97183ac665f22bb5fff3f55df25961848292bfd1570dd",
       "path": "components/blocks/dashboard/dashboard.tsx",
       "kind": "source",
-      "url": "/docs-code/494c4644a08a61574941c19e677a31b74940a509dced3c4d91fff45270cd662a.json",
+      "url": "/docs-code/8e83f17095cac8064da97183ac665f22bb5fff3f55df25961848292bfd1570dd.json",
       "lines": 168
     },
     {
@@ -718,10 +718,10 @@
   ],
   "project-overview-dashboard": [
     {
-      "id": "0bbeda62db0b298b7e927d36b10026ec459c99f56d4d3eb9cad9568b9702b702",
+      "id": "5df52de8aa5e31fc80629a2a73a2edbed077dd8ca86ceeca18628c91e9ca86b4",
       "path": "components/blocks/dashboard/project-overview-dashboard.tsx",
       "kind": "source",
-      "url": "/docs-code/0bbeda62db0b298b7e927d36b10026ec459c99f56d4d3eb9cad9568b9702b702.json",
+      "url": "/docs-code/5df52de8aa5e31fc80629a2a73a2edbed077dd8ca86ceeca18628c91e9ca86b4.json",
       "lines": 174
     },
     {
@@ -828,10 +828,10 @@
   ],
   "heatmap": [
     {
-      "id": "f323462cee69a6723bca55f72c238bb8bc4bb7cfd5ae43c9ba5e9771d9f56577",
+      "id": "bc6300c827242db8d5cdf852130bf45066d56cbd8601c647403df173f4733aae",
       "path": "components/blocks/charts/heatmap.tsx",
       "kind": "source",
-      "url": "/docs-code/f323462cee69a6723bca55f72c238bb8bc4bb7cfd5ae43c9ba5e9771d9f56577.json",
+      "url": "/docs-code/bc6300c827242db8d5cdf852130bf45066d56cbd8601c647403df173f4733aae.json",
       "lines": 126
     },
     {
@@ -851,10 +851,10 @@
   ],
   "resource-allocation-view": [
     {
-      "id": "aac5bc8abede758e91a4ac92038d58bbd059db19e20ddf9e999b9a4fb3f897fb",
+      "id": "f5e8ec0ccd32a87688d4817ea49a8ae67c7681d09bf9dbd2c508151eccfb5a73",
       "path": "components/blocks/analytics/resource-allocation-view.tsx",
       "kind": "source",
-      "url": "/docs-code/aac5bc8abede758e91a4ac92038d58bbd059db19e20ddf9e999b9a4fb3f897fb.json",
+      "url": "/docs-code/f5e8ec0ccd32a87688d4817ea49a8ae67c7681d09bf9dbd2c508151eccfb5a73.json",
       "lines": 81
     },
     {
@@ -867,10 +867,10 @@
   ],
   "agent-execution-timeline": [
     {
-      "id": "e88fc1440bd7783c5e2fe03d2cc302d9132236abee89acdf6ac903a2079a841a",
+      "id": "e8c6f56378e5ab43570e5a3e569022909958eaeae792cb7d766b491322457feb",
       "path": "components/blocks/analytics/agent-execution-timeline.tsx",
       "kind": "source",
-      "url": "/docs-code/e88fc1440bd7783c5e2fe03d2cc302d9132236abee89acdf6ac903a2079a841a.json",
+      "url": "/docs-code/e8c6f56378e5ab43570e5a3e569022909958eaeae792cb7d766b491322457feb.json",
       "lines": 111
     },
     {
@@ -890,10 +890,10 @@
   ],
   "workflow-history-charts": [
     {
-      "id": "075f297ca34ab23c764b8159586098a1c82bd80bbf7572233c58945270ae2c34",
+      "id": "c09fbaea809493aafa93c4e6827930bbffa856e370cf2cae11864db4e629c6ef",
       "path": "components/blocks/charts/workflow-history-charts.tsx",
       "kind": "source",
-      "url": "/docs-code/075f297ca34ab23c764b8159586098a1c82bd80bbf7572233c58945270ae2c34.json",
+      "url": "/docs-code/c09fbaea809493aafa93c4e6827930bbffa856e370cf2cae11864db4e629c6ef.json",
       "lines": 114
     },
     {
@@ -906,10 +906,10 @@
   ],
   "forecast-chart": [
     {
-      "id": "d359b70f886da115ec8240dee7a5f8761e25f7ae66ed8f5f93b07901a45c400b",
+      "id": "96f39cfc682157c97337a22070218c6b48e0abd8e27f8b1064e617c9fbc78a12",
       "path": "components/blocks/charts/forecast-chart.tsx",
       "kind": "source",
-      "url": "/docs-code/d359b70f886da115ec8240dee7a5f8761e25f7ae66ed8f5f93b07901a45c400b.json",
+      "url": "/docs-code/96f39cfc682157c97337a22070218c6b48e0abd8e27f8b1064e617c9fbc78a12.json",
       "lines": 108
     },
     {
@@ -922,10 +922,10 @@
   ],
   "agent-operations-dashboard": [
     {
-      "id": "cbfb2c885ca982e55bbccb5f84baa9c2f3e1bb3a7370972f6d0104e62e86f5a3",
+      "id": "3167991659fafd09dfbaf689e88bf85549dd2c9e54519f48739b0b2df1b8b14a",
       "path": "components/blocks/analytics/agent-operations-dashboard.tsx",
       "kind": "source",
-      "url": "/docs-code/cbfb2c885ca982e55bbccb5f84baa9c2f3e1bb3a7370972f6d0104e62e86f5a3.json",
+      "url": "/docs-code/3167991659fafd09dfbaf689e88bf85549dd2c9e54519f48739b0b2df1b8b14a.json",
       "lines": 44
     },
     {
@@ -938,10 +938,10 @@
   ],
   "work-dependency-view": [
     {
-      "id": "305f69647f4c4f85d70c72185e2b2759e79651c391999358a9542c3a5d5dfcf1",
+      "id": "0f69996a3be2785b418cd045021bd2c494f8bc452f8e5f0550e9b0b8a5d91a66",
       "path": "components/blocks/analytics/work-dependency-view.tsx",
       "kind": "source",
-      "url": "/docs-code/305f69647f4c4f85d70c72185e2b2759e79651c391999358a9542c3a5d5dfcf1.json",
+      "url": "/docs-code/0f69996a3be2785b418cd045021bd2c494f8bc452f8e5f0550e9b0b8a5d91a66.json",
       "lines": 157
     },
     {
@@ -961,10 +961,10 @@
   ],
   "dashboard-layout-editor": [
     {
-      "id": "0bf8474a4cb11ee3dcc455f4feedb476de38dc9d14b9fcb796cf0b8d3748cb72",
+      "id": "036251af41ed93fec7ddf8851fcef28420f78a72c486d98ec16ce2aaee64d1b9",
       "path": "components/blocks/dashboard/dashboard-layout-editor.tsx",
       "kind": "source",
-      "url": "/docs-code/0bf8474a4cb11ee3dcc455f4feedb476de38dc9d14b9fcb796cf0b8d3748cb72.json",
+      "url": "/docs-code/036251af41ed93fec7ddf8851fcef28420f78a72c486d98ec16ce2aaee64d1b9.json",
       "lines": 200
     },
     {
@@ -977,10 +977,10 @@
   ],
   "analytics-builder": [
     {
-      "id": "1e87e5a7e28c908b6f229e99c8165abb52c56dd14977fde7976ea51d6f482c5b",
+      "id": "54afcd7577ad0f824d25a95a5ffe427af9ee169a488aafe2b00dc69c30fcdd9a",
       "path": "components/blocks/analytics/analytics-builder.tsx",
       "kind": "source",
-      "url": "/docs-code/1e87e5a7e28c908b6f229e99c8165abb52c56dd14977fde7976ea51d6f482c5b.json",
+      "url": "/docs-code/54afcd7577ad0f824d25a95a5ffe427af9ee169a488aafe2b00dc69c30fcdd9a.json",
       "lines": 173
     },
     {
@@ -993,10 +993,10 @@
   ],
   "button-group": [
     {
-      "id": "253e3b10f95b4344ef6799571d037a7808821f79975e093d5a7797f7b75794af",
+      "id": "066a21dbd53c522942e0ab8500e9a140f9e409217924c8342cd39b11e580d52e",
       "path": "components/ui/button-group.tsx",
       "kind": "source",
-      "url": "/docs-code/253e3b10f95b4344ef6799571d037a7808821f79975e093d5a7797f7b75794af.json",
+      "url": "/docs-code/066a21dbd53c522942e0ab8500e9a140f9e409217924c8342cd39b11e580d52e.json",
       "lines": 27
     },
     {
@@ -1009,10 +1009,10 @@
   ],
   "input-group": [
     {
-      "id": "31db9d1fd36ce7b5cdf6f6fb9c28c6adb820da732fbf5807006202c9231ac533",
+      "id": "4dab7e993f1f4aee55dd9a1cf214aacf2130172ff5767216b96e3ecd902c821c",
       "path": "components/ui/input-group.tsx",
       "kind": "source",
-      "url": "/docs-code/31db9d1fd36ce7b5cdf6f6fb9c28c6adb820da732fbf5807006202c9231ac533.json",
+      "url": "/docs-code/4dab7e993f1f4aee55dd9a1cf214aacf2130172ff5767216b96e3ecd902c821c.json",
       "lines": 59
     },
     {
@@ -1025,10 +1025,10 @@
   ],
   "toggle": [
     {
-      "id": "62beebc7a4f5cca1cb06ed9156ee3c67993d4b9acfb9ce2bcf80a458f33706d3",
+      "id": "a1597a732c605e517eb7c88349976ab134611925378312d14fda45325620a342",
       "path": "components/ui/toggle.tsx",
       "kind": "source",
-      "url": "/docs-code/62beebc7a4f5cca1cb06ed9156ee3c67993d4b9acfb9ce2bcf80a458f33706d3.json",
+      "url": "/docs-code/a1597a732c605e517eb7c88349976ab134611925378312d14fda45325620a342.json",
       "lines": 22
     },
     {
@@ -1041,10 +1041,10 @@
   ],
   "toggle-group": [
     {
-      "id": "e0a14e4d8fe2c0ffc4f2e24849a0beaebfb1ef17345e6fb3be22c4a82b06947c",
+      "id": "342b53981a287d25193d5583a05be4118e2cf4b856f4d09afef0e15154a3f66d",
       "path": "components/ui/toggle-group.tsx",
       "kind": "source",
-      "url": "/docs-code/e0a14e4d8fe2c0ffc4f2e24849a0beaebfb1ef17345e6fb3be22c4a82b06947c.json",
+      "url": "/docs-code/342b53981a287d25193d5583a05be4118e2cf4b856f4d09afef0e15154a3f66d.json",
       "lines": 26
     },
     {
@@ -1057,10 +1057,10 @@
   ],
   "input-otp": [
     {
-      "id": "ac75ac8d126770f257696f3e3265cfd635a158fb31d8014c9547696505fc1181",
+      "id": "042ebcfb4924708e5c01c0abcf68052530343a65def7c2381ca8a50a2e50400d",
       "path": "components/ui/input-otp.tsx",
       "kind": "source",
-      "url": "/docs-code/ac75ac8d126770f257696f3e3265cfd635a158fb31d8014c9547696505fc1181.json",
+      "url": "/docs-code/042ebcfb4924708e5c01c0abcf68052530343a65def7c2381ca8a50a2e50400d.json",
       "lines": 38
     },
     {
@@ -1073,10 +1073,10 @@
   ],
   "separator": [
     {
-      "id": "374df0c2d2e61be2f0e21b5609c066ac75bfa7bc2bf536aff9990b116aa28388",
+      "id": "9dfa17ad32c67d17d2d1bdf0d5a5a3f306bcd408b63aa585b0b774564e5b93ad",
       "path": "components/ui/separator.tsx",
       "kind": "source",
-      "url": "/docs-code/374df0c2d2e61be2f0e21b5609c066ac75bfa7bc2bf536aff9990b116aa28388.json",
+      "url": "/docs-code/9dfa17ad32c67d17d2d1bdf0d5a5a3f306bcd408b63aa585b0b774564e5b93ad.json",
       "lines": 26
     },
     {
@@ -1089,10 +1089,10 @@
   ],
   "collapsible": [
     {
-      "id": "c810a9a270f56a52e6a66339d02605643f504cb34c8f78e97f55103c024e4542",
+      "id": "0f4cf43cdff9ae54a1ee52f2182d2cf62ea87a2a362f40ffb3e99846de47cb5f",
       "path": "components/ui/collapsible.tsx",
       "kind": "source",
-      "url": "/docs-code/c810a9a270f56a52e6a66339d02605643f504cb34c8f78e97f55103c024e4542.json",
+      "url": "/docs-code/0f4cf43cdff9ae54a1ee52f2182d2cf62ea87a2a362f40ffb3e99846de47cb5f.json",
       "lines": 14
     },
     {
@@ -1105,10 +1105,10 @@
   ],
   "accordion": [
     {
-      "id": "fd777cd01f5103ec1585b1e3f797a0283a8f56eb86a6ef80b3fa3fbbf10f8d8d",
+      "id": "323ee008bc8c8e2497ee328ddf53a67724260a5f01c275aed4f0d3cd442e9c19",
       "path": "components/ui/accordion.tsx",
       "kind": "source",
-      "url": "/docs-code/fd777cd01f5103ec1585b1e3f797a0283a8f56eb86a6ef80b3fa3fbbf10f8d8d.json",
+      "url": "/docs-code/323ee008bc8c8e2497ee328ddf53a67724260a5f01c275aed4f0d3cd442e9c19.json",
       "lines": 47
     },
     {
@@ -1121,10 +1121,10 @@
   ],
   "tooltip": [
     {
-      "id": "090a82e81b8cee1861ddcb48889afcefea4546d0686a601f5f5c85439a023d8f",
+      "id": "cbcf7deb1f8e923830036573fdee072b15dbcd589649139b2a8d5aa6e4e4bc02",
       "path": "components/ui/tooltip.tsx",
       "kind": "source",
-      "url": "/docs-code/090a82e81b8cee1861ddcb48889afcefea4546d0686a601f5f5c85439a023d8f.json",
+      "url": "/docs-code/cbcf7deb1f8e923830036573fdee072b15dbcd589649139b2a8d5aa6e4e4bc02.json",
       "lines": 47
     },
     {
@@ -1137,10 +1137,10 @@
   ],
   "alert-dialog": [
     {
-      "id": "13980a5bc552a2176b675197c3a49e5936f03ad73ff30cd1e2a9f77f3152a46a",
+      "id": "ae96790d70a78eba3616ed53aea3df23a4d848fc636910f3354248679235aaaf",
       "path": "components/ui/alert-dialog.tsx",
       "kind": "source",
-      "url": "/docs-code/13980a5bc552a2176b675197c3a49e5936f03ad73ff30cd1e2a9f77f3152a46a.json",
+      "url": "/docs-code/ae96790d70a78eba3616ed53aea3df23a4d848fc636910f3354248679235aaaf.json",
       "lines": 61
     },
     {
@@ -1153,10 +1153,10 @@
   ],
   "hover-card": [
     {
-      "id": "f38a10c7f5008aeaebe240722aeb35e22c77b01ed2fae85dbdc606151bb44242",
+      "id": "4b2a6801d59cf7ea6605112c60c3dcf0dbb26f409b002f48b5ddef9df4159b4a",
       "path": "components/ui/hover-card.tsx",
       "kind": "source",
-      "url": "/docs-code/f38a10c7f5008aeaebe240722aeb35e22c77b01ed2fae85dbdc606151bb44242.json",
+      "url": "/docs-code/4b2a6801d59cf7ea6605112c60c3dcf0dbb26f409b002f48b5ddef9df4159b4a.json",
       "lines": 40
     },
     {
@@ -1169,10 +1169,10 @@
   ],
   "context-menu": [
     {
-      "id": "95bed1e056066e23d36d0b2a8941cb63a8f4d11a714843cd284ef7c1e8df9282",
+      "id": "e69f7577d50ba2ac95dfb0b3ddf8e02127126510d468a7ccd22035789d39df17",
       "path": "components/ui/context-menu.tsx",
       "kind": "source",
-      "url": "/docs-code/95bed1e056066e23d36d0b2a8941cb63a8f4d11a714843cd284ef7c1e8df9282.json",
+      "url": "/docs-code/e69f7577d50ba2ac95dfb0b3ddf8e02127126510d468a7ccd22035789d39df17.json",
       "lines": 37
     },
     {
@@ -1185,10 +1185,10 @@
   ],
   "skeleton": [
     {
-      "id": "74af622ed97c34fedf41d45df422085b96f7900c6630669a8a55bdb3a9533a81",
+      "id": "a74fc0c4baf3e346ac6ec2341994db6673eaeeb703e983e5ad1abbdbd2a5217e",
       "path": "components/ui/skeleton.tsx",
       "kind": "source",
-      "url": "/docs-code/74af622ed97c34fedf41d45df422085b96f7900c6630669a8a55bdb3a9533a81.json",
+      "url": "/docs-code/a74fc0c4baf3e346ac6ec2341994db6673eaeeb703e983e5ad1abbdbd2a5217e.json",
       "lines": 13
     },
     {
@@ -1201,10 +1201,10 @@
   ],
   "spinner": [
     {
-      "id": "dfca355642ff5cfc63261821dd9d5eefade603795fa9c5d85c7d9f4722245bcf",
+      "id": "12f14577d2715ec941d32ef51b570c8d067db3181e348ab1e77fd4d0896800a7",
       "path": "components/ui/spinner.tsx",
       "kind": "source",
-      "url": "/docs-code/dfca355642ff5cfc63261821dd9d5eefade603795fa9c5d85c7d9f4722245bcf.json",
+      "url": "/docs-code/12f14577d2715ec941d32ef51b570c8d067db3181e348ab1e77fd4d0896800a7.json",
       "lines": 30
     },
     {
@@ -1217,10 +1217,10 @@
   ],
   "empty": [
     {
-      "id": "e66f4e4c1704dfa665fdb6f4ac48f6b76eeca86358671558a3803fbe81b4ea4f",
+      "id": "178b08f392e97e00d0ad54b60b179d01bdb698350d9adf8ea2b79fc907ffb4c9",
       "path": "components/ui/empty.tsx",
       "kind": "source",
-      "url": "/docs-code/e66f4e4c1704dfa665fdb6f4ac48f6b76eeca86358671558a3803fbe81b4ea4f.json",
+      "url": "/docs-code/178b08f392e97e00d0ad54b60b179d01bdb698350d9adf8ea2b79fc907ffb4c9.json",
       "lines": 42
     },
     {
@@ -1233,10 +1233,10 @@
   ],
   "alert": [
     {
-      "id": "41ba9869a3cd97c3bbb479d05342796a2d04a3f353683be94529be51c3394042",
+      "id": "7754c8942de0f2c71ade986ecf03e011226db06d20d2ef7b264c5dee65fd3e36",
       "path": "components/ui/alert.tsx",
       "kind": "source",
-      "url": "/docs-code/41ba9869a3cd97c3bbb479d05342796a2d04a3f353683be94529be51c3394042.json",
+      "url": "/docs-code/7754c8942de0f2c71ade986ecf03e011226db06d20d2ef7b264c5dee65fd3e36.json",
       "lines": 40
     },
     {
@@ -1249,10 +1249,10 @@
   ],
   "progress": [
     {
-      "id": "81adc23386b575cb7fdb3f7a5dd4fdacba63179e24b33fcbf611aa8787643aa7",
+      "id": "fe42b64114821f82e53b31c725a16fd6e9b4f4de9eb6b788e4d1ef7b0cadae2d",
       "path": "components/ui/progress.tsx",
       "kind": "source",
-      "url": "/docs-code/81adc23386b575cb7fdb3f7a5dd4fdacba63179e24b33fcbf611aa8787643aa7.json",
+      "url": "/docs-code/fe42b64114821f82e53b31c725a16fd6e9b4f4de9eb6b788e4d1ef7b0cadae2d.json",
       "lines": 53
     },
     {
@@ -1265,10 +1265,10 @@
   ],
   "toast": [
     {
-      "id": "d29fbc3a6c6a64c753bd95400e625a684898085164ab5aafa04692418cca465e",
+      "id": "76418ddfc2c08d5c4e2b2a95898d0eb8cad1820786916bbab584a48929e094ef",
       "path": "components/ui/toast.tsx",
       "kind": "source",
-      "url": "/docs-code/d29fbc3a6c6a64c753bd95400e625a684898085164ab5aafa04692418cca465e.json",
+      "url": "/docs-code/76418ddfc2c08d5c4e2b2a95898d0eb8cad1820786916bbab584a48929e094ef.json",
       "lines": 61
     },
     {
@@ -1297,10 +1297,10 @@
   ],
   "date-calendar": [
     {
-      "id": "6c9c45ec2e9ebd3d22f22e95fabaf4bd9212c6f51c8f90e04ec441a5c0359d80",
+      "id": "4b7823dc9532d4d3c4ad0df007d0e6d026a522f80d35fc511a4187ca9dd4cdeb",
       "path": "components/ui/date-calendar.tsx",
       "kind": "source",
-      "url": "/docs-code/6c9c45ec2e9ebd3d22f22e95fabaf4bd9212c6f51c8f90e04ec441a5c0359d80.json",
+      "url": "/docs-code/4b7823dc9532d4d3c4ad0df007d0e6d026a522f80d35fc511a4187ca9dd4cdeb.json",
       "lines": 287
     },
     {
@@ -1313,10 +1313,10 @@
   ],
   "date-picker": [
     {
-      "id": "8b63f337e7ca550e8916d9d5c871a24f4bf226e73a97f2d31297b38a4890eda2",
+      "id": "ed77c11eb0ea99169ae3aca93c6141a431428fd1f08c64ea06f7f0152df54062",
       "path": "components/ui/date-picker.tsx",
       "kind": "source",
-      "url": "/docs-code/8b63f337e7ca550e8916d9d5c871a24f4bf226e73a97f2d31297b38a4890eda2.json",
+      "url": "/docs-code/ed77c11eb0ea99169ae3aca93c6141a431428fd1f08c64ea06f7f0152df54062.json",
       "lines": 73
     },
     {
@@ -1329,10 +1329,10 @@
   ],
   "pagination": [
     {
-      "id": "baa6820b64f677632310ef0e37a55f9401bc4bdc7b9232331b4c7d602557f4b5",
+      "id": "49a1af241463bd4ba02cd728988e91fc0f4debaee2ecd719b71b5882077a9fe0",
       "path": "components/ui/pagination.tsx",
       "kind": "source",
-      "url": "/docs-code/baa6820b64f677632310ef0e37a55f9401bc4bdc7b9232331b4c7d602557f4b5.json",
+      "url": "/docs-code/49a1af241463bd4ba02cd728988e91fc0f4debaee2ecd719b71b5882077a9fe0.json",
       "lines": 79
     },
     {
@@ -1345,10 +1345,10 @@
   ],
   "breadcrumb": [
     {
-      "id": "b9f4d2ba417a07ddc86104e5a0c0dc1d9a538f2806b76bae69364c3f98d02394",
+      "id": "18e40dcaaa5cb1f37df3a52104c19367a7d0a3c6d5fa2b64f89a26a4ea25d1f7",
       "path": "components/ui/breadcrumb.tsx",
       "kind": "source",
-      "url": "/docs-code/b9f4d2ba417a07ddc86104e5a0c0dc1d9a538f2806b76bae69364c3f98d02394.json",
+      "url": "/docs-code/18e40dcaaa5cb1f37df3a52104c19367a7d0a3c6d5fa2b64f89a26a4ea25d1f7.json",
       "lines": 61
     },
     {
@@ -1361,10 +1361,10 @@
   ],
   "menubar": [
     {
-      "id": "e87809a69184c767f3d02b581f4c218c2ec974a6239637387c6720d34756afbb",
+      "id": "328cd39e0887b9f9da2ca44693f0c8da24bcbb80bedfa9b80f3d513d48cc45e3",
       "path": "components/ui/menubar.tsx",
       "kind": "source",
-      "url": "/docs-code/e87809a69184c767f3d02b581f4c218c2ec974a6239637387c6720d34756afbb.json",
+      "url": "/docs-code/328cd39e0887b9f9da2ca44693f0c8da24bcbb80bedfa9b80f3d513d48cc45e3.json",
       "lines": 30
     },
     {
@@ -1377,10 +1377,10 @@
   ],
   "navigation-menu": [
     {
-      "id": "5b196499e4b17da8110e67d6e748482647c0596d81215e197688ae809941a3d2",
+      "id": "083c36e5c94d7d31a868196ec9ee1679d5ebb8cd002c5d1a1f9f76cb3a20055a",
       "path": "components/ui/navigation-menu.tsx",
       "kind": "source",
-      "url": "/docs-code/5b196499e4b17da8110e67d6e748482647c0596d81215e197688ae809941a3d2.json",
+      "url": "/docs-code/083c36e5c94d7d31a868196ec9ee1679d5ebb8cd002c5d1a1f9f76cb3a20055a.json",
       "lines": 73
     },
     {
@@ -1409,10 +1409,10 @@
   ],
   "attachment": [
     {
-      "id": "0a38e8e1a4a5feba7ec7c3bcc808cd0215fce19e70c9db49995d6a8ab308a3ab",
+      "id": "ca59bdfaeb3b88d7300785fd84ca12f678b11fa66ac5c401e28eb3241b1a7839",
       "path": "components/ui/attachment.tsx",
       "kind": "source",
-      "url": "/docs-code/0a38e8e1a4a5feba7ec7c3bcc808cd0215fce19e70c9db49995d6a8ab308a3ab.json",
+      "url": "/docs-code/ca59bdfaeb3b88d7300785fd84ca12f678b11fa66ac5c401e28eb3241b1a7839.json",
       "lines": 62
     },
     {
@@ -1425,10 +1425,10 @@
   ],
   "marker": [
     {
-      "id": "a6a6ee93f2f22d308cc920ea0878ec25769797d52d3cc60c466efda50aa54ded",
+      "id": "e9aaadeee81e4c26ac3c3d197fcdd6014b4b88065a28536902e2618abd0d9fd9",
       "path": "components/ui/marker.tsx",
       "kind": "source",
-      "url": "/docs-code/a6a6ee93f2f22d308cc920ea0878ec25769797d52d3cc60c466efda50aa54ded.json",
+      "url": "/docs-code/e9aaadeee81e4c26ac3c3d197fcdd6014b4b88065a28536902e2618abd0d9fd9.json",
       "lines": 37
     },
     {
@@ -1441,10 +1441,10 @@
   ],
   "questionnaire": [
     {
-      "id": "500dcfc4ff1cede4bcd4153d0715ca30f902c33ed99a6a2f7550cd0880107dab",
+      "id": "dd72cb78aca9c92672e79fa42033dfd7ef8e675266da761e33542de227b779ee",
       "path": "components/blocks/questionnaire.tsx",
       "kind": "source",
-      "url": "/docs-code/500dcfc4ff1cede4bcd4153d0715ca30f902c33ed99a6a2f7550cd0880107dab.json",
+      "url": "/docs-code/dd72cb78aca9c92672e79fa42033dfd7ef8e675266da761e33542de227b779ee.json",
       "lines": 281
     },
     {
@@ -1457,10 +1457,10 @@
   ],
   "bubble": [
     {
-      "id": "965fe74608695868d3a51a413e59e1bffb037643b52eb3a27415f398e5bee57e",
+      "id": "46e3888013dc4af1117477c49b02bf9ea687972671d3babd324160cfff822062",
       "path": "components/ui/bubble.tsx",
       "kind": "source",
-      "url": "/docs-code/965fe74608695868d3a51a413e59e1bffb037643b52eb3a27415f398e5bee57e.json",
+      "url": "/docs-code/46e3888013dc4af1117477c49b02bf9ea687972671d3babd324160cfff822062.json",
       "lines": 32
     },
     {
@@ -1473,10 +1473,10 @@
   ],
   "card": [
     {
-      "id": "6c403ae8376dc5ecea4d4128eac16532024270d2c55859cd27f3d620116a70bd",
+      "id": "535c058b20faec879be1dad3d0aa71d1505b15b21a5a1bda5bd653d5d786e200",
       "path": "components/ui/card.tsx",
       "kind": "source",
-      "url": "/docs-code/6c403ae8376dc5ecea4d4128eac16532024270d2c55859cd27f3d620116a70bd.json",
+      "url": "/docs-code/535c058b20faec879be1dad3d0aa71d1505b15b21a5a1bda5bd653d5d786e200.json",
       "lines": 45
     },
     {
@@ -1489,10 +1489,10 @@
   ],
   "aspect-ratio": [
     {
-      "id": "768cda75b472f678f08a6495b75afcb2ebaef1602c73a779a85e2b885d38172e",
+      "id": "bb174a6ba5cfb83a09b8b344a3af70ae2a769ab64815edebfb8c218d5a9cb6ff",
       "path": "components/ui/aspect-ratio.tsx",
       "kind": "source",
-      "url": "/docs-code/768cda75b472f678f08a6495b75afcb2ebaef1602c73a779a85e2b885d38172e.json",
+      "url": "/docs-code/bb174a6ba5cfb83a09b8b344a3af70ae2a769ab64815edebfb8c218d5a9cb6ff.json",
       "lines": 21
     },
     {
@@ -1505,10 +1505,10 @@
   ],
   "carousel": [
     {
-      "id": "f8d08ae0eaeed82e990dd390a4474abfcc2257da4f84d201373a39dc51fd81ac",
+      "id": "352cf8033f0ed6e7aff40ce0cc3121712044b6a543253bb61c6ac779a231e670",
       "path": "components/ui/carousel.tsx",
       "kind": "source",
-      "url": "/docs-code/f8d08ae0eaeed82e990dd390a4474abfcc2257da4f84d201373a39dc51fd81ac.json",
+      "url": "/docs-code/352cf8033f0ed6e7aff40ce0cc3121712044b6a543253bb61c6ac779a231e670.json",
       "lines": 164
     },
     {
@@ -1521,10 +1521,10 @@
   ],
   "chart": [
     {
-      "id": "4144a88b3b3d7305d1337baf7ad16d698639ae34eddbffa72cf5fedc65c3eb6a",
+      "id": "58a5ad564f492f95490107f41663f47c0eb16e02f6585d0eef50e996a3774d5e",
       "path": "components/blocks/chart.tsx",
       "kind": "source",
-      "url": "/docs-code/4144a88b3b3d7305d1337baf7ad16d698639ae34eddbffa72cf5fedc65c3eb6a.json",
+      "url": "/docs-code/58a5ad564f492f95490107f41663f47c0eb16e02f6585d0eef50e996a3774d5e.json",
       "lines": 184
     },
     {
@@ -1537,10 +1537,10 @@
   ],
   "form": [
     {
-      "id": "4d0897df4293fe4789a683c6bea0461b53b0489adb8efaae7c4c2dce5bceffce",
+      "id": "912ee914293defe20c5b431ecf1e4517cbdfa27ee03d721e084fa05d7c553cb8",
       "path": "components/ui/form.tsx",
       "kind": "source",
-      "url": "/docs-code/4d0897df4293fe4789a683c6bea0461b53b0489adb8efaae7c4c2dce5bceffce.json",
+      "url": "/docs-code/912ee914293defe20c5b431ecf1e4517cbdfa27ee03d721e084fa05d7c553cb8.json",
       "lines": 8
     },
     {
@@ -1553,10 +1553,10 @@
   ],
   "sidebar": [
     {
-      "id": "a51f200bc96bf6a1c5862b08cc6e94d90361db4e9fb7b3d8ee4c8acac4776bd3",
+      "id": "c6a0d126a7ef75bbada7ce319adf368dcc25d2a305f5b152dd9a432c5d6c778a",
       "path": "components/blocks/sidebar.tsx",
       "kind": "source",
-      "url": "/docs-code/a51f200bc96bf6a1c5862b08cc6e94d90361db4e9fb7b3d8ee4c8acac4776bd3.json",
+      "url": "/docs-code/c6a0d126a7ef75bbada7ce319adf368dcc25d2a305f5b152dd9a432c5d6c778a.json",
       "lines": 149
     },
     {
@@ -1569,10 +1569,10 @@
   ],
   "resizable": [
     {
-      "id": "823f49a5c7c4a7a956591c8d1752c6e40078a15f0b1719da6093689699fbca79",
+      "id": "7febe3b5eaad172670b82ee9fc86acb4076e37f99b71c4ab4e30ee568d035110",
       "path": "components/ui/resizable.tsx",
       "kind": "source",
-      "url": "/docs-code/823f49a5c7c4a7a956591c8d1752c6e40078a15f0b1719da6093689699fbca79.json",
+      "url": "/docs-code/7febe3b5eaad172670b82ee9fc86acb4076e37f99b71c4ab4e30ee568d035110.json",
       "lines": 221
     },
     {
@@ -1585,10 +1585,10 @@
   ],
   "scroll-area": [
     {
-      "id": "e51c2ddbd83030556658f2f0fe51d7e267cca7a0a52b4f125102effdf866731d",
+      "id": "0ed8f35dbd892a145f71665a27b16a781fd4fa279f31fa57fd02f9e34e76bd4e",
       "path": "components/ui/scroll-area.tsx",
       "kind": "source",
-      "url": "/docs-code/e51c2ddbd83030556658f2f0fe51d7e267cca7a0a52b4f125102effdf866731d.json",
+      "url": "/docs-code/0ed8f35dbd892a145f71665a27b16a781fd4fa279f31fa57fd02f9e34e76bd4e.json",
       "lines": 34
     },
     {
@@ -1617,10 +1617,10 @@
   ],
   "drawer": [
     {
-      "id": "2fb749075a25c9befe213b0f714469fa938d9201e8611e4fd40bd7a7caf0aad8",
+      "id": "e8864b176a862bb2ade5b94133c6e5aef3e447f924400bda5433d473dac0c559",
       "path": "components/ui/drawer.tsx",
       "kind": "source",
-      "url": "/docs-code/2fb749075a25c9befe213b0f714469fa938d9201e8611e4fd40bd7a7caf0aad8.json",
+      "url": "/docs-code/e8864b176a862bb2ade5b94133c6e5aef3e447f924400bda5433d473dac0c559.json",
       "lines": 102
     },
     {
@@ -1633,10 +1633,10 @@
   ],
   "textarea": [
     {
-      "id": "bffb2e39c7f0dfbf143a25e29419998e8eba4d573a9dc3b6e0feb44fe334a75e",
+      "id": "15a560d85596f58ce78fb2b5c6f128e3fca4288e51f8296c727e273669b434f7",
       "path": "components/ui/textarea.tsx",
       "kind": "source",
-      "url": "/docs-code/bffb2e39c7f0dfbf143a25e29419998e8eba4d573a9dc3b6e0feb44fe334a75e.json",
+      "url": "/docs-code/15a560d85596f58ce78fb2b5c6f128e3fca4288e51f8296c727e273669b434f7.json",
       "lines": 18
     },
     {
@@ -1649,10 +1649,10 @@
   ],
   "label": [
     {
-      "id": "18cb87bcbf388f7c2bf7c09b5769dfa95d3dc000821fb8695130f5e2dc8119d5",
+      "id": "ccf6f9db8d5adb8c76a468d83a4daa7b5f0e01b31e1b68d1d48ae906cdd4ebc8",
       "path": "components/ui/label.tsx",
       "kind": "source",
-      "url": "/docs-code/18cb87bcbf388f7c2bf7c09b5769dfa95d3dc000821fb8695130f5e2dc8119d5.json",
+      "url": "/docs-code/ccf6f9db8d5adb8c76a468d83a4daa7b5f0e01b31e1b68d1d48ae906cdd4ebc8.json",
       "lines": 17
     },
     {
@@ -1665,10 +1665,10 @@
   ],
   "native-select": [
     {
-      "id": "b1f85ea827b1d3a6ba2a79e36737e50b212c893cb2d75078b015c6ea60983c33",
+      "id": "bf854430009750983d87f01865d0f4431dbb471b787c036cae13d04f9fe3b2e6",
       "path": "components/ui/native-select.tsx",
       "kind": "source",
-      "url": "/docs-code/b1f85ea827b1d3a6ba2a79e36737e50b212c893cb2d75078b015c6ea60983c33.json",
+      "url": "/docs-code/bf854430009750983d87f01865d0f4431dbb471b787c036cae13d04f9fe3b2e6.json",
       "lines": 35
     },
     {
@@ -1681,10 +1681,10 @@
   ],
   "switch": [
     {
-      "id": "062a309ae2bd2d4fd96faac3b8a5274e9ad9c4e1b973fe6aeb36a74490de011f",
+      "id": "5b2137e157882d9b1e7d6eaa9e3f7361f5fa5d67aa03ed45373268022b900fcd",
       "path": "components/ui/switch.tsx",
       "kind": "source",
-      "url": "/docs-code/062a309ae2bd2d4fd96faac3b8a5274e9ad9c4e1b973fe6aeb36a74490de011f.json",
+      "url": "/docs-code/5b2137e157882d9b1e7d6eaa9e3f7361f5fa5d67aa03ed45373268022b900fcd.json",
       "lines": 28
     },
     {
@@ -1697,10 +1697,10 @@
   ],
   "radio-group": [
     {
-      "id": "0712d90d016b805f21ac4e35af29fd4de553f2a00a19f1b893dda1577506442f",
+      "id": "21fc1c5b95094392da202125da8bec0afe351e4e043bb0e74b17d9bdc0d97688",
       "path": "components/ui/radio-group.tsx",
       "kind": "source",
-      "url": "/docs-code/0712d90d016b805f21ac4e35af29fd4de553f2a00a19f1b893dda1577506442f.json",
+      "url": "/docs-code/21fc1c5b95094392da202125da8bec0afe351e4e043bb0e74b17d9bdc0d97688.json",
       "lines": 45
     },
     {
@@ -1713,10 +1713,10 @@
   ],
   "checkbox": [
     {
-      "id": "27a134a8405fb02c5eeda38f8eb895f1e94b4b76e69e4e5432a77784d683031c",
+      "id": "9d6e604017ef566be8ce4e3b0ef4ce9bb2eeb95b9c60050366a323000c7d3db0",
       "path": "components/ui/checkbox.tsx",
       "kind": "source",
-      "url": "/docs-code/27a134a8405fb02c5eeda38f8eb895f1e94b4b76e69e4e5432a77784d683031c.json",
+      "url": "/docs-code/9d6e604017ef566be8ce4e3b0ef4ce9bb2eeb95b9c60050366a323000c7d3db0.json",
       "lines": 34
     },
     {
@@ -1729,10 +1729,10 @@
   ],
   "table": [
     {
-      "id": "424216401d4269369a04fcca1dbfb7e8d8cb004848048ebd09155fa36b16747a",
+      "id": "a9d35ba7830de4760b6f895a3306083d0cd67262ecbcfb55f05cb2346564249c",
       "path": "components/ui/table.tsx",
       "kind": "source",
-      "url": "/docs-code/424216401d4269369a04fcca1dbfb7e8d8cb004848048ebd09155fa36b16747a.json",
+      "url": "/docs-code/a9d35ba7830de4760b6f895a3306083d0cd67262ecbcfb55f05cb2346564249c.json",
       "lines": 78
     },
     {
@@ -1745,10 +1745,10 @@
   ],
   "data-table": [
     {
-      "id": "aa8d5d123154612b5a277fe29b469c1c726c0c4a3f2b3da293ba0b9b0009c681",
+      "id": "ee858551ee1eeb93435e41657cd76bf3528348468251f082c89b819baccc8402",
       "path": "components/blocks/data-table.tsx",
       "kind": "source",
-      "url": "/docs-code/aa8d5d123154612b5a277fe29b469c1c726c0c4a3f2b3da293ba0b9b0009c681.json",
+      "url": "/docs-code/ee858551ee1eeb93435e41657cd76bf3528348468251f082c89b819baccc8402.json",
       "lines": 269
     },
     {
@@ -1768,10 +1768,10 @@
   ],
   "avatar": [
     {
-      "id": "817dfdfcda7ffb5e82b1a78299d51dfb5b1fc2d0a6546640eff129f7eccdb8a4",
+      "id": "6441a7f368018f973994b91799daa2b245f4df81b98208be5bc4961f43a00992",
       "path": "components/ui/avatar.tsx",
       "kind": "source",
-      "url": "/docs-code/817dfdfcda7ffb5e82b1a78299d51dfb5b1fc2d0a6546640eff129f7eccdb8a4.json",
+      "url": "/docs-code/6441a7f368018f973994b91799daa2b245f4df81b98208be5bc4961f43a00992.json",
       "lines": 74
     },
     {
@@ -1784,10 +1784,10 @@
   ],
   "segment-bar": [
     {
-      "id": "913021e0e992b5eebd796289bca7262c60fdc7954fdcff4583a7b9951af94593",
+      "id": "57cf34961d6adb162367390423af59b678df447e0c68b4a2b3e333132ed8df63",
       "path": "components/ui/segment-bar.tsx",
       "kind": "source",
-      "url": "/docs-code/913021e0e992b5eebd796289bca7262c60fdc7954fdcff4583a7b9951af94593.json",
+      "url": "/docs-code/57cf34961d6adb162367390423af59b678df447e0c68b4a2b3e333132ed8df63.json",
       "lines": 70
     },
     {
@@ -1800,10 +1800,10 @@
   ],
   "sparkline": [
     {
-      "id": "835085460869d7dbeb9c931377ccdf6044afdd4925fda336f84fc5f67baa8f78",
+      "id": "d9c0044687c8ebc944c16c7d269ac6264ae9d6965980a7f9e5c51b5d7bb96499",
       "path": "components/ui/sparkline.tsx",
       "kind": "source",
-      "url": "/docs-code/835085460869d7dbeb9c931377ccdf6044afdd4925fda336f84fc5f67baa8f78.json",
+      "url": "/docs-code/d9c0044687c8ebc944c16c7d269ac6264ae9d6965980a7f9e5c51b5d7bb96499.json",
       "lines": 72
     },
     {
@@ -1816,10 +1816,10 @@
   ],
   "dropdown-menu": [
     {
-      "id": "202f7b20d5e4b735cc7c5525faeeaf170fd117f2da23657f1f1cd84540649fd9",
+      "id": "f62dc2e93b40ffb4be49c6dbd1bcc280dbbcd7f1e9ebdeaaff905a915d9e2e47",
       "path": "components/ui/dropdown-menu.tsx",
       "kind": "source",
-      "url": "/docs-code/202f7b20d5e4b735cc7c5525faeeaf170fd117f2da23657f1f1cd84540649fd9.json",
+      "url": "/docs-code/f62dc2e93b40ffb4be49c6dbd1bcc280dbbcd7f1e9ebdeaaff905a915d9e2e47.json",
       "lines": 51
     },
     {
@@ -1832,10 +1832,10 @@
   ],
   "sheet": [
     {
-      "id": "d2ba8a572a2363ef193dcf66901af00f7a0ca62fab33778eaa88f0860dda859d",
+      "id": "27adbc557fa38516f7b57859c8d95a299fd16df910690a829f4c77bcb4c0acc0",
       "path": "components/ui/sheet.tsx",
       "kind": "source",
-      "url": "/docs-code/d2ba8a572a2363ef193dcf66901af00f7a0ca62fab33778eaa88f0860dda859d.json",
+      "url": "/docs-code/27adbc557fa38516f7b57859c8d95a299fd16df910690a829f4c77bcb4c0acc0.json",
       "lines": 102
     },
     {
@@ -1855,10 +1855,10 @@
   ],
   "command-palette": [
     {
-      "id": "954dfcead6a3dfcb65fa6f9b26c4f75ef9a82bce6d31b4313023d9ddeea6dd3c",
+      "id": "1883e5b15a6433fc565e73a6d602b817b0bfa96246a02c3339c204e215ba72cb",
       "path": "components/blocks/command-palette.tsx",
       "kind": "source",
-      "url": "/docs-code/954dfcead6a3dfcb65fa6f9b26c4f75ef9a82bce6d31b4313023d9ddeea6dd3c.json",
+      "url": "/docs-code/1883e5b15a6433fc565e73a6d602b817b0bfa96246a02c3339c204e215ba72cb.json",
       "lines": 304
     },
     {
@@ -1871,10 +1871,10 @@
   ],
   "kbd": [
     {
-      "id": "48fa07e5d05d6e7961ad95b79b071c37b2152ab1cca0d61162a7afee6d851c2b",
+      "id": "b456045555bbceb64396d15a169097f62af9d645e532d0f684311278708af2b5",
       "path": "components/ui/kbd.tsx",
       "kind": "source",
-      "url": "/docs-code/48fa07e5d05d6e7961ad95b79b071c37b2152ab1cca0d61162a7afee6d851c2b.json",
+      "url": "/docs-code/b456045555bbceb64396d15a169097f62af9d645e532d0f684311278708af2b5.json",
       "lines": 14
     },
     {
@@ -1903,10 +1903,10 @@
   ],
   "form-section": [
     {
-      "id": "410a288c5e4bd238a0e9967f01dffedb165e2fd1aaedc640ebd7e76bc7ec302b",
+      "id": "2a52f43c720ce2e1995b0044d10f9802b0f1e9f2391133023fc85c5b9b08619d",
       "path": "components/blocks/form-section.tsx",
       "kind": "source",
-      "url": "/docs-code/410a288c5e4bd238a0e9967f01dffedb165e2fd1aaedc640ebd7e76bc7ec302b.json",
+      "url": "/docs-code/2a52f43c720ce2e1995b0044d10f9802b0f1e9f2391133023fc85c5b9b08619d.json",
       "lines": 30
     },
     {
@@ -1935,10 +1935,10 @@
   ],
   "image-upload": [
     {
-      "id": "c9ca554ddfa00e6e75cf15f74fb5230f1ae9a302e0f2620e1f7a3ecde9378ece",
+      "id": "a11315a1a5f0045e717601d80c263d9347eac3efec7983a349a476c570e72726",
       "path": "components/blocks/image-upload.tsx",
       "kind": "source",
-      "url": "/docs-code/c9ca554ddfa00e6e75cf15f74fb5230f1ae9a302e0f2620e1f7a3ecde9378ece.json",
+      "url": "/docs-code/a11315a1a5f0045e717601d80c263d9347eac3efec7983a349a476c570e72726.json",
       "lines": 237
     },
     {
@@ -1951,10 +1951,10 @@
   ],
   "filter-toolbar": [
     {
-      "id": "5264152a4e722b0389bd144c6bc837947132d6baf75f9fc91ffa08862bc2c9cb",
+      "id": "916528df42a9570dc40878c93cdeecfccaada45f8c4fc4242a0e05c62b22137b",
       "path": "components/blocks/filter-toolbar.tsx",
       "kind": "source",
-      "url": "/docs-code/5264152a4e722b0389bd144c6bc837947132d6baf75f9fc91ffa08862bc2c9cb.json",
+      "url": "/docs-code/916528df42a9570dc40878c93cdeecfccaada45f8c4fc4242a0e05c62b22137b.json",
       "lines": 83
     },
     {
@@ -1983,10 +1983,10 @@
   ],
   "rating-display": [
     {
-      "id": "6b48e4701888c7143fedfb17d939b69c10e6ddd769063441d3c749bee8e2990c",
+      "id": "68062c60a365ae68c0dfa72a6765358cac3900384941798fbd9f1036e46c52f0",
       "path": "components/ui/rating-display.tsx",
       "kind": "source",
-      "url": "/docs-code/6b48e4701888c7143fedfb17d939b69c10e6ddd769063441d3c749bee8e2990c.json",
+      "url": "/docs-code/68062c60a365ae68c0dfa72a6765358cac3900384941798fbd9f1036e46c52f0.json",
       "lines": 51
     },
     {
@@ -1999,10 +1999,10 @@
   ],
   "menu": [
     {
-      "id": "911395d9f3c975018a085864b8d23961261bdd8c15e5763eb0bb7fb59618f5ab",
+      "id": "7c18717555f89fb35870ebec4806d36ae27914bf2b499e20d39b957f8a6f3bcb",
       "path": "components/ui/menu.tsx",
       "kind": "source",
-      "url": "/docs-code/911395d9f3c975018a085864b8d23961261bdd8c15e5763eb0bb7fb59618f5ab.json",
+      "url": "/docs-code/7c18717555f89fb35870ebec4806d36ae27914bf2b499e20d39b957f8a6f3bcb.json",
       "lines": 56
     },
     {
@@ -2015,10 +2015,10 @@
   ],
   "popover": [
     {
-      "id": "318c40f7b7712337beb42d6029c9603abd636b3783dbf60f6621b536f9185361",
+      "id": "94ab7bbdcdb36c908219f075e27cd5cabf6290754a124e5b9df6983d8bcb74bc",
       "path": "components/ui/popover.tsx",
       "kind": "source",
-      "url": "/docs-code/318c40f7b7712337beb42d6029c9603abd636b3783dbf60f6621b536f9185361.json",
+      "url": "/docs-code/94ab7bbdcdb36c908219f075e27cd5cabf6290754a124e5b9df6983d8bcb74bc.json",
       "lines": 76
     },
     {
@@ -2031,10 +2031,10 @@
   ],
   "select": [
     {
-      "id": "92944f50c8499a4753f3b032a9fa9cd0148e4c94ffc3cf23c1c9b87ce9d38b63",
+      "id": "ec5c243c3be19410d5045203890c65100b6aa789a7ee5932ffa94e563fe86fbf",
       "path": "components/ui/select.tsx",
       "kind": "source",
-      "url": "/docs-code/92944f50c8499a4753f3b032a9fa9cd0148e4c94ffc3cf23c1c9b87ce9d38b63.json",
+      "url": "/docs-code/ec5c243c3be19410d5045203890c65100b6aa789a7ee5932ffa94e563fe86fbf.json",
       "lines": 97
     },
     {
@@ -2047,10 +2047,10 @@
   ],
   "combobox": [
     {
-      "id": "6d0c4872add53a8c87d9c48f96f47376aef0695302d29d94fca52ae301b2a64c",
+      "id": "8bd91dc21877b7df30ca6d32e942f3be5ec4fe7191f01964c20ce5d2ead13f5a",
       "path": "components/ui/combobox.tsx",
       "kind": "source",
-      "url": "/docs-code/6d0c4872add53a8c87d9c48f96f47376aef0695302d29d94fca52ae301b2a64c.json",
+      "url": "/docs-code/8bd91dc21877b7df30ca6d32e942f3be5ec4fe7191f01964c20ce5d2ead13f5a.json",
       "lines": 77
     },
     {
@@ -2063,10 +2063,10 @@
   ],
   "segmented": [
     {
-      "id": "289583ee1f630770f57ea0c9cf8298027072a92a282f4a6e309bb1d74adda8a9",
+      "id": "e5d87552218622dab9064574de19105a53bbc2f67226b8fc76892f1c65445dc3",
       "path": "components/ui/segmented.tsx",
       "kind": "source",
-      "url": "/docs-code/289583ee1f630770f57ea0c9cf8298027072a92a282f4a6e309bb1d74adda8a9.json",
+      "url": "/docs-code/e5d87552218622dab9064574de19105a53bbc2f67226b8fc76892f1c65445dc3.json",
       "lines": 33
     },
     {
@@ -2079,10 +2079,10 @@
   ],
   "tabs": [
     {
-      "id": "2dee9fef1b9834cccd1fb623e4fe411254e99eba8d0127cc1fa434b117d72bbc",
+      "id": "6aa41e60dd45105d5f174dccc433dbdac6d9ebed55b75ec5604082852ec50434",
       "path": "components/ui/tabs.tsx",
       "kind": "source",
-      "url": "/docs-code/2dee9fef1b9834cccd1fb623e4fe411254e99eba8d0127cc1fa434b117d72bbc.json",
+      "url": "/docs-code/6aa41e60dd45105d5f174dccc433dbdac6d9ebed55b75ec5604082852ec50434.json",
       "lines": 44
     },
     {
@@ -2148,10 +2148,10 @@
   ],
   "canvas-service-panel": [
     {
-      "id": "4394f642098509a3b5a2e4312253318a784d8c6c4f3b4c67c63001f2dca745c2",
+      "id": "41a72be0dcf7291cd8eccea8f8eda3b57036b54993d266dc75566eecf5b9fca8",
       "path": "components/blocks/canvas-service-panel.tsx",
       "kind": "source",
-      "url": "/docs-code/4394f642098509a3b5a2e4312253318a784d8c6c4f3b4c67c63001f2dca745c2.json",
+      "url": "/docs-code/41a72be0dcf7291cd8eccea8f8eda3b57036b54993d266dc75566eecf5b9fca8.json",
       "lines": 447
     },
     {
@@ -2162,26 +2162,26 @@
       "lines": 213
     },
     {
-      "id": "40c467e0dd9f7a5a9173b5de3b9fad93f13afb8d49fcd35ddc0068adc3a8b10d",
+      "id": "8da01108cf2d7b5f49859b9b1a471db7a9ef709d477e25ac2ebafcb878cba3d4",
       "path": "lib/canvas-services.ts",
       "kind": "related",
-      "url": "/docs-code/40c467e0dd9f7a5a9173b5de3b9fad93f13afb8d49fcd35ddc0068adc3a8b10d.json",
+      "url": "/docs-code/8da01108cf2d7b5f49859b9b1a471db7a9ef709d477e25ac2ebafcb878cba3d4.json",
       "lines": 305
     },
     {
-      "id": "60e91a4142be05119f1ed8242f74bead4388cb39c8b608c4aad543668faa80af",
+      "id": "4ec8a32965bb239782e4bb92757bed53ed234528232bd452c8732eca043b457f",
       "path": "lib/use-canvas-persistence.ts",
       "kind": "related",
-      "url": "/docs-code/60e91a4142be05119f1ed8242f74bead4388cb39c8b608c4aad543668faa80af.json",
+      "url": "/docs-code/4ec8a32965bb239782e4bb92757bed53ed234528232bd452c8732eca043b457f.json",
       "lines": 40
     }
   ],
   "canvas-project-workspace": [
     {
-      "id": "d90a55bcd45acbe0343f85059db9037f05dff98d5c847268cf493910dbb06560",
+      "id": "3ff9c86b29db0b2303c50496a435245480888ff203cd4a1e38c0e8d04b67c4a0",
       "path": "components/blocks/canvas-project-workspace.tsx",
       "kind": "source",
-      "url": "/docs-code/d90a55bcd45acbe0343f85059db9037f05dff98d5c847268cf493910dbb06560.json",
+      "url": "/docs-code/3ff9c86b29db0b2303c50496a435245480888ff203cd4a1e38c0e8d04b67c4a0.json",
       "lines": 343
     },
     {
@@ -2192,19 +2192,19 @@
       "lines": 21
     },
     {
-      "id": "27d0ee3eae78430145f7586e600839c4bedc822de6c01ce17b6b0fd5aa709dae",
+      "id": "902046e520d6f25fc4b889a89eceb3fbb3252e7e82e6ac1ee533a18feb87870b",
       "path": "lib/canvas-project.ts",
       "kind": "related",
-      "url": "/docs-code/27d0ee3eae78430145f7586e600839c4bedc822de6c01ce17b6b0fd5aa709dae.json",
+      "url": "/docs-code/902046e520d6f25fc4b889a89eceb3fbb3252e7e82e6ac1ee533a18feb87870b.json",
       "lines": 419
     }
   ],
   "canvas-config-editor": [
     {
-      "id": "8c53e10fdb49c7d2a699faa9b684530e11df6e21deedc7aae2aae6517e8f3d70",
+      "id": "06592d0009424a4dceeb19a771c49ef1c182a5f7f7f001c4aff4323417615a05",
       "path": "components/blocks/canvas-config-editor.tsx",
       "kind": "source",
-      "url": "/docs-code/8c53e10fdb49c7d2a699faa9b684530e11df6e21deedc7aae2aae6517e8f3d70.json",
+      "url": "/docs-code/06592d0009424a4dceeb19a771c49ef1c182a5f7f7f001c4aff4323417615a05.json",
       "lines": 404
     },
     {
@@ -2215,19 +2215,19 @@
       "lines": 21
     },
     {
-      "id": "4573297e224ca7b6fbde182333446bd4a2554ae82c06bc49db76393ded2bc3c7",
+      "id": "0e84d2c997fd55b009414be13833519fd12114f312ebe2348b3649c668c1a1a8",
       "path": "lib/canvas-config.ts",
       "kind": "related",
-      "url": "/docs-code/4573297e224ca7b6fbde182333446bd4a2554ae82c06bc49db76393ded2bc3c7.json",
+      "url": "/docs-code/0e84d2c997fd55b009414be13833519fd12114f312ebe2348b3649c668c1a1a8.json",
       "lines": 88
     }
   ],
   "canvas-execution-panel": [
     {
-      "id": "0574ff8a69114e3020ee6e3de97e560a52839952522330931775911332a88275",
+      "id": "de055476ba55cf4256bbcf0ff87651616c407ef57f7c42838b7655fb454282fb",
       "path": "components/blocks/canvas-execution-panel.tsx",
       "kind": "source",
-      "url": "/docs-code/0574ff8a69114e3020ee6e3de97e560a52839952522330931775911332a88275.json",
+      "url": "/docs-code/de055476ba55cf4256bbcf0ff87651616c407ef57f7c42838b7655fb454282fb.json",
       "lines": 406
     },
     {
@@ -2238,17 +2238,17 @@
       "lines": 278
     },
     {
-      "id": "8e63922585d4a12c0fb1b65dbe6e1427134fabf85f44bc928ef652f9cc1e3010",
+      "id": "45d6ccb5e9c06c9412091ef680bf9fa4122bb535c067de108fa0a3ff02377f8a",
       "path": "lib/canvas-runtime.ts",
       "kind": "related",
-      "url": "/docs-code/8e63922585d4a12c0fb1b65dbe6e1427134fabf85f44bc928ef652f9cc1e3010.json",
+      "url": "/docs-code/45d6ccb5e9c06c9412091ef680bf9fa4122bb535c067de108fa0a3ff02377f8a.json",
       "lines": 206
     },
     {
-      "id": "e6443d2ad0d78791b1326636c95958e6f660c5e12f21051288d37a71ea13715d",
+      "id": "25a2b1d1dd0c52e02b0fd92ba586b7fc90c280fc68e44d97a2dd4f4ccbef55c7",
       "path": "lib/use-canvas-runtime.ts",
       "kind": "related",
-      "url": "/docs-code/e6443d2ad0d78791b1326636c95958e6f660c5e12f21051288d37a71ea13715d.json",
+      "url": "/docs-code/25a2b1d1dd0c52e02b0fd92ba586b7fc90c280fc68e44d97a2dd4f4ccbef55c7.json",
       "lines": 399
     },
     {
@@ -2261,10 +2261,10 @@
   ],
   "canvas-workspace": [
     {
-      "id": "25dc7834e90c006eb6ba7f28c942f47604fff76987a0fe06f702f4ffa4b58ca9",
+      "id": "ac1bc14de831135af723b2fc3fa6e09f1d39af587c19b3b1d3ac110cfb594151",
       "path": "components/blocks/canvas-workspace.tsx",
       "kind": "source",
-      "url": "/docs-code/25dc7834e90c006eb6ba7f28c942f47604fff76987a0fe06f702f4ffa4b58ca9.json",
+      "url": "/docs-code/ac1bc14de831135af723b2fc3fa6e09f1d39af587c19b3b1d3ac110cfb594151.json",
       "lines": 1461
     },
     {
@@ -2275,10 +2275,10 @@
       "lines": 278
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2291,10 +2291,10 @@
   ],
   "node-palette": [
     {
-      "id": "26694bca883769b766e9cd0c0a2e05333553312b1b614e58280da5ad3bf74da1",
+      "id": "b1a120eded40399f0f5f8be065a6a4ae23264a2e803c7011a9277f870c81e546",
       "path": "components/blocks/node-palette.tsx",
       "kind": "source",
-      "url": "/docs-code/26694bca883769b766e9cd0c0a2e05333553312b1b614e58280da5ad3bf74da1.json",
+      "url": "/docs-code/b1a120eded40399f0f5f8be065a6a4ae23264a2e803c7011a9277f870c81e546.json",
       "lines": 140
     },
     {
@@ -2305,10 +2305,10 @@
       "lines": 88
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2321,10 +2321,10 @@
   ],
   "node-inspector": [
     {
-      "id": "244f172aa9c01e26354748e9a31348c15bd0fe8101b91e67888a0d636796829a",
+      "id": "13aaef93fc4c4a69769886cfb2dc1f03866482123c7a15f55d483dc1164876d4",
       "path": "components/blocks/node-inspector.tsx",
       "kind": "source",
-      "url": "/docs-code/244f172aa9c01e26354748e9a31348c15bd0fe8101b91e67888a0d636796829a.json",
+      "url": "/docs-code/13aaef93fc4c4a69769886cfb2dc1f03866482123c7a15f55d483dc1164876d4.json",
       "lines": 494
     },
     {
@@ -2335,10 +2335,10 @@
       "lines": 88
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2351,10 +2351,10 @@
   ],
   "variable-picker": [
     {
-      "id": "0c215b330280e6eccf55843e4b563b02c093ed60fa83c499738f090d357746cc",
+      "id": "09b0448f7d156db8165a41ee3b2af6615f56d1aa483fcfa77be454bc7ca923cd",
       "path": "components/blocks/variable-picker.tsx",
       "kind": "source",
-      "url": "/docs-code/0c215b330280e6eccf55843e4b563b02c093ed60fa83c499738f090d357746cc.json",
+      "url": "/docs-code/09b0448f7d156db8165a41ee3b2af6615f56d1aa483fcfa77be454bc7ca923cd.json",
       "lines": 138
     },
     {
@@ -2365,10 +2365,10 @@
       "lines": 88
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2381,10 +2381,10 @@
   ],
   "canvas-frame": [
     {
-      "id": "db93259981a06fdafa1cf2bf6d41ae1d6d6d58d8a858f727f6a7496df857cb65",
+      "id": "d0ef806fcf0132de6f9deb10f10ec0622d6704d4f3b049c1655a8a977ce60166",
       "path": "components/blocks/canvas-frame.tsx",
       "kind": "source",
-      "url": "/docs-code/db93259981a06fdafa1cf2bf6d41ae1d6d6d58d8a858f727f6a7496df857cb65.json",
+      "url": "/docs-code/d0ef806fcf0132de6f9deb10f10ec0622d6704d4f3b049c1655a8a977ce60166.json",
       "lines": 35
     },
     {
@@ -2395,10 +2395,10 @@
       "lines": 88
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2411,10 +2411,10 @@
   ],
   "canvas-note": [
     {
-      "id": "c65d9b19a77c198453d1c8d16c29af9b8c8090c25609b0597916a73f34c479e9",
+      "id": "0de405c2ea283d2542e0a3c18db863dc4723830f8389fa40482d7da09bce4af7",
       "path": "components/blocks/canvas-note.tsx",
       "kind": "source",
-      "url": "/docs-code/c65d9b19a77c198453d1c8d16c29af9b8c8090c25609b0597916a73f34c479e9.json",
+      "url": "/docs-code/0de405c2ea283d2542e0a3c18db863dc4723830f8389fa40482d7da09bce4af7.json",
       "lines": 28
     },
     {
@@ -2425,10 +2425,10 @@
       "lines": 88
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2441,10 +2441,10 @@
   ],
   "workflow-canvas": [
     {
-      "id": "247d06b376125695308176925b20ab861185d38b62a848f204d4304692142eae",
+      "id": "da1df1f6b8884c9f6579ffe4c667610b6d13675199f5b6d629ac4e3100c9fc6b",
       "path": "components/blocks/workflow-canvas.tsx",
       "kind": "source",
-      "url": "/docs-code/247d06b376125695308176925b20ab861185d38b62a848f204d4304692142eae.json",
+      "url": "/docs-code/da1df1f6b8884c9f6579ffe4c667610b6d13675199f5b6d629ac4e3100c9fc6b.json",
       "lines": 797
     },
     {
@@ -2455,10 +2455,10 @@
       "lines": 93
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2471,10 +2471,10 @@
   ],
   "canvas-node": [
     {
-      "id": "edc6cf949fc5f025527da62c541372b3253c9533e8c9adbf0735bb0e2a6de586",
+      "id": "a3b8f5d613ac48ec565c7deafdc426b51e4a4e899e4db5aa9f1e61e9fa040654",
       "path": "components/ui/canvas-node.tsx",
       "kind": "source",
-      "url": "/docs-code/edc6cf949fc5f025527da62c541372b3253c9533e8c9adbf0735bb0e2a6de586.json",
+      "url": "/docs-code/a3b8f5d613ac48ec565c7deafdc426b51e4a4e899e4db5aa9f1e61e9fa040654.json",
       "lines": 107
     },
     {
@@ -2485,10 +2485,10 @@
       "lines": 93
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2501,10 +2501,10 @@
   ],
   "canvas-port": [
     {
-      "id": "258396943c5e31ce3269ade08b317ad56bd8156cdd5dbc485be179b9e15d8fef",
+      "id": "893a12f77e5c3945c46a51fcdabf31e4341ec66a4b5263d0e88e34d782094d07",
       "path": "components/ui/canvas-port.tsx",
       "kind": "source",
-      "url": "/docs-code/258396943c5e31ce3269ade08b317ad56bd8156cdd5dbc485be179b9e15d8fef.json",
+      "url": "/docs-code/893a12f77e5c3945c46a51fcdabf31e4341ec66a4b5263d0e88e34d782094d07.json",
       "lines": 38
     },
     {
@@ -2515,10 +2515,10 @@
       "lines": 93
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2531,10 +2531,10 @@
   ],
   "canvas-edge": [
     {
-      "id": "b737f5eae1ab4cabbcd66e70926221bb7f8087b882cf62e77fdb9253e7bc9772",
+      "id": "35522d084765825dd9c43e678e7001aca1c574410281c680405cfabe6bde3d4c",
       "path": "components/ui/canvas-edge.tsx",
       "kind": "source",
-      "url": "/docs-code/b737f5eae1ab4cabbcd66e70926221bb7f8087b882cf62e77fdb9253e7bc9772.json",
+      "url": "/docs-code/35522d084765825dd9c43e678e7001aca1c574410281c680405cfabe6bde3d4c.json",
       "lines": 76
     },
     {
@@ -2545,10 +2545,10 @@
       "lines": 93
     },
     {
-      "id": "81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55",
+      "id": "12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426",
       "path": "lib/canvas-model.ts",
       "kind": "related",
-      "url": "/docs-code/81601ef8b3386953f827b5a8d28dd6349816b515f0daa1e1a6c27ad1e696ba55.json",
+      "url": "/docs-code/12081d4202720c10c340ffc159ef50cde7f1746bab65455a5513c85d61a82426.json",
       "lines": 219
     },
     {
@@ -2561,10 +2561,10 @@
   ],
   "style-workbench": [
     {
-      "id": "3a20752a8633c1e270d03067fc89d2b05aa8c2353c57c662b79986413574aac0",
+      "id": "465b431075de6f2889e070547db534b579f15fcfba0553bafa5290f59357aa50",
       "path": "components/blocks/style-workbench.tsx",
       "kind": "source",
-      "url": "/docs-code/3a20752a8633c1e270d03067fc89d2b05aa8c2353c57c662b79986413574aac0.json",
+      "url": "/docs-code/465b431075de6f2889e070547db534b579f15fcfba0553bafa5290f59357aa50.json",
       "lines": 605
     },
     {
@@ -2582,19 +2582,19 @@
       "lines": 456
     },
     {
-      "id": "3f1883c5e3f948d1317e98dd8c97e8cdf9e82be081affdd3860a3cde4e2f4544",
+      "id": "2d2921247fc0cb352b330ec66a83154f3030a8dc5db39156ac0c4c9f27586c61",
       "path": "lib/style-workbench-model.ts",
       "kind": "related",
-      "url": "/docs-code/3f1883c5e3f948d1317e98dd8c97e8cdf9e82be081affdd3860a3cde4e2f4544.json",
+      "url": "/docs-code/2d2921247fc0cb352b330ec66a83154f3030a8dc5db39156ac0c4c9f27586c61.json",
       "lines": 386
     }
   ],
   "badge": [
     {
-      "id": "35300991bed07e89611035ace2523493aac5d8e2c3ca7665c524bfc526ecabd1",
+      "id": "28d0725d6490e2f07dc2556fbaf0b36a61424342e61e1b580affd0012cab4e36",
       "path": "components/ui/badge.tsx",
       "kind": "source",
-      "url": "/docs-code/35300991bed07e89611035ace2523493aac5d8e2c3ca7665c524bfc526ecabd1.json",
+      "url": "/docs-code/28d0725d6490e2f07dc2556fbaf0b36a61424342e61e1b580affd0012cab4e36.json",
       "lines": 32
     },
     {
@@ -2630,10 +2630,10 @@
   ],
   "chip": [
     {
-      "id": "5204a69f311912b66fccb55cfeb1d21d80a9854aa5ae166b7050ef913e02cd94",
+      "id": "3565b805f7966ce8ea333a1c4166610cc2bf93181ba6f7fdc6ef393c28a1975e",
       "path": "components/ui/chip.tsx",
       "kind": "source",
-      "url": "/docs-code/5204a69f311912b66fccb55cfeb1d21d80a9854aa5ae166b7050ef913e02cd94.json",
+      "url": "/docs-code/3565b805f7966ce8ea333a1c4166610cc2bf93181ba6f7fdc6ef393c28a1975e.json",
       "lines": 95
     },
     {
@@ -2653,10 +2653,10 @@
   ],
   "button": [
     {
-      "id": "714a992598dd12c07ba3ddccd4710f8eb065cfb12d42f771db93c15d67c38f28",
+      "id": "df73991c16b1b31aba4d073b9d80f3e9678a2ffc7355574af96449fa55e41757",
       "path": "components/ui/button.tsx",
       "kind": "source",
-      "url": "/docs-code/714a992598dd12c07ba3ddccd4710f8eb065cfb12d42f771db93c15d67c38f28.json",
+      "url": "/docs-code/df73991c16b1b31aba4d073b9d80f3e9678a2ffc7355574af96449fa55e41757.json",
       "lines": 74
     },
     {
@@ -2667,19 +2667,19 @@
       "lines": 66
     },
     {
-      "id": "9ddd916aa327c3ff676a1e0c306a67426f63c18c95cd2171e167a3444baa1d8b",
+      "id": "533e4189ba698437b9112867ced11f94eaf4425efc4467304981de36a0316afd",
       "path": "components/ui/button-tooltip.tsx",
       "kind": "related",
-      "url": "/docs-code/9ddd916aa327c3ff676a1e0c306a67426f63c18c95cd2171e167a3444baa1d8b.json",
+      "url": "/docs-code/533e4189ba698437b9112867ced11f94eaf4425efc4467304981de36a0316afd.json",
       "lines": 42
     }
   ],
   "input": [
     {
-      "id": "a42cd45cca1dd41afc5bbe23b7bafbd376ec8c8bdec16894e3a5d95207666408",
+      "id": "4c96bc4a16af1a02c377b398429075b5821db251695f5822f42868b569e18e7b",
       "path": "components/ui/input.tsx",
       "kind": "source",
-      "url": "/docs-code/a42cd45cca1dd41afc5bbe23b7bafbd376ec8c8bdec16894e3a5d95207666408.json",
+      "url": "/docs-code/4c96bc4a16af1a02c377b398429075b5821db251695f5822f42868b569e18e7b.json",
       "lines": 18
     },
     {
@@ -2692,10 +2692,10 @@
   ],
   "dialog": [
     {
-      "id": "52e2a8693425a6a753fb9822925dd4d71a6f258d90aa90cd5ad5602f7f12cb5f",
+      "id": "f41c8ca75389f69b6ae44c6d1634f3738daaf0efec2c1738ec9050b3e31dd27f",
       "path": "components/ui/dialog.tsx",
       "kind": "source",
-      "url": "/docs-code/52e2a8693425a6a753fb9822925dd4d71a6f258d90aa90cd5ad5602f7f12cb5f.json",
+      "url": "/docs-code/f41c8ca75389f69b6ae44c6d1634f3738daaf0efec2c1738ec9050b3e31dd27f.json",
       "lines": 143
     },
     {
@@ -2708,10 +2708,10 @@
   ],
   "task-panel": [
     {
-      "id": "ef2aed1419777b11f4d28fcbff3f534944a3f0d77e58bf0c82593a80542309e7",
+      "id": "b0b70fc102fc34e1d49ee4463a2b40643688bd6a36ee47d63c1626d725a9665c",
       "path": "components/blocks/task-panel.tsx",
       "kind": "source",
-      "url": "/docs-code/ef2aed1419777b11f4d28fcbff3f534944a3f0d77e58bf0c82593a80542309e7.json",
+      "url": "/docs-code/b0b70fc102fc34e1d49ee4463a2b40643688bd6a36ee47d63c1626d725a9665c.json",
       "lines": 131
     },
     {
@@ -2724,10 +2724,10 @@
   ],
   "scroll-playground": [
     {
-      "id": "b341896b2ab4ae29d4546fbc592d4c170b4ebdf0075347516d6eddaa8c325344",
+      "id": "e6b5aa35a3b85588120f496177f65e03a7fe196ca15a3d6fd6ae42ec1284329a",
       "path": "components/blocks/scroll-playground.tsx",
       "kind": "source",
-      "url": "/docs-code/b341896b2ab4ae29d4546fbc592d4c170b4ebdf0075347516d6eddaa8c325344.json",
+      "url": "/docs-code/e6b5aa35a3b85588120f496177f65e03a7fe196ca15a3d6fd6ae42ec1284329a.json",
       "lines": 764
     },
     {
@@ -2747,10 +2747,10 @@
   ],
   "item": [
     {
-      "id": "59ae968ff140afa8b3feabc2991815ef934be87c9adfddd139cca6cda55a3461",
+      "id": "961d13db4eb63f9ea0c89c2748c862a83f0dd552a205fe0a9c301ee2b0282394",
       "path": "components/ui/item.tsx",
       "kind": "source",
-      "url": "/docs-code/59ae968ff140afa8b3feabc2991815ef934be87c9adfddd139cca6cda55a3461.json",
+      "url": "/docs-code/961d13db4eb63f9ea0c89c2748c862a83f0dd552a205fe0a9c301ee2b0282394.json",
       "lines": 92
     },
     {
@@ -2770,10 +2770,10 @@
   ],
   "runtime-status-badge": [
     {
-      "id": "cc409ffdbe4c27b27a8e1ff2a757f664c44a5400b446c965abbb57b0e116954b",
+      "id": "4b6e4c37391b9b4037687cea9b5fa7c09f862b8cc8de05fad9dc7f335c221589",
       "path": "components/ui/runtime-status-badge.tsx",
       "kind": "source",
-      "url": "/docs-code/cc409ffdbe4c27b27a8e1ff2a757f664c44a5400b446c965abbb57b0e116954b.json",
+      "url": "/docs-code/4b6e4c37391b9b4037687cea9b5fa7c09f862b8cc8de05fad9dc7f335c221589.json",
       "lines": 72
     },
     {
@@ -2793,10 +2793,10 @@
   ],
   "workspace-shell": [
     {
-      "id": "0fe2062699e508118580fb8f5316fc1ad5219f7578bcd07c84e579858148832e",
+      "id": "be9113fd63b0761678b4785f72ab93152cc1668a53ae957d4d2a8877f59bfccd",
       "path": "components/blocks/workspace-shell.tsx",
       "kind": "source",
-      "url": "/docs-code/0fe2062699e508118580fb8f5316fc1ad5219f7578bcd07c84e579858148832e.json",
+      "url": "/docs-code/be9113fd63b0761678b4785f72ab93152cc1668a53ae957d4d2a8877f59bfccd.json",
       "lines": 510
     },
     {
@@ -2830,10 +2830,10 @@
   ],
   "data-region": [
     {
-      "id": "5f6a120c342e0645d2d051626e6f4f400ff6760ac5351cd736dfadb06df64834",
+      "id": "4b8382ae993af9fb470f143070be259073aeb6cf74654c7ed64edeb8572cdd68",
       "path": "components/ui/data-region.tsx",
       "kind": "source",
-      "url": "/docs-code/5f6a120c342e0645d2d051626e6f4f400ff6760ac5351cd736dfadb06df64834.json",
+      "url": "/docs-code/4b8382ae993af9fb470f143070be259073aeb6cf74654c7ed64edeb8572cdd68.json",
       "lines": 153
     },
     {
@@ -2853,10 +2853,10 @@
   ],
   "tree": [
     {
-      "id": "81592b876b6a91034fcc9a98be8aba82f9f23a5cd5fcd5be02e43d3e5ec5ef6c",
+      "id": "49d832c035012f2df08c6e01059981f8dc48aa347c7b90119c3c3a1227351767",
       "path": "components/ui/tree.tsx",
       "kind": "source",
-      "url": "/docs-code/81592b876b6a91034fcc9a98be8aba82f9f23a5cd5fcd5be02e43d3e5ec5ef6c.json",
+      "url": "/docs-code/49d832c035012f2df08c6e01059981f8dc48aa347c7b90119c3c3a1227351767.json",
       "lines": 487
     },
     {
@@ -2876,10 +2876,10 @@
   ],
   "session-row": [
     {
-      "id": "670f8ae4b76b43c7e3304f366d765dce6b1b1901f55afacd5e8c1e0d2a0047e5",
+      "id": "00802c84972757ab23bc730052a9bced3018ff3af79acff66e4c9f664ec82711",
       "path": "components/blocks/session-row.tsx",
       "kind": "source",
-      "url": "/docs-code/670f8ae4b76b43c7e3304f366d765dce6b1b1901f55afacd5e8c1e0d2a0047e5.json",
+      "url": "/docs-code/00802c84972757ab23bc730052a9bced3018ff3af79acff66e4c9f664ec82711.json",
       "lines": 111
     },
     {
@@ -2899,10 +2899,10 @@
   ],
   "agent-row": [
     {
-      "id": "31b1574a9f96296b43dd6514d860d3862dbc0126c93638c9af916703f42a2850",
+      "id": "3b2c2aee607a0b512810eced9e86e8ca6b306c07a64211d1e3515ff9112f32f2",
       "path": "components/blocks/agent-row.tsx",
       "kind": "source",
-      "url": "/docs-code/31b1574a9f96296b43dd6514d860d3862dbc0126c93638c9af916703f42a2850.json",
+      "url": "/docs-code/3b2c2aee607a0b512810eced9e86e8ca6b306c07a64211d1e3515ff9112f32f2.json",
       "lines": 122
     },
     {
@@ -2922,10 +2922,10 @@
   ],
   "activity-timeline": [
     {
-      "id": "6d573ec26e9430d12fe4b6509ac62f1afa95f55dc48ec94cbf3b660c42c16f6c",
+      "id": "2a8ba94e46057024513d5f2cf64245b9e0c4be6215cda7c281bc0db06050d2ce",
       "path": "components/blocks/activity-timeline.tsx",
       "kind": "source",
-      "url": "/docs-code/6d573ec26e9430d12fe4b6509ac62f1afa95f55dc48ec94cbf3b660c42c16f6c.json",
+      "url": "/docs-code/2a8ba94e46057024513d5f2cf64245b9e0c4be6215cda7c281bc0db06050d2ce.json",
       "lines": 236
     },
     {
@@ -2952,10 +2952,10 @@
   ],
   "inspector": [
     {
-      "id": "f85d69dd5d38924decfac70570b0f1a6f0affa4d510fcb446b6b169e3372a90c",
+      "id": "0fb79c1a0dcb61948fa23ba11c4a08597c26e52b887bde781d22e7d34c2d3fad",
       "path": "components/blocks/inspector.tsx",
       "kind": "source",
-      "url": "/docs-code/f85d69dd5d38924decfac70570b0f1a6f0affa4d510fcb446b6b169e3372a90c.json",
+      "url": "/docs-code/0fb79c1a0dcb61948fa23ba11c4a08597c26e52b887bde781d22e7d34c2d3fad.json",
       "lines": 147
     },
     {
@@ -2975,10 +2975,10 @@
   ],
   "chat-message": [
     {
-      "id": "967195d8ab040245136acb68df95db00aaa88691cd41313922a03c7f66ef32fb",
+      "id": "91d2ccce3bb6d3e71f466b249584a193a4ba9be3b9734611cd6145308ce66622",
       "path": "components/blocks/chat-message.tsx",
       "kind": "source",
-      "url": "/docs-code/967195d8ab040245136acb68df95db00aaa88691cd41313922a03c7f66ef32fb.json",
+      "url": "/docs-code/91d2ccce3bb6d3e71f466b249584a193a4ba9be3b9734611cd6145308ce66622.json",
       "lines": 466
     },
     {
@@ -3005,10 +3005,10 @@
   ],
   "tool-call": [
     {
-      "id": "649eb6beab9b2cecde5e948ad5f17d519dd59e1c4ac29912427470dba3b17f86",
+      "id": "ddf6619bf69e90370185c754ab85c927c5115cd72816db50eb25d1b7d0cf5790",
       "path": "components/blocks/tool-call.tsx",
       "kind": "source",
-      "url": "/docs-code/649eb6beab9b2cecde5e948ad5f17d519dd59e1c4ac29912427470dba3b17f86.json",
+      "url": "/docs-code/ddf6619bf69e90370185c754ab85c927c5115cd72816db50eb25d1b7d0cf5790.json",
       "lines": 357
     },
     {
@@ -3035,10 +3035,10 @@
   ],
   "agent-run-properties": [
     {
-      "id": "b97de33a94a60a6ca2228a0ef0965f8ee46cbb689bed2b37bf80343d848fd5ba",
+      "id": "3fad62a6622b2517f1e2c731915a3d12370d7864bac790681876af84277d4b90",
       "path": "components/blocks/agent-run-properties.tsx",
       "kind": "source",
-      "url": "/docs-code/b97de33a94a60a6ca2228a0ef0965f8ee46cbb689bed2b37bf80343d848fd5ba.json",
+      "url": "/docs-code/3fad62a6622b2517f1e2c731915a3d12370d7864bac790681876af84277d4b90.json",
       "lines": 29
     },
     {
@@ -3058,10 +3058,10 @@
   ],
   "run-stage-summary": [
     {
-      "id": "44781aa6ac46671874230cc53950561f41b8104671f2431f0f899ba449972ddf",
+      "id": "a5dd6662ecc63a80fdbf735002b24ecb80b6b58a5ed9ecce47a9531ecb3bc49c",
       "path": "components/blocks/run-stage-summary.tsx",
       "kind": "source",
-      "url": "/docs-code/44781aa6ac46671874230cc53950561f41b8104671f2431f0f899ba449972ddf.json",
+      "url": "/docs-code/a5dd6662ecc63a80fdbf735002b24ecb80b6b58a5ed9ecce47a9531ecb3bc49c.json",
       "lines": 45
     },
     {
@@ -3081,10 +3081,10 @@
   ],
   "agent-run-row": [
     {
-      "id": "8db75e635ea3f8678d7cbb24cee6b3476aec71e77f5f496d5470679433b968da",
+      "id": "71734e5736f90fff161dfaf78935af0f4b882b4ca52d7addf8d24991952a0c4a",
       "path": "components/blocks/agent-run-row.tsx",
       "kind": "source",
-      "url": "/docs-code/8db75e635ea3f8678d7cbb24cee6b3476aec71e77f5f496d5470679433b968da.json",
+      "url": "/docs-code/71734e5736f90fff161dfaf78935af0f4b882b4ca52d7addf8d24991952a0c4a.json",
       "lines": 33
     },
     {
@@ -3104,10 +3104,10 @@
   ],
   "agent-run-card": [
     {
-      "id": "983ee4ea594c811d1d29598ef30068b216da66e5531e2f77cc7f0942e195ae50",
+      "id": "c534386628ab322ff91ab7925ce8eccaa488f692ee5bb1184d8a8129a00c423f",
       "path": "components/blocks/agent-run-card.tsx",
       "kind": "source",
-      "url": "/docs-code/983ee4ea594c811d1d29598ef30068b216da66e5531e2f77cc7f0942e195ae50.json",
+      "url": "/docs-code/c534386628ab322ff91ab7925ce8eccaa488f692ee5bb1184d8a8129a00c423f.json",
       "lines": 71
     },
     {
@@ -3127,10 +3127,10 @@
   ],
   "agent-run-list": [
     {
-      "id": "8a1b0f404acbb74910428db452dd0ffb0f17e1cbdd342cffb823a208503d5dc5",
+      "id": "61ee5e58003f991e1b87d1491a555fcabb6d5424c192abcd5b23ece203de8c64",
       "path": "components/blocks/agent-run-list.tsx",
       "kind": "source",
-      "url": "/docs-code/8a1b0f404acbb74910428db452dd0ffb0f17e1cbdd342cffb823a208503d5dc5.json",
+      "url": "/docs-code/61ee5e58003f991e1b87d1491a555fcabb6d5424c192abcd5b23ece203de8c64.json",
       "lines": 41
     },
     {
@@ -3150,10 +3150,10 @@
   ],
   "agent-run-board": [
     {
-      "id": "4f800d8f4d6c3ef81425b72bf1a44890bb8ecf10c0b5c6b4a00a148beddc7c17",
+      "id": "acc871c8e650366703aa0bcb27f71feeecaca9919b3044a2936577b10183740e",
       "path": "components/blocks/agent-run-board.tsx",
       "kind": "source",
-      "url": "/docs-code/4f800d8f4d6c3ef81425b72bf1a44890bb8ecf10c0b5c6b4a00a148beddc7c17.json",
+      "url": "/docs-code/acc871c8e650366703aa0bcb27f71feeecaca9919b3044a2936577b10183740e.json",
       "lines": 53
     },
     {
@@ -3173,10 +3173,10 @@
   ],
   "agent-run-inspector": [
     {
-      "id": "48d19e5abad2b63ae0c1772600bb5337a74e770a02ec9b01bba6038d5638b51b",
+      "id": "e3c19335c325c82a72aba01da5b5d084bab60e9a7f5492a8a1c59f9a0cb7ca42",
       "path": "components/blocks/agent-run-inspector.tsx",
       "kind": "source",
-      "url": "/docs-code/48d19e5abad2b63ae0c1772600bb5337a74e770a02ec9b01bba6038d5638b51b.json",
+      "url": "/docs-code/e3c19335c325c82a72aba01da5b5d084bab60e9a7f5492a8a1c59f9a0cb7ca42.json",
       "lines": 172
     },
     {
@@ -3196,10 +3196,10 @@
   ],
   "attention-queue": [
     {
-      "id": "1a004261d61e094915da644dea95a8391d4adbf87d1dca6b19cb610e7ab6ae9e",
+      "id": "a1e391b3a1e0d4574352519f3e8c546e2cbbf6e8221117ce525f120cfb517ee3",
       "path": "components/blocks/attention-queue.tsx",
       "kind": "source",
-      "url": "/docs-code/1a004261d61e094915da644dea95a8391d4adbf87d1dca6b19cb610e7ab6ae9e.json",
+      "url": "/docs-code/a1e391b3a1e0d4574352519f3e8c546e2cbbf6e8221117ce525f120cfb517ee3.json",
       "lines": 66
     },
     {
@@ -3219,10 +3219,10 @@
   ],
   "approval-request-panel": [
     {
-      "id": "a478c6a208aefeb0399bbbe25c7bb4ebad89210f3edf318ad2b0610f0c5480bb",
+      "id": "74bef5d3985c60708f06b7d2e11098868b715d0c2f0c7dc61d46f2cf4977c0ef",
       "path": "components/blocks/approval-request-panel.tsx",
       "kind": "source",
-      "url": "/docs-code/a478c6a208aefeb0399bbbe25c7bb4ebad89210f3edf318ad2b0610f0c5480bb.json",
+      "url": "/docs-code/74bef5d3985c60708f06b7d2e11098868b715d0c2f0c7dc61d46f2cf4977c0ef.json",
       "lines": 160
     },
     {
@@ -3242,10 +3242,10 @@
   ],
   "artifact-list": [
     {
-      "id": "0202c9c6c47a6c4c9b749148d6d563a715aa4f8018a665941bb29021146e0c65",
+      "id": "cc64a4ac5d2e7b44f39932e45a5c211c56b0e66771b6b6f7f2d436986f8c427b",
       "path": "components/blocks/artifact-list.tsx",
       "kind": "source",
-      "url": "/docs-code/0202c9c6c47a6c4c9b749148d6d563a715aa4f8018a665941bb29021146e0c65.json",
+      "url": "/docs-code/cc64a4ac5d2e7b44f39932e45a5c211c56b0e66771b6b6f7f2d436986f8c427b.json",
       "lines": 72
     },
     {
@@ -3265,10 +3265,10 @@
   ],
   "review-summary": [
     {
-      "id": "0202c9c6c47a6c4c9b749148d6d563a715aa4f8018a665941bb29021146e0c65",
+      "id": "cc64a4ac5d2e7b44f39932e45a5c211c56b0e66771b6b6f7f2d436986f8c427b",
       "path": "components/blocks/artifact-list.tsx",
       "kind": "source",
-      "url": "/docs-code/0202c9c6c47a6c4c9b749148d6d563a715aa4f8018a665941bb29021146e0c65.json",
+      "url": "/docs-code/cc64a4ac5d2e7b44f39932e45a5c211c56b0e66771b6b6f7f2d436986f8c427b.json",
       "lines": 72
     },
     {
@@ -3281,10 +3281,10 @@
   ],
   "execution-trace-tree": [
     {
-      "id": "18a7538784f36bb1d4b89eac5d3c51cb6268db1dc7cbb5de3090c02bf3d0a33a",
+      "id": "55fcdadcabfadb94af076e46e9c35071253a33c6658f9ad663795e09aac2a9ce",
       "path": "components/blocks/execution-trace-tree.tsx",
       "kind": "source",
-      "url": "/docs-code/18a7538784f36bb1d4b89eac5d3c51cb6268db1dc7cbb5de3090c02bf3d0a33a.json",
+      "url": "/docs-code/55fcdadcabfadb94af076e46e9c35071253a33c6658f9ad663795e09aac2a9ce.json",
       "lines": 89
     },
     {
@@ -3304,10 +3304,10 @@
   ],
   "agent-relationship-list": [
     {
-      "id": "be4614c568b96eb1372fe02cda8876b64b5cf0af0241243dd15416316e0ddb5d",
+      "id": "2b37c07aa34df0e9e9425307eee9581e249be25e1e30fec8ec15f6f87a22169a",
       "path": "components/blocks/agent-relationship-list.tsx",
       "kind": "source",
-      "url": "/docs-code/be4614c568b96eb1372fe02cda8876b64b5cf0af0241243dd15416316e0ddb5d.json",
+      "url": "/docs-code/2b37c07aa34df0e9e9425307eee9581e249be25e1e30fec8ec15f6f87a22169a.json",
       "lines": 40
     },
     {
@@ -3327,10 +3327,10 @@
   ],
   "agent-usage-summary": [
     {
-      "id": "67c763b8d86b7eddfd8e8010d79709e0b2ca05c631fd46b0ae0702ed46ba5a44",
+      "id": "6885e61a1a0fbd261648c8d185eb2d16667a85b44ef80715d97a6e6eb2ef7ac5",
       "path": "components/blocks/agent-usage-summary.tsx",
       "kind": "source",
-      "url": "/docs-code/67c763b8d86b7eddfd8e8010d79709e0b2ca05c631fd46b0ae0702ed46ba5a44.json",
+      "url": "/docs-code/6885e61a1a0fbd261648c8d185eb2d16667a85b44ef80715d97a6e6eb2ef7ac5.json",
       "lines": 133
     },
     {
@@ -3350,10 +3350,10 @@
   ],
   "agent-board-toolbar": [
     {
-      "id": "6c3f42974b703f9fb39a5622d7099324dc34093a177e5c19d328ef3c2e860919",
+      "id": "3d1dfee4598f5dc1e072b0b7b8f4f43c1ecd74c47bfa36e3262b149f0fbc8f78",
       "path": "components/blocks/agent-board-toolbar.tsx",
       "kind": "source",
-      "url": "/docs-code/6c3f42974b703f9fb39a5622d7099324dc34093a177e5c19d328ef3c2e860919.json",
+      "url": "/docs-code/3d1dfee4598f5dc1e072b0b7b8f4f43c1ecd74c47bfa36e3262b149f0fbc8f78.json",
       "lines": 151
     },
     {
@@ -3373,10 +3373,10 @@
   ],
   "agent-board-workspace": [
     {
-      "id": "422544e1fb6af4fa969e11b18ecf022226dd858ac278b924a1f9decb7d5ed746",
+      "id": "d51f138b9700e716169ca7b5a880203b2ca9184a67d311c593c2780e9ba482a6",
       "path": "components/blocks/agent-board-workspace.tsx",
       "kind": "source",
-      "url": "/docs-code/422544e1fb6af4fa969e11b18ecf022226dd858ac278b924a1f9decb7d5ed746.json",
+      "url": "/docs-code/d51f138b9700e716169ca7b5a880203b2ca9184a67d311c593c2780e9ba482a6.json",
       "lines": 398
     },
     {
@@ -3396,10 +3396,10 @@
   ],
   "grouped-list": [
     {
-      "id": "f1241ec11b7f859e79aaa70a6e22d22813623f9a06fd1e59ee05c82d046c446a",
+      "id": "9df6da7607aa80fd9e3c3f35421f8e2c9e2f55f51038f9fe9f5b09aacd19921c",
       "path": "components/blocks/grouped-list.tsx",
       "kind": "source",
-      "url": "/docs-code/f1241ec11b7f859e79aaa70a6e22d22813623f9a06fd1e59ee05c82d046c446a.json",
+      "url": "/docs-code/9df6da7607aa80fd9e3c3f35421f8e2c9e2f55f51038f9fe9f5b09aacd19921c.json",
       "lines": 161
     },
     {
@@ -3419,10 +3419,10 @@
   ],
   "item-board": [
     {
-      "id": "672ca824f4fe3c893f915036b1424e548179e9a15377e95bd374753ed2e372ef",
+      "id": "05badb00478f73119ef67d9cb9b93076e47694d3f1af116333f3402039ed730d",
       "path": "components/blocks/item-board.tsx",
       "kind": "source",
-      "url": "/docs-code/672ca824f4fe3c893f915036b1424e548179e9a15377e95bd374753ed2e372ef.json",
+      "url": "/docs-code/05badb00478f73119ef67d9cb9b93076e47694d3f1af116333f3402039ed730d.json",
       "lines": 356
     },
     {
@@ -3442,10 +3442,10 @@
   ],
   "work-item-properties": [
     {
-      "id": "c58a4fca47115e7c32d323682b427f5ec3d3c66acdfd5d7bad167730f4e0592c",
+      "id": "79a074ce86913ba7c7e0451bce66aa6add79d901ebc636259a11bd22ad21c0de",
       "path": "components/blocks/work-item-properties.tsx",
       "kind": "source",
-      "url": "/docs-code/c58a4fca47115e7c32d323682b427f5ec3d3c66acdfd5d7bad167730f4e0592c.json",
+      "url": "/docs-code/79a074ce86913ba7c7e0451bce66aa6add79d901ebc636259a11bd22ad21c0de.json",
       "lines": 453
     },
     {
@@ -3458,10 +3458,10 @@
   ],
   "work-item-row": [
     {
-      "id": "e8932ded14c99218f061ef9cc5d2ee770550521b280a28911f3c9c0703b22277",
+      "id": "ab3f5d78733a1866cfdd030841f2c5e86d639f26d781aa67cdaa28a0bb1dfa21",
       "path": "components/blocks/work-item.tsx",
       "kind": "source",
-      "url": "/docs-code/e8932ded14c99218f061ef9cc5d2ee770550521b280a28911f3c9c0703b22277.json",
+      "url": "/docs-code/ab3f5d78733a1866cfdd030841f2c5e86d639f26d781aa67cdaa28a0bb1dfa21.json",
       "lines": 162
     },
     {
@@ -3474,10 +3474,10 @@
   ],
   "work-item-card": [
     {
-      "id": "e8932ded14c99218f061ef9cc5d2ee770550521b280a28911f3c9c0703b22277",
+      "id": "ab3f5d78733a1866cfdd030841f2c5e86d639f26d781aa67cdaa28a0bb1dfa21",
       "path": "components/blocks/work-item.tsx",
       "kind": "source",
-      "url": "/docs-code/e8932ded14c99218f061ef9cc5d2ee770550521b280a28911f3c9c0703b22277.json",
+      "url": "/docs-code/ab3f5d78733a1866cfdd030841f2c5e86d639f26d781aa67cdaa28a0bb1dfa21.json",
       "lines": 162
     },
     {
@@ -3490,10 +3490,10 @@
   ],
   "work-item-list": [
     {
-      "id": "cd65b0a6dde9935a821ea1432d7938fcbfd5f0a1f11a9b1d1c42dd415b94e0be",
+      "id": "bd68f3791147beb5a98bc90c408358556954cc9732a09d2f316b53258f87de67",
       "path": "components/blocks/work-items-views.tsx",
       "kind": "source",
-      "url": "/docs-code/cd65b0a6dde9935a821ea1432d7938fcbfd5f0a1f11a9b1d1c42dd415b94e0be.json",
+      "url": "/docs-code/bd68f3791147beb5a98bc90c408358556954cc9732a09d2f316b53258f87de67.json",
       "lines": 464
     },
     {
@@ -3506,10 +3506,10 @@
   ],
   "work-item-board": [
     {
-      "id": "cd65b0a6dde9935a821ea1432d7938fcbfd5f0a1f11a9b1d1c42dd415b94e0be",
+      "id": "bd68f3791147beb5a98bc90c408358556954cc9732a09d2f316b53258f87de67",
       "path": "components/blocks/work-items-views.tsx",
       "kind": "source",
-      "url": "/docs-code/cd65b0a6dde9935a821ea1432d7938fcbfd5f0a1f11a9b1d1c42dd415b94e0be.json",
+      "url": "/docs-code/bd68f3791147beb5a98bc90c408358556954cc9732a09d2f316b53258f87de67.json",
       "lines": 464
     },
     {
@@ -3522,10 +3522,10 @@
   ],
   "work-item-table": [
     {
-      "id": "cd65b0a6dde9935a821ea1432d7938fcbfd5f0a1f11a9b1d1c42dd415b94e0be",
+      "id": "bd68f3791147beb5a98bc90c408358556954cc9732a09d2f316b53258f87de67",
       "path": "components/blocks/work-items-views.tsx",
       "kind": "source",
-      "url": "/docs-code/cd65b0a6dde9935a821ea1432d7938fcbfd5f0a1f11a9b1d1c42dd415b94e0be.json",
+      "url": "/docs-code/bd68f3791147beb5a98bc90c408358556954cc9732a09d2f316b53258f87de67.json",
       "lines": 464
     },
     {
@@ -3538,10 +3538,10 @@
   ],
   "work-items-toolbar": [
     {
-      "id": "38c36fafb9fbee7b4494cba1b66e31729453cd802616c130fd41291f93ca7f97",
+      "id": "7dbacbc622695af6a33b749f8c5b55b306c2544eac991df91cbe3649238b5621",
       "path": "components/blocks/work-items-toolbar.tsx",
       "kind": "source",
-      "url": "/docs-code/38c36fafb9fbee7b4494cba1b66e31729453cd802616c130fd41291f93ca7f97.json",
+      "url": "/docs-code/7dbacbc622695af6a33b749f8c5b55b306c2544eac991df91cbe3649238b5621.json",
       "lines": 331
     },
     {
@@ -3554,10 +3554,10 @@
   ],
   "work-item-detail": [
     {
-      "id": "5c7fa227bdd301bc669a602e6777dbad9ddc70f1dc54a0f35b2c329af2dc4e3e",
+      "id": "c8458baac59bab3924a64eba5172a93134a5c410a4eae83db42b7a60d2044574",
       "path": "components/blocks/work-item-detail.tsx",
       "kind": "source",
-      "url": "/docs-code/5c7fa227bdd301bc669a602e6777dbad9ddc70f1dc54a0f35b2c329af2dc4e3e.json",
+      "url": "/docs-code/c8458baac59bab3924a64eba5172a93134a5c410a4eae83db42b7a60d2044574.json",
       "lines": 243
     },
     {
@@ -3570,10 +3570,10 @@
   ],
   "work-items-workspace": [
     {
-      "id": "041463f7c0f8b40919a185b98bb1d5eaf76265829ada99044861e1d0dac71a85",
+      "id": "5bab9ca84af8641a6bc0cf002bef6c487182444acabe686d4bb10a26cd9135bf",
       "path": "components/blocks/work-items-workspace.tsx",
       "kind": "source",
-      "url": "/docs-code/041463f7c0f8b40919a185b98bb1d5eaf76265829ada99044861e1d0dac71a85.json",
+      "url": "/docs-code/5bab9ca84af8641a6bc0cf002bef6c487182444acabe686d4bb10a26cd9135bf.json",
       "lines": 387
     },
     {
@@ -3586,10 +3586,10 @@
   ],
   "work-items-board-base": [
     {
-      "id": "fcc3a79a74cf40d832bbe312d8ffcd94f610726c2dda610bbc4d46e06bac8323",
+      "id": "81b54c76bbaee0817263bfb80074a33cb3b3c1897679eb02f8736f91bc3ebf2d",
       "path": "components/blocks/work-items-board-base.tsx",
       "kind": "source",
-      "url": "/docs-code/fcc3a79a74cf40d832bbe312d8ffcd94f610726c2dda610bbc4d46e06bac8323.json",
+      "url": "/docs-code/81b54c76bbaee0817263bfb80074a33cb3b3c1897679eb02f8736f91bc3ebf2d.json",
       "lines": 380
     },
     {
@@ -3609,10 +3609,10 @@
   ],
   "agent-dependency-graph": [
     {
-      "id": "57f2321b0a87c3bcf3a3a56368b92c372b9a4867b6623c4a4aef7c528d9af8d4",
+      "id": "cc834a9d32f895e32401e9df8360111d15e2c3fd8153e9483f00268a4e13e71c",
       "path": "components/blocks/agent-dependency-graph.tsx",
       "kind": "source",
-      "url": "/docs-code/57f2321b0a87c3bcf3a3a56368b92c372b9a4867b6623c4a4aef7c528d9af8d4.json",
+      "url": "/docs-code/cc834a9d32f895e32401e9df8360111d15e2c3fd8153e9483f00268a4e13e71c.json",
       "lines": 196
     },
     {
@@ -3632,10 +3632,10 @@
   ],
   "agent-usage-history": [
     {
-      "id": "89d50fcddb7c46a8b2e377422b5383f9738ad50a9cde8e595cc910f1473ef33c",
+      "id": "dbd17a75b513a0e411fe343fc49856bd096e3c84d81b8a406267733598b89bda",
       "path": "components/blocks/agent-usage-history.tsx",
       "kind": "source",
-      "url": "/docs-code/89d50fcddb7c46a8b2e377422b5383f9738ad50a9cde8e595cc910f1473ef33c.json",
+      "url": "/docs-code/dbd17a75b513a0e411fe343fc49856bd096e3c84d81b8a406267733598b89bda.json",
       "lines": 202
     },
     {
@@ -3655,10 +3655,10 @@
   ],
   "agent-run-virtual-list": [
     {
-      "id": "d425ffe43c0fdd9919ffb86fe99a7269ef8eb61514ad53dcfb48eba0cf18946e",
+      "id": "58a8ab1daf2b577f83bebf9d22c8dc6a5ca3657deb85b51fa8127b8f98e0234d",
       "path": "components/blocks/agent-run-virtual-list.tsx",
       "kind": "source",
-      "url": "/docs-code/d425ffe43c0fdd9919ffb86fe99a7269ef8eb61514ad53dcfb48eba0cf18946e.json",
+      "url": "/docs-code/58a8ab1daf2b577f83bebf9d22c8dc6a5ca3657deb85b51fa8127b8f98e0234d.json",
       "lines": 278
     },
     {
@@ -3678,10 +3678,10 @@
   ],
   "work-items-batch-actions": [
     {
-      "id": "88b5b73b9c28dd1969831c68c90f4876bd6b977dc0325a4d3f8a213924bdac6c",
+      "id": "e58c4ae0b5e34f833cab428821da2842e219a79e67c3027673d4c33d90ec129b",
       "path": "components/blocks/work-items-enhancements.tsx",
       "kind": "source",
-      "url": "/docs-code/88b5b73b9c28dd1969831c68c90f4876bd6b977dc0325a4d3f8a213924bdac6c.json",
+      "url": "/docs-code/e58c4ae0b5e34f833cab428821da2842e219a79e67c3027673d4c33d90ec129b.json",
       "lines": 371
     },
     {
@@ -3694,10 +3694,10 @@
   ],
   "work-items-saved-views": [
     {
-      "id": "88b5b73b9c28dd1969831c68c90f4876bd6b977dc0325a4d3f8a213924bdac6c",
+      "id": "e58c4ae0b5e34f833cab428821da2842e219a79e67c3027673d4c33d90ec129b",
       "path": "components/blocks/work-items-enhancements.tsx",
       "kind": "source",
-      "url": "/docs-code/88b5b73b9c28dd1969831c68c90f4876bd6b977dc0325a4d3f8a213924bdac6c.json",
+      "url": "/docs-code/e58c4ae0b5e34f833cab428821da2842e219a79e67c3027673d4c33d90ec129b.json",
       "lines": 371
     },
     {
@@ -3710,10 +3710,10 @@
   ],
   "timeline": [
     {
-      "id": "23695ad0a65d7c12d5673fa544589d1959ffdab5565664a2375a4e890e86a7b2",
+      "id": "4cf5285a5e8f7f7d8d9553275b0c65be080defcc8b44ad162af94ea7d2212f22",
       "path": "components/blocks/timeline.tsx",
       "kind": "source",
-      "url": "/docs-code/23695ad0a65d7c12d5673fa544589d1959ffdab5565664a2375a4e890e86a7b2.json",
+      "url": "/docs-code/4cf5285a5e8f7f7d8d9553275b0c65be080defcc8b44ad162af94ea7d2212f22.json",
       "lines": 463
     },
     {
@@ -3733,10 +3733,10 @@
   ],
   "calendar": [
     {
-      "id": "1128a9585c1c3201bd0425ef06f2ec7f52d10c2159a95dc3d701e65a07b213b8",
+      "id": "73cbaa7ea746f0c86c9871f7bf9f28927b84513c38bae5d8fdb8f9282c1f02dd",
       "path": "components/blocks/calendar.tsx",
       "kind": "source",
-      "url": "/docs-code/1128a9585c1c3201bd0425ef06f2ec7f52d10c2159a95dc3d701e65a07b213b8.json",
+      "url": "/docs-code/73cbaa7ea746f0c86c9871f7bf9f28927b84513c38bae5d8fdb8f9282c1f02dd.json",
       "lines": 360
     },
     {
@@ -3756,10 +3756,10 @@
   ],
   "schedule-view-controls": [
     {
-      "id": "84cdb4b2b8ea7a35c51bb710c3bac3b7f2fafedf7bcae4008e7d4452a1fc540f",
+      "id": "9b8ad1bece61d8e9523b5fe6ffb416c96c9d124598bdc7ff94517ccab438a577",
       "path": "components/blocks/schedule-view-controls.tsx",
       "kind": "source",
-      "url": "/docs-code/84cdb4b2b8ea7a35c51bb710c3bac3b7f2fafedf7bcae4008e7d4452a1fc540f.json",
+      "url": "/docs-code/9b8ad1bece61d8e9523b5fe6ffb416c96c9d124598bdc7ff94517ccab438a577.json",
       "lines": 155
     },
     {
@@ -3779,10 +3779,10 @@
   ],
   "work-item-date-range-field": [
     {
-      "id": "b1e49cadbbda8a0298c4ce3a827688401789d4057c540d32fcb780a4350e6166",
+      "id": "611103aa2f344561d3be318e118af386b45c3a472bb0d2615fc7b972ba5427e8",
       "path": "components/blocks/work-item-date-range-field.tsx",
       "kind": "source",
-      "url": "/docs-code/b1e49cadbbda8a0298c4ce3a827688401789d4057c540d32fcb780a4350e6166.json",
+      "url": "/docs-code/611103aa2f344561d3be318e118af386b45c3a472bb0d2615fc7b972ba5427e8.json",
       "lines": 202
     },
     {
@@ -3795,10 +3795,10 @@
   ],
   "work-items-schedule": [
     {
-      "id": "59588b69ee6a99e426695f0e5e4ddad6bd2cb7e40b89eb4a2afd4a5d5222cc48",
+      "id": "0374d94246583b7c6151cd0ef161e9f89cf32f66cd5326ec227be86809c3e95c",
       "path": "components/blocks/work-items-schedule.tsx",
       "kind": "source",
-      "url": "/docs-code/59588b69ee6a99e426695f0e5e4ddad6bd2cb7e40b89eb4a2afd4a5d5222cc48.json",
+      "url": "/docs-code/0374d94246583b7c6151cd0ef161e9f89cf32f66cd5326ec227be86809c3e95c.json",
       "lines": 268
     },
     {
@@ -3811,10 +3811,10 @@
   ],
   "work-item-timeline": [
     {
-      "id": "81f86eb09d4a553da7f10e6f3a71ac6d60be9e8d682afd6f03ca8ee7ad47f9bb",
+      "id": "06d3f373a247200018b6d5f0a1791c745feb755aff36f9fa5c22867aae7912be",
       "path": "components/blocks/work-item-timeline.tsx",
       "kind": "source",
-      "url": "/docs-code/81f86eb09d4a553da7f10e6f3a71ac6d60be9e8d682afd6f03ca8ee7ad47f9bb.json",
+      "url": "/docs-code/06d3f373a247200018b6d5f0a1791c745feb755aff36f9fa5c22867aae7912be.json",
       "lines": 270
     },
     {
@@ -3827,10 +3827,10 @@
   ],
   "work-item-calendar": [
     {
-      "id": "b1980a3f4b764dc410bda7d3c2b33c7ce2eebad292c16e0fdbde5528cc183b9c",
+      "id": "3e5cd7c2fb6cfdc4cd8453488920106489d58f0592c4c12db50c5667439801bb",
       "path": "components/blocks/work-item-calendar.tsx",
       "kind": "source",
-      "url": "/docs-code/b1980a3f4b764dc410bda7d3c2b33c7ce2eebad292c16e0fdbde5528cc183b9c.json",
+      "url": "/docs-code/3e5cd7c2fb6cfdc4cd8453488920106489d58f0592c4c12db50c5667439801bb.json",
       "lines": 75
     },
     {
@@ -3843,10 +3843,10 @@
   ],
   "toolbar": [
     {
-      "id": "917a6dab9acbe5773abf24682a6bf752a296b47eba7b7947fe3aa053920c0409",
+      "id": "1d6f48e736361294ad9814380bab5a40acf4ef4b6688555dfd4bc9f9f78c402d",
       "path": "components/ui/toolbar.tsx",
       "kind": "source",
-      "url": "/docs-code/917a6dab9acbe5773abf24682a6bf752a296b47eba7b7947fe3aa053920c0409.json",
+      "url": "/docs-code/1d6f48e736361294ad9814380bab5a40acf4ef4b6688555dfd4bc9f9f78c402d.json",
       "lines": 33
     },
     {
@@ -3859,10 +3859,10 @@
   ],
   "command-toolbar": [
     {
-      "id": "b45eee02deeb82281601fba8de0cdcf4b3b860fbc6b820c005e869e52d4f0e6e",
+      "id": "2a0be3ed5d44398cccaeff2c9a718d0f08caff7e2e0dea4efadb6c532a862b44",
       "path": "components/blocks/command-toolbar.tsx",
       "kind": "source",
-      "url": "/docs-code/b45eee02deeb82281601fba8de0cdcf4b3b860fbc6b820c005e869e52d4f0e6e.json",
+      "url": "/docs-code/2a0be3ed5d44398cccaeff2c9a718d0f08caff7e2e0dea4efadb6c532a862b44.json",
       "lines": 225
     },
     {
@@ -3875,10 +3875,10 @@
   ],
   "data-table-controls": [
     {
-      "id": "7a1b46102107a34242e4d30c784a200dc16089a311f6f211ae8c1eb2f725650a",
+      "id": "f5cf958ed2701d95c4ae350b3a1a19d48e517dcdc224e45e1eeda84157200135",
       "path": "components/blocks/data-table-controls.tsx",
       "kind": "source",
-      "url": "/docs-code/7a1b46102107a34242e4d30c784a200dc16089a311f6f211ae8c1eb2f725650a.json",
+      "url": "/docs-code/f5cf958ed2701d95c4ae350b3a1a19d48e517dcdc224e45e1eeda84157200135.json",
       "lines": 125
     },
     {

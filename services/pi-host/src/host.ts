@@ -17,7 +17,7 @@ import {
   type PiReceipt,
   type PiSession,
   type PiSnapshot,
-} from "../../../lib/pi-workspace-protocol.ts"
+} from "@easyuse-ui/pi-protocol"
 import {
   HostError,
   contentText,
