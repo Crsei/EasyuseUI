@@ -1843,5 +1843,14 @@
     "displayCategory": "patterns",
     "docGroup": "data",
     "docOrder": 304
+  },
+  {
+    "slug": "auth-pages",
+    "name": "Auth pages",
+    "category": "组合模块",
+    "docPath": "/docs/auth-pages/",
+    "displayCategory": "patterns",
+    "docGroup": "interaction",
+    "docOrder": 90
   }
 ]

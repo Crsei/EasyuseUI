@@ -2253,5 +2253,16 @@
     "registryId": "data-table-model",
     "docGroup": "data",
     "docOrder": 304
+  },
+  {
+    "slug": "auth-pages",
+    "name": "Auth pages",
+    "description": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+    "displayCategory": "patterns",
+    "docPath": "/docs/auth-pages/",
+    "installType": "block",
+    "registryId": "auth-pages",
+    "docGroup": "interaction",
+    "docOrder": 90
   }
 ]

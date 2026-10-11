@@ -203,6 +203,27 @@
     "aliases": []
   },
   {
+    "slug": "auth-pages",
+    "name": "Auth pages",
+    "docPath": "/docs/auth-pages/",
+    "description": {
+      "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+      "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+    },
+    "docGroup": "interaction",
+    "docOrder": 90,
+    "aliases": [
+      "登录",
+      "注册",
+      "忘记密码",
+      "401",
+      "403",
+      "404",
+      "500",
+      "503"
+    ]
+  },
+  {
     "slug": "button-group",
     "name": "ButtonGroup",
     "docPath": "/docs/button-group/",

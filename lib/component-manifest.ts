@@ -8465,6 +8465,34 @@ const docVariants: Record<string, DocVariant[]> = {
   ]
 }
 const readingOrder = ["button", "input", "label", "textarea", "native-select", "select", "combobox", "checkbox", "radio-group", "switch", "dialog", "sheet", "popover", "menu", "dropdown-menu", "tabs", "data-region", "data-table", "table", "tree", "work-items-workspace", "work-items-toolbar", "work-item-properties", "work-item-row", "work-item-card", "runtime-status-badge", "agent-row", "session-row", "chat-message", "conversation", "chat-composer", "tool-call", "activity-timeline", "workflow-canvas", "canvas-workspace", "node-palette", "node-inspector", "variable-picker", "workspace-shell", "inspector"]
+sourceManifest.push({
+  slug: "auth-pages",
+  docPath: "/docs/auth-pages/",
+  registryId: "auth-pages",
+  registryDependencies: ["theme", "i18n", "button", "input", "field", "checkbox", "alert"],
+  installType: "block",
+  displayCategory: "patterns",
+  availability: "available",
+  name: "Auth pages",
+  category: "组合模块",
+  description: "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+  source: "components/blocks/auth-pages.tsx",
+  relatedSources: ["components/blocks/auth-pages.module.css"],
+  example: "components/examples/auth-errors/auth-errors-demo.tsx",
+  usage: '"use client"\nimport type { ComponentProps } from "react"\nimport { AuthForm } from "@/components/blocks/auth-pages"\nexport function SignIn(props: ComponentProps<typeof AuthForm>) {\n  return <AuthForm {...props} mode="login" />\n}',
+  props: [
+    { name: "AuthForm: mode / value / onChange / onSubmit", type: "AuthMode / AuthFormValue / callbacks", description: "受控草稿、客户端校验与提交意图；凭据和服务由调用方负责。" },
+    { name: "feedback", type: "AuthFeedback", description: "idle/submitting/success/error/unknown；未知结果阻止重复提交，服务确认由调用方提供。" },
+    { name: "ErrorPage: code / actions / onRetry", type: "HttpErrorCode / AuthPageAction[] / callback", description: "按五种状态码呈现解释和真实可用的恢复操作，不自动重试。" },
+    { name: "AuthPageShell / AuthPageGallery / AuthPagePreview", type: "ReactNode slots", description: "分栏、居中错误页与统一元素展示布局，不依赖路由或文档站。" },
+  ],
+  notes: ["本地示例未连接认证或邮件服务；HTTP 状态由宿主负责。密码不写入浏览器存储。", "语言与主题切换保留草稿；注册包含确认密码与条款，登录兼容已有短密码。"],
+  docGroup: "interaction",
+  docOrder: 90,
+  widePreview: true,
+  aliases: ["登录", "注册", "忘记密码", "401", "403", "404", "500", "503"],
+  related: ["field", "input", "checkbox", "alert", "button"],
+})
 export const componentManifest: ComponentManifestEntry[] = sourceManifest.map((entry, index) => ({
   ...entry, docGroup: entry.docGroup ?? inferDocGroup(entry), docOrder: entry.docOrder ?? (readingOrder.includes(entry.slug) ? readingOrder.indexOf(entry.slug) : 100 + index),
   aliases: entry.aliases ?? aliases[entry.slug] ?? [],

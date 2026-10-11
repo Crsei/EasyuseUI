@@ -1,6 +1,14 @@
 // Site-only resources.
 export const siteMessages = {
   "zh-CN": {
+    "site.authPages.description": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+    "site.authPages.formContract": "受控草稿、客户端校验与提交意图；凭据和服务由调用方负责。",
+    "site.authPages.feedbackContract": "idle/submitting/success/error/unknown；未知结果阻止重复提交，服务确认由调用方提供。",
+    "site.authPages.errorContract": "按五种状态码呈现解释和真实可用的恢复操作，不自动重试。",
+    "site.authPages.layoutContract": "分栏、居中错误页与统一元素展示布局，不依赖路由或文档站。",
+    "site.authPages.serviceBoundary": "本地示例未连接认证或邮件服务；HTTP 状态由宿主负责。密码不写入浏览器存储。",
+    "site.authPages.localeDrafts": "语言与主题切换保留草稿；注册包含确认密码与条款，登录兼容已有短密码。",
+
     "site.selection.catalogModel": "版本化组件选择方案、首选互斥和有界 JSON 校验。",
     "site.selection.catalogWorkbench": "并排展示多组真实候选，受控选择和批注，交接方案动作由调用方提供。",
     "site.selection.catalogContract": "候选和方案按稳定 ID 与模板修订归属，首选唯一，保留备选与批注。",
@@ -2887,6 +2895,14 @@ export const siteMessages = {
 "site.gapAudit.detail5":"交互单元格使用separate，避免嵌套按钮。"
 },
   en: {
+    "site.authPages.description": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback.",
+    "site.authPages.formContract": "Controlled drafts, client validation and submission intent. The caller owns credentials and services.",
+    "site.authPages.feedbackContract": "idle/submitting/success/error/unknown. Unknown outcomes prevent duplicate submissions; the caller provides service confirmation.",
+    "site.authPages.errorContract": "Explanations and available recovery actions for five HTTP codes. No automatic retry.",
+    "site.authPages.layoutContract": "Split authentication pages, centered errors and a unified element gallery independent of routing or documentation.",
+    "site.authPages.serviceBoundary": "The local example connects to no authentication or email service. The host owns HTTP status. Passwords are never written to browser storage.",
+    "site.authPages.localeDrafts": "Locale and theme changes retain drafts. Registration includes password confirmation and terms; sign-in supports existing shorter passwords.",
+
     "site.selection.catalogModel": "Versioned component selection plans, mutually exclusive preferred options and bounded JSON validation.",
     "site.selection.catalogWorkbench": "Compare groups of live candidates with controlled choices and annotations; the caller provides handoff actions.",
     "site.selection.catalogContract": "Candidates and plans belong to stable IDs and template revisions; preferred choices are exclusive while alternatives and annotations are retained.",

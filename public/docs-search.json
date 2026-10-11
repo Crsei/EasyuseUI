@@ -1570,6 +1570,104 @@
       "keywords": "tabs 源码 Source"
     },
     {
+      "id": "auth-pages",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Auth pages",
+        "en": "Auth pages"
+      },
+      "summary": {
+        "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+        "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+      },
+      "href": "/docs/auth-pages/",
+      "keywords": "auth-pages 登录 注册 忘记密码 401 403 404 500 503 interaction"
+    },
+    {
+      "id": "auth-pages-installation",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Auth pages · 安装",
+        "en": "Auth pages · Installation"
+      },
+      "summary": {
+        "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+        "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+      },
+      "href": "/docs/auth-pages/#installation",
+      "keywords": "auth-pages 登录 注册 忘记密码 401 403 404 500 503 安装 Installation"
+    },
+    {
+      "id": "auth-pages-usage",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Auth pages · 使用",
+        "en": "Auth pages · Usage"
+      },
+      "summary": {
+        "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+        "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+      },
+      "href": "/docs/auth-pages/#usage",
+      "keywords": "auth-pages 登录 注册 忘记密码 401 403 404 500 503 使用 Usage"
+    },
+    {
+      "id": "auth-pages-api",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Auth pages · API",
+        "en": "Auth pages · API"
+      },
+      "summary": {
+        "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+        "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+      },
+      "href": "/docs/auth-pages/#api",
+      "keywords": "auth-pages 登录 注册 忘记密码 401 403 404 500 503 API API"
+    },
+    {
+      "id": "auth-pages-states",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Auth pages · 状态与交互",
+        "en": "Auth pages · States and interaction"
+      },
+      "summary": {
+        "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+        "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+      },
+      "href": "/docs/auth-pages/#states",
+      "keywords": "auth-pages 登录 注册 忘记密码 401 403 404 500 503 状态与交互 States and interaction"
+    },
+    {
+      "id": "auth-pages-example",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Auth pages · 完整示例",
+        "en": "Auth pages · Complete example"
+      },
+      "summary": {
+        "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+        "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+      },
+      "href": "/docs/auth-pages/#example",
+      "keywords": "auth-pages 登录 注册 忘记密码 401 403 404 500 503 完整示例 Complete example"
+    },
+    {
+      "id": "auth-pages-source",
+      "kind": "components",
+      "title": {
+        "zh-CN": "Auth pages · 源码",
+        "en": "Auth pages · Source"
+      },
+      "summary": {
+        "zh-CN": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+        "en": "Sign up, sign in, password recovery and 401/403/404/500/503 pages with caller-controlled forms and request feedback."
+      },
+      "href": "/docs/auth-pages/#source",
+      "keywords": "auth-pages 登录 注册 忘记密码 401 403 404 500 503 源码 Source"
+    },
+    {
       "id": "button-group",
       "kind": "components",
       "title": {

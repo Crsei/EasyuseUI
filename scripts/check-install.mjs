@@ -14,6 +14,7 @@ import {
   createCommonConsumer,
   verifyCommonConsumer,
 } from "./common-components-consumer.mjs"
+import { createAuthPagesConsumer, verifyAuthPagesConsumer } from "./auth-pages-consumer.mjs"
 import { execFileSync, spawn } from "node:child_process"
 import { mkdtemp, mkdir, writeFile, readFile } from "node:fs/promises"
 import os from "node:os"
@@ -242,6 +243,7 @@ await createWorkbenchConsumer(fixture)
 await createCommonConsumer(fixture)
 await createWorkItemsConsumer(fixture)
 await createAgentBoardConsumer(fixture)
+await createAuthPagesConsumer(fixture)
 execFileSync("pnpm", ["install", "--ignore-scripts"], {
   cwd: fixture,
   stdio: "inherit",
@@ -307,6 +309,7 @@ try {
         `${site}/r/agent-board-workspace.json`,
         `${site}/r/svg-workbench.json`,
         `${site}/r/component-selection-workbench.json`,
+        `${site}/r/auth-pages.json`,
         `${site}/r/task-panel.json`,
         `${site}/r/input.json`,
         `${site}/r/dialog.json`,
@@ -667,6 +670,7 @@ try {
   await verifyWorkItemsConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifySvgConsumer(page, `http://127.0.0.1:${server.address().port}`)
   await verifySelectionConsumer(page, `http://127.0.0.1:${server.address().port}`)
+  await verifyAuthPagesConsumer(page, `http://127.0.0.1:${server.address().port}`)
   assert.deepEqual(errors, [])
   console.log(
     `PASS: installed Canvas production build, full-height layout and collapsed panels, browser mount, engine CSS, ports, edge, controlled selection, add, connect, undo, authoritative runtime/redaction, unknown save/publication reconciliation, subflow navigation and structured config. Evidence: ${fixture}/canvas-installed.png`,

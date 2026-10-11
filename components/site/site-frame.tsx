@@ -13,6 +13,8 @@ const SiteCrmMetadata = dynamic(() =>
 
 export function SiteFrame({ children }: { children: ReactNode }) {
   const pathname = usePathname()
+  if (pathname === "/examples/auth-errors" || pathname.startsWith("/examples/auth-errors/"))
+    return children
   const isCrm = pathname.replace(/\/$/, "") === "/examples/sales-crm"
   const content = (
     <>

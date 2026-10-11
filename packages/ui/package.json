@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./components/blocks/auth-pages": "./components/blocks/auth-pages.tsx",
+    "./components/blocks/auth-pages.module.css": "./components/blocks/auth-pages.module.css",
     "./lib/component-selection-model": "./lib/component-selection-model.ts",
     "./components/blocks/component-selection-workbench": "./components/blocks/component-selection-workbench.tsx",
     "./components/blocks/component-selection-workbench.module.css": "./components/blocks/component-selection-workbench.module.css",

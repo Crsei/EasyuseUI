@@ -4,6 +4,35 @@
   "homepage": "http://localhost:3010",
   "items": [
     {
+      "name": "auth-pages",
+      "type": "registry:block",
+      "title": "Auth pages",
+      "description": "Controlled authentication forms and recoverable HTTP error pages.",
+      "registryDependencies": [
+        "theme",
+        "i18n",
+        "button",
+        "input",
+        "field",
+        "checkbox",
+        "alert"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "components/blocks/auth-pages.tsx",
+          "type": "registry:block"
+        },
+        {
+          "path": "components/blocks/auth-pages.module.css",
+          "type": "registry:file",
+          "target": "components/blocks/auth-pages.module.css"
+        }
+      ]
+    },
+    {
       "name": "component-selection-model",
       "type": "registry:lib",
       "title": "Component selection model",

@@ -712,5 +712,9 @@
   },
   {
     "slug": "data-table-model"
+  },
+  {
+    "slug": "auth-pages",
+    "widePreview": true
   }
 ]

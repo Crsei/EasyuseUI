@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
+import { buttonVariants } from "@/components/ui/button"
+import { SiteLocalized } from "@/components/site/site-localized"
 import { ExampleGallery } from "@/components/site/example-gallery"
 import { SiteText } from "@/components/site/site-i18n"
 import styles from "@/components/site/site.module.css"
@@ -18,6 +20,10 @@ export default function ExamplesPage() {
         <SiteText messageKey="site.redesign.exampleGalleryIntro" />
       </p>
       <ExampleGallery />
+      <Link href="/examples/auth-errors/" prefetch={false} className={buttonVariants({ variant: "secondary" }) + " mt-8"}>
+        <SiteLocalized value={{ "zh-CN": "Auth & errors · 注册、登录与错误页面", en: "Auth & errors · Sign up, sign in and error pages" }} />
+        <ArrowUpRight aria-hidden="true" size={16} />
+      </Link>
       <Link
         href="/examples/component-contracts/"
         prefetch={false}

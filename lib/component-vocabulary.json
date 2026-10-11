@@ -2253,5 +2253,16 @@
     "notes": [
       "仅提供受控界面；请求、权限、持久化及业务结果由调用方负责。"
     ]
+  },
+  {
+    "slug": "auth-pages",
+    "name": "Auth pages",
+    "category": "组合模块",
+    "description": "注册、登录、忘记密码与 401/403/404/500/503 页面，表单与请求反馈由调用方控制。",
+    "source": "components/blocks/auth-pages.tsx",
+    "usage": "\"use client\"\nimport type { ComponentProps } from \"react\"\nimport { AuthForm } from \"@/components/blocks/auth-pages\"\nexport function SignIn(props: ComponentProps<typeof AuthForm>) {\n  return <AuthForm {...props} mode=\"login\" />\n}",
+    "notes": [
+      "本地示例未连接认证或邮件服务；HTTP 状态由宿主负责。密码不写入浏览器存储。"
+    ]
   }
 ]

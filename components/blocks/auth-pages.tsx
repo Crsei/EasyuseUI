@@ -1,0 +1,1 @@
+../../packages/ui/components/blocks/auth-pages.tsx

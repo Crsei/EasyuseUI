@@ -2178,11 +2178,11 @@
       "lines": 135
     },
     {
-      "id": "090b6872e02c5d8779667a0a8bc8447f0432e4ed758f6b2cc681e13c90de74c7",
+      "id": "ab5cb63dbb9b1bbdbc571c931f5833adca72d7f2b42cf386fed5c685254ebc8f",
       "path": "lib/i18n-messages.ts",
       "kind": "related",
-      "url": "/docs-code/090b6872e02c5d8779667a0a8bc8447f0432e4ed758f6b2cc681e13c90de74c7.json",
-      "lines": 3851
+      "url": "/docs-code/ab5cb63dbb9b1bbdbc571c931f5833adca72d7f2b42cf386fed5c685254ebc8f.json",
+      "lines": 3969
     }
   ],
   "canvas-service-panel": [
@@ -3942,6 +3942,29 @@
       "kind": "example",
       "url": "/docs-code/ac4a46272676ad041f523853b8257aa8b09a90d740ef25fd45386c7e62035677.json",
       "lines": 695
+    }
+  ],
+  "auth-pages": [
+    {
+      "id": "c020d9fa83730c09838a4afd89935f4bd80bcaeb6a3b0beff2e41b5099a5ab59",
+      "path": "components/blocks/auth-pages.tsx",
+      "kind": "source",
+      "url": "/docs-code/c020d9fa83730c09838a4afd89935f4bd80bcaeb6a3b0beff2e41b5099a5ab59.json",
+      "lines": 595
+    },
+    {
+      "id": "ba4ddb5b7c550debce945b9d2eee07e8a3acf6007b163337d22a4cc48008fa73",
+      "path": "components/examples/auth-errors/auth-errors-demo.tsx",
+      "kind": "example",
+      "url": "/docs-code/ba4ddb5b7c550debce945b9d2eee07e8a3acf6007b163337d22a4cc48008fa73.json",
+      "lines": 350
+    },
+    {
+      "id": "8d7c82bfead653361b3fb0d02e1aa66b848f79c89ed52b4e5e4060be4596bf62",
+      "path": "components/blocks/auth-pages.module.css",
+      "kind": "related",
+      "url": "/docs-code/8d7c82bfead653361b3fb0d02e1aa66b848f79c89ed52b4e5e4060be4596bf62.json",
+      "lines": 430
     }
   ]
 }
