@@ -4,6 +4,8 @@
 
 开发顺序为：核对参考与技术栈 → 声明页面和模块规范 → 构建组件并在统一元素页展示 → 组装项目页面 → 验证实际效果。页面通过组件组合；样式和交互实现沉淀到组件层。详见 [开发指南](./DEVELOPMENT-GUIDE.md) 和 [Agent Workspace 迁移计划](./plans/agent-workspace-component-first-plan.md)。
 
+下一步架构调整见 [示例项目独立构建计划](./plans/independent-example-apps-plan.md)：七个完整示例拆为独立应用，主站保留对应组件展示与设计规范，共享 UI 单一来源。当前仅完成计划，目录、命令与构建方式尚未迁移。
+
 目前提供 **Button、Input、Badge、Tag、Chip、Dialog、Item、RuntimeStatusBadge、DataRegion、Tree、SessionRow、AgentRow、ActivityTimeline、Inspector、ChatMessage / Conversation / ChatComposer、ToolCall、TaskPanel、ScrollPlayground、StyleWorkbench、WorkspaceShell**。组件演示中的保存、创建、任务控制和权限动作使用本地 fixture；真实 Pi 服务入口及其能力边界见 [PI-WORKSPACE.md](./PI-WORKSPACE.md)。
 
 ## 设计规范与初始化

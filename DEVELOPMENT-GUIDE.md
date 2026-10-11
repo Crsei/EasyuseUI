@@ -27,6 +27,8 @@ EasyuseUI 的主线为“简单组件展示 → 复杂组件构建 → 项目示
 
 Agent Workspace 首轮按[组件先行迁移计划](./plans/agent-workspace-component-first-plan.md)执行：MD01–MD17 统一展示，展示效果与设计规范分离，文件代码预览采用可复用编辑器引擎组件；后续表格、图表、关系图、拖拽和服务数据层按缺口引入。
 
+后续应用边界按[示例项目独立构建计划](./plans/independent-example-apps-plan.md)推进：主站迁至 apps/docs，七个完整示例分别进入 examples 下的独立应用，共享源码归 packages/ui，Pi Host 保持独立。主站项目页面只保留对应组件展示、设计规范和应用入口；独立应用不得反向进入主站构建依赖。该调整目前仅为计划，现有路径和命令继续有效，Bun 迁移另行验证。
+
 ## 2. 技术选择与引入条件
 
 以下是 2026-10-11 对 package.json 和当前源码的核对；实施时复核安装版本、真实导出与 Registry 依赖闭包。
