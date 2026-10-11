@@ -176,7 +176,7 @@ for (const configuration of [
         await expect(editor).toBeInViewport({ ratio: 1 })
         await expect(
           page.getByRole("button", {
-            name: configuration.locale === "en" ? "Send" : "发送",
+            name: configuration.locale === "en" ? /^(Send|Add to queue|Steer now)$/ : /^(发送|加入队列|立即引导)$/,
             exact: true,
           }),
         ).toBeInViewport({ ratio: 1 })

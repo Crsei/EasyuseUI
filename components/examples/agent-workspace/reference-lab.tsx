@@ -377,7 +377,7 @@ export function ReferenceLab({ view = "reference" }: { view?: "reference" | "gal
     ),
     MD15: (
       <DeferredWorkbenchPanels
-        panels={resourcePanels}
+        panels={resourcePanels.map(p => p.id === "changes" ? {...p, render: () => <ChangeReviewPanel presentation="summary" changes={session.changes} selectedFileId={fileId} onSelectFile={id => {setFileId(id); navigateModule("MD16")}} comments={comments} onCommentsChange={setComments} />} : p)}
         value={panel}
         primaryPanels={["changes", "files", "plan"]}
         onChange={setPanel}

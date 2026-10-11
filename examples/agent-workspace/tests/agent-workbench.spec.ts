@@ -172,12 +172,12 @@ test("sending is locked after lost acknowledgement and later confirmation retain
 }) => {
   await page.goto(`${root}/app/?page=session&session=session-filter`)
   await input(page).fill("Submitted old version")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await input(page).fill("Newer unsent draft")
   await source(page, "确认丢失")
   await expect(input(page)).toHaveValue("Newer unsent draft")
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeDisabled()
   await expect(
     page.getByText("Submitted old version", { exact: true }),
@@ -188,7 +188,7 @@ test("sending is locked after lost acknowledgement and later confirmation retain
     page.getByText("Submitted old version", { exact: true }),
   ).toHaveCount(1)
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeEnabled()
 })
 test("renaming and archiving wait for source confirmation and preserve the selected session", async ({
@@ -239,7 +239,7 @@ test("send failure, invalid context and local attachment availability keep the d
 }) => {
   await page.goto(`${root}/app/?page=session&session=session-filter`)
   await input(page).fill("Keep this draft")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await source(page, "报告失败")
   await expect(input(page)).toHaveValue("Keep this draft")
   await composerSettings(page)
@@ -248,18 +248,18 @@ test("send failure, invalid context and local attachment availability keep the d
     .last()
     .selectOption("ref-stale")
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeDisabled()
   await page
     .getByRole("button", { name: "重试读取", exact: true })
     .first()
     .click()
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeDisabled()
   await source(page)
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeEnabled()
   await page.locator('input[type="file"]').setInputFiles({
     name: "fixture.txt",
@@ -267,7 +267,7 @@ test("send failure, invalid context and local attachment availability keep the d
     buffer: Buffer.from("local data"),
   })
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeDisabled()
   const dialog = await settings(page)
   await dialog
@@ -275,7 +275,7 @@ test("send failure, invalid context and local attachment availability keep the d
     .click()
   await page.keyboard.press("Escape")
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeEnabled()
 })
 test("approval stays waiting until confirmation, unknown disables duplicates, and questions have separate drafts", async ({
@@ -314,7 +314,7 @@ test("new coding task proceeds through approval, failed evidence, correction and
 }) => {
   await page.goto(`${root}/app/?template=coding&page=new`)
   await input(page).fill("修复过滤器并审阅边界")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(page).toHaveURL(/page=new/)
   await source(page)
   await expect(page).toHaveURL(/session=session-created-request-/)
@@ -334,7 +334,7 @@ test("new coding task proceeds through approval, failed evidence, correction and
   await input(page).fill(
     "Normalize case before comparing, and add empty query coverage.",
   )
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await source(page)
   await advance(page)
   await expect(
@@ -397,7 +397,7 @@ test("artifact template generates a report, locates its source message and bring
 }) => {
   await page.goto(`${root}/app/?template=artifacts&page=new`)
   await input(page).fill("Analyze project research and prepare a report")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await source(page)
   await page.getByRole("button", { name: "批准", exact: true }).click()
   await source(page)
@@ -561,7 +561,7 @@ for (const width of [1024, 1280, 1440])
     await expect(input(page)).toBeVisible()
     await expect(input(page)).toBeInViewport({ ratio: 1 })
     await expect(
-      page.getByRole("button", { name: "发送", exact: true }),
+      page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
     ).toBeInViewport({ ratio: 1 })
     await openReview(page)
     await expect(page).toHaveURL(/layout=review/)

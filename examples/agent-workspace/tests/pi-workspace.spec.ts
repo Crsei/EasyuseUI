@@ -46,16 +46,19 @@ test.afterAll(async () => {
 })
 async function open(page: Page) {
   await page.addInitScript(
-    ({ credential }) => {
+    ({ credential, endpoint }) => {
       sessionStorage.setItem(
         "easyuse:pi:connection",
         JSON.stringify({
-          endpoint: "http://127.0.0.1:3013",
+          endpoint,
           token: credential,
         }),
       )
     },
-    { credential },
+    {
+      credential,
+      endpoint: `http://127.0.0.1:${process.env.PI_BROWSER_HOST_PORT ?? 3013}`,
+    },
   )
   await page.goto("/pi/")
   await expect(page.locator("[data-pi-workspace]")).toHaveAttribute(
@@ -87,7 +90,7 @@ test("mounted page sends and streams with source ordering, reloads history and i
   await newSession(page)
   const textarea = page.locator("textarea")
   await textarea.fill("first browser instruction")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(
     page.getByText("Fixture streaming answer", { exact: true }),
   ).toBeVisible()
@@ -110,13 +113,15 @@ test("mounted page sends and streams with source ordering, reloads history and i
   const selected = new URL(page.url()).searchParams.get("session")!
   await page.reload()
   await expect(textarea).toHaveValue("retained per session draft")
-  expect(
-    await page
-      .locator("[data-message-id]")
-      .evaluateAll((elements) =>
-        elements.map((e) => e.getAttribute("data-message-id")),
-      ),
-  ).toEqual(ids)
+  await expect
+    .poll(() =>
+      page
+        .locator("[data-message-id]")
+        .evaluateAll((elements) =>
+          elements.map((e) => e.getAttribute("data-message-id")),
+        ),
+    )
+    .toEqual(ids)
   await newSession(page)
   await textarea.fill("second session draft")
   await page
@@ -203,7 +208,7 @@ test("paging 1000 source messages retains scroll anchors, stream updates do not 
     ),
   ).toBeLessThan(3)
   await page.locator("textarea").fill("hold with reader at old history")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(
     page.getByRole("button", { name: "请求停止本轮", exact: true }),
   ).toBeEnabled()
@@ -262,7 +267,7 @@ test("lost reply is queried using its original request ID and newer draft surviv
     await route.abort("failed")
   })
   await page.locator("textarea").fill("lost receipt instruction")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(
     page.getByRole("button", { name: "查询操作结果", exact: true }),
   ).toBeVisible()
@@ -301,7 +306,7 @@ test("desktop navigation and reduced motion retain composer, locale and keyboard
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true)
-  const send = page.getByRole("button", { name: "发送", exact: true }),
+  const send = page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
     bounds = (await send.boundingBox())!
   expect(bounds.height).toBeGreaterThanOrEqual(32)
   await page.getByRole("button", { name: "切换语言", exact: true }).click()
@@ -310,14 +315,20 @@ test("desktop navigation and reduced motion retain composer, locale and keyboard
   await context.close()
 })
 
-test("two tabs cannot execute concurrent sends twice and the rejected tab retains its draft", async ({
+test("two clients cannot execute concurrent sends twice and the rejected client retains its draft", async ({
   page,
   context,
+  browser,
 }) => {
   await open(page)
   await newSession(page)
   const id = new URL(page.url()).searchParams.get("session")!
-  const second = await context.newPage()
+  // Independent storage represents two clients reaching the Host concurrently.
+  // Same-context tabs already share pending receipts and disable duplicate sends.
+  const secondContext = await browser.newContext({
+    storageState: await context.storageState(),
+  })
+  const second = await secondContext.newPage()
   await open(second)
   await expect
     .poll(() => new URL(second.url()).searchParams.get("session"))
@@ -326,7 +337,7 @@ test("two tabs cannot execute concurrent sends twice and the rejected tab retain
   await second.locator("textarea").fill("hold concurrent instruction")
   for (const tab of [page, second])
     await expect(
-      tab.getByRole("button", { name: "发送", exact: true }),
+      tab.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
     ).toBeEnabled()
   // Hold transport until both explicit user submissions exist; an early SSE update
   // should not turn a server-concurrency test into a wait on a correctly disabled button.
@@ -342,8 +353,8 @@ test("two tabs cannot execute concurrent sends twice and the rejected tab retain
       await route.continue()
     })
   await Promise.all([
-    page.getByRole("button", { name: "发送", exact: true }).click(),
-    second.getByRole("button", { name: "发送", exact: true }).click(),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click(),
+    second.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click(),
   ])
   await expect
     .poll(async () =>
@@ -366,7 +377,7 @@ test("two tabs cannot execute concurrent sends twice and the rejected tab retain
   await expect(
     second.getByText("已取消", { exact: true }).first(),
   ).toBeVisible()
-  await second.close()
+  await secondContext.close()
 })
 
 test("pending creation cannot send into the old session and preserves its draft", async ({
@@ -396,7 +407,7 @@ test("pending creation cannot send into the old session and preserves its draft"
   await page.getByRole("button", { name: "新建会话", exact: true }).click()
   await ready
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeDisabled()
   await expect(page.locator("textarea")).toHaveValue(
     "draft belongs to previous session",
@@ -449,7 +460,7 @@ test("late copy response cannot navigate back to an old project; failed refresh 
     .toBe("second")
   await newSession(page)
   await page.locator("textarea").fill("retained after refresh failure")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(
     page.getByText("Fixture final output", { exact: true }),
   ).toBeVisible()

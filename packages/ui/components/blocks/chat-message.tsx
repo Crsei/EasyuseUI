@@ -6,6 +6,7 @@ import { localizeStaticData } from "../../lib/i18n-core"
 
 import {
   memo,
+  useLayoutEffect,
   useId,
   useRef,
   useState,
@@ -342,6 +343,11 @@ export type ChatComposerProps = {
   disabled?: boolean
   onStop?: () => void
   attachments?: ReactNode
+  /** Workspace composition preserves the shared draft and IME behavior. */
+  presentation?: "default" | "workspace"
+  controls?: ReactNode
+  tools?: ReactNode
+  sendLabel?: string
 }
 export function ChatComposer({
   value,
@@ -353,10 +359,40 @@ export function ChatComposer({
   disabled,
   onStop,
   attachments,
+  presentation = "default",
+  controls,
+  tools,
+  sendLabel,
 }: ChatComposerProps) {
   const { t } = useI18n()
 
   const id = useId()
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  useLayoutEffect(() => {
+    if (presentation !== "workspace") return
+    const field = textareaRef.current
+    if (!field) return
+    const resize = () => {
+      if (!field.getClientRects().length) return
+      field.style.height = "0px"
+      field.style.height = `${Math.min(300, Math.max(80, field.scrollHeight + 2))}px`
+    }
+    resize()
+    let width = field.getBoundingClientRect().width
+    const observer = new ResizeObserver(() => {
+      const next = field.getBoundingClientRect().width
+      if (next !== width) {
+        width = next
+        resize()
+      }
+    })
+    observer.observe(field)
+    window.addEventListener("resize", resize)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener("resize", resize)
+    }
+  }, [value, presentation])
   const composing = useRef(false)
   const sending = useRef(false)
   const [busy, setBusy] = useState(false)
@@ -390,6 +426,7 @@ export function ChatComposer({
   return (
     <form
       className={styles.composer}
+      data-presentation={presentation}
       onSubmit={(event) => {
         event.preventDefault()
         void send()
@@ -400,6 +437,7 @@ export function ChatComposer({
         {t("chatMessage.messageInput")}
       </label>
       <textarea
+        ref={textareaRef}
         id={id}
         value={value}
         placeholder={t("chatMessage.enterATask")}
@@ -426,8 +464,11 @@ export function ChatComposer({
           }
         }}
       />
+      {tools && <div className={styles.composerTools}>{tools}</div>}
       <div className={styles.composerActions}>
-        <span>{t("chatMessage.enterToSendShiftEnterForANew")}</span>
+        {controls ?? (
+          <span>{t("chatMessage.enterToSendShiftEnterForANew")}</span>
+        )}
         {streaming ? (
           onStop && (
             <Button variant="secondary" onClick={onStop}>
@@ -437,7 +478,7 @@ export function ChatComposer({
           )
         ) : (
           <Button type="submit" disabled={!canSend} loading={pending || busy}>
-            {t("chatMessage.send")}
+            {sendLabel ?? t("chatMessage.send")}
           </Button>
         )}
       </div>

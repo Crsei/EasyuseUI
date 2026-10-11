@@ -148,7 +148,7 @@ test("composer and feedback retain their instances through state, module, theme 
     .getByRole("combobox", { name: "交互状态", exact: true })
     .selectOption("unknown")
   await expect(
-    page.getByRole("button", { name: "发送", exact: true }),
+    page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }),
   ).toBeDisabled()
   await page
     .getByRole("combobox", { name: "数据状态", exact: true })

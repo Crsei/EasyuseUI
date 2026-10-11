@@ -147,7 +147,7 @@ test("real provider: browser streaming, read tool, native context continuation, 
   await composer.fill(
     "Use the read tool to read proof.txt. Then answer with the prior context marker I asked you to remember and the color from the file. Keep the response under 40 words.",
   )
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(
     page.locator("[data-message-state='streaming']").first(),
   ).toBeVisible({ timeout: 90000 })
@@ -196,7 +196,7 @@ test("real provider: browser streaming, read tool, native context continuation, 
   await composer.fill(
     "Without rereading any file, what was the prior marker and the reference color? Answer in one line.",
   )
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(
     page.locator("[data-message-role='agent']").last(),
   ).toContainText("ORCHID-7249", { timeout: 90000 })
@@ -211,7 +211,7 @@ test("real provider: browser streaming, read tool, native context continuation, 
   await composer.fill(
     "Please produce a detailed 2000-word explanation of how filesystem caches work, beginning now.",
   )
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   const stop = page.getByRole("button", { name: "请求停止本轮", exact: true })
   await expect(stop).toBeEnabled({ timeout: 30000 })
   await stop.click()

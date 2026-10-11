@@ -114,7 +114,7 @@
 }
 .dock {
   flex-shrink: 0;
-  max-height: min(300px, 55dvh);
+  max-height: 55dvh;
   overflow: auto;
   background: var(--surface);
 }

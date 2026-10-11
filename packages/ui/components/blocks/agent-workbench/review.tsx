@@ -1,5 +1,6 @@
 "use client"
 import { lazy, Suspense, useId, useState } from "react"
+import { FileCode2 } from "lucide-react"
 import { Tree } from "../../ui/tree"
 import { Button } from "../../ui/button"
 import { DataRegion } from "../../ui/data-region"
@@ -30,7 +31,9 @@ export function FileViewer({
 }: {
   file?: ChangedFile
   resource?: Pick<ResourceSnapshot, "path" | "text" | "complete"> &
-    Partial<Pick<ResourceSnapshot, keyof ResourceIdentity | "dataState" | "updatedAt">>
+    Partial<
+      Pick<ResourceSnapshot, keyof ResourceIdentity | "dataState" | "updatedAt">
+    >
   range?: { start: number; end: number }
   revision: string
   maximumLines?: number
@@ -163,6 +166,7 @@ export function DiffViewer({
   )
 }
 export type ChangeReviewPanelProps = {
+  presentation?: "review" | "summary"
   changes: ChangeSet
   /** Stable review owner, such as session ID; keeps unsubmitted feedback scoped. */
   scopeId?: string
@@ -176,6 +180,7 @@ export type ChangeReviewPanelProps = {
   fileOnly?: boolean
 }
 export function ChangeReviewPanel({
+  presentation = "review",
   changes,
   scopeId,
   selectedFileId,
@@ -229,6 +234,14 @@ export function ChangeReviewPanel({
   const stale = comments.some(
     (comment) => !reviewCommentIsCurrent(changes, comment),
   )
+  if (presentation === "summary")
+    return (
+      <ChangeSummary
+        changes={changes}
+        selectedFileId={selectedFileId}
+        onSelectFile={onSelectFile}
+      />
+    )
   return (
     <section>
       <header className={styles.section}>
@@ -428,6 +441,85 @@ export function ChangeReviewPanel({
             disabled={!onFeedback || !comments.length || stale}
           >
             {t("workbench.sendFeedback")}
+          </Button>
+        </div>
+      )}
+    </section>
+  )
+}
+
+/** Read-only compact summary of the exact supplied changeset. Selection opens caller review. */
+function ChangeSummary({
+  changes,
+  selectedFileId,
+  onSelectFile,
+}: {
+  changes: ChangeSet
+  selectedFileId?: string
+  onSelectFile: (id: string) => void
+}) {
+  const { t } = useI18n()
+  const selected =
+    changes.files.find((f) => f.fileId === selectedFileId) ??
+    changes.files.find((f) => f.kind !== "binary") ??
+    changes.files[0]
+  return (
+    <section className={styles.changesOverview} data-change-summary>
+      <header>
+        <strong>
+          {t("workbench.changedFiles", { count: changes.files.length })}
+        </strong>
+        {changes.partial && <span>{t("workbench.truncated")}</span>}
+      </header>
+      <div className={styles.changedFiles}>
+        {changes.files.map((file) => (
+          <Button
+            key={file.fileId}
+            variant="ghost"
+            onClick={() => onSelectFile(file.fileId)}
+          >
+            <FileCode2 size={16} />
+            <span className={styles.changedFileName}>
+              <strong>{file.path.split("/").at(-1)}</strong>
+              <small>{file.path}</small>
+            </span>
+            <span className={styles.changeNumbers}>
+              {file.kind === "binary" ? (
+                t("workbench.changeBinary")
+              ) : file.truncated ? (
+                t("workbench.truncated")
+              ) : (
+                <>
+                  <span className={styles.additions}>
+                    +{file.lines.filter((l) => l.kind === "add").length}
+                  </span>{" "}
+                  <span className={styles.deletions}>
+                    −{file.lines.filter((l) => l.kind === "remove").length}
+                  </span>
+                </>
+              )}
+              <small>
+                {t(
+                  `workbench.change${file.kind[0].toUpperCase()}${file.kind.slice(1)}` as "workbench.changeModified",
+                )}
+              </small>
+            </span>
+          </Button>
+        ))}
+      </div>
+      {selected && (
+        <div className={styles.quickDiff}>
+          <header>
+            <strong>{t("workbench.quickPreview")}</strong>
+            <code>{selected.path}</code>
+          </header>
+          {selected.kind !== "binary" && !selected.lines.length ? (
+            <p>{t("workbench.noPreview")}</p>
+          ) : (
+            <DiffViewer file={selected} maximumLines={8} />
+          )}
+          <Button variant="ghost" onClick={() => onSelectFile(selected.fileId)}>
+            {t("workbench.reviewDiff")}
           </Button>
         </div>
       )}

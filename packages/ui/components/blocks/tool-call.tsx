@@ -3,7 +3,7 @@ import { useUiFeedback } from "../../lib/i18n-provider"
 import { uiMessage, type UiMessage } from "../../lib/i18n-core"
 import { useI18n } from "../../lib/i18n-provider"
 
-import { useId, useState } from "react"
+import { useId, useState, type ReactNode } from "react"
 import { ChevronRight, Terminal, Copy } from "lucide-react"
 import { Button } from "../ui/button"
 import { RuntimeStatusBadge } from "../ui/runtime-status-badge"
@@ -30,6 +30,9 @@ export type ToolCallRecord = {
 type Operation = () => void | Promise<void>
 export type ToolCallProps = {
   call: ToolCallRecord
+  presentation?: "default" | "activity"
+  summary?: ReactNode
+  actions?: ReactNode
   defaultExpanded?: boolean
   data?: Omit<DataRegionProps, "children" | "hasContent">
   permission?: {
@@ -46,6 +49,9 @@ export type ToolCallProps = {
 export function ToolCall({
   call,
   defaultExpanded = false,
+  presentation = "default",
+  summary,
+  actions,
   data,
   permission,
   onCancel,
@@ -70,6 +76,15 @@ export function ToolCall({
   const waitingConfirmation = submitted?.key === key
   const output = redact(call.output)
   const preview = previewText(output)
+  const args =
+    call.arguments && typeof call.arguments === "object"
+      ? (call.arguments as Record<string, unknown>)
+      : undefined
+  const command =
+    typeof args?.command === "string"
+      ? redact(args.command).slice(0, 8192)
+      : undefined
+  const directory = typeof args?.cwd === "string" ? redact(args.cwd) : undefined
   const unknown = call.outcome === "unknown" || uncertainKey === key
   async function operate(label: UiMessage, action: Operation) {
     if (pending || waitingConfirmation) return
@@ -95,7 +110,11 @@ export function ToolCall({
     }
   }
   return (
-    <div className={styles.call} data-call-id={call.id}>
+    <div
+      className={styles.call}
+      data-call-id={call.id}
+      data-presentation={presentation}
+    >
       <button
         type="button"
         className={styles.header}
@@ -122,6 +141,34 @@ export function ToolCall({
           aria-hidden="true"
         />
       </button>
+      {presentation === "activity" && command && (
+        <div className={styles.commandMeta}>
+          <code>{command}</code>
+          <span>
+            {t("resource.exitCode")} {call.exitCode ?? "—"}
+          </span>
+          {directory && <small>{directory}</small>}
+        </div>
+      )}
+      {summary && <div className={styles.activitySummary}>{summary}</div>}
+      {presentation === "activity" && !expanded && (
+        <div className={styles.activityPreview}>
+          {call.output !== undefined &&
+            (!call.error || output !== redact(call.error)) && (
+              <pre>
+                {preview.text || t("toolCall.theToolReturnedNoTextOutput")}
+              </pre>
+            )}
+          {(preview.truncated || call.outputTruncated) && (
+            <p className={styles.notice}>{t("toolCall.outputTruncated")}</p>
+          )}
+          {call.exitCode !== undefined && (
+            <p className={styles.stage}>
+              {t("resource.exitCode")} <code>{call.exitCode}</code>
+            </p>
+          )}
+        </div>
+      )}
       {!expanded && call.error && (
         <p className={styles.notice} role="alert">
           {redact(call.error).slice(0, 256)}
@@ -351,6 +398,7 @@ export function ToolCall({
           )}
         </div>
       )}
+      {actions && <div className={styles.activityActions}>{actions}</div>}
     </div>
   )
 }

@@ -100,7 +100,7 @@ test("Queue/Steer, locale and IME preserve the composer instance and submitted-v
   await field.dispatchEvent("compositionend")
   const text = await field.inputValue()
   await expect(page.locator("[data-queue-operation]")).toHaveCount(0)
-  const mode = page.locator("[data-intervention-composer] select")
+  const mode = page.locator("[data-intervention-composer]").getByRole("combobox", {name: /^(输入模式|Input mode)$/, exact: true})
   await mode.selectOption("steer")
   await expect(field).toHaveValue(text)
   await expect(field).toHaveAttribute("data-instance", "stable")
@@ -115,7 +115,7 @@ test("Queue/Steer, locale and IME preserve the composer instance and submitted-v
     .selectOption("zh-CN")
   await page
     .locator("[data-intervention-composer]")
-    .getByRole("button", { name: "发送", exact: true })
+    .getByRole("button", { name: /^(发送|加入队列|立即引导)$/ })
     .click()
   await expect(queue(page).locator("[data-queued-prompt-id]")).toHaveCount(2)
   await field.fill("确认期间的新草稿")
@@ -286,7 +286,7 @@ test("narrow touch, short viewport, dark theme and English retain readable fixed
     await expect(
       page
         .locator("[data-intervention-composer]")
-        .getByRole("button", { name: "Send", exact: true }),
+        .getByRole("button", { name: /^(Send|Add to queue|Steer now)$/ }),
     ).toBeVisible()
     await page.screenshot({
       path: ".local/intervention-evidence/mobile-dark-en.png",
@@ -306,7 +306,7 @@ test("200% equivalent layout and long queued text remain bounded and readable", 
   await input(page).fill(text)
   await page
     .locator("[data-intervention-composer]")
-    .getByRole("button", { name: "发送", exact: true })
+    .getByRole("button", { name: /^(发送|加入队列|立即引导)$/ })
     .click()
   await confirm(page, "queue")
   await queue(page).getByRole("button", { name: "展开其余消息" }).click()

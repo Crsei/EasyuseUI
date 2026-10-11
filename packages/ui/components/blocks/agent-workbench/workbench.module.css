@@ -155,14 +155,37 @@
   border-left: 2px solid var(--status-error);
 }
 .composer {
-  border-top: 1px solid var(--border);
-  background: var(--surface);
-  padding-bottom: env(safe-area-inset-bottom);
-  flex-shrink: 1;
+  width: min(100%, var(--workbench-content-width, 760px));
+  margin-inline: auto;
+  padding: 8px 16px;
+  min-width: 0;
   min-height: 0;
-  max-height: 100%;
-  overflow: auto;
-  overscroll-behavior: contain;
+  flex-shrink: 0;
+  background: var(--background);
+}
+.composerRun {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.composerRun > button {
+  margin-left: auto;
+}
+.composerHint {
+  margin: 8px 0 0;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 16px;
+}
+.composerReferences {
+  flex-basis: 100%;
+}
+.composerReferences:empty {
+  display: none;
 }
 .composerSettings > summary {
   padding: 8px 12px;
@@ -574,3 +597,228 @@
   outline: 2px solid var(--ring);
   outline-offset: -2px;
 }
+
+.composer .controls {
+  padding: 0;
+  flex: 1;
+  gap: 4px;
+  align-items: center;
+}
+.composer .controls[data-compact] {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+.composer .controls[data-compact] label {
+  font-size: 0;
+  flex: 0 1 auto;
+  max-width: 180px;
+  gap: 0;
+}
+.composer .controls[data-compact] [role="combobox"],
+.composer .controls[data-compact] select {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  height: 32px;
+  font-size: 12px;
+  max-width: 180px;
+  border-radius: 6px;
+}
+.composer .controls[data-compact] [role="combobox"]:hover,
+.composer .controls[data-compact] select:hover {
+  background: var(--surface-hover);
+}
+.composerSettings {
+  position: relative;
+}
+.composerSettings > summary {
+  color: var(--muted-foreground);
+  padding: 6px 8px;
+}
+.composerSettings[open] {
+  flex-basis: 100%;
+}
+.composerOptions {
+  padding: 8px;
+  background: var(--surface-hover);
+  border-radius: 6px;
+}
+
+.sessionIdentity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+.sessionHeader .heading {
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sessionMetadata {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.sessionHeaderActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.toolGroup[data-presentation="workspace"] {
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+}
+.toolGroup[data-presentation="workspace"][open] {
+  background: var(--surface-hover);
+}
+.toolGroup[data-presentation="workspace"] > summary {
+  min-height: 32px;
+  padding: 4px 8px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.planSummary {
+  background: var(--surface-hover);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.planSteps {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.planSteps > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.changeSummary {
+  border: 0;
+  margin: 0;
+}
+
+.changesOverview {
+  min-width: 0;
+  font-size: 13px;
+}
+.changesOverview header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+}
+.changesOverview header strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+.changesOverview header code {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  color: var(--muted-foreground);
+}
+.changedFiles > button {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 56px;
+  padding: 8px 12px;
+  text-align: left;
+  justify-content: flex-start;
+  border-radius: 0;
+}
+.changedFileName {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+.changedFileName strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  font-weight: 500;
+}
+.changedFileName small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.changeNumbers {
+  margin-left: auto;
+  text-align: right;
+  font:
+    12px/16px var(--font-mono),
+    monospace;
+}
+.changeNumbers small {
+  display: block;
+  font-family: var(--font-sans), sans-serif;
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+.quickDiff {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.quickDiff .diff {
+  max-height: 200px;
+}
+.quickDiff > button {
+  margin: 8px;
+}
+
+.composer .controls[data-compact] label {
+  max-width: 164px;
+}
+.composer .controls[data-compact] select {
+  max-width: 132px;
+}
+.composer .controls[data-compact] label > [role="combobox"] {
+  max-width: 164px;
+}
+
+.composerReferences:has(> :empty) {
+  display: none;
+}
+
+.planSteps > span {
+  max-width: 180px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+.toolGroupDuration {
+  float: right;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (pointer: coarse) {
+  .composer .controls[data-compact] [role="combobox"],
+  .composer .controls[data-compact] select,
+  .toolGroup[data-presentation="workspace"] > summary {
+    min-height: 44px;
+  }
+}
+
+/* Keep the textarea and submit row together when a short dock clips its content. */
+.composer { flex-shrink: 1; max-height: 100%; overflow: auto; overscroll-behavior: contain; }
+.composer .controls[data-compact] { flex-wrap: nowrap; overflow-x: auto; min-width: 0; max-width: calc(100% - 90px); }
+.composer .controls[data-compact] label { flex: 0 0 auto; }

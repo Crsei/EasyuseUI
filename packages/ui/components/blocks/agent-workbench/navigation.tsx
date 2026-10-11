@@ -257,6 +257,7 @@ export function SessionNavigator({
       />
       <Input
         aria-label={t("workbench.searchSessions")}
+        placeholder={t("workbench.searchSessions")}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
@@ -409,60 +410,69 @@ export function SessionHeader({
         presentation === "workspace" && styles.sessionHeader,
       )}
     >
-      {editing === session.sessionId ? (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault()
-            if (name.trim()) onRename?.(name.trim())
-            setEditing(null)
-          }}
-        >
-          <Input
-            aria-label={t("workbench.newName")}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Button type="submit" size="sm">
-            {t("workbench.rename")}
-          </Button>
-        </form>
-      ) : (
-        <>
-          <span className={styles.heading}>{session.title}</span>
-          {onRename && (
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => {
-                setName(session.title)
-                setEditing(session.sessionId)
-              }}
-            >
+      <div className={styles.sessionIdentity}>
+        {editing === session.sessionId ? (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              if (name.trim()) onRename?.(name.trim())
+              setEditing(null)
+            }}
+          >
+            <Input
+              aria-label={t("workbench.newName")}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Button type="submit" size="sm">
               {t("workbench.rename")}
             </Button>
-          )}
-        </>
-      )}
-      <RuntimeStatusBadge status={session.status} />
-      <span className={styles.meta}>
-        {environment.name} · {environment.branch ?? "—"} ·{" "}
-        {environment.connection === "connected"
-          ? t("workbench.connectionConnected")
-          : environment.connection === "disconnected"
-            ? t("workbench.disconnected")
-            : t("workbench.connectionUnknown")}
-      </span>
-      {onInterrupt && (
-        <Button
-          size="sm"
-          variant="secondary"
-          disabled={!session.capabilities.interrupt}
-          onClick={onInterrupt}
-        >
-          {t("workbench.interrupt")}
-        </Button>
-      )}
-      {actions}
+          </form>
+        ) : (
+          <>
+            <span className={styles.heading} title={session.title}>
+              {session.title}
+            </span>
+          </>
+        )}
+        <div className={styles.sessionMetadata}>
+          <RuntimeStatusBadge status={session.status} />
+          <span>{session.agent.name}</span>
+          <span className={styles.meta}>
+            {environment.name} · {environment.branch ?? "—"} ·{" "}
+            {environment.connection === "connected"
+              ? t("workbench.connectionConnected")
+              : environment.connection === "disconnected"
+                ? t("workbench.disconnected")
+                : t("workbench.connectionUnknown")}
+          </span>
+        </div>
+      </div>
+      <div className={styles.sessionHeaderActions}>
+        {onRename && (
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => {
+              setName(session.title)
+              setEditing(session.sessionId)
+            }}
+          >
+            {t("workbench.rename")}
+          </Button>
+        )}
+        {onInterrupt && (
+          <Button
+            size="sm"
+            variant="secondary"
+            disabled={!session.capabilities.interrupt}
+            onClick={onInterrupt}
+          >
+            {t("workbench.interrupt")}
+          </Button>
+        )}
+        {actions}
+      </div>
     </div>
   )
 }

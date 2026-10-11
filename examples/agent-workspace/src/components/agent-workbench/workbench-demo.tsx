@@ -25,6 +25,7 @@ import {
   ProjectSwitcher,
   SessionHeader,
 } from "@easyuse-ui/ui/components/blocks/agent-workbench/navigation"
+import { ChangeReviewPanel } from "@easyuse-ui/ui/components/blocks/agent-workbench/review"
 import { AgentComposer } from "@easyuse-ui/ui/components/blocks/agent-workbench/composer"
 import {
   ContextPanel,
@@ -1175,7 +1176,7 @@ export function WorkbenchDemo({
             ).map((view) => (
               <Button
                 key={view.id}
-                size="sm"
+                size="default"
                 variant="ghost"
                 data-navigation-close
                 data-sidebar-session-view={view.id}
@@ -1203,7 +1204,7 @@ export function WorkbenchDemo({
             ))}
             {["session", "review"].includes(query.page) && (
             <Button
-              size="sm"
+              size="default"
               variant="ghost"
               data-navigation-close
               data-sidebar-session-view="runtime"
@@ -1617,14 +1618,7 @@ export function WorkbenchDemo({
               }}
               onRetry={retryRead}
             >
-              {session.changes.files.map((file) => (
-                <Item
-                  key={file.fileId}
-                  title={file.path}
-                  description={`${file.kind} · ${session.changes.revision}`}
-                  onSelect={() => openChange(file.fileId)}
-                />
-              ))}
+              <ChangeReviewPanel presentation="summary" changes={session.changes} selectedFileId={state.panels.selectedFileId} onSelectFile={openChange} comments={[]} onCommentsChange={() => {}} />
             </DataRegion>
           ) : panel.id === "files" ? (
             <FileNavigation

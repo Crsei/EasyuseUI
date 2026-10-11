@@ -239,7 +239,7 @@ test("empty project selection creates only after confirmation and browser histor
     .last()
     .selectOption("project-new")
   await input(page).fill("Selected project research")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await expect(page).toHaveURL(/page=new/)
   await page.getByRole("button", { name: "示例设置", exact: true }).click()
   await page
@@ -521,7 +521,7 @@ test("late creation confirmation updates its project without redirecting a diffe
     `${root}/app/?page=new&layout=&panel=&draft=discard-on-navigation`,
   )
   await input(page).fill("Late creation stays scoped")
-  await page.getByRole("button", { name: "发送", exact: true }).click()
+  await page.getByRole("button", { name: /^(发送|加入队列|立即引导)$/ }).click()
   await page
     .getByRole("button", { name: /修复大小写过滤逻辑/ })
     .first()

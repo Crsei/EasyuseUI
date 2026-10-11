@@ -1,13 +1,14 @@
 "use client"
 import { useState, useMemo, type ReactNode, type Ref } from "react"
 import { Button } from "../../ui/button"
-import {
-  Conversation,
-  type ConversationActions,
-} from "../chat-message"
+import { Conversation, type ConversationActions } from "../chat-message"
+import { RuntimeStatusBadge } from "../../ui/runtime-status-badge"
 import { ToolCall } from "../tool-call"
 import { useI18n } from "../../../lib/i18n-provider"
-import type { SessionSnapshot, MessagePart } from "../../../lib/agent-workbench-model"
+import type {
+  SessionSnapshot,
+  MessagePart,
+} from "../../../lib/agent-workbench-model"
 import styles from "./workbench.module.css"
 /** Small safe Markdown subset: paragraphs, headings, fenced code and inline code. HTML stays text. */
 export function MessageContent({
@@ -158,7 +159,11 @@ export function AgentConversation({
               }
               return groups.map((parts) =>
                 canGroup(parts[0]) ? (
-                  <details key={parts[0].partId} className={styles.toolGroup}>
+                  <details
+                    key={parts[0].partId}
+                    className={styles.toolGroup}
+                    data-presentation={presentation}
+                  >
                     <summary>
                       {parts
                         .map((part) =>
@@ -173,6 +178,20 @@ export function AgentConversation({
                         )
                         .join(" / ")}{" "}
                       · {parts.length}
+                      <span className={styles.toolGroupDuration}>
+                        {parts
+                          .flatMap((part) =>
+                            part.kind === "tool"
+                              ? session.tools
+                                  .filter(
+                                    (tool) => tool.id === part.referenceId,
+                                  )
+                                  .map((tool) => tool.duration)
+                                  .filter(Boolean)
+                              : [],
+                          )
+                          .join(" / ")}
+                      </span>
                     </summary>
                     {parts.map((part) =>
                       part.kind === "tool" ? (
@@ -233,77 +252,87 @@ export function AgentConversation({
                             (tool) => tool.id === part.referenceId,
                           )
                           return tool ? (
-                            <div>
-                              <ToolCall
-                                call={tool}
-                                defaultExpanded={
-                                  tool.status === "failed" ||
-                                  tool.outcome === "unknown"
-                                }
-                              />
-                              {Boolean(tool.fileIds?.length) &&
-                                tool.changeRevision ===
-                                  session.changes.revision && (
-                                  <div className={styles.changeSummary}>
-                                    {session.changes.files
-                                      .filter((file) =>
-                                        tool.fileIds!.includes(file.fileId),
-                                      )
-                                      .map((file) => (
-                                        <Button
-                                          key={file.fileId}
-                                          variant="ghost"
-                                          size="sm"
-                                          disabled={!onOpenChange}
-                                          onClick={() =>
-                                            onOpenChange?.(file.fileId)
-                                          }
-                                        >
-                                          <code>{file.path}</code>
-                                          {file.truncated ? (
-                                            <span>
-                                              {t("workbench.truncated")}
-                                            </span>
-                                          ) : (
-                                            <span>
-                                              <span
-                                                className={styles.additions}
-                                              >
-                                                +
-                                                {
-                                                  file.lines.filter(
-                                                    (line) =>
-                                                      line.kind === "add",
-                                                  ).length
-                                                }
-                                              </span>{" "}
-                                              <span
-                                                className={styles.deletions}
-                                              >
-                                                −
-                                                {
-                                                  file.lines.filter(
-                                                    (line) =>
-                                                      line.kind === "remove",
-                                                  ).length
-                                                }
-                                              </span>
-                                            </span>
-                                          )}
-                                        </Button>
-                                      ))}
-                                  </div>
-                                )}
-                              {onOpenTool && (
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  onClick={() => onOpenTool(tool.id)}
-                                >
-                                  {t("resource.commands")}
-                                </Button>
-                              )}
-                            </div>
+                            <ToolCall
+                              call={tool}
+                              presentation={
+                                presentation === "workspace"
+                                  ? "activity"
+                                  : "default"
+                              }
+                              defaultExpanded={
+                                tool.status === "failed" ||
+                                tool.outcome === "unknown"
+                              }
+                              summary={
+                                <>
+                                  {Boolean(tool.fileIds?.length) &&
+                                    tool.changeRevision ===
+                                      session.changes.revision && (
+                                      <div className={styles.changeSummary}>
+                                        {session.changes.files
+                                          .filter((file) =>
+                                            tool.fileIds!.includes(file.fileId),
+                                          )
+                                          .map((file) => (
+                                            <Button
+                                              key={file.fileId}
+                                              variant="ghost"
+                                              size="sm"
+                                              disabled={!onOpenChange}
+                                              onClick={() =>
+                                                onOpenChange?.(file.fileId)
+                                              }
+                                            >
+                                              <code>{file.path}</code>
+                                              {file.truncated ? (
+                                                <span>
+                                                  {t("workbench.truncated")}
+                                                </span>
+                                              ) : (
+                                                <span>
+                                                  <span
+                                                    className={styles.additions}
+                                                  >
+                                                    +
+                                                    {
+                                                      file.lines.filter(
+                                                        (line) =>
+                                                          line.kind === "add",
+                                                      ).length
+                                                    }
+                                                  </span>{" "}
+                                                  <span
+                                                    className={styles.deletions}
+                                                  >
+                                                    −
+                                                    {
+                                                      file.lines.filter(
+                                                        (line) =>
+                                                          line.kind ===
+                                                          "remove",
+                                                      ).length
+                                                    }
+                                                  </span>
+                                                </span>
+                                              )}
+                                            </Button>
+                                          ))}
+                                      </div>
+                                    )}
+                                </>
+                              }
+                              actions={
+                                onOpenTool && (
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => onOpenTool(tool.id)}
+                                  >
+                                    {t("resource.commands")}
+                                  </Button>
+                                )
+                              }
+                            />
                           ) : (
                             <p className={styles.meta}>
                               {part.label} · {t("workbench.unavailable")}
@@ -315,6 +344,17 @@ export function AgentConversation({
                           (step) => step.id === part.referenceId,
                         ) ? (
                         <div className={styles.planSummary}>
+                          <div className={styles.planSteps}>
+                            {session.plan.map((step) => (
+                              <span key={step.id}>
+                                <RuntimeStatusBadge
+                                  status={step.status}
+                                  iconOnly
+                                />
+                                {step.title}
+                              </span>
+                            ))}
+                          </div>
                           <span>
                             {t("agentBoard.steps", {
                               completed: session.plan.filter(
@@ -359,6 +399,7 @@ export function AgentConversation({
       onOpenChange,
       onOpenReference,
       onOpenTool,
+      presentation,
       groupTools,
       t,
       locale,

@@ -7,6 +7,8 @@ import {
   SelectContent,
   SelectItem,
 } from "../../ui/select"
+import { Paperclip, Square, AtSign, Slash } from "lucide-react"
+import { RuntimeStatusBadge } from "../../ui/runtime-status-badge"
 import { Button } from "../../ui/button"
 import { ChatComposer } from "../chat-message"
 import { useI18n } from "../../../lib/i18n-provider"
@@ -56,67 +58,75 @@ export function ComposerControls({
   ] as const
   return (
     <div className={styles.controls} data-compact={compact || undefined}>
-      {fields.map((f) => (
-        <label className={styles.label} key={f.key} htmlFor={`${id}-${f.key}`}>
-          {f.label}
-          {compact ? (
-            <Select
-              items={f.choices.map((c) => ({ value: c.id, label: c.label }))}
-              value={draft[f.key]}
-              onValueChange={(value) => {
-                if (value)
+      {fields
+        .filter((f) => !compact || f.key !== "environmentId")
+        .map((f) => (
+          <label
+            className={styles.label}
+            key={f.key}
+            htmlFor={`${id}-${f.key}`}
+          >
+            <span className={compact ? "sr-only" : undefined}>{f.label}</span>
+            {compact ? (
+              <Select
+                items={f.choices.map((c) => ({ value: c.id, label: c.label }))}
+                value={draft[f.key]}
+                onValueChange={(value) => {
+                  if (value)
+                    onChange({
+                      ...draft,
+                      [f.key]: value,
+                      version: draft.version + 1,
+                    })
+                }}
+              >
+                <SelectTrigger id={`${id}-${f.key}`} aria-label={f.label}>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {f.choices.map((c) => (
+                    <SelectItem
+                      key={c.id}
+                      value={c.id}
+                      disabled={Boolean(c.disabledReason)}
+                    >
+                      {c.label}
+                      {c.disabledReason ? ` · ${c.disabledReason}` : ""}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            ) : (
+              <select
+                className={styles.select}
+                id={`${id}-${f.key}`}
+                value={draft[f.key]}
+                onChange={(e) =>
                   onChange({
                     ...draft,
-                    [f.key]: value,
+                    [f.key]: e.target.value,
                     version: draft.version + 1,
                   })
-              }}
-            >
-              <SelectTrigger id={`${id}-${f.key}`} aria-label={f.label}>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {f.choices.map((c) => (
-                  <SelectItem
-                    key={c.id}
-                    value={c.id}
-                    disabled={Boolean(c.disabledReason)}
+                }
+              >
+                {f.choices.map((choice) => (
+                  <option
+                    key={choice.id}
+                    value={choice.id}
+                    disabled={Boolean(choice.disabledReason)}
                   >
-                    {c.label}
-                    {c.disabledReason ? ` · ${c.disabledReason}` : ""}
-                  </SelectItem>
+                    {choice.label}
+                    {choice.disabledReason ? ` · ${choice.disabledReason}` : ""}
+                  </option>
                 ))}
-              </SelectContent>
-            </Select>
-          ) : (
-            <select
-              className={styles.select}
-              id={`${id}-${f.key}`}
-              value={draft[f.key]}
-              onChange={(e) =>
-                onChange({
-                  ...draft,
-                  [f.key]: e.target.value,
-                  version: draft.version + 1,
-                })
-              }
-            >
-              {f.choices.map((choice) => (
-                <option
-                  key={choice.id}
-                  value={choice.id}
-                  disabled={Boolean(choice.disabledReason)}
-                >
-                  {choice.label}
-                  {choice.disabledReason ? ` · ${choice.disabledReason}` : ""}
-                </option>
-              ))}
-            </select>
-          )}
-        </label>
-      ))}
+              </select>
+            )}
+          </label>
+        ))}
       <label className={styles.label} htmlFor={`${id}-mode`}>
-        {t("workbench.inputMode")}
+        <span className={compact ? "sr-only" : undefined}>
+          {t("workbench.inputMode")}
+        </span>
         <select
           className={styles.select}
           id={`${id}-mode`}
@@ -170,7 +180,7 @@ export function AgentComposer({
   onReconcile,
   onFiles,
   attachments,
-  quickControls = false,
+  quickControls = true,
   referenceStrip,
   onOpenContext,
   onCommandMenu,
@@ -180,6 +190,7 @@ export function AgentComposer({
 }: AgentComposerProps) {
   const { t } = useI18n()
   const rootRef = useRef<HTMLElement>(null)
+  const fileRef = useRef<HTMLInputElement>(null)
   useEffect(() => {
     const root = rootRef.current
     if (!root) return
@@ -240,9 +251,35 @@ export function AgentComposer({
       aria-label={t("workbench.inputMode")}
       data-draft-id={draft.draftId}
     >
-      {referenceStrip}
-      {quickControls && (
-        <>
+      {(["running", "thinking", "starting", "waiting", "queued"].includes(
+        session.status,
+      ) ||
+        onInterrupt) && (
+        <div className={styles.composerRun}>
+          <span>{session.agent.name}</span>
+          <RuntimeStatusBadge status={session.status} />
+          {onInterrupt && session.capabilities.interrupt && (
+            <Button
+              variant="ghost"
+              onClick={onInterrupt}
+              disabled={Boolean(receipt)}
+            >
+              <Square size={14} />
+              {t("workbench.interrupt")}
+            </Button>
+          )}
+        </div>
+      )}
+      <ChatComposer
+        presentation="workspace"
+        sendLabel={t(
+          draft.mode === "queue"
+            ? "workbench.submitQueue"
+            : draft.mode === "steer"
+              ? "workbench.submitSteer"
+              : "workbench.send",
+        )}
+        controls={
           <ComposerControls
             {...{
               draft,
@@ -253,66 +290,92 @@ export function AgentComposer({
               session,
               modes,
             }}
-            compact
+            compact={quickControls}
           />
-          <div className={styles.toolbar}>
+        }
+        tools={
+          <>
+            {referenceStrip && (
+              <div className={styles.composerReferences}>{referenceStrip}</div>
+            )}
             {onOpenContext && (
               <Button variant="ghost" size="sm" onClick={onOpenContext}>
-                @ {t("workbench.addContext")}
+                <AtSign size={16} />
+                {t("workbench.attachContext")}
               </Button>
             )}
             {onCommandMenu && (
               <Button variant="ghost" size="sm" onClick={onCommandMenu}>
-                / {t("resource.commandMenu")}
+                <Slash size={16} />
+                {t("resource.commandMenu")}
               </Button>
             )}
-            {onOpenSettings && (
-              <Button variant="ghost" size="sm" onClick={onOpenSettings}>
-                {t("resource.settings")}
-              </Button>
+            {onFiles && (
+              <>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => fileRef.current?.click()}
+                >
+                  <Paperclip size={16} />
+                  {t("workbench.attachments")}
+                </Button>
+                <input
+                  ref={fileRef}
+                  type="file"
+                  hidden
+                  multiple
+                  onChange={(e) => {
+                    onFiles(Array.from(e.target.files ?? []))
+                    e.target.value = ""
+                  }}
+                />
+              </>
             )}
-          </div>
-        </>
-      )}
-      <details className={styles.composerSettings} data-composer-settings>
-        <summary>
-          {t("workbench.composerSettings")}
-          <span className={styles.meta}>
-            {models.find((model) => model.id === draft.modelId)?.label} ·{" "}
-            {t(`workbench.${draft.mode}`)}
-          </span>
-        </summary>
-        <div className={styles.composerOptions}>
-          {!quickControls && (
-            <ComposerControls
-              {...{
-                draft,
-                onChange,
-                models,
-                permissions,
-                environments,
-                session,
-                modes,
-              }}
-            />
-          )}
-          {attachments}
-          {onFiles && (
-            <label className={styles.attachmentInput}>
-              {t("workbench.attachments")}
-              <input
-                type="file"
-                multiple
-                onChange={(e) => {
-                  onFiles(Array.from(e.target.files ?? []))
-                  e.target.value = ""
-                }}
-              />
-            </label>
-          )}
-        </div>
-      </details>
-      <ChatComposer
+            {(attachments || onOpenSettings || quickControls) && (
+              <details
+                className={styles.composerSettings}
+                data-composer-settings
+              >
+                <summary>{t("workbench.composerSettings")}</summary>
+                <div className={styles.composerOptions}>
+                  {quickControls && (
+                    <label className={styles.label}>
+                      {t("workbench.environment")}
+                      <select
+                        className={styles.select}
+                        value={draft.environmentId}
+                        onChange={(e) =>
+                          onChange({
+                            ...draft,
+                            environmentId: e.target.value,
+                            version: draft.version + 1,
+                          })
+                        }
+                      >
+                        {environments.map((e) => (
+                          <option
+                            key={e.id}
+                            value={e.id}
+                            disabled={Boolean(e.disabledReason)}
+                          >
+                            {e.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  {attachments}
+                  {onOpenSettings && (
+                    <Button variant="ghost" size="sm" onClick={onOpenSettings}>
+                      {t("resource.settings")}
+                    </Button>
+                  )}
+                </div>
+              </details>
+            )}
+          </>
+        }
         value={draft.text}
         onChange={(text) =>
           onChange({ ...draft, text, version: draft.version + 1 })
@@ -343,7 +406,11 @@ export function AgentComposer({
               {!canSubmit && draft.text.trim() && (
                 <p className={styles.meta}>
                   {receipt
-                    ? t("workbench.draftRetained")
+                    ? t(
+                        receipt.state === "unknown"
+                          ? "workbench.draftRetained"
+                          : "workbench.draftPending",
+                      )
                     : !connected
                       ? t("workbench.disconnected")
                       : draft.context.some(
@@ -360,18 +427,9 @@ export function AgentComposer({
           ) : undefined
         }
       />
-      {onInterrupt && session.capabilities.interrupt && (
-        <div className={styles.toolbar}>
-          <Button
-            size="sm"
-            variant="secondary"
-            onClick={onInterrupt}
-            disabled={Boolean(receipt)}
-          >
-            {t("workbench.interrupt")}
-          </Button>
-        </div>
-      )}
+      <p className={styles.composerHint}>
+        {t("chatMessage.enterToSendShiftEnterForANew")}
+      </p>
     </section>
   )
 }

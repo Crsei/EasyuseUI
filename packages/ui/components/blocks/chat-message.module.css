@@ -380,3 +380,36 @@
   content-visibility: auto;
   contain-intrinsic-block-size: auto 88px;
 }
+
+.composer[data-presentation="workspace"] {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 12px;
+}
+.composer[data-presentation="workspace"] textarea {
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 4px;
+  max-height: min(300px, 30dvh);
+  resize: none;
+  background: transparent;
+}
+.composer[data-presentation="workspace"] .composerActions {
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.composer[data-presentation="workspace"] .composerActions > button {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.composerTools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-block: 4px;
+}
+
+.composer[data-presentation="workspace"] .composerActions { flex-wrap: nowrap; }
